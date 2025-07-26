@@ -1,0 +1,398 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Dartで学ぶプログラミング入門</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="プログラミング初心者向けのDart言語入門書">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Dartで学ぶプログラミング入門</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/wsd_mobile_programming_textbook" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="はじめに"><a class="header" href="#はじめに">はじめに</a></h1>
+<p>本書『Dartで学ぶプログラミング入門』をお手に取りいただき、ありがとうございます。</p>
+<h2 id="本書の目的"><a class="header" href="#本書の目的">本書の目的</a></h2>
+<p>本書は、プログラミングをまったく初めて学ぶ方を対象に、Dart言語を通じてプログラミングの基本的な考え方と技術を習得していただくことを目的としています。</p>
+<h2 id="なぜdartなのか"><a class="header" href="#なぜdartなのか">なぜDartなのか</a></h2>
+<p>Dartは以下の理由から、プログラミング入門に最適な言語です：</p>
+<ul>
+<li><strong>シンプルで読みやすい文法</strong>：初心者にも理解しやすい</li>
+<li><strong>型安全</strong>：エラーを早期に発見でき、学習に適している</li>
+<li><strong>実用的</strong>：Flutterを使えばモバイルアプリ開発にも発展可能</li>
+<li><strong>無料の開発環境</strong>：DartPadを使ってブラウザですぐに始められる</li>
+</ul>
+<h2 id="本書の特徴"><a class="header" href="#本書の特徴">本書の特徴</a></h2>
+<ol>
+<li><strong>段階的な学習</strong>：基礎から応用まで、無理のないペースで学べます</li>
+<li><strong>豊富な例題</strong>：各章に実践的なコード例を掲載</li>
+<li><strong>練習問題</strong>：理解度を確認できる問題を用意</li>
+<li><strong>実践プロジェクト</strong>：学んだ知識を活かせる総合演習</li>
+</ol>
+<h2 id="本書の使い方"><a class="header" href="#本書の使い方">本書の使い方</a></h2>
+<ul>
+<li>各章は順番に読み進めることを想定していますが、理解度に応じて復習しながら進めてください</li>
+<li>サンプルコードは必ず自分で入力して実行してみましょう</li>
+<li>エラーが出ても慌てずに、エラーメッセージを読んで解決する習慣をつけましょう</li>
+<li>練習問題は飛ばさずに挑戦してください</li>
+</ul>
+<h2 id="必要な環境"><a class="header" href="#必要な環境">必要な環境</a></h2>
+<p>本書の学習に必要なものは：</p>
+<ul>
+<li>インターネットに接続されたパソコン</li>
+<li>最新のWebブラウザ（Chrome、Firefox、Safari、Edgeなど）</li>
+<li>DartPad（https://dartpad.dev）へのアクセス</li>
+</ul>
+<p>それでは、プログラミングの世界への第一歩を踏み出しましょう！</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="第1章プログラミングとは"><a class="header" href="#第1章プログラミングとは">第1章：プログラミングとは</a></h1>
+<p>この章では、プログラミングの基本的な概念を学びます。コンピュータとプログラムの関係から始まり、なぜプログラミング言語が必要なのか、そしてDartという言語の特徴について理解していきます。</p>
+<h2 id="この章で学ぶこと"><a class="header" href="#この章で学ぶこと">この章で学ぶこと</a></h2>
+<ul>
+<li>コンピュータがプログラムを実行する仕組み</li>
+<li>プログラミング言語の役割と重要性</li>
+<li>Dart言語の特徴と利点</li>
+<li>開発環境（DartPad）の使い方</li>
+<li>最初のプログラム「Hello, World!」の作成</li>
+</ul>
+<h2 id="学習の目標"><a class="header" href="#学習の目標">学習の目標</a></h2>
+<p>この章を終えると、以下のことができるようになります：</p>
+<ol>
+<li>プログラミングとは何かを説明できる</li>
+<li>DartPadを使ってプログラムを書いて実行できる</li>
+<li>簡単なメッセージを画面に表示するプログラムが作れる</li>
+<li>プログラムのエラーメッセージを理解できる</li>
+</ol>
+<p>プログラミングの世界への第一歩を踏み出しましょう！</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="11-コンピュータとプログラムの関係"><a class="header" href="#11-コンピュータとプログラムの関係">1.1 コンピュータとプログラムの関係</a></h1>
+<h2 id="コンピュータは指示待ち"><a class="header" href="#コンピュータは指示待ち">コンピュータは指示待ち</a></h2>
+<p>コンピュータは非常に高速で正確な計算ができる機械ですが、自分で考えて行動することはできません。人間がコンピュータに「何をすべきか」を詳しく指示する必要があります。この指示書のことを<strong>プログラム</strong>と呼びます。</p>
+<h2 id="身近なプログラムの例"><a class="header" href="#身近なプログラムの例">身近なプログラムの例</a></h2>
+<p>私たちの身の回りには、たくさんのプログラムが動いています：</p>
+<ul>
+<li><strong>スマートフォンのアプリ</strong>：メッセージアプリ、ゲーム、カメラアプリなど</li>
+<li><strong>Webサイト</strong>：検索エンジン、オンラインショッピング、SNSなど</li>
+<li><strong>家電製品</strong>：電子レンジ、洗濯機、エアコンなど</li>
+</ul>
+<p>これらはすべて、プログラマーが書いたプログラムによって動いています。</p>
+<h2 id="プログラムの中身"><a class="header" href="#プログラムの中身">プログラムの中身</a></h2>
+<p>プログラムは、コンピュータへの指示を順番に並べたものです。例えば、「2つの数を足し算する」プログラムは以下のような指示になります：</p>
+<ol>
+<li>最初の数を受け取る</li>
+<li>次の数を受け取る</li>
+<li>2つの数を足す</li>
+<li>結果を表示する</li>
+</ol>
+<h2 id="なぜプログラミングを学ぶのか"><a class="header" href="#なぜプログラミングを学ぶのか">なぜプログラミングを学ぶのか</a></h2>
+<p>プログラミングを学ぶことで：</p>
+<ul>
+<li><strong>問題解決能力</strong>が身につきます</li>
+<li><strong>論理的思考力</strong>が鍛えられます</li>
+<li><strong>創造力</strong>を発揮して、自分のアイデアを形にできます</li>
+<li><strong>将来の仕事</strong>の選択肢が広がります</li>
+</ul>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<ul>
+<li>コンピュータは人間の指示（プログラム）に従って動く</li>
+<li>プログラムは私たちの生活のあらゆる場所で使われている</li>
+<li>プログラミングを学ぶことで、コンピュータを自在に操れるようになる</li>
+</ul>
+<p>次のセクションでは、コンピュータに指示を出すための「プログラミング言語」について学びます。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="プログラミング言語の役割"><a class="header" href="#プログラミング言語の役割">プログラミング言語の役割</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="なぜdartを学ぶのか"><a class="header" href="#なぜdartを学ぶのか">なぜDartを学ぶのか</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="開発環境の準備dartpadの使い方"><a class="header" href="#開発環境の準備dartpadの使い方">開発環境の準備（DartPadの使い方）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="はじめてのプログラムhello-world"><a class="header" href="#はじめてのプログラムhello-world">はじめてのプログラム「Hello, World!」</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="第2章プログラムの基本要素"><a class="header" href="#第2章プログラムの基本要素">第2章：プログラムの基本要素</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="プログラムの構造を理解しよう"><a class="header" href="#プログラムの構造を理解しよう">プログラムの構造を理解しよう</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="コメントの書き方と重要性"><a class="header" href="#コメントの書き方と重要性">コメントの書き方と重要性</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="print文で画面に表示する"><a class="header" href="#print文で画面に表示する">print文で画面に表示する</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="プログラムの実行順序"><a class="header" href="#プログラムの実行順序">プログラムの実行順序</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="エラーメッセージの読み方"><a class="header" href="#エラーメッセージの読み方">エラーメッセージの読み方</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="第3章変数とデータ型"><a class="header" href="#第3章変数とデータ型">第3章：変数とデータ型</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="変数とは何か"><a class="header" href="#変数とは何か">変数とは何か</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="数値を扱うintdouble"><a class="header" href="#数値を扱うintdouble">数値を扱う（int、double）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="文字列を扱うstring"><a class="header" href="#文字列を扱うstring">文字列を扱う（String）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="真偽値を扱うbool"><a class="header" href="#真偽値を扱うbool">真偽値を扱う（bool）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="変数の命名規則とわかりやすい名前の付け方"><a class="header" href="#変数の命名規則とわかりやすい名前の付け方">変数の命名規則とわかりやすい名前の付け方</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="第4章計算と演算子"><a class="header" href="#第4章計算と演算子">第4章：計算と演算子</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="算術演算子-"><a class="header" href="#算術演算子-">算術演算子（+、-、*、/、%）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="文字列の連結"><a class="header" href="#文字列の連結">文字列の連結</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="変数の値を変更する"><a class="header" href="#変数の値を変更する">変数の値を変更する</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="演算の優先順位"><a class="header" href="#演算の優先順位">演算の優先順位</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="練習問題簡単な計算プログラム"><a class="header" href="#練習問題簡単な計算プログラム">練習問題：簡単な計算プログラム</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="第5章条件分岐if文"><a class="header" href="#第5章条件分岐if文">第5章：条件分岐（if文）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="条件によって処理を変える"><a class="header" href="#条件によって処理を変える">条件によって処理を変える</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="比較演算子"><a class="header" href="#比較演算子">比較演算子（==、!=、&gt;、&lt;、&gt;=、&lt;=）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="if-else文の使い方"><a class="header" href="#if-else文の使い方">if-else文の使い方</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="複数の条件を組み合わせる"><a class="header" href="#複数の条件を組み合わせる">複数の条件を組み合わせる（&amp;&amp;、||）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="実践年齢による入場料金の計算"><a class="header" href="#実践年齢による入場料金の計算">実践：年齢による入場料金の計算</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="第6章繰り返し処理ループ"><a class="header" href="#第6章繰り返し処理ループ">第6章：繰り返し処理（ループ）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="同じ処理を繰り返す理由"><a class="header" href="#同じ処理を繰り返す理由">同じ処理を繰り返す理由</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="for文の基本"><a class="header" href="#for文の基本">for文の基本</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="while文の使い方"><a class="header" href="#while文の使い方">while文の使い方</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="無限ループとその回避方法"><a class="header" href="#無限ループとその回避方法">無限ループとその回避方法</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="実践九九の表を作る"><a class="header" href="#実践九九の表を作る">実践：九九の表を作る</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="第7章リスト配列"><a class="header" href="#第7章リスト配列">第7章：リスト（配列）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="複数のデータをまとめて管理する"><a class="header" href="#複数のデータをまとめて管理する">複数のデータをまとめて管理する</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="リストの作成と要素へのアクセス"><a class="header" href="#リストの作成と要素へのアクセス">リストの作成と要素へのアクセス</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="リストに要素を追加削除する"><a class="header" href="#リストに要素を追加削除する">リストに要素を追加・削除する</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="リストと繰り返し処理の組み合わせ"><a class="header" href="#リストと繰り返し処理の組み合わせ">リストと繰り返し処理の組み合わせ</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="実践成績管理プログラム"><a class="header" href="#実践成績管理プログラム">実践：成績管理プログラム</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="第8章マップ連想配列"><a class="header" href="#第8章マップ連想配列">第8章：マップ（連想配列）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="キーと値のペアでデータを管理"><a class="header" href="#キーと値のペアでデータを管理">キーと値のペアでデータを管理</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="マップの作成と操作"><a class="header" href="#マップの作成と操作">マップの作成と操作</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="マップの活用例"><a class="header" href="#マップの活用例">マップの活用例</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="実践簡単な辞書プログラム"><a class="header" href="#実践簡単な辞書プログラム">実践：簡単な辞書プログラム</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="第9章関数の基礎"><a class="header" href="#第9章関数の基礎">第9章：関数の基礎</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="関数とは何か"><a class="header" href="#関数とは何か">関数とは何か</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="関数の定義と呼び出し"><a class="header" href="#関数の定義と呼び出し">関数の定義と呼び出し</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="引数と戻り値"><a class="header" href="#引数と戻り値">引数と戻り値</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="変数のスコープ有効範囲"><a class="header" href="#変数のスコープ有効範囲">変数のスコープ（有効範囲）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="実践電卓プログラムを関数で整理"><a class="header" href="#実践電卓プログラムを関数で整理">実践：電卓プログラムを関数で整理</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="第10章関数の活用"><a class="header" href="#第10章関数の活用">第10章：関数の活用</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="複数の引数を持つ関数"><a class="header" href="#複数の引数を持つ関数">複数の引数を持つ関数</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="オプション引数とデフォルト値"><a class="header" href="#オプション引数とデフォルト値">オプション引数とデフォルト値</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="関数を使ったプログラムの設計"><a class="header" href="#関数を使ったプログラムの設計">関数を使ったプログラムの設計</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="実践じゃんけんゲームを作る"><a class="header" href="#実践じゃんけんゲームを作る">実践：じゃんけんゲームを作る</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="第11章クラスとオブジェクトの基礎"><a class="header" href="#第11章クラスとオブジェクトの基礎">第11章：クラスとオブジェクトの基礎</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="現実世界をプログラムで表現する"><a class="header" href="#現実世界をプログラムで表現する">現実世界をプログラムで表現する</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="クラスの定義"><a class="header" href="#クラスの定義">クラスの定義</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="オブジェクトの作成と使用"><a class="header" href="#オブジェクトの作成と使用">オブジェクトの作成と使用</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="フィールドとメソッド"><a class="header" href="#フィールドとメソッド">フィールドとメソッド</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="実践ペット管理アプリ"><a class="header" href="#実践ペット管理アプリ">実践：ペット管理アプリ</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="第12章オブジェクト指向の活用"><a class="header" href="#第12章オブジェクト指向の活用">第12章：オブジェクト指向の活用</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="コンストラクタ"><a class="header" href="#コンストラクタ">コンストラクタ</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ゲッターとセッター"><a class="header" href="#ゲッターとセッター">ゲッターとセッター</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="カプセル化の考え方"><a class="header" href="#カプセル化の考え方">カプセル化の考え方</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="実践図書館管理システム"><a class="header" href="#実践図書館管理システム">実践：図書館管理システム</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="第13章エラーへの対処"><a class="header" href="#第13章エラーへの対処">第13章：エラーへの対処</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="エラーの種類を理解する"><a class="header" href="#エラーの種類を理解する">エラーの種類を理解する</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="try-catch文でエラーを処理する"><a class="header" href="#try-catch文でエラーを処理する">try-catch文でエラーを処理する</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="デバッグの基本技術"><a class="header" href="#デバッグの基本技術">デバッグの基本技術</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="よくあるエラーとその対処法"><a class="header" href="#よくあるエラーとその対処法">よくあるエラーとその対処法</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="第14章総合演習"><a class="header" href="#第14章総合演習">第14章：総合演習</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="to-doリストアプリケーション"><a class="header" href="#to-doリストアプリケーション">To-Doリストアプリケーション</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="簡単なゲーム数当てゲーム"><a class="header" href="#簡単なゲーム数当てゲーム">簡単なゲーム（数当てゲーム）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="成績管理システム"><a class="header" href="#成績管理システム">成績管理システム</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="第15章次のステップへ"><a class="header" href="#第15章次のステップへ">第15章：次のステップへ</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="より高度なdartの機能"><a class="header" href="#より高度なdartの機能">より高度なDartの機能</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="flutterでモバイルアプリdevelopment"><a class="header" href="#flutterでモバイルアプリdevelopment">FlutterでモバイルアプリDevelopment</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="継続的な学習のためのリソース"><a class="header" href="#継続的な学習のためのリソース">継続的な学習のためのリソース</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="付録adart言語リファレンス初心者向け抜粋"><a class="header" href="#付録adart言語リファレンス初心者向け抜粋">付録A：Dart言語リファレンス（初心者向け抜粋）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="付録bよく使う標準ライブラリ"><a class="header" href="#付録bよく使う標準ライブラリ">付録B：よく使う標準ライブラリ</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="付録c練習問題の解答例"><a class="header" href="#付録c練習問題の解答例">付録C：練習問題の解答例</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="付録d用語集"><a class="header" href="#付録d用語集">付録D：用語集</a></h1>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>
