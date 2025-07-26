@@ -1,0 +1,42 @@
+[book]
+title = "Dartで学ぶプログラミング入門"
+authors = ["著者名"]
+description = "プログラミング初心者向けのDart言語入門書"
+language = "ja"
+
+[build]
+build-dir = "book"
+
+[preprocessor]
+
+[preprocessor.html]
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+git-repository-url = "https://github.com/yourusername/wsd_mobile_programming_textbook"
+additional-css = []
+additional-js = []
+no-section-label = false
+fold.enable = true
+fold.level = 0
+
+[output.html.print]
+enable = true
+
+[output.html.search]
+enable = true
+limit-results = 30
+teaser-word-count = 30
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 1
+boost-paragraph = 1
+expand = true
+heading-split-level = 3
+copy-js = true
+
+[output.html.playground]
+editable = false
+copyable = true
+runnable = false
