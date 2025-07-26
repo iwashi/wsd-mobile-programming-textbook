@@ -179,6 +179,99 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="文字列の連結"><a class="header" href="#文字列の連結">文字列の連結</a></h1>
+<p>数値の計算だけでなく、文字列（テキスト）同士を結合することもプログラミングでは頻繁に行います。Dartでは複数の方法で文字列を連結することができます。</p>
+<h2 id="演算子を使った文字列連結"><a class="header" href="#演算子を使った文字列連結">+演算子を使った文字列連結</a></h2>
+<p>最もシンプルな方法は、+演算子を使って文字列を連結することです：</p>
+<pre><code class="language-javascript">void main() {
+  String firstName = 'たろう';
+  String lastName = '田中';
+  String fullName = lastName + firstName;
+  print(fullName); // 田中たろう
+}
+</code></pre>
+<p>複数の文字列を連結することもできます：</p>
+<pre><code class="language-javascript">void main() {
+  String greeting = 'こんにちは';
+  String name = '山田さん';
+  String punctuation = '！';
+  String message = greeting + '、' + name + punctuation;
+  print(message); // こんにちは、山田さん！
+}
+</code></pre>
+<h2 id="文字列補間テンプレート文字列"><a class="header" href="#文字列補間テンプレート文字列">文字列補間（テンプレート文字列）</a></h2>
+<p>より読みやすく、便利な方法として文字列補間があります。<code>$</code>記号を使って変数の値を文字列に埋め込むことができます：</p>
+<pre><code class="language-javascript">void main() {
+  String name = '佐藤';
+  int age = 25;
+  String introduction = '私の名前は${name}です。${age}歳です。';
+  print(introduction); // 私の名前は佐藤です。25歳です。
+}
+</code></pre>
+<p>変数名が単純な場合は、波括弧を省略できます：</p>
+<pre><code class="language-javascript">void main() {
+  String product = 'りんご';
+  int price = 150;
+  print('$productの価格は$price円です。'); // りんごの価格は150円です。
+}
+</code></pre>
+<h2 id="計算結果を文字列に含める"><a class="header" href="#計算結果を文字列に含める">計算結果を文字列に含める</a></h2>
+<p>文字列補間では、計算式も直接記述できます：</p>
+<pre><code class="language-javascript">void main() {
+  int width = 5;
+  int height = 3;
+  print('長方形の面積は${width * height}平方センチメートルです。');
+  // 長方形の面積は15平方センチメートルです。
+}
+</code></pre>
+<h2 id="複数行の文字列"><a class="header" href="#複数行の文字列">複数行の文字列</a></h2>
+<p>長い文字列や複数行にわたる文字列を作る場合：</p>
+<pre><code class="language-javascript">void main() {
+  String name = '鈴木';
+  int score = 85;
+  
+  String report = '''
+お疲れ様です。
+${name}さんのテスト結果をお知らせします。
+点数: $score点
+  ''';
+  
+  print(report);
+}
+</code></pre>
+<h2 id="実用的な例"><a class="header" href="#実用的な例">実用的な例</a></h2>
+<pre><code class="language-javascript">void main() {
+  // 商品情報の表示
+  String itemName = 'ノートパソコン';
+  double price = 89800.0;
+  int quantity = 2;
+  double total = price * quantity;
+  
+  print('=== 注文確認 ===');
+  print('商品名: $itemName');
+  print('単価: ${price.toInt()}円');
+  print('数量: $quantity個');
+  print('合計: ${total.toInt()}円');
+  
+  // 挨拶メッセージの生成
+  String userName = 'やまだ';
+  String timeOfDay = '午前';
+  String greeting = '$timeOfDay中です、${userName}さん。今日も頑張りましょう！';
+  print(greeting);
+}
+</code></pre>
+<h2 id="文字列と数値の変換"><a class="header" href="#文字列と数値の変換">文字列と数値の変換</a></h2>
+<p>文字列と数値を組み合わせる際の注意点：</p>
+<pre><code class="language-javascript">void main() {
+  String numText = '123';
+  int number = int.parse(numText); // 文字列を整数に変換
+  print('文字列「$numText」を数値に変換: $number');
+  
+  int value = 456;
+  String valueText = value.toString(); // 数値を文字列に変換
+  print('数値$valueを文字列に変換: 「$valueText」');
+}
+</code></pre>
+<p>文字列連結を活用することで、ユーザーに分かりやすいメッセージを表示したり、データを見やすい形式で出力したりできます。次は変数の値を変更する方法について学んでいきましょう。</p>
 
                     </main>
 

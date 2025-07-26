@@ -179,6 +179,146 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="数値を扱うintdouble"><a class="header" href="#数値を扱うintdouble">数値を扱う（int、double）</a></h1>
+<p>プログラミングにおいて、数値の扱いは基本的な操作の一つです。Dartでは主に2つの数値型を使います：<strong>int</strong>（整数）と<strong>double</strong>（小数）です。</p>
+<h2 id="int型整数"><a class="header" href="#int型整数">int型（整数）</a></h2>
+<p><strong>int型</strong>は整数（小数点のない数値）を扱います。</p>
+<pre><code class="language-javascript">// int型の変数宣言
+int age = 25;
+int population = 1000000;
+int temperature = -5;  // 負の数も扱える
+
+print(age);        // 出力：25
+print(population); // 出力：1000000
+print(temperature); // 出力：-5
+</code></pre>
+<h3 id="int型の操作"><a class="header" href="#int型の操作">int型の操作</a></h3>
+<pre><code class="language-javascript">int a = 10;
+int b = 3;
+
+// 基本的な算術演算
+print(a + b);  // 加算：13
+print(a - b);  // 減算：7
+print(a * b);  // 乗算：30
+print(a ~/ b); // 整数除算：3（小数部分は切り捨て）
+print(a % b);  // 余り：1
+
+// 代入演算子
+int count = 0;
+count = count + 1;  // または count += 1;
+count++;           // インクリメント（1を足す）
+count--;           // デクリメント（1を引く）
+</code></pre>
+<h2 id="double型小数"><a class="header" href="#double型小数">double型（小数）</a></h2>
+<p><strong>double型</strong>は小数点を含む数値を扱います。</p>
+<pre><code class="language-javascript">// double型の変数宣言
+double price = 199.99;
+double pi = 3.14159;
+double rate = 0.05;  // 5%を表現
+
+print(price); // 出力：199.99
+print(pi);    // 出力：3.14159
+print(rate);  // 出力：0.05
+</code></pre>
+<h3 id="double型の操作"><a class="header" href="#double型の操作">double型の操作</a></h3>
+<pre><code class="language-javascript">double x = 10.5;
+double y = 3.2;
+
+// 基本的な算術演算
+print(x + y);  // 加算：13.7
+print(x - y);  // 減算：7.3
+print(x * y);  // 乗算：33.6
+print(x / y);  // 除算：3.28125
+
+// 四捨五入などの操作
+double value = 3.7;
+print(value.round());     // 四捨五入：4
+print(value.floor());     // 切り捨て：3
+print(value.ceil());      // 切り上げ：4
+</code></pre>
+<h2 id="型変換"><a class="header" href="#型変換">型変換</a></h2>
+<p>int型とdouble型を相互に変換できます。</p>
+<pre><code class="language-javascript">// intからdoubleへ
+int intValue = 42;
+double doubleValue = intValue.toDouble();
+print(doubleValue); // 出力：42.0
+
+// doubleからintへ
+double price = 299.99;
+int roundedPrice = price.round();  // または price.toInt()
+print(roundedPrice); // 出力：300
+
+// 文字列から数値へ
+String ageString = "25";
+int age = int.parse(ageString);
+print(age); // 出力：25
+
+String priceString = "199.99";
+double price2 = double.parse(priceString);
+print(price2); // 出力：199.99
+</code></pre>
+<h2 id="数値の型推論"><a class="header" href="#数値の型推論">数値の型推論</a></h2>
+<pre><code class="language-javascript">// varを使った場合の型推論
+var wholeNumber = 42;      // int型として推論
+var decimalNumber = 42.0;  // double型として推論
+
+print(wholeNumber.runtimeType);  // 出力：int
+print(decimalNumber.runtimeType); // 出力：double
+</code></pre>
+<h2 id="実用的な例"><a class="header" href="#実用的な例">実用的な例</a></h2>
+<pre><code class="language-javascript">// 商品の価格計算
+double unitPrice = 150.0;  // 単価
+int quantity = 3;          // 数量
+double subtotal = unitPrice * quantity;  // 小計
+double taxRate = 0.10;     // 消費税率（10%）
+double tax = subtotal * taxRate;         // 消費税
+double total = subtotal + tax;           // 合計
+
+print("単価: ${unitPrice}円");
+print("数量: ${quantity}個");
+print("小計: ${subtotal}円");
+print("消費税: ${tax}円");
+print("合計: ${total}円");
+</code></pre>
+<h2 id="注意点"><a class="header" href="#注意点">注意点</a></h2>
+<ol>
+<li>
+<p><strong>除算の違い</strong>：</p>
+<ul>
+<li><code>/</code>：通常の除算（結果はdoubleになる）</li>
+<li><code>~/</code>：整数除算（結果はintになる）</li>
+</ul>
+</li>
+<li>
+<p><strong>精度の問題</strong>：</p>
+<pre><code class="language-javascript">double result = 0.1 + 0.2;
+print(result); // 0.30000000000000004（期待値：0.3）
+</code></pre>
+</li>
+</ol>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<ol>
+<li>あなたの身長（cm）をdouble型で、体重（kg）をint型で宣言してください</li>
+<li>BMIを計算してください（BMI = 体重 ÷ 身長² × 10000）</li>
+<li>円の半径を入力として、円周と面積を計算してください</li>
+</ol>
+<pre><code class="language-javascript">// 解答例
+double height = 170.5;  // cm
+int weight = 65;        // kg
+
+// BMI計算
+double bmi = weight / (height * height) * 10000;
+print("BMI: ${bmi.toStringAsFixed(1)}");
+
+// 円の計算
+double radius = 5.0;
+double pi = 3.14159;
+double circumference = 2 * pi * radius;  // 円周
+double area = pi * radius * radius;      // 面積
+
+print("半径: ${radius}");
+print("円周: ${circumference.toStringAsFixed(2)}");
+print("面積: ${area.toStringAsFixed(2)}");
+</code></pre>
 
                     </main>
 

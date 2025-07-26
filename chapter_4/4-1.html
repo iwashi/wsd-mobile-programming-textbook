@@ -179,6 +179,76 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="算術演算子-"><a class="header" href="#算術演算子-">算術演算子（+、-、*、/、%）</a></h1>
+<p>プログラミングでは、数学と同じように計算を行うことができます。Dartには基本的な算術演算子が用意されており、これらを使って様々な計算を実行できます。</p>
+<h2 id="基本的な算術演算子"><a class="header" href="#基本的な算術演算子">基本的な算術演算子</a></h2>
+<h3 id="足し算"><a class="header" href="#足し算">足し算（+）</a></h3>
+<pre><code class="language-javascript">void main() {
+  int a = 5;
+  int b = 3;
+  int sum = a + b;
+  print('$a + $b = $sum'); // 5 + 3 = 8
+}
+</code></pre>
+<h3 id="引き算-"><a class="header" href="#引き算-">引き算（-）</a></h3>
+<pre><code class="language-javascript">void main() {
+  int x = 10;
+  int y = 4;
+  int difference = x - y;
+  print('$x - $y = $difference'); // 10 - 4 = 6
+}
+</code></pre>
+<h3 id="掛け算"><a class="header" href="#掛け算">掛け算（*）</a></h3>
+<pre><code class="language-javascript">void main() {
+  int width = 6;
+  int height = 4;
+  int area = width * height;
+  print('長方形の面積: $area'); // 長方形の面積: 24
+}
+</code></pre>
+<h3 id="割り算"><a class="header" href="#割り算">割り算（/）</a></h3>
+<pre><code class="language-javascript">void main() {
+  double num1 = 15.0;
+  double num2 = 4.0;
+  double result = num1 / num2;
+  print('$num1 ÷ $num2 = $result'); // 15.0 ÷ 4.0 = 3.75
+}
+</code></pre>
+<p><strong>注意</strong>: 割り算の結果は常に<code>double</code>型になります。整数同士の割り算でも小数点以下の値が返されます。</p>
+<h3 id="余りを求める"><a class="header" href="#余りを求める">余りを求める（%）</a></h3>
+<pre><code class="language-javascript">void main() {
+  int dividend = 17;
+  int divisor = 5;
+  int remainder = dividend % divisor;
+  print('$dividend を $divisor で割った余り: $remainder'); // 17 を 5 で割った余り: 2
+}
+</code></pre>
+<p>余り演算子（%）は、割り算の余りを求める演算子です。偶数・奇数の判定や、特定の間隔での処理などでよく使われます。</p>
+<h2 id="整数除算"><a class="header" href="#整数除算">整数除算（~/）</a></h2>
+<p>Dartには整数除算を行う特別な演算子もあります：</p>
+<pre><code class="language-javascript">void main() {
+  int a = 17;
+  int b = 5;
+  int quotient = a ~/ b; // 整数除算
+  print('$a ÷ $b = $quotient (整数部分のみ)'); // 17 ÷ 5 = 3 (整数部分のみ)
+}
+</code></pre>
+<h2 id="実用的な例"><a class="header" href="#実用的な例">実用的な例</a></h2>
+<pre><code class="language-javascript">void main() {
+  // 円の面積を計算する
+  double radius = 5.0;
+  double pi = 3.14159;
+  double area = pi * radius * radius;
+  print('半径${radius}の円の面積: $area');
+  
+  // 時間の変換（秒を時分秒に変換）
+  int totalSeconds = 3661;
+  int hours = totalSeconds ~/ 3600;
+  int minutes = (totalSeconds % 3600) ~/ 60;
+  int seconds = totalSeconds % 60;
+  print('${totalSeconds}秒 = ${hours}時間${minutes}分${seconds}秒');
+}
+</code></pre>
+<p>算術演算子を使うことで、プログラムで様々な計算処理を実装できます。次は文字列の連結について学んでいきましょう。</p>
 
                     </main>
 

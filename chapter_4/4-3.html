@@ -179,6 +179,158 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="変数の値を変更する"><a class="header" href="#変数の値を変更する">変数の値を変更する</a></h1>
+<p>プログラムを実行している間、変数の値を変更する必要がある場面は多くあります。Dartでは変数の値を更新したり、計算結果で変数を更新したりする便利な方法が用意されています。</p>
+<h2 id="基本的な変数の更新"><a class="header" href="#基本的な変数の更新">基本的な変数の更新</a></h2>
+<p>変数に新しい値を代入することで、変数の値を変更できます：</p>
+<pre><code class="language-javascript">void main() {
+  int score = 80;
+  print('最初の点数: $score'); // 最初の点数: 80
+  
+  score = 90; // 新しい値を代入
+  print('更新後の点数: $score'); // 更新後の点数: 90
+}
+</code></pre>
+<p>文字列変数の場合：</p>
+<pre><code class="language-javascript">void main() {
+  String status = '待機中';
+  print('現在の状態: $status'); // 現在の状態: 待機中
+  
+  status = '実行中';
+  print('更新後の状態: $status'); // 更新後の状態: 実行中
+}
+</code></pre>
+<h2 id="代入演算子を使った更新"><a class="header" href="#代入演算子を使った更新">代入演算子を使った更新</a></h2>
+<h3 id="複合代入演算子"><a class="header" href="#複合代入演算子">複合代入演算子</a></h3>
+<p>変数の現在の値を使って計算し、その結果を同じ変数に代入する場合、複合代入演算子が便利です：</p>
+<pre><code class="language-javascript">void main() {
+  int money = 1000;
+  print('最初の所持金: $money円');
+  
+  money += 500; // money = money + 500 と同じ
+  print('お小遣いをもらった後: $money円'); // 1500円
+  
+  money -= 200; // money = money - 200 と同じ
+  print('買い物をした後: $money円'); // 1300円
+  
+  money *= 2; // money = money * 2 と同じ
+  print('倍になった: $money円'); // 2600円
+  
+  money ~/= 4; // money = money ~/ 4 と同じ（整数除算）
+  print('4分の1にした: $money円'); // 650円
+}
+</code></pre>
+<h3 id="文字列の複合代入"><a class="header" href="#文字列の複合代入">文字列の複合代入</a></h3>
+<p>文字列でも複合代入演算子を使用できます：</p>
+<pre><code class="language-javascript">void main() {
+  String message = 'こんにちは';
+  print(message); // こんにちは
+  
+  message += '、';
+  message += '世界';
+  message += '！';
+  print(message); // こんにちは、世界！
+}
+</code></pre>
+<h2 id="インクリメントデクリメント演算子"><a class="header" href="#インクリメントデクリメント演算子">インクリメント・デクリメント演算子</a></h2>
+<p>値を1増やしたり1減らしたりする場合の省略記法：</p>
+<pre><code class="language-javascript">void main() {
+  int counter = 5;
+  print('カウンター: $counter'); // カウンター: 5
+  
+  counter++; // counter += 1 または counter = counter + 1 と同じ
+  print('インクリメント後: $counter'); // インクリメント後: 6
+  
+  counter--; // counter -= 1 または counter = counter - 1 と同じ
+  print('デクリメント後: $counter'); // デクリメント後: 5
+  
+  // 前置と後置の違い
+  int a = 10;
+  int b = ++a; // 先にaを1増やしてからbに代入
+  print('a: $a, b: $b'); // a: 11, b: 11
+  
+  int c = 10;
+  int d = c++; // 先にcの値をdに代入してからcを1増やす
+  print('c: $c, d: $d'); // c: 11, d: 10
+}
+</code></pre>
+<h2 id="実用的な例"><a class="header" href="#実用的な例">実用的な例</a></h2>
+<h3 id="カウンターアプリ"><a class="header" href="#カウンターアプリ">カウンターアプリ</a></h3>
+<pre><code class="language-javascript">void main() {
+  int visitCount = 0;
+  
+  print('=== ウェブサイトの訪問カウンター ===');
+  print('現在の訪問者数: $visitCount');
+  
+  // 新しい訪問者
+  visitCount++;
+  print('新しい訪問者が来ました: $visitCount');
+  
+  visitCount++;
+  print('また新しい訪問者: $visitCount');
+  
+  visitCount += 5; // 一度に5人増加
+  print('グループで訪問: $visitCount');
+}
+</code></pre>
+<h3 id="買い物かごの計算"><a class="header" href="#買い物かごの計算">買い物かごの計算</a></h3>
+<pre><code class="language-javascript">void main() {
+  double total = 0.0;
+  print('=== お買い物かご ===');
+  print('現在の合計: ${total}円');
+  
+  // 商品を追加
+  total += 250; // りんご
+  print('りんごを追加: ${total}円');
+  
+  total += 180; // バナナ
+  print('バナナを追加: ${total}円');
+  
+  total += 320; // オレンジ
+  print('オレンジを追加: ${total}円');
+  
+  // 割引適用
+  total *= 0.9; // 10%割引
+  print('10%割引適用: ${total}円');
+}
+</code></pre>
+<h3 id="ゲームのスコア管理"><a class="header" href="#ゲームのスコア管理">ゲームのスコア管理</a></h3>
+<pre><code class="language-javascript">void main() {
+  int score = 0;
+  int level = 1;
+  
+  print('=== ゲーム開始 ===');
+  print('スコア: $score, レベル: $level');
+  
+  // 敵を倒した
+  score += 100;
+  print('敵を倒した！ スコア: $score');
+  
+  // ボーナスアイテム取得
+  score *= 2;
+  print('ボーナス倍率！ スコア: $score');
+  
+  // レベルアップ
+  level++;
+  score += level * 50; // レベルに応じたボーナス
+  print('レベルアップ！ レベル: $level, スコア: $score');
+}
+</code></pre>
+<h2 id="const-と-final-について"><a class="header" href="#const-と-final-について">const と final について</a></h2>
+<p>値を変更できない変数もあります：</p>
+<pre><code class="language-javascript">void main() {
+  // final: 実行時に一度だけ値を設定
+  final int maxRetries = 3;
+  // maxRetries = 5; // エラー：変更できません
+  
+  // const: コンパイル時に値が決定
+  const double pi = 3.14159;
+  // pi = 3.14; // エラー：変更できません
+  
+  print('最大リトライ回数: $maxRetries');
+  print('円周率: $pi');
+}
+</code></pre>
+<p>変数の値を適切に更新することで、プログラムの状態を管理し、動的な処理を実現できます。次は演算の優先順位について学んでいきましょう。</p>
 
                     </main>
 

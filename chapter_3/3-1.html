@@ -179,6 +179,65 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="変数とは何か"><a class="header" href="#変数とは何か">変数とは何か</a></h1>
+<p>プログラムにおいて、<strong>変数</strong>は値を格納するための「箱」のような存在です。この箱には名前を付けることができ、後でその名前を使って中身の値を取り出したり、新しい値を入れ替えたりできます。</p>
+<h2 id="変数の基本概念"><a class="header" href="#変数の基本概念">変数の基本概念</a></h2>
+<p>変数を日常生活に例えると、ラベルの貼られた収納ボックスのようなものです。</p>
+<ul>
+<li><strong>ボックス（メモリ）</strong>：値を保存する場所</li>
+<li><strong>ラベル（変数名）</strong>：ボックスを識別するための名前</li>
+<li><strong>中身（値）</strong>：実際に格納されているデータ</li>
+</ul>
+<h2 id="dartでの変数の宣言"><a class="header" href="#dartでの変数の宣言">Dartでの変数の宣言</a></h2>
+<p>Dartで変数を作成するには、いくつかの方法があります：</p>
+<pre><code class="language-javascript">// 方法1：型を明示して宣言
+int age = 25;
+String name = "太郎";
+
+// 方法2：varキーワードを使用（型推論）
+var score = 100;     // intとして推論される
+var message = "こんにちは"; // Stringとして推論される
+
+// 方法3：動的型（Object型）
+dynamic value = 42;
+value = "文字列に変更";  // 異なる型の値を代入可能
+</code></pre>
+<h2 id="変数の初期化と代入"><a class="header" href="#変数の初期化と代入">変数の初期化と代入</a></h2>
+<pre><code class="language-javascript">// 変数の宣言と初期化
+int count = 0;
+
+// 後から値を代入
+count = 10;
+count = count + 5;  // 既存の値を使った計算
+
+print(count);  // 出力：15
+</code></pre>
+<h2 id="変数を使う理由"><a class="header" href="#変数を使う理由">変数を使う理由</a></h2>
+<ol>
+<li><strong>値の再利用</strong>：同じ値を何度も使える</li>
+<li><strong>可読性の向上</strong>：意味のある名前で値を表現</li>
+<li><strong>保守性の向上</strong>：値の変更が一箇所で済む</li>
+<li><strong>計算の中間結果保存</strong>：複雑な計算を段階的に実行</li>
+</ol>
+<pre><code class="language-javascript">// 変数を使わない場合（良くない例）
+print(3.14159 * 5 * 5);  // 円の面積
+
+// 変数を使う場合（良い例）
+double pi = 3.14159;
+double radius = 5.0;
+double area = pi * radius * radius;
+print(area);  // 何を計算しているか明確
+</code></pre>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<ol>
+<li>あなたの年齢を格納する変数を作成してください</li>
+<li>あなたの名前を格納する変数を作成してください</li>
+<li>これらの変数を使って自己紹介文を出力してください</li>
+</ol>
+<pre><code class="language-javascript">// 解答例
+int myAge = 20;
+String myName = "田中";
+print("私の名前は${myName}で、${myAge}歳です。");
+</code></pre>
 
                     </main>
 

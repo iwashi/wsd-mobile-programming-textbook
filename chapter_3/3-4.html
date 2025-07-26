@@ -179,6 +179,224 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="真偽値を扱うbool"><a class="header" href="#真偽値を扱うbool">真偽値を扱う（bool）</a></h1>
+<p><strong>bool型</strong>（ブール型）は、真（true）または偽（false）の2つの値のみを持つデータ型です。プログラムでの条件判断や状態管理において非常に重要な役割を果たします。</p>
+<h2 id="bool型の基本"><a class="header" href="#bool型の基本">bool型の基本</a></h2>
+<p>bool型の変数は<code>true</code>または<code>false</code>の値のみを格納できます。</p>
+<pre><code class="language-javascript">// bool型の変数宣言
+bool isActive = true;
+bool isComplete = false;
+bool hasError = true;
+
+print(isActive);   // 出力：true
+print(isComplete); // 出力：false
+print(hasError);   // 出力：true
+
+// varを使った場合も自動的にbool型として推論される
+var isReady = true;
+print(isReady.runtimeType); // 出力：bool
+</code></pre>
+<h2 id="比較演算子とbool値"><a class="header" href="#比較演算子とbool値">比較演算子とbool値</a></h2>
+<p>比較演算子を使うと、その結果としてbool値が得られます。</p>
+<pre><code class="language-javascript">int a = 10;
+int b = 5;
+
+// 等価比較
+print(a == b);  // false（aとbは等しくない）
+print(a != b);  // true（aとbは等しくない）
+
+// 大小比較
+print(a &gt; b);   // true（aはbより大きい）
+print(a &lt; b);   // false（aはbより小さくない）
+print(a &gt;= b);  // true（aはb以上）
+print(a &lt;= b);  // false（aはb以下でない）
+
+// 文字列の比較
+String name1 = "田中";
+String name2 = "佐藤";
+print(name1 == name2); // false
+print(name1 != name2); // true
+</code></pre>
+<h2 id="論理演算子"><a class="header" href="#論理演算子">論理演算子</a></h2>
+<p>複数の条件を組み合わせる際に使用します。</p>
+<pre><code class="language-javascript">bool isSunny = true;
+bool isWarm = false;
+bool hasUmbrella = true;
+
+// AND演算子（&amp;&amp;）- 全ての条件がtrueの場合のみtrue
+bool canGoOut = isSunny &amp;&amp; isWarm;
+print(canGoOut); // false（両方ともtrueではない）
+
+// OR演算子（||）- いずれかの条件がtrueの場合true
+bool needUmbrella = !isSunny || hasUmbrella;
+print(needUmbrella); // true
+
+// NOT演算子（!）- 条件を反転
+bool isRainy = !isSunny;
+print(isRainy); // false
+</code></pre>
+<h2 id="実用的な条件判断"><a class="header" href="#実用的な条件判断">実用的な条件判断</a></h2>
+<pre><code class="language-javascript">int age = 20;
+bool hasLicense = true;
+double accountBalance = 5000.0;
+
+// 年齢チェック
+bool isAdult = age &gt;= 18;
+print("成人：$isAdult"); // 成人：true
+
+// 運転可能かチェック
+bool canDrive = isAdult &amp;&amp; hasLicense;
+print("運転可能：$canDrive"); // 運転可能：true
+
+// 購入可能かチェック
+double productPrice = 3000.0;
+bool canBuy = accountBalance &gt;= productPrice;
+print("購入可能：$canBuy"); // 購入可能：true
+
+// 複合条件
+bool canBuyAndDrive = canBuy &amp;&amp; canDrive;
+print("購入して運転可能：$canBuyAndDrive"); // 購入して運転可能：true
+</code></pre>
+<h2 id="文字列やnullとの比較"><a class="header" href="#文字列やnullとの比較">文字列やnullとの比較</a></h2>
+<pre><code class="language-javascript">String input = "";
+String? optionalValue = null;
+
+// 空文字列のチェック
+bool isEmpty = input.isEmpty;
+bool isNotEmpty = input.isNotEmpty;
+print("空文字列：$isEmpty");     // 空文字列：true
+print("空でない：$isNotEmpty");   // 空でない：false
+
+// nullチェック
+bool isNull = optionalValue == null;
+bool isNotNull = optionalValue != null;
+print("null：$isNull");        // null：true
+print("nullでない：$isNotNull"); // nullでない：false
+</code></pre>
+<h2 id="bool値の活用例"><a class="header" href="#bool値の活用例">bool値の活用例</a></h2>
+<h3 id="ユーザー状態管理"><a class="header" href="#ユーザー状態管理">ユーザー状態管理</a></h3>
+<pre><code class="language-javascript">// ユーザーの状態を管理
+bool isLoggedIn = false;
+bool isPremiumUser = true;
+bool hasNotifications = true;
+
+String userStatus = """
+ログイン状態：${isLoggedIn ? "ログイン中" : "未ログイン"}
+会員種別：${isPremiumUser ? "プレミアム" : "通常"}
+通知：${hasNotifications ? "あり" : "なし"}
+""";
+
+print(userStatus);
+</code></pre>
+<h3 id="設定管理"><a class="header" href="#設定管理">設定管理</a></h3>
+<pre><code class="language-javascript">// アプリケーション設定
+bool isDarkMode = true;
+bool enableNotifications = false;
+bool autoSave = true;
+
+print("=== 設定 ===");
+print("ダークモード：${isDarkMode ? "ON" : "OFF"}");
+print("通知：${enableNotifications ? "ON" : "OFF"}");
+print("自動保存：${autoSave ? "ON" : "OFF"}");
+</code></pre>
+<h3 id="バリデーション妥当性検証"><a class="header" href="#バリデーション妥当性検証">バリデーション（妥当性検証）</a></h3>
+<pre><code class="language-javascript">String email = "user@example.com";
+String password = "password123";
+
+// 簡単なバリデーション
+bool isValidEmail = email.contains("@") &amp;&amp; email.contains(".");
+bool isValidPassword = password.length &gt;= 8;
+bool hasUpperCase = password != password.toLowerCase();
+bool hasNumber = password.contains(RegExp(r'[0-9]'));
+
+bool isFormValid = isValidEmail &amp;&amp; isValidPassword;
+
+print("=== バリデーション結果 ===");
+print("有効なメール：$isValidEmail");
+print("有効なパスワード：$isValidPassword");
+print("大文字を含む：$hasUpperCase");
+print("数字を含む：$hasNumber");
+print("フォーム有効：$isFormValid");
+</code></pre>
+<h2 id="三項演算子条件演算子"><a class="header" href="#三項演算子条件演算子">三項演算子（条件演算子）</a></h2>
+<p>bool値を使った簡潔な条件分岐ができます。</p>
+<pre><code class="language-javascript">int score = 85;
+bool isPassing = score &gt;= 60;
+
+// 三項演算子：条件 ? 真の場合の値 : 偽の場合の値
+String result = isPassing ? "合格" : "不合格";
+String grade = score &gt;= 90 ? "A" : score &gt;= 80 ? "B" : score &gt;= 70 ? "C" : "D";
+
+print("結果：$result");  // 結果：合格
+print("評価：$grade");   // 評価：B
+</code></pre>
+<h2 id="よくある間違いと注意点"><a class="header" href="#よくある間違いと注意点">よくある間違いと注意点</a></h2>
+<pre><code class="language-javascript">// 間違い：数値をboolとして使おうとする（Dartでは不可）
+// int flag = 1;
+// if (flag) { ... }  // エラー！
+
+// 正しい：明示的にbool値を使用
+int flag = 1;
+bool isEnabled = flag == 1;
+if (isEnabled) {
+    print("有効");
+}
+
+// 間違い：文字列をboolとして使おうとする
+// String status = "true";
+// if (status) { ... }  // エラー！
+
+// 正しい：文字列からbool値への変換
+String status = "true";
+bool isTrue = status.toLowerCase() == "true";
+if (isTrue) {
+    print("真");
+}
+</code></pre>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<ol>
+<li>あなたの年齢が18歳以上かどうかを判定するプログラムを作成してください</li>
+<li>パスワードの強度チェックプログラムを作成してください（8文字以上、大文字・小文字・数字を含む）</li>
+<li>買い物システムで、商品が在庫ありかつ予算内かどうかを判定してください</li>
+</ol>
+<pre><code class="language-javascript">// 解答例
+
+// 1. 年齢判定
+int myAge = 20;
+bool isAdult = myAge &gt;= 18;
+print("成人かどうか：${isAdult ? "はい" : "いいえ"}");
+
+// 2. パスワード強度チェック
+String password = "MyPass123";
+bool hasMinLength = password.length &gt;= 8;
+bool hasUpperCase = password != password.toLowerCase();
+bool hasLowerCase = password != password.toUpperCase();
+bool hasNumber = password.contains(RegExp(r'[0-9]'));
+
+bool isStrongPassword = hasMinLength &amp;&amp; hasUpperCase &amp;&amp; hasLowerCase &amp;&amp; hasNumber;
+
+print("=== パスワード強度チェック ===");
+print("8文字以上：$hasMinLength");
+print("大文字を含む：$hasUpperCase");
+print("小文字を含む：$hasLowerCase");
+print("数字を含む：$hasNumber");
+print("強いパスワード：$isStrongPassword");
+
+// 3. 買い物システム
+String productName = "ノートパソコン";
+double productPrice = 80000.0;
+int stockCount = 3;
+double budget = 100000.0;
+
+bool isInStock = stockCount &gt; 0;
+bool isAffordable = productPrice &lt;= budget;
+bool canPurchase = isInStock &amp;&amp; isAffordable;
+
+print("=== 購入判定 ===");
+print("商品名：$productName");
+print("在庫あり：$isInStock");
+print("予算内：$isAffordable");
+print("購入可能：$canPurchase");
+</code></pre>
 
                     </main>
 

@@ -2650,16 +2650,1612 @@ print('条件が真です');
 <p>第2章はこれで完了です。次の第3章では、プログラムで データを扱うための「変数とデータ型」について学びます。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第3章変数とデータ型"><a class="header" href="#第3章変数とデータ型">第3章：変数とデータ型</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="変数とは何か"><a class="header" href="#変数とは何か">変数とは何か</a></h1>
+<p>プログラムにおいて、<strong>変数</strong>は値を格納するための「箱」のような存在です。この箱には名前を付けることができ、後でその名前を使って中身の値を取り出したり、新しい値を入れ替えたりできます。</p>
+<h2 id="変数の基本概念"><a class="header" href="#変数の基本概念">変数の基本概念</a></h2>
+<p>変数を日常生活に例えると、ラベルの貼られた収納ボックスのようなものです。</p>
+<ul>
+<li><strong>ボックス（メモリ）</strong>：値を保存する場所</li>
+<li><strong>ラベル（変数名）</strong>：ボックスを識別するための名前</li>
+<li><strong>中身（値）</strong>：実際に格納されているデータ</li>
+</ul>
+<h2 id="dartでの変数の宣言"><a class="header" href="#dartでの変数の宣言">Dartでの変数の宣言</a></h2>
+<p>Dartで変数を作成するには、いくつかの方法があります：</p>
+<pre><code class="language-javascript">// 方法1：型を明示して宣言
+int age = 25;
+String name = "太郎";
+
+// 方法2：varキーワードを使用（型推論）
+var score = 100;     // intとして推論される
+var message = "こんにちは"; // Stringとして推論される
+
+// 方法3：動的型（Object型）
+dynamic value = 42;
+value = "文字列に変更";  // 異なる型の値を代入可能
+</code></pre>
+<h2 id="変数の初期化と代入"><a class="header" href="#変数の初期化と代入">変数の初期化と代入</a></h2>
+<pre><code class="language-javascript">// 変数の宣言と初期化
+int count = 0;
+
+// 後から値を代入
+count = 10;
+count = count + 5;  // 既存の値を使った計算
+
+print(count);  // 出力：15
+</code></pre>
+<h2 id="変数を使う理由"><a class="header" href="#変数を使う理由">変数を使う理由</a></h2>
+<ol>
+<li><strong>値の再利用</strong>：同じ値を何度も使える</li>
+<li><strong>可読性の向上</strong>：意味のある名前で値を表現</li>
+<li><strong>保守性の向上</strong>：値の変更が一箇所で済む</li>
+<li><strong>計算の中間結果保存</strong>：複雑な計算を段階的に実行</li>
+</ol>
+<pre><code class="language-javascript">// 変数を使わない場合（良くない例）
+print(3.14159 * 5 * 5);  // 円の面積
+
+// 変数を使う場合（良い例）
+double pi = 3.14159;
+double radius = 5.0;
+double area = pi * radius * radius;
+print(area);  // 何を計算しているか明確
+</code></pre>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<ol>
+<li>あなたの年齢を格納する変数を作成してください</li>
+<li>あなたの名前を格納する変数を作成してください</li>
+<li>これらの変数を使って自己紹介文を出力してください</li>
+</ol>
+<pre><code class="language-javascript">// 解答例
+int myAge = 20;
+String myName = "田中";
+print("私の名前は${myName}で、${myAge}歳です。");
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="数値を扱うintdouble"><a class="header" href="#数値を扱うintdouble">数値を扱う（int、double）</a></h1>
+<p>プログラミングにおいて、数値の扱いは基本的な操作の一つです。Dartでは主に2つの数値型を使います：<strong>int</strong>（整数）と<strong>double</strong>（小数）です。</p>
+<h2 id="int型整数"><a class="header" href="#int型整数">int型（整数）</a></h2>
+<p><strong>int型</strong>は整数（小数点のない数値）を扱います。</p>
+<pre><code class="language-javascript">// int型の変数宣言
+int age = 25;
+int population = 1000000;
+int temperature = -5;  // 負の数も扱える
+
+print(age);        // 出力：25
+print(population); // 出力：1000000
+print(temperature); // 出力：-5
+</code></pre>
+<h3 id="int型の操作"><a class="header" href="#int型の操作">int型の操作</a></h3>
+<pre><code class="language-javascript">int a = 10;
+int b = 3;
+
+// 基本的な算術演算
+print(a + b);  // 加算：13
+print(a - b);  // 減算：7
+print(a * b);  // 乗算：30
+print(a ~/ b); // 整数除算：3（小数部分は切り捨て）
+print(a % b);  // 余り：1
+
+// 代入演算子
+int count = 0;
+count = count + 1;  // または count += 1;
+count++;           // インクリメント（1を足す）
+count--;           // デクリメント（1を引く）
+</code></pre>
+<h2 id="double型小数"><a class="header" href="#double型小数">double型（小数）</a></h2>
+<p><strong>double型</strong>は小数点を含む数値を扱います。</p>
+<pre><code class="language-javascript">// double型の変数宣言
+double price = 199.99;
+double pi = 3.14159;
+double rate = 0.05;  // 5%を表現
+
+print(price); // 出力：199.99
+print(pi);    // 出力：3.14159
+print(rate);  // 出力：0.05
+</code></pre>
+<h3 id="double型の操作"><a class="header" href="#double型の操作">double型の操作</a></h3>
+<pre><code class="language-javascript">double x = 10.5;
+double y = 3.2;
+
+// 基本的な算術演算
+print(x + y);  // 加算：13.7
+print(x - y);  // 減算：7.3
+print(x * y);  // 乗算：33.6
+print(x / y);  // 除算：3.28125
+
+// 四捨五入などの操作
+double value = 3.7;
+print(value.round());     // 四捨五入：4
+print(value.floor());     // 切り捨て：3
+print(value.ceil());      // 切り上げ：4
+</code></pre>
+<h2 id="型変換"><a class="header" href="#型変換">型変換</a></h2>
+<p>int型とdouble型を相互に変換できます。</p>
+<pre><code class="language-javascript">// intからdoubleへ
+int intValue = 42;
+double doubleValue = intValue.toDouble();
+print(doubleValue); // 出力：42.0
+
+// doubleからintへ
+double price = 299.99;
+int roundedPrice = price.round();  // または price.toInt()
+print(roundedPrice); // 出力：300
+
+// 文字列から数値へ
+String ageString = "25";
+int age = int.parse(ageString);
+print(age); // 出力：25
+
+String priceString = "199.99";
+double price2 = double.parse(priceString);
+print(price2); // 出力：199.99
+</code></pre>
+<h2 id="数値の型推論"><a class="header" href="#数値の型推論">数値の型推論</a></h2>
+<pre><code class="language-javascript">// varを使った場合の型推論
+var wholeNumber = 42;      // int型として推論
+var decimalNumber = 42.0;  // double型として推論
+
+print(wholeNumber.runtimeType);  // 出力：int
+print(decimalNumber.runtimeType); // 出力：double
+</code></pre>
+<h2 id="実用的な例"><a class="header" href="#実用的な例">実用的な例</a></h2>
+<pre><code class="language-javascript">// 商品の価格計算
+double unitPrice = 150.0;  // 単価
+int quantity = 3;          // 数量
+double subtotal = unitPrice * quantity;  // 小計
+double taxRate = 0.10;     // 消費税率（10%）
+double tax = subtotal * taxRate;         // 消費税
+double total = subtotal + tax;           // 合計
+
+print("単価: ${unitPrice}円");
+print("数量: ${quantity}個");
+print("小計: ${subtotal}円");
+print("消費税: ${tax}円");
+print("合計: ${total}円");
+</code></pre>
+<h2 id="注意点-1"><a class="header" href="#注意点-1">注意点</a></h2>
+<ol>
+<li>
+<p><strong>除算の違い</strong>：</p>
+<ul>
+<li><code>/</code>：通常の除算（結果はdoubleになる）</li>
+<li><code>~/</code>：整数除算（結果はintになる）</li>
+</ul>
+</li>
+<li>
+<p><strong>精度の問題</strong>：</p>
+<pre><code class="language-javascript">double result = 0.1 + 0.2;
+print(result); // 0.30000000000000004（期待値：0.3）
+</code></pre>
+</li>
+</ol>
+<h2 id="練習問題-1"><a class="header" href="#練習問題-1">練習問題</a></h2>
+<ol>
+<li>あなたの身長（cm）をdouble型で、体重（kg）をint型で宣言してください</li>
+<li>BMIを計算してください（BMI = 体重 ÷ 身長² × 10000）</li>
+<li>円の半径を入力として、円周と面積を計算してください</li>
+</ol>
+<pre><code class="language-javascript">// 解答例
+double height = 170.5;  // cm
+int weight = 65;        // kg
+
+// BMI計算
+double bmi = weight / (height * height) * 10000;
+print("BMI: ${bmi.toStringAsFixed(1)}");
+
+// 円の計算
+double radius = 5.0;
+double pi = 3.14159;
+double circumference = 2 * pi * radius;  // 円周
+double area = pi * radius * radius;      // 面積
+
+print("半径: ${radius}");
+print("円周: ${circumference.toStringAsFixed(2)}");
+print("面積: ${area.toStringAsFixed(2)}");
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="文字列を扱うstring"><a class="header" href="#文字列を扱うstring">文字列を扱う（String）</a></h1>
+<p><strong>String型</strong>は文字列（テキスト）を扱うためのデータ型です。プログラムでは、名前やメッセージ、説明文など、文字の情報を扱う機会が非常に多くあります。</p>
+<h2 id="string型の基本"><a class="header" href="#string型の基本">String型の基本</a></h2>
+<p>文字列は引用符（<code>"</code>または<code>'</code>）で囲んで表現します。</p>
+<pre><code class="language-javascript">// String型の変数宣言
+String name = "田中太郎";
+String message = "こんにちは、世界！";
+String empty = "";  // 空文字列
+
+// シングルクォートも使用可能
+String greeting = 'おはようございます';
+
+print(name);     // 出力：田中太郎
+print(message);  // 出力：こんにちは、世界！
+print(greeting); // 出力：おはようございます
+</code></pre>
+<h2 id="文字列の連結"><a class="header" href="#文字列の連結">文字列の連結</a></h2>
+<p>複数の文字列を結合することができます。</p>
+<pre><code class="language-javascript">String firstName = "太郎";
+String lastName = "田中";
+
+// + 演算子を使った連結
+String fullName = lastName + firstName;
+print(fullName); // 出力：田中太郎
+
+// 複数の文字列を連結
+String introduction = "私の名前は" + lastName + firstName + "です。";
+print(introduction); // 出力：私の名前は田中太郎です。
+</code></pre>
+<h2 id="文字列補間string-interpolation"><a class="header" href="#文字列補間string-interpolation">文字列補間（String Interpolation）</a></h2>
+<p><code>$</code>記号を使って、文字列の中に変数の値を埋め込むことができます。</p>
+<pre><code class="language-javascript">String name = "佐藤";
+int age = 25;
+double height = 170.5;
+
+// $変数名 で値を埋め込み
+String profile = "名前：$name、年齢：$age歳";
+print(profile); // 出力：名前：佐藤、年齢：25歳
+
+// ${式} で計算結果も埋め込み可能
+String detail = "私は$nameです。${age + 5}年後は${age + 5}歳になります。";
+print(detail); // 出力：私は佐藤です。30年後は30歳になります。
+
+// 小数の表示
+String info = "身長は${height}cmです。";
+print(info); // 出力：身長は170.5cmです。
+</code></pre>
+<h2 id="複数行文字列"><a class="header" href="#複数行文字列">複数行文字列</a></h2>
+<p>長い文字列や改行を含む文字列は、3つの引用符で囲みます。</p>
+<pre><code class="language-javascript">String multiLine = """
+これは
+複数行の
+文字列です。
+""";
+
+print(multiLine);
+// 出力：
+// これは
+// 複数行の
+// 文字列です。
+
+// 実用例：HTMLテンプレート
+String htmlTemplate = """
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;$title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;$heading&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+""";
+</code></pre>
+<h2 id="文字列のメソッド"><a class="header" href="#文字列のメソッド">文字列のメソッド</a></h2>
+<p>Stringには便利なメソッドが多数用意されています。</p>
+<pre><code class="language-javascript">String text = "Hello World";
+
+// 基本情報
+print(text.length);        // 文字列の長さ：11
+print(text.isEmpty);       // 空文字列か：false
+print(text.isNotEmpty);    // 空でないか：true
+
+// 大文字・小文字変換
+print(text.toUpperCase()); // 大文字：HELLO WORLD
+print(text.toLowerCase()); // 小文字：hello world
+
+// 部分文字列
+print(text.substring(0, 5)); // 最初の5文字：Hello
+
+// 検索
+print(text.contains("World")); // 含むか：true
+print(text.indexOf("o"));      // 最初の位置：4
+print(text.startsWith("Hello")); // で始まるか：true
+print(text.endsWith("World"));   // で終わるか：true
+
+// 分割
+List&lt;String&gt; words = text.split(" ");
+print(words); // [Hello, World]
+</code></pre>
+<h2 id="日本語文字列の扱い"><a class="header" href="#日本語文字列の扱い">日本語文字列の扱い</a></h2>
+<pre><code class="language-javascript">String japanese = "こんにちは、世界！";
+
+print(japanese.length);     // 文字数：8
+print(japanese.contains("世界")); // true
+
+// 日本語での文字列補間
+String name = "田中";
+String greeting = "こんにちは、${name}さん！";
+print(greeting); // 出力：こんにちは、田中さん！
+
+// ひらがな・カタカナ・漢字の混在
+String mixed = "私の名前はタナカ太郎です。";
+print(mixed); // 出力：私の名前はタナカ太郎です。
+</code></pre>
+<h2 id="エスケープシーケンス"><a class="header" href="#エスケープシーケンス">エスケープシーケンス</a></h2>
+<p>特殊な文字を文字列に含める方法です。</p>
+<pre><code class="language-javascript">// 改行文字
+String withNewline = "1行目\n2行目";
+print(withNewline);
+// 出力：
+// 1行目
+// 2行目
+
+// タブ文字
+String withTab = "項目1\t項目2\t項目3";
+print(withTab); // 出力：項目1    項目2    項目3
+
+// 引用符を含める
+String withQuote = "彼は\"こんにちは\"と言いました。";
+print(withQuote); // 出力：彼は"こんにちは"と言いました。
+
+// バックスラッシュ
+String withBackslash = "ファイルパス: C:\\Users\\Documents";
+print(withBackslash); // 出力：ファイルパス: C:\Users\Documents
+</code></pre>
+<h2 id="実用的な例-1"><a class="header" href="#実用的な例-1">実用的な例</a></h2>
+<pre><code class="language-javascript">// ユーザー情報の表示
+String userName = "山田花子";
+int userAge = 28;
+String userEmail = "hanako@example.com";
+
+String userProfile = """
+=== ユーザープロフィール ===
+名前: $userName
+年齢: $userAge歳
+メール: $userEmail
+登録日: 2024年1月15日
+""";
+
+print(userProfile);
+
+// 商品情報の整形
+String productName = "ワイヤレスイヤホン";
+double productPrice = 12980.0;
+int stockCount = 15;
+
+String productInfo = "商品名：$productName\n"
+                    "価格：¥${productPrice.toStringAsFixed(0)}\n"
+                    "在庫：${stockCount}個";
+
+print(productInfo);
+</code></pre>
+<h2 id="注意点とベストプラクティス"><a class="header" href="#注意点とベストプラクティス">注意点とベストプラクティス</a></h2>
+<ol>
+<li>
+<p><strong>文字列補間を積極的に使用</strong>：</p>
+<pre><code class="language-javascript">// 良い例
+String message = "こんにちは、${name}さん！";
+
+// あまり良くない例
+String message = "こんにちは、" + name + "さん！";
+</code></pre>
+</li>
+<li>
+<p><strong>長い文字列は複数行文字列を使用</strong>：</p>
+<pre><code class="language-javascript">String longText = """
+この文章は非常に長く、
+複数行にわたって書かれています。
+読みやすさを重視しています。
+""";
+</code></pre>
+</li>
+</ol>
+<h2 id="練習問題-2"><a class="header" href="#練習問題-2">練習問題</a></h2>
+<ol>
+<li>あなたの自己紹介文を文字列補間を使って作成してください</li>
+<li>商品名と価格を受け取って、「商品名：○○、価格：¥○○」という形式で出力してください</li>
+<li>文字列のメソッドを使って、入力された文字列の情報（長さ、大文字変換など）を表示してください</li>
+</ol>
+<pre><code class="language-javascript">// 解答例
+// 1. 自己紹介
+String myName = "鈴木一郎";
+int myAge = 22;
+String myHobby = "読書";
+
+String selfIntroduction = """
+はじめまして！
+私の名前は${myName}です。
+年齢は${myAge}歳で、趣味は${myHobby}です。
+よろしくお願いします。
+""";
+
+print(selfIntroduction);
+
+// 2. 商品情報
+String productName = "コーヒーメーカー";
+double price = 8980.0;
+
+String productDisplay = "商品名：$productName、価格：¥${price.toStringAsFixed(0)}";
+print(productDisplay);
+
+// 3. 文字列情報
+String inputText = "Programming with Dart";
+print("元の文字列: $inputText");
+print("文字数: ${inputText.length}");
+print("大文字: ${inputText.toUpperCase()}");
+print("小文字: ${inputText.toLowerCase()}");
+print("'Dart'を含むか: ${inputText.contains('Dart')}");
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="真偽値を扱うbool"><a class="header" href="#真偽値を扱うbool">真偽値を扱う（bool）</a></h1>
+<p><strong>bool型</strong>（ブール型）は、真（true）または偽（false）の2つの値のみを持つデータ型です。プログラムでの条件判断や状態管理において非常に重要な役割を果たします。</p>
+<h2 id="bool型の基本"><a class="header" href="#bool型の基本">bool型の基本</a></h2>
+<p>bool型の変数は<code>true</code>または<code>false</code>の値のみを格納できます。</p>
+<pre><code class="language-javascript">// bool型の変数宣言
+bool isActive = true;
+bool isComplete = false;
+bool hasError = true;
+
+print(isActive);   // 出力：true
+print(isComplete); // 出力：false
+print(hasError);   // 出力：true
+
+// varを使った場合も自動的にbool型として推論される
+var isReady = true;
+print(isReady.runtimeType); // 出力：bool
+</code></pre>
+<h2 id="比較演算子とbool値"><a class="header" href="#比較演算子とbool値">比較演算子とbool値</a></h2>
+<p>比較演算子を使うと、その結果としてbool値が得られます。</p>
+<pre><code class="language-javascript">int a = 10;
+int b = 5;
+
+// 等価比較
+print(a == b);  // false（aとbは等しくない）
+print(a != b);  // true（aとbは等しくない）
+
+// 大小比較
+print(a &gt; b);   // true（aはbより大きい）
+print(a &lt; b);   // false（aはbより小さくない）
+print(a &gt;= b);  // true（aはb以上）
+print(a &lt;= b);  // false（aはb以下でない）
+
+// 文字列の比較
+String name1 = "田中";
+String name2 = "佐藤";
+print(name1 == name2); // false
+print(name1 != name2); // true
+</code></pre>
+<h2 id="論理演算子"><a class="header" href="#論理演算子">論理演算子</a></h2>
+<p>複数の条件を組み合わせる際に使用します。</p>
+<pre><code class="language-javascript">bool isSunny = true;
+bool isWarm = false;
+bool hasUmbrella = true;
+
+// AND演算子（&amp;&amp;）- 全ての条件がtrueの場合のみtrue
+bool canGoOut = isSunny &amp;&amp; isWarm;
+print(canGoOut); // false（両方ともtrueではない）
+
+// OR演算子（||）- いずれかの条件がtrueの場合true
+bool needUmbrella = !isSunny || hasUmbrella;
+print(needUmbrella); // true
+
+// NOT演算子（!）- 条件を反転
+bool isRainy = !isSunny;
+print(isRainy); // false
+</code></pre>
+<h2 id="実用的な条件判断"><a class="header" href="#実用的な条件判断">実用的な条件判断</a></h2>
+<pre><code class="language-javascript">int age = 20;
+bool hasLicense = true;
+double accountBalance = 5000.0;
+
+// 年齢チェック
+bool isAdult = age &gt;= 18;
+print("成人：$isAdult"); // 成人：true
+
+// 運転可能かチェック
+bool canDrive = isAdult &amp;&amp; hasLicense;
+print("運転可能：$canDrive"); // 運転可能：true
+
+// 購入可能かチェック
+double productPrice = 3000.0;
+bool canBuy = accountBalance &gt;= productPrice;
+print("購入可能：$canBuy"); // 購入可能：true
+
+// 複合条件
+bool canBuyAndDrive = canBuy &amp;&amp; canDrive;
+print("購入して運転可能：$canBuyAndDrive"); // 購入して運転可能：true
+</code></pre>
+<h2 id="文字列やnullとの比較"><a class="header" href="#文字列やnullとの比較">文字列やnullとの比較</a></h2>
+<pre><code class="language-javascript">String input = "";
+String? optionalValue = null;
+
+// 空文字列のチェック
+bool isEmpty = input.isEmpty;
+bool isNotEmpty = input.isNotEmpty;
+print("空文字列：$isEmpty");     // 空文字列：true
+print("空でない：$isNotEmpty");   // 空でない：false
+
+// nullチェック
+bool isNull = optionalValue == null;
+bool isNotNull = optionalValue != null;
+print("null：$isNull");        // null：true
+print("nullでない：$isNotNull"); // nullでない：false
+</code></pre>
+<h2 id="bool値の活用例"><a class="header" href="#bool値の活用例">bool値の活用例</a></h2>
+<h3 id="ユーザー状態管理"><a class="header" href="#ユーザー状態管理">ユーザー状態管理</a></h3>
+<pre><code class="language-javascript">// ユーザーの状態を管理
+bool isLoggedIn = false;
+bool isPremiumUser = true;
+bool hasNotifications = true;
+
+String userStatus = """
+ログイン状態：${isLoggedIn ? "ログイン中" : "未ログイン"}
+会員種別：${isPremiumUser ? "プレミアム" : "通常"}
+通知：${hasNotifications ? "あり" : "なし"}
+""";
+
+print(userStatus);
+</code></pre>
+<h3 id="設定管理"><a class="header" href="#設定管理">設定管理</a></h3>
+<pre><code class="language-javascript">// アプリケーション設定
+bool isDarkMode = true;
+bool enableNotifications = false;
+bool autoSave = true;
+
+print("=== 設定 ===");
+print("ダークモード：${isDarkMode ? "ON" : "OFF"}");
+print("通知：${enableNotifications ? "ON" : "OFF"}");
+print("自動保存：${autoSave ? "ON" : "OFF"}");
+</code></pre>
+<h3 id="バリデーション妥当性検証"><a class="header" href="#バリデーション妥当性検証">バリデーション（妥当性検証）</a></h3>
+<pre><code class="language-javascript">String email = "user@example.com";
+String password = "password123";
+
+// 簡単なバリデーション
+bool isValidEmail = email.contains("@") &amp;&amp; email.contains(".");
+bool isValidPassword = password.length &gt;= 8;
+bool hasUpperCase = password != password.toLowerCase();
+bool hasNumber = password.contains(RegExp(r'[0-9]'));
+
+bool isFormValid = isValidEmail &amp;&amp; isValidPassword;
+
+print("=== バリデーション結果 ===");
+print("有効なメール：$isValidEmail");
+print("有効なパスワード：$isValidPassword");
+print("大文字を含む：$hasUpperCase");
+print("数字を含む：$hasNumber");
+print("フォーム有効：$isFormValid");
+</code></pre>
+<h2 id="三項演算子条件演算子"><a class="header" href="#三項演算子条件演算子">三項演算子（条件演算子）</a></h2>
+<p>bool値を使った簡潔な条件分岐ができます。</p>
+<pre><code class="language-javascript">int score = 85;
+bool isPassing = score &gt;= 60;
+
+// 三項演算子：条件 ? 真の場合の値 : 偽の場合の値
+String result = isPassing ? "合格" : "不合格";
+String grade = score &gt;= 90 ? "A" : score &gt;= 80 ? "B" : score &gt;= 70 ? "C" : "D";
+
+print("結果：$result");  // 結果：合格
+print("評価：$grade");   // 評価：B
+</code></pre>
+<h2 id="よくある間違いと注意点"><a class="header" href="#よくある間違いと注意点">よくある間違いと注意点</a></h2>
+<pre><code class="language-javascript">// 間違い：数値をboolとして使おうとする（Dartでは不可）
+// int flag = 1;
+// if (flag) { ... }  // エラー！
+
+// 正しい：明示的にbool値を使用
+int flag = 1;
+bool isEnabled = flag == 1;
+if (isEnabled) {
+    print("有効");
+}
+
+// 間違い：文字列をboolとして使おうとする
+// String status = "true";
+// if (status) { ... }  // エラー！
+
+// 正しい：文字列からbool値への変換
+String status = "true";
+bool isTrue = status.toLowerCase() == "true";
+if (isTrue) {
+    print("真");
+}
+</code></pre>
+<h2 id="練習問題-3"><a class="header" href="#練習問題-3">練習問題</a></h2>
+<ol>
+<li>あなたの年齢が18歳以上かどうかを判定するプログラムを作成してください</li>
+<li>パスワードの強度チェックプログラムを作成してください（8文字以上、大文字・小文字・数字を含む）</li>
+<li>買い物システムで、商品が在庫ありかつ予算内かどうかを判定してください</li>
+</ol>
+<pre><code class="language-javascript">// 解答例
+
+// 1. 年齢判定
+int myAge = 20;
+bool isAdult = myAge &gt;= 18;
+print("成人かどうか：${isAdult ? "はい" : "いいえ"}");
+
+// 2. パスワード強度チェック
+String password = "MyPass123";
+bool hasMinLength = password.length &gt;= 8;
+bool hasUpperCase = password != password.toLowerCase();
+bool hasLowerCase = password != password.toUpperCase();
+bool hasNumber = password.contains(RegExp(r'[0-9]'));
+
+bool isStrongPassword = hasMinLength &amp;&amp; hasUpperCase &amp;&amp; hasLowerCase &amp;&amp; hasNumber;
+
+print("=== パスワード強度チェック ===");
+print("8文字以上：$hasMinLength");
+print("大文字を含む：$hasUpperCase");
+print("小文字を含む：$hasLowerCase");
+print("数字を含む：$hasNumber");
+print("強いパスワード：$isStrongPassword");
+
+// 3. 買い物システム
+String productName = "ノートパソコン";
+double productPrice = 80000.0;
+int stockCount = 3;
+double budget = 100000.0;
+
+bool isInStock = stockCount &gt; 0;
+bool isAffordable = productPrice &lt;= budget;
+bool canPurchase = isInStock &amp;&amp; isAffordable;
+
+print("=== 購入判定 ===");
+print("商品名：$productName");
+print("在庫あり：$isInStock");
+print("予算内：$isAffordable");
+print("購入可能：$canPurchase");
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="変数の命名規則とわかりやすい名前の付け方"><a class="header" href="#変数の命名規則とわかりやすい名前の付け方">変数の命名規則とわかりやすい名前の付け方</a></h1>
+<p>プログラムにおいて、変数に適切な名前を付けることは、コードの可読性と保守性を大幅に向上させます。Dartには明確な命名規則があり、これに従うことで統一感のあるコードが書けます。</p>
+<h2 id="dartの命名規則"><a class="header" href="#dartの命名規則">Dartの命名規則</a></h2>
+<h3 id="1-キャメルケースcamelcase"><a class="header" href="#1-キャメルケースcamelcase">1. キャメルケース（camelCase）</a></h3>
+<p>変数名や関数名には<strong>キャメルケース</strong>を使用します。</p>
+<pre><code class="language-javascript">// 良い例
+String userName = "田中太郎";
+int userAge = 25;
+double accountBalance = 50000.0;
+bool isLoggedIn = true;
+
+// 複数の単語を組み合わせる場合
+String firstName = "太郎";
+String lastName = "田中";
+int totalScore = 0;
+bool hasPermission = false;
+</code></pre>
+<h3 id="2-アンダースコア_の使用"><a class="header" href="#2-アンダースコア_の使用">2. アンダースコア（_）の使用</a></h3>
+<ul>
+<li><strong>プライベート変数</strong>：アンダースコアで始める</li>
+<li><strong>定数</strong>：すべて大文字でアンダースコア区切り</li>
+</ul>
+<pre><code class="language-javascript">// プライベート変数（クラス内でのみ使用）
+String _privateVariable = "内部用";
+int _internalCounter = 0;
+
+// 定数
+const String API_URL = "https://api.example.com";
+const int MAX_RETRY_COUNT = 3;
+const double TAX_RATE = 0.10;
+</code></pre>
+<h3 id="3-使ってはいけない文字パターン"><a class="header" href="#3-使ってはいけない文字パターン">3. 使ってはいけない文字・パターン</a></h3>
+<pre><code class="language-javascript">// 間違った例
+// String user-name = "太郎";    // ハイフン不可
+// String user name = "太郎";    // スペース不可
+// int 123count = 0;            // 数字から始まる不可
+// String class = "クラス";      // 予約語不可
+// String いろ = "赤";           // 日本語不可（技術的には可能だが非推奨）
+
+// 正しい例
+String userName = "太郎";
+int count123 = 0;
+String className = "クラス";
+String color = "赤";
+</code></pre>
+<h2 id="わかりやすい変数名の付け方"><a class="header" href="#わかりやすい変数名の付け方">わかりやすい変数名の付け方</a></h2>
+<h3 id="1-目的を明確に表現する"><a class="header" href="#1-目的を明確に表現する">1. 目的を明確に表現する</a></h3>
+<pre><code class="language-javascript">// 悪い例：何を表しているかわからない
+int x = 25;
+String s = "田中";
+bool f = true;
+
+// 良い例：目的が明確
+int age = 25;
+String customerName = "田中";
+bool isActiveUser = true;
+</code></pre>
+<h3 id="2-略語を避ける"><a class="header" href="#2-略語を避ける">2. 略語を避ける</a></h3>
+<pre><code class="language-javascript">// 悪い例：略語が多い
+String usr = "田中";
+int cnt = 0;
+bool flg = true;
+
+// 良い例：完全な単語を使用
+String user = "田中";
+int count = 0;
+bool isEnabled = true;
+</code></pre>
+<h3 id="3-文脈に応じた具体性"><a class="header" href="#3-文脈に応じた具体性">3. 文脈に応じた具体性</a></h3>
+<pre><code class="language-javascript">// 一般的すぎる例
+String data = "情報";
+int number = 42;
+
+// 具体的で分かりやすい例
+String productName = "ワイヤレスイヤホン";
+int orderQuantity = 42;
+</code></pre>
+<h2 id="データ型別の命名例"><a class="header" href="#データ型別の命名例">データ型別の命名例</a></h2>
+<h3 id="string型の変数"><a class="header" href="#string型の変数">String型の変数</a></h3>
+<pre><code class="language-javascript">// 名前関連
+String firstName = "太郎";
+String lastName = "田中";
+String fullName = "田中太郎";
+String displayName = "田中様";
+
+// メッセージ・テキスト関連
+String welcomeMessage = "ようこそ！";
+String errorMessage = "エラーが発生しました";
+String descriptionText = "商品の説明文";
+
+// ID・コード関連
+String userId = "user123";
+String productCode = "PROD-001";
+String sessionToken = "abc123xyz";
+</code></pre>
+<h3 id="int型の変数"><a class="header" href="#int型の変数">int型の変数</a></h3>
+<pre><code class="language-javascript">// 個数・数量
+int itemCount = 5;
+int totalQuantity = 100;
+int remainingStock = 25;
+
+// 順序・位置
+int currentIndex = 0;
+int pageNumber = 1;
+int sortOrder = 3;
+
+// 年齢・期間
+int userAge = 30;
+int experienceYears = 5;
+int timeoutSeconds = 60;
+</code></pre>
+<h3 id="double型の変数"><a class="header" href="#double型の変数">double型の変数</a></h3>
+<pre><code class="language-javascript">// 金額・価格
+double productPrice = 1980.0;
+double totalAmount = 5940.0;
+double taxAmount = 594.0;
+
+// 測定値
+double userHeight = 170.5;
+double bodyWeight = 65.2;
+double temperature = 36.8;
+
+// 比率・割合
+double discountRate = 0.15;  // 15%
+double completionRatio = 0.75;  // 75%
+</code></pre>
+<h3 id="bool型の変数"><a class="header" href="#bool型の変数">bool型の変数</a></h3>
+<p>bool型は「is」「has」「can」などの接頭語を使うと読みやすくなります。</p>
+<pre><code class="language-javascript">// is + 形容詞
+bool isActive = true;
+bool isVisible = false;
+bool isComplete = true;
+bool isValid = false;
+
+// has + 名詞
+bool hasPermission = true;
+bool hasNotification = false;
+bool hasError = true;
+
+// can + 動詞
+bool canEdit = true;
+bool canDelete = false;
+bool canAccess = true;
+
+// 状態を表現
+bool isLoggedIn = false;
+bool isLoading = true;
+bool isSelected = false;
+</code></pre>
+<h2 id="実用的な命名例"><a class="header" href="#実用的な命名例">実用的な命名例</a></h2>
+<h3 id="ユーザー管理システム"><a class="header" href="#ユーザー管理システム">ユーザー管理システム</a></h3>
+<pre><code class="language-javascript">// ユーザー基本情報
+String currentUserId = "user_12345";
+String currentUserName = "田中太郎";
+String currentUserEmail = "tanaka@example.com";
+int currentUserAge = 28;
+bool isCurrentUserActive = true;
+
+// 権限関連
+bool hasAdminPermission = false;
+bool canEditProfile = true;
+bool canViewReports = true;
+bool isPreiumMember = false;
+
+// セッション管理
+String sessionId = "session_abc123";
+int sessionTimeoutMinutes = 30;
+bool isSessionValid = true;
+DateTime sessionStartTime = DateTime.now();
+</code></pre>
+<h3 id="ショッピングカート"><a class="header" href="#ショッピングカート">ショッピングカート</a></h3>
+<pre><code class="language-javascript">// 商品情報
+String selectedProductId = "prod_001";
+String selectedProductName = "ワイヤレスマウス";
+double selectedProductPrice = 2980.0;
+int selectedProductQuantity = 2;
+
+// カート情報
+int cartItemCount = 5;
+double cartSubtotal = 14900.0;
+double cartTaxAmount = 1490.0;
+double cartTotalAmount = 16390.0;
+
+// 配送情報
+String shippingAddress = "東京都渋谷区...";
+double shippingCost = 500.0;
+bool isFreeShipping = false;
+DateTime estimatedDeliveryDate = DateTime.now();
+</code></pre>
+<h2 id="命名時のチェックリスト"><a class="header" href="#命名時のチェックリスト">命名時のチェックリスト</a></h2>
+<ol>
+<li><strong>明確性</strong>：変数名だけで何を表しているかわかるか？</li>
+<li><strong>一貫性</strong>：同じ概念には同じ命名パターンを使っているか？</li>
+<li><strong>簡潔性</strong>：必要以上に長すぎないか？</li>
+<li><strong>文法</strong>：Dartの命名規則に従っているか？</li>
+<li><strong>文脈</strong>：そのコードの文脈で適切な名前か？</li>
+</ol>
+<h2 id="よくある間違いと改善例"><a class="header" href="#よくある間違いと改善例">よくある間違いと改善例</a></h2>
+<pre><code class="language-javascript">// 間違い：意味が不明
+int i = 0;
+String str = "データ";
+bool flag = true;
+
+// 改善：意味が明確
+int currentPageIndex = 0;
+String customerName = "データ";
+bool isDataLoaded = true;
+
+// 間違い：否定形が分かりにくい
+bool isNotVisible = false;
+bool isNotComplete = true;
+
+// 改善：肯定形で表現
+bool isVisible = true;
+bool isComplete = false;
+
+// 間違い：略語が多い
+String usrNm = "田中";
+int qty = 5;
+double amt = 1500.0;
+
+// 改善：完全な単語を使用
+String userName = "田中";
+int quantity = 5;
+double amount = 1500.0;
+</code></pre>
+<h2 id="練習問題-4"><a class="header" href="#練習問題-4">練習問題</a></h2>
+<p>以下の悪い例を、良い変数名に変更してください：</p>
+<pre><code class="language-javascript">// 悪い例
+int x = 20;
+String s = "太郎";
+bool f = true;
+double p = 1500.0;
+int c = 5;
+
+// あなたの改善案を考えてください
+</code></pre>
+<pre><code class="language-javascript">// 解答例
+int studentAge = 20;              // または userAge, personAge
+String studentName = "太郎";       // または firstName, userName
+bool isEnrolled = true;           // または isActive, isRegistered
+double courseFee = 1500.0;        // または tuitionFee, price
+int courseCount = 5;              // または enrolledCourseCount, totalCourses
+</code></pre>
+<p>良い変数名を付けることで、コードは自己文書化され、他の人（未来の自分も含む）が理解しやすくなります。時間をかけて適切な名前を考えることは、長期的にプログラムの品質向上につながります。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第4章計算と演算子"><a class="header" href="#第4章計算と演算子">第4章：計算と演算子</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="算術演算子-"><a class="header" href="#算術演算子-">算術演算子（+、-、*、/、%）</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="文字列の連結"><a class="header" href="#文字列の連結">文字列の連結</a></h1>
+<p>プログラミングでは、数学と同じように計算を行うことができます。Dartには基本的な算術演算子が用意されており、これらを使って様々な計算を実行できます。</p>
+<h2 id="基本的な算術演算子"><a class="header" href="#基本的な算術演算子">基本的な算術演算子</a></h2>
+<h3 id="足し算"><a class="header" href="#足し算">足し算（+）</a></h3>
+<pre><code class="language-javascript">void main() {
+  int a = 5;
+  int b = 3;
+  int sum = a + b;
+  print('$a + $b = $sum'); // 5 + 3 = 8
+}
+</code></pre>
+<h3 id="引き算-"><a class="header" href="#引き算-">引き算（-）</a></h3>
+<pre><code class="language-javascript">void main() {
+  int x = 10;
+  int y = 4;
+  int difference = x - y;
+  print('$x - $y = $difference'); // 10 - 4 = 6
+}
+</code></pre>
+<h3 id="掛け算"><a class="header" href="#掛け算">掛け算（*）</a></h3>
+<pre><code class="language-javascript">void main() {
+  int width = 6;
+  int height = 4;
+  int area = width * height;
+  print('長方形の面積: $area'); // 長方形の面積: 24
+}
+</code></pre>
+<h3 id="割り算"><a class="header" href="#割り算">割り算（/）</a></h3>
+<pre><code class="language-javascript">void main() {
+  double num1 = 15.0;
+  double num2 = 4.0;
+  double result = num1 / num2;
+  print('$num1 ÷ $num2 = $result'); // 15.0 ÷ 4.0 = 3.75
+}
+</code></pre>
+<p><strong>注意</strong>: 割り算の結果は常に<code>double</code>型になります。整数同士の割り算でも小数点以下の値が返されます。</p>
+<h3 id="余りを求める"><a class="header" href="#余りを求める">余りを求める（%）</a></h3>
+<pre><code class="language-javascript">void main() {
+  int dividend = 17;
+  int divisor = 5;
+  int remainder = dividend % divisor;
+  print('$dividend を $divisor で割った余り: $remainder'); // 17 を 5 で割った余り: 2
+}
+</code></pre>
+<p>余り演算子（%）は、割り算の余りを求める演算子です。偶数・奇数の判定や、特定の間隔での処理などでよく使われます。</p>
+<h2 id="整数除算"><a class="header" href="#整数除算">整数除算（~/）</a></h2>
+<p>Dartには整数除算を行う特別な演算子もあります：</p>
+<pre><code class="language-javascript">void main() {
+  int a = 17;
+  int b = 5;
+  int quotient = a ~/ b; // 整数除算
+  print('$a ÷ $b = $quotient (整数部分のみ)'); // 17 ÷ 5 = 3 (整数部分のみ)
+}
+</code></pre>
+<h2 id="実用的な例-2"><a class="header" href="#実用的な例-2">実用的な例</a></h2>
+<pre><code class="language-javascript">void main() {
+  // 円の面積を計算する
+  double radius = 5.0;
+  double pi = 3.14159;
+  double area = pi * radius * radius;
+  print('半径${radius}の円の面積: $area');
+  
+  // 時間の変換（秒を時分秒に変換）
+  int totalSeconds = 3661;
+  int hours = totalSeconds ~/ 3600;
+  int minutes = (totalSeconds % 3600) ~/ 60;
+  int seconds = totalSeconds % 60;
+  print('${totalSeconds}秒 = ${hours}時間${minutes}分${seconds}秒');
+}
+</code></pre>
+<p>算術演算子を使うことで、プログラムで様々な計算処理を実装できます。次は文字列の連結について学んでいきましょう。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="文字列の連結-1"><a class="header" href="#文字列の連結-1">文字列の連結</a></h1>
+<p>数値の計算だけでなく、文字列（テキスト）同士を結合することもプログラミングでは頻繁に行います。Dartでは複数の方法で文字列を連結することができます。</p>
+<h2 id="演算子を使った文字列連結"><a class="header" href="#演算子を使った文字列連結">+演算子を使った文字列連結</a></h2>
+<p>最もシンプルな方法は、+演算子を使って文字列を連結することです：</p>
+<pre><code class="language-javascript">void main() {
+  String firstName = 'たろう';
+  String lastName = '田中';
+  String fullName = lastName + firstName;
+  print(fullName); // 田中たろう
+}
+</code></pre>
+<p>複数の文字列を連結することもできます：</p>
+<pre><code class="language-javascript">void main() {
+  String greeting = 'こんにちは';
+  String name = '山田さん';
+  String punctuation = '！';
+  String message = greeting + '、' + name + punctuation;
+  print(message); // こんにちは、山田さん！
+}
+</code></pre>
+<h2 id="文字列補間テンプレート文字列"><a class="header" href="#文字列補間テンプレート文字列">文字列補間（テンプレート文字列）</a></h2>
+<p>より読みやすく、便利な方法として文字列補間があります。<code>$</code>記号を使って変数の値を文字列に埋め込むことができます：</p>
+<pre><code class="language-javascript">void main() {
+  String name = '佐藤';
+  int age = 25;
+  String introduction = '私の名前は${name}です。${age}歳です。';
+  print(introduction); // 私の名前は佐藤です。25歳です。
+}
+</code></pre>
+<p>変数名が単純な場合は、波括弧を省略できます：</p>
+<pre><code class="language-javascript">void main() {
+  String product = 'りんご';
+  int price = 150;
+  print('$productの価格は$price円です。'); // りんごの価格は150円です。
+}
+</code></pre>
+<h2 id="計算結果を文字列に含める"><a class="header" href="#計算結果を文字列に含める">計算結果を文字列に含める</a></h2>
+<p>文字列補間では、計算式も直接記述できます：</p>
+<pre><code class="language-javascript">void main() {
+  int width = 5;
+  int height = 3;
+  print('長方形の面積は${width * height}平方センチメートルです。');
+  // 長方形の面積は15平方センチメートルです。
+}
+</code></pre>
+<h2 id="複数行の文字列"><a class="header" href="#複数行の文字列">複数行の文字列</a></h2>
+<p>長い文字列や複数行にわたる文字列を作る場合：</p>
+<pre><code class="language-javascript">void main() {
+  String name = '鈴木';
+  int score = 85;
+  
+  String report = '''
+お疲れ様です。
+${name}さんのテスト結果をお知らせします。
+点数: $score点
+  ''';
+  
+  print(report);
+}
+</code></pre>
+<h2 id="実用的な例-3"><a class="header" href="#実用的な例-3">実用的な例</a></h2>
+<pre><code class="language-javascript">void main() {
+  // 商品情報の表示
+  String itemName = 'ノートパソコン';
+  double price = 89800.0;
+  int quantity = 2;
+  double total = price * quantity;
+  
+  print('=== 注文確認 ===');
+  print('商品名: $itemName');
+  print('単価: ${price.toInt()}円');
+  print('数量: $quantity個');
+  print('合計: ${total.toInt()}円');
+  
+  // 挨拶メッセージの生成
+  String userName = 'やまだ';
+  String timeOfDay = '午前';
+  String greeting = '$timeOfDay中です、${userName}さん。今日も頑張りましょう！';
+  print(greeting);
+}
+</code></pre>
+<h2 id="文字列と数値の変換"><a class="header" href="#文字列と数値の変換">文字列と数値の変換</a></h2>
+<p>文字列と数値を組み合わせる際の注意点：</p>
+<pre><code class="language-javascript">void main() {
+  String numText = '123';
+  int number = int.parse(numText); // 文字列を整数に変換
+  print('文字列「$numText」を数値に変換: $number');
+  
+  int value = 456;
+  String valueText = value.toString(); // 数値を文字列に変換
+  print('数値$valueを文字列に変換: 「$valueText」');
+}
+</code></pre>
+<p>文字列連結を活用することで、ユーザーに分かりやすいメッセージを表示したり、データを見やすい形式で出力したりできます。次は変数の値を変更する方法について学んでいきましょう。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="変数の値を変更する"><a class="header" href="#変数の値を変更する">変数の値を変更する</a></h1>
+<p>プログラムを実行している間、変数の値を変更する必要がある場面は多くあります。Dartでは変数の値を更新したり、計算結果で変数を更新したりする便利な方法が用意されています。</p>
+<h2 id="基本的な変数の更新"><a class="header" href="#基本的な変数の更新">基本的な変数の更新</a></h2>
+<p>変数に新しい値を代入することで、変数の値を変更できます：</p>
+<pre><code class="language-javascript">void main() {
+  int score = 80;
+  print('最初の点数: $score'); // 最初の点数: 80
+  
+  score = 90; // 新しい値を代入
+  print('更新後の点数: $score'); // 更新後の点数: 90
+}
+</code></pre>
+<p>文字列変数の場合：</p>
+<pre><code class="language-javascript">void main() {
+  String status = '待機中';
+  print('現在の状態: $status'); // 現在の状態: 待機中
+  
+  status = '実行中';
+  print('更新後の状態: $status'); // 更新後の状態: 実行中
+}
+</code></pre>
+<h2 id="代入演算子を使った更新"><a class="header" href="#代入演算子を使った更新">代入演算子を使った更新</a></h2>
+<h3 id="複合代入演算子"><a class="header" href="#複合代入演算子">複合代入演算子</a></h3>
+<p>変数の現在の値を使って計算し、その結果を同じ変数に代入する場合、複合代入演算子が便利です：</p>
+<pre><code class="language-javascript">void main() {
+  int money = 1000;
+  print('最初の所持金: $money円');
+  
+  money += 500; // money = money + 500 と同じ
+  print('お小遣いをもらった後: $money円'); // 1500円
+  
+  money -= 200; // money = money - 200 と同じ
+  print('買い物をした後: $money円'); // 1300円
+  
+  money *= 2; // money = money * 2 と同じ
+  print('倍になった: $money円'); // 2600円
+  
+  money ~/= 4; // money = money ~/ 4 と同じ（整数除算）
+  print('4分の1にした: $money円'); // 650円
+}
+</code></pre>
+<h3 id="文字列の複合代入"><a class="header" href="#文字列の複合代入">文字列の複合代入</a></h3>
+<p>文字列でも複合代入演算子を使用できます：</p>
+<pre><code class="language-javascript">void main() {
+  String message = 'こんにちは';
+  print(message); // こんにちは
+  
+  message += '、';
+  message += '世界';
+  message += '！';
+  print(message); // こんにちは、世界！
+}
+</code></pre>
+<h2 id="インクリメントデクリメント演算子"><a class="header" href="#インクリメントデクリメント演算子">インクリメント・デクリメント演算子</a></h2>
+<p>値を1増やしたり1減らしたりする場合の省略記法：</p>
+<pre><code class="language-javascript">void main() {
+  int counter = 5;
+  print('カウンター: $counter'); // カウンター: 5
+  
+  counter++; // counter += 1 または counter = counter + 1 と同じ
+  print('インクリメント後: $counter'); // インクリメント後: 6
+  
+  counter--; // counter -= 1 または counter = counter - 1 と同じ
+  print('デクリメント後: $counter'); // デクリメント後: 5
+  
+  // 前置と後置の違い
+  int a = 10;
+  int b = ++a; // 先にaを1増やしてからbに代入
+  print('a: $a, b: $b'); // a: 11, b: 11
+  
+  int c = 10;
+  int d = c++; // 先にcの値をdに代入してからcを1増やす
+  print('c: $c, d: $d'); // c: 11, d: 10
+}
+</code></pre>
+<h2 id="実用的な例-4"><a class="header" href="#実用的な例-4">実用的な例</a></h2>
+<h3 id="カウンターアプリ"><a class="header" href="#カウンターアプリ">カウンターアプリ</a></h3>
+<pre><code class="language-javascript">void main() {
+  int visitCount = 0;
+  
+  print('=== ウェブサイトの訪問カウンター ===');
+  print('現在の訪問者数: $visitCount');
+  
+  // 新しい訪問者
+  visitCount++;
+  print('新しい訪問者が来ました: $visitCount');
+  
+  visitCount++;
+  print('また新しい訪問者: $visitCount');
+  
+  visitCount += 5; // 一度に5人増加
+  print('グループで訪問: $visitCount');
+}
+</code></pre>
+<h3 id="買い物かごの計算"><a class="header" href="#買い物かごの計算">買い物かごの計算</a></h3>
+<pre><code class="language-javascript">void main() {
+  double total = 0.0;
+  print('=== お買い物かご ===');
+  print('現在の合計: ${total}円');
+  
+  // 商品を追加
+  total += 250; // りんご
+  print('りんごを追加: ${total}円');
+  
+  total += 180; // バナナ
+  print('バナナを追加: ${total}円');
+  
+  total += 320; // オレンジ
+  print('オレンジを追加: ${total}円');
+  
+  // 割引適用
+  total *= 0.9; // 10%割引
+  print('10%割引適用: ${total}円');
+}
+</code></pre>
+<h3 id="ゲームのスコア管理"><a class="header" href="#ゲームのスコア管理">ゲームのスコア管理</a></h3>
+<pre><code class="language-javascript">void main() {
+  int score = 0;
+  int level = 1;
+  
+  print('=== ゲーム開始 ===');
+  print('スコア: $score, レベル: $level');
+  
+  // 敵を倒した
+  score += 100;
+  print('敵を倒した！ スコア: $score');
+  
+  // ボーナスアイテム取得
+  score *= 2;
+  print('ボーナス倍率！ スコア: $score');
+  
+  // レベルアップ
+  level++;
+  score += level * 50; // レベルに応じたボーナス
+  print('レベルアップ！ レベル: $level, スコア: $score');
+}
+</code></pre>
+<h2 id="const-と-final-について"><a class="header" href="#const-と-final-について">const と final について</a></h2>
+<p>値を変更できない変数もあります：</p>
+<pre><code class="language-javascript">void main() {
+  // final: 実行時に一度だけ値を設定
+  final int maxRetries = 3;
+  // maxRetries = 5; // エラー：変更できません
+  
+  // const: コンパイル時に値が決定
+  const double pi = 3.14159;
+  // pi = 3.14; // エラー：変更できません
+  
+  print('最大リトライ回数: $maxRetries');
+  print('円周率: $pi');
+}
+</code></pre>
+<p>変数の値を適切に更新することで、プログラムの状態を管理し、動的な処理を実現できます。次は演算の優先順位について学んでいきましょう。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="演算の優先順位"><a class="header" href="#演算の優先順位">演算の優先順位</a></h1>
+<p>数学と同様に、プログラミングでも計算には決まった順番があります。演算子の優先順位を理解することで、期待通りの計算結果を得ることができます。</p>
+<h2 id="基本的な演算の優先順位"><a class="header" href="#基本的な演算の優先順位">基本的な演算の優先順位</a></h2>
+<p>数学の計算と同じルールが適用されます：</p>
+<pre><code class="language-javascript">void main() {
+  // 掛け算と割り算は足し算と引き算より先に実行される
+  int result1 = 2 + 3 * 4;
+  print('2 + 3 * 4 = $result1'); // 2 + 3 * 4 = 14 (3*4が先に計算される)
+  
+  int result2 = 10 - 6 / 2;
+  print('10 - 6 / 2 = $result2'); // 10 - 6 / 2 = 7 (6/2が先に計算される)
+}
+</code></pre>
+<h2 id="括弧を使った優先順位の変更"><a class="header" href="#括弧を使った優先順位の変更">括弧を使った優先順位の変更</a></h2>
+<p>括弧を使うことで、計算の順序を明示的に指定できます：</p>
+<pre><code class="language-javascript">void main() {
+  // 括弧なし
+  int result1 = 2 + 3 * 4;
+  print('2 + 3 * 4 = $result1'); // 14
+  
+  // 括弧あり
+  int result2 = (2 + 3) * 4;
+  print('(2 + 3) * 4 = $result2'); // 20
+  
+  // より複雑な例
+  double result3 = (10 + 5) / (3 * 2);
+  print('(10 + 5) / (3 * 2) = $result3'); // 2.5
+}
+</code></pre>
+<h2 id="dartの演算子優先順位表"><a class="header" href="#dartの演算子優先順位表">Dartの演算子優先順位表</a></h2>
+<p>高い優先順位から低い優先順位の順番：</p>
+<ol>
+<li><strong>後置演算子</strong>: <code>++</code>, <code>--</code>, <code>[]</code>, <code>()</code></li>
+<li><strong>前置演算子</strong>: <code>-</code>, <code>!</code>, <code>++</code>, <code>--</code></li>
+<li><strong>乗算系</strong>: <code>*</code>, <code>/</code>, <code>%</code>, <code>~/</code></li>
+<li><strong>加算系</strong>: <code>+</code>, <code>-</code></li>
+<li><strong>比較演算子</strong>: <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></li>
+<li><strong>等価演算子</strong>: <code>==</code>, <code>!=</code></li>
+<li><strong>論理AND</strong>: <code>&amp;&amp;</code></li>
+<li><strong>論理OR</strong>: <code>||</code></li>
+<li><strong>代入演算子</strong>: <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code></li>
+</ol>
+<h2 id="実例で確認"><a class="header" href="#実例で確認">実例で確認</a></h2>
+<h3 id="複雑な計算式"><a class="header" href="#複雑な計算式">複雑な計算式</a></h3>
+<pre><code class="language-javascript">void main() {
+  int a = 5;
+  int b = 3;
+  int c = 2;
+  
+  // 優先順位に従った計算
+  int result1 = a + b * c;
+  print('$a + $b * $c = $result1'); // 5 + 3 * 2 = 11
+  
+  // 括弧で順序を変更
+  int result2 = (a + b) * c;
+  print('($a + $b) * $c = $result2'); // (5 + 3) * 2 = 16
+  
+  // さらに複雑な例
+  double result3 = a + b * c / 2.0 - 1;
+  print('$a + $b * $c / 2.0 - 1 = $result3'); // 5 + 3 * 2 / 2.0 - 1 = 7
+}
+</code></pre>
+<h3 id="よくある間違いの例"><a class="header" href="#よくある間違いの例">よくある間違いの例</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 間違いやすい例1: 平均の計算
+  int score1 = 80;
+  int score2 = 90;
+  int score3 = 85;
+  
+  // 間違った書き方
+  double wrong = score1 + score2 + score3 / 3;
+  print('間違った平均: $wrong'); // 80 + 90 + 85/3 = 198.33... (間違い)
+  
+  // 正しい書き方
+  double correct = (score1 + score2 + score3) / 3;
+  print('正しい平均: $correct'); // (80 + 90 + 85) / 3 = 85.0
+}
+</code></pre>
+<h3 id="割引計算の例"><a class="header" href="#割引計算の例">割引計算の例</a></h3>
+<pre><code class="language-javascript">void main() {
+  double price = 1000;
+  double discountRate = 0.2; // 20%割引
+  double taxRate = 0.1; // 10%の税
+  
+  // 間違った計算順序
+  double wrong = price - price * discountRate + price * taxRate;
+  print('間違った計算: ${wrong}円'); // 割引後に税金が元の価格に適用される
+  
+  // 正しい計算順序
+  double discountedPrice = price * (1 - discountRate);
+  double correct = discountedPrice * (1 + taxRate);
+  print('正しい計算: ${correct}円'); // (1000 * 0.8) * 1.1 = 880円
+  
+  // または括弧を使って一行で
+  double oneLine = (price * (1 - discountRate)) * (1 + taxRate);
+  print('一行での計算: ${oneLine}円');
+}
+</code></pre>
+<h2 id="論理演算子の優先順位"><a class="header" href="#論理演算子の優先順位">論理演算子の優先順位</a></h2>
+<pre><code class="language-javascript">void main() {
+  bool a = true;
+  bool b = false;
+  bool c = true;
+  
+  // &amp;&amp;（AND）は||（OR）より優先順位が高い
+  bool result1 = a || b &amp;&amp; c;
+  print('$a || $b &amp;&amp; $c = $result1'); // true || (false &amp;&amp; true) = true
+  
+  // 括弧で順序を明示
+  bool result2 = (a || b) &amp;&amp; c;
+  print('($a || $b) &amp;&amp; $c = $result2'); // (true || false) &amp;&amp; true = true
+}
+</code></pre>
+<h2 id="代入演算子と優先順位"><a class="header" href="#代入演算子と優先順位">代入演算子と優先順位</a></h2>
+<pre><code class="language-javascript">void main() {
+  int x = 5;
+  int y = 3;
+  
+  // 代入演算子は最も優先順位が低い
+  x += y * 2; // x = x + (y * 2) と同じ
+  print('x = $x'); // x = 11
+  
+  int z = 10;
+  z *= 2 + 3; // z = z * (2 + 3) と同じ
+  print('z = $z'); // z = 50
+}
+</code></pre>
+<h2 id="実践的なアドバイス"><a class="header" href="#実践的なアドバイス">実践的なアドバイス</a></h2>
+<h3 id="1-読みやすさを優先する"><a class="header" href="#1-読みやすさを優先する">1. 読みやすさを優先する</a></h3>
+<pre><code class="language-javascript">void main() {
+  int a = 10, b = 5, c = 2;
+  
+  // 技術的には正しいが読みにくい
+  int complex = a + b * c - a / b + c % 2;
+  
+  // 括弧を使って意図を明確にする
+  int clear = a + (b * c) - (a / b) + (c % 2);
+  
+  print('複雑: $complex, 明確: $clear');
+}
+</code></pre>
+<h3 id="2-段階的な計算"><a class="header" href="#2-段階的な計算">2. 段階的な計算</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 複雑な計算は段階的に分ける
+  double basePrice = 1200;
+  double discountRate = 0.15;
+  double taxRate = 0.08;
+  
+  double discountAmount = basePrice * discountRate;
+  double discountedPrice = basePrice - discountAmount;
+  double tax = discountedPrice * taxRate;
+  double finalPrice = discountedPrice + tax;
+  
+  print('元の価格: ${basePrice}円');
+  print('割引額: ${discountAmount}円');
+  print('割引後価格: ${discountedPrice}円');
+  print('税額: ${tax}円');
+  print('最終価格: ${finalPrice}円');
+}
+</code></pre>
+<p>演算の優先順位を理解することで、正確な計算結果を得ることができ、他の人が読みやすいコードを書くことができます。次は練習問題で、これまで学んだ計算や演算子を実際に使ってみましょう。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="練習問題簡単な計算プログラム"><a class="header" href="#練習問題簡単な計算プログラム">練習問題：簡単な計算プログラム</a></h1>
+<p>これまで学んだ算術演算子、文字列連結、変数の更新、演算の優先順位を使って、実際に計算プログラムを作ってみましょう。段階的に難易度を上げながら、様々な計算処理を実装します。</p>
+<h2 id="問題1基本的な四則演算"><a class="header" href="#問題1基本的な四則演算">問題1：基本的な四則演算</a></h2>
+<p>二つの数値を使って、四則演算の結果を表示するプログラムを作成してください。</p>
+<pre><code class="language-javascript">void main() {
+  // 変数の設定
+  int a = 15;
+  int b = 4;
+  
+  // 四則演算の実行と表示
+  print('=== 基本的な四則演算 ===');
+  print('a = $a, b = $b');
+  print('');
+  
+  int sum = a + b;
+  print('足し算: $a + $b = $sum');
+  
+  int difference = a - b;
+  print('引き算: $a - $b = $difference');
+  
+  int product = a * b;
+  print('掛け算: $a × $b = $product');
+  
+  double quotient = a / b;
+  print('割り算: $a ÷ $b = $quotient');
+  
+  int remainder = a % b;
+  print('余り: $a % $b = $remainder');
+  
+  int integerDivision = a ~/ b;
+  print('整数除算: $a ~/ $b = $integerDivision');
+}
+</code></pre>
+<h2 id="問題2円の面積と円周の計算"><a class="header" href="#問題2円の面積と円周の計算">問題2：円の面積と円周の計算</a></h2>
+<p>半径を指定して、円の面積と円周を計算するプログラムを作成してください。</p>
+<pre><code class="language-javascript">void main() {
+  // 変数の設定
+  double radius = 7.5;
+  double pi = 3.14159;
+  
+  print('=== 円の計算 ===');
+  print('半径: ${radius}cm');
+  print('');
+  
+  // 円周の計算 (2πr)
+  double circumference = 2 * pi * radius;
+  print('円周: ${circumference.toStringAsFixed(2)}cm');
+  
+  // 面積の計算 (πr²)
+  double area = pi * radius * radius;
+  print('面積: ${area.toStringAsFixed(2)}cm²');
+}
+</code></pre>
+<h2 id="問題3温度変換プログラム"><a class="header" href="#問題3温度変換プログラム">問題3：温度変換プログラム</a></h2>
+<p>摂氏温度を華氏温度に変換し、逆の変換も行うプログラムを作成してください。</p>
+<pre><code class="language-javascript">void main() {
+  print('=== 温度変換プログラム ===');
+  
+  // 摂氏から華氏への変換
+  double celsius = 25.0;
+  double fahrenheit = celsius * 9 / 5 + 32;
+  print('摂氏${celsius}度 → 華氏${fahrenheit}度');
+  
+  // 華氏から摂氏への変換
+  double fahrenheit2 = 77.0;
+  double celsius2 = (fahrenheit2 - 32) * 5 / 9;
+  print('華氏${fahrenheit2}度 → 摂氏${celsius2.toStringAsFixed(1)}度');
+}
+</code></pre>
+<h2 id="問題4買い物の計算プログラム"><a class="header" href="#問題4買い物の計算プログラム">問題4：買い物の計算プログラム</a></h2>
+<p>商品の価格、数量、税率から最終的な支払い金額を計算するプログラムを作成してください。</p>
+<pre><code class="language-javascript">void main() {
+  print('=== お買い物計算 ===');
+  
+  // 商品情報
+  String productName = 'プログラミング入門書';
+  double unitPrice = 2800.0;
+  int quantity = 3;
+  double taxRate = 0.10; // 10%
+  double discountRate = 0.15; // 15%割引
+  
+  // 計算処理
+  double subtotal = unitPrice * quantity;
+  double discountAmount = subtotal * discountRate;
+  double discountedPrice = subtotal - discountAmount;
+  double tax = discountedPrice * taxRate;
+  double total = discountedPrice + tax;
+  
+  // 結果表示
+  print('商品名: $productName');
+  print('単価: ${unitPrice.toInt()}円');
+  print('数量: $quantity冊');
+  print('小計: ${subtotal.toInt()}円');
+  print('割引(${(discountRate * 100).toInt()}%): -${discountAmount.toInt()}円');
+  print('割引後価格: ${discountedPrice.toInt()}円');
+  print('消費税(${(taxRate * 100).toInt()}%): ${tax.toInt()}円');
+  print('合計金額: ${total.toInt()}円');
+}
+</code></pre>
+<h2 id="問題5時間計算プログラム"><a class="header" href="#問題5時間計算プログラム">問題5：時間計算プログラム</a></h2>
+<p>秒数を入力として、時間、分、秒に変換するプログラムを作成してください。</p>
+<pre><code class="language-javascript">void main() {
+  print('=== 時間変換プログラム ===');
+  
+  // 総秒数
+  int totalSeconds = 7325;
+  
+  // 時間、分、秒への変換
+  int hours = totalSeconds ~/ 3600;
+  int remainingAfterHours = totalSeconds % 3600;
+  int minutes = remainingAfterHours ~/ 60;
+  int seconds = remainingAfterHours % 60;
+  
+  print('総秒数: ${totalSeconds}秒');
+  print('変換結果: ${hours}時間${minutes}分${seconds}秒');
+  
+  // 逆の計算も確認
+  int backToSeconds = hours * 3600 + minutes * 60 + seconds;
+  print('確認: ${backToSeconds}秒 (元の値と一致: ${backToSeconds == totalSeconds})');
+}
+</code></pre>
+<h2 id="問題6bmi計算プログラム"><a class="header" href="#問題6bmi計算プログラム">問題6：BMI計算プログラム</a></h2>
+<p>身長と体重からBMI（Body Mass Index）を計算し、判定結果も表示するプログラムを作成してください。</p>
+<pre><code class="language-javascript">void main() {
+  print('=== BMI計算プログラム ===');
+  
+  // 身体データ
+  double height = 170.5; // cm
+  double weight = 65.3;  // kg
+  
+  // BMI計算（体重kg ÷ (身長m)²）
+  double heightInMeters = height / 100;
+  double bmi = weight / (heightInMeters * heightInMeters);
+  
+  // 結果表示
+  print('身長: ${height}cm');
+  print('体重: ${weight}kg');
+  print('BMI: ${bmi.toStringAsFixed(1)}');
+  
+  // BMI判定（簡易版）
+  String status;
+  if (bmi &lt; 18.5) {
+    status = '低体重';
+  } else if (bmi &lt; 25.0) {
+    status = '普通体重';
+  } else if (bmi &lt; 30.0) {
+    status = '肥満（1度）';
+  } else {
+    status = '肥満（2度以上）';
+  }
+  print('判定: $status');
+}
+</code></pre>
+<h2 id="問題7複利計算プログラム"><a class="header" href="#問題7複利計算プログラム">問題7：複利計算プログラム</a></h2>
+<p>元本、金利、期間から複利計算を行うプログラムを作成してください。</p>
+<pre><code class="language-javascript">void main() {
+  print('=== 複利計算プログラム ===');
+  
+  // 投資条件
+  double principal = 100000.0; // 元本（円）
+  double annualRate = 0.03;    // 年利3%
+  int years = 10;              // 10年間
+  
+  print('元本: ${principal.toInt()}円');
+  print('年利: ${(annualRate * 100)}%');
+  print('期間: ${years}年');
+  print('');
+  
+  // 年次計算
+  double amount = principal;
+  for (int year = 1; year &lt;= years; year++) {
+    amount = amount * (1 + annualRate);
+    int yearlyIncrease = (amount - principal).toInt();
+    print('${year}年後: ${amount.toInt()}円 (増加額: ${yearlyIncrease}円)');
+  }
+  
+  // 最終結果
+  int totalIncrease = (amount - principal).toInt();
+  print('');
+  print('最終元利合計: ${amount.toInt()}円');
+  print('利息合計: ${totalIncrease}円');
+}
+</code></pre>
+<h2 id="問題8文字列を使った計算結果の表示"><a class="header" href="#問題8文字列を使った計算結果の表示">問題8：文字列を使った計算結果の表示</a></h2>
+<p>これまでの計算結果を見やすい形式で表示するプログラムを作成してください。</p>
+<pre><code class="language-javascript">void main() {
+  print('=== 計算結果表示プログラム ===');
+  
+  // 計算データ
+  String studentName = '田中太郎';
+  List&lt;int&gt; scores = [85, 92, 78, 88, 95];
+  
+  print('生徒名: $studentName');
+  print('テスト結果:');
+  
+  // 各教科の得点表示
+  List&lt;String&gt; subjects = ['国語', '数学', '英語', '理科', '社会'];
+  int total = 0;
+  
+  for (int i = 0; i &lt; scores.length; i++) {
+    print('  ${subjects[i]}: ${scores[i]}点');
+    total += scores[i];
+  }
+  
+  // 統計計算
+  double average = total / scores.length;
+  int maxScore = scores[0];
+  int minScore = scores[0];
+  
+  for (int score in scores) {
+    if (score &gt; maxScore) maxScore = score;
+    if (score &lt; minScore) minScore = score;
+  }
+  
+  // 結果表示
+  print('');
+  print('=== 成績統計 ===');
+  print('合計点: ${total}点');
+  print('平均点: ${average.toStringAsFixed(1)}点');
+  print('最高点: ${maxScore}点');
+  print('最低点: ${minScore}点');
+  
+  // 成績判定
+  String grade;
+  if (average &gt;= 90) {
+    grade = 'A（優秀）';
+  } else if (average &gt;= 80) {
+    grade = 'B（良好）';
+  } else if (average &gt;= 70) {
+    grade = 'C（可）';
+  } else {
+    grade = 'D（要努力）';
+  }
+  print('総合評価: $grade');
+}
+</code></pre>
+<h2 id="チャレンジ問題"><a class="header" href="#チャレンジ問題">チャレンジ問題</a></h2>
+<h3 id="1-二次方程式の解を求める"><a class="header" href="#1-二次方程式の解を求める">1. 二次方程式の解を求める</a></h3>
+<p>ax² + bx + c = 0の解を求めるプログラムを作成してください。</p>
+<h3 id="2-年齢計算機"><a class="header" href="#2-年齢計算機">2. 年齢計算機</a></h3>
+<p>生年月日から現在の年齢を計算するプログラムを作成してください。</p>
+<p>これらの練習問題を通じて、算術演算子と文字列操作を組み合わせた実用的なプログラムが作成できるようになります。次の章では、条件分岐について学び、より複雑な判断処理を実装していきます。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第5章条件分岐if文"><a class="header" href="#第5章条件分岐if文">第5章：条件分岐（if文）</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="条件によって処理を変える"><a class="header" href="#条件によって処理を変える">条件によって処理を変える</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="比較演算子"><a class="header" href="#比較演算子">比較演算子（==、!=、&gt;、&lt;、&gt;=、&lt;=）</a></h1>
