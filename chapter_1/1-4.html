@@ -178,7 +178,151 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="開発環境の準備dartpadの使い方"><a class="header" href="#開発環境の準備dartpadの使い方">開発環境の準備（DartPadの使い方）</a></h1>
+                        <h1 id="14-開発環境の準備dartpadの使い方"><a class="header" href="#14-開発環境の準備dartpadの使い方">1.4 開発環境の準備（DartPadの使い方）</a></h1>
+<h2 id="プログラミングを始める前に"><a class="header" href="#プログラミングを始める前に">プログラミングを始める前に</a></h2>
+<p>プログラミングを学ぶためには、コードを書いて実行できる環境が必要です。通常、プログラミング言語を使うには複雑なソフトウェアのインストールが必要ですが、Dartの場合は<strong>DartPad</strong>という素晴らしいツールがあります。</p>
+<p><strong>DartPad</strong>は、ブラウザ上でDartプログラムを書いて実行できる無料のオンラインエディタです。何もインストールする必要がなく、インターネットに接続されたコンピュータがあれば、すぐにプログラミングを始められます。</p>
+<h2 id="dartpadにアクセスしよう"><a class="header" href="#dartpadにアクセスしよう">DartPadにアクセスしよう</a></h2>
+<h3 id="ステップ1-ブラウザでアクセス"><a class="header" href="#ステップ1-ブラウザでアクセス">ステップ1: ブラウザでアクセス</a></h3>
+<p>お使いのWebブラウザ（Chrome、Firefox、Safari、Edgeなど）で以下のURLにアクセスしてください：</p>
+<p><strong>https://dartpad.dev/</strong></p>
+<h3 id="ステップ2-画面の確認"><a class="header" href="#ステップ2-画面の確認">ステップ2: 画面の確認</a></h3>
+<p>DartPadが読み込まれると、以下のような画面が表示されます：</p>
+<pre><code>┌─────────────────────────────────────┐
+│ DartPad                             │
+├─────────────────────────────────────┤
+│ コードエディタ（左側）  │ 実行結果（右側） │
+│                        │              │
+│ void main() {          │              │
+│   print('Hello');      │              │
+│ }                      │              │
+│                        │              │
+├─────────────────────────────────────┤
+│ [▶ Run] [Format] [Reset] [Share]    │
+└─────────────────────────────────────┘
+</code></pre>
+<h2 id="dartpadの画面構成"><a class="header" href="#dartpadの画面構成">DartPadの画面構成</a></h2>
+<h3 id="1-コードエディタ左側"><a class="header" href="#1-コードエディタ左側">1. コードエディタ（左側）</a></h3>
+<p>ここにDartのプログラムコードを入力します。既に簡単なサンプルコードが入力されているはずです。</p>
+<h3 id="2-実行結果表示エリア右側"><a class="header" href="#2-実行結果表示エリア右側">2. 実行結果表示エリア（右側）</a></h3>
+<p>プログラムを実行したときの結果がここに表示されます。</p>
+<h3 id="3-操作ボタン"><a class="header" href="#3-操作ボタン">3. 操作ボタン</a></h3>
+<ul>
+<li><strong>Run（▶）</strong>: プログラムを実行する</li>
+<li><strong>Format</strong>: コードを整形する（見やすく並べ直す）</li>
+<li><strong>Reset</strong>: コードを初期状態に戻す</li>
+<li><strong>Share</strong>: 作成したプログラムを他の人と共有する</li>
+</ul>
+<h2 id="最初のプログラムを実行してみよう"><a class="header" href="#最初のプログラムを実行してみよう">最初のプログラムを実行してみよう</a></h2>
+<p>DartPadを開いたとき、既に以下のようなプログラムが入力されているはずです：</p>
+<pre><code class="language-dart">void main() {
+  print('Hello, World!');
+}
+</code></pre>
+<h3 id="実行方法"><a class="header" href="#実行方法">実行方法</a></h3>
+<ol>
+<li><strong>「Run」ボタン</strong>（▶マーク）をクリックします</li>
+<li>右側の実行結果エリアに「Hello, World!」と表示されれば成功です</li>
+</ol>
+<h3 id="プログラムの説明"><a class="header" href="#プログラムの説明">プログラムの説明</a></h3>
+<ul>
+<li><code>void main() { }</code>: プログラムの開始点を示します</li>
+<li><code>print('Hello, World!');</code>: 文字列を画面に表示する命令です</li>
+<li>セミコロン（;）: Dartでは文の終わりにセミコロンを付けます</li>
+</ul>
+<h2 id="dartpadでプログラムを書いてみよう"><a class="header" href="#dartpadでプログラムを書いてみよう">DartPadでプログラムを書いてみよう</a></h2>
+<h3 id="演習1-メッセージを変更してみる"><a class="header" href="#演習1-メッセージを変更してみる">演習1: メッセージを変更してみる</a></h3>
+<ol>
+<li><code>'Hello, World!'</code> の部分を <code>'こんにちは、Dart!'</code> に変更してみましょう</li>
+<li>Runボタンを押して、表示が変わることを確認しましょう</li>
+</ol>
+<pre><code class="language-dart">void main() {
+  print('こんにちは、Dart!');
+}
+</code></pre>
+<h3 id="演習2-複数のメッセージを表示する"><a class="header" href="#演習2-複数のメッセージを表示する">演習2: 複数のメッセージを表示する</a></h3>
+<p><code>print</code>文を複数行書くことで、複数のメッセージを表示できます：</p>
+<pre><code class="language-dart">void main() {
+  print('プログラミングの学習を始めます');
+  print('今日はDartについて学びます');
+  print('一緒に頑張りましょう！');
+}
+</code></pre>
+<h3 id="演習3-簡単な計算をしてみる"><a class="header" href="#演習3-簡単な計算をしてみる">演習3: 簡単な計算をしてみる</a></h3>
+<p>Dartでは数値の計算もできます：</p>
+<pre><code class="language-dart">void main() {
+  print(5 + 3);
+  print(10 * 2);
+  print(20 / 4);
+}
+</code></pre>
+<h2 id="エラーが発生したときの対処法"><a class="header" href="#エラーが発生したときの対処法">エラーが発生したときの対処法</a></h2>
+<p>プログラムを書いていると、必ずエラー（間違い）が発生します。DartPadでエラーが起きたときの見方を覚えておきましょう。</p>
+<h3 id="よくあるエラーの例"><a class="header" href="#よくあるエラーの例">よくあるエラーの例</a></h3>
+<h4 id="1-セミコロンの忘れ"><a class="header" href="#1-セミコロンの忘れ">1. セミコロンの忘れ</a></h4>
+<pre><code class="language-dart">void main() {
+  print('Hello')  // セミコロンが抜けている
+}
+</code></pre>
+<p><strong>エラーメッセージ</strong>: 「Expected to find ';'」
+<strong>解決方法</strong>: 行の終わりにセミコロン（;）を追加する</p>
+<h4 id="2-括弧の不一致"><a class="header" href="#2-括弧の不一致">2. 括弧の不一致</a></h4>
+<pre><code class="language-dart">void main() {
+  print('Hello';  // 閉じ括弧が抜けている
+}
+</code></pre>
+<p><strong>エラーメッセージ</strong>: 「Expected to find ')'」
+<strong>解決方法</strong>: 開き括弧と閉じ括弧の数を確認する</p>
+<h4 id="3-引用符の不一致"><a class="header" href="#3-引用符の不一致">3. 引用符の不一致</a></h4>
+<pre><code class="language-dart">void main() {
+  print('Hello, World!");  // 引用符が混在している
+}
+</code></pre>
+<p><strong>エラーメッセージ</strong>: 「Unterminated string literal」
+<strong>解決方法</strong>: 文字列の開始と終了で同じ引用符を使う</p>
+<h3 id="エラーの読み方"><a class="header" href="#エラーの読み方">エラーの読み方</a></h3>
+<p>DartPadでエラーが発生すると、以下の情報が表示されます：</p>
+<ol>
+<li><strong>エラーの種類</strong>: どんな間違いかの説明</li>
+<li><strong>行番号</strong>: エラーが発生した行</li>
+<li><strong>列番号</strong>: エラーが発生した位置</li>
+</ol>
+<p>落ち着いてエラーメッセージを読み、該当する場所を確認して修正しましょう。</p>
+<h2 id="dartpadの便利な機能"><a class="header" href="#dartpadの便利な機能">DartPadの便利な機能</a></h2>
+<h3 id="1-コードの自動整形"><a class="header" href="#1-コードの自動整形">1. コードの自動整形</a></h3>
+<p>「Format」ボタンを押すと、コードが見やすく整理されます。特にインデント（字下げ）が自動で調整されます。</p>
+<h3 id="2-リアルタイムエラー表示"><a class="header" href="#2-リアルタイムエラー表示">2. リアルタイムエラー表示</a></h3>
+<p>コードを入力している最中に、エラーがある部分が赤い波線で表示されます。</p>
+<h3 id="3-コード補完"><a class="header" href="#3-コード補完">3. コード補完</a></h3>
+<p>入力を始めると、続きの候補が表示されることがあります。Tabキーで選択できます。</p>
+<h3 id="4-作品の保存と共有"><a class="header" href="#4-作品の保存と共有">4. 作品の保存と共有</a></h3>
+<p>「Share」ボタンを押すと、作成したプログラムのURLが生成されます。このURLを保存しておけば、後で同じプログラムを開くことができます。</p>
+<h2 id="学習を効率的に進めるコツ"><a class="header" href="#学習を効率的に進めるコツ">学習を効率的に進めるコツ</a></h2>
+<h3 id="1-こまめに実行する"><a class="header" href="#1-こまめに実行する">1. こまめに実行する</a></h3>
+<p>コードを少し書いたら、すぐにRunボタンを押して動作を確認しましょう。小さな変更でも実行して、どんな結果になるか試してみることが重要です。</p>
+<h3 id="2-エラーを恐れない"><a class="header" href="#2-エラーを恐れない">2. エラーを恐れない</a></h3>
+<p>エラーは「失敗」ではなく「学習の機会」です。エラーメッセージを読んで、何が問題だったのかを理解することで、プログラミングスキルが向上します。</p>
+<h3 id="3-実験してみる"><a class="header" href="#3-実験してみる">3. 実験してみる</a></h3>
+<p>教材通りにコードを入力するだけでなく、「もしこう書いたらどうなるだろう？」という好奇心を持って、色々な変更を試してみましょう。</p>
+<h3 id="4-メモを残す"><a class="header" href="#4-メモを残す">4. メモを残す</a></h3>
+<p>面白い発見やよく使うコードパターンは、別途メモに残しておくと後で役立ちます。</p>
+<h2 id="次のステップに向けて"><a class="header" href="#次のステップに向けて">次のステップに向けて</a></h2>
+<p>DartPadの使い方に慣れたら、以下のことを試してみましょう：</p>
+<ol>
+<li><strong>様々な計算</strong>: 足し算だけでなく、引き算、掛け算、割り算</li>
+<li><strong>文字列の操作</strong>: 文字列の結合や表示方法の変更</li>
+<li><strong>変数の使用</strong>: 値を保存して再利用する</li>
+<li><strong>条件分岐</strong>: 条件によって処理を変える</li>
+</ol>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<ul>
+<li><strong>DartPad</strong>は、ブラウザでDartプログラムを実行できる無料ツール</li>
+<li>インストール不要で、すぐにプログラミングを始められる</li>
+<li><strong>Run</strong>ボタンでプログラムを実行し、結果を確認できる</li>
+<li>エラーが発生しても、メッセージを読んで冷静に対処する</li>
+<li>こまめに実行して、実験精神を持って学習を進める</li>
+</ul>
+<p>次の節では、プログラミングの伝統的な最初のプログラム「Hello, World!」について詳しく学び、実際にDartPadで作成してみます。</p>
 
                     </main>
 
