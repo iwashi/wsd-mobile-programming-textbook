@@ -178,7 +178,407 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="エラーメッセージの読み方"><a class="header" href="#エラーメッセージの読み方">エラーメッセージの読み方</a></h1>
+                        <h1 id="25-エラーメッセージの読み方"><a class="header" href="#25-エラーメッセージの読み方">2.5 エラーメッセージの読み方</a></h1>
+<h2 id="エラーは学習の大切なパートナー"><a class="header" href="#エラーは学習の大切なパートナー">エラーは学習の大切なパートナー</a></h2>
+<p>プログラミングを学ぶ過程で、<strong>エラー</strong>（間違い）に遭遇することは避けられません。しかし、エラーは「失敗」ではなく、より良いプログラムを作るための<strong>重要な手がかり</strong>です。エラーメッセージを正しく理解することで、問題を素早く解決し、プログラミングスキルを向上させることができます。</p>
+<h2 id="エラーとは何か"><a class="header" href="#エラーとは何か">エラーとは何か</a></h2>
+<p><strong>エラー</strong>とは、プログラムが正常に動作しない状態のことです。コンピュータは、プログラムに問題があることを発見すると、エラーメッセージを表示して、何が問題なのか、どこに問題があるのかを教えてくれます。</p>
+<h2 id="dartにおけるエラーの種類"><a class="header" href="#dartにおけるエラーの種類">Dartにおけるエラーの種類</a></h2>
+<h3 id="1-構文エラーsyntax-error"><a class="header" href="#1-構文エラーsyntax-error">1. 構文エラー（Syntax Error）</a></h3>
+<p>プログラムの書き方（構文）が間違っている場合に発生するエラーです。</p>
+<h4 id="例1-セミコロンの忘れ"><a class="header" href="#例1-セミコロンの忘れ">例1: セミコロンの忘れ</a></h4>
+<pre><code class="language-javascript">void main() {
+  print('Hello, World!')  // セミコロンがない
+}
+</code></pre>
+<p>エラーメッセージ：</p>
+<pre><code>Error: Expected ';' after this.
+</code></pre>
+<p><strong>意味</strong>: 「この後にセミコロン（;）が必要です」</p>
+<p><strong>解決方法</strong>: 行の最後にセミコロンを追加する</p>
+<pre><code class="language-javascript">void main() {
+  print('Hello, World!');  // セミコロンを追加
+}
+</code></pre>
+<h4 id="例2-括弧の不一致"><a class="header" href="#例2-括弧の不一致">例2: 括弧の不一致</a></h4>
+<pre><code class="language-javascript">void main() {
+  print('Hello, World!';  // 閉じ括弧がない
+}
+</code></pre>
+<p>エラーメッセージ：</p>
+<pre><code>Error: Expected ')' after this.
+</code></pre>
+<p><strong>意味</strong>: 「この後に右括弧（)）が必要です」</p>
+<p><strong>解決方法</strong>: 不足している括弧を追加する</p>
+<pre><code class="language-javascript">void main() {
+  print('Hello, World!');  // 括弧を正しく対応させる
+}
+</code></pre>
+<h4 id="例3-中括弧の不一致"><a class="header" href="#例3-中括弧の不一致">例3: 中括弧の不一致</a></h4>
+<pre><code class="language-javascript">void main() {
+  print('Hello, World!');
+// 閉じ中括弧がない
+</code></pre>
+<p>エラーメッセージ：</p>
+<pre><code>Error: Expected '}' after this.
+</code></pre>
+<p><strong>意味</strong>: 「この後に右中括弧（}）が必要です」</p>
+<p><strong>解決方法</strong>: 不足している中括弧を追加する</p>
+<pre><code class="language-javascript">void main() {
+  print('Hello, World!');
+}  // 中括弧を追加
+</code></pre>
+<h3 id="2-名前エラーname-error"><a class="header" href="#2-名前エラーname-error">2. 名前エラー（Name Error）</a></h3>
+<p>存在しない変数や関数を使おうとした場合に発生するエラーです。</p>
+<h4 id="例1-未定義の変数"><a class="header" href="#例1-未定義の変数">例1: 未定義の変数</a></h4>
+<pre><code class="language-javascript">void main() {
+  print(unknownVariable);  // 定義されていない変数
+}
+</code></pre>
+<p>エラーメッセージ：</p>
+<pre><code>Error: Undefined name 'unknownVariable'.
+</code></pre>
+<p><strong>意味</strong>: 「'unknownVariable'という名前が定義されていません」</p>
+<p><strong>解決方法</strong>: 変数を事前に定義するか、正しい変数名を使う</p>
+<pre><code class="language-javascript">void main() {
+  String knownVariable = 'Hello';
+  print(knownVariable);  // 正しく定義された変数を使用
+}
+</code></pre>
+<h4 id="例2-スペルミス"><a class="header" href="#例2-スペルミス">例2: スペルミス</a></h4>
+<pre><code class="language-javascript">void main() {
+  String name = 'Dart';
+  print(namme);  // 変数名のスペルミス
+}
+</code></pre>
+<p>エラーメッセージ：</p>
+<pre><code>Error: Undefined name 'namme'.
+</code></pre>
+<p><strong>意味</strong>: 「'namme'という名前が定義されていません」</p>
+<p><strong>解決方法</strong>: 正しいスペルに修正する</p>
+<pre><code class="language-javascript">void main() {
+  String name = 'Dart';
+  print(name);  // 正しいスペルに修正
+}
+</code></pre>
+<h3 id="3-型エラーtype-error"><a class="header" href="#3-型エラーtype-error">3. 型エラー（Type Error）</a></h3>
+<p>データの型が合わない場合に発生するエラーです。</p>
+<h4 id="例1-型の不一致"><a class="header" href="#例1-型の不一致">例1: 型の不一致</a></h4>
+<pre><code class="language-javascript">void main() {
+  int number = 'Hello';  // 整数型に文字列を代入
+}
+</code></pre>
+<p>エラーメッセージ：</p>
+<pre><code>Error: A value of type 'String' can't be assigned to a variable of type 'int'.
+</code></pre>
+<p><strong>意味</strong>: 「String型の値をint型の変数に代入することはできません」</p>
+<p><strong>解決方法</strong>: 型を合わせる</p>
+<pre><code class="language-javascript">void main() {
+  int number = 42;        // 整数型に整数を代入
+  String text = 'Hello';  // 文字列型に文字列を代入
+}
+</code></pre>
+<h3 id="4-実行時エラーruntime-error"><a class="header" href="#4-実行時エラーruntime-error">4. 実行時エラー（Runtime Error）</a></h3>
+<p>プログラムは正しく書かれているが、実行中に問題が発生した場合のエラーです。</p>
+<h4 id="例1-ゼロ割り算"><a class="header" href="#例1-ゼロ割り算">例1: ゼロ割り算</a></h4>
+<pre><code class="language-javascript">void main() {
+  int a = 10;
+  int b = 0;
+  print(a ~/ b);  // ゼロで割り算
+}
+</code></pre>
+<p>エラーメッセージ：</p>
+<pre><code>Unhandled exception:
+IntegerDivisionByZeroException
+</code></pre>
+<p><strong>意味</strong>: 「処理されていない例外：ゼロによる整数除算例外」</p>
+<p><strong>解決方法</strong>: ゼロ割りを避ける</p>
+<pre><code class="language-javascript">void main() {
+  int a = 10;
+  int b = 0;
+  
+  if (b != 0) {
+    print(a ~/ b);
+  } else {
+    print('エラー: ゼロで割ることはできません');
+  }
+}
+</code></pre>
+<h2 id="エラーメッセージの読み方"><a class="header" href="#エラーメッセージの読み方">エラーメッセージの読み方</a></h2>
+<h3 id="1-エラーメッセージの構造"><a class="header" href="#1-エラーメッセージの構造">1. エラーメッセージの構造</a></h3>
+<p>典型的なエラーメッセージは以下の構造になっています：</p>
+<pre><code>Error: [エラーの種類]: [詳細な説明]
+  at line [行番号] column [列番号] of [ファイル名]
+</code></pre>
+<h3 id="2-重要な情報を見つける"><a class="header" href="#2-重要な情報を見つける">2. 重要な情報を見つける</a></h3>
+<h4 id="行番号の確認"><a class="header" href="#行番号の確認">行番号の確認</a></h4>
+<p>エラーメッセージには、問題が発生した行番号が表示されます。</p>
+<pre><code class="language-javascript">// 1行目
+void main() {
+  // 2行目
+  print('Hello')  // 3行目：セミコロンがない
+  // 4行目
+  print('World');
+}
+</code></pre>
+<p>エラーメッセージ：</p>
+<pre><code>Error: Expected ';' after this.
+  at line 3 column 18 of file.dart
+</code></pre>
+<p><strong>読み方</strong>: 「3行目の18文字目にセミコロンが必要です」</p>
+<h4 id="エラーの種類を理解する"><a class="header" href="#エラーの種類を理解する">エラーの種類を理解する</a></h4>
+<ul>
+<li><strong>Expected</strong>: 「〜が期待されています」</li>
+<li><strong>Undefined</strong>: 「〜が定義されていません」</li>
+<li><strong>Can't be assigned</strong>: 「〜を代入できません」</li>
+<li><strong>Exception</strong>: 「例外が発生しました」</li>
+</ul>
+<h3 id="3-エラーメッセージの具体例と解読"><a class="header" href="#3-エラーメッセージの具体例と解読">3. エラーメッセージの具体例と解読</a></h3>
+<h4 id="例1-複雑な構文エラー"><a class="header" href="#例1-複雑な構文エラー">例1: 複雑な構文エラー</a></h4>
+<pre><code class="language-javascript">void main() {
+  String message = 'Hello, World!;
+  print(message);
+}
+</code></pre>
+<p>エラーメッセージ：</p>
+<pre><code>Error: Unterminated string literal.
+  at line 2 column 20 of file.dart
+</code></pre>
+<p><strong>解読</strong>:</p>
+<ul>
+<li><strong>Unterminated string literal</strong>: 「終了されていない文字列リテラル」</li>
+<li><strong>line 2 column 20</strong>: 「2行目の20文字目」</li>
+<li><strong>問題</strong>: 文字列の終了引用符がない</li>
+<li><strong>解決</strong>: 文字列を正しく閉じる</li>
+</ul>
+<pre><code class="language-javascript">void main() {
+  String message = 'Hello, World!';  // 引用符を正しく閉じる
+  print(message);
+}
+</code></pre>
+<h4 id="例2-関数呼び出しのエラー"><a class="header" href="#例2-関数呼び出しのエラー">例2: 関数呼び出しのエラー</a></h4>
+<pre><code class="language-javascript">void main() {
+  print('Hello', 'World');  // print関数は1つの引数のみ受け取る
+}
+</code></pre>
+<p>エラーメッセージ：</p>
+<pre><code>Error: Too many positional arguments: 1 expected, but 2 found.
+</code></pre>
+<p><strong>解読</strong>:</p>
+<ul>
+<li><strong>Too many positional arguments</strong>: 「位置引数が多すぎます」</li>
+<li><strong>1 expected, but 2 found</strong>: 「1つ期待されているが、2つ見つかりました」</li>
+<li><strong>解決</strong>: 引数を1つにするか、文字列を結合する</li>
+</ul>
+<pre><code class="language-javascript">void main() {
+  print('Hello World');           // 1つの文字列にする
+  // または
+  print('Hello' + ' ' + 'World'); // 文字列を結合する
+}
+</code></pre>
+<h2 id="よくあるエラーとその対処法"><a class="header" href="#よくあるエラーとその対処法">よくあるエラーとその対処法</a></h2>
+<h3 id="1-expected--after-this"><a class="header" href="#1-expected--after-this">1. 「Expected ';' after this」</a></h3>
+<p><strong>原因</strong>: セミコロンの忘れ
+<strong>対処法</strong>: 文の最後にセミコロンを追加する</p>
+<pre><code class="language-javascript">// 間違い
+print('Hello')
+
+// 正しい
+print('Hello');
+</code></pre>
+<h3 id="2-undefined-name-変数名"><a class="header" href="#2-undefined-name-変数名">2. 「Undefined name '変数名'」</a></h3>
+<p><strong>原因</strong>: 変数名のスペルミスまたは未定義
+<strong>対処法</strong>: 正しいスペルに修正するか、変数を定義する</p>
+<pre><code class="language-javascript">// 間違い
+String name = 'Dart';
+print(naem);  // スペルミス
+
+// 正しい
+String name = 'Dart';
+print(name);  // 正しいスペル
+</code></pre>
+<h3 id="3-expected--to-close-block-opened"><a class="header" href="#3-expected--to-close-block-opened">3. 「Expected '}' to close block opened」</a></h3>
+<p><strong>原因</strong>: 中括弧の不一致
+<strong>対処法</strong>: 開いた中括弧に対応する閉じ中括弧を追加する</p>
+<pre><code class="language-javascript">// 間違い
+void main() {
+  print('Hello');
+// } がない
+
+// 正しい
+void main() {
+  print('Hello');
+}  // } を追加
+</code></pre>
+<h3 id="4-a-value-of-type-string-cant-be-assigned-to-a-variable-of-type-int"><a class="header" href="#4-a-value-of-type-string-cant-be-assigned-to-a-variable-of-type-int">4. 「A value of type 'String' can't be assigned to a variable of type 'int'」</a></h3>
+<p><strong>原因</strong>: 型の不一致
+<strong>対処法</strong>: 正しい型の値を代入する</p>
+<pre><code class="language-javascript">// 間違い
+int age = '20';  // 文字列を整数型に代入
+
+// 正しい
+int age = 20;          // 整数を整数型に代入
+String ageString = '20';  // 文字列を文字列型に代入
+</code></pre>
+<h2 id="エラーの解決手順"><a class="header" href="#エラーの解決手順">エラーの解決手順</a></h2>
+<h3 id="ステップ1-落ち着く"><a class="header" href="#ステップ1-落ち着く">ステップ1: 落ち着く</a></h3>
+<p>エラーが出ても慌てないことが重要です。エラーは問題を教えてくれる親切な機能です。</p>
+<h3 id="ステップ2-エラーメッセージをよく読む"><a class="header" href="#ステップ2-エラーメッセージをよく読む">ステップ2: エラーメッセージをよく読む</a></h3>
+<ul>
+<li>どんなエラーか（構文エラー、名前エラーなど）</li>
+<li>どこでエラーが起きたか（行番号、列番号）</li>
+<li>何が問題か（具体的な説明）</li>
+</ul>
+<h3 id="ステップ3-該当箇所を確認する"><a class="header" href="#ステップ3-該当箇所を確認する">ステップ3: 該当箇所を確認する</a></h3>
+<p>エラーメッセージで示された行と列を確認します。</p>
+<h3 id="ステップ4-近くの行も確認する"><a class="header" href="#ステップ4-近くの行も確認する">ステップ4: 近くの行も確認する</a></h3>
+<p>エラーの原因は、表示された行の前後にある場合があります。</p>
+<h3 id="ステップ5-修正して再実行"><a class="header" href="#ステップ5-修正して再実行">ステップ5: 修正して再実行</a></h3>
+<p>修正したら、プログラムを再実行して確認します。</p>
+<h2 id="エラーの予防方法"><a class="header" href="#エラーの予防方法">エラーの予防方法</a></h2>
+<h3 id="1-コードを少しずつ書く"><a class="header" href="#1-コードを少しずつ書く">1. コードを少しずつ書く</a></h3>
+<p>一度に大量のコードを書かずに、少しずつ書いて動作確認することで、エラーの箇所を特定しやすくなります。</p>
+<pre><code class="language-javascript">void main() {
+  // ステップ1: 基本の出力を確認
+  print('Hello');
+  
+  // ここで一度実行して動作確認
+  
+  // ステップ2: 変数を追加
+  String name = 'Dart';
+  print(name);
+  
+  // ここでも実行して動作確認
+}
+</code></pre>
+<h3 id="2-インデントを正しく使う"><a class="header" href="#2-インデントを正しく使う">2. インデントを正しく使う</a></h3>
+<p>正しいインデントを使うことで、構造が見やすくなり、エラーを防げます。</p>
+<pre><code class="language-javascript">// 見やすいコード
+void main() {
+  if (true) {
+    print('条件が真です');
+  }
+}
+
+// 見にくいコード
+void main() {
+if (true) {
+print('条件が真です');
+}
+}
+</code></pre>
+<h3 id="3-コメントを活用する"><a class="header" href="#3-コメントを活用する">3. コメントを活用する</a></h3>
+<p>コメントを使って自分の意図を記録しておくことで、エラーの原因を見つけやすくなります。</p>
+<pre><code class="language-javascript">void main() {
+  // 学生の情報を設定
+  String studentName = '田中太郎';
+  int score = 85;
+  
+  // 成績判定（80点以上で合格）
+  if (score &gt;= 80) {
+    print('$studentName: 合格');
+  } else {
+    print('$studentName: 不合格');
+  }
+}
+</code></pre>
+<h2 id="デバッグのテクニック"><a class="header" href="#デバッグのテクニック">デバッグのテクニック</a></h2>
+<h3 id="1-print文を使った確認"><a class="header" href="#1-print文を使った確認">1. print文を使った確認</a></h3>
+<p>変数の値や処理の流れを確認するために、print文を追加します。</p>
+<pre><code class="language-javascript">void main() {
+  int a = 10;
+  int b = 5;
+  
+  print('デバッグ: a = $a, b = $b');  // 変数の値を確認
+  
+  int result = a + b;
+  
+  print('デバッグ: 計算結果 = $result');  // 計算結果を確認
+  
+  print('最終結果: $result');
+}
+</code></pre>
+<h3 id="2-段階的な実行"><a class="header" href="#2-段階的な実行">2. 段階的な実行</a></h3>
+<p>複雑な処理を段階に分けて、どこで問題が起きているかを特定します。</p>
+<pre><code class="language-javascript">void main() {
+  print('ステップ1: 開始');
+  
+  String name = '山田花子';
+  print('ステップ2: 名前設定完了 - $name');
+  
+  int age = 20;
+  print('ステップ3: 年齢設定完了 - $age');
+  
+  String message = '$nameは${age}歳です';
+  print('ステップ4: メッセージ作成完了 - $message');
+  
+  print('ステップ5: 完了');
+}
+</code></pre>
+<h2 id="実践演習"><a class="header" href="#実践演習">実践演習</a></h2>
+<h3 id="演習1-エラーを修正しよう"><a class="header" href="#演習1-エラーを修正しよう">演習1: エラーを修正しよう</a></h3>
+<p>以下のプログラムにはエラーがあります。エラーメッセージを読んで修正してください。</p>
+<pre><code class="language-javascript">void main() {
+  String name = 'プログラミング'
+  int score = '85';
+  print('科目: $name')
+  print('点数: $score点');
+</code></pre>
+<p><strong>解答例</strong>:</p>
+<pre><code class="language-javascript">void main() {
+  String name = 'プログラミング';  // セミコロンを追加
+  int score = 85;                   // 文字列ではなく数値を代入
+  print('科目: $name');             // セミコロンを追加
+  print('点数: $score点');
+}
+</code></pre>
+<h3 id="演習2-エラーメッセージを読み解こう"><a class="header" href="#演習2-エラーメッセージを読み解こう">演習2: エラーメッセージを読み解こう</a></h3>
+<p>以下のエラーメッセージから、何が問題で、どう修正すべきかを考えてください。</p>
+<pre><code>Error: Undefined name 'userName'.
+  at line 4 column 9 of program.dart
+</code></pre>
+<p><strong>問題のコード</strong>:</p>
+<pre><code class="language-javascript">void main() {
+  String userNaem = '田中太郎';  // スペルミス
+  int userAge = 25;
+  print('名前: $userName');      // 4行目：間違った変数名
+  print('年齢: $userAge');
+}
+</code></pre>
+<p><strong>解答</strong>:</p>
+<ul>
+<li>2行目の変数名 <code>userNaem</code> を <code>userName</code> に修正</li>
+<li>または4行目の <code>userName</code> を <code>userNaem</code> に修正</li>
+</ul>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>エラーメッセージの理解について学んだ重要なポイント：</p>
+<h3 id="エラーの捉え方"><a class="header" href="#エラーの捉え方">エラーの捉え方</a></h3>
+<ul>
+<li><strong>エラーは敵ではない</strong>: 問題を教えてくれる親切な機能</li>
+<li><strong>学習の機会</strong>: エラーから多くのことを学べる</li>
+<li><strong>スキル向上</strong>: エラー対処能力はプログラミング力の一部</li>
+</ul>
+<h3 id="エラーの種類"><a class="header" href="#エラーの種類">エラーの種類</a></h3>
+<ul>
+<li><strong>構文エラー</strong>: プログラムの書き方の間違い</li>
+<li><strong>名前エラー</strong>: 存在しない変数・関数の使用</li>
+<li><strong>型エラー</strong>: データ型の不一致</li>
+<li><strong>実行時エラー</strong>: プログラム実行中の問題</li>
+</ul>
+<h3 id="解決のアプローチ"><a class="header" href="#解決のアプローチ">解決のアプローチ</a></h3>
+<ul>
+<li><strong>冷静に対処</strong>: 慌てずにメッセージを読む</li>
+<li><strong>段階的デバッグ</strong>: 少しずつ問題を切り分ける</li>
+<li><strong>予防的プログラミング</strong>: エラーを未然に防ぐ書き方</li>
+</ul>
+<h3 id="重要な習慣"><a class="header" href="#重要な習慣">重要な習慣</a></h3>
+<ul>
+<li><strong>こまめな実行</strong>: 少し書いたら動作確認</li>
+<li><strong>整理された コード</strong>: インデントとコメントの活用</li>
+<li><strong>段階的開発</strong>: 複雑な処理を段階に分ける</li>
+</ul>
+<p>エラーメッセージを読めるようになることで、プログラミングの学習効率が大幅に向上します。エラーを恐れず、エラーメッセージから学ぶ姿勢を大切にしましょう。</p>
+<p>第2章はこれで完了です。次の第3章では、プログラムで データを扱うための「変数とデータ型」について学びます。</p>
 
                     </main>
 

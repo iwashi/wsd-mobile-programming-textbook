@@ -178,7 +178,300 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="コメントの書き方と重要性"><a class="header" href="#コメントの書き方と重要性">コメントの書き方と重要性</a></h1>
+                        <h1 id="22-コメントの書き方と重要性"><a class="header" href="#22-コメントの書き方と重要性">2.2 コメントの書き方と重要性</a></h1>
+<h2 id="コメントとは何か"><a class="header" href="#コメントとは何か">コメントとは何か</a></h2>
+<p><strong>コメント</strong>とは、プログラムの中に書く「説明文」のことです。プログラムの実行には影響しませんが、コードを読む人（自分自身を含む）がプログラムを理解しやすくするために書きます。</p>
+<pre><code class="language-javascript">void main() {
+  // これがコメントです
+  print('Hello, World!');
+}
+</code></pre>
+<p>コンピュータはコメント部分を無視するので、日本語でも英語でも自由に書くことができます。</p>
+<h2 id="なぜコメントが重要なのか"><a class="header" href="#なぜコメントが重要なのか">なぜコメントが重要なのか</a></h2>
+<h3 id="1-理解しやすくなる"><a class="header" href="#1-理解しやすくなる">1. 理解しやすくなる</a></h3>
+<p>自分が書いたプログラムでも、時間が経つと「何をしているのか忘れる」ことがあります。コメントがあることで、すぐに思い出せます。</p>
+<h3 id="2-他の人との協力がしやすくなる"><a class="header" href="#2-他の人との協力がしやすくなる">2. 他の人との協力がしやすくなる</a></h3>
+<p>チームでプログラミングをするとき、コメントがあることで他の人があなたのコードを理解しやすくなります。</p>
+<h3 id="3-バグを見つけやすくなる"><a class="header" href="#3-バグを見つけやすくなる">3. バグを見つけやすくなる</a></h3>
+<p>プログラムの意図をコメントで明確にしておくことで、実際の動作との違いに気づきやすくなります。</p>
+<h3 id="4-学習効果が高まる"><a class="header" href="#4-学習効果が高まる">4. 学習効果が高まる</a></h3>
+<p>特に初学者にとって、「なぜこのコードを書いたのか」をコメントで記録することは、学習の振り返りに非常に有効です。</p>
+<h2 id="dartでのコメントの書き方"><a class="header" href="#dartでのコメントの書き方">Dartでのコメントの書き方</a></h2>
+<h3 id="1-1行コメント"><a class="header" href="#1-1行コメント">1. 1行コメント（//）</a></h3>
+<p><code>//</code> から行の終わりまでがコメントになります。</p>
+<pre><code class="language-javascript">void main() {
+  // プログラムの開始を知らせる
+  print('プログラムを開始します');
+  
+  print('Hello, World!'); // メッセージを表示
+}
+</code></pre>
+<h3 id="2-複数行コメント-"><a class="header" href="#2-複数行コメント-">2. 複数行コメント（/* */）</a></h3>
+<p><code>/*</code> と <code>*/</code> で囲まれた部分がコメントになります。複数行にわたるコメントを書くときに便利です。</p>
+<pre><code class="language-javascript">void main() {
+  /*
+   これは複数行のコメントです。
+   プログラムの詳しい説明や
+   注意事項などを書くことができます。
+   */
+  print('Hello, World!');
+}
+</code></pre>
+<h3 id="3-ドキュメンテーションコメント"><a class="header" href="#3-ドキュメンテーションコメント">3. ドキュメンテーションコメント（///）</a></h3>
+<p><code>///</code> で始まるコメントは、特別な<strong>ドキュメンテーションコメント</strong>です。後で学ぶ関数やクラスの説明を書くときに使います。</p>
+<pre><code class="language-javascript">/// このプログラムは挨拶を表示するプログラムです。
+/// 学習の第一歩として作成しました。
+void main() {
+  print('Hello, World!');
+}
+</code></pre>
+<h2 id="効果的なコメントの書き方"><a class="header" href="#効果的なコメントの書き方">効果的なコメントの書き方</a></h2>
+<h3 id="1-なぜを説明する"><a class="header" href="#1-なぜを説明する">1. 「なぜ」を説明する</a></h3>
+<p>❌ <strong>悪い例</strong>: 何をしているかだけを書く</p>
+<pre><code class="language-javascript">void main() {
+  // Hello, World!を表示する
+  print('Hello, World!');
+}
+</code></pre>
+<p>✅ <strong>良い例</strong>: なぜそうするのかを書く</p>
+<pre><code class="language-javascript">void main() {
+  // プログラミング学習の第一歩として、伝統的な挨拶を表示
+  print('Hello, World!');
+}
+</code></pre>
+<h3 id="2-複雑な処理の説明"><a class="header" href="#2-複雑な処理の説明">2. 複雑な処理の説明</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 消費税込み価格の計算（税率10%）
+  int price = 1000;
+  double taxRate = 0.1;
+  int totalPrice = (price * (1 + taxRate)).round();
+  
+  print('税込価格: $totalPrice円');
+}
+</code></pre>
+<h3 id="3-注意点や制限事項の記録"><a class="header" href="#3-注意点や制限事項の記録">3. 注意点や制限事項の記録</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 注意: この計算は整数のみ対応（小数点以下は切り捨て）
+  int result = 10 ~/ 3;
+  print('結果: $result');
+}
+</code></pre>
+<h3 id="4-todoやることリストの記録"><a class="header" href="#4-todoやることリストの記録">4. TODO（やることリスト）の記録</a></h3>
+<pre><code class="language-javascript">void main() {
+  print('現在の機能');
+  
+  // TODO: エラーハンドリングを追加する
+  // TODO: ユーザー入力機能を実装する
+  // TODO: 設定ファイルから値を読み込む機能を追加
+}
+</code></pre>
+<h2 id="コメントの実践例"><a class="header" href="#コメントの実践例">コメントの実践例</a></h2>
+<h3 id="例1-計算プログラム"><a class="header" href="#例1-計算プログラム">例1: 計算プログラム</a></h3>
+<pre><code class="language-javascript">void main() {
+  /*
+   簡単な計算プログラム
+   目的: 基本的な四則演算の練習
+   作成日: 2024年1月15日
+   */
+  
+  // 計算に使用する数値を定義
+  int num1 = 15;
+  int num2 = 3;
+  
+  // 四則演算を実行
+  print('=== 計算結果 ===');
+  
+  // 足し算
+  print('$num1 + $num2 = ${num1 + num2}');
+  
+  // 引き算
+  print('$num1 - $num2 = ${num1 - num2}');
+  
+  // 掛け算
+  print('$num1 × $num2 = ${num1 * num2}');
+  
+  // 割り算（整数除算）
+  print('$num1 ÷ $num2 = ${num1 ~/ num2}');
+  
+  // 余り
+  print('$num1 % $num2 = ${num1 % num2}');
+  
+  // 処理完了を表示
+  print('計算が完了しました');
+}
+</code></pre>
+<h3 id="例2-成績管理プログラム"><a class="header" href="#例2-成績管理プログラム">例2: 成績管理プログラム</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 学生の成績データ（テスト用のサンプル）
+  String studentName = '田中太郎';
+  int mathScore = 85;
+  int englishScore = 78;
+  int scienceScore = 92;
+  
+  // 合計点の計算
+  int totalScore = mathScore + englishScore + scienceScore;
+  
+  // 平均点の計算（小数点以下は四捨五入）
+  double averageScore = totalScore / 3;
+  
+  // 成績表示
+  print('=== 成績表 ===');
+  print('生徒名: $studentName');
+  print('');
+  print('各科目の成績:');
+  print('  数学: ${mathScore}点');
+  print('  英語: ${englishScore}点');
+  print('  理科: ${scienceScore}点');
+  print('');
+  print('合計: ${totalScore}点');
+  print('平均: ${averageScore.toStringAsFixed(1)}点');
+  
+  // 成績判定（後で条件分岐を学んだら実装予定）
+  // TODO: 平均点に基づいて「優秀」「良好」「要努力」を判定する機能を追加
+}
+</code></pre>
+<h2 id="コメントを書くべき場面"><a class="header" href="#コメントを書くべき場面">コメントを書くべき場面</a></h2>
+<h3 id="1-プログラムの目的を説明するとき"><a class="header" href="#1-プログラムの目的を説明するとき">1. プログラムの目的を説明するとき</a></h3>
+<pre><code class="language-javascript">// 目的: 1から100までの数値の合計を求める
+void main() {
+  int sum = 0;
+  for (int i = 1; i &lt;= 100; i++) {
+    sum += i;
+  }
+  print('1から100までの合計: $sum');
+}
+</code></pre>
+<h3 id="2-複雑な計算をするとき"><a class="header" href="#2-複雑な計算をするとき">2. 複雑な計算をするとき</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 円の面積を計算（半径5の場合）
+  // 公式: 面積 = π × 半径²
+  double radius = 5.0;
+  double pi = 3.14159;
+  double area = pi * radius * radius;
+  
+  print('半径${radius}の円の面積: $area');
+}
+</code></pre>
+<h3 id="3-特殊な値や制限があるとき"><a class="header" href="#3-特殊な値や制限があるとき">3. 特殊な値や制限があるとき</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 制限: 年齢は0以上150以下で入力してください
+  int age = 25;
+  
+  // 特別値: -1 は「年齢不明」を表す
+  if (age == -1) {
+    print('年齢不明');
+  } else {
+    print('年齢: ${age}歳');
+  }
+}
+</code></pre>
+<h3 id="4-将来の改良予定があるとき"><a class="header" href="#4-将来の改良予定があるとき">4. 将来の改良予定があるとき</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 現在は固定値を使用
+  String greeting = 'こんにちは';
+  
+  // TODO: 時間帯に応じて「おはよう」「こんにちは」「こんばんは」を自動選択
+  // TODO: 言語設定に応じて日本語/英語を切り替え
+  
+  print(greeting);
+}
+</code></pre>
+<h2 id="良くないコメントの例"><a class="header" href="#良くないコメントの例">良くないコメントの例</a></h2>
+<h3 id="1-当たり前のことを書く"><a class="header" href="#1-当たり前のことを書く">1. 当たり前のことを書く</a></h3>
+<p>❌ <strong>避けるべき例</strong>:</p>
+<pre><code class="language-javascript">void main() {
+  // 変数iに1を代入
+  int i = 1;
+  
+  // print関数を使って文字列を出力
+  print('Hello');
+}
+</code></pre>
+<h3 id="2-コードと一致しない説明"><a class="header" href="#2-コードと一致しない説明">2. コードと一致しない説明</a></h3>
+<p>❌ <strong>避けるべき例</strong>:</p>
+<pre><code class="language-javascript">void main() {
+  // 掛け算を実行
+  int result = 10 + 5; // 実際は足し算
+  print(result);
+}
+</code></pre>
+<h3 id="3-長すぎる説明"><a class="header" href="#3-長すぎる説明">3. 長すぎる説明</a></h3>
+<p>❌ <strong>避けるべき例</strong>:</p>
+<pre><code class="language-javascript">void main() {
+  /*
+   ここでは変数を使って数値を格納します。
+   変数とは値を記憶しておく箱のようなもので、
+   プログラムの実行中に値を変更することができます。
+   Dartでは型を明示的に指定することで、
+   より安全なプログラムを書くことができ...
+   （長すぎる説明が続く）
+   */
+  int number = 42;
+  print(number);
+}
+</code></pre>
+<h2 id="コメントのスタイルガイド"><a class="header" href="#コメントのスタイルガイド">コメントのスタイルガイド</a></h2>
+<h3 id="1-一貫性を保つ"><a class="header" href="#1-一貫性を保つ">1. 一貫性を保つ</a></h3>
+<p>プロジェクト内では同じスタイルでコメントを書きましょう。</p>
+<h3 id="2-適度な長さにする"><a class="header" href="#2-適度な長さにする">2. 適度な長さにする</a></h3>
+<p>1行コメントは簡潔に、複数行コメントも必要以上に長くしない。</p>
+<h3 id="3-定期的に更新する"><a class="header" href="#3-定期的に更新する">3. 定期的に更新する</a></h3>
+<p>コードを変更したら、関連するコメントも忘れずに更新する。</p>
+<h3 id="4-日本語を使う"><a class="header" href="#4-日本語を使う">4. 日本語を使う</a></h3>
+<p>初学者は日本語でコメントを書いて構いません。理解しやすさを最優先にしましょう。</p>
+<h2 id="演習-コメントを追加してみよう"><a class="header" href="#演習-コメントを追加してみよう">演習: コメントを追加してみよう</a></h2>
+<p>以下のプログラムに適切なコメントを追加してください：</p>
+<pre><code class="language-javascript">void main() {
+  String name = '山田花子';
+  int age = 20;
+  String hobby = 'reading';
+  
+  print('自己紹介');
+  print('名前: $name');
+  print('年齢: $age');
+  print('趣味: $hobby');
+}
+</code></pre>
+<p>解答例：</p>
+<pre><code class="language-javascript">void main() {
+  // 自己紹介プログラム - 基本情報を画面に表示
+  
+  // 個人情報の設定
+  String name = '山田花子';    // 名前
+  int age = 20;               // 年齢
+  String hobby = 'reading';   // 趣味（英語で記録）
+  
+  // 自己紹介の表示
+  print('自己紹介');
+  print('名前: $name');
+  print('年齢: $age');
+  print('趣味: $hobby');
+  
+  // TODO: 将来的には趣味を日本語表示に変更する
+}
+</code></pre>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>コメントの重要性：</p>
+<ol>
+<li><strong>理解促進</strong>: プログラムの意図を明確にする</li>
+<li><strong>保守性向上</strong>: 後でコードを修正しやすくする</li>
+<li><strong>協力促進</strong>: チームでの開発を円滑にする</li>
+<li><strong>学習効果</strong>: 自分の学習過程を記録できる</li>
+</ol>
+<p>コメントの書き方：</p>
+<ul>
+<li><strong>1行コメント</strong>: <code>//</code> を使用</li>
+<li><strong>複数行コメント</strong>: <code>/* */</code> を使用</li>
+<li><strong>ドキュメンテーションコメント</strong>: <code>///</code> を使用</li>
+</ul>
+<p>良いコメントの特徴：</p>
+<ul>
+<li><strong>目的を説明する</strong>: 「なぜ」を重視</li>
+<li><strong>適切な量</strong>: 必要十分な情報量</li>
+<li><strong>最新性</strong>: コードと一致している</li>
+<li><strong>明確性</strong>: 分かりやすい表現</li>
+</ul>
+<p>次の節では、プログラムで最も基本的な出力機能である「print文」について詳しく学びます。</p>
 
                     </main>
 
