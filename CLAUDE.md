@@ -21,8 +21,7 @@ This is a Japanese programming textbook titled "Dartで学ぶプログラミン�
 ├── src/               # Source Markdown files
 │   ├── SUMMARY.md     # Book structure definition - critical file
 │   ├── introduction.md
-│   ├── chapter_1/ to chapter_15/  # Chapter content
-│   └── appendix/      # Reference materials
+│   └── chapter_1/ to chapter_15/  # Chapter content
 └── todo.md            # Chapter completion tracking
 ```
 
