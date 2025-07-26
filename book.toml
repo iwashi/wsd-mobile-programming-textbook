@@ -9,8 +9,6 @@ build-dir = "book"
 
 [preprocessor]
 
-[preprocessor.html]
-
 [output.html]
 default-theme = "light"
 preferred-dark-theme = "navy"
@@ -42,6 +40,6 @@ copyable = true
 runnable = false
 
 # シンタックスハイライトの設定
-[output.html.highlight]
-theme = "base16-ocean-dark"
-default-language = "dart"
+[output.html.code]
+theme = "base16-ocean-light"
+hideable = true

@@ -52,3 +52,14 @@ The book is organized into 8 parts:
 - Each chapter directory contains individual section files
 - The project uses standard mdBook configuration without custom themes or plugins
 - Progress tracking is done via `todo.md` with checkboxes for each section
+
+## Syntax Highlighting Configuration
+
+**Important**: Although this textbook teaches Dart programming, all code blocks use `javascript` syntax highlighting instead of `dart`.
+
+**Reason**: mdBook does not have built-in support for Dart syntax highlighting. Since Dart and JavaScript share similar syntax (functions, comments, control structures), using `javascript` provides better code readability with proper syntax coloring.
+
+**Usage**: 
+- Use `\`\`\`javascript` for all Dart code examples
+- This applies to all chapters throughout the textbook
+- The actual code remains Dart - only the syntax highlighting language tag is changed
