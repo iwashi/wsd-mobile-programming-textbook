@@ -40,3 +40,8 @@ copy-js = true
 editable = false
 copyable = true
 runnable = false
+
+# シンタックスハイライトの設定
+[output.html.highlight]
+theme = "base16-ocean-dark"
+default-language = "dart"
