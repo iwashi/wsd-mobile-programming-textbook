@@ -215,7 +215,7 @@
 </ul>
 <h2 id="最初のプログラムを実行してみよう"><a class="header" href="#最初のプログラムを実行してみよう">最初のプログラムを実行してみよう</a></h2>
 <p>DartPadを開いたとき、既に以下のようなプログラムが入力されているはずです：</p>
-<pre><code class="language-dart">void main() {
+<pre><code class="language-javascript">void main() {
   print('Hello, World!');
 }
 </code></pre>
@@ -236,13 +236,13 @@
 <li><code>'Hello, World!'</code> の部分を <code>'こんにちは、Dart!'</code> に変更してみましょう</li>
 <li>Runボタンを押して、表示が変わることを確認しましょう</li>
 </ol>
-<pre><code class="language-dart">void main() {
+<pre><code class="language-javascript">void main() {
   print('こんにちは、Dart!');
 }
 </code></pre>
 <h3 id="演習2-複数のメッセージを表示する"><a class="header" href="#演習2-複数のメッセージを表示する">演習2: 複数のメッセージを表示する</a></h3>
 <p><code>print</code>文を複数行書くことで、複数のメッセージを表示できます：</p>
-<pre><code class="language-dart">void main() {
+<pre><code class="language-javascript">void main() {
   print('プログラミングの学習を始めます');
   print('今日はDartについて学びます');
   print('一緒に頑張りましょう！');
@@ -250,7 +250,7 @@
 </code></pre>
 <h3 id="演習3-簡単な計算をしてみる"><a class="header" href="#演習3-簡単な計算をしてみる">演習3: 簡単な計算をしてみる</a></h3>
 <p>Dartでは数値の計算もできます：</p>
-<pre><code class="language-dart">void main() {
+<pre><code class="language-javascript">void main() {
   print(5 + 3);
   print(10 * 2);
   print(20 / 4);
@@ -260,21 +260,21 @@
 <p>プログラムを書いていると、必ずエラー（間違い）が発生します。DartPadでエラーが起きたときの見方を覚えておきましょう。</p>
 <h3 id="よくあるエラーの例"><a class="header" href="#よくあるエラーの例">よくあるエラーの例</a></h3>
 <h4 id="1-セミコロンの忘れ"><a class="header" href="#1-セミコロンの忘れ">1. セミコロンの忘れ</a></h4>
-<pre><code class="language-dart">void main() {
+<pre><code class="language-javascript">void main() {
   print('Hello')  // セミコロンが抜けている
 }
 </code></pre>
 <p><strong>エラーメッセージ</strong>: 「Expected to find ';'」
 <strong>解決方法</strong>: 行の終わりにセミコロン（;）を追加する</p>
 <h4 id="2-括弧の不一致"><a class="header" href="#2-括弧の不一致">2. 括弧の不一致</a></h4>
-<pre><code class="language-dart">void main() {
+<pre><code class="language-javascript">void main() {
   print('Hello';  // 閉じ括弧が抜けている
 }
 </code></pre>
 <p><strong>エラーメッセージ</strong>: 「Expected to find ')'」
 <strong>解決方法</strong>: 開き括弧と閉じ括弧の数を確認する</p>
 <h4 id="3-引用符の不一致"><a class="header" href="#3-引用符の不一致">3. 引用符の不一致</a></h4>
-<pre><code class="language-dart">void main() {
+<pre><code class="language-javascript">void main() {
   print('Hello, World!");  // 引用符が混在している
 }
 </code></pre>
