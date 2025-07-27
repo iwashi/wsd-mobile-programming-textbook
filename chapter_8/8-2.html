@@ -179,6 +179,213 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="マップの作成と操作"><a class="header" href="#マップの作成と操作">マップの作成と操作</a></h1>
+<p>前のセクションでマップの概念を学びました。ここでは、実際にマップを作成し、操作する方法を詳しく見ていきましょう。</p>
+<h2 id="マップの作成"><a class="header" href="#マップの作成">マップの作成</a></h2>
+<h3 id="1-空のマップを作る"><a class="header" href="#1-空のマップを作る">1. 空のマップを作る</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 空のマップを作成
+  Map&lt;String, int&gt; ages = {};
+  
+  // または
+  Map&lt;String, int&gt; scores = Map();
+  
+  print(ages);  // {}
+  print(scores); // {}
+}
+</code></pre>
+<h3 id="2-初期値を持つマップを作る"><a class="header" href="#2-初期値を持つマップを作る">2. 初期値を持つマップを作る</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 初期値を持つマップ
+  Map&lt;String, int&gt; fruitPrices = {
+    'りんご': 150,
+    'バナナ': 100,
+    'オレンジ': 120,
+    'ぶどう': 300
+  };
+  
+  print(fruitPrices);
+  // {りんご: 150, バナナ: 100, オレンジ: 120, ぶどう: 300}
+}
+</code></pre>
+<h2 id="値の取得"><a class="header" href="#値の取得">値の取得</a></h2>
+<p>マップから値を取得するには、角括弧 <code>[]</code> にキーを指定します：</p>
+<pre><code class="language-javascript">void main() {
+  Map&lt;String, int&gt; ages = {
+    '太郎': 20,
+    '花子': 18,
+    '次郎': 22
+  };
+  
+  // 値の取得
+  print('太郎の年齢: ${ages['太郎']}歳');  // 太郎の年齢: 20歳
+  print('花子の年齢: ${ages['花子']}歳');  // 花子の年齢: 18歳
+  
+  // 存在しないキーを指定するとnullが返る
+  print('三郎の年齢: ${ages['三郎']}');    // 三郎の年齢: null
+}
+</code></pre>
+<h2 id="値の追加と更新"><a class="header" href="#値の追加と更新">値の追加と更新</a></h2>
+<h3 id="新しいキーと値を追加"><a class="header" href="#新しいキーと値を追加">新しいキーと値を追加</a></h3>
+<pre><code class="language-javascript">void main() {
+  Map&lt;String, String&gt; capitals = {
+    '日本': '東京',
+    'アメリカ': 'ワシントンD.C.'
+  };
+  
+  // 新しい要素を追加
+  capitals['フランス'] = 'パリ';
+  capitals['イギリス'] = 'ロンドン';
+  
+  print(capitals);
+  // {日本: 東京, アメリカ: ワシントンD.C., フランス: パリ, イギリス: ロンドン}
+}
+</code></pre>
+<h3 id="既存の値を更新"><a class="header" href="#既存の値を更新">既存の値を更新</a></h3>
+<pre><code class="language-javascript">void main() {
+  Map&lt;String, int&gt; testScores = {
+    '数学': 85,
+    '英語': 78,
+    '理科': 92
+  };
+  
+  print('更新前の英語の点数: ${testScores['英語']}');  // 78
+  
+  // 値を更新
+  testScores['英語'] = 82;
+  
+  print('更新後の英語の点数: ${testScores['英語']}');  // 82
+}
+</code></pre>
+<h2 id="値の削除"><a class="header" href="#値の削除">値の削除</a></h2>
+<pre><code class="language-javascript">void main() {
+  Map&lt;String, String&gt; todoList = {
+    '月曜日': '買い物',
+    '火曜日': '掃除',
+    '水曜日': '勉強',
+    '木曜日': '運動'
+  };
+  
+  print('削除前: $todoList');
+  
+  // 要素を削除
+  todoList.remove('火曜日');
+  
+  print('削除後: $todoList');
+  // {月曜日: 買い物, 水曜日: 勉強, 木曜日: 運動}
+}
+</code></pre>
+<h2 id="キーの存在確認"><a class="header" href="#キーの存在確認">キーの存在確認</a></h2>
+<pre><code class="language-javascript">void main() {
+  Map&lt;String, double&gt; productPrices = {
+    'ノート': 150.0,
+    'ペン': 100.0,
+    '消しゴム': 80.0
+  };
+  
+  // キーが存在するか確認
+  if (productPrices.containsKey('ペン')) {
+    print('ペンの価格: ${productPrices['ペン']}円');
+  }
+  
+  if (!productPrices.containsKey('鉛筆')) {
+    print('鉛筆は商品リストにありません');
+  }
+}
+</code></pre>
+<h2 id="マップのプロパティ"><a class="header" href="#マップのプロパティ">マップのプロパティ</a></h2>
+<pre><code class="language-javascript">void main() {
+  Map&lt;String, int&gt; monthDays = {
+    '1月': 31,
+    '2月': 28,
+    '3月': 31,
+    '4月': 30
+  };
+  
+  // マップのサイズ（要素数）
+  print('要素数: ${monthDays.length}');  // 要素数: 4
+  
+  // マップが空かどうか
+  print('空ですか？: ${monthDays.isEmpty}');  // 空ですか？: false
+  
+  // すべてのキーを取得
+  print('すべてのキー: ${monthDays.keys}');
+  // すべてのキー: (1月, 2月, 3月, 4月)
+  
+  // すべての値を取得
+  print('すべての値: ${monthDays.values}');
+  // すべての値: (31, 28, 31, 30)
+}
+</code></pre>
+<h2 id="マップの繰り返し処理"><a class="header" href="#マップの繰り返し処理">マップの繰り返し処理</a></h2>
+<pre><code class="language-javascript">void main() {
+  Map&lt;String, String&gt; englishWords = {
+    'apple': 'りんご',
+    'book': '本',
+    'cat': '猫',
+    'dog': '犬'
+  };
+  
+  // forEach を使った繰り返し
+  print('=== 英単語リスト ===');
+  englishWords.forEach((key, value) {
+    print('$key: $value');
+  });
+  
+  // for-in を使った繰り返し
+  print('\n=== キーだけを表示 ===');
+  for (String word in englishWords.keys) {
+    print(word);
+  }
+}
+</code></pre>
+<h2 id="実践的な例在庫管理"><a class="header" href="#実践的な例在庫管理">実践的な例：在庫管理</a></h2>
+<pre><code class="language-javascript">void main() {
+  // 商品の在庫数を管理
+  Map&lt;String, int&gt; inventory = {
+    'りんご': 50,
+    'バナナ': 30,
+    'オレンジ': 25
+  };
+  
+  print('現在の在庫: $inventory');
+  
+  // 商品を販売（在庫を減らす）
+  String soldItem = 'バナナ';
+  int soldQuantity = 5;
+  
+  if (inventory.containsKey(soldItem)) {
+    inventory[soldItem] = inventory[soldItem]! - soldQuantity;
+    print('$soldItemを$soldQuantity個販売しました');
+  }
+  
+  // 新商品を追加
+  inventory['ぶどう'] = 20;
+  print('新商品ぶどうを追加しました');
+  
+  // 在庫確認
+  print('\n=== 在庫一覧 ===');
+  inventory.forEach((item, quantity) {
+    print('$item: $quantity個');
+  });
+}
+</code></pre>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>マップの基本的な操作方法を学びました：</p>
+<ul>
+<li><code>{}</code> または <code>Map()</code> で作成</li>
+<li><code>map[key]</code> で値を取得</li>
+<li><code>map[key] = value</code> で追加・更新</li>
+<li><code>remove(key)</code> で削除</li>
+<li><code>containsKey(key)</code> で存在確認</li>
+<li><code>forEach</code> や <code>for-in</code> で繰り返し処理</li>
+</ul>
+<p>次のセクションでは、マップのより実践的な活用例を見ていきます。</p>
+<h3 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h3>
+<ol>
+<li>友達の名前と誕生日（月/日）を管理するマップを作成し、3人分のデータを追加してください。</li>
+<li>科目名と成績（A, B, C）を管理するマップを作り、1つの科目の成績を更新する処理を書いてください。</li>
+<li>商品名と価格のマップから、すべての商品の合計金額を計算するプログラムを作成してください。</li>
+</ol>
 
                     </main>
 

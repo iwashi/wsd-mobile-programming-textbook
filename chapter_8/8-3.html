@@ -179,6 +179,248 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="マップの活用例"><a class="header" href="#マップの活用例">マップの活用例</a></h1>
+<p>これまでマップの基本的な使い方を学びました。ここでは、実際のプログラミングでよく使われるマップの活用例を見ていきましょう。</p>
+<h2 id="1-成績管理システム"><a class="header" href="#1-成績管理システム">1. 成績管理システム</a></h2>
+<p>複数の生徒の成績を科目ごとに管理する例です：</p>
+<pre><code class="language-javascript">void main() {
+  // 生徒ごとの成績を管理
+  Map&lt;String, Map&lt;String, int&gt;&gt; studentScores = {
+    '田中太郎': {
+      '数学': 85,
+      '英語': 78,
+      '理科': 92,
+      '社会': 88
+    },
+    '鈴木花子': {
+      '数学': 92,
+      '英語': 95,
+      '理科': 87,
+      '社会': 90
+    },
+    '佐藤次郎': {
+      '数学': 78,
+      '英語': 82,
+      '理科': 85,
+      '社会': 80
+    }
+  };
+  
+  // 特定の生徒の成績を表示
+  String studentName = '田中太郎';
+  print('=== ${studentName}の成績 ===');
+  studentScores[studentName]!.forEach((subject, score) {
+    print('$subject: $score点');
+  });
+  
+  // 生徒の平均点を計算
+  print('\n=== 各生徒の平均点 ===');
+  studentScores.forEach((name, scores) {
+    int total = 0;
+    scores.forEach((subject, score) {
+      total += score;
+    });
+    double average = total / scores.length;
+    print('$name: ${average.toStringAsFixed(1)}点');
+  });
+}
+</code></pre>
+<h2 id="2-在庫管理と商品情報"><a class="header" href="#2-在庫管理と商品情報">2. 在庫管理と商品情報</a></h2>
+<p>商品の在庫数と価格を一緒に管理する例：</p>
+<pre><code class="language-javascript">void main() {
+  // 商品情報（在庫数と価格）
+  Map&lt;String, Map&lt;String, int&gt;&gt; products = {
+    'りんご': {'在庫': 50, '価格': 150},
+    'バナナ': {'在庫': 30, '価格': 100},
+    'オレンジ': {'在庫': 25, '価格': 120},
+    'ぶどう': {'在庫': 15, '価格': 300}
+  };
+  
+  // 在庫一覧を表示
+  print('=== 商品在庫一覧 ===');
+  products.forEach((name, info) {
+    print('$name: 在庫${info['在庫']}個, ${info['価格']}円/個');
+  });
+  
+  // 在庫金額の合計を計算
+  int totalValue = 0;
+  products.forEach((name, info) {
+    totalValue += info['在庫']! * info['価格']!;
+  });
+  print('\n在庫金額合計: ${totalValue}円');
+  
+  // 在庫が20個以下の商品を警告
+  print('\n=== 在庫警告 ===');
+  products.forEach((name, info) {
+    if (info['在庫']! &lt;= 20) {
+      print('⚠️ $nameの在庫が少なくなっています（${info['在庫']}個）');
+    }
+  });
+}
+</code></pre>
+<h2 id="3-アンケート集計"><a class="header" href="#3-アンケート集計">3. アンケート集計</a></h2>
+<p>選択肢の回答数を集計する例：</p>
+<pre><code class="language-javascript">void main() {
+  // アンケートの回答を集計
+  List&lt;String&gt; responses = [
+    '満足', '普通', '満足', '不満', '満足',
+    '普通', '満足', '満足', '普通', '不満'
+  ];
+  
+  // 回答を集計するマップ
+  Map&lt;String, int&gt; results = {};
+  
+  // 各回答をカウント
+  for (String response in responses) {
+    if (results.containsKey(response)) {
+      results[response] = results[response]! + 1;
+    } else {
+      results[response] = 1;
+    }
+  }
+  
+  // 結果を表示
+  print('=== アンケート結果 ===');
+  results.forEach((answer, count) {
+    print('$answer: $count票');
+  });
+  
+  // パーセンテージも表示
+  int total = responses.length;
+  print('\n=== 割合 ===');
+  results.forEach((answer, count) {
+    double percentage = (count / total) * 100;
+    print('$answer: ${percentage.toStringAsFixed(1)}%');
+  });
+}
+</code></pre>
+<h2 id="4-設定値の管理"><a class="header" href="#4-設定値の管理">4. 設定値の管理</a></h2>
+<p>アプリケーションの設定を管理する例：</p>
+<pre><code class="language-javascript">void main() {
+  // アプリケーションの設定
+  Map&lt;String, dynamic&gt; settings = {
+    'ユーザー名': '山田太郎',
+    '言語': '日本語',
+    '通知': true,
+    '音量': 80,
+    'テーマ': 'ダーク'
+  };
+  
+  // 現在の設定を表示
+  print('=== 現在の設定 ===');
+  settings.forEach((key, value) {
+    print('$key: $value');
+  });
+  
+  // 設定を変更
+  print('\n設定を変更します...');
+  settings['通知'] = false;
+  settings['音量'] = 60;
+  
+  // 変更後の設定を表示
+  print('\n=== 変更後の設定 ===');
+  settings.forEach((key, value) {
+    print('$key: $value');
+  });
+}
+</code></pre>
+<h2 id="5-単語の頻度カウント"><a class="header" href="#5-単語の頻度カウント">5. 単語の頻度カウント</a></h2>
+<p>文章中の単語の出現回数を数える例：</p>
+<pre><code class="language-javascript">void main() {
+  String text = 'りんご バナナ りんご オレンジ りんご バナナ ぶどう';
+  List&lt;String&gt; words = text.split(' ');
+  
+  // 単語の出現回数をカウント
+  Map&lt;String, int&gt; wordCount = {};
+  
+  for (String word in words) {
+    if (wordCount.containsKey(word)) {
+      wordCount[word] = wordCount[word]! + 1;
+    } else {
+      wordCount[word] = 1;
+    }
+  }
+  
+  // 結果を表示
+  print('=== 単語の出現回数 ===');
+  wordCount.forEach((word, count) {
+    print('$word: $count回');
+  });
+  
+  // 最も頻出する単語を見つける
+  String mostFrequent = '';
+  int maxCount = 0;
+  
+  wordCount.forEach((word, count) {
+    if (count &gt; maxCount) {
+      mostFrequent = word;
+      maxCount = count;
+    }
+  });
+  
+  print('\n最も頻出する単語: $mostFrequent ($maxCount回)');
+}
+</code></pre>
+<h2 id="6-電話帳アプリケーション"><a class="header" href="#6-電話帳アプリケーション">6. 電話帳アプリケーション</a></h2>
+<p>名前から電話番号とメールアドレスを検索する例：</p>
+<pre><code class="language-javascript">void main() {
+  // 連絡先情報
+  Map&lt;String, Map&lt;String, String&gt;&gt; contacts = {
+    '田中太郎': {
+      '電話': '090-1234-5678',
+      'メール': 'tanaka@example.com'
+    },
+    '鈴木花子': {
+      '電話': '080-9876-5432',
+      'メール': 'suzuki@example.com'
+    },
+    '佐藤次郎': {
+      '電話': '070-1111-2222',
+      'メール': 'sato@example.com'
+    }
+  };
+  
+  // 連絡先を検索する関数
+  void searchContact(String name) {
+    if (contacts.containsKey(name)) {
+      print('\n=== $nameの連絡先 ===');
+      contacts[name]!.forEach((type, info) {
+        print('$type: $info');
+      });
+    } else {
+      print('\n$nameは連絡先に登録されていません');
+    }
+  }
+  
+  // 検索実行
+  searchContact('鈴木花子');
+  searchContact('山田太郎');
+  
+  // 新しい連絡先を追加
+  contacts['山田花子'] = {
+    '電話': '090-3333-4444',
+    'メール': 'yamada@example.com'
+  };
+  
+  print('\n新しい連絡先を追加しました');
+  searchContact('山田花子');
+}
+</code></pre>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>マップは以下のような場面で特に便利です：</p>
+<ol>
+<li><strong>データの関連付け</strong>：名前と情報、IDと詳細データなど</li>
+<li><strong>カウント処理</strong>：出現回数、投票数、在庫数など</li>
+<li><strong>設定管理</strong>：キーと値のペアで設定を保存</li>
+<li><strong>高速検索</strong>：キーを使った素早いデータアクセス</li>
+<li><strong>グループ化</strong>：カテゴリーごとにデータを整理</li>
+</ol>
+<p>これらの例を参考に、自分のプログラムでもマップを活用してみましょう。</p>
+<h3 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h3>
+<ol>
+<li>都道府県名をキー、県庁所在地を値とするマップを作成し、5つ以上のデータを登録してください。</li>
+<li>商品の売上個数を記録し、売上ランキングを表示するプログラムを作成してください。</li>
+<li>ユーザーのログイン回数を記録し、最もアクティブなユーザーを見つけるプログラムを作成してください。</li>
+</ol>
 
                     </main>
 

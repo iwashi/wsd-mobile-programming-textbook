@@ -6861,9 +6861,895 @@ if (result % 5 == 0) {
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第8章マップ連想配列"><a class="header" href="#第8章マップ連想配列">第8章：マップ（連想配列）</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="キーと値のペアでデータを管理"><a class="header" href="#キーと値のペアでデータを管理">キーと値のペアでデータを管理</a></h1>
+<p>前章では、リストを使って複数のデータをまとめて管理する方法を学びました。リストは順番に並んだデータを扱うのに便利でしたが、今回はもう一つの重要なデータ構造「マップ（Map）」について学びます。</p>
+<h2 id="リストの制限"><a class="header" href="#リストの制限">リストの制限</a></h2>
+<p>リストは素晴らしいツールですが、ある種の問題には向いていません。例えば、生徒の名前と点数を管理したいとき、リストだけでは次のような問題があります：</p>
+<pre><code class="language-javascript">void main() {
+  List&lt;String&gt; names = ['田中', '鈴木', '佐藤', '山田'];
+  List&lt;int&gt; scores = [85, 92, 78, 90];
+  
+  // 田中さんの点数を知りたい場合、namesリストで位置を探してから、
+  // scoresリストの同じ位置を参照する必要がある
+  int index = names.indexOf('田中');
+  print('田中さんの点数: ${scores[index]}');
+}
+</code></pre>
+<p>このアプローチには問題があります：</p>
+<ul>
+<li>2つのリストを常に同期させる必要がある</li>
+<li>名前から点数を見つけるのに手間がかかる</li>
+<li>データの関係性が分かりにくい</li>
+</ul>
+<h2 id="マップとは"><a class="header" href="#マップとは">マップとは</a></h2>
+<p>マップ（連想配列とも呼ばれます）は、「キー」と「値」のペアでデータを管理するデータ構造です。キーを使って直接値にアクセスできるため、関連するデータを効率的に管理できます。</p>
+<p>マップのイメージ：</p>
+<pre><code>scores = {
+  '田中': 85,
+  '鈴木': 92,
+  '佐藤': 78,
+  '山田': 90
+}
+</code></pre>
+<p>ここで：</p>
+<ul>
+<li><strong>キー</strong>：データを識別するための名前（例：'田中'）</li>
+<li><strong>値</strong>：キーに関連付けられたデータ（例：85）</li>
+</ul>
+<h2 id="実生活でのマップの例"><a class="header" href="#実生活でのマップの例">実生活でのマップの例</a></h2>
+<p>マップは日常生活でもよく見かける概念です：</p>
+<ol>
+<li>
+<p><strong>電話帳</strong></p>
+<ul>
+<li>キー：人の名前</li>
+<li>値：電話番号</li>
+</ul>
+</li>
+<li>
+<p><strong>辞書</strong></p>
+<ul>
+<li>キー：単語</li>
+<li>値：意味</li>
+</ul>
+</li>
+<li>
+<p><strong>商品カタログ</strong></p>
+<ul>
+<li>キー：商品コード</li>
+<li>値：価格</li>
+</ul>
+</li>
+<li>
+<p><strong>学生証</strong></p>
+<ul>
+<li>キー：学籍番号</li>
+<li>値：学生の情報</li>
+</ul>
+</li>
+</ol>
+<h2 id="マップの特徴"><a class="header" href="#マップの特徴">マップの特徴</a></h2>
+<ol>
+<li><strong>キーは一意</strong>：同じキーは1つしか存在できません</li>
+<li><strong>高速アクセス</strong>：キーを使って直接値にアクセスできます</li>
+<li><strong>順序は保証されない</strong>：追加した順番は保持されない場合があります</li>
+<li><strong>異なる型の組み合わせ</strong>：キーと値は異なる型にできます</li>
+</ol>
+<h2 id="リストとマップの使い分け"><a class="header" href="#リストとマップの使い分け">リストとマップの使い分け</a></h2>
+<h3 id="リストを使う場合"><a class="header" href="#リストを使う場合">リストを使う場合</a></h3>
+<ul>
+<li>データに順序が重要な場合</li>
+<li>インデックス（番号）でアクセスしたい場合</li>
+<li>同じ値が複数存在してもよい場合</li>
+</ul>
+<h3 id="マップを使う場合"><a class="header" href="#マップを使う場合">マップを使う場合</a></h3>
+<ul>
+<li>特定の名前やIDでデータにアクセスしたい場合</li>
+<li>データ間の関連性を表現したい場合</li>
+<li>検索を高速に行いたい場合</li>
+</ul>
+<h2 id="簡単な例"><a class="header" href="#簡単な例">簡単な例</a></h2>
+<pre><code class="language-javascript">void main() {
+  // 果物の価格を管理するマップ
+  Map&lt;String, int&gt; fruitPrices = {
+    'りんご': 150,
+    'バナナ': 100,
+    'オレンジ': 120
+  };
+  
+  // キーを使って直接価格にアクセス
+  print('りんごの価格: ${fruitPrices['りんご']}円');
+  print('バナナの価格: ${fruitPrices['バナナ']}円');
+}
+</code></pre>
+<h2 id="まとめ-25"><a class="header" href="#まとめ-25">まとめ</a></h2>
+<p>マップは、キーと値のペアでデータを管理する強力なデータ構造です。名前やIDなど、意味のあるキーを使ってデータに直接アクセスできるため、関連するデータを効率的に管理できます。次のセクションでは、実際にマップを作成し、操作する方法を詳しく学びましょう。</p>
+<h3 id="練習問題-17"><a class="header" href="#練習問題-17">練習問題</a></h3>
+<ol>
+<li>あなたの家族や友人の名前と年齢をマップで表現するとどうなるでしょうか？</li>
+<li>好きな科目とその成績をマップで表現してみましょう。</li>
+<li>リストではなくマップを使うべき場面を3つ考えてください。</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="マップの作成と操作"><a class="header" href="#マップの作成と操作">マップの作成と操作</a></h1>
+<p>前のセクションでマップの概念を学びました。ここでは、実際にマップを作成し、操作する方法を詳しく見ていきましょう。</p>
+<h2 id="マップの作成"><a class="header" href="#マップの作成">マップの作成</a></h2>
+<h3 id="1-空のマップを作る"><a class="header" href="#1-空のマップを作る">1. 空のマップを作る</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 空のマップを作成
+  Map&lt;String, int&gt; ages = {};
+  
+  // または
+  Map&lt;String, int&gt; scores = Map();
+  
+  print(ages);  // {}
+  print(scores); // {}
+}
+</code></pre>
+<h3 id="2-初期値を持つマップを作る"><a class="header" href="#2-初期値を持つマップを作る">2. 初期値を持つマップを作る</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 初期値を持つマップ
+  Map&lt;String, int&gt; fruitPrices = {
+    'りんご': 150,
+    'バナナ': 100,
+    'オレンジ': 120,
+    'ぶどう': 300
+  };
+  
+  print(fruitPrices);
+  // {りんご: 150, バナナ: 100, オレンジ: 120, ぶどう: 300}
+}
+</code></pre>
+<h2 id="値の取得"><a class="header" href="#値の取得">値の取得</a></h2>
+<p>マップから値を取得するには、角括弧 <code>[]</code> にキーを指定します：</p>
+<pre><code class="language-javascript">void main() {
+  Map&lt;String, int&gt; ages = {
+    '太郎': 20,
+    '花子': 18,
+    '次郎': 22
+  };
+  
+  // 値の取得
+  print('太郎の年齢: ${ages['太郎']}歳');  // 太郎の年齢: 20歳
+  print('花子の年齢: ${ages['花子']}歳');  // 花子の年齢: 18歳
+  
+  // 存在しないキーを指定するとnullが返る
+  print('三郎の年齢: ${ages['三郎']}');    // 三郎の年齢: null
+}
+</code></pre>
+<h2 id="値の追加と更新"><a class="header" href="#値の追加と更新">値の追加と更新</a></h2>
+<h3 id="新しいキーと値を追加"><a class="header" href="#新しいキーと値を追加">新しいキーと値を追加</a></h3>
+<pre><code class="language-javascript">void main() {
+  Map&lt;String, String&gt; capitals = {
+    '日本': '東京',
+    'アメリカ': 'ワシントンD.C.'
+  };
+  
+  // 新しい要素を追加
+  capitals['フランス'] = 'パリ';
+  capitals['イギリス'] = 'ロンドン';
+  
+  print(capitals);
+  // {日本: 東京, アメリカ: ワシントンD.C., フランス: パリ, イギリス: ロンドン}
+}
+</code></pre>
+<h3 id="既存の値を更新"><a class="header" href="#既存の値を更新">既存の値を更新</a></h3>
+<pre><code class="language-javascript">void main() {
+  Map&lt;String, int&gt; testScores = {
+    '数学': 85,
+    '英語': 78,
+    '理科': 92
+  };
+  
+  print('更新前の英語の点数: ${testScores['英語']}');  // 78
+  
+  // 値を更新
+  testScores['英語'] = 82;
+  
+  print('更新後の英語の点数: ${testScores['英語']}');  // 82
+}
+</code></pre>
+<h2 id="値の削除"><a class="header" href="#値の削除">値の削除</a></h2>
+<pre><code class="language-javascript">void main() {
+  Map&lt;String, String&gt; todoList = {
+    '月曜日': '買い物',
+    '火曜日': '掃除',
+    '水曜日': '勉強',
+    '木曜日': '運動'
+  };
+  
+  print('削除前: $todoList');
+  
+  // 要素を削除
+  todoList.remove('火曜日');
+  
+  print('削除後: $todoList');
+  // {月曜日: 買い物, 水曜日: 勉強, 木曜日: 運動}
+}
+</code></pre>
+<h2 id="キーの存在確認"><a class="header" href="#キーの存在確認">キーの存在確認</a></h2>
+<pre><code class="language-javascript">void main() {
+  Map&lt;String, double&gt; productPrices = {
+    'ノート': 150.0,
+    'ペン': 100.0,
+    '消しゴム': 80.0
+  };
+  
+  // キーが存在するか確認
+  if (productPrices.containsKey('ペン')) {
+    print('ペンの価格: ${productPrices['ペン']}円');
+  }
+  
+  if (!productPrices.containsKey('鉛筆')) {
+    print('鉛筆は商品リストにありません');
+  }
+}
+</code></pre>
+<h2 id="マップのプロパティ"><a class="header" href="#マップのプロパティ">マップのプロパティ</a></h2>
+<pre><code class="language-javascript">void main() {
+  Map&lt;String, int&gt; monthDays = {
+    '1月': 31,
+    '2月': 28,
+    '3月': 31,
+    '4月': 30
+  };
+  
+  // マップのサイズ（要素数）
+  print('要素数: ${monthDays.length}');  // 要素数: 4
+  
+  // マップが空かどうか
+  print('空ですか？: ${monthDays.isEmpty}');  // 空ですか？: false
+  
+  // すべてのキーを取得
+  print('すべてのキー: ${monthDays.keys}');
+  // すべてのキー: (1月, 2月, 3月, 4月)
+  
+  // すべての値を取得
+  print('すべての値: ${monthDays.values}');
+  // すべての値: (31, 28, 31, 30)
+}
+</code></pre>
+<h2 id="マップの繰り返し処理"><a class="header" href="#マップの繰り返し処理">マップの繰り返し処理</a></h2>
+<pre><code class="language-javascript">void main() {
+  Map&lt;String, String&gt; englishWords = {
+    'apple': 'りんご',
+    'book': '本',
+    'cat': '猫',
+    'dog': '犬'
+  };
+  
+  // forEach を使った繰り返し
+  print('=== 英単語リスト ===');
+  englishWords.forEach((key, value) {
+    print('$key: $value');
+  });
+  
+  // for-in を使った繰り返し
+  print('\n=== キーだけを表示 ===');
+  for (String word in englishWords.keys) {
+    print(word);
+  }
+}
+</code></pre>
+<h2 id="実践的な例在庫管理"><a class="header" href="#実践的な例在庫管理">実践的な例：在庫管理</a></h2>
+<pre><code class="language-javascript">void main() {
+  // 商品の在庫数を管理
+  Map&lt;String, int&gt; inventory = {
+    'りんご': 50,
+    'バナナ': 30,
+    'オレンジ': 25
+  };
+  
+  print('現在の在庫: $inventory');
+  
+  // 商品を販売（在庫を減らす）
+  String soldItem = 'バナナ';
+  int soldQuantity = 5;
+  
+  if (inventory.containsKey(soldItem)) {
+    inventory[soldItem] = inventory[soldItem]! - soldQuantity;
+    print('$soldItemを$soldQuantity個販売しました');
+  }
+  
+  // 新商品を追加
+  inventory['ぶどう'] = 20;
+  print('新商品ぶどうを追加しました');
+  
+  // 在庫確認
+  print('\n=== 在庫一覧 ===');
+  inventory.forEach((item, quantity) {
+    print('$item: $quantity個');
+  });
+}
+</code></pre>
+<h2 id="まとめ-26"><a class="header" href="#まとめ-26">まとめ</a></h2>
+<p>マップの基本的な操作方法を学びました：</p>
+<ul>
+<li><code>{}</code> または <code>Map()</code> で作成</li>
+<li><code>map[key]</code> で値を取得</li>
+<li><code>map[key] = value</code> で追加・更新</li>
+<li><code>remove(key)</code> で削除</li>
+<li><code>containsKey(key)</code> で存在確認</li>
+<li><code>forEach</code> や <code>for-in</code> で繰り返し処理</li>
+</ul>
+<p>次のセクションでは、マップのより実践的な活用例を見ていきます。</p>
+<h3 id="練習問題-18"><a class="header" href="#練習問題-18">練習問題</a></h3>
+<ol>
+<li>友達の名前と誕生日（月/日）を管理するマップを作成し、3人分のデータを追加してください。</li>
+<li>科目名と成績（A, B, C）を管理するマップを作り、1つの科目の成績を更新する処理を書いてください。</li>
+<li>商品名と価格のマップから、すべての商品の合計金額を計算するプログラムを作成してください。</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="マップの活用例"><a class="header" href="#マップの活用例">マップの活用例</a></h1>
+<p>これまでマップの基本的な使い方を学びました。ここでは、実際のプログラミングでよく使われるマップの活用例を見ていきましょう。</p>
+<h2 id="1-成績管理システム"><a class="header" href="#1-成績管理システム">1. 成績管理システム</a></h2>
+<p>複数の生徒の成績を科目ごとに管理する例です：</p>
+<pre><code class="language-javascript">void main() {
+  // 生徒ごとの成績を管理
+  Map&lt;String, Map&lt;String, int&gt;&gt; studentScores = {
+    '田中太郎': {
+      '数学': 85,
+      '英語': 78,
+      '理科': 92,
+      '社会': 88
+    },
+    '鈴木花子': {
+      '数学': 92,
+      '英語': 95,
+      '理科': 87,
+      '社会': 90
+    },
+    '佐藤次郎': {
+      '数学': 78,
+      '英語': 82,
+      '理科': 85,
+      '社会': 80
+    }
+  };
+  
+  // 特定の生徒の成績を表示
+  String studentName = '田中太郎';
+  print('=== ${studentName}の成績 ===');
+  studentScores[studentName]!.forEach((subject, score) {
+    print('$subject: $score点');
+  });
+  
+  // 生徒の平均点を計算
+  print('\n=== 各生徒の平均点 ===');
+  studentScores.forEach((name, scores) {
+    int total = 0;
+    scores.forEach((subject, score) {
+      total += score;
+    });
+    double average = total / scores.length;
+    print('$name: ${average.toStringAsFixed(1)}点');
+  });
+}
+</code></pre>
+<h2 id="2-在庫管理と商品情報"><a class="header" href="#2-在庫管理と商品情報">2. 在庫管理と商品情報</a></h2>
+<p>商品の在庫数と価格を一緒に管理する例：</p>
+<pre><code class="language-javascript">void main() {
+  // 商品情報（在庫数と価格）
+  Map&lt;String, Map&lt;String, int&gt;&gt; products = {
+    'りんご': {'在庫': 50, '価格': 150},
+    'バナナ': {'在庫': 30, '価格': 100},
+    'オレンジ': {'在庫': 25, '価格': 120},
+    'ぶどう': {'在庫': 15, '価格': 300}
+  };
+  
+  // 在庫一覧を表示
+  print('=== 商品在庫一覧 ===');
+  products.forEach((name, info) {
+    print('$name: 在庫${info['在庫']}個, ${info['価格']}円/個');
+  });
+  
+  // 在庫金額の合計を計算
+  int totalValue = 0;
+  products.forEach((name, info) {
+    totalValue += info['在庫']! * info['価格']!;
+  });
+  print('\n在庫金額合計: ${totalValue}円');
+  
+  // 在庫が20個以下の商品を警告
+  print('\n=== 在庫警告 ===');
+  products.forEach((name, info) {
+    if (info['在庫']! &lt;= 20) {
+      print('⚠️ $nameの在庫が少なくなっています（${info['在庫']}個）');
+    }
+  });
+}
+</code></pre>
+<h2 id="3-アンケート集計"><a class="header" href="#3-アンケート集計">3. アンケート集計</a></h2>
+<p>選択肢の回答数を集計する例：</p>
+<pre><code class="language-javascript">void main() {
+  // アンケートの回答を集計
+  List&lt;String&gt; responses = [
+    '満足', '普通', '満足', '不満', '満足',
+    '普通', '満足', '満足', '普通', '不満'
+  ];
+  
+  // 回答を集計するマップ
+  Map&lt;String, int&gt; results = {};
+  
+  // 各回答をカウント
+  for (String response in responses) {
+    if (results.containsKey(response)) {
+      results[response] = results[response]! + 1;
+    } else {
+      results[response] = 1;
+    }
+  }
+  
+  // 結果を表示
+  print('=== アンケート結果 ===');
+  results.forEach((answer, count) {
+    print('$answer: $count票');
+  });
+  
+  // パーセンテージも表示
+  int total = responses.length;
+  print('\n=== 割合 ===');
+  results.forEach((answer, count) {
+    double percentage = (count / total) * 100;
+    print('$answer: ${percentage.toStringAsFixed(1)}%');
+  });
+}
+</code></pre>
+<h2 id="4-設定値の管理"><a class="header" href="#4-設定値の管理">4. 設定値の管理</a></h2>
+<p>アプリケーションの設定を管理する例：</p>
+<pre><code class="language-javascript">void main() {
+  // アプリケーションの設定
+  Map&lt;String, dynamic&gt; settings = {
+    'ユーザー名': '山田太郎',
+    '言語': '日本語',
+    '通知': true,
+    '音量': 80,
+    'テーマ': 'ダーク'
+  };
+  
+  // 現在の設定を表示
+  print('=== 現在の設定 ===');
+  settings.forEach((key, value) {
+    print('$key: $value');
+  });
+  
+  // 設定を変更
+  print('\n設定を変更します...');
+  settings['通知'] = false;
+  settings['音量'] = 60;
+  
+  // 変更後の設定を表示
+  print('\n=== 変更後の設定 ===');
+  settings.forEach((key, value) {
+    print('$key: $value');
+  });
+}
+</code></pre>
+<h2 id="5-単語の頻度カウント"><a class="header" href="#5-単語の頻度カウント">5. 単語の頻度カウント</a></h2>
+<p>文章中の単語の出現回数を数える例：</p>
+<pre><code class="language-javascript">void main() {
+  String text = 'りんご バナナ りんご オレンジ りんご バナナ ぶどう';
+  List&lt;String&gt; words = text.split(' ');
+  
+  // 単語の出現回数をカウント
+  Map&lt;String, int&gt; wordCount = {};
+  
+  for (String word in words) {
+    if (wordCount.containsKey(word)) {
+      wordCount[word] = wordCount[word]! + 1;
+    } else {
+      wordCount[word] = 1;
+    }
+  }
+  
+  // 結果を表示
+  print('=== 単語の出現回数 ===');
+  wordCount.forEach((word, count) {
+    print('$word: $count回');
+  });
+  
+  // 最も頻出する単語を見つける
+  String mostFrequent = '';
+  int maxCount = 0;
+  
+  wordCount.forEach((word, count) {
+    if (count &gt; maxCount) {
+      mostFrequent = word;
+      maxCount = count;
+    }
+  });
+  
+  print('\n最も頻出する単語: $mostFrequent ($maxCount回)');
+}
+</code></pre>
+<h2 id="6-電話帳アプリケーション"><a class="header" href="#6-電話帳アプリケーション">6. 電話帳アプリケーション</a></h2>
+<p>名前から電話番号とメールアドレスを検索する例：</p>
+<pre><code class="language-javascript">void main() {
+  // 連絡先情報
+  Map&lt;String, Map&lt;String, String&gt;&gt; contacts = {
+    '田中太郎': {
+      '電話': '090-1234-5678',
+      'メール': 'tanaka@example.com'
+    },
+    '鈴木花子': {
+      '電話': '080-9876-5432',
+      'メール': 'suzuki@example.com'
+    },
+    '佐藤次郎': {
+      '電話': '070-1111-2222',
+      'メール': 'sato@example.com'
+    }
+  };
+  
+  // 連絡先を検索する関数
+  void searchContact(String name) {
+    if (contacts.containsKey(name)) {
+      print('\n=== $nameの連絡先 ===');
+      contacts[name]!.forEach((type, info) {
+        print('$type: $info');
+      });
+    } else {
+      print('\n$nameは連絡先に登録されていません');
+    }
+  }
+  
+  // 検索実行
+  searchContact('鈴木花子');
+  searchContact('山田太郎');
+  
+  // 新しい連絡先を追加
+  contacts['山田花子'] = {
+    '電話': '090-3333-4444',
+    'メール': 'yamada@example.com'
+  };
+  
+  print('\n新しい連絡先を追加しました');
+  searchContact('山田花子');
+}
+</code></pre>
+<h2 id="まとめ-27"><a class="header" href="#まとめ-27">まとめ</a></h2>
+<p>マップは以下のような場面で特に便利です：</p>
+<ol>
+<li><strong>データの関連付け</strong>：名前と情報、IDと詳細データなど</li>
+<li><strong>カウント処理</strong>：出現回数、投票数、在庫数など</li>
+<li><strong>設定管理</strong>：キーと値のペアで設定を保存</li>
+<li><strong>高速検索</strong>：キーを使った素早いデータアクセス</li>
+<li><strong>グループ化</strong>：カテゴリーごとにデータを整理</li>
+</ol>
+<p>これらの例を参考に、自分のプログラムでもマップを活用してみましょう。</p>
+<h3 id="練習問題-19"><a class="header" href="#練習問題-19">練習問題</a></h3>
+<ol>
+<li>都道府県名をキー、県庁所在地を値とするマップを作成し、5つ以上のデータを登録してください。</li>
+<li>商品の売上個数を記録し、売上ランキングを表示するプログラムを作成してください。</li>
+<li>ユーザーのログイン回数を記録し、最もアクティブなユーザーを見つけるプログラムを作成してください。</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="実践簡単な辞書プログラム"><a class="header" href="#実践簡単な辞書プログラム">実践：簡単な辞書プログラム</a></h1>
+<p>これまで学んだマップの知識を活用して、英和辞書プログラムを作ってみましょう。このプログラムでは、英単語を入力すると日本語の意味を表示し、新しい単語を追加したり、既存の単語を編集したりできます。</p>
+<h2 id="プログラムの設計"><a class="header" href="#プログラムの設計">プログラムの設計</a></h2>
+<p>作成する辞書プログラムの機能：</p>
+<ol>
+<li>単語の検索</li>
+<li>新しい単語の追加</li>
+<li>既存の単語の編集</li>
+<li>単語の削除</li>
+<li>すべての単語の一覧表示</li>
+</ol>
+<h2 id="基本的な辞書プログラム"><a class="header" href="#基本的な辞書プログラム">基本的な辞書プログラム</a></h2>
+<pre><code class="language-javascript">void main() {
+  // 英和辞書のデータ
+  Map&lt;String, String&gt; dictionary = {
+    'apple': 'りんご',
+    'book': '本',
+    'cat': '猫',
+    'dog': '犬',
+    'eat': '食べる',
+    'friend': '友達',
+    'good': '良い',
+    'hello': 'こんにちは',
+    'ice': '氷',
+    'jump': 'ジャンプする'
+  };
+  
+  print('=== 簡単な英和辞書 ===');
+  print('使い方: 英単語を入力すると日本語の意味を表示します\n');
+  
+  // 単語を検索する関数
+  void searchWord(String word) {
+    String lowerWord = word.toLowerCase(); // 小文字に変換
+    
+    if (dictionary.containsKey(lowerWord)) {
+      print('「$word」の意味: ${dictionary[lowerWord]}');
+    } else {
+      print('「$word」は辞書に登録されていません');
+    }
+  }
+  
+  // 検索の実行例
+  searchWord('apple');
+  searchWord('book');
+  searchWord('computer'); // 登録されていない単語
+}
+</code></pre>
+<h2 id="機能を追加した辞書プログラム"><a class="header" href="#機能を追加した辞書プログラム">機能を追加した辞書プログラム</a></h2>
+<pre><code class="language-javascript">void main() {
+  // 英和辞書のデータ
+  Map&lt;String, String&gt; dictionary = {
+    'apple': 'りんご',
+    'book': '本',
+    'cat': '猫',
+    'dog': '犬',
+    'eat': '食べる'
+  };
+  
+  // 1. 単語を検索する関数
+  void searchWord(String word) {
+    String lowerWord = word.toLowerCase();
+    
+    if (dictionary.containsKey(lowerWord)) {
+      print('\n✓ 「$word」の意味: ${dictionary[lowerWord]}');
+    } else {
+      print('\n✗ 「$word」は辞書に登録されていません');
+      print('  ヒント: 新しい単語として追加することができます');
+    }
+  }
+  
+  // 2. 新しい単語を追加する関数
+  void addWord(String word, String meaning) {
+    String lowerWord = word.toLowerCase();
+    
+    if (dictionary.containsKey(lowerWord)) {
+      print('\n⚠️ 「$word」は既に登録されています');
+      print('  現在の意味: ${dictionary[lowerWord]}');
+    } else {
+      dictionary[lowerWord] = meaning;
+      print('\n✓ 新しい単語を追加しました');
+      print('  $word: $meaning');
+    }
+  }
+  
+  // 3. 単語を編集する関数
+  void editWord(String word, String newMeaning) {
+    String lowerWord = word.toLowerCase();
+    
+    if (dictionary.containsKey(lowerWord)) {
+      String oldMeaning = dictionary[lowerWord]!;
+      dictionary[lowerWord] = newMeaning;
+      print('\n✓ 単語の意味を更新しました');
+      print('  $word: $oldMeaning → $newMeaning');
+    } else {
+      print('\n✗ 「$word」は辞書に登録されていません');
+    }
+  }
+  
+  // 4. 単語を削除する関数
+  void deleteWord(String word) {
+    String lowerWord = word.toLowerCase();
+    
+    if (dictionary.containsKey(lowerWord)) {
+      String meaning = dictionary[lowerWord]!;
+      dictionary.remove(lowerWord);
+      print('\n✓ 単語を削除しました');
+      print('  削除した単語: $word ($meaning)');
+    } else {
+      print('\n✗ 「$word」は辞書に登録されていません');
+    }
+  }
+  
+  // 5. すべての単語を表示する関数
+  void showAllWords() {
+    print('\n=== 辞書に登録されている単語一覧 ===');
+    print('登録数: ${dictionary.length}個\n');
+    
+    // アルファベット順に表示
+    List&lt;String&gt; sortedKeys = dictionary.keys.toList()..sort();
+    
+    for (String word in sortedKeys) {
+      print('$word: ${dictionary[word]}');
+    }
+  }
+  
+  // プログラムの実行例
+  print('=== 英和辞書プログラム ===\n');
+  
+  // 単語を検索
+  searchWord('apple');
+  searchWord('computer');
+  
+  // 新しい単語を追加
+  addWord('computer', 'コンピューター');
+  addWord('apple', 'りんご'); // 既に存在
+  
+  // 単語を編集
+  editWord('cat', 'ネコ');
+  
+  // 単語を削除
+  deleteWord('dog');
+  
+  // すべての単語を表示
+  showAllWords();
+}
+</code></pre>
+<h2 id="インタラクティブな辞書プログラム"><a class="header" href="#インタラクティブな辞書プログラム">インタラクティブな辞書プログラム</a></h2>
+<pre><code class="language-javascript">void main() {
+  // 辞書データ
+  Map&lt;String, String&gt; dictionary = {
+    'apple': 'りんご',
+    'book': '本',
+    'cat': '猫',
+    'dog': '犬',
+    'eat': '食べる',
+    'friend': '友達',
+    'good': '良い',
+    'hello': 'こんにちは'
+  };
+  
+  // 統計情報を表示する関数
+  void showStatistics() {
+    print('\n=== 辞書の統計情報 ===');
+    print('登録単語数: ${dictionary.length}個');
+    
+    // 最も短い単語と最も長い単語を見つける
+    String shortest = '';
+    String longest = '';
+    
+    dictionary.keys.forEach((word) {
+      if (shortest.isEmpty || word.length &lt; shortest.length) {
+        shortest = word;
+      }
+      if (word.length &gt; longest.length) {
+        longest = word;
+      }
+    });
+    
+    print('最も短い単語: $shortest (${shortest.length}文字)');
+    print('最も長い単語: $longest (${longest.length}文字)');
+  }
+  
+  // 部分一致検索する関数
+  void searchPartial(String keyword) {
+    print('\n=== 「$keyword」を含む単語 ===');
+    
+    List&lt;String&gt; matches = [];
+    dictionary.keys.forEach((word) {
+      if (word.contains(keyword.toLowerCase())) {
+        matches.add(word);
+      }
+    });
+    
+    if (matches.isEmpty) {
+      print('見つかりませんでした');
+    } else {
+      matches.forEach((word) {
+        print('$word: ${dictionary[word]}');
+      });
+      print('\n${matches.length}個の単語が見つかりました');
+    }
+  }
+  
+  // クイズ機能
+  void quiz() {
+    print('\n=== 英単語クイズ ===');
+    print('日本語の意味から英単語を当ててください\n');
+    
+    // ランダムに単語を選ぶ（簡易版）
+    List&lt;String&gt; words = dictionary.keys.toList();
+    
+    // 3問出題
+    for (int i = 0; i &lt; 3; i++) {
+      String word = words[i * 2]; // 簡易的な選択
+      String meaning = dictionary[word]!;
+      
+      print('問題${i + 1}: 「$meaning」の英単語は？');
+      print('（ヒント: ${word.length}文字）');
+      
+      // 実際のプログラムでは、ここでユーザー入力を受け取る
+      print('答え: $word\n');
+    }
+  }
+  
+  // メイン処理
+  print('=== 多機能英和辞書プログラム ===\n');
+  
+  // 統計情報を表示
+  showStatistics();
+  
+  // 部分一致検索
+  searchPartial('oo');
+  
+  // クイズ
+  quiz();
+}
+</code></pre>
+<h2 id="発展課題カテゴリー付き辞書"><a class="header" href="#発展課題カテゴリー付き辞書">発展課題：カテゴリー付き辞書</a></h2>
+<pre><code class="language-javascript">void main() {
+  // カテゴリー別の辞書
+  Map&lt;String, Map&lt;String, String&gt;&gt; categorizedDictionary = {
+    '動物': {
+      'cat': '猫',
+      'dog': '犬',
+      'bird': '鳥',
+      'fish': '魚'
+    },
+    '食べ物': {
+      'apple': 'りんご',
+      'bread': 'パン',
+      'milk': '牛乳',
+      'rice': 'ご飯'
+    },
+    '動作': {
+      'eat': '食べる',
+      'drink': '飲む',
+      'run': '走る',
+      'sleep': '寝る'
+    }
+  };
+  
+  // カテゴリー一覧を表示
+  void showCategories() {
+    print('=== カテゴリー一覧 ===');
+    categorizedDictionary.forEach((category, words) {
+      print('$category: ${words.length}個の単語');
+    });
+  }
+  
+  // カテゴリー内の単語を表示
+  void showWordsInCategory(String category) {
+    if (categorizedDictionary.containsKey(category)) {
+      print('\n=== $categoryの単語 ===');
+      categorizedDictionary[category]!.forEach((word, meaning) {
+        print('$word: $meaning');
+      });
+    } else {
+      print('\n「$category」というカテゴリーはありません');
+    }
+  }
+  
+  // 単語を検索（全カテゴリー）
+  void searchWordInAllCategories(String word) {
+    String lowerWord = word.toLowerCase();
+    bool found = false;
+    
+    print('\n「$word」を検索中...');
+    
+    categorizedDictionary.forEach((category, words) {
+      if (words.containsKey(lowerWord)) {
+        print('✓ カテゴリー「$category」で見つかりました');
+        print('  意味: ${words[lowerWord]}');
+        found = true;
+      }
+    });
+    
+    if (!found) {
+      print('✗ どのカテゴリーにも見つかりませんでした');
+    }
+  }
+  
+  // 実行例
+  showCategories();
+  showWordsInCategory('動物');
+  searchWordInAllCategories('apple');
+  searchWordInAllCategories('jump');
+}
+</code></pre>
+<h2 id="まとめ-28"><a class="header" href="#まとめ-28">まとめ</a></h2>
+<p>この実践プログラムで学んだこと：</p>
+<ol>
+<li><strong>マップを使ったデータ管理</strong>：単語と意味のペアを効率的に管理</li>
+<li><strong>関数の活用</strong>：機能ごとに関数を分けて整理</li>
+<li><strong>エラー処理</strong>：存在しない単語の場合の処理</li>
+<li><strong>ユーザーフレンドリーな出力</strong>：分かりやすいメッセージ表示</li>
+<li><strong>データの拡張</strong>：カテゴリー機能など、より複雑な構造への発展</li>
+</ol>
+<h3 id="練習問題-20"><a class="header" href="#練習問題-20">練習問題</a></h3>
+<ol>
+<li>辞書プログラムに「単語の頭文字で検索する機能」を追加してください。</li>
+<li>英和辞書を和英辞書に変換する関数を作成してください（キーと値を入れ替える）。</li>
+<li>辞書データをファイルに保存し、次回起動時に読み込む機能を考えてみてください（擬似コード）。</li>
+</ol>
+<h3 id="チャレンジ問題-2"><a class="header" href="#チャレンジ問題-2">チャレンジ問題</a></h3>
+<p>以下の機能を持つ「学習記録付き単語帳」を作成してください：</p>
+<ul>
+<li>単語ごとに「学習回数」を記録</li>
+<li>「苦手な単語」（間違えた回数が多い）を表示</li>
+<li>学習履歴から「今日の復習単語」を提案</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第9章関数の基礎"><a class="header" href="#第9章関数の基礎">第9章：関数の基礎</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="関数とは何か"><a class="header" href="#関数とは何か">関数とは何か</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="関数の定義と呼び出し"><a class="header" href="#関数の定義と呼び出し">関数の定義と呼び出し</a></h1>
