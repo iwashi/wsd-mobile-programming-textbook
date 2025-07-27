@@ -10060,20 +10060,4041 @@ void main() {
 <p>これで第10章は完了です。関数を使いこなすことで、より構造化された読みやすいプログラムを作ることができるようになりました。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第11章クラスとオブジェクトの基礎"><a class="header" href="#第11章クラスとオブジェクトの基礎">第11章：クラスとオブジェクトの基礎</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="現実世界をプログラムで表現する"><a class="header" href="#現実世界をプログラムで表現する">現実世界をプログラムで表現する</a></h1>
+<p>プログラミングを学んできた皆さんは、これまで数値や文字列、リストなどの基本的なデータを使ってプログラムを作ってきました。でも、現実世界はもっと複雑ですよね。</p>
+<h2 id="現実世界の複雑さ"><a class="header" href="#現実世界の複雑さ">現実世界の複雑さ</a></h2>
+<p>例えば、ペットショップを考えてみましょう。そこには様々な動物がいます：</p>
+<ul>
+<li>犬：名前は「ポチ」、年齢は3歳、品種は「柴犬」</li>
+<li>猫：名前は「ミケ」、年齢は2歳、品種は「三毛猫」</li>
+<li>うさぎ：名前は「ふわり」、年齢は1歳、品種は「ロップイヤー」</li>
+</ul>
+<p>これまで学んだ方法で、この情報を表現してみましょう：</p>
+<pre><code class="language-javascript">// 犬の情報
+String dogName = "ポチ";
+int dogAge = 3;
+String dogBreed = "柴犬";
+
+// 猫の情報
+String catName = "ミケ";
+int catAge = 2;
+String catBreed = "三毛猫";
+
+// うさぎの情報
+String rabbitName = "ふわり";
+int rabbitAge = 1;
+String rabbitBreed = "ロップイヤー";
+</code></pre>
+<p>うーん、これでも情報は表現できますが、何か問題がありませんか？</p>
+<h2 id="従来の方法の問題点"><a class="header" href="#従来の方法の問題点">従来の方法の問題点</a></h2>
+<h3 id="1-関連性がわからない"><a class="header" href="#1-関連性がわからない">1. 関連性がわからない</a></h3>
+<p>変数がたくさんあると、どの名前がどの動物のものか混乱してしまいます。</p>
+<pre><code class="language-javascript">// これらが同じ動物の情報だとわかりますか？
+String dogName = "ポチ";
+String catBreed = "三毛猫";
+int dogAge = 3;
+String rabbitName = "ふわり";
+// ...さらに100匹の動物がいたら？
+</code></pre>
+<h3 id="2-データの管理が大変"><a class="header" href="#2-データの管理が大変">2. データの管理が大変</a></h3>
+<p>新しい動物を追加するたびに、複数の変数を作る必要があります：</p>
+<pre><code class="language-javascript">// 新しい犬を追加
+String dog2Name = "シロ";
+int dog2Age = 5;
+String dog2Breed = "ゴールデンレトリバー";
+
+// また新しい犬を追加
+String dog3Name = "クロ";
+int dog3Age = 4;
+String dog3Breed = "ラブラドール";
+</code></pre>
+<h3 id="3-処理が複雑になる"><a class="header" href="#3-処理が複雑になる">3. 処理が複雑になる</a></h3>
+<p>全ての動物の情報を表示したい時、とても面倒です：</p>
+<pre><code class="language-javascript">print("犬: $dogName, $dogAge歳, $dogBreed");
+print("犬: $dog2Name, $dog2Age歳, $dog2Breed");
+print("犬: $dog3Name, $dog3Age歳, $dog3Breed");
+print("猫: $catName, $catAge歳, $catBreed");
+// ...これを100匹分書くの？
+</code></pre>
+<h2 id="もっと良い方法はないの"><a class="header" href="#もっと良い方法はないの">もっと良い方法はないの？</a></h2>
+<p>なるほど！ここで「オブジェクト指向プログラミング」の出番です。</p>
+<p>オブジェクト指向では、関連する情報とその処理を一つの「<strong>オブジェクト</strong>」としてまとめて考えます。これは現実世界の物事をプログラムで自然に表現する方法です。</p>
+<h3 id="現実世界での考え方"><a class="header" href="#現実世界での考え方">現実世界での考え方</a></h3>
+<p>現実世界で「犬」について考える時、私たちは自然にこう考えます：</p>
+<ul>
+<li><strong>犬は何を持っているか</strong>（属性）：名前、年齢、品種、色...</li>
+<li><strong>犬は何ができるか</strong>（行動）：鳴く、走る、食べる、寝る...</li>
+</ul>
+<h3 id="プログラムでの表現"><a class="header" href="#プログラムでの表現">プログラムでの表現</a></h3>
+<p>オブジェクト指向では、この考え方をそのままプログラムにします：</p>
+<pre><code class="language-javascript">// 犬オブジェクトのイメージ
+犬 {
+  // 属性（何を持っているか）
+  名前: "ポチ"
+  年齢: 3
+  品種: "柴犬"
+  
+  // 行動（何ができるか）
+  鳴く() { ... }
+  走る() { ... }
+  食べる() { ... }
+}
+</code></pre>
+<h2 id="オブジェクト指向の利点"><a class="header" href="#オブジェクト指向の利点">オブジェクト指向の利点</a></h2>
+<h3 id="1-自然な思考"><a class="header" href="#1-自然な思考">1. 自然な思考</a></h3>
+<p>現実世界と同じように考えられるので、理解しやすいです。</p>
+<h3 id="2-情報がまとまる"><a class="header" href="#2-情報がまとまる">2. 情報がまとまる</a></h3>
+<p>関連する情報が一箇所にまとまるので、管理しやすくなります。</p>
+<h3 id="3-再利用しやすい"><a class="header" href="#3-再利用しやすい">3. 再利用しやすい</a></h3>
+<p>一度「犬」の定義を作れば、何匹でも犬を作ることができます。</p>
+<h3 id="4-保守しやすい"><a class="header" href="#4-保守しやすい">4. 保守しやすい</a></h3>
+<p>犬に関する変更は、犬の定義だけを修正すれば済みます。</p>
+<h2 id="まとめ-38"><a class="header" href="#まとめ-38">まとめ</a></h2>
+<p>オブジェクト指向プログラミングは、現実世界の複雑さをプログラムで自然に表現するための方法です。</p>
+<ul>
+<li><strong>これまで</strong>：バラバラな変数で情報を管理</li>
+<li><strong>これから</strong>：関連する情報と処理をオブジェクトとしてまとめて管理</li>
+</ul>
+<p>次の章では、実際にDartでオブジェクトを作る方法を学んでいきます。まずは「<strong>クラス</strong>」という設計図の作り方から始めましょう！</p>
+<h2 id="練習問題-30"><a class="header" href="#練習問題-30">練習問題</a></h2>
+<ol>
+<li>
+<p>あなたの身の回りにある物（例：スマートフォン、本、車など）を一つ選んで、それが持っている属性（何を持っているか）と行動（何ができるか）を3つずつ考えてみてください。</p>
+</li>
+<li>
+<p>学校の「生徒」をオブジェクトとして考える場合、どのような属性と行動があるでしょうか？</p>
+</li>
+</ol>
+<p><strong>答えの例</strong></p>
+<ol>
+<li>
+<p>スマートフォンの場合：</p>
+<ul>
+<li>属性：機種名、色、バッテリー残量</li>
+<li>行動：電話をかける、写真を撮る、アプリを起動する</li>
+</ul>
+</li>
+<li>
+<p>生徒の場合：</p>
+<ul>
+<li>属性：名前、学年、出席番号</li>
+<li>行動：勉強する、友達と話す、宿題を提出する</li>
+</ul>
+</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="クラスの定義"><a class="header" href="#クラスの定義">クラスの定義</a></h1>
+<p>前の章で、オブジェクト指向プログラミングの考え方を学びました。今度は、実際にDartでオブジェクトを作るための「<strong>クラス</strong>」について学んでいきましょう。</p>
+<h2 id="クラスとは何でしょうか"><a class="header" href="#クラスとは何でしょうか">クラスとは何でしょうか？</a></h2>
+<p>クラスは、オブジェクトの「<strong>設計図</strong>」や「<strong>型紙</strong>」のようなものです。</p>
+<h3 id="身近な例で考えてみましょう"><a class="header" href="#身近な例で考えてみましょう">身近な例で考えてみましょう</a></h3>
+<p>たい焼きを作ることを想像してください：</p>
+<ul>
+<li><strong>たい焼きの型</strong>：これがクラス（設計図）</li>
+<li><strong>実際のたい焼き</strong>：これがオブジェクト（実体）</li>
+</ul>
+<p>一つの型（クラス）があれば、同じ形のたい焼き（オブジェクト）を何個でも作ることができますね！</p>
+<pre><code class="language-javascript">// たい焼きのイメージ
+たい焼きの型（クラス） → たい焼き1（オブジェクト）
+                    → たい焼き2（オブジェクト）
+                    → たい焼き3（オブジェクト）
+</code></pre>
+<h2 id="dartでのクラスの基本形"><a class="header" href="#dartでのクラスの基本形">Dartでのクラスの基本形</a></h2>
+<p>Dartでクラスを定義する基本的な形は次のようになります：</p>
+<pre><code class="language-javascript">class クラス名 {
+  // ここにクラスの内容を書きます
+}
+</code></pre>
+<h3 id="実際に犬のクラスを作ってみましょう"><a class="header" href="#実際に犬のクラスを作ってみましょう">実際に犬のクラスを作ってみましょう</a></h3>
+<pre><code class="language-javascript">class Dog {
+  // まずは空のクラスを作成
+}
+</code></pre>
+<p>おめでとうございます！これで最初のクラスができました。でも、まだ何も中身がありませんね。</p>
+<h2 id="クラスに属性フィールドを追加する"><a class="header" href="#クラスに属性フィールドを追加する">クラスに属性（フィールド）を追加する</a></h2>
+<p>犬には名前、年齢、品種などの情報が必要です。これらを<strong>フィールド</strong>（または<strong>プロパティ</strong>）と呼びます。</p>
+<pre><code class="language-javascript">class Dog {
+  // 犬の属性（フィールド）
+  String name;    // 名前
+  int age;        // 年齢
+  String breed;   // 品種
+}
+</code></pre>
+<h3 id="フィールドの説明"><a class="header" href="#フィールドの説明">フィールドの説明</a></h3>
+<ul>
+<li><code>String name</code>：犬の名前を文字列で保存</li>
+<li><code>int age</code>：犬の年齢を整数で保存</li>
+<li><code>String breed</code>：犬の品種を文字列で保存</li>
+</ul>
+<h2 id="より詳しいクラスの例"><a class="header" href="#より詳しいクラスの例">より詳しいクラスの例</a></h2>
+<p>もう少し現実的な例を見てみましょう：</p>
+<pre><code class="language-javascript">class Dog {
+  // 基本情報
+  String name;        // 名前
+  int age;           // 年齢
+  String breed;      // 品種
+  String color;      // 毛色
+  double weight;     // 体重（kg）
+  bool isHealthy;    // 健康状態
+}
+</code></pre>
+<h3 id="データ型の選択"><a class="header" href="#データ型の選択">データ型の選択</a></h3>
+<p>各フィールドにはどのデータ型が適切か考えてみましょう：</p>
+<ul>
+<li><strong>String（文字列）</strong>：名前、品種、毛色など</li>
+<li><strong>int（整数）</strong>：年齢（通常は整数で表現）</li>
+<li><strong>double（小数）</strong>：体重（小数点が必要）</li>
+<li><strong>bool（真偽値）</strong>：健康状態（健康/不健康の2択）</li>
+</ul>
+<h2 id="別の例学生クラス"><a class="header" href="#別の例学生クラス">別の例：学生クラス</a></h2>
+<p>犬以外の例も見てみましょう：</p>
+<pre><code class="language-javascript">class Student {
+  String name;        // 名前
+  int grade;         // 学年
+  int studentId;     // 学籍番号
+  double gpa;        // 成績平均点
+  bool isPresent;    // 出席しているかどうか
+}
+</code></pre>
+<h2 id="クラス名の命名規則"><a class="header" href="#クラス名の命名規則">クラス名の命名規則</a></h2>
+<p>Dartでは、クラス名には特別な命名規則があります：</p>
+<h3 id="1-パスカルケースpascalcaseを使う"><a class="header" href="#1-パスカルケースpascalcaseを使う">1. パスカルケース（PascalCase）を使う</a></h3>
+<pre><code class="language-javascript">// ✅ 正しい例
+class Dog { }
+class Student { }
+class BankAccount { }     // 複数の単語は最初を大文字に
+class GameCharacter { }
+
+// ❌ 間違った例
+class dog { }             // 小文字で始まっている
+class bank_account { }    // アンダースコアを使っている
+class gamecharacter { }   // 2番目の単語が小文字
+</code></pre>
+<h3 id="2-意味のある名前をつける"><a class="header" href="#2-意味のある名前をつける">2. 意味のある名前をつける</a></h3>
+<pre><code class="language-javascript">// ✅ 良い例
+class Car { }           // 車
+class Book { }          // 本
+class MusicPlayer { }   // 音楽プレーヤー
+
+// ❌ 悪い例
+class A { }             // 何を表すかわからない
+class Thing { }         // 抽象的すぎる
+class Data { }          // 何のデータかわからない
+</code></pre>
+<h2 id="練習自分でクラスを作ってみよう"><a class="header" href="#練習自分でクラスを作ってみよう">練習：自分でクラスを作ってみよう</a></h2>
+<h3 id="練習1本bookクラス"><a class="header" href="#練習1本bookクラス">練習1：本（Book）クラス</a></h3>
+<p>本を表現するクラスを作ってみてください。本には次のような属性があります：</p>
+<ul>
+<li>タイトル（文字列）</li>
+<li>著者（文字列）</li>
+<li>ページ数（整数）</li>
+<li>価格（小数）</li>
+<li>読み終わったかどうか（真偽値）</li>
+</ul>
+<pre><code class="language-javascript">class Book {
+  // ここに属性を書いてください
+}
+</code></pre>
+<p><strong>答え</strong>：</p>
+<pre><code class="language-javascript">class Book {
+  String title;        // タイトル
+  String author;       // 著者
+  int pages;          // ページ数
+  double price;       // 価格
+  bool isFinished;    // 読み終わったかどうか
+}
+</code></pre>
+<h3 id="練習2スマートフォンsmartphoneクラス"><a class="header" href="#練習2スマートフォンsmartphoneクラス">練習2：スマートフォン（Smartphone）クラス</a></h3>
+<p>今度はスマートフォンを表現するクラスを作ってみてください：</p>
+<ul>
+<li>機種名（文字列）</li>
+<li>色（文字列）</li>
+<li>バッテリー残量（整数、0-100の値）</li>
+<li>ストレージ容量（整数、GB単位）</li>
+<li>電源が入っているかどうか（真偽値）</li>
+</ul>
+<p><strong>答え</strong>：</p>
+<pre><code class="language-javascript">class Smartphone {
+  String model;           // 機種名
+  String color;           // 色
+  int batteryLevel;       // バッテリー残量（0-100）
+  int storageCapacity;    // ストレージ容量（GB）
+  bool isPoweredOn;       // 電源状態
+}
+</code></pre>
+<h2 id="初期値の設定"><a class="header" href="#初期値の設定">初期値の設定</a></h2>
+<p>フィールドには初期値を設定することもできます：</p>
+<pre><code class="language-javascript">class Dog {
+  String name = "名前未設定";     // デフォルトの名前
+  int age = 0;                  // デフォルトの年齢
+  String breed = "雑種";        // デフォルトの品種
+  bool isHealthy = true;        // デフォルトで健康
+}
+</code></pre>
+<h2 id="まとめ-39"><a class="header" href="#まとめ-39">まとめ</a></h2>
+<p>この章では、クラスの基本的な定義方法を学びました：</p>
+<ol>
+<li><strong>クラスは設計図</strong>：オブジェクトを作るためのテンプレート</li>
+<li><strong>基本的な構文</strong>：<code>class クラス名 { }</code></li>
+<li><strong>フィールド</strong>：オブジェクトが持つ属性（データ）</li>
+<li><strong>命名規則</strong>：パスカルケースで意味のある名前を</li>
+<li><strong>データ型</strong>：適切な型を選択する</li>
+</ol>
+<p>次の章では、この設計図（クラス）を使って実際のオブジェクトを作る方法を学びます。いよいよ設計図から実物を作り出しますよ！</p>
+<h2 id="練習問題-31"><a class="header" href="#練習問題-31">練習問題</a></h2>
+<ol>
+<li>
+<p>車（Car）を表現するクラスを作ってください。車には以下の属性があります：</p>
+<ul>
+<li>メーカー（文字列）</li>
+<li>車種（文字列）</li>
+<li>年式（整数）</li>
+<li>燃費（小数、km/L）</li>
+<li>エンジンがかかっているかどうか（真偽値）</li>
+</ul>
+</li>
+<li>
+<p>次のクラス名のうち、Dartの命名規則に従っているものはどれでしょうか？</p>
+<ul>
+<li><code>musicPlayer</code></li>
+<li><code>MusicPlayer</code></li>
+<li><code>music_player</code></li>
+<li><code>MUSICPLAYER</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>答え</strong>：</p>
+<ol>
+<li>車クラス：</li>
+</ol>
+<pre><code class="language-javascript">class Car {
+  String manufacturer;    // メーカー
+  String model;          // 車種
+  int year;             // 年式
+  double fuelEfficiency; // 燃費
+  bool isEngineRunning;  // エンジン状態
+}
+</code></pre>
+<ol start="2">
+<li>正しいのは <code>MusicPlayer</code> です（パスカルケース）</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="オブジェクトの作成と使用"><a class="header" href="#オブジェクトの作成と使用">オブジェクトの作成と使用</a></h1>
+<p>前の章で、クラス（設計図）の作り方を学びました。今度は、その設計図を使って実際のオブジェクト（実体）を作る方法を学んでいきましょう！</p>
+<h2 id="オブジェクトを作ってみよう"><a class="header" href="#オブジェクトを作ってみよう">オブジェクトを作ってみよう</a></h2>
+<p>まず、前回作った犬のクラスを使ってみましょう：</p>
+<pre><code class="language-javascript">class Dog {
+  String name = "";
+  int age = 0;
+  String breed = "";
+}
+</code></pre>
+<p>このクラスから実際の犬オブジェクトを作るには、次のように書きます：</p>
+<pre><code class="language-javascript">void main() {
+  // 犬オブジェクトを作成
+  Dog myDog = Dog();
+  
+  print("犬を作りました！");
+}
+</code></pre>
+<h3 id="オブジェクト作成の構文"><a class="header" href="#オブジェクト作成の構文">オブジェクト作成の構文</a></h3>
+<pre><code class="language-javascript">クラス名 変数名 = クラス名();
+</code></pre>
+<p>たい焼きの例で考えると：</p>
+<ul>
+<li><code>Dog()</code>：たい焼きの型で実際にたい焼きを作る</li>
+<li><code>myDog</code>：作ったたい焼きに「myDog」という名前をつける</li>
+</ul>
+<h2 id="オブジェクトのフィールドにアクセスする"><a class="header" href="#オブジェクトのフィールドにアクセスする">オブジェクトのフィールドにアクセスする</a></h2>
+<p>作ったオブジェクトの情報を設定したり、読み取ったりしてみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // 犬オブジェクトを作成
+  Dog myDog = Dog();
+  
+  // フィールドに値を設定（ドット記法）
+  myDog.name = "ポチ";
+  myDog.age = 3;
+  myDog.breed = "柴犬";
+  
+  // フィールドの値を読み取り
+  print("名前: ${myDog.name}");
+  print("年齢: ${myDog.age}歳");
+  print("品種: ${myDog.breed}");
+}
+</code></pre>
+<p><strong>実行結果</strong>：</p>
+<pre><code>名前: ポチ
+年齢: 3歳
+品種: 柴犬
+</code></pre>
+<h3 id="ドット記法"><a class="header" href="#ドット記法">ドット記法（.）</a></h3>
+<p>オブジェクトのフィールドには「<strong>ドット記法</strong>」でアクセスします：</p>
+<pre><code class="language-javascript">オブジェクト名.フィールド名
+</code></pre>
+<p>これは「オブジェクト名の中にあるフィールド名」という意味です。</p>
+<h2 id="複数のオブジェクトを作る"><a class="header" href="#複数のオブジェクトを作る">複数のオブジェクトを作る</a></h2>
+<p>同じクラスから複数のオブジェクトを作ることができます：</p>
+<pre><code class="language-javascript">void main() {
+  // 1匹目の犬
+  Dog dog1 = Dog();
+  dog1.name = "ポチ";
+  dog1.age = 3;
+  dog1.breed = "柴犬";
+  
+  // 2匹目の犬
+  Dog dog2 = Dog();
+  dog2.name = "ハチ";
+  dog2.age = 5;
+  dog2.breed = "秋田犬";
+  
+  // 3匹目の犬
+  Dog dog3 = Dog();
+  dog3.name = "モコ";
+  dog3.age = 1;
+  dog3.breed = "プードル";
+  
+  // 全ての犬の情報を表示
+  print("1匹目: ${dog1.name}, ${dog1.age}歳, ${dog1.breed}");
+  print("2匹目: ${dog2.name}, ${dog2.age}歳, ${dog2.breed}");
+  print("3匹目: ${dog3.name}, ${dog3.age}歳, ${dog3.breed}");
+}
+</code></pre>
+<p><strong>実行結果</strong>：</p>
+<pre><code>1匹目: ポチ, 3歳, 柴犬
+2匹目: ハチ, 5歳, 秋田犬
+3匹目: モコ, 1歳, プードル
+</code></pre>
+<p>なるほど！一つのクラス（設計図）から、異なる情報を持つ複数のオブジェクト（実体）を作れるんですね。</p>
+<h2 id="より実践的な例"><a class="header" href="#より実践的な例">より実践的な例</a></h2>
+<p>学生クラスを使った例も見てみましょう：</p>
+<pre><code class="language-javascript">class Student {
+  String name = "";
+  int grade = 1;
+  int studentId = 0;
+  double gpa = 0.0;
+}
+
+void main() {
+  // 学生オブジェクトを作成
+  Student alice = Student();
+  alice.name = "Alice";
+  alice.grade = 2;
+  alice.studentId = 12345;
+  alice.gpa = 3.8;
+  
+  Student bob = Student();
+  bob.name = "Bob";
+  bob.grade = 3;
+  bob.studentId = 67890;
+  bob.gpa = 3.2;
+  
+  // 学生情報を表示
+  print("=== 学生一覧 ===");
+  print("${alice.name}: ${alice.grade}年生, ID: ${alice.studentId}, GPA: ${alice.gpa}");
+  print("${bob.name}: ${bob.grade}年生, ID: ${bob.studentId}, GPA: ${bob.gpa}");
+}
+</code></pre>
+<h2 id="オブジェクトをリストで管理する"><a class="header" href="#オブジェクトをリストで管理する">オブジェクトをリストで管理する</a></h2>
+<p>たくさんのオブジェクトがある場合は、リストで管理すると便利です：</p>
+<pre><code class="language-javascript">void main() {
+  // 犬のリストを作成
+  List&lt;Dog&gt; dogs = [];
+  
+  // 犬を作ってリストに追加
+  Dog pochi = Dog();
+  pochi.name = "ポチ";
+  pochi.age = 3;
+  pochi.breed = "柴犬";
+  dogs.add(pochi);
+  
+  Dog hachi = Dog();
+  hachi.name = "ハチ";
+  hachi.age = 5;
+  hachi.breed = "秋田犬";
+  dogs.add(hachi);
+  
+  // リストの全ての犬を表示
+  print("=== ペットショップの犬たち ===");
+  for (int i = 0; i &lt; dogs.length; i++) {
+    Dog currentDog = dogs[i];
+    print("${i + 1}. ${currentDog.name} (${currentDog.age}歳, ${currentDog.breed})");
+  }
+}
+</code></pre>
+<p><strong>実行結果</strong>：</p>
+<pre><code>=== ペットショップの犬たち ===
+1. ポチ (3歳, 柴犬)
+2. ハチ (5歳, 秋田犬)
+</code></pre>
+<h2 id="より簡潔な書き方"><a class="header" href="#より簡潔な書き方">より簡潔な書き方</a></h2>
+<p>オブジェクトを作ってすぐに値を設定する場合、次のように書くこともできます：</p>
+<pre><code class="language-javascript">void main() {
+  // 作成と設定を分ける場合
+  Dog dog1 = Dog();
+  dog1.name = "ポチ";
+  dog1.age = 3;
+  
+  // より簡潔に書く場合
+  Dog dog2 = Dog()
+    ..name = "ハチ"
+    ..age = 5
+    ..breed = "秋田犬";
+    
+  print("${dog1.name}, ${dog1.age}歳");
+  print("${dog2.name}, ${dog2.age}歳, ${dog2.breed}");
+}
+</code></pre>
+<p><code>..</code> は「<strong>カスケード記法</strong>」と呼ばれ、同じオブジェクトに対して連続して操作を行う時に使います。</p>
+<h2 id="練習してみよう"><a class="header" href="#練習してみよう">練習してみよう</a></h2>
+<h3 id="練習1本オブジェクトを作る"><a class="header" href="#練習1本オブジェクトを作る">練習1：本オブジェクトを作る</a></h3>
+<p>前回作った Book クラスを使って、実際の本オブジェクトを作ってみてください：</p>
+<pre><code class="language-javascript">class Book {
+  String title = "";
+  String author = "";
+  int pages = 0;
+  double price = 0.0;
+  bool isFinished = false;
+}
+
+void main() {
+  // ここに本オブジェクトを作るコードを書いてください
+  // 好きな本の情報を設定してください
+}
+</code></pre>
+<p><strong>答えの例</strong>：</p>
+<pre><code class="language-javascript">void main() {
+  Book myBook = Book();
+  myBook.title = "プログラミング入門";
+  myBook.author = "田中太郎";
+  myBook.pages = 300;
+  myBook.price = 2500.0;
+  myBook.isFinished = false;
+  
+  print("タイトル: ${myBook.title}");
+  print("著者: ${myBook.author}");
+  print("ページ数: ${myBook.pages}ページ");
+  print("価格: ${myBook.price}円");
+  print("読み終わった: ${myBook.isFinished ? 'はい' : 'いいえ'}");
+}
+</code></pre>
+<h3 id="練習2複数の本を管理する"><a class="header" href="#練習2複数の本を管理する">練習2：複数の本を管理する</a></h3>
+<p>3冊の本オブジェクトを作って、リストで管理してみてください：</p>
+<p><strong>答えの例</strong>：</p>
+<pre><code class="language-javascript">void main() {
+  List&lt;Book&gt; books = [];
+  
+  // 1冊目
+  Book book1 = Book()
+    ..title = "Dart入門"
+    ..author = "佐藤花子"
+    ..pages = 250
+    ..price = 2000.0
+    ..isFinished = true;
+  books.add(book1);
+  
+  // 2冊目
+  Book book2 = Book()
+    ..title = "オブジェクト指向"
+    ..author = "山田次郎"
+    ..pages = 400
+    ..price = 3200.0
+    ..isFinished = false;
+  books.add(book2);
+  
+  // 3冊目
+  Book book3 = Book()
+    ..title = "アプリ開発"
+    ..author = "鈴木三郎"
+    ..pages = 350
+    ..price = 2800.0
+    ..isFinished = false;
+  books.add(book3);
+  
+  // 全ての本を表示
+  print("=== 本棚の本たち ===");
+  for (int i = 0; i &lt; books.length; i++) {
+    Book book = books[i];
+    String status = book.isFinished ? "読了" : "未読";
+    print("${i + 1}. 「${book.title}」 著者: ${book.author} (${status})");
+  }
+}
+</code></pre>
+<h2 id="オブジェクトの比較"><a class="header" href="#オブジェクトの比較">オブジェクトの比較</a></h2>
+<p>オブジェクト同士を比較する時は注意が必要です：</p>
+<pre><code class="language-javascript">void main() {
+  Dog dog1 = Dog();
+  dog1.name = "ポチ";
+  
+  Dog dog2 = Dog();
+  dog2.name = "ポチ";
+  
+  // これはfalseになります！
+  print(dog1 == dog2);  // false
+  
+  // 内容を比較したい場合は、フィールドを個別に比較
+  bool sameName = (dog1.name == dog2.name);
+  print("名前が同じ: $sameName");  // true
+}
+</code></pre>
+<p>オブジェクトの <code>==</code> 比較は、同じインスタンス（同じメモリ上のオブジェクト）かどうかを判定します。内容が同じでも、別々に作ったオブジェクトは異なるものとして扱われます。</p>
+<h2 id="まとめ-40"><a class="header" href="#まとめ-40">まとめ</a></h2>
+<p>この章では、クラスからオブジェクトを作成し、使用する方法を学びました：</p>
+<ol>
+<li><strong>オブジェクト作成</strong>：<code>クラス名 変数名 = クラス名();</code></li>
+<li><strong>フィールドアクセス</strong>：ドット記法（<code>オブジェクト.フィールド</code>）</li>
+<li><strong>複数オブジェクト</strong>：同じクラスから異なる情報を持つオブジェクトを作成</li>
+<li><strong>リスト管理</strong>：オブジェクトをリストで管理</li>
+<li><strong>カスケード記法</strong>：<code>..</code> で連続操作</li>
+<li><strong>オブジェクト比較</strong>：インスタンスの同一性 vs. 内容の比較</li>
+</ol>
+<p>次の章では、オブジェクトに「行動」を追加する方法（メソッド）を学びます。オブジェクトがただデータを持つだけでなく、何かができるようになりますよ！</p>
+<h2 id="練習問題-32"><a class="header" href="#練習問題-32">練習問題</a></h2>
+<ol>
+<li>次のコードの実行結果を予想してください：</li>
+</ol>
+<pre><code class="language-javascript">class Car {
+  String model = "";
+  int year = 0;
+}
+
+void main() {
+  Car car1 = Car();
+  car1.model = "プリウス";
+  car1.year = 2022;
+  
+  Car car2 = Car();
+  car2.model = "アクア";
+  car2.year = 2021;
+  
+  print("${car1.model} (${car1.year}年式)");
+  print("${car2.model} (${car2.year}年式)");
+}
+</code></pre>
+<ol start="2">
+<li>スマートフォンクラスを使って、2台のスマートフォンオブジェクトを作り、それぞれの情報を表示するプログラムを書いてください。</li>
+</ol>
+<p><strong>答え</strong>：</p>
+<ol>
+<li>実行結果：</li>
+</ol>
+<pre><code>プリウス (2022年式)
+アクア (2021年式)
+</code></pre>
+<ol start="2">
+<li>スマートフォンの例：</li>
+</ol>
+<pre><code class="language-javascript">class Smartphone {
+  String model = "";
+  String color = "";
+  int batteryLevel = 100;
+  bool isPoweredOn = false;
+}
+
+void main() {
+  Smartphone phone1 = Smartphone()
+    ..model = "iPhone 14"
+    ..color = "ブルー"
+    ..batteryLevel = 85
+    ..isPoweredOn = true;
+    
+  Smartphone phone2 = Smartphone()
+    ..model = "Galaxy S23"
+    ..color = "ブラック"
+    ..batteryLevel = 92
+    ..isPoweredOn = false;
+    
+  print("スマートフォン1: ${phone1.model} (${phone1.color})");
+  print("バッテリー: ${phone1.batteryLevel}% 電源: ${phone1.isPoweredOn ? 'ON' : 'OFF'}");
+  
+  print("スマートフォン2: ${phone2.model} (${phone2.color})");
+  print("バッテリー: ${phone2.batteryLevel}% 電源: ${phone2.isPoweredOn ? 'ON' : 'OFF'}");
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="フィールドとメソッド"><a class="header" href="#フィールドとメソッド">フィールドとメソッド</a></h1>
+<p>これまでの章で、オブジェクトに「データ」（フィールド）を持たせる方法を学びました。今度は、オブジェクトに「行動」（メソッド）を追加する方法を学んでいきましょう！</p>
+<h2 id="現実世界での持っているものとできること"><a class="header" href="#現実世界での持っているものとできること">現実世界での「持っているもの」と「できること」</a></h2>
+<p>現実世界の物事を考える時、私たちは自然に次の2つに分けて考えます：</p>
+<h3 id="犬の例"><a class="header" href="#犬の例">犬の例</a></h3>
+<ul>
+<li><strong>持っているもの</strong>（属性）：名前、年齢、品種、色...</li>
+<li><strong>できること</strong>（行動）：鳴く、走る、食べる、寝る...</li>
+</ul>
+<h3 id="スマートフォンの例"><a class="header" href="#スマートフォンの例">スマートフォンの例</a></h3>
+<ul>
+<li><strong>持っているもの</strong>（属性）：機種名、色、バッテリー残量...</li>
+<li><strong>できること</strong>（行動）：電話をかける、写真を撮る、アプリを起動する...</li>
+</ul>
+<p>プログラムでも、この考え方をそのまま使えます！</p>
+<h2 id="フィールド-vs-メソッド"><a class="header" href="#フィールド-vs-メソッド">フィールド vs. メソッド</a></h2>
+<pre><code class="language-javascript">class Dog {
+  // フィールド（持っているもの / データ）
+  String name = "";
+  int age = 0;
+  String breed = "";
+  
+  // メソッド（できること / 行動）
+  void bark() {
+    print("ワンワン！");
+  }
+  
+  void eat() {
+    print("${name}がご飯を食べています");
+  }
+}
+</code></pre>
+<h3 id="フィールドfield"><a class="header" href="#フィールドfield">フィールド（Field）</a></h3>
+<ul>
+<li>オブジェクトが<strong>持っている情報</strong></li>
+<li>データを保存する変数</li>
+<li>例：<code>String name</code>, <code>int age</code></li>
+</ul>
+<h3 id="メソッドmethod"><a class="header" href="#メソッドmethod">メソッド（Method）</a></h3>
+<ul>
+<li>オブジェクトが<strong>できる行動</strong></li>
+<li>処理を実行する関数</li>
+<li>例：<code>bark()</code>, <code>eat()</code></li>
+</ul>
+<h2 id="最初のメソッドを作ってみよう"><a class="header" href="#最初のメソッドを作ってみよう">最初のメソッドを作ってみよう</a></h2>
+<p>シンプルな犬クラスにメソッドを追加してみましょう：</p>
+<pre><code class="language-javascript">class Dog {
+  String name = "";
+  int age = 0;
+  
+  // 鳴くメソッド
+  void bark() {
+    print("ワンワン！");
+  }
+  
+  // 自己紹介メソッド
+  void introduce() {
+    print("こんにちは！僕の名前は${name}です。${age}歳です。");
+  }
+}
+
+void main() {
+  Dog pochi = Dog();
+  pochi.name = "ポチ";
+  pochi.age = 3;
+  
+  // メソッドを呼び出す
+  pochi.bark();       // ワンワン！
+  pochi.introduce();  // こんにちは！僕の名前はポチです。3歳です。
+}
+</code></pre>
+<p><strong>実行結果</strong>：</p>
+<pre><code>ワンワン！
+こんにちは！僕の名前はポチです。3歳です。
+</code></pre>
+<h3 id="メソッド呼び出しの構文"><a class="header" href="#メソッド呼び出しの構文">メソッド呼び出しの構文</a></h3>
+<pre><code class="language-javascript">オブジェクト名.メソッド名();
+</code></pre>
+<p>フィールドにアクセスする時と同じドット記法を使いますが、メソッドの場合は最後に <code>()</code> が付きます。</p>
+<h2 id="メソッドの基本構文"><a class="header" href="#メソッドの基本構文">メソッドの基本構文</a></h2>
+<pre><code class="language-javascript">戻り値の型 メソッド名() {
+  // 処理内容
+}
+</code></pre>
+<h3 id="void-メソッド"><a class="header" href="#void-メソッド">void メソッド</a></h3>
+<p><code>void</code> は「何も返さない」という意味です：</p>
+<pre><code class="language-javascript">void greet() {
+  print("こんにちは！");
+}
+</code></pre>
+<h2 id="パラメータ引数のあるメソッド"><a class="header" href="#パラメータ引数のあるメソッド">パラメータ（引数）のあるメソッド</a></h2>
+<p>メソッドに情報を渡すことができます：</p>
+<pre><code class="language-javascript">class Dog {
+  String name = "";
+  
+  // 名前を指定して挨拶
+  void greetTo(String friendName) {
+    print("${name}：こんにちは、${friendName}さん！");
+  }
+  
+  // 回数を指定して鳴く
+  void barkTimes(int count) {
+    for (int i = 0; i &lt; count; i++) {
+      print("ワン！");
+    }
+  }
+}
+
+void main() {
+  Dog pochi = Dog();
+  pochi.name = "ポチ";
+  
+  pochi.greetTo("ハチ");    // ポチ：こんにちは、ハチさん！
+  pochi.barkTimes(3);       // ワン！ワン！ワン！
+}
+</code></pre>
+<h2 id="戻り値のあるメソッド"><a class="header" href="#戻り値のあるメソッド">戻り値のあるメソッド</a></h2>
+<p>メソッドから値を返すことができます：</p>
+<pre><code class="language-javascript">class Dog {
+  String name = "";
+  int age = 0;
+  
+  // 人間年齢を計算して返す
+  int getHumanAge() {
+    return age * 7;  // 犬の年齢 × 7 = 人間年齢（簡易計算）
+  }
+  
+  // 挨拶文を作って返す
+  String createGreeting() {
+    return "僕は${name}、${age}歳です！";
+  }
+  
+  // 大人かどうかを判定
+  bool isAdult() {
+    return age &gt;= 2;  // 2歳以上は大人
+  }
+}
+
+void main() {
+  Dog pochi = Dog();
+  pochi.name = "ポチ";
+  pochi.age = 3;
+  
+  int humanAge = pochi.getHumanAge();
+  print("${pochi.name}の人間年齢は${humanAge}歳です");
+  
+  String greeting = pochi.createGreeting();
+  print(greeting);
+  
+  bool adult = pochi.isAdult();
+  print("大人？ ${adult ? 'はい' : 'いいえ'}");
+}
+</code></pre>
+<p><strong>実行結果</strong>：</p>
+<pre><code>ポチの人間年齢は21歳です
+僕はポチ、3歳です！
+大人？ はい
+</code></pre>
+<h2 id="より実践的な例銀行口座クラス"><a class="header" href="#より実践的な例銀行口座クラス">より実践的な例：銀行口座クラス</a></h2>
+<pre><code class="language-javascript">class BankAccount {
+  String accountHolder = "";  // 口座名義
+  double balance = 0.0;       // 残高
+  
+  // 入金メソッド
+  void deposit(double amount) {
+    if (amount &gt; 0) {
+      balance += amount;
+      print("${amount}円を入金しました。残高: ${balance}円");
+    } else {
+      print("入金額は0円より大きくしてください");
+    }
+  }
+  
+  // 出金メソッド
+  bool withdraw(double amount) {
+    if (amount &lt;= 0) {
+      print("出金額は0円より大きくしてください");
+      return false;
+    } else if (amount &gt; balance) {
+      print("残高不足です。残高: ${balance}円");
+      return false;
+    } else {
+      balance -= amount;
+      print("${amount}円を出金しました。残高: ${balance}円");
+      return true;
+    }
+  }
+  
+  // 残高照会メソッド
+  double getBalance() {
+    return balance;
+  }
+  
+  // 口座情報表示メソッド
+  void showAccountInfo() {
+    print("=== 口座情報 ===");
+    print("名義: ${accountHolder}");
+    print("残高: ${balance}円");
+  }
+}
+
+void main() {
+  BankAccount account = BankAccount();
+  account.accountHolder = "田中太郎";
+  
+  account.showAccountInfo();
+  
+  account.deposit(10000);    // 1万円入金
+  account.deposit(5000);     // 5千円入金
+  account.withdraw(3000);    // 3千円出金
+  account.withdraw(20000);   // 残高不足
+  
+  account.showAccountInfo();
+}
+</code></pre>
+<p><strong>実行結果</strong>：</p>
+<pre><code>=== 口座情報 ===
+名義: 田中太郎
+残高: 0.0円
+10000.0円を入金しました。残高: 10000.0円
+5000.0円を入金しました。残高: 15000.0円
+3000.0円を出金しました。残高: 12000.0円
+残高不足です。残高: 12000.0円
+=== 口座情報 ===
+名義: 田中太郎
+残高: 12000.0円
+</code></pre>
+<h2 id="メソッドからフィールドにアクセス"><a class="header" href="#メソッドからフィールドにアクセス">メソッドからフィールドにアクセス</a></h2>
+<p>メソッドの中では、同じオブジェクトのフィールドに自由にアクセスできます：</p>
+<pre><code class="language-javascript">class Student {
+  String name = "";
+  List&lt;int&gt; scores = [];
+  
+  // テストの点数を追加
+  void addScore(int score) {
+    scores.add(score);  // フィールド scores にアクセス
+    print("${name}のテスト結果：${score}点を追加しました");
+  }
+  
+  // 平均点を計算
+  double calculateAverage() {
+    if (scores.isEmpty) {
+      return 0.0;
+    }
+    
+    int total = 0;
+    for (int score in scores) {
+      total += score;
+    }
+    
+    return total / scores.length;
+  }
+  
+  // 成績評価
+  String getGrade() {
+    double average = calculateAverage();  // 他のメソッドを呼び出し
+    
+    if (average &gt;= 90) {
+      return "A";
+    } else if (average &gt;= 80) {
+      return "B";
+    } else if (average &gt;= 70) {
+      return "C";
+    } else if (average &gt;= 60) {
+      return "D";
+    } else {
+      return "F";
+    }
+  }
+}
+
+void main() {
+  Student alice = Student();
+  alice.name = "Alice";
+  
+  alice.addScore(85);
+  alice.addScore(92);
+  alice.addScore(78);
+  
+  double average = alice.calculateAverage();
+  String grade = alice.getGrade();
+  
+  print("${alice.name}の平均点: ${average.toStringAsFixed(1)}点");
+  print("評価: ${grade}");
+}
+</code></pre>
+<h2 id="練習してみよう-1"><a class="header" href="#練習してみよう-1">練習してみよう</a></h2>
+<h3 id="練習1計算機クラス"><a class="header" href="#練習1計算機クラス">練習1：計算機クラス</a></h3>
+<pre><code class="language-javascript">class Calculator {
+  double result = 0.0;  // 計算結果を保存
+  
+  // ここにメソッドを追加してください：
+  // 1. add(double value) - 値を足す
+  // 2. subtract(double value) - 値を引く
+  // 3. multiply(double value) - 値をかける
+  // 4. divide(double value) - 値で割る
+  // 5. clear() - 結果をリセット
+  // 6. getResult() - 現在の結果を返す
+}
+</code></pre>
+<p><strong>答えの例</strong>：</p>
+<pre><code class="language-javascript">class Calculator {
+  double result = 0.0;
+  
+  void add(double value) {
+    result += value;
+    print("+ ${value} = ${result}");
+  }
+  
+  void subtract(double value) {
+    result -= value;
+    print("- ${value} = ${result}");
+  }
+  
+  void multiply(double value) {
+    result *= value;
+    print("× ${value} = ${result}");
+  }
+  
+  void divide(double value) {
+    if (value != 0) {
+      result /= value;
+      print("÷ ${value} = ${result}");
+    } else {
+      print("エラー: 0で割ることはできません");
+    }
+  }
+  
+  void clear() {
+    result = 0.0;
+    print("計算結果をリセットしました");
+  }
+  
+  double getResult() {
+    return result;
+  }
+}
+
+void main() {
+  Calculator calc = Calculator();
+  
+  calc.add(10);        // + 10.0 = 10.0
+  calc.multiply(3);    // × 3.0 = 30.0
+  calc.subtract(5);    // - 5.0 = 25.0
+  calc.divide(5);      // ÷ 5.0 = 5.0
+  
+  print("最終結果: ${calc.getResult()}");
+}
+</code></pre>
+<h3 id="練習2タイマークラス"><a class="header" href="#練習2タイマークラス">練習2：タイマークラス</a></h3>
+<p>時間をカウントするタイマークラスを作ってみてください：</p>
+<pre><code class="language-javascript">class Timer {
+  int seconds = 0;
+  
+  // start() - タイマー開始メッセージ
+  // tick() - 1秒進める
+  // reset() - 0秒にリセット
+  // getTime() - 現在時刻を返す
+  // isTimeUp(int target) - 指定時間に達したかチェック
+}
+</code></pre>
+<h2 id="ゲッターとセッター"><a class="header" href="#ゲッターとセッター">ゲッターとセッター</a></h2>
+<p>フィールドへの安全なアクセスを提供するメソッドパターン：</p>
+<pre><code class="language-javascript">class Person {
+  String _name = "";  // プライベートフィールド（_で始まる）
+  int _age = 0;
+  
+  // ゲッター（値を取得）
+  String getName() {
+    return _name;
+  }
+  
+  int getAge() {
+    return _age;
+  }
+  
+  // セッター（値を設定）
+  void setName(String name) {
+    if (name.isNotEmpty) {
+      _name = name;
+    } else {
+      print("名前は空にできません");
+    }
+  }
+  
+  void setAge(int age) {
+    if (age &gt;= 0 &amp;&amp; age &lt;= 120) {
+      _age = age;
+    } else {
+      print("年齢は0-120歳の範囲で設定してください");
+    }
+  }
+}
+</code></pre>
+<h2 id="まとめ-41"><a class="header" href="#まとめ-41">まとめ</a></h2>
+<p>この章では、オブジェクトに行動（メソッド）を追加する方法を学びました：</p>
+<ol>
+<li><strong>メソッドの基本</strong>：<code>戻り値の型 メソッド名() { }</code></li>
+<li><strong>void メソッド</strong>：何も返さないメソッド</li>
+<li><strong>パラメータ</strong>：メソッドに情報を渡す</li>
+<li><strong>戻り値</strong>：メソッドから結果を受け取る</li>
+<li><strong>フィールドアクセス</strong>：メソッド内でフィールドを使用</li>
+<li><strong>実践的な例</strong>：銀行口座、学生成績管理など</li>
+</ol>
+<p>オブジェクトは今や、データを持つだけでなく、そのデータを使って様々な処理ができるようになりました！</p>
+<p>次の章では、これらの知識を使って実際のペット管理アプリを作ってみます。今まで学んだことが全て一つの形になりますよ！</p>
+<h2 id="練習問題-33"><a class="header" href="#練習問題-33">練習問題</a></h2>
+<ol>
+<li>次のコードで、<code>pochi.getHumanAge()</code> の戻り値は何でしょうか？</li>
+</ol>
+<pre><code class="language-javascript">class Dog {
+  int age = 0;
+  
+  int getHumanAge() {
+    return age * 7;
+  }
+}
+
+void main() {
+  Dog pochi = Dog();
+  pochi.age = 4;
+  
+  int result = pochi.getHumanAge();
+  print(result);
+}
+</code></pre>
+<ol start="2">
+<li>図書館の本を管理するBookクラスに、以下のメソッドを追加してください：
+<ul>
+<li><code>borrow()</code> - 本を借りる（借用中フラグをtrueにする）</li>
+<li><code>returnBook()</code> - 本を返却する（借用中フラグをfalseにする）</li>
+<li><code>isAvailable()</code> - 貸し出し可能かチェック（借用中でなければtrue）</li>
+</ul>
+</li>
+</ol>
+<p><strong>答え</strong>：</p>
+<ol>
+<li>
+<p>戻り値は <code>28</code> です（4 × 7 = 28）</p>
+</li>
+<li>
+<p>図書館の本クラス：</p>
+</li>
+</ol>
+<pre><code class="language-javascript">class Book {
+  String title = "";
+  String author = "";
+  bool isBorrowed = false;
+  
+  void borrow() {
+    if (!isBorrowed) {
+      isBorrowed = true;
+      print("「${title}」を借りました");
+    } else {
+      print("「${title}」は既に貸し出し中です");
+    }
+  }
+  
+  void returnBook() {
+    if (isBorrowed) {
+      isBorrowed = false;
+      print("「${title}」を返却しました");
+    } else {
+      print("「${title}」は貸し出されていません");
+    }
+  }
+  
+  bool isAvailable() {
+    return !isBorrowed;
+  }
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="実践ペット管理アプリ"><a class="header" href="#実践ペット管理アプリ">実践：ペット管理アプリ</a></h1>
+<p>これまでの章で学んだオブジェクト指向プログラミングの知識を全て使って、実際のペット管理アプリを作ってみましょう！このアプリでは、ペットショップの動物たちを管理する機能を実装します。</p>
+<h2 id="アプリの仕様"><a class="header" href="#アプリの仕様">アプリの仕様</a></h2>
+<p>作成するペット管理アプリには、以下の機能があります：</p>
+<ol>
+<li><strong>ペットの登録</strong> - 新しいペットを追加</li>
+<li><strong>ペット一覧表示</strong> - 全てのペットの情報を表示</li>
+<li><strong>ペット検索</strong> - 名前でペットを検索</li>
+<li><strong>ペットのお世話</strong> - 餌やり、遊び、健康チェック</li>
+<li><strong>ペット情報更新</strong> - 年齢やその他の情報を更新</li>
+</ol>
+<h2 id="ステップ1ペットクラスの設計"><a class="header" href="#ステップ1ペットクラスの設計">ステップ1：ペットクラスの設計</a></h2>
+<p>まず、ペットを表現するクラスを作りましょう：</p>
+<pre><code class="language-javascript">class Pet {
+  String name = "";           // 名前
+  String species = "";        // 種類（犬、猫、うさぎなど）
+  String breed = "";          // 品種
+  int age = 0;               // 年齢
+  String color = "";         // 毛色
+  int hunger = 50;           // 空腹度（0-100、100が最も空腹）
+  int happiness = 50;        // 幸福度（0-100、100が最も幸せ）
+  int health = 100;          // 健康度（0-100、100が最も健康）
+  bool isAdopted = false;    // 里親が見つかったかどうか
+  
+  // ペットの基本情報を表示
+  void showInfo() {
+    print("=== ${name}の情報 ===");
+    print("種類: ${species}");
+    print("品種: ${breed}");
+    print("年齢: ${age}歳");
+    print("毛色: ${color}");
+    print("状態: ${isAdopted ? '里親決定済み' : '里親募集中'}");
+    showStatus();
+  }
+  
+  // ペットの状態（空腹度、幸福度、健康度）を表示
+  void showStatus() {
+    print("--- 状態 ---");
+    print("空腹度: ${hunger}/100 ${_getHungerStatus()}");
+    print("幸福度: ${happiness}/100 ${_getHappinessStatus()}");
+    print("健康度: ${health}/100 ${_getHealthStatus()}");
+  }
+  
+  // 空腹度の状態を文字で表現
+  String _getHungerStatus() {
+    if (hunger &gt;= 80) return "（とても空腹）";
+    if (hunger &gt;= 60) return "（空腹）";
+    if (hunger &gt;= 40) return "（少し空腹）";
+    if (hunger &gt;= 20) return "（満足）";
+    return "（満腹）";
+  }
+  
+  // 幸福度の状態を文字で表現
+  String _getHappinessStatus() {
+    if (happiness &gt;= 80) return "（とても幸せ）";
+    if (happiness &gt;= 60) return "（幸せ）";
+    if (happiness &gt;= 40) return "（普通）";
+    if (happiness &gt;= 20) return "（少し寂しい）";
+    return "（とても寂しい）";
+  }
+  
+  // 健康度の状態を文字で表現
+  String _getHealthStatus() {
+    if (health &gt;= 90) return "（とても健康）";
+    if (health &gt;= 70) return "（健康）";
+    if (health &gt;= 50) return "（普通）";
+    if (health &gt;= 30) return "（少し不調）";
+    return "（要治療）";
+  }
+  
+  // 餌やり
+  void feed() {
+    if (hunger &lt;= 10) {
+      print("${name}はお腹いっぱいで、これ以上食べられません。");
+      return;
+    }
+    
+    hunger = (hunger - 30).clamp(0, 100);
+    happiness = (happiness + 10).clamp(0, 100);
+    health = (health + 5).clamp(0, 100);
+    
+    print("${name}に餌をあげました！");
+    print("${name}は嬉しそうに食べています♪");
+  }
+  
+  // 遊ぶ
+  void play() {
+    if (happiness &gt;= 90) {
+      print("${name}は既にとても幸せで、これ以上遊ぶ必要がありません。");
+      return;
+    }
+    
+    happiness = (happiness + 25).clamp(0, 100);
+    hunger = (hunger + 15).clamp(0, 100);
+    health = (health + 10).clamp(0, 100);
+    
+    print("${name}と遊びました！");
+    print("${name}はとても楽しそうです♪");
+  }
+  
+  // 健康チェック
+  void healthCheck() {
+    print("${name}の健康チェックを行いました。");
+    
+    if (health &gt;= 90) {
+      print("とても健康です！");
+    } else if (health &gt;= 70) {
+      print("健康状態は良好です。");
+    } else if (health &gt;= 50) {
+      print("健康状態は普通です。");
+    } else if (health &gt;= 30) {
+      print("少し体調が悪いようです。様子を見ましょう。");
+      health = (health + 10).clamp(0, 100);  // 少し回復
+    } else {
+      print("健康状態が悪いです。治療が必要です！");
+      health = (health + 20).clamp(0, 100);  // 治療効果
+    }
+  }
+  
+  // 里親が決まる
+  void adopt() {
+    if (isAdopted) {
+      print("${name}は既に里親が決まっています。");
+    } else {
+      isAdopted = true;
+      print("${name}の里親が決まりました！おめでとう！");
+    }
+  }
+  
+  // 時間が経つ（自動的に状態が変化）
+  void passTime() {
+    hunger = (hunger + 10).clamp(0, 100);
+    happiness = (happiness - 5).clamp(0, 100);
+    
+    // 空腹すぎると健康度が下がる
+    if (hunger &gt;= 90) {
+      health = (health - 10).clamp(0, 100);
+    }
+    
+    // 幸福度が低すぎると健康度が下がる
+    if (happiness &lt;= 20) {
+      health = (health - 5).clamp(0, 100);
+    }
+  }
+}
+</code></pre>
+<h2 id="ステップ2ペット管理システムクラス"><a class="header" href="#ステップ2ペット管理システムクラス">ステップ2：ペット管理システムクラス</a></h2>
+<p>複数のペットを管理するシステムクラスを作りましょう：</p>
+<pre><code class="language-javascript">class PetManagementSystem {
+  List&lt;Pet&gt; pets = [];         // ペットのリスト
+  int nextId = 1;             // 次のペットID
+  
+  // 新しいペットを登録
+  void registerPet(String name, String species, String breed, int age, String color) {
+    Pet newPet = Pet()
+      ..name = name
+      ..species = species
+      ..breed = breed
+      ..age = age
+      ..color = color;
+    
+    pets.add(newPet);
+    print("新しいペット「${name}」を登録しました！");
+    print("");
+  }
+  
+  // 全ペットの一覧を表示
+  void showAllPets() {
+    if (pets.isEmpty) {
+      print("登録されているペットはいません。");
+      return;
+    }
+    
+    print("=== ペット一覧 ===");
+    for (int i = 0; i &lt; pets.length; i++) {
+      Pet pet = pets[i];
+      String status = pet.isAdopted ? "里親決定済み" : "里親募集中";
+      print("${i + 1}. ${pet.name} (${pet.species}, ${pet.age}歳) - ${status}");
+    }
+    print("");
+  }
+  
+  // ペットを名前で検索
+  Pet? findPetByName(String name) {
+    for (Pet pet in pets) {
+      if (pet.name.toLowerCase() == name.toLowerCase()) {
+        return pet;
+      }
+    }
+    return null;
+  }
+  
+  // ペットの詳細情報を表示
+  void showPetDetails(String name) {
+    Pet? pet = findPetByName(name);
+    if (pet != null) {
+      pet.showInfo();
+    } else {
+      print("「${name}」という名前のペットは見つかりませんでした。");
+    }
+    print("");
+  }
+  
+  // ペットに餌をあげる
+  void feedPet(String name) {
+    Pet? pet = findPetByName(name);
+    if (pet != null) {
+      pet.feed();
+    } else {
+      print("「${name}」という名前のペットは見つかりませんでした。");
+    }
+    print("");
+  }
+  
+  // ペットと遊ぶ
+  void playWithPet(String name) {
+    Pet? pet = findPetByName(name);
+    if (pet != null) {
+      pet.play();
+    } else {
+      print("「${name}」という名前のペットは見つかりませんでした。");
+    }
+    print("");
+  }
+  
+  // ペットの健康チェック
+  void checkPetHealth(String name) {
+    Pet? pet = findPetByName(name);
+    if (pet != null) {
+      pet.healthCheck();
+    } else {
+      print("「${name}」という名前のペットは見つかりませんでした。");
+    }
+    print("");
+  }
+  
+  // ペットの里親を決める
+  void adoptPet(String name) {
+    Pet? pet = findPetByName(name);
+    if (pet != null) {
+      pet.adopt();
+    } else {
+      print("「${name}」という名前のペットは見つかりませんでした。");
+    }
+    print("");
+  }
+  
+  // 時間を進める（全ペットの状態が変化）
+  void passTime() {
+    print("時間が経ちました...");
+    for (Pet pet in pets) {
+      pet.passTime();
+    }
+    print("全てのペットの状態が変化しました。");
+    print("");
+  }
+  
+  // 里親募集中のペット数を取得
+  int getAvailablePetsCount() {
+    int count = 0;
+    for (Pet pet in pets) {
+      if (!pet.isAdopted) {
+        count++;
+      }
+    }
+    return count;
+  }
+  
+  // 統計情報を表示
+  void showStatistics() {
+    print("=== 統計情報 ===");
+    print("総ペット数: ${pets.length}匹");
+    print("里親募集中: ${getAvailablePetsCount()}匹");
+    print("里親決定済み: ${pets.length - getAvailablePetsCount()}匹");
+    print("");
+  }
+}
+</code></pre>
+<h2 id="ステップ3メインアプリケーション"><a class="header" href="#ステップ3メインアプリケーション">ステップ3：メインアプリケーション</a></h2>
+<p>実際にアプリを動かしてみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // ペット管理システムを作成
+  PetManagementSystem system = PetManagementSystem();
+  
+  print("🐾 ペットショップ管理アプリへようこそ！ 🐾");
+  print("");
+  
+  // サンプルペットを登録
+  print("--- サンプルペットを登録中... ---");
+  system.registerPet("ポチ", "犬", "柴犬", 3, "茶色");
+  system.registerPet("ミケ", "猫", "三毛猫", 2, "三毛");
+  system.registerPet("ふわり", "うさぎ", "ロップイヤー", 1, "白");
+  system.registerPet("ハチ", "犬", "秋田犬", 5, "茶白");
+  
+  // ペット一覧を表示
+  system.showAllPets();
+  
+  // 統計情報を表示
+  system.showStatistics();
+  
+  // ポチの詳細情報を見る
+  print("--- ポチの詳細情報 ---");
+  system.showPetDetails("ポチ");
+  
+  // ポチと遊ぶ
+  print("--- ポチと遊ぶ ---");
+  system.playWithPet("ポチ");
+  system.showPetDetails("ポチ");
+  
+  // ミケに餌をあげる
+  print("--- ミケに餌をあげる ---");
+  system.feedPet("ミケ");
+  system.showPetDetails("ミケ");
+  
+  // ふわりの健康チェック
+  print("--- ふわりの健康チェック ---");
+  system.checkPetHealth("ふわり");
+  
+  // 時間を進める
+  print("--- 時間が経過 ---");
+  system.passTime();
+  
+  // 再度ポチの状態を確認
+  print("--- 時間経過後のポチの状態 ---");
+  system.showPetDetails("ポチ");
+  
+  // ハチの里親が決まる
+  print("--- ハチの里親決定 ---");
+  system.adoptPet("ハチ");
+  
+  // 最終的な統計
+  print("--- 最終統計 ---");
+  system.showStatistics();
+  system.showAllPets();
+}
+</code></pre>
+<h2 id="実行結果の例"><a class="header" href="#実行結果の例">実行結果の例</a></h2>
+<pre><code>🐾 ペットショップ管理アプリへようこそ！ 🐾
+
+--- サンプルペットを登録中... ---
+新しいペット「ポチ」を登録しました！
+
+新しいペット「ミケ」を登録しました！
+
+新しいペット「ふわり」を登録しました！
+
+新しいペット「ハチ」を登録しました！
+
+=== ペット一覧 ===
+1. ポチ (犬, 3歳) - 里親募集中
+2. ミケ (猫, 2歳) - 里親募集中
+3. ふわり (うさぎ, 1歳) - 里親募集中
+4. ハチ (犬, 5歳) - 里親募集中
+
+=== 統計情報 ===
+総ペット数: 4匹
+里親募集中: 4匹
+里親決定済み: 0匹
+
+--- ポチの詳細情報 ---
+=== ポチの情報 ===
+種類: 犬
+品種: 柴犬
+年齢: 3歳
+毛色: 茶色
+状態: 里親募集中
+--- 状態 ---
+空腹度: 50/100 （普通）
+幸福度: 50/100 （普通）
+健康度: 100/100 （とても健康）
+
+--- ポチと遊ぶ ---
+ポチと遊びました！
+ポチはとても楽しそうです♪
+
+=== ポチの情報 ===
+種類: 犬
+品種: 柴犬
+年齢: 3歳
+毛色: 茶色
+状態: 里親募集中
+--- 状態 ---
+空腹度: 65/100 （空腹）
+幸福度: 75/100 （幸せ）
+健康度: 100/100 （とても健康）
+</code></pre>
+<h2 id="拡張アイデア"><a class="header" href="#拡張アイデア">拡張アイデア</a></h2>
+<p>このペット管理アプリは、さらに多くの機能を追加できます：</p>
+<h3 id="1-ペットの種類別クラス"><a class="header" href="#1-ペットの種類別クラス">1. ペットの種類別クラス</a></h3>
+<pre><code class="language-javascript">class Dog extends Pet {
+  String favoriteActivity = "散歩";
+  
+  void walk() {
+    print("${name}と散歩に行きました！");
+    happiness = (happiness + 20).clamp(0, 100);
+    health = (health + 15).clamp(0, 100);
+  }
+}
+
+class Cat extends Pet {
+  bool isIndoor = true;
+  
+  void groom() {
+    print("${name}が毛づくろいをしています。");
+    happiness = (happiness + 10).clamp(0, 100);
+  }
+}
+</code></pre>
+<h3 id="2-ペットのスケジュール管理"><a class="header" href="#2-ペットのスケジュール管理">2. ペットのスケジュール管理</a></h3>
+<pre><code class="language-javascript">class PetSchedule {
+  String petName = "";
+  List&lt;String&gt; activities = [];
+  
+  void addActivity(String activity, String time) {
+    activities.add("${time}: ${activity}");
+  }
+  
+  void showSchedule() {
+    print("=== ${petName}のスケジュール ===");
+    for (String activity in activities) {
+      print(activity);
+    }
+  }
+}
+</code></pre>
+<h3 id="3-ペットの成長システム"><a class="header" href="#3-ペットの成長システム">3. ペットの成長システム</a></h3>
+<pre><code class="language-javascript">void growUp() {
+  age++;
+  print("${name}が成長しました！現在${age}歳です。");
+  
+  // 年齢に応じて能力値の上限が変化
+  if (age &gt;= 10) {
+    health = (health - 5).clamp(0, 100);  // 高齢による体力低下
+  }
+}
+</code></pre>
+<h2 id="まとめ-42"><a class="header" href="#まとめ-42">まとめ</a></h2>
+<p>この実践プロジェクトでは、これまで学んだオブジェクト指向プログラミングの概念を全て使いました：</p>
+<ol>
+<li><strong>クラス設計</strong>：PetクラスとPetManagementSystemクラス</li>
+<li><strong>フィールド</strong>：ペットの属性（名前、年齢、状態など）</li>
+<li><strong>メソッド</strong>：ペットの行動（食べる、遊ぶ、健康チェックなど）</li>
+<li><strong>オブジェクト管理</strong>：複数のペットオブジェクトをリストで管理</li>
+<li><strong>情報の隠蔽</strong>：プライベートメソッド（_getHealthStatus()など）</li>
+<li><strong>実用的な機能</strong>：検索、統計、状態変化など</li>
+</ol>
+<p>このようなアプリケーションを作ることで、オブジェクト指向プログラミングの威力を実感できたのではないでしょうか。現実世界の複雑な問題を、クラスとオブジェクトを使って自然に表現し、管理することができました。</p>
+<h2 id="練習課題"><a class="header" href="#練習課題">練習課題</a></h2>
+<ol>
+<li><strong>新機能追加</strong>：ペットの写真URL機能を追加してください</li>
+<li><strong>エラー処理強化</strong>：不正な値の入力に対するチェックを強化してください</li>
+<li><strong>データ保存</strong>：ペット情報をファイルに保存・読み込みする機能を考えてください</li>
+<li><strong>ユーザーインターフェース</strong>：コマンドライン入力による対話的なメニューを作ってください</li>
+</ol>
+<p>プログラミングは創造性の表現です。ぜひ自分なりのアイデアを追加して、オリジナルのペット管理アプリを作ってみてください！</p>
+<p><strong>おめでとうございます！</strong> これでオブジェクト指向プログラミングの基礎をマスターしました。次のステップでは、より高度なオブジェクト指向の概念（継承、ポリモーフィズムなど）を学んでいきます。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第12章オブジェクト指向の活用"><a class="header" href="#第12章オブジェクト指向の活用">第12章：オブジェクト指向の活用</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="コンストラクタ"><a class="header" href="#コンストラクタ">コンストラクタ</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="ゲッターとセッター"><a class="header" href="#ゲッターとセッター">ゲッターとセッター</a></h1>
+<p>コンストラクタは、クラスからオブジェクトを作成するときに自動的に呼び出される特別なメソッドです。オブジェクトの初期化を行うために使用されます。</p>
+<h2 id="コンストラクタとは"><a class="header" href="#コンストラクタとは">コンストラクタとは</a></h2>
+<p>前章でクラスの基本を学びましたが、オブジェクトを作成する際に初期値を設定したり、必要な準備を行ったりする方法を学びましょう。</p>
+<h3 id="基本的なコンストラクタ"><a class="header" href="#基本的なコンストラクタ">基本的なコンストラクタ</a></h3>
+<pre><code class="language-javascript">class Person {
+  String name;
+  int age;
+  
+  // コンストラクタ
+  Person(this.name, this.age);
+  
+  void introduce() {
+    print('こんにちは、私は${name}です。${age}歳です。');
+  }
+}
+
+void main() {
+  // コンストラクタを使ってオブジェクトを作成
+  Person person1 = Person('田中太郎', 25);
+  Person person2 = Person('佐藤花子', 30);
+  
+  person1.introduce(); // こんにちは、私は田中太郎です。25歳です。
+  person2.introduce(); // こんにちは、私は佐藤花子です。30歳です。
+}
+</code></pre>
+<p>上記の例では、<code>Person(this.name, this.age)</code>がコンストラクタです。<code>this.name</code>は「このオブジェクトのname」という意味で、引数として受け取った値をオブジェクトのフィールドに代入します。</p>
+<h2 id="名前付きコンストラクタ"><a class="header" href="#名前付きコンストラクタ">名前付きコンストラクタ</a></h2>
+<p>Dartでは、一つのクラスに複数のコンストラクタを定義できます。これを「名前付きコンストラクタ」と呼びます。</p>
+<pre><code class="language-javascript">class Rectangle {
+  double width;
+  double height;
+  
+  // 通常のコンストラクタ
+  Rectangle(this.width, this.height);
+  
+  // 名前付きコンストラクタ：正方形を作成
+  Rectangle.square(double side) {
+    width = side;
+    height = side;
+  }
+  
+  // 名前付きコンストラクタ：デフォルトサイズ
+  Rectangle.defaultSize() {
+    width = 10.0;
+    height = 10.0;
+  }
+  
+  double getArea() {
+    return width * height;
+  }
+  
+  void showInfo() {
+    print('幅: $width, 高さ: $height, 面積: ${getArea()}');
+  }
+}
+
+void main() {
+  // 通常のコンストラクタ
+  Rectangle rect1 = Rectangle(5.0, 3.0);
+  
+  // 正方形を作成
+  Rectangle square = Rectangle.square(4.0);
+  
+  // デフォルトサイズ
+  Rectangle defaultRect = Rectangle.defaultSize();
+  
+  rect1.showInfo();     // 幅: 5.0, 高さ: 3.0, 面積: 15.0
+  square.showInfo();    // 幅: 4.0, 高さ: 4.0, 面積: 16.0
+  defaultRect.showInfo(); // 幅: 10.0, 高さ: 10.0, 面積: 100.0
+}
+</code></pre>
+<h2 id="オプション引数を持つコンストラクタ"><a class="header" href="#オプション引数を持つコンストラクタ">オプション引数を持つコンストラクタ</a></h2>
+<p>引数に初期値を設定することで、オプション引数を持つコンストラクタを作成できます。</p>
+<pre><code class="language-javascript">class Student {
+  String name;
+  int grade;
+  String school;
+  
+  // オプション引数を持つコンストラクタ
+  Student(this.name, {this.grade = 1, this.school = '未設定'});
+  
+  void showProfile() {
+    print('名前: $name');
+    print('学年: ${grade}年生');
+    print('学校: $school');
+    print('---');
+  }
+}
+
+void main() {
+  // 名前のみ指定
+  Student student1 = Student('山田太郎');
+  
+  // 名前と学年を指定
+  Student student2 = Student('鈴木花子', grade: 3);
+  
+  // すべて指定
+  Student student3 = Student('高橋次郎', grade: 2, school: '〇〇中学校');
+  
+  student1.showProfile();
+  // 名前: 山田太郎
+  // 学年: 1年生
+  // 学校: 未設定
+  
+  student2.showProfile();
+  // 名前: 鈴木花子
+  // 学年: 3年生
+  // 学校: 未設定
+  
+  student3.showProfile();
+  // 名前: 高橋次郎
+  // 学年: 2年生
+  // 学校: 〇〇中学校
+}
+</code></pre>
+<h2 id="コンストラクタでの初期化処理"><a class="header" href="#コンストラクタでの初期化処理">コンストラクタでの初期化処理</a></h2>
+<p>コンストラクタ内では、フィールドの初期化以外にも様々な処理を行えます。</p>
+<pre><code class="language-javascript">class BankAccount {
+  String accountNumber;
+  String ownerName;
+  double balance;
+  List&lt;String&gt; transactionHistory;
+  
+  BankAccount(this.accountNumber, this.ownerName) {
+    balance = 0.0; // 残高は0から開始
+    transactionHistory = []; // 取引履歴を初期化
+    
+    // 口座開設の記録
+    transactionHistory.add('口座開設: ${DateTime.now()}');
+    print('口座が作成されました: $accountNumber (名義: $ownerName)');
+  }
+  
+  void deposit(double amount) {
+    balance += amount;
+    transactionHistory.add('入金: +$amount円 (残高: $balance円)');
+  }
+  
+  void showAccount() {
+    print('口座番号: $accountNumber');
+    print('名義: $ownerName');
+    print('残高: $balance円');
+    print('取引履歴:');
+    for (String transaction in transactionHistory) {
+      print('  $transaction');
+    }
+  }
+}
+
+void main() {
+  BankAccount account = BankAccount('123-456-789', '田中太郎');
+  // 出力: 口座が作成されました: 123-456-789 (名義: 田中太郎)
+  
+  account.deposit(10000);
+  account.deposit(5000);
+  
+  account.showAccount();
+  // 口座番号: 123-456-789
+  // 名義: 田中太郎
+  // 残高: 15000円
+  // 取引履歴:
+  //   口座開設: 2024-xx-xx xx:xx:xx.xxx
+  //   入金: +10000円 (残高: 10000円)
+  //   入金: +5000円 (残高: 15000円)
+}
+</code></pre>
+<h2 id="まとめ-43"><a class="header" href="#まとめ-43">まとめ</a></h2>
+<p>コンストラクタは、オブジェクトを作成する際の重要な仕組みです：</p>
+<ul>
+<li><strong>基本コンストラクタ</strong>: <code>ClassName(this.field1, this.field2)</code>の形式</li>
+<li><strong>名前付きコンストラクタ</strong>: 一つのクラスに複数のコンストラクタを定義</li>
+<li><strong>オプション引数</strong>: 初期値を設定して柔軟なオブジェクト作成</li>
+<li><strong>初期化処理</strong>: フィールドの設定以外の準備作業も可能</li>
+</ul>
+<p>コンストラクタを適切に使うことで、安全で使いやすいクラスを作成できます。次のセクションでは、オブジェクトのデータにアクセスする際の制御方法について学びましょう。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ゲッターとセッター-1"><a class="header" href="#ゲッターとセッター-1">ゲッターとセッター</a></h1>
+<p>ゲッターとセッターは、クラスのフィールドに対するアクセスを制御する仕組みです。データの取得や設定時に特別な処理を行ったり、不正な値の設定を防いだりできます。</p>
+<h2 id="ゲッターとセッターとは"><a class="header" href="#ゲッターとセッターとは">ゲッターとセッターとは</a></h2>
+<p>オブジェクトのデータに直接アクセスするのではなく、メソッドを通してアクセスすることで、より安全で柔軟なプログラムを作成できます。</p>
+<h3 id="基本的なゲッターとセッター"><a class="header" href="#基本的なゲッターとセッター">基本的なゲッターとセッター</a></h3>
+<pre><code class="language-javascript">class Temperature {
+  double _celsius; // アンダースコア(_)でプライベートフィールドを表現
+  
+  Temperature(this._celsius);
+  
+  // ゲッター：摂氏温度を取得
+  double get celsius =&gt; _celsius;
+  
+  // セッター：摂氏温度を設定
+  set celsius(double value) {
+    if (value &lt; -273.15) {
+      print('エラー: 絶対零度以下の温度は設定できません');
+      return;
+    }
+    _celsius = value;
+  }
+  
+  // ゲッター：華氏温度を計算して取得
+  double get fahrenheit =&gt; _celsius * 9 / 5 + 32;
+  
+  // セッター：華氏温度から摂氏温度に変換して設定
+  set fahrenheit(double value) {
+    celsius = (value - 32) * 5 / 9; // セッターを通して設定
+  }
+  
+  void showTemperature() {
+    print('摂氏: ${_celsius.toStringAsFixed(1)}°C');
+    print('華氏: ${fahrenheit.toStringAsFixed(1)}°F');
+  }
+}
+
+void main() {
+  Temperature temp = Temperature(25.0);
+  
+  print('=== 初期値 ===');
+  temp.showTemperature();
+  // 摂氏: 25.0°C
+  // 華氏: 77.0°F
+  
+  print('\n=== 摂氏で設定 ===');
+  temp.celsius = 0.0;
+  temp.showTemperature();
+  // 摂氏: 0.0°C
+  // 華氏: 32.0°F
+  
+  print('\n=== 華氏で設定 ===');
+  temp.fahrenheit = 100.0;
+  temp.showTemperature();
+  // 摂氏: 37.8°C
+  // 華氏: 100.0°F
+  
+  print('\n=== 不正な値の設定 ===');
+  temp.celsius = -300.0; // エラー: 絶対零度以下の温度は設定できません
+  temp.showTemperature(); // 値は変更されない
+}
+</code></pre>
+<p>この例では、<code>get</code>キーワードでゲッター、<code>set</code>キーワードでセッターを定義しています。</p>
+<h2 id="計算プロパティ"><a class="header" href="#計算プロパティ">計算プロパティ</a></h2>
+<p>ゲッターを使って、他のフィールドから計算される値を提供できます。</p>
+<pre><code class="language-javascript">class Circle {
+  double _radius;
+  
+  Circle(this._radius);
+  
+  // 半径のゲッターとセッター
+  double get radius =&gt; _radius;
+  
+  set radius(double value) {
+    if (value &lt;= 0) {
+      print('エラー: 半径は0より大きい値である必要があります');
+      return;
+    }
+    _radius = value;
+  }
+  
+  // 直径を計算して返すゲッター
+  double get diameter =&gt; _radius * 2;
+  
+  // 直径から半径を設定するセッター
+  set diameter(double value) {
+    radius = value / 2; // セッターを通して設定
+  }
+  
+  // 円周を計算して返すゲッター
+  double get circumference =&gt; 2 * 3.14159 * _radius;
+  
+  // 面積を計算して返すゲッター
+  double get area =&gt; 3.14159 * _radius * _radius;
+  
+  void showCircleInfo() {
+    print('半径: ${radius.toStringAsFixed(2)}');
+    print('直径: ${diameter.toStringAsFixed(2)}');
+    print('円周: ${circumference.toStringAsFixed(2)}');
+    print('面積: ${area.toStringAsFixed(2)}');
+    print('---');
+  }
+}
+
+void main() {
+  Circle circle = Circle(5.0);
+  
+  print('=== 初期状態 ===');
+  circle.showCircleInfo();
+  
+  print('=== 半径を変更 ===');
+  circle.radius = 3.0;
+  circle.showCircleInfo();
+  
+  print('=== 直径で設定 ===');
+  circle.diameter = 10.0; // 半径は5.0になる
+  circle.showCircleInfo();
+  
+  print('=== 不正な値の設定 ===');
+  circle.radius = -1.0; // エラーメッセージが表示される
+  circle.showCircleInfo(); // 値は変更されない
+}
+</code></pre>
+<h2 id="データの検証と変換"><a class="header" href="#データの検証と変換">データの検証と変換</a></h2>
+<p>セッターを使ってデータの検証や変換を行うことができます。</p>
+<pre><code class="language-javascript">class Person {
+  String _name;
+  int _age;
+  String _email;
+  
+  Person(this._name, this._age, this._email);
+  
+  // 名前のゲッターとセッター
+  String get name =&gt; _name;
+  
+  set name(String value) {
+    if (value.trim().isEmpty) {
+      print('エラー: 名前は空にできません');
+      return;
+    }
+    _name = value.trim(); // 前後の空白を除去
+  }
+  
+  // 年齢のゲッターとセッター
+  int get age =&gt; _age;
+  
+  set age(int value) {
+    if (value &lt; 0 || value &gt; 150) {
+      print('エラー: 年齢は0〜150の範囲で入力してください');
+      return;
+    }
+    _age = value;
+  }
+  
+  // メールアドレスのゲッターとセッター
+  String get email =&gt; _email;
+  
+  set email(String value) {
+    if (!value.contains('@') || !value.contains('.')) {
+      print('エラー: 正しいメールアドレスの形式ではありません');
+      return;
+    }
+    _email = value.toLowerCase(); // 小文字に変換
+  }
+  
+  // 年齢グループを計算して返すゲッター
+  String get ageGroup {
+    if (_age &lt; 13) return '子供';
+    if (_age &lt; 20) return '青少年';
+    if (_age &lt; 65) return '成人';
+    return 'シニア';
+  }
+  
+  void showProfile() {
+    print('名前: $_name');
+    print('年齢: $_age歳 (${ageGroup})');
+    print('メール: $_email');
+    print('---');
+  }
+}
+
+void main() {
+  Person person = Person('  田中太郎  ', 25, 'TANAKA@EXAMPLE.COM');
+  
+  print('=== 初期状態（自動で整形） ===');
+  person.showProfile();
+  // 名前: 田中太郎 (前後の空白が除去される)
+  // 年齢: 25歳 (成人)
+  // メール: tanaka@example.com (小文字に変換される)
+  
+  print('=== 値の変更 ===');
+  person.name = '佐藤花子';
+  person.age = 15;
+  person.email = 'sato@school.jp';
+  person.showProfile();
+  
+  print('=== 不正な値の設定 ===');
+  person.name = '   '; // エラー: 名前は空にできません
+  person.age = 200;    // エラー: 年齢は0〜150の範囲で入力してください
+  person.email = 'invalid-email'; // エラー: 正しいメールアドレスの形式ではありません
+  
+  person.showProfile(); // 値は変更されない
+}
+</code></pre>
+<h2 id="ゲッターとセッターの実践的な使用例"><a class="header" href="#ゲッターとセッターの実践的な使用例">ゲッターとセッターの実践的な使用例</a></h2>
+<p>実際のアプリケーションでよく使われるパターンを見てみましょう。</p>
+<pre><code class="language-javascript">class Product {
+  String _name;
+  double _price;
+  int _stock;
+  bool _isActive;
+  
+  Product(this._name, this._price, this._stock) : _isActive = true;
+  
+  // 商品名
+  String get name =&gt; _name;
+  
+  set name(String value) {
+    if (value.trim().isEmpty) {
+      throw ArgumentError('商品名は必須です');
+    }
+    _name = value.trim();
+  }
+  
+  // 価格
+  double get price =&gt; _price;
+  
+  set price(double value) {
+    if (value &lt; 0) {
+      throw ArgumentError('価格は0以上である必要があります');
+    }
+    _price = value;
+  }
+  
+  // 在庫数
+  int get stock =&gt; _stock;
+  
+  set stock(int value) {
+    if (value &lt; 0) {
+      throw ArgumentError('在庫数は0以上である必要があります');
+    }
+    _stock = value;
+  }
+  
+  // 販売状態
+  bool get isActive =&gt; _isActive;
+  set isActive(bool value) =&gt; _isActive = value;
+  
+  // 計算プロパティ：販売可能かどうか
+  bool get isAvailable =&gt; _isActive &amp;&amp; _stock &gt; 0;
+  
+  // 計算プロパティ：税込み価格（消費税10%）
+  double get priceWithTax =&gt; _price * 1.1;
+  
+  // 計算プロパティ：在庫状況
+  String get stockStatus {
+    if (_stock == 0) return '在庫切れ';
+    if (_stock &lt;= 5) return '残りわずか';
+    return '在庫あり';
+  }
+  
+  void showProductInfo() {
+    print('商品名: $_name');
+    print('価格: ${_price.toStringAsFixed(0)}円（税込: ${priceWithTax.toStringAsFixed(0)}円）');
+    print('在庫: $_stock個 (${stockStatus})');
+    print('販売状況: ${isAvailable ? "販売中" : "販売停止"}');
+    print('---');
+  }
+}
+
+void main() {
+  try {
+    Product product = Product('ノートパソコン', 89800.0, 3);
+    
+    print('=== 商品情報 ===');
+    product.showProductInfo();
+    
+    print('=== 在庫を減らす ===');
+    product.stock = 1;
+    product.showProductInfo();
+    
+    print('=== 在庫切れ ===');
+    product.stock = 0;
+    product.showProductInfo();
+    
+    print('=== 販売停止 ===');
+    product.stock = 10;
+    product.isActive = false;
+    product.showProductInfo();
+    
+  } catch (e) {
+    print('エラーが発生しました: $e');
+  }
+}
+</code></pre>
+<h2 id="まとめ-44"><a class="header" href="#まとめ-44">まとめ</a></h2>
+<p>ゲッターとセッターを使うことで、以下のメリットがあります：</p>
+<ul>
+<li><strong>データの検証</strong>: 不正な値の設定を防ぐ</li>
+<li><strong>データの変換</strong>: 設定時に自動的にフォーマットを整える</li>
+<li><strong>計算プロパティ</strong>: 他のフィールドから値を計算して提供</li>
+<li><strong>アクセス制御</strong>: データの読み取り専用や書き込み専用を実現</li>
+<li><strong>将来の拡張性</strong>: 後からロジックを追加しやすい</li>
+</ul>
+<p>次のセクションでは、これらの仕組みを支える「カプセル化」の考え方について詳しく学びましょう。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="カプセル化の考え方"><a class="header" href="#カプセル化の考え方">カプセル化の考え方</a></h1>
+<p>カプセル化は、オブジェクト指向プログラミングの最も重要な概念の一つです。データとそれを操作するメソッドを一つにまとめ、外部からの不適切なアクセスを制限することで、プログラムの安全性と保守性を向上させます。</p>
+<h2 id="カプセル化とは"><a class="header" href="#カプセル化とは">カプセル化とは</a></h2>
+<p>カプセル化とは、「内部の仕組みを隠して、決められた方法でのみアクセスできるようにする」ことです。薬のカプセルのように、中身を保護し、正しい方法で取り扱えるようにするイメージです。</p>
+<h3 id="カプセル化の基本原則"><a class="header" href="#カプセル化の基本原則">カプセル化の基本原則</a></h3>
+<pre><code class="language-javascript">// 悪い例：カプセル化されていない
+class BadBankAccount {
+  String accountNumber;
+  double balance; // 外部から直接アクセス可能
+  
+  BadBankAccount(this.accountNumber, this.balance);
+}
+
+void badExample() {
+  BadBankAccount account = BadBankAccount('123-456', 10000);
+  
+  // 問題：残高を直接変更できてしまう
+  account.balance = -50000; // 負の残高に！
+  account.balance = 999999999; // 突然大金持ちに！
+  
+  print('残高: ${account.balance}円'); // 残高: 999999999円
+}
+
+// 良い例：カプセル化されている
+class GoodBankAccount {
+  String _accountNumber; // プライベートフィールド
+  double _balance;       // プライベートフィールド
+  
+  GoodBankAccount(this._accountNumber, this._balance);
+  
+  // 読み取り専用のゲッター
+  String get accountNumber =&gt; _accountNumber;
+  double get balance =&gt; _balance;
+  
+  // 制御されたメソッドでのみ残高を変更
+  bool deposit(double amount) {
+    if (amount &lt;= 0) {
+      print('エラー: 入金額は0より大きい必要があります');
+      return false;
+    }
+    _balance += amount;
+    print('${amount}円を入金しました。残高: ${_balance}円');
+    return true;
+  }
+  
+  bool withdraw(double amount) {
+    if (amount &lt;= 0) {
+      print('エラー: 出金額は0より大きい必要があります');
+      return false;
+    }
+    if (amount &gt; _balance) {
+      print('エラー: 残高不足です。残高: ${_balance}円');
+      return false;
+    }
+    _balance -= amount;
+    print('${amount}円を出金しました。残高: ${_balance}円');
+    return true;
+  }
+}
+
+void goodExample() {
+  GoodBankAccount account = GoodBankAccount('123-456', 10000);
+  
+  // 正しい方法でのみ操作可能
+  account.deposit(5000);   // 15000円を入金しました。残高: 15000円
+  account.withdraw(3000);  // 3000円を出金しました。残高: 12000円
+  account.withdraw(20000); // エラー: 残高不足です。残高: 12000円
+  
+  // account._balance = 999999; // エラー：プライベートフィールドにアクセスできない
+}
+</code></pre>
+<h2 id="プライベートフィールドとパブリックインターフェース"><a class="header" href="#プライベートフィールドとパブリックインターフェース">プライベートフィールドとパブリックインターフェース</a></h2>
+<p>Dartでは、アンダースコア（<code>_</code>）で始まる名前をプライベート（非公開）として扱います。</p>
+<pre><code class="language-javascript">class User {
+  // プライベートフィールド（内部データ）
+  String _username;
+  String _password;
+  String _email;
+  DateTime _lastLogin;
+  int _loginAttempts;
+  
+  // パブリックコンストラクタ
+  User(this._username, this._password, this._email) {
+    _lastLogin = DateTime.now();
+    _loginAttempts = 0;
+  }
+  
+  // パブリックメソッド（外部インターフェース）
+  String get username =&gt; _username;
+  String get email =&gt; _email;
+  DateTime get lastLogin =&gt; _lastLogin;
+  
+  // パスワード変更（検証付き）
+  bool changePassword(String oldPassword, String newPassword) {
+    if (!_verifyPassword(oldPassword)) {
+      print('エラー: 現在のパスワードが正しくありません');
+      return false;
+    }
+    
+    if (!_isValidPassword(newPassword)) {
+      print('エラー: 新しいパスワードは8文字以上である必要があります');
+      return false;
+    }
+    
+    _password = _hashPassword(newPassword);
+    print('パスワードを変更しました');
+    return true;
+  }
+  
+  // ログイン処理
+  bool login(String password) {
+    if (_loginAttempts &gt;= 3) {
+      print('エラー: ログイン試行回数が上限に達しています');
+      return false;
+    }
+    
+    if (_verifyPassword(password)) {
+      _lastLogin = DateTime.now();
+      _loginAttempts = 0;
+      print('ログイン成功');
+      return true;
+    } else {
+      _loginAttempts++;
+      print('エラー: パスワードが正しくありません（試行回数: $_loginAttempts/3）');
+      return false;
+    }
+  }
+  
+  // プライベートメソッド（内部処理）
+  bool _verifyPassword(String password) {
+    return _hashPassword(password) == _password;
+  }
+  
+  bool _isValidPassword(String password) {
+    return password.length &gt;= 8;
+  }
+  
+  String _hashPassword(String password) {
+    // 実際の実装では暗号化ライブラリを使用
+    return 'hashed_$password';
+  }
+}
+
+void main() {
+  User user = User('tanaka', 'password123', 'tanaka@example.com');
+  
+  // パブリックインターフェースを通して操作
+  print('ユーザー名: ${user.username}');
+  print('メール: ${user.email}');
+  
+  // ログイン試行
+  user.login('wrongpassword'); // エラー: パスワードが正しくありません（試行回数: 1/3）
+  user.login('password123');   // ログイン成功
+  
+  // パスワード変更
+  user.changePassword('wrongpassword', 'newpassword123'); // エラー: 現在のパスワードが正しくありません
+  user.changePassword('password123', 'new123');           // エラー: 新しいパスワードは8文字以上である必要があります
+  user.changePassword('password123', 'newpassword123');   // パスワードを変更しました
+}
+</code></pre>
+<h2 id="データの整合性を保つ"><a class="header" href="#データの整合性を保つ">データの整合性を保つ</a></h2>
+<p>カプセル化により、オブジェクトの状態を常に正しく保つことができます。</p>
+<pre><code class="language-javascript">class Rectangle {
+  double _width;
+  double _height;
+  
+  Rectangle(double width, double height) {
+    _setDimensions(width, height);
+  }
+  
+  // 幅と高さを同時に設定（整合性を保証）
+  void _setDimensions(double width, double height) {
+    if (width &lt;= 0 || height &lt;= 0) {
+      throw ArgumentError('幅と高さは0より大きい値である必要があります');
+    }
+    _width = width;
+    _height = height;
+  }
+  
+  // 安全なアクセスメソッド
+  double get width =&gt; _width;
+  double get height =&gt; _height;
+  double get area =&gt; _width * _height;
+  double get perimeter =&gt; 2 * (_width + _height);
+  
+  // 制御された更新メソッド
+  void resize(double width, double height) {
+    _setDimensions(width, height);
+    print('サイズを変更しました: ${_width} x ${_height}');
+  }
+  
+  void scale(double factor) {
+    if (factor &lt;= 0) {
+      throw ArgumentError('拡大率は0より大きい値である必要があります');
+    }
+    _width *= factor;
+    _height *= factor;
+    print('${factor}倍に拡大しました: ${_width} x ${_height}');
+  }
+  
+  // 正方形に変換
+  void toSquare() {
+    double side = (_width + _height) / 2;
+    _setDimensions(side, side);
+    print('正方形に変換しました: ${side} x ${side}');
+  }
+  
+  void showInfo() {
+    print('幅: $_width, 高さ: $_height');
+    print('面積: ${area.toStringAsFixed(2)}');
+    print('周囲: ${perimeter.toStringAsFixed(2)}');
+    print('---');
+  }
+}
+
+void main() {
+  try {
+    Rectangle rect = Rectangle(10.0, 5.0);
+    rect.showInfo();
+    
+    rect.resize(8.0, 6.0);
+    rect.showInfo();
+    
+    rect.scale(1.5);
+    rect.showInfo();
+    
+    rect.toSquare();
+    rect.showInfo();
+    
+    // rect._width = -5; // エラー：プライベートフィールドにアクセスできない
+    // rect.resize(-1, 5); // 例外が発生
+    
+  } catch (e) {
+    print('エラー: $e');
+  }
+}
+</code></pre>
+<h2 id="カプセル化の実践例ショッピングカート"><a class="header" href="#カプセル化の実践例ショッピングカート">カプセル化の実践例：ショッピングカート</a></h2>
+<p>より実践的な例として、ショッピングカートクラスを見てみましょう。</p>
+<pre><code class="language-javascript">class CartItem {
+  String _productName;
+  double _price;
+  int _quantity;
+  
+  CartItem(this._productName, this._price, this._quantity) {
+    if (_price &lt; 0) throw ArgumentError('価格は0以上である必要があります');
+    if (_quantity &lt;= 0) throw ArgumentError('数量は1以上である必要があります');
+  }
+  
+  String get productName =&gt; _productName;
+  double get price =&gt; _price;
+  int get quantity =&gt; _quantity;
+  double get totalPrice =&gt; _price * _quantity;
+  
+  void updateQuantity(int newQuantity) {
+    if (newQuantity &lt;= 0) {
+      throw ArgumentError('数量は1以上である必要があります');
+    }
+    _quantity = newQuantity;
+  }
+}
+
+class ShoppingCart {
+  List&lt;CartItem&gt; _items;
+  double _discountRate;
+  
+  ShoppingCart() {
+    _items = [];
+    _discountRate = 0.0;
+  }
+  
+  // 読み取り専用のアクセス
+  List&lt;CartItem&gt; get items =&gt; List.unmodifiable(_items); // 変更不可能なコピーを返す
+  int get itemCount =&gt; _items.length;
+  double get discountRate =&gt; _discountRate;
+  
+  // 計算プロパティ
+  double get subtotal {
+    return _items.fold(0.0, (total, item) =&gt; total + item.totalPrice);
+  }
+  
+  double get discountAmount =&gt; subtotal * _discountRate;
+  double get total =&gt; subtotal - discountAmount;
+  
+  // 制御されたメソッド
+  void addItem(String productName, double price, int quantity) {
+    // 既存の商品があるかチェック
+    for (CartItem item in _items) {
+      if (item.productName == productName &amp;&amp; item.price == price) {
+        item.updateQuantity(item.quantity + quantity);
+        print('${productName}の数量を更新しました（${item.quantity}個）');
+        return;
+      }
+    }
+    
+    // 新しい商品を追加
+    _items.add(CartItem(productName, price, quantity));
+    print('${productName}をカートに追加しました（${quantity}個）');
+  }
+  
+  bool removeItem(String productName) {
+    for (int i = 0; i &lt; _items.length; i++) {
+      if (_items[i].productName == productName) {
+        _items.removeAt(i);
+        print('${productName}をカートから削除しました');
+        return true;
+      }
+    }
+    print('${productName}はカートにありません');
+    return false;
+  }
+  
+  void updateItemQuantity(String productName, int newQuantity) {
+    for (CartItem item in _items) {
+      if (item.productName == productName) {
+        item.updateQuantity(newQuantity);
+        print('${productName}の数量を${newQuantity}個に変更しました');
+        return;
+      }
+    }
+    print('${productName}はカートにありません');
+  }
+  
+  void applyDiscount(double rate) {
+    if (rate &lt; 0 || rate &gt; 1.0) {
+      throw ArgumentError('割引率は0〜1.0の範囲で指定してください');
+    }
+    _discountRate = rate;
+    print('${(rate * 100).toStringAsFixed(0)}%の割引を適用しました');
+  }
+  
+  void clear() {
+    _items.clear();
+    _discountRate = 0.0;
+    print('カートをクリアしました');
+  }
+  
+  void showCart() {
+    print('=== ショッピングカート ===');
+    if (_items.isEmpty) {
+      print('カートは空です');
+      return;
+    }
+    
+    for (CartItem item in _items) {
+      print('${item.productName}: ${item.price}円 x ${item.quantity}個 = ${item.totalPrice}円');
+    }
+    
+    print('---');
+    print('小計: ${subtotal.toStringAsFixed(0)}円');
+    if (_discountRate &gt; 0) {
+      print('割引: -${discountAmount.toStringAsFixed(0)}円 (${(_discountRate * 100).toStringAsFixed(0)}%)');
+    }
+    print('合計: ${total.toStringAsFixed(0)}円');
+    print('---');
+  }
+}
+
+void main() {
+  try {
+    ShoppingCart cart = ShoppingCart();
+    
+    // 商品を追加
+    cart.addItem('ノートパソコン', 89800, 1);
+    cart.addItem('マウス', 2500, 2);
+    cart.addItem('キーボード', 8900, 1);
+    cart.addItem('マウス', 2500, 1); // 同じ商品を追加（数量が更新される）
+    
+    cart.showCart();
+    
+    // 割引を適用
+    cart.applyDiscount(0.1); // 10%割引
+    cart.showCart();
+    
+    // 数量を変更
+    cart.updateItemQuantity('マウス', 2);
+    cart.showCart();
+    
+    // 商品を削除
+    cart.removeItem('キーボード');
+    cart.showCart();
+    
+    // cart._items.add(...); // エラー：プライベートフィールドにアクセスできない
+    
+  } catch (e) {
+    print('エラー: $e');
+  }
+}
+</code></pre>
+<h2 id="まとめ-45"><a class="header" href="#まとめ-45">まとめ</a></h2>
+<p>カプセル化は以下のメリットをもたらします：</p>
+<h3 id="セキュリティと安全性"><a class="header" href="#セキュリティと安全性">セキュリティと安全性</a></h3>
+<ul>
+<li>不正なデータの設定を防ぐ</li>
+<li>データの整合性を保つ</li>
+<li>予期しない副作用を防ぐ</li>
+</ul>
+<h3 id="保守性"><a class="header" href="#保守性">保守性</a></h3>
+<ul>
+<li>内部実装を変更しても外部に影響しない</li>
+<li>バグの発生源を特定しやすい</li>
+<li>コードの理解が容易になる</li>
+</ul>
+<h3 id="再利用性"><a class="header" href="#再利用性">再利用性</a></h3>
+<ul>
+<li>明確なインターフェースで使いやすい</li>
+<li>他の開発者が安全に使用できる</li>
+<li>ドキュメント化しやすい</li>
+</ul>
+<p>カプセル化を意識してクラスを設計することで、より堅牢で保守しやすいプログラムを作成できます。次のセクションでは、これまで学んだ概念を使って実践的な図書館管理システムを作成してみましょう。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="実践図書館管理システム"><a class="header" href="#実践図書館管理システム">実践：図書館管理システム</a></h1>
+<p>これまで学んだコンストラクタ、ゲッター・セッター、カプセル化の概念を組み合わせて、実際の図書館管理システムを作成してみましょう。このシステムでは、本の管理、利用者の管理、貸出・返却処理を行います。</p>
+<h2 id="システムの設計"><a class="header" href="#システムの設計">システムの設計</a></h2>
+<p>図書館管理システムでは、以下のクラスを作成します：</p>
+<ul>
+<li><strong>Book</strong>: 本の情報を管理</li>
+<li><strong>Member</strong>: 図書館利用者の情報を管理</li>
+<li><strong>Library</strong>: 図書館全体の機能を管理</li>
+</ul>
+<h2 id="bookクラス本の管理"><a class="header" href="#bookクラス本の管理">Bookクラス：本の管理</a></h2>
+<p>まず、本の情報を管理するクラスから作成しましょう。</p>
+<pre><code class="language-javascript">class Book {
+  String _id;           // 本のID
+  String _title;        // タイトル
+  String _author;       // 著者
+  String _isbn;         // ISBN
+  DateTime _publishDate; // 出版日
+  bool _isAvailable;    // 貸出可能かどうか
+  String? _borrowerId;  // 借りている人のID（借りられていない場合はnull）
+  DateTime? _borrowDate; // 借りた日（借りられていない場合はnull）
+  
+  // コンストラクタ
+  Book(this._id, this._title, this._author, this._isbn, this._publishDate) {
+    _isAvailable = true;
+    _borrowerId = null;
+    _borrowDate = null;
+  }
+  
+  // 名前付きコンストラクタ：ISBNから簡単に作成
+  Book.withISBN(String id, String title, String author, String isbn) {
+    _id = id;
+    _title = title;
+    _author = author;
+    _isbn = isbn;
+    _publishDate = DateTime.now(); // 現在日時を設定
+    _isAvailable = true;
+    _borrowerId = null;
+    _borrowDate = null;
+  }
+  
+  // ゲッター
+  String get id =&gt; _id;
+  String get title =&gt; _title;
+  String get author =&gt; _author;
+  String get isbn =&gt; _isbn;
+  DateTime get publishDate =&gt; _publishDate;
+  bool get isAvailable =&gt; _isAvailable;
+  String? get borrowerId =&gt; _borrowerId;
+  DateTime? get borrowDate =&gt; _borrowDate;
+  
+  // セッター（制限付き）
+  set title(String newTitle) {
+    if (newTitle.trim().isEmpty) {
+      throw ArgumentError('タイトルは空にできません');
+    }
+    _title = newTitle.trim();
+  }
+  
+  set author(String newAuthor) {
+    if (newAuthor.trim().isEmpty) {
+      throw ArgumentError('著者名は空にできません');
+    }
+    _author = newAuthor.trim();
+  }
+  
+  // 計算プロパティ：貸出期間
+  int? get borrowDays {
+    if (_borrowDate == null) return null;
+    return DateTime.now().difference(_borrowDate!).inDays;
+  }
+  
+  // 計算プロパティ：延滞かどうか（14日を超えた場合）
+  bool get isOverdue {
+    if (_borrowDate == null) return false;
+    return borrowDays! &gt; 14;
+  }
+  
+  // 本を借りる
+  bool borrow(String memberId) {
+    if (!_isAvailable) {
+      print('エラー: この本は既に貸出中です');
+      return false;
+    }
+    
+    _isAvailable = false;
+    _borrowerId = memberId;
+    _borrowDate = DateTime.now();
+    print('「$_title」を貸し出しました（利用者ID: $memberId）');
+    return true;
+  }
+  
+  // 本を返す
+  bool returnBook() {
+    if (_isAvailable) {
+      print('エラー: この本は貸出されていません');
+      return false;
+    }
+    
+    String? previousBorrowerId = _borrowerId;
+    int days = borrowDays!;
+    
+    _isAvailable = true;
+    _borrowerId = null;
+    _borrowDate = null;
+    
+    if (days &gt; 14) {
+      print('「$_title」が返却されました（利用者ID: $previousBorrowerId、${days}日間 - 延滞）');
+    } else {
+      print('「$_title」が返却されました（利用者ID: $previousBorrowerId、${days}日間）');
+    }
+    return true;
+  }
+  
+  void showInfo() {
+    print('=== 本の情報 ===');
+    print('ID: $_id');
+    print('タイトル: $_title');
+    print('著者: $_author');
+    print('ISBN: $_isbn');
+    print('出版日: ${_publishDate.toString().substring(0, 10)}');
+    print('状態: ${_isAvailable ? "貸出可能" : "貸出中"}');
+    
+    if (!_isAvailable) {
+      print('借りている人: $_borrowerId');
+      print('貸出日: ${_borrowDate.toString().substring(0, 10)}');
+      print('経過日数: ${borrowDays}日');
+      if (isOverdue) {
+        print('⚠️ 延滞中です！');
+      }
+    }
+    print('---');
+  }
+}
+</code></pre>
+<h2 id="memberクラス利用者の管理"><a class="header" href="#memberクラス利用者の管理">Memberクラス：利用者の管理</a></h2>
+<p>次に、図書館利用者の情報を管理するクラスを作成します。</p>
+<pre><code class="language-javascript">class Member {
+  String _id;
+  String _name;
+  String _email;
+  String _phoneNumber;
+  DateTime _registrationDate;
+  List&lt;String&gt; _borrowedBookIds;
+  int _maxBorrowLimit;
+  
+  // コンストラクタ
+  Member(this._id, this._name, this._email, this._phoneNumber) {
+    _registrationDate = DateTime.now();
+    _borrowedBookIds = [];
+    _maxBorrowLimit = 5; // デフォルトは5冊まで
+  }
+  
+  // 名前付きコンストラクタ：学生用（貸出制限が多い）
+  Member.student(String id, String name, String email, String phoneNumber) {
+    _id = id;
+    _name = name;
+    _email = email;
+    _phoneNumber = phoneNumber;
+    _registrationDate = DateTime.now();
+    _borrowedBookIds = [];
+    _maxBorrowLimit = 10; // 学生は10冊まで
+  }
+  
+  // ゲッター
+  String get id =&gt; _id;
+  String get name =&gt; _name;
+  String get email =&gt; _email;
+  String get phoneNumber =&gt; _phoneNumber;
+  DateTime get registrationDate =&gt; _registrationDate;
+  int get maxBorrowLimit =&gt; _maxBorrowLimit;
+  List&lt;String&gt; get borrowedBookIds =&gt; List.unmodifiable(_borrowedBookIds);
+  
+  // セッター（データ検証付き）
+  set name(String newName) {
+    if (newName.trim().isEmpty) {
+      throw ArgumentError('名前は空にできません');
+    }
+    _name = newName.trim();
+  }
+  
+  set email(String newEmail) {
+    if (!newEmail.contains('@') || !newEmail.contains('.')) {
+      throw ArgumentError('正しいメールアドレスの形式ではありません');
+    }
+    _email = newEmail.toLowerCase();
+  }
+  
+  set phoneNumber(String newPhoneNumber) {
+    // 簡単な電話番号の検証
+    String cleaned = newPhoneNumber.replaceAll(RegExp(r'[^0-9]'), '');
+    if (cleaned.length &lt; 10 || cleaned.length &gt; 11) {
+      throw ArgumentError('正しい電話番号の形式ではありません');
+    }
+    _phoneNumber = newPhoneNumber;
+  }
+  
+  // 計算プロパティ
+  int get borrowedBooksCount =&gt; _borrowedBookIds.length;
+  bool get canBorrowMore =&gt; borrowedBooksCount &lt; _maxBorrowLimit;
+  int get availableBorrowSlots =&gt; _maxBorrowLimit - borrowedBooksCount;
+  
+  // 本を借りる（内部処理）
+  bool _addBorrowedBook(String bookId) {
+    if (!canBorrowMore) {
+      print('エラー: 貸出制限に達しています（${_maxBorrowLimit}冊）');
+      return false;
+    }
+    
+    if (_borrowedBookIds.contains(bookId)) {
+      print('エラー: この本は既に借りています');
+      return false;
+    }
+    
+    _borrowedBookIds.add(bookId);
+    return true;
+  }
+  
+  // 本を返す（内部処理）
+  bool _removeBorrowedBook(String bookId) {
+    if (!_borrowedBookIds.contains(bookId)) {
+      print('エラー: この本は借りていません');
+      return false;
+    }
+    
+    _borrowedBookIds.remove(bookId);
+    return true;
+  }
+  
+  void showProfile() {
+    print('=== 利用者情報 ===');
+    print('ID: $_id');
+    print('名前: $_name');
+    print('メール: $_email');
+    print('電話番号: $_phoneNumber');
+    print('登録日: ${_registrationDate.toString().substring(0, 10)}');
+    print('貸出中: ${borrowedBooksCount}/${_maxBorrowLimit}冊');
+    print('貸出可能: ${availableBorrowSlots}冊');
+    
+    if (_borrowedBookIds.isNotEmpty) {
+      print('借りている本のID: ${_borrowedBookIds.join(", ")}');
+    }
+    print('---');
+  }
+}
+</code></pre>
+<h2 id="libraryクラス図書館システムの統合管理"><a class="header" href="#libraryクラス図書館システムの統合管理">Libraryクラス：図書館システムの統合管理</a></h2>
+<p>最後に、図書館全体の機能を管理するクラスを作成します。</p>
+<pre><code class="language-javascript">class Library {
+  String _name;
+  List&lt;Book&gt; _books;
+  List&lt;Member&gt; _members;
+  Map&lt;String, String&gt; _borrowHistory; // bookId -&gt; memberId のマッピング
+  
+  // コンストラクタ
+  Library(this._name) {
+    _books = [];
+    _members = [];
+    _borrowHistory = {};
+  }
+  
+  // ゲッター
+  String get name =&gt; _name;
+  int get totalBooks =&gt; _books.length;
+  int get availableBooks =&gt; _books.where((book) =&gt; book.isAvailable).length;
+  int get borrowedBooks =&gt; _books.where((book) =&gt; !book.isAvailable).length;
+  int get totalMembers =&gt; _members.length;
+  
+  // 本を追加
+  void addBook(Book book) {
+    // 重複チェック
+    for (Book existingBook in _books) {
+      if (existingBook.id == book.id) {
+        print('エラー: ID「${book.id}」の本は既に登録されています');
+        return;
+      }
+    }
+    
+    _books.add(book);
+    print('本を追加しました: 「${book.title}」（ID: ${book.id}）');
+  }
+  
+  // 利用者を追加
+  void addMember(Member member) {
+    // 重複チェック
+    for (Member existingMember in _members) {
+      if (existingMember.id == member.id) {
+        print('エラー: ID「${member.id}」の利用者は既に登録されています');
+        return;
+      }
+    }
+    
+    _members.add(member);
+    print('利用者を追加しました: 「${member.name}」（ID: ${member.id}）');
+  }
+  
+  // 本を検索（ID）
+  Book? findBookById(String bookId) {
+    for (Book book in _books) {
+      if (book.id == bookId) {
+        return book;
+      }
+    }
+    return null;
+  }
+  
+  // 本を検索（タイトル）
+  List&lt;Book&gt; searchBooksByTitle(String title) {
+    List&lt;Book&gt; results = [];
+    String searchTerm = title.toLowerCase();
+    
+    for (Book book in _books) {
+      if (book.title.toLowerCase().contains(searchTerm)) {
+        results.add(book);
+      }
+    }
+    
+    return results;
+  }
+  
+  // 利用者を検索
+  Member? findMemberById(String memberId) {
+    for (Member member in _members) {
+      if (member.id == memberId) {
+        return member;
+      }
+    }
+    return null;
+  }
+  
+  // 本を借りる
+  bool borrowBook(String bookId, String memberId) {
+    Book? book = findBookById(bookId);
+    if (book == null) {
+      print('エラー: ID「$bookId」の本が見つかりません');
+      return false;
+    }
+    
+    Member? member = findMemberById(memberId);
+    if (member == null) {
+      print('エラー: ID「$memberId」の利用者が見つかりません');
+      return false;
+    }
+    
+    // 利用者の貸出制限チェック
+    if (!member._addBorrowedBook(bookId)) {
+      return false;
+    }
+    
+    // 本の貸出処理
+    if (!book.borrow(memberId)) {
+      member._removeBorrowedBook(bookId); // ロールバック
+      return false;
+    }
+    
+    _borrowHistory[bookId] = memberId;
+    return true;
+  }
+  
+  // 本を返す
+  bool returnBook(String bookId) {
+    Book? book = findBookById(bookId);
+    if (book == null) {
+      print('エラー: ID「$bookId」の本が見つかりません');
+      return false;
+    }
+    
+    if (book.isAvailable) {
+      print('エラー: この本は貸出されていません');
+      return false;
+    }
+    
+    String? memberId = book.borrowerId;
+    if (memberId != null) {
+      Member? member = findMemberById(memberId);
+      if (member != null) {
+        member._removeBorrowedBook(bookId);
+      }
+    }
+    
+    return book.returnBook();
+  }
+  
+  // 延滞本のチェック
+  List&lt;Book&gt; getOverdueBooks() {
+    return _books.where((book) =&gt; book.isOverdue).toList();
+  }
+  
+  // 利用者の借りている本を取得
+  List&lt;Book&gt; getMemberBorrowedBooks(String memberId) {
+    Member? member = findMemberById(memberId);
+    if (member == null) return [];
+    
+    List&lt;Book&gt; borrowedBooks = [];
+    for (String bookId in member.borrowedBookIds) {
+      Book? book = findBookById(bookId);
+      if (book != null) {
+        borrowedBooks.add(book);
+      }
+    }
+    return borrowedBooks;
+  }
+  
+  // 図書館の統計情報を表示
+  void showStatistics() {
+    print('=== 図書館統計 ===');
+    print('図書館名: $_name');
+    print('総蔵書数: $totalBooks冊');
+    print('貸出可能: $availableBooks冊');
+    print('貸出中: $borrowedBooks冊');
+    print('利用者数: $totalMembers人');
+    
+    List&lt;Book&gt; overdueBooks = getOverdueBooks();
+    if (overdueBooks.isNotEmpty) {
+      print('延滞本: ${overdueBooks.length}冊');
+    }
+    print('---');
+  }
+  
+  // すべての本を表示
+  void showAllBooks() {
+    print('=== 蔵書一覧 ===');
+    if (_books.isEmpty) {
+      print('登録されている本がありません');
+      return;
+    }
+    
+    for (Book book in _books) {
+      print('${book.id}: 「${book.title}」 by ${book.author} - ${book.isAvailable ? "貸出可能" : "貸出中"}');
+    }
+    print('---');
+  }
+  
+  // すべての利用者を表示
+  void showAllMembers() {
+    print('=== 利用者一覧 ===');
+    if (_members.isEmpty) {
+      print('登録されている利用者がいません');
+      return;
+    }
+    
+    for (Member member in _members) {
+      print('${member.id}: ${member.name} - 貸出中: ${member.borrowedBooksCount}/${member.maxBorrowLimit}冊');
+    }
+    print('---');
+  }
+}
+</code></pre>
+<h2 id="システムの使用例"><a class="header" href="#システムの使用例">システムの使用例</a></h2>
+<p>作成した図書館管理システムを実際に使ってみましょう。</p>
+<pre><code class="language-javascript">void main() {
+  // 図書館を作成
+  Library library = Library('市立中央図書館');
+  
+  print('=== 図書館管理システムを開始します ===\n');
+  
+  // 本を追加
+  library.addBook(Book('B001', 'Dartプログラミング入門', '山田太郎', '978-1234567890', DateTime(2023, 1, 15)));
+  library.addBook(Book('B002', 'オブジェクト指向設計', '佐藤花子', '978-1234567891', DateTime(2023, 3, 20)));
+  library.addBook(Book.withISBN('B003', 'アルゴリズムとデータ構造', '鈴木次郎', '978-1234567892'));
+  
+  print('');
+  
+  // 利用者を追加
+  library.addMember(Member('M001', '田中一郎', 'tanaka@example.com', '090-1234-5678'));
+  library.addMember(Member.student('M002', '高橋学', 'takahashi@student.ac.jp', '080-9876-5432'));
+  
+  print('');
+  
+  // 図書館の状況を表示
+  library.showStatistics();
+  print('');
+  
+  // 本を検索してみる
+  print('=== 本の検索 ===');
+  List&lt;Book&gt; searchResults = library.searchBooksByTitle('プログラミング');
+  print('「プログラミング」で検索した結果: ${searchResults.length}冊');
+  for (Book book in searchResults) {
+    print('  - 「${book.title}」 by ${book.author}');
+  }
+  print('');
+  
+  // 本を借りる
+  print('=== 貸出処理 ===');
+  library.borrowBook('B001', 'M001');
+  library.borrowBook('B002', 'M001');
+  library.borrowBook('B003', 'M002');
+  print('');
+  
+  // 利用者の情報を表示
+  Member? member1 = library.findMemberById('M001');
+  if (member1 != null) {
+    member1.showProfile();
+  }
+  
+  // 借りている本を表示
+  print('=== M001が借りている本 ===');
+  List&lt;Book&gt; borrowedBooks = library.getMemberBorrowedBooks('M001');
+  for (Book book in borrowedBooks) {
+    print('「${book.title}」（借用日: ${book.borrowDate.toString().substring(0, 10)}）');
+  }
+  print('');
+  
+  // 図書館の統計を更新表示
+  library.showStatistics();
+  print('');
+  
+  // 本を返却
+  print('=== 返却処理 ===');
+  library.returnBook('B001');
+  print('');
+  
+  // 最終的な状況を表示
+  library.showAllBooks();
+  library.showAllMembers();
+  
+  // 延滞本があるかチェック（実際の延滞をシミュレートするには日付を操作する必要があります）
+  List&lt;Book&gt; overdueBooks = library.getOverdueBooks();
+  if (overdueBooks.isNotEmpty) {
+    print('=== 延滞本 ===');
+    for (Book book in overdueBooks) {
+      book.showInfo();
+    }
+  } else {
+    print('現在延滞本はありません');
+  }
+}
+</code></pre>
+<h2 id="システムの特徴"><a class="header" href="#システムの特徴">システムの特徴</a></h2>
+<p>このシステムでは、以下のオブジェクト指向の概念を活用しています：</p>
+<h3 id="コンストラクタの活用"><a class="header" href="#コンストラクタの活用">コンストラクタの活用</a></h3>
+<ul>
+<li>通常のコンストラクタと名前付きコンストラクタ</li>
+<li>初期化時のデータ検証</li>
+<li>デフォルト値の設定</li>
+</ul>
+<h3 id="ゲッターセッターの活用"><a class="header" href="#ゲッターセッターの活用">ゲッター・セッターの活用</a></h3>
+<ul>
+<li>データの安全な読み取り</li>
+<li>設定時の検証とフォーマット</li>
+<li>計算プロパティによる動的な値の提供</li>
+</ul>
+<h3 id="カプセル化の実践"><a class="header" href="#カプセル化の実践">カプセル化の実践</a></h3>
+<ul>
+<li>プライベートフィールドによるデータ保護</li>
+<li>パブリックメソッドによる制御されたアクセス</li>
+<li>内部状態の整合性維持</li>
+</ul>
+<h2 id="学習のポイント-1"><a class="header" href="#学習のポイント-1">学習のポイント</a></h2>
+<p>この図書館管理システムを通して、以下を学ぶことができます：</p>
+<ol>
+<li><strong>クラス設計</strong>: 現実世界の概念をクラスとして表現する方法</li>
+<li><strong>データの安全性</strong>: 不正なデータの入力や操作を防ぐ方法</li>
+<li><strong>オブジェクト間の関係</strong>: 複数のクラスが連携して動作する仕組み</li>
+<li><strong>エラーハンドリング</strong>: 予期しない状況への対処方法</li>
+<li><strong>システム設計</strong>: 全体的な機能を整理して実装する方法</li>
+</ol>
+<p>このような実践的なプロジェクトを通して、オブジェクト指向プログラミングの威力と有用性を実感できるでしょう。プログラムを拡張して、新しい機能を追加してみることをお勧めします！</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第13章エラーへの対処"><a class="header" href="#第13章エラーへの対処">第13章：エラーへの対処</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="エラーの種類を理解する-1"><a class="header" href="#エラーの種類を理解する-1">エラーの種類を理解する</a></h1>
+<p>プログラミングを学習していると、必ずエラーに遭遇します。エラーが発生すると「プログラムが動かない！」と焦ってしまうかもしれませんが、実はエラーはプログラマーにとって大切な情報源なのです。エラーメッセージは、何が問題なのかを教えてくれる親切なガイドのような存在です。</p>
+<p>この章では、Dartで発生する様々なエラーの種類を理解し、それぞれにどう対処すべきかを学んでいきましょう。</p>
+<h2 id="エラーとは何か-1"><a class="header" href="#エラーとは何か-1">エラーとは何か</a></h2>
+<p>エラーとは、プログラムが正常に実行できない状況のことです。Dartでは、エラーが発生するタイミングによって大きく3つの種類に分けることができます。</p>
+<h3 id="1-コンパイルエラーcompile-time-error"><a class="header" href="#1-コンパイルエラーcompile-time-error">1. コンパイルエラー（Compile-time Error）</a></h3>
+<p>コンパイルエラーは、プログラムを実行する前に発見されるエラーです。文法的な間違いや、型の不整合などが原因で発生します。</p>
+<pre><code class="language-javascript">void main() {
+  int number = "hello";  // エラー：文字列を整数型変数に代入しようとしている
+  print(number)          // エラー：セミコロンが不足
+}
+</code></pre>
+<p>このようなエラーが発生すると、プログラムは実行される前に止まります。実は、これは良いことなのです。なぜなら、問題を早期に発見できるからです。</p>
+<h3 id="2-ランタイムエラーruntime-error"><a class="header" href="#2-ランタイムエラーruntime-error">2. ランタイムエラー（Runtime Error）</a></h3>
+<p>ランタイムエラーは、プログラムが実行されている最中に発生するエラーです。文法的には正しいのですが、実行時に問題が起こります。</p>
+<pre><code class="language-javascript">void main() {
+  List&lt;int&gt; numbers = [1, 2, 3];
+  print(numbers[5]);  // エラー：存在しないインデックスにアクセス
+}
+</code></pre>
+<p>この例では、リストのサイズは3なのに、5番目の要素にアクセスしようとしているため、実行時にエラーが発生します。</p>
+<h3 id="3-論理エラーlogic-error"><a class="header" href="#3-論理エラーlogic-error">3. 論理エラー（Logic Error）</a></h3>
+<p>論理エラーは、プログラムは正常に動作するものの、期待した結果が得られないエラーです。これは最も発見が困難なエラーです。</p>
+<pre><code class="language-javascript">void main() {
+  int a = 10;
+  int b = 5;
+  int average = (a + b) * 2;  // 本来は (a + b) / 2 にしたかった
+  print("平均値: $average");  // 結果：30（期待した結果：7.5）
+}
+</code></pre>
+<h2 id="dartの主要なエラータイプ"><a class="header" href="#dartの主要なエラータイプ">Dartの主要なエラータイプ</a></h2>
+<p>Dartでよく遭遇するエラータイプを見てみましょう。</p>
+<h3 id="nullpointerexceptionヌルポインタ例外"><a class="header" href="#nullpointerexceptionヌルポインタ例外">NullPointerException（ヌルポインタ例外）</a></h3>
+<p>nullの値に対してメソッドやプロパティにアクセスしようとした時に発生します。</p>
+<pre><code class="language-javascript">void main() {
+  String? name;  // null許可型
+  print(name.length);  // エラー：nullに対してlengthにアクセス
+}
+</code></pre>
+<p><strong>改善版：</strong></p>
+<pre><code class="language-javascript">void main() {
+  String? name;
+  if (name != null) {
+    print(name.length);  // nullチェック後にアクセス
+  } else {
+    print("名前が設定されていません");
+  }
+}
+</code></pre>
+<h3 id="rangeerror範囲エラー"><a class="header" href="#rangeerror範囲エラー">RangeError（範囲エラー）</a></h3>
+<p>リストや文字列の有効な範囲外にアクセスしようとした時に発生します。</p>
+<pre><code class="language-javascript">void main() {
+  List&lt;String&gt; fruits = ["りんご", "バナナ", "オレンジ"];
+  print(fruits[3]);  // エラー：インデックス3は存在しない
+}
+</code></pre>
+<p><strong>改善版：</strong></p>
+<pre><code class="language-javascript">void main() {
+  List&lt;String&gt; fruits = ["りんご", "バナナ", "オレンジ"];
+  
+  int index = 3;
+  if (index &lt; fruits.length) {
+    print(fruits[index]);
+  } else {
+    print("指定されたインデックスは範囲外です");
+  }
+}
+</code></pre>
+<h3 id="typeerror型エラー"><a class="header" href="#typeerror型エラー">TypeError（型エラー）</a></h3>
+<p>期待される型と実際の型が一致しない時に発生します。</p>
+<pre><code class="language-javascript">void main() {
+  dynamic value = "123";
+  int number = value;  // エラー：文字列を直接intに代入できない
+  print(number * 2);
+}
+</code></pre>
+<p><strong>改善版：</strong></p>
+<pre><code class="language-javascript">void main() {
+  dynamic value = "123";
+  int number = int.parse(value);  // 文字列を整数に変換
+  print(number * 2);  // 結果：246
+}
+</code></pre>
+<h2 id="エラーメッセージの読み方-1"><a class="header" href="#エラーメッセージの読み方-1">エラーメッセージの読み方</a></h2>
+<p>エラーメッセージは最初は難しく感じるかもしれませんが、慣れると非常に有用な情報源になります。</p>
+<pre><code class="language-javascript">// エラーが発生するコード例
+void main() {
+  List&lt;int&gt; numbers = [1, 2, 3];
+  print(numbers[10]);
+}
+</code></pre>
+<p>このコードを実行すると、以下のようなエラーメッセージが表示されます：</p>
+<pre><code>Uncaught Error: RangeError (index): Invalid value: Not in inclusive range 0..2: 10
+</code></pre>
+<p>このメッセージの読み方：</p>
+<ul>
+<li><strong>RangeError</strong>: エラーの種類</li>
+<li><strong>Invalid value</strong>: 無効な値が使用された</li>
+<li><strong>Not in inclusive range 0..2</strong>: 有効な範囲は0から2まで</li>
+<li><strong>10</strong>: 実際に使用された値</li>
+</ul>
+<h2 id="なるほどポイント"><a class="header" href="#なるほどポイント">なるほど！ポイント</a></h2>
+<p>エラーは敵ではなく、プログラムをより良くするためのヒントです。エラーメッセージをしっかり読むことで、問題を素早く特定し、解決することができます。</p>
+<p>次のセクションでは、エラーが発生した時にプログラムが停止しないようにする「try-catch文」について学習します。エラーを優雅に処理する方法を身につけましょう！</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="try-catch文でエラーを処理する"><a class="header" href="#try-catch文でエラーを処理する">try-catch文でエラーを処理する</a></h1>
+<p>前のセクションでエラーの種類について学びました。今度は、エラーが発生してもプログラムが停止しないようにする方法を学びましょう。これを「エラーハンドリング」と呼びます。</p>
+<p>Dartでは、<code>try-catch文</code>を使用してエラーを優雅に処理することができます。まるで「もしエラーが起きたら、こう対処してね」という指示書を書くようなものです。</p>
+<h2 id="try-catch文の基本構文"><a class="header" href="#try-catch文の基本構文">try-catch文の基本構文</a></h2>
+<p>try-catch文の基本的な構文は次のとおりです：</p>
+<pre><code class="language-javascript">try {
+  // エラーが発生する可能性のあるコード
+} catch (e) {
+  // エラーが発生した時の処理
+}
+</code></pre>
+<p>実際の例を見てみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  try {
+    List&lt;int&gt; numbers = [1, 2, 3];
+    print(numbers[5]);  // 範囲外アクセス
+  } catch (e) {
+    print("エラーが発生しました: $e");
+  }
+  
+  print("プログラムは続行されます");
+}
+</code></pre>
+<p><strong>実行結果：</strong></p>
+<pre><code>エラーが発生しました: RangeError (index): Invalid value: Not in inclusive range 0..2: 5
+プログラムは続行されます
+</code></pre>
+<p>なるほど！エラーが発生してもプログラムが停止せず、catch文の中の処理が実行されました。</p>
+<h2 id="具体的な例安全な数値変換"><a class="header" href="#具体的な例安全な数値変換">具体的な例：安全な数値変換</a></h2>
+<p>ユーザーから入力された文字列を数値に変換する場合を考えてみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  String userInput = "abc";  // 数値に変換できない文字列
+  
+  try {
+    int number = int.parse(userInput);
+    print("変換された数値: $number");
+  } catch (e) {
+    print("数値に変換できませんでした: $userInput");
+    print("有効な数値を入力してください");
+  }
+}
+</code></pre>
+<p><strong>実行結果：</strong></p>
+<pre><code>数値に変換できませんでした: abc
+有効な数値を入力してください
+</code></pre>
+<h2 id="複数の例外の処理"><a class="header" href="#複数の例外の処理">複数の例外の処理</a></h2>
+<p>異なる種類のエラーに対して、それぞれ異なる処理を行いたい場合があります。その場合は、複数のcatch文を使用できます：</p>
+<pre><code class="language-javascript">void main() {
+  try {
+    // 様々なエラーが発生する可能性のあるコード
+    List&lt;String&gt; items = [];
+    String firstItem = items[0];  // 空のリストからアクセス
+  } on RangeError {
+    print("範囲外エラーです。リストが空か、インデックスが無効です。");
+  } on StateError {
+    print("状態エラーが発生しました。");
+  } catch (e) {
+    print("予期しないエラー: $e");
+  }
+}
+</code></pre>
+<h2 id="finally文必ず実行される処理"><a class="header" href="#finally文必ず実行される処理">finally文：必ず実行される処理</a></h2>
+<p>エラーが発生してもしなくても、必ず実行したい処理がある場合は<code>finally文</code>を使用します：</p>
+<pre><code class="language-javascript">void main() {
+  try {
+    print("ファイルを開いています...");
+    // ファイル処理のコード（エラーが発生するかもしれない）
+    throw Exception("ファイルが見つかりません");
+  } catch (e) {
+    print("エラー: $e");
+  } finally {
+    print("ファイルをクローズしました");  // 必ず実行される
+  }
+}
+</code></pre>
+<p><strong>実行結果：</strong></p>
+<pre><code>ファイルを開いています...
+エラー: Exception: ファイルが見つかりません
+ファイルをクローズしました
+</code></pre>
+<h2 id="実践例計算機能の安全な実装"><a class="header" href="#実践例計算機能の安全な実装">実践例：計算機能の安全な実装</a></h2>
+<p>電卓アプリを作る時の除算機能を安全に実装してみましょう：</p>
+<pre><code class="language-javascript">double safeDivision(double a, double b) {
+  try {
+    if (b == 0) {
+      throw ArgumentError("ゼロで割ることはできません");
+    }
+    return a / b;
+  } catch (e) {
+    print("計算エラー: $e");
+    return 0.0;  // デフォルト値を返す
+  }
+}
+
+void main() {
+  print("10 ÷ 2 = ${safeDivision(10, 2)}");   // 正常なケース
+  print("10 ÷ 0 = ${safeDivision(10, 0)}");   // エラーケース
+  print("計算処理が完了しました");
+}
+</code></pre>
+<p><strong>実行結果：</strong></p>
+<pre><code>10 ÷ 2 = 5.0
+計算エラー: Invalid argument(s): ゼロで割ることはできません
+10 ÷ 0 = 0.0
+計算処理が完了しました
+</code></pre>
+<h2 id="カスタム例外の作成"><a class="header" href="#カスタム例外の作成">カスタム例外の作成</a></h2>
+<p>独自のエラー型を作成することもできます：</p>
+<pre><code class="language-javascript">// カスタム例外クラスの定義
+class InvalidAgeException implements Exception {
+  final String message;
+  InvalidAgeException(this.message);
+  
+  @override
+  String toString() =&gt; "InvalidAgeException: $message";
+}
+
+// 年齢チェック関数
+void checkAge(int age) {
+  if (age &lt; 0) {
+    throw InvalidAgeException("年齢は0以上である必要があります");
+  }
+  if (age &gt; 150) {
+    throw InvalidAgeException("年齢は150以下である必要があります");
+  }
+  print("有効な年齢です: $age歳");
+}
+
+void main() {
+  List&lt;int&gt; testAges = [25, -5, 200];
+  
+  for (int age in testAges) {
+    try {
+      checkAge(age);
+    } on InvalidAgeException catch (e) {
+      print("年齢エラー: ${e.message}");
+    } catch (e) {
+      print("予期しないエラー: $e");
+    }
+  }
+}
+</code></pre>
+<p><strong>実行結果：</strong></p>
+<pre><code>有効な年齢です: 25歳
+年齢エラー: 年齢は0以上である必要があります
+年齢エラー: 年齢は150以下である必要があります
+</code></pre>
+<h2 id="rethrowエラーの再スロー"><a class="header" href="#rethrowエラーの再スロー">rethrow：エラーの再スロー</a></h2>
+<p>エラーをキャッチして何らかの処理を行った後、そのエラーを再度投げたい場合は<code>rethrow</code>を使用します：</p>
+<pre><code class="language-javascript">void processData(String data) {
+  try {
+    // データ処理
+    if (data.isEmpty) {
+      throw ArgumentError("データが空です");
+    }
+    print("データを処理しました: $data");
+  } catch (e) {
+    print("ログに記録: $e");  // ログを記録
+    rethrow;  // エラーを再度投げる
+  }
+}
+
+void main() {
+  try {
+    processData("");
+  } catch (e) {
+    print("メイン関数でキャッチ: $e");
+  }
+}
+</code></pre>
+<p><strong>実行結果：</strong></p>
+<pre><code>ログに記録: Invalid argument(s): データが空です
+メイン関数でキャッチ: Invalid argument(s): データが空です
+</code></pre>
+<h2 id="エラーハンドリングのベストプラクティス"><a class="header" href="#エラーハンドリングのベストプラクティス">エラーハンドリングのベストプラクティス</a></h2>
+<h3 id="1-適切なエラーメッセージを提供する"><a class="header" href="#1-適切なエラーメッセージを提供する">1. 適切なエラーメッセージを提供する</a></h3>
+<pre><code class="language-javascript">void validateEmail(String email) {
+  try {
+    if (!email.contains('@')) {
+      throw FormatException("有効なメールアドレスではありません: @が含まれていません");
+    }
+    print("有効なメールアドレス: $email");
+  } catch (e) {
+    print("入力エラー: $e");
+  }
+}
+</code></pre>
+<h3 id="2-エラーの詳細をログに記録する"><a class="header" href="#2-エラーの詳細をログに記録する">2. エラーの詳細をログに記録する</a></h3>
+<pre><code class="language-javascript">void saveUserData(Map&lt;String, dynamic&gt; userData) {
+  try {
+    // ユーザーデータの保存処理
+    print("ユーザーデータを保存しました");
+  } catch (e, stackTrace) {
+    print("保存エラー: $e");
+    print("スタックトレース: $stackTrace");
+    // 実際のアプリではログファイルに記録
+  }
+}
+</code></pre>
+<h3 id="3-復旧可能なエラーには代替案を提供する"><a class="header" href="#3-復旧可能なエラーには代替案を提供する">3. 復旧可能なエラーには代替案を提供する</a></h3>
+<pre><code class="language-javascript">String getConfigValue(String key, String defaultValue) {
+  try {
+    // 設定ファイルから値を読み取る（失敗する可能性）
+    throw Exception("設定ファイルが見つかりません");
+  } catch (e) {
+    print("設定の読み取りに失敗、デフォルト値を使用: $defaultValue");
+    return defaultValue;
+  }
+}
+</code></pre>
+<h2 id="なるほどポイント-1"><a class="header" href="#なるほどポイント-1">なるほど！ポイント</a></h2>
+<p>try-catch文を使うことで、エラーが発生してもプログラムが突然停止することを防げます。これにより、ユーザーにとって使いやすいアプリケーションを作ることができます。</p>
+<p>重要なのは、すべてのコードをtry-catchで囲むのではなく、本当にエラーが発生する可能性がある部分にのみ使用することです。また、エラーが発生した時には、適切なメッセージをユーザーに表示して、次にどうすべきかを案内することが大切です。</p>
+<p>次のセクションでは、バグを見つけて修正するための「デバッグの基本技術」について学習します！</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="デバッグの基本技術"><a class="header" href="#デバッグの基本技術">デバッグの基本技術</a></h1>
+<p>プログラムを書いていると、「コードは正しく見えるのに、期待通りに動かない...」という状況によく遭遇します。このような問題を見つけて修正することを「デバッグ」と呼びます。</p>
+<p>デバッグは探偵のような作業です。問題の手がかりを集めて、原因を特定し、解決策を見つけ出すのです。最初は難しく感じるかもしれませんが、基本的な技術を身につければ、効率よく問題を解決できるようになります。</p>
+<h2 id="デバッグの基本原則"><a class="header" href="#デバッグの基本原則">デバッグの基本原則</a></h2>
+<h3 id="1-慌てずに状況を把握する"><a class="header" href="#1-慌てずに状況を把握する">1. 慌てずに状況を把握する</a></h3>
+<p>問題が発生したら、まず深呼吸をして状況を冷静に分析しましょう。</p>
+<pre><code class="language-javascript">void main() {
+  int total = 0;
+  List&lt;int&gt; scores = [85, 92, 78, 95, 88];
+  
+  for (int score in scores) {
+    total += score;
+  }
+  
+  double average = total / scores.length;
+  print("平均点: $average");  // 期待: 87.6、実際: 87.0
+}
+</code></pre>
+<p>このコードの問題は何でしょうか？整数除算が行われているため、小数点以下が切り捨てられています。</p>
+<h3 id="2-問題を再現する"><a class="header" href="#2-問題を再現する">2. 問題を再現する</a></h3>
+<p>問題を確実に再現できる最小限のコードを作成します。</p>
+<pre><code class="language-javascript">void main() {
+  // 問題を再現する最小限のコード
+  int a = 438;  // 85 + 92 + 78 + 95 + 88
+  int b = 5;
+  double result = a / b;
+  print(result);  // 結果: 87.0（期待: 87.6）
+}
+</code></pre>
+<h2 id="print文を使ったデバッグ"><a class="header" href="#print文を使ったデバッグ">print文を使ったデバッグ</a></h2>
+<p>最も基本的なデバッグ手法は、<code>print文</code>を使って変数の値やプログラムの実行状況を確認することです。</p>
+<h3 id="変数の値を確認する"><a class="header" href="#変数の値を確認する">変数の値を確認する</a></h3>
+<pre><code class="language-javascript">void calculateTotal(List&lt;int&gt; prices) {
+  int total = 0;
+  
+  print("価格リスト: $prices");  // デバッグ用出力
+  
+  for (int i = 0; i &lt; prices.length; i++) {
+    print("処理中の価格[$i]: ${prices[i]}");  // デバッグ用出力
+    total += prices[i];
+    print("現在の合計: $total");  // デバッグ用出力
+  }
+  
+  print("最終合計: $total");
+}
+
+void main() {
+  List&lt;int&gt; prices = [100, 200, 150];
+  calculateTotal(prices);
+}
+</code></pre>
+<p><strong>実行結果：</strong></p>
+<pre><code>価格リスト: [100, 200, 150]
+処理中の価格[0]: 100
+現在の合計: 100
+処理中の価格[1]: 200
+現在の合計: 300
+処理中の価格[2]: 150
+現在の合計: 450
+最終合計: 450
+</code></pre>
+<h3 id="条件分岐の動作を確認する"><a class="header" href="#条件分岐の動作を確認する">条件分岐の動作を確認する</a></h3>
+<pre><code class="language-javascript">void checkGrade(int score) {
+  print("入力されたスコア: $score");  // デバッグ用出力
+  
+  if (score &gt;= 90) {
+    print("条件チェック: score &gt;= 90 → true");
+    print("優秀");
+  } else if (score &gt;= 70) {
+    print("条件チェック: score &gt;= 70 → true");
+    print("良好");
+  } else {
+    print("条件チェック: 上記のいずれも false");
+    print("要努力");
+  }
+}
+
+void main() {
+  checkGrade(85);
+}
+</code></pre>
+<h2 id="デバッグのための関数"><a class="header" href="#デバッグのための関数">デバッグのための関数</a></h2>
+<p>デバッグ用の専用関数を作成すると、コードが見やすくなります。</p>
+<pre><code class="language-javascript">// デバッグ用関数
+void debug(String message, [dynamic value]) {
+  if (value != null) {
+    print("DEBUG: $message → $value");
+  } else {
+    print("DEBUG: $message");
+  }
+}
+
+// 使用例
+void processNumbers(List&lt;int&gt; numbers) {
+  debug("関数開始", "processNumbers");
+  debug("入力データ", numbers);
+  
+  List&lt;int&gt; evenNumbers = [];
+  
+  for (int number in numbers) {
+    debug("処理中の数値", number);
+    
+    if (number % 2 == 0) {
+      debug("偶数を発見", number);
+      evenNumbers.add(number);
+    }
+  }
+  
+  debug("偶数のリスト", evenNumbers);
+  debug("関数終了");
+}
+
+void main() {
+  processNumbers([1, 2, 3, 4, 5, 6]);
+}
+</code></pre>
+<h2 id="assert文を使ったデバッグ"><a class="header" href="#assert文を使ったデバッグ">assert文を使ったデバッグ</a></h2>
+<p><code>assert文</code>は、プログラムの想定が正しいかどうかをチェックするためのツールです。</p>
+<pre><code class="language-javascript">void divide(double a, double b) {
+  // 事前条件をチェック
+  assert(b != 0, "除数はゼロであってはいけません");
+  
+  double result = a / b;
+  
+  // 事後条件をチェック
+  assert(result.isFinite, "結果は有限数である必要があります");
+  
+  print("$a ÷ $b = $result");
+}
+
+void main() {
+  divide(10, 2);   // 正常ケース
+  // divide(10, 0);  // assertエラーが発生
+}
+</code></pre>
+<h2 id="ステップバイステップ実行"><a class="header" href="#ステップバイステップ実行">ステップバイステップ実行</a></h2>
+<p>複雑な処理を小さな単位に分けて、一つずつ確認していきます。</p>
+<pre><code class="language-javascript">// 問題のあるコード例：文字列の反転
+String reverseString(String input) {
+  String result = "";
+  
+  print("開始: input='$input'");
+  
+  for (int i = input.length - 1; i &gt;= 0; i--) {
+    print("i=$i, 文字='${input[i]}'");
+    result += input[i];
+    print("現在のresult='$result'");
+  }
+  
+  print("完了: result='$result'");
+  return result;
+}
+
+void main() {
+  String reversed = reverseString("hello");
+  print("最終結果: $reversed");
+}
+</code></pre>
+<h2 id="エラーログの読み方と活用"><a class="header" href="#エラーログの読み方と活用">エラーログの読み方と活用</a></h2>
+<p>エラーが発生した時は、スタックトレースを注意深く読みましょう。</p>
+<pre><code class="language-javascript">void problematicFunction() {
+  List&lt;String&gt; names = ["田中", "佐藤", "鈴木"];
+  
+  // 意図的にエラーを発生させる
+  print(names[5]);  // 範囲外アクセス
+}
+
+void main() {
+  try {
+    problematicFunction();
+  } catch (e, stackTrace) {
+    print("エラー詳細: $e");
+    print("スタックトレース:");
+    print(stackTrace);
+  }
+}
+</code></pre>
+<p>このエラー情報から、どの行で何が起こったかを特定できます。</p>
+<h2 id="二分探索でバグを特定する"><a class="header" href="#二分探索でバグを特定する">二分探索でバグを特定する</a></h2>
+<p>大きなコードでバグの場所が分からない時は、コードを半分ずつコメントアウトして問題の範囲を絞り込みます。</p>
+<pre><code class="language-javascript">void complexFunction() {
+  // 前半部分
+  print("処理1: データ初期化");
+  List&lt;int&gt; data = [1, 2, 3, 4, 5];
+  
+  print("処理2: データ変換");
+  for (int i = 0; i &lt; data.length; i++) {
+    data[i] = data[i] * 2;
+  }
+  
+  // ここまでは正常に動く
+  print("中間確認: $data");
+  
+  // 後半部分（問題がこの辺りにありそう）
+  print("処理3: 平均計算");
+  int sum = 0;
+  for (int value in data) {
+    sum += value;
+  }
+  
+  // バグ発見！整数除算になっている
+  double average = sum / data.length;  // 修正: sum.toDouble() / data.length
+  print("平均: $average");
+}
+</code></pre>
+<h2 id="デバッグに役立つツールとテクニック"><a class="header" href="#デバッグに役立つツールとテクニック">デバッグに役立つツールとテクニック</a></h2>
+<h3 id="1-境界値をテストする"><a class="header" href="#1-境界値をテストする">1. 境界値をテストする</a></h3>
+<pre><code class="language-javascript">void testBoundaryValues() {
+  List&lt;int&gt; testValues = [
+    -1,    // 負の値
+    0,     // ゼロ
+    1,     // 最小の正の値
+    99,    // 境界値
+    100,   // 期待される最大値
+    101    // 範囲外の値
+  ];
+  
+  for (int value in testValues) {
+    print("テスト値: $value");
+    try {
+      validateScore(value);
+    } catch (e) {
+      print("エラー: $e");
+    }
+  }
+}
+
+void validateScore(int score) {
+  if (score &lt; 0 || score &gt; 100) {
+    throw ArgumentError("スコアは0-100の範囲である必要があります");
+  }
+  print("有効なスコア: $score");
+}
+</code></pre>
+<h3 id="2-入力データのバリエーションをテストする"><a class="header" href="#2-入力データのバリエーションをテストする">2. 入力データのバリエーションをテストする</a></h3>
+<pre><code class="language-javascript">void testVariousInputs() {
+  List&lt;String&gt; testStrings = [
+    "",           // 空文字列
+    "a",          // 1文字
+    "hello",      // 通常の文字列
+    "Hello World", // スペース含む
+    "123",        // 数字のみ
+    "あいうえお",    // 日本語
+  ];
+  
+  for (String testString in testStrings) {
+    print("テスト: '$testString'");
+    processString(testString);
+  }
+}
+
+void processString(String input) {
+  if (input.isEmpty) {
+    print("空文字列が入力されました");
+    return;
+  }
+  
+  print("文字数: ${input.length}");
+  print("最初の文字: ${input[0]}");
+}
+</code></pre>
+<h2 id="デバッグのベストプラクティス"><a class="header" href="#デバッグのベストプラクティス">デバッグのベストプラクティス</a></h2>
+<h3 id="1-再現可能なテストケースを作る"><a class="header" href="#1-再現可能なテストケースを作る">1. 再現可能なテストケースを作る</a></h3>
+<pre><code class="language-javascript">// 問題を再現するテスト関数
+void reproduceIssue() {
+  print("=== 問題の再現テスト ===");
+  
+  // 具体的な入力値で問題を再現
+  List&lt;double&gt; temperatures = [23.5, 25.0, 22.8, 26.1];
+  double average = calculateAverage(temperatures);
+  
+  print("期待値: 24.35");
+  print("実際の値: $average");
+  print("差分: ${(24.35 - average).abs()}");
+}
+
+double calculateAverage(List&lt;double&gt; values) {
+  if (values.isEmpty) return 0.0;
+  
+  double sum = 0.0;
+  for (double value in values) {
+    sum += value;
+  }
+  
+  return sum / values.length;
+}
+</code></pre>
+<h3 id="2-デバッグ情報を整理して表示する"><a class="header" href="#2-デバッグ情報を整理して表示する">2. デバッグ情報を整理して表示する</a></h3>
+<pre><code class="language-javascript">void debugInfo(String section, Map&lt;String, dynamic&gt; variables) {
+  print("=== $section ===");
+  variables.forEach((key, value) {
+    print("  $key: $value");
+  });
+  print("");
+}
+
+void exampleWithDebugInfo() {
+  int a = 10;
+  int b = 3;
+  
+  debugInfo("初期値", {"a": a, "b": b});
+  
+  double result = a / b;
+  
+  debugInfo("計算結果", {
+    "a": a,
+    "b": b,
+    "result": result,
+    "期待値": "約3.33"
+  });
+}
+</code></pre>
+<h2 id="なるほどポイント-2"><a class="header" href="#なるほどポイント-2">なるほど！ポイント</a></h2>
+<p>デバッグは技術であり、練習によって上達します。最初はprint文をたくさん使って構いません。慣れてきたら、より効率的な手法を使えるようになります。</p>
+<p>重要なのは、問題を恐れずに「なぜこうなるのだろう？」という好奇心を持って取り組むことです。一つずつ確実に問題を解決していけば、必ず原因を特定できます。</p>
+<p>次のセクションでは、プログラミング初心者がよく遭遇するエラーパターンと、その具体的な対処法について学習します！</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="よくあるエラーとその対処法-1"><a class="header" href="#よくあるエラーとその対処法-1">よくあるエラーとその対処法</a></h1>
+<p>プログラミングを始めたばかりの頃は、同じようなエラーを何度も繰り返してしまうものです。でも大丈夫です！これは誰もが通る道です。この章では、初心者がよく遭遇するエラーパターンと、その具体的な対処法をご紹介します。</p>
+<p>エラーを恐れる必要はありません。むしろ、エラーは「もっと良いコードを書くためのヒント」を教えてくれる先生のような存在だと考えましょう。</p>
+<h2 id="1-構文エラーsyntax-error-1"><a class="header" href="#1-構文エラーsyntax-error-1">1. 構文エラー（Syntax Error）</a></h2>
+<p>最も頻繁に遭遇するエラーです。文法上の間違いが原因で発生します。</p>
+<h3 id="セミコロンの忘れ"><a class="header" href="#セミコロンの忘れ">セミコロンの忘れ</a></h3>
+<p><strong>よくある間違い：</strong></p>
+<pre><code class="language-javascript">void main() {
+  int number = 42
+  print(number);  // エラー：前の行のセミコロンが不足
+}
+</code></pre>
+<p><strong>修正版：</strong></p>
+<pre><code class="language-javascript">void main() {
+  int number = 42;  // セミコロンを追加
+  print(number);
+}
+</code></pre>
+<h3 id="括弧の不一致"><a class="header" href="#括弧の不一致">括弧の不一致</a></h3>
+<p><strong>よくある間違い：</strong></p>
+<pre><code class="language-javascript">void main() {
+  if (true) {
+    print("Hello");
+  // エラー：閉じ括弧が不足
+}
+</code></pre>
+<p><strong>修正版：</strong></p>
+<pre><code class="language-javascript">void main() {
+  if (true) {
+    print("Hello");
+  }  // 閉じ括弧を追加
+}
+</code></pre>
+<h3 id="引用符の不一致"><a class="header" href="#引用符の不一致">引用符の不一致</a></h3>
+<p><strong>よくある間違い：</strong></p>
+<pre><code class="language-javascript">void main() {
+  String message = "Hello World';  // エラー：引用符が一致しない
+  print(message);
+}
+</code></pre>
+<p><strong>修正版：</strong></p>
+<pre><code class="language-javascript">void main() {
+  String message = "Hello World";  // 引用符を統一
+  print(message);
+}
+</code></pre>
+<h2 id="2-型エラーtype-error"><a class="header" href="#2-型エラーtype-error">2. 型エラー（Type Error）</a></h2>
+<p>Dartは型に厳格な言語なので、型の不一致によるエラーがよく発生します。</p>
+<h3 id="型の不一致"><a class="header" href="#型の不一致">型の不一致</a></h3>
+<p><strong>よくある間違い：</strong></p>
+<pre><code class="language-javascript">void main() {
+  int number = "123";  // エラー：文字列を整数型に代入
+  print(number);
+}
+</code></pre>
+<p><strong>修正版：</strong></p>
+<pre><code class="language-javascript">void main() {
+  int number = int.parse("123");  // 文字列を整数に変換
+  print(number);
+}
+</code></pre>
+<h3 id="null安全の問題"><a class="header" href="#null安全の問題">null安全の問題</a></h3>
+<p><strong>よくある間違い：</strong></p>
+<pre><code class="language-javascript">void main() {
+  String? name;  // null許可型
+  print(name.length);  // エラー：nullの可能性がある変数へのアクセス
+}
+</code></pre>
+<p><strong>修正版：</strong></p>
+<pre><code class="language-javascript">void main() {
+  String? name;
+  if (name != null) {
+    print(name.length);  // nullチェック後にアクセス
+  } else {
+    print("名前が設定されていません");
+  }
+}
+</code></pre>
+<p>または、null合体演算子を使用：</p>
+<pre><code class="language-javascript">void main() {
+  String? name;
+  print(name?.length ?? 0);  // nullの場合は0を返す
+}
+</code></pre>
+<h2 id="3-論理エラーlogic-error-1"><a class="header" href="#3-論理エラーlogic-error-1">3. 論理エラー（Logic Error）</a></h2>
+<p>プログラムは動作するものの、期待した結果が得られないエラーです。</p>
+<h3 id="ループの条件間違い"><a class="header" href="#ループの条件間違い">ループの条件間違い</a></h3>
+<p><strong>よくある間違い：</strong></p>
+<pre><code class="language-javascript">void main() {
+  // 1から10まで表示したいが...
+  for (int i = 1; i &lt; 10; i++) {  // 10が表示されない！
+    print(i);
+  }
+}
+</code></pre>
+<p><strong>修正版：</strong></p>
+<pre><code class="language-javascript">void main() {
+  for (int i = 1; i &lt;= 10; i++) {  // &lt;= を使用
+    print(i);
+  }
+}
+</code></pre>
+<h3 id="配列のインデックス間違い"><a class="header" href="#配列のインデックス間違い">配列のインデックス間違い</a></h3>
+<p><strong>よくある間違い：</strong></p>
+<pre><code class="language-javascript">void main() {
+  List&lt;String&gt; fruits = ["りんご", "バナナ", "オレンジ"];
+  
+  // 最後の要素を取得したいが...
+  print(fruits[fruits.length]);  // エラー：インデックスが範囲外
+}
+</code></pre>
+<p><strong>修正版：</strong></p>
+<pre><code class="language-javascript">void main() {
+  List&lt;String&gt; fruits = ["りんご", "バナナ", "オレンジ"];
+  
+  print(fruits[fruits.length - 1]);  // 最後の要素のインデックス
+  // または
+  print(fruits.last);  // より簡潔な書き方
+}
+</code></pre>
+<h2 id="4-ランタイムエラーruntime-error"><a class="header" href="#4-ランタイムエラーruntime-error">4. ランタイムエラー（Runtime Error）</a></h2>
+<p>プログラム実行中に発生するエラーです。</p>
+<h3 id="ゼロ除算エラー"><a class="header" href="#ゼロ除算エラー">ゼロ除算エラー</a></h3>
+<p><strong>よくある間違い：</strong></p>
+<pre><code class="language-javascript">void main() {
+  int a = 10;
+  int b = 0;
+  print(a / b);  // エラー：ゼロで割ろうとしている
+}
+</code></pre>
+<p><strong>修正版：</strong></p>
+<pre><code class="language-javascript">void main() {
+  int a = 10;
+  int b = 0;
+  
+  if (b != 0) {
+    print(a / b);
+  } else {
+    print("エラー: ゼロで割ることはできません");
+  }
+}
+</code></pre>
+<h3 id="リストの範囲外アクセス"><a class="header" href="#リストの範囲外アクセス">リストの範囲外アクセス</a></h3>
+<p><strong>よくある間違い：</strong></p>
+<pre><code class="language-javascript">void main() {
+  List&lt;int&gt; numbers = [1, 2, 3];
+  print(numbers[5]);  // エラー：インデックス5は存在しない
+}
+</code></pre>
+<p><strong>修正版：</strong></p>
+<pre><code class="language-javascript">void main() {
+  List&lt;int&gt; numbers = [1, 2, 3];
+  int index = 5;
+  
+  if (index &gt;= 0 &amp;&amp; index &lt; numbers.length) {
+    print(numbers[index]);
+  } else {
+    print("エラー: インデックス$indexは範囲外です（0-${numbers.length - 1}）");
+  }
+}
+</code></pre>
+<h2 id="5-文字列処理のエラー"><a class="header" href="#5-文字列処理のエラー">5. 文字列処理のエラー</a></h2>
+<h3 id="文字列の連結間違い"><a class="header" href="#文字列の連結間違い">文字列の連結間違い</a></h3>
+<p><strong>よくある間違い：</strong></p>
+<pre><code class="language-javascript">void main() {
+  String firstName = "田中";
+  String lastName = "太郎";
+  String fullName = firstName + " " + lastName;  // 動作するが非効率
+  print(fullName);
+}
+</code></pre>
+<p><strong>より良い書き方：</strong></p>
+<pre><code class="language-javascript">void main() {
+  String firstName = "田中";
+  String lastName = "太郎";
+  String fullName = "$firstName $lastName";  // 文字列補間を使用
+  print(fullName);
+}
+</code></pre>
+<h3 id="空文字列のチェック忘れ"><a class="header" href="#空文字列のチェック忘れ">空文字列のチェック忘れ</a></h3>
+<p><strong>よくある間違い：</strong></p>
+<pre><code class="language-javascript">void main() {
+  String input = "";
+  print(input[0]);  // エラー：空文字列の最初の文字にアクセス
+}
+</code></pre>
+<p><strong>修正版：</strong></p>
+<pre><code class="language-javascript">void main() {
+  String input = "";
+  
+  if (input.isNotEmpty) {
+    print(input[0]);
+  } else {
+    print("入力が空です");
+  }
+}
+</code></pre>
+<h2 id="6-関数に関するエラー"><a class="header" href="#6-関数に関するエラー">6. 関数に関するエラー</a></h2>
+<h3 id="戻り値の型不一致"><a class="header" href="#戻り値の型不一致">戻り値の型不一致</a></h3>
+<p><strong>よくある間違い：</strong></p>
+<pre><code class="language-javascript">int calculateSum(List&lt;int&gt; numbers) {
+  if (numbers.isEmpty) {
+    return;  // エラー：int型の関数でvoidを返そうとしている
+  }
+  
+  int sum = 0;
+  for (int number in numbers) {
+    sum += number;
+  }
+  return sum;
+}
+</code></pre>
+<p><strong>修正版：</strong></p>
+<pre><code class="language-javascript">int calculateSum(List&lt;int&gt; numbers) {
+  if (numbers.isEmpty) {
+    return 0;  // 適切なデフォルト値を返す
+  }
+  
+  int sum = 0;
+  for (int number in numbers) {
+    sum += number;
+  }
+  return sum;
+}
+</code></pre>
+<h3 id="引数の順序間違い"><a class="header" href="#引数の順序間違い">引数の順序間違い</a></h3>
+<p><strong>よくある間違い：</strong></p>
+<pre><code class="language-javascript">void showUserInfo(String name, int age) {
+  print("名前: $name, 年齢: $age");
+}
+
+void main() {
+  showUserInfo(25, "田中太郎");  // エラー：引数の順序が逆
+}
+</code></pre>
+<p><strong>修正版：</strong></p>
+<pre><code class="language-javascript">void showUserInfo(String name, int age) {
+  print("名前: $name, 年齢: $age");
+}
+
+void main() {
+  showUserInfo("田中太郎", 25);  // 正しい順序
+}
+</code></pre>
+<h2 id="7-コレクション操作のエラー"><a class="header" href="#7-コレクション操作のエラー">7. コレクション操作のエラー</a></h2>
+<h3 id="リストの変更中の反復"><a class="header" href="#リストの変更中の反復">リストの変更中の反復</a></h3>
+<p><strong>よくある間違い：</strong></p>
+<pre><code class="language-javascript">void main() {
+  List&lt;int&gt; numbers = [1, 2, 3, 4, 5];
+  
+  for (int number in numbers) {
+    if (number % 2 == 0) {
+      numbers.remove(number);  // エラー：反復中にリストを変更
+    }
+  }
+  
+  print(numbers);
+}
+</code></pre>
+<p><strong>修正版：</strong></p>
+<pre><code class="language-javascript">void main() {
+  List&lt;int&gt; numbers = [1, 2, 3, 4, 5];
+  
+  // 新しいリストを作成する方法
+  List&lt;int&gt; oddNumbers = numbers.where((number) =&gt; number % 2 != 0).toList();
+  print(oddNumbers);
+  
+  // または、逆順でループする方法
+  for (int i = numbers.length - 1; i &gt;= 0; i--) {
+    if (numbers[i] % 2 == 0) {
+      numbers.removeAt(i);
+    }
+  }
+  print(numbers);
+}
+</code></pre>
+<h2 id="8-非同期処理のエラー"><a class="header" href="#8-非同期処理のエラー">8. 非同期処理のエラー</a></h2>
+<h3 id="awaitの忘れ"><a class="header" href="#awaitの忘れ">awaitの忘れ</a></h3>
+<p><strong>よくある間違い：</strong></p>
+<pre><code class="language-javascript">Future&lt;String&gt; fetchData() async {
+  // 何らかの非同期処理
+  await Future.delayed(Duration(seconds: 1));
+  return "データ";
+}
+
+void main() {
+  String result = fetchData();  // エラー：Futureを直接Stringに代入
+  print(result);
+}
+</code></pre>
+<p><strong>修正版：</strong></p>
+<pre><code class="language-javascript">Future&lt;String&gt; fetchData() async {
+  await Future.delayed(Duration(seconds: 1));
+  return "データ";
+}
+
+void main() async {  // mainもasyncにする
+  String result = await fetchData();  // awaitを追加
+  print(result);
+}
+</code></pre>
+<h2 id="エラー解決のコツ"><a class="header" href="#エラー解決のコツ">エラー解決のコツ</a></h2>
+<h3 id="1-エラーメッセージをよく読む"><a class="header" href="#1-エラーメッセージをよく読む">1. エラーメッセージをよく読む</a></h3>
+<pre><code class="language-javascript">// このエラーメッセージの例：
+// "RangeError (index): Invalid value: Not in inclusive range 0..2: 5"
+
+void main() {
+  List&lt;String&gt; colors = ["赤", "青", "緑"];
+  print(colors[5]);  // インデックス5は範囲外（0-2が有効）
+}
+</code></pre>
+<p>エラーメッセージから：</p>
+<ul>
+<li><code>RangeError</code>: 範囲に関するエラー</li>
+<li><code>Not in inclusive range 0..2</code>: 有効な範囲は0から2まで</li>
+<li><code>5</code>: 実際に使用された無効な値</li>
+</ul>
+<h3 id="2-小さな部分から確認する"><a class="header" href="#2-小さな部分から確認する">2. 小さな部分から確認する</a></h3>
+<pre><code class="language-javascript">void debugStep() {
+  print("ステップ1: リスト作成");
+  List&lt;int&gt; numbers = [1, 2, 3, 4, 5];
+  print("リスト: $numbers");
+  
+  print("ステップ2: インデックス計算");
+  int index = numbers.length - 1;
+  print("最後のインデックス: $index");
+  
+  print("ステップ3: 要素取得");
+  int lastNumber = numbers[index];
+  print("最後の要素: $lastNumber");
+}
+</code></pre>
+<h3 id="3-ドキュメントと例を参照する"><a class="header" href="#3-ドキュメントと例を参照する">3. ドキュメントと例を参照する</a></h3>
+<p>よく分からない関数やメソッドがあるときは、公式ドキュメントや信頼できるチュートリアルを確認しましょう。</p>
+<h2 id="予防策とベストプラクティス"><a class="header" href="#予防策とベストプラクティス">予防策とベストプラクティス</a></h2>
+<h3 id="1-入力値の検証"><a class="header" href="#1-入力値の検証">1. 入力値の検証</a></h3>
+<pre><code class="language-javascript">void processAge(int age) {
+  // 入力値をチェック
+  if (age &lt; 0) {
+    throw ArgumentError("年齢は0以上である必要があります");
+  }
+  if (age &gt; 150) {
+    throw ArgumentError("年齢は150以下である必要があります");
+  }
+  
+  print("年齢: $age歳");
+}
+</code></pre>
+<h3 id="2-デフォルト値の設定"><a class="header" href="#2-デフォルト値の設定">2. デフォルト値の設定</a></h3>
+<pre><code class="language-javascript">String greetUser(String? name) {
+  return "こんにちは、${name ?? "ゲスト"}さん！";
+}
+</code></pre>
+<h3 id="3-早期リターン"><a class="header" href="#3-早期リターン">3. 早期リターン</a></h3>
+<pre><code class="language-javascript">String validateEmail(String email) {
+  if (email.isEmpty) {
+    return "メールアドレスが入力されていません";
+  }
+  
+  if (!email.contains("@")) {
+    return "有効なメールアドレスではありません";
+  }
+  
+  return "有効なメールアドレスです";
+}
+</code></pre>
+<h2 id="なるほどポイント-3"><a class="header" href="#なるほどポイント-3">なるほど！ポイント</a></h2>
+<p>エラーは避けられないものですが、同じエラーを繰り返さないように学習することが重要です。エラーが発生したら：</p>
+<ol>
+<li><strong>慌てずにエラーメッセージを読む</strong></li>
+<li><strong>問題の箇所を特定する</strong></li>
+<li><strong>小さなテストで原因を確認する</strong></li>
+<li><strong>修正して再テストする</strong></li>
+<li><strong>今後同じエラーを避ける方法を考える</strong></li>
+</ol>
+<p>エラーは成長のチャンスです。一つずつ丁寧に解決していけば、必ず上達します！</p>
+<p>これで第13章「エラーへの対処」の学習は完了です。エラーハンドリングとデバッグのスキルを身につけることで、より堅牢で使いやすいプログラムを作成できるようになりましたね。次の章では、これまで学んだ知識を活用して実際のプロジェクトに挑戦していきましょう！</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第14章総合演習"><a class="header" href="#第14章総合演習">第14章：総合演習</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="to-doリストアプリケーション"><a class="header" href="#to-doリストアプリケーション">To-Doリストアプリケーション</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="簡単なゲーム数当てゲーム"><a class="header" href="#簡単なゲーム数当てゲーム">簡単なゲーム（数当てゲーム）</a></h1>

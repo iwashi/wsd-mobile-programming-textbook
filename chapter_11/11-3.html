@@ -179,6 +179,336 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="オブジェクトの作成と使用"><a class="header" href="#オブジェクトの作成と使用">オブジェクトの作成と使用</a></h1>
+<p>前の章で、クラス（設計図）の作り方を学びました。今度は、その設計図を使って実際のオブジェクト（実体）を作る方法を学んでいきましょう！</p>
+<h2 id="オブジェクトを作ってみよう"><a class="header" href="#オブジェクトを作ってみよう">オブジェクトを作ってみよう</a></h2>
+<p>まず、前回作った犬のクラスを使ってみましょう：</p>
+<pre><code class="language-javascript">class Dog {
+  String name = "";
+  int age = 0;
+  String breed = "";
+}
+</code></pre>
+<p>このクラスから実際の犬オブジェクトを作るには、次のように書きます：</p>
+<pre><code class="language-javascript">void main() {
+  // 犬オブジェクトを作成
+  Dog myDog = Dog();
+  
+  print("犬を作りました！");
+}
+</code></pre>
+<h3 id="オブジェクト作成の構文"><a class="header" href="#オブジェクト作成の構文">オブジェクト作成の構文</a></h3>
+<pre><code class="language-javascript">クラス名 変数名 = クラス名();
+</code></pre>
+<p>たい焼きの例で考えると：</p>
+<ul>
+<li><code>Dog()</code>：たい焼きの型で実際にたい焼きを作る</li>
+<li><code>myDog</code>：作ったたい焼きに「myDog」という名前をつける</li>
+</ul>
+<h2 id="オブジェクトのフィールドにアクセスする"><a class="header" href="#オブジェクトのフィールドにアクセスする">オブジェクトのフィールドにアクセスする</a></h2>
+<p>作ったオブジェクトの情報を設定したり、読み取ったりしてみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // 犬オブジェクトを作成
+  Dog myDog = Dog();
+  
+  // フィールドに値を設定（ドット記法）
+  myDog.name = "ポチ";
+  myDog.age = 3;
+  myDog.breed = "柴犬";
+  
+  // フィールドの値を読み取り
+  print("名前: ${myDog.name}");
+  print("年齢: ${myDog.age}歳");
+  print("品種: ${myDog.breed}");
+}
+</code></pre>
+<p><strong>実行結果</strong>：</p>
+<pre><code>名前: ポチ
+年齢: 3歳
+品種: 柴犬
+</code></pre>
+<h3 id="ドット記法"><a class="header" href="#ドット記法">ドット記法（.）</a></h3>
+<p>オブジェクトのフィールドには「<strong>ドット記法</strong>」でアクセスします：</p>
+<pre><code class="language-javascript">オブジェクト名.フィールド名
+</code></pre>
+<p>これは「オブジェクト名の中にあるフィールド名」という意味です。</p>
+<h2 id="複数のオブジェクトを作る"><a class="header" href="#複数のオブジェクトを作る">複数のオブジェクトを作る</a></h2>
+<p>同じクラスから複数のオブジェクトを作ることができます：</p>
+<pre><code class="language-javascript">void main() {
+  // 1匹目の犬
+  Dog dog1 = Dog();
+  dog1.name = "ポチ";
+  dog1.age = 3;
+  dog1.breed = "柴犬";
+  
+  // 2匹目の犬
+  Dog dog2 = Dog();
+  dog2.name = "ハチ";
+  dog2.age = 5;
+  dog2.breed = "秋田犬";
+  
+  // 3匹目の犬
+  Dog dog3 = Dog();
+  dog3.name = "モコ";
+  dog3.age = 1;
+  dog3.breed = "プードル";
+  
+  // 全ての犬の情報を表示
+  print("1匹目: ${dog1.name}, ${dog1.age}歳, ${dog1.breed}");
+  print("2匹目: ${dog2.name}, ${dog2.age}歳, ${dog2.breed}");
+  print("3匹目: ${dog3.name}, ${dog3.age}歳, ${dog3.breed}");
+}
+</code></pre>
+<p><strong>実行結果</strong>：</p>
+<pre><code>1匹目: ポチ, 3歳, 柴犬
+2匹目: ハチ, 5歳, 秋田犬
+3匹目: モコ, 1歳, プードル
+</code></pre>
+<p>なるほど！一つのクラス（設計図）から、異なる情報を持つ複数のオブジェクト（実体）を作れるんですね。</p>
+<h2 id="より実践的な例"><a class="header" href="#より実践的な例">より実践的な例</a></h2>
+<p>学生クラスを使った例も見てみましょう：</p>
+<pre><code class="language-javascript">class Student {
+  String name = "";
+  int grade = 1;
+  int studentId = 0;
+  double gpa = 0.0;
+}
+
+void main() {
+  // 学生オブジェクトを作成
+  Student alice = Student();
+  alice.name = "Alice";
+  alice.grade = 2;
+  alice.studentId = 12345;
+  alice.gpa = 3.8;
+  
+  Student bob = Student();
+  bob.name = "Bob";
+  bob.grade = 3;
+  bob.studentId = 67890;
+  bob.gpa = 3.2;
+  
+  // 学生情報を表示
+  print("=== 学生一覧 ===");
+  print("${alice.name}: ${alice.grade}年生, ID: ${alice.studentId}, GPA: ${alice.gpa}");
+  print("${bob.name}: ${bob.grade}年生, ID: ${bob.studentId}, GPA: ${bob.gpa}");
+}
+</code></pre>
+<h2 id="オブジェクトをリストで管理する"><a class="header" href="#オブジェクトをリストで管理する">オブジェクトをリストで管理する</a></h2>
+<p>たくさんのオブジェクトがある場合は、リストで管理すると便利です：</p>
+<pre><code class="language-javascript">void main() {
+  // 犬のリストを作成
+  List&lt;Dog&gt; dogs = [];
+  
+  // 犬を作ってリストに追加
+  Dog pochi = Dog();
+  pochi.name = "ポチ";
+  pochi.age = 3;
+  pochi.breed = "柴犬";
+  dogs.add(pochi);
+  
+  Dog hachi = Dog();
+  hachi.name = "ハチ";
+  hachi.age = 5;
+  hachi.breed = "秋田犬";
+  dogs.add(hachi);
+  
+  // リストの全ての犬を表示
+  print("=== ペットショップの犬たち ===");
+  for (int i = 0; i &lt; dogs.length; i++) {
+    Dog currentDog = dogs[i];
+    print("${i + 1}. ${currentDog.name} (${currentDog.age}歳, ${currentDog.breed})");
+  }
+}
+</code></pre>
+<p><strong>実行結果</strong>：</p>
+<pre><code>=== ペットショップの犬たち ===
+1. ポチ (3歳, 柴犬)
+2. ハチ (5歳, 秋田犬)
+</code></pre>
+<h2 id="より簡潔な書き方"><a class="header" href="#より簡潔な書き方">より簡潔な書き方</a></h2>
+<p>オブジェクトを作ってすぐに値を設定する場合、次のように書くこともできます：</p>
+<pre><code class="language-javascript">void main() {
+  // 作成と設定を分ける場合
+  Dog dog1 = Dog();
+  dog1.name = "ポチ";
+  dog1.age = 3;
+  
+  // より簡潔に書く場合
+  Dog dog2 = Dog()
+    ..name = "ハチ"
+    ..age = 5
+    ..breed = "秋田犬";
+    
+  print("${dog1.name}, ${dog1.age}歳");
+  print("${dog2.name}, ${dog2.age}歳, ${dog2.breed}");
+}
+</code></pre>
+<p><code>..</code> は「<strong>カスケード記法</strong>」と呼ばれ、同じオブジェクトに対して連続して操作を行う時に使います。</p>
+<h2 id="練習してみよう"><a class="header" href="#練習してみよう">練習してみよう</a></h2>
+<h3 id="練習1本オブジェクトを作る"><a class="header" href="#練習1本オブジェクトを作る">練習1：本オブジェクトを作る</a></h3>
+<p>前回作った Book クラスを使って、実際の本オブジェクトを作ってみてください：</p>
+<pre><code class="language-javascript">class Book {
+  String title = "";
+  String author = "";
+  int pages = 0;
+  double price = 0.0;
+  bool isFinished = false;
+}
+
+void main() {
+  // ここに本オブジェクトを作るコードを書いてください
+  // 好きな本の情報を設定してください
+}
+</code></pre>
+<p><strong>答えの例</strong>：</p>
+<pre><code class="language-javascript">void main() {
+  Book myBook = Book();
+  myBook.title = "プログラミング入門";
+  myBook.author = "田中太郎";
+  myBook.pages = 300;
+  myBook.price = 2500.0;
+  myBook.isFinished = false;
+  
+  print("タイトル: ${myBook.title}");
+  print("著者: ${myBook.author}");
+  print("ページ数: ${myBook.pages}ページ");
+  print("価格: ${myBook.price}円");
+  print("読み終わった: ${myBook.isFinished ? 'はい' : 'いいえ'}");
+}
+</code></pre>
+<h3 id="練習2複数の本を管理する"><a class="header" href="#練習2複数の本を管理する">練習2：複数の本を管理する</a></h3>
+<p>3冊の本オブジェクトを作って、リストで管理してみてください：</p>
+<p><strong>答えの例</strong>：</p>
+<pre><code class="language-javascript">void main() {
+  List&lt;Book&gt; books = [];
+  
+  // 1冊目
+  Book book1 = Book()
+    ..title = "Dart入門"
+    ..author = "佐藤花子"
+    ..pages = 250
+    ..price = 2000.0
+    ..isFinished = true;
+  books.add(book1);
+  
+  // 2冊目
+  Book book2 = Book()
+    ..title = "オブジェクト指向"
+    ..author = "山田次郎"
+    ..pages = 400
+    ..price = 3200.0
+    ..isFinished = false;
+  books.add(book2);
+  
+  // 3冊目
+  Book book3 = Book()
+    ..title = "アプリ開発"
+    ..author = "鈴木三郎"
+    ..pages = 350
+    ..price = 2800.0
+    ..isFinished = false;
+  books.add(book3);
+  
+  // 全ての本を表示
+  print("=== 本棚の本たち ===");
+  for (int i = 0; i &lt; books.length; i++) {
+    Book book = books[i];
+    String status = book.isFinished ? "読了" : "未読";
+    print("${i + 1}. 「${book.title}」 著者: ${book.author} (${status})");
+  }
+}
+</code></pre>
+<h2 id="オブジェクトの比較"><a class="header" href="#オブジェクトの比較">オブジェクトの比較</a></h2>
+<p>オブジェクト同士を比較する時は注意が必要です：</p>
+<pre><code class="language-javascript">void main() {
+  Dog dog1 = Dog();
+  dog1.name = "ポチ";
+  
+  Dog dog2 = Dog();
+  dog2.name = "ポチ";
+  
+  // これはfalseになります！
+  print(dog1 == dog2);  // false
+  
+  // 内容を比較したい場合は、フィールドを個別に比較
+  bool sameName = (dog1.name == dog2.name);
+  print("名前が同じ: $sameName");  // true
+}
+</code></pre>
+<p>オブジェクトの <code>==</code> 比較は、同じインスタンス（同じメモリ上のオブジェクト）かどうかを判定します。内容が同じでも、別々に作ったオブジェクトは異なるものとして扱われます。</p>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>この章では、クラスからオブジェクトを作成し、使用する方法を学びました：</p>
+<ol>
+<li><strong>オブジェクト作成</strong>：<code>クラス名 変数名 = クラス名();</code></li>
+<li><strong>フィールドアクセス</strong>：ドット記法（<code>オブジェクト.フィールド</code>）</li>
+<li><strong>複数オブジェクト</strong>：同じクラスから異なる情報を持つオブジェクトを作成</li>
+<li><strong>リスト管理</strong>：オブジェクトをリストで管理</li>
+<li><strong>カスケード記法</strong>：<code>..</code> で連続操作</li>
+<li><strong>オブジェクト比較</strong>：インスタンスの同一性 vs. 内容の比較</li>
+</ol>
+<p>次の章では、オブジェクトに「行動」を追加する方法（メソッド）を学びます。オブジェクトがただデータを持つだけでなく、何かができるようになりますよ！</p>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<ol>
+<li>次のコードの実行結果を予想してください：</li>
+</ol>
+<pre><code class="language-javascript">class Car {
+  String model = "";
+  int year = 0;
+}
+
+void main() {
+  Car car1 = Car();
+  car1.model = "プリウス";
+  car1.year = 2022;
+  
+  Car car2 = Car();
+  car2.model = "アクア";
+  car2.year = 2021;
+  
+  print("${car1.model} (${car1.year}年式)");
+  print("${car2.model} (${car2.year}年式)");
+}
+</code></pre>
+<ol start="2">
+<li>スマートフォンクラスを使って、2台のスマートフォンオブジェクトを作り、それぞれの情報を表示するプログラムを書いてください。</li>
+</ol>
+<p><strong>答え</strong>：</p>
+<ol>
+<li>実行結果：</li>
+</ol>
+<pre><code>プリウス (2022年式)
+アクア (2021年式)
+</code></pre>
+<ol start="2">
+<li>スマートフォンの例：</li>
+</ol>
+<pre><code class="language-javascript">class Smartphone {
+  String model = "";
+  String color = "";
+  int batteryLevel = 100;
+  bool isPoweredOn = false;
+}
+
+void main() {
+  Smartphone phone1 = Smartphone()
+    ..model = "iPhone 14"
+    ..color = "ブルー"
+    ..batteryLevel = 85
+    ..isPoweredOn = true;
+    
+  Smartphone phone2 = Smartphone()
+    ..model = "Galaxy S23"
+    ..color = "ブラック"
+    ..batteryLevel = 92
+    ..isPoweredOn = false;
+    
+  print("スマートフォン1: ${phone1.model} (${phone1.color})");
+  print("バッテリー: ${phone1.batteryLevel}% 電源: ${phone1.isPoweredOn ? 'ON' : 'OFF'}");
+  
+  print("スマートフォン2: ${phone2.model} (${phone2.color})");
+  print("バッテリー: ${phone2.batteryLevel}% 電源: ${phone2.isPoweredOn ? 'ON' : 'OFF'}");
+}
+</code></pre>
 
                     </main>
 

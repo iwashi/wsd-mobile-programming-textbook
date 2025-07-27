@@ -179,6 +179,109 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="エラーの種類を理解する"><a class="header" href="#エラーの種類を理解する">エラーの種類を理解する</a></h1>
+<p>プログラミングを学習していると、必ずエラーに遭遇します。エラーが発生すると「プログラムが動かない！」と焦ってしまうかもしれませんが、実はエラーはプログラマーにとって大切な情報源なのです。エラーメッセージは、何が問題なのかを教えてくれる親切なガイドのような存在です。</p>
+<p>この章では、Dartで発生する様々なエラーの種類を理解し、それぞれにどう対処すべきかを学んでいきましょう。</p>
+<h2 id="エラーとは何か"><a class="header" href="#エラーとは何か">エラーとは何か</a></h2>
+<p>エラーとは、プログラムが正常に実行できない状況のことです。Dartでは、エラーが発生するタイミングによって大きく3つの種類に分けることができます。</p>
+<h3 id="1-コンパイルエラーcompile-time-error"><a class="header" href="#1-コンパイルエラーcompile-time-error">1. コンパイルエラー（Compile-time Error）</a></h3>
+<p>コンパイルエラーは、プログラムを実行する前に発見されるエラーです。文法的な間違いや、型の不整合などが原因で発生します。</p>
+<pre><code class="language-javascript">void main() {
+  int number = "hello";  // エラー：文字列を整数型変数に代入しようとしている
+  print(number)          // エラー：セミコロンが不足
+}
+</code></pre>
+<p>このようなエラーが発生すると、プログラムは実行される前に止まります。実は、これは良いことなのです。なぜなら、問題を早期に発見できるからです。</p>
+<h3 id="2-ランタイムエラーruntime-error"><a class="header" href="#2-ランタイムエラーruntime-error">2. ランタイムエラー（Runtime Error）</a></h3>
+<p>ランタイムエラーは、プログラムが実行されている最中に発生するエラーです。文法的には正しいのですが、実行時に問題が起こります。</p>
+<pre><code class="language-javascript">void main() {
+  List&lt;int&gt; numbers = [1, 2, 3];
+  print(numbers[5]);  // エラー：存在しないインデックスにアクセス
+}
+</code></pre>
+<p>この例では、リストのサイズは3なのに、5番目の要素にアクセスしようとしているため、実行時にエラーが発生します。</p>
+<h3 id="3-論理エラーlogic-error"><a class="header" href="#3-論理エラーlogic-error">3. 論理エラー（Logic Error）</a></h3>
+<p>論理エラーは、プログラムは正常に動作するものの、期待した結果が得られないエラーです。これは最も発見が困難なエラーです。</p>
+<pre><code class="language-javascript">void main() {
+  int a = 10;
+  int b = 5;
+  int average = (a + b) * 2;  // 本来は (a + b) / 2 にしたかった
+  print("平均値: $average");  // 結果：30（期待した結果：7.5）
+}
+</code></pre>
+<h2 id="dartの主要なエラータイプ"><a class="header" href="#dartの主要なエラータイプ">Dartの主要なエラータイプ</a></h2>
+<p>Dartでよく遭遇するエラータイプを見てみましょう。</p>
+<h3 id="nullpointerexceptionヌルポインタ例外"><a class="header" href="#nullpointerexceptionヌルポインタ例外">NullPointerException（ヌルポインタ例外）</a></h3>
+<p>nullの値に対してメソッドやプロパティにアクセスしようとした時に発生します。</p>
+<pre><code class="language-javascript">void main() {
+  String? name;  // null許可型
+  print(name.length);  // エラー：nullに対してlengthにアクセス
+}
+</code></pre>
+<p><strong>改善版：</strong></p>
+<pre><code class="language-javascript">void main() {
+  String? name;
+  if (name != null) {
+    print(name.length);  // nullチェック後にアクセス
+  } else {
+    print("名前が設定されていません");
+  }
+}
+</code></pre>
+<h3 id="rangeerror範囲エラー"><a class="header" href="#rangeerror範囲エラー">RangeError（範囲エラー）</a></h3>
+<p>リストや文字列の有効な範囲外にアクセスしようとした時に発生します。</p>
+<pre><code class="language-javascript">void main() {
+  List&lt;String&gt; fruits = ["りんご", "バナナ", "オレンジ"];
+  print(fruits[3]);  // エラー：インデックス3は存在しない
+}
+</code></pre>
+<p><strong>改善版：</strong></p>
+<pre><code class="language-javascript">void main() {
+  List&lt;String&gt; fruits = ["りんご", "バナナ", "オレンジ"];
+  
+  int index = 3;
+  if (index &lt; fruits.length) {
+    print(fruits[index]);
+  } else {
+    print("指定されたインデックスは範囲外です");
+  }
+}
+</code></pre>
+<h3 id="typeerror型エラー"><a class="header" href="#typeerror型エラー">TypeError（型エラー）</a></h3>
+<p>期待される型と実際の型が一致しない時に発生します。</p>
+<pre><code class="language-javascript">void main() {
+  dynamic value = "123";
+  int number = value;  // エラー：文字列を直接intに代入できない
+  print(number * 2);
+}
+</code></pre>
+<p><strong>改善版：</strong></p>
+<pre><code class="language-javascript">void main() {
+  dynamic value = "123";
+  int number = int.parse(value);  // 文字列を整数に変換
+  print(number * 2);  // 結果：246
+}
+</code></pre>
+<h2 id="エラーメッセージの読み方"><a class="header" href="#エラーメッセージの読み方">エラーメッセージの読み方</a></h2>
+<p>エラーメッセージは最初は難しく感じるかもしれませんが、慣れると非常に有用な情報源になります。</p>
+<pre><code class="language-javascript">// エラーが発生するコード例
+void main() {
+  List&lt;int&gt; numbers = [1, 2, 3];
+  print(numbers[10]);
+}
+</code></pre>
+<p>このコードを実行すると、以下のようなエラーメッセージが表示されます：</p>
+<pre><code>Uncaught Error: RangeError (index): Invalid value: Not in inclusive range 0..2: 10
+</code></pre>
+<p>このメッセージの読み方：</p>
+<ul>
+<li><strong>RangeError</strong>: エラーの種類</li>
+<li><strong>Invalid value</strong>: 無効な値が使用された</li>
+<li><strong>Not in inclusive range 0..2</strong>: 有効な範囲は0から2まで</li>
+<li><strong>10</strong>: 実際に使用された値</li>
+</ul>
+<h2 id="なるほどポイント"><a class="header" href="#なるほどポイント">なるほど！ポイント</a></h2>
+<p>エラーは敵ではなく、プログラムをより良くするためのヒントです。エラーメッセージをしっかり読むことで、問題を素早く特定し、解決することができます。</p>
+<p>次のセクションでは、エラーが発生した時にプログラムが停止しないようにする「try-catch文」について学習します。エラーを優雅に処理する方法を身につけましょう！</p>
 
                     </main>
 

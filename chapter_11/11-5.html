@@ -179,6 +179,461 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="実践ペット管理アプリ"><a class="header" href="#実践ペット管理アプリ">実践：ペット管理アプリ</a></h1>
+<p>これまでの章で学んだオブジェクト指向プログラミングの知識を全て使って、実際のペット管理アプリを作ってみましょう！このアプリでは、ペットショップの動物たちを管理する機能を実装します。</p>
+<h2 id="アプリの仕様"><a class="header" href="#アプリの仕様">アプリの仕様</a></h2>
+<p>作成するペット管理アプリには、以下の機能があります：</p>
+<ol>
+<li><strong>ペットの登録</strong> - 新しいペットを追加</li>
+<li><strong>ペット一覧表示</strong> - 全てのペットの情報を表示</li>
+<li><strong>ペット検索</strong> - 名前でペットを検索</li>
+<li><strong>ペットのお世話</strong> - 餌やり、遊び、健康チェック</li>
+<li><strong>ペット情報更新</strong> - 年齢やその他の情報を更新</li>
+</ol>
+<h2 id="ステップ1ペットクラスの設計"><a class="header" href="#ステップ1ペットクラスの設計">ステップ1：ペットクラスの設計</a></h2>
+<p>まず、ペットを表現するクラスを作りましょう：</p>
+<pre><code class="language-javascript">class Pet {
+  String name = "";           // 名前
+  String species = "";        // 種類（犬、猫、うさぎなど）
+  String breed = "";          // 品種
+  int age = 0;               // 年齢
+  String color = "";         // 毛色
+  int hunger = 50;           // 空腹度（0-100、100が最も空腹）
+  int happiness = 50;        // 幸福度（0-100、100が最も幸せ）
+  int health = 100;          // 健康度（0-100、100が最も健康）
+  bool isAdopted = false;    // 里親が見つかったかどうか
+  
+  // ペットの基本情報を表示
+  void showInfo() {
+    print("=== ${name}の情報 ===");
+    print("種類: ${species}");
+    print("品種: ${breed}");
+    print("年齢: ${age}歳");
+    print("毛色: ${color}");
+    print("状態: ${isAdopted ? '里親決定済み' : '里親募集中'}");
+    showStatus();
+  }
+  
+  // ペットの状態（空腹度、幸福度、健康度）を表示
+  void showStatus() {
+    print("--- 状態 ---");
+    print("空腹度: ${hunger}/100 ${_getHungerStatus()}");
+    print("幸福度: ${happiness}/100 ${_getHappinessStatus()}");
+    print("健康度: ${health}/100 ${_getHealthStatus()}");
+  }
+  
+  // 空腹度の状態を文字で表現
+  String _getHungerStatus() {
+    if (hunger &gt;= 80) return "（とても空腹）";
+    if (hunger &gt;= 60) return "（空腹）";
+    if (hunger &gt;= 40) return "（少し空腹）";
+    if (hunger &gt;= 20) return "（満足）";
+    return "（満腹）";
+  }
+  
+  // 幸福度の状態を文字で表現
+  String _getHappinessStatus() {
+    if (happiness &gt;= 80) return "（とても幸せ）";
+    if (happiness &gt;= 60) return "（幸せ）";
+    if (happiness &gt;= 40) return "（普通）";
+    if (happiness &gt;= 20) return "（少し寂しい）";
+    return "（とても寂しい）";
+  }
+  
+  // 健康度の状態を文字で表現
+  String _getHealthStatus() {
+    if (health &gt;= 90) return "（とても健康）";
+    if (health &gt;= 70) return "（健康）";
+    if (health &gt;= 50) return "（普通）";
+    if (health &gt;= 30) return "（少し不調）";
+    return "（要治療）";
+  }
+  
+  // 餌やり
+  void feed() {
+    if (hunger &lt;= 10) {
+      print("${name}はお腹いっぱいで、これ以上食べられません。");
+      return;
+    }
+    
+    hunger = (hunger - 30).clamp(0, 100);
+    happiness = (happiness + 10).clamp(0, 100);
+    health = (health + 5).clamp(0, 100);
+    
+    print("${name}に餌をあげました！");
+    print("${name}は嬉しそうに食べています♪");
+  }
+  
+  // 遊ぶ
+  void play() {
+    if (happiness &gt;= 90) {
+      print("${name}は既にとても幸せで、これ以上遊ぶ必要がありません。");
+      return;
+    }
+    
+    happiness = (happiness + 25).clamp(0, 100);
+    hunger = (hunger + 15).clamp(0, 100);
+    health = (health + 10).clamp(0, 100);
+    
+    print("${name}と遊びました！");
+    print("${name}はとても楽しそうです♪");
+  }
+  
+  // 健康チェック
+  void healthCheck() {
+    print("${name}の健康チェックを行いました。");
+    
+    if (health &gt;= 90) {
+      print("とても健康です！");
+    } else if (health &gt;= 70) {
+      print("健康状態は良好です。");
+    } else if (health &gt;= 50) {
+      print("健康状態は普通です。");
+    } else if (health &gt;= 30) {
+      print("少し体調が悪いようです。様子を見ましょう。");
+      health = (health + 10).clamp(0, 100);  // 少し回復
+    } else {
+      print("健康状態が悪いです。治療が必要です！");
+      health = (health + 20).clamp(0, 100);  // 治療効果
+    }
+  }
+  
+  // 里親が決まる
+  void adopt() {
+    if (isAdopted) {
+      print("${name}は既に里親が決まっています。");
+    } else {
+      isAdopted = true;
+      print("${name}の里親が決まりました！おめでとう！");
+    }
+  }
+  
+  // 時間が経つ（自動的に状態が変化）
+  void passTime() {
+    hunger = (hunger + 10).clamp(0, 100);
+    happiness = (happiness - 5).clamp(0, 100);
+    
+    // 空腹すぎると健康度が下がる
+    if (hunger &gt;= 90) {
+      health = (health - 10).clamp(0, 100);
+    }
+    
+    // 幸福度が低すぎると健康度が下がる
+    if (happiness &lt;= 20) {
+      health = (health - 5).clamp(0, 100);
+    }
+  }
+}
+</code></pre>
+<h2 id="ステップ2ペット管理システムクラス"><a class="header" href="#ステップ2ペット管理システムクラス">ステップ2：ペット管理システムクラス</a></h2>
+<p>複数のペットを管理するシステムクラスを作りましょう：</p>
+<pre><code class="language-javascript">class PetManagementSystem {
+  List&lt;Pet&gt; pets = [];         // ペットのリスト
+  int nextId = 1;             // 次のペットID
+  
+  // 新しいペットを登録
+  void registerPet(String name, String species, String breed, int age, String color) {
+    Pet newPet = Pet()
+      ..name = name
+      ..species = species
+      ..breed = breed
+      ..age = age
+      ..color = color;
+    
+    pets.add(newPet);
+    print("新しいペット「${name}」を登録しました！");
+    print("");
+  }
+  
+  // 全ペットの一覧を表示
+  void showAllPets() {
+    if (pets.isEmpty) {
+      print("登録されているペットはいません。");
+      return;
+    }
+    
+    print("=== ペット一覧 ===");
+    for (int i = 0; i &lt; pets.length; i++) {
+      Pet pet = pets[i];
+      String status = pet.isAdopted ? "里親決定済み" : "里親募集中";
+      print("${i + 1}. ${pet.name} (${pet.species}, ${pet.age}歳) - ${status}");
+    }
+    print("");
+  }
+  
+  // ペットを名前で検索
+  Pet? findPetByName(String name) {
+    for (Pet pet in pets) {
+      if (pet.name.toLowerCase() == name.toLowerCase()) {
+        return pet;
+      }
+    }
+    return null;
+  }
+  
+  // ペットの詳細情報を表示
+  void showPetDetails(String name) {
+    Pet? pet = findPetByName(name);
+    if (pet != null) {
+      pet.showInfo();
+    } else {
+      print("「${name}」という名前のペットは見つかりませんでした。");
+    }
+    print("");
+  }
+  
+  // ペットに餌をあげる
+  void feedPet(String name) {
+    Pet? pet = findPetByName(name);
+    if (pet != null) {
+      pet.feed();
+    } else {
+      print("「${name}」という名前のペットは見つかりませんでした。");
+    }
+    print("");
+  }
+  
+  // ペットと遊ぶ
+  void playWithPet(String name) {
+    Pet? pet = findPetByName(name);
+    if (pet != null) {
+      pet.play();
+    } else {
+      print("「${name}」という名前のペットは見つかりませんでした。");
+    }
+    print("");
+  }
+  
+  // ペットの健康チェック
+  void checkPetHealth(String name) {
+    Pet? pet = findPetByName(name);
+    if (pet != null) {
+      pet.healthCheck();
+    } else {
+      print("「${name}」という名前のペットは見つかりませんでした。");
+    }
+    print("");
+  }
+  
+  // ペットの里親を決める
+  void adoptPet(String name) {
+    Pet? pet = findPetByName(name);
+    if (pet != null) {
+      pet.adopt();
+    } else {
+      print("「${name}」という名前のペットは見つかりませんでした。");
+    }
+    print("");
+  }
+  
+  // 時間を進める（全ペットの状態が変化）
+  void passTime() {
+    print("時間が経ちました...");
+    for (Pet pet in pets) {
+      pet.passTime();
+    }
+    print("全てのペットの状態が変化しました。");
+    print("");
+  }
+  
+  // 里親募集中のペット数を取得
+  int getAvailablePetsCount() {
+    int count = 0;
+    for (Pet pet in pets) {
+      if (!pet.isAdopted) {
+        count++;
+      }
+    }
+    return count;
+  }
+  
+  // 統計情報を表示
+  void showStatistics() {
+    print("=== 統計情報 ===");
+    print("総ペット数: ${pets.length}匹");
+    print("里親募集中: ${getAvailablePetsCount()}匹");
+    print("里親決定済み: ${pets.length - getAvailablePetsCount()}匹");
+    print("");
+  }
+}
+</code></pre>
+<h2 id="ステップ3メインアプリケーション"><a class="header" href="#ステップ3メインアプリケーション">ステップ3：メインアプリケーション</a></h2>
+<p>実際にアプリを動かしてみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // ペット管理システムを作成
+  PetManagementSystem system = PetManagementSystem();
+  
+  print("🐾 ペットショップ管理アプリへようこそ！ 🐾");
+  print("");
+  
+  // サンプルペットを登録
+  print("--- サンプルペットを登録中... ---");
+  system.registerPet("ポチ", "犬", "柴犬", 3, "茶色");
+  system.registerPet("ミケ", "猫", "三毛猫", 2, "三毛");
+  system.registerPet("ふわり", "うさぎ", "ロップイヤー", 1, "白");
+  system.registerPet("ハチ", "犬", "秋田犬", 5, "茶白");
+  
+  // ペット一覧を表示
+  system.showAllPets();
+  
+  // 統計情報を表示
+  system.showStatistics();
+  
+  // ポチの詳細情報を見る
+  print("--- ポチの詳細情報 ---");
+  system.showPetDetails("ポチ");
+  
+  // ポチと遊ぶ
+  print("--- ポチと遊ぶ ---");
+  system.playWithPet("ポチ");
+  system.showPetDetails("ポチ");
+  
+  // ミケに餌をあげる
+  print("--- ミケに餌をあげる ---");
+  system.feedPet("ミケ");
+  system.showPetDetails("ミケ");
+  
+  // ふわりの健康チェック
+  print("--- ふわりの健康チェック ---");
+  system.checkPetHealth("ふわり");
+  
+  // 時間を進める
+  print("--- 時間が経過 ---");
+  system.passTime();
+  
+  // 再度ポチの状態を確認
+  print("--- 時間経過後のポチの状態 ---");
+  system.showPetDetails("ポチ");
+  
+  // ハチの里親が決まる
+  print("--- ハチの里親決定 ---");
+  system.adoptPet("ハチ");
+  
+  // 最終的な統計
+  print("--- 最終統計 ---");
+  system.showStatistics();
+  system.showAllPets();
+}
+</code></pre>
+<h2 id="実行結果の例"><a class="header" href="#実行結果の例">実行結果の例</a></h2>
+<pre><code>🐾 ペットショップ管理アプリへようこそ！ 🐾
+
+--- サンプルペットを登録中... ---
+新しいペット「ポチ」を登録しました！
+
+新しいペット「ミケ」を登録しました！
+
+新しいペット「ふわり」を登録しました！
+
+新しいペット「ハチ」を登録しました！
+
+=== ペット一覧 ===
+1. ポチ (犬, 3歳) - 里親募集中
+2. ミケ (猫, 2歳) - 里親募集中
+3. ふわり (うさぎ, 1歳) - 里親募集中
+4. ハチ (犬, 5歳) - 里親募集中
+
+=== 統計情報 ===
+総ペット数: 4匹
+里親募集中: 4匹
+里親決定済み: 0匹
+
+--- ポチの詳細情報 ---
+=== ポチの情報 ===
+種類: 犬
+品種: 柴犬
+年齢: 3歳
+毛色: 茶色
+状態: 里親募集中
+--- 状態 ---
+空腹度: 50/100 （普通）
+幸福度: 50/100 （普通）
+健康度: 100/100 （とても健康）
+
+--- ポチと遊ぶ ---
+ポチと遊びました！
+ポチはとても楽しそうです♪
+
+=== ポチの情報 ===
+種類: 犬
+品種: 柴犬
+年齢: 3歳
+毛色: 茶色
+状態: 里親募集中
+--- 状態 ---
+空腹度: 65/100 （空腹）
+幸福度: 75/100 （幸せ）
+健康度: 100/100 （とても健康）
+</code></pre>
+<h2 id="拡張アイデア"><a class="header" href="#拡張アイデア">拡張アイデア</a></h2>
+<p>このペット管理アプリは、さらに多くの機能を追加できます：</p>
+<h3 id="1-ペットの種類別クラス"><a class="header" href="#1-ペットの種類別クラス">1. ペットの種類別クラス</a></h3>
+<pre><code class="language-javascript">class Dog extends Pet {
+  String favoriteActivity = "散歩";
+  
+  void walk() {
+    print("${name}と散歩に行きました！");
+    happiness = (happiness + 20).clamp(0, 100);
+    health = (health + 15).clamp(0, 100);
+  }
+}
+
+class Cat extends Pet {
+  bool isIndoor = true;
+  
+  void groom() {
+    print("${name}が毛づくろいをしています。");
+    happiness = (happiness + 10).clamp(0, 100);
+  }
+}
+</code></pre>
+<h3 id="2-ペットのスケジュール管理"><a class="header" href="#2-ペットのスケジュール管理">2. ペットのスケジュール管理</a></h3>
+<pre><code class="language-javascript">class PetSchedule {
+  String petName = "";
+  List&lt;String&gt; activities = [];
+  
+  void addActivity(String activity, String time) {
+    activities.add("${time}: ${activity}");
+  }
+  
+  void showSchedule() {
+    print("=== ${petName}のスケジュール ===");
+    for (String activity in activities) {
+      print(activity);
+    }
+  }
+}
+</code></pre>
+<h3 id="3-ペットの成長システム"><a class="header" href="#3-ペットの成長システム">3. ペットの成長システム</a></h3>
+<pre><code class="language-javascript">void growUp() {
+  age++;
+  print("${name}が成長しました！現在${age}歳です。");
+  
+  // 年齢に応じて能力値の上限が変化
+  if (age &gt;= 10) {
+    health = (health - 5).clamp(0, 100);  // 高齢による体力低下
+  }
+}
+</code></pre>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>この実践プロジェクトでは、これまで学んだオブジェクト指向プログラミングの概念を全て使いました：</p>
+<ol>
+<li><strong>クラス設計</strong>：PetクラスとPetManagementSystemクラス</li>
+<li><strong>フィールド</strong>：ペットの属性（名前、年齢、状態など）</li>
+<li><strong>メソッド</strong>：ペットの行動（食べる、遊ぶ、健康チェックなど）</li>
+<li><strong>オブジェクト管理</strong>：複数のペットオブジェクトをリストで管理</li>
+<li><strong>情報の隠蔽</strong>：プライベートメソッド（_getHealthStatus()など）</li>
+<li><strong>実用的な機能</strong>：検索、統計、状態変化など</li>
+</ol>
+<p>このようなアプリケーションを作ることで、オブジェクト指向プログラミングの威力を実感できたのではないでしょうか。現実世界の複雑な問題を、クラスとオブジェクトを使って自然に表現し、管理することができました。</p>
+<h2 id="練習課題"><a class="header" href="#練習課題">練習課題</a></h2>
+<ol>
+<li><strong>新機能追加</strong>：ペットの写真URL機能を追加してください</li>
+<li><strong>エラー処理強化</strong>：不正な値の入力に対するチェックを強化してください</li>
+<li><strong>データ保存</strong>：ペット情報をファイルに保存・読み込みする機能を考えてください</li>
+<li><strong>ユーザーインターフェース</strong>：コマンドライン入力による対話的なメニューを作ってください</li>
+</ol>
+<p>プログラミングは創造性の表現です。ぜひ自分なりのアイデアを追加して、オリジナルのペット管理アプリを作ってみてください！</p>
+<p><strong>おめでとうございます！</strong> これでオブジェクト指向プログラミングの基礎をマスターしました。次のステップでは、より高度なオブジェクト指向の概念（継承、ポリモーフィズムなど）を学んでいきます。</p>
 
                     </main>
 

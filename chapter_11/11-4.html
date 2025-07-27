@@ -179,6 +179,477 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="フィールドとメソッド"><a class="header" href="#フィールドとメソッド">フィールドとメソッド</a></h1>
+<p>これまでの章で、オブジェクトに「データ」（フィールド）を持たせる方法を学びました。今度は、オブジェクトに「行動」（メソッド）を追加する方法を学んでいきましょう！</p>
+<h2 id="現実世界での持っているものとできること"><a class="header" href="#現実世界での持っているものとできること">現実世界での「持っているもの」と「できること」</a></h2>
+<p>現実世界の物事を考える時、私たちは自然に次の2つに分けて考えます：</p>
+<h3 id="犬の例"><a class="header" href="#犬の例">犬の例</a></h3>
+<ul>
+<li><strong>持っているもの</strong>（属性）：名前、年齢、品種、色...</li>
+<li><strong>できること</strong>（行動）：鳴く、走る、食べる、寝る...</li>
+</ul>
+<h3 id="スマートフォンの例"><a class="header" href="#スマートフォンの例">スマートフォンの例</a></h3>
+<ul>
+<li><strong>持っているもの</strong>（属性）：機種名、色、バッテリー残量...</li>
+<li><strong>できること</strong>（行動）：電話をかける、写真を撮る、アプリを起動する...</li>
+</ul>
+<p>プログラムでも、この考え方をそのまま使えます！</p>
+<h2 id="フィールド-vs-メソッド"><a class="header" href="#フィールド-vs-メソッド">フィールド vs. メソッド</a></h2>
+<pre><code class="language-javascript">class Dog {
+  // フィールド（持っているもの / データ）
+  String name = "";
+  int age = 0;
+  String breed = "";
+  
+  // メソッド（できること / 行動）
+  void bark() {
+    print("ワンワン！");
+  }
+  
+  void eat() {
+    print("${name}がご飯を食べています");
+  }
+}
+</code></pre>
+<h3 id="フィールドfield"><a class="header" href="#フィールドfield">フィールド（Field）</a></h3>
+<ul>
+<li>オブジェクトが<strong>持っている情報</strong></li>
+<li>データを保存する変数</li>
+<li>例：<code>String name</code>, <code>int age</code></li>
+</ul>
+<h3 id="メソッドmethod"><a class="header" href="#メソッドmethod">メソッド（Method）</a></h3>
+<ul>
+<li>オブジェクトが<strong>できる行動</strong></li>
+<li>処理を実行する関数</li>
+<li>例：<code>bark()</code>, <code>eat()</code></li>
+</ul>
+<h2 id="最初のメソッドを作ってみよう"><a class="header" href="#最初のメソッドを作ってみよう">最初のメソッドを作ってみよう</a></h2>
+<p>シンプルな犬クラスにメソッドを追加してみましょう：</p>
+<pre><code class="language-javascript">class Dog {
+  String name = "";
+  int age = 0;
+  
+  // 鳴くメソッド
+  void bark() {
+    print("ワンワン！");
+  }
+  
+  // 自己紹介メソッド
+  void introduce() {
+    print("こんにちは！僕の名前は${name}です。${age}歳です。");
+  }
+}
+
+void main() {
+  Dog pochi = Dog();
+  pochi.name = "ポチ";
+  pochi.age = 3;
+  
+  // メソッドを呼び出す
+  pochi.bark();       // ワンワン！
+  pochi.introduce();  // こんにちは！僕の名前はポチです。3歳です。
+}
+</code></pre>
+<p><strong>実行結果</strong>：</p>
+<pre><code>ワンワン！
+こんにちは！僕の名前はポチです。3歳です。
+</code></pre>
+<h3 id="メソッド呼び出しの構文"><a class="header" href="#メソッド呼び出しの構文">メソッド呼び出しの構文</a></h3>
+<pre><code class="language-javascript">オブジェクト名.メソッド名();
+</code></pre>
+<p>フィールドにアクセスする時と同じドット記法を使いますが、メソッドの場合は最後に <code>()</code> が付きます。</p>
+<h2 id="メソッドの基本構文"><a class="header" href="#メソッドの基本構文">メソッドの基本構文</a></h2>
+<pre><code class="language-javascript">戻り値の型 メソッド名() {
+  // 処理内容
+}
+</code></pre>
+<h3 id="void-メソッド"><a class="header" href="#void-メソッド">void メソッド</a></h3>
+<p><code>void</code> は「何も返さない」という意味です：</p>
+<pre><code class="language-javascript">void greet() {
+  print("こんにちは！");
+}
+</code></pre>
+<h2 id="パラメータ引数のあるメソッド"><a class="header" href="#パラメータ引数のあるメソッド">パラメータ（引数）のあるメソッド</a></h2>
+<p>メソッドに情報を渡すことができます：</p>
+<pre><code class="language-javascript">class Dog {
+  String name = "";
+  
+  // 名前を指定して挨拶
+  void greetTo(String friendName) {
+    print("${name}：こんにちは、${friendName}さん！");
+  }
+  
+  // 回数を指定して鳴く
+  void barkTimes(int count) {
+    for (int i = 0; i &lt; count; i++) {
+      print("ワン！");
+    }
+  }
+}
+
+void main() {
+  Dog pochi = Dog();
+  pochi.name = "ポチ";
+  
+  pochi.greetTo("ハチ");    // ポチ：こんにちは、ハチさん！
+  pochi.barkTimes(3);       // ワン！ワン！ワン！
+}
+</code></pre>
+<h2 id="戻り値のあるメソッド"><a class="header" href="#戻り値のあるメソッド">戻り値のあるメソッド</a></h2>
+<p>メソッドから値を返すことができます：</p>
+<pre><code class="language-javascript">class Dog {
+  String name = "";
+  int age = 0;
+  
+  // 人間年齢を計算して返す
+  int getHumanAge() {
+    return age * 7;  // 犬の年齢 × 7 = 人間年齢（簡易計算）
+  }
+  
+  // 挨拶文を作って返す
+  String createGreeting() {
+    return "僕は${name}、${age}歳です！";
+  }
+  
+  // 大人かどうかを判定
+  bool isAdult() {
+    return age &gt;= 2;  // 2歳以上は大人
+  }
+}
+
+void main() {
+  Dog pochi = Dog();
+  pochi.name = "ポチ";
+  pochi.age = 3;
+  
+  int humanAge = pochi.getHumanAge();
+  print("${pochi.name}の人間年齢は${humanAge}歳です");
+  
+  String greeting = pochi.createGreeting();
+  print(greeting);
+  
+  bool adult = pochi.isAdult();
+  print("大人？ ${adult ? 'はい' : 'いいえ'}");
+}
+</code></pre>
+<p><strong>実行結果</strong>：</p>
+<pre><code>ポチの人間年齢は21歳です
+僕はポチ、3歳です！
+大人？ はい
+</code></pre>
+<h2 id="より実践的な例銀行口座クラス"><a class="header" href="#より実践的な例銀行口座クラス">より実践的な例：銀行口座クラス</a></h2>
+<pre><code class="language-javascript">class BankAccount {
+  String accountHolder = "";  // 口座名義
+  double balance = 0.0;       // 残高
+  
+  // 入金メソッド
+  void deposit(double amount) {
+    if (amount &gt; 0) {
+      balance += amount;
+      print("${amount}円を入金しました。残高: ${balance}円");
+    } else {
+      print("入金額は0円より大きくしてください");
+    }
+  }
+  
+  // 出金メソッド
+  bool withdraw(double amount) {
+    if (amount &lt;= 0) {
+      print("出金額は0円より大きくしてください");
+      return false;
+    } else if (amount &gt; balance) {
+      print("残高不足です。残高: ${balance}円");
+      return false;
+    } else {
+      balance -= amount;
+      print("${amount}円を出金しました。残高: ${balance}円");
+      return true;
+    }
+  }
+  
+  // 残高照会メソッド
+  double getBalance() {
+    return balance;
+  }
+  
+  // 口座情報表示メソッド
+  void showAccountInfo() {
+    print("=== 口座情報 ===");
+    print("名義: ${accountHolder}");
+    print("残高: ${balance}円");
+  }
+}
+
+void main() {
+  BankAccount account = BankAccount();
+  account.accountHolder = "田中太郎";
+  
+  account.showAccountInfo();
+  
+  account.deposit(10000);    // 1万円入金
+  account.deposit(5000);     // 5千円入金
+  account.withdraw(3000);    // 3千円出金
+  account.withdraw(20000);   // 残高不足
+  
+  account.showAccountInfo();
+}
+</code></pre>
+<p><strong>実行結果</strong>：</p>
+<pre><code>=== 口座情報 ===
+名義: 田中太郎
+残高: 0.0円
+10000.0円を入金しました。残高: 10000.0円
+5000.0円を入金しました。残高: 15000.0円
+3000.0円を出金しました。残高: 12000.0円
+残高不足です。残高: 12000.0円
+=== 口座情報 ===
+名義: 田中太郎
+残高: 12000.0円
+</code></pre>
+<h2 id="メソッドからフィールドにアクセス"><a class="header" href="#メソッドからフィールドにアクセス">メソッドからフィールドにアクセス</a></h2>
+<p>メソッドの中では、同じオブジェクトのフィールドに自由にアクセスできます：</p>
+<pre><code class="language-javascript">class Student {
+  String name = "";
+  List&lt;int&gt; scores = [];
+  
+  // テストの点数を追加
+  void addScore(int score) {
+    scores.add(score);  // フィールド scores にアクセス
+    print("${name}のテスト結果：${score}点を追加しました");
+  }
+  
+  // 平均点を計算
+  double calculateAverage() {
+    if (scores.isEmpty) {
+      return 0.0;
+    }
+    
+    int total = 0;
+    for (int score in scores) {
+      total += score;
+    }
+    
+    return total / scores.length;
+  }
+  
+  // 成績評価
+  String getGrade() {
+    double average = calculateAverage();  // 他のメソッドを呼び出し
+    
+    if (average &gt;= 90) {
+      return "A";
+    } else if (average &gt;= 80) {
+      return "B";
+    } else if (average &gt;= 70) {
+      return "C";
+    } else if (average &gt;= 60) {
+      return "D";
+    } else {
+      return "F";
+    }
+  }
+}
+
+void main() {
+  Student alice = Student();
+  alice.name = "Alice";
+  
+  alice.addScore(85);
+  alice.addScore(92);
+  alice.addScore(78);
+  
+  double average = alice.calculateAverage();
+  String grade = alice.getGrade();
+  
+  print("${alice.name}の平均点: ${average.toStringAsFixed(1)}点");
+  print("評価: ${grade}");
+}
+</code></pre>
+<h2 id="練習してみよう"><a class="header" href="#練習してみよう">練習してみよう</a></h2>
+<h3 id="練習1計算機クラス"><a class="header" href="#練習1計算機クラス">練習1：計算機クラス</a></h3>
+<pre><code class="language-javascript">class Calculator {
+  double result = 0.0;  // 計算結果を保存
+  
+  // ここにメソッドを追加してください：
+  // 1. add(double value) - 値を足す
+  // 2. subtract(double value) - 値を引く
+  // 3. multiply(double value) - 値をかける
+  // 4. divide(double value) - 値で割る
+  // 5. clear() - 結果をリセット
+  // 6. getResult() - 現在の結果を返す
+}
+</code></pre>
+<p><strong>答えの例</strong>：</p>
+<pre><code class="language-javascript">class Calculator {
+  double result = 0.0;
+  
+  void add(double value) {
+    result += value;
+    print("+ ${value} = ${result}");
+  }
+  
+  void subtract(double value) {
+    result -= value;
+    print("- ${value} = ${result}");
+  }
+  
+  void multiply(double value) {
+    result *= value;
+    print("× ${value} = ${result}");
+  }
+  
+  void divide(double value) {
+    if (value != 0) {
+      result /= value;
+      print("÷ ${value} = ${result}");
+    } else {
+      print("エラー: 0で割ることはできません");
+    }
+  }
+  
+  void clear() {
+    result = 0.0;
+    print("計算結果をリセットしました");
+  }
+  
+  double getResult() {
+    return result;
+  }
+}
+
+void main() {
+  Calculator calc = Calculator();
+  
+  calc.add(10);        // + 10.0 = 10.0
+  calc.multiply(3);    // × 3.0 = 30.0
+  calc.subtract(5);    // - 5.0 = 25.0
+  calc.divide(5);      // ÷ 5.0 = 5.0
+  
+  print("最終結果: ${calc.getResult()}");
+}
+</code></pre>
+<h3 id="練習2タイマークラス"><a class="header" href="#練習2タイマークラス">練習2：タイマークラス</a></h3>
+<p>時間をカウントするタイマークラスを作ってみてください：</p>
+<pre><code class="language-javascript">class Timer {
+  int seconds = 0;
+  
+  // start() - タイマー開始メッセージ
+  // tick() - 1秒進める
+  // reset() - 0秒にリセット
+  // getTime() - 現在時刻を返す
+  // isTimeUp(int target) - 指定時間に達したかチェック
+}
+</code></pre>
+<h2 id="ゲッターとセッター"><a class="header" href="#ゲッターとセッター">ゲッターとセッター</a></h2>
+<p>フィールドへの安全なアクセスを提供するメソッドパターン：</p>
+<pre><code class="language-javascript">class Person {
+  String _name = "";  // プライベートフィールド（_で始まる）
+  int _age = 0;
+  
+  // ゲッター（値を取得）
+  String getName() {
+    return _name;
+  }
+  
+  int getAge() {
+    return _age;
+  }
+  
+  // セッター（値を設定）
+  void setName(String name) {
+    if (name.isNotEmpty) {
+      _name = name;
+    } else {
+      print("名前は空にできません");
+    }
+  }
+  
+  void setAge(int age) {
+    if (age &gt;= 0 &amp;&amp; age &lt;= 120) {
+      _age = age;
+    } else {
+      print("年齢は0-120歳の範囲で設定してください");
+    }
+  }
+}
+</code></pre>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>この章では、オブジェクトに行動（メソッド）を追加する方法を学びました：</p>
+<ol>
+<li><strong>メソッドの基本</strong>：<code>戻り値の型 メソッド名() { }</code></li>
+<li><strong>void メソッド</strong>：何も返さないメソッド</li>
+<li><strong>パラメータ</strong>：メソッドに情報を渡す</li>
+<li><strong>戻り値</strong>：メソッドから結果を受け取る</li>
+<li><strong>フィールドアクセス</strong>：メソッド内でフィールドを使用</li>
+<li><strong>実践的な例</strong>：銀行口座、学生成績管理など</li>
+</ol>
+<p>オブジェクトは今や、データを持つだけでなく、そのデータを使って様々な処理ができるようになりました！</p>
+<p>次の章では、これらの知識を使って実際のペット管理アプリを作ってみます。今まで学んだことが全て一つの形になりますよ！</p>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<ol>
+<li>次のコードで、<code>pochi.getHumanAge()</code> の戻り値は何でしょうか？</li>
+</ol>
+<pre><code class="language-javascript">class Dog {
+  int age = 0;
+  
+  int getHumanAge() {
+    return age * 7;
+  }
+}
+
+void main() {
+  Dog pochi = Dog();
+  pochi.age = 4;
+  
+  int result = pochi.getHumanAge();
+  print(result);
+}
+</code></pre>
+<ol start="2">
+<li>図書館の本を管理するBookクラスに、以下のメソッドを追加してください：
+<ul>
+<li><code>borrow()</code> - 本を借りる（借用中フラグをtrueにする）</li>
+<li><code>returnBook()</code> - 本を返却する（借用中フラグをfalseにする）</li>
+<li><code>isAvailable()</code> - 貸し出し可能かチェック（借用中でなければtrue）</li>
+</ul>
+</li>
+</ol>
+<p><strong>答え</strong>：</p>
+<ol>
+<li>
+<p>戻り値は <code>28</code> です（4 × 7 = 28）</p>
+</li>
+<li>
+<p>図書館の本クラス：</p>
+</li>
+</ol>
+<pre><code class="language-javascript">class Book {
+  String title = "";
+  String author = "";
+  bool isBorrowed = false;
+  
+  void borrow() {
+    if (!isBorrowed) {
+      isBorrowed = true;
+      print("「${title}」を借りました");
+    } else {
+      print("「${title}」は既に貸し出し中です");
+    }
+  }
+  
+  void returnBook() {
+    if (isBorrowed) {
+      isBorrowed = false;
+      print("「${title}」を返却しました");
+    } else {
+      print("「${title}」は貸し出されていません");
+    }
+  }
+  
+  bool isAvailable() {
+    return !isBorrowed;
+  }
+}
+</code></pre>
 
                     </main>
 

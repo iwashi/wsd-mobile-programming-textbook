@@ -179,6 +179,200 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="クラスの定義"><a class="header" href="#クラスの定義">クラスの定義</a></h1>
+<p>前の章で、オブジェクト指向プログラミングの考え方を学びました。今度は、実際にDartでオブジェクトを作るための「<strong>クラス</strong>」について学んでいきましょう。</p>
+<h2 id="クラスとは何でしょうか"><a class="header" href="#クラスとは何でしょうか">クラスとは何でしょうか？</a></h2>
+<p>クラスは、オブジェクトの「<strong>設計図</strong>」や「<strong>型紙</strong>」のようなものです。</p>
+<h3 id="身近な例で考えてみましょう"><a class="header" href="#身近な例で考えてみましょう">身近な例で考えてみましょう</a></h3>
+<p>たい焼きを作ることを想像してください：</p>
+<ul>
+<li><strong>たい焼きの型</strong>：これがクラス（設計図）</li>
+<li><strong>実際のたい焼き</strong>：これがオブジェクト（実体）</li>
+</ul>
+<p>一つの型（クラス）があれば、同じ形のたい焼き（オブジェクト）を何個でも作ることができますね！</p>
+<pre><code class="language-javascript">// たい焼きのイメージ
+たい焼きの型（クラス） → たい焼き1（オブジェクト）
+                    → たい焼き2（オブジェクト）
+                    → たい焼き3（オブジェクト）
+</code></pre>
+<h2 id="dartでのクラスの基本形"><a class="header" href="#dartでのクラスの基本形">Dartでのクラスの基本形</a></h2>
+<p>Dartでクラスを定義する基本的な形は次のようになります：</p>
+<pre><code class="language-javascript">class クラス名 {
+  // ここにクラスの内容を書きます
+}
+</code></pre>
+<h3 id="実際に犬のクラスを作ってみましょう"><a class="header" href="#実際に犬のクラスを作ってみましょう">実際に犬のクラスを作ってみましょう</a></h3>
+<pre><code class="language-javascript">class Dog {
+  // まずは空のクラスを作成
+}
+</code></pre>
+<p>おめでとうございます！これで最初のクラスができました。でも、まだ何も中身がありませんね。</p>
+<h2 id="クラスに属性フィールドを追加する"><a class="header" href="#クラスに属性フィールドを追加する">クラスに属性（フィールド）を追加する</a></h2>
+<p>犬には名前、年齢、品種などの情報が必要です。これらを<strong>フィールド</strong>（または<strong>プロパティ</strong>）と呼びます。</p>
+<pre><code class="language-javascript">class Dog {
+  // 犬の属性（フィールド）
+  String name;    // 名前
+  int age;        // 年齢
+  String breed;   // 品種
+}
+</code></pre>
+<h3 id="フィールドの説明"><a class="header" href="#フィールドの説明">フィールドの説明</a></h3>
+<ul>
+<li><code>String name</code>：犬の名前を文字列で保存</li>
+<li><code>int age</code>：犬の年齢を整数で保存</li>
+<li><code>String breed</code>：犬の品種を文字列で保存</li>
+</ul>
+<h2 id="より詳しいクラスの例"><a class="header" href="#より詳しいクラスの例">より詳しいクラスの例</a></h2>
+<p>もう少し現実的な例を見てみましょう：</p>
+<pre><code class="language-javascript">class Dog {
+  // 基本情報
+  String name;        // 名前
+  int age;           // 年齢
+  String breed;      // 品種
+  String color;      // 毛色
+  double weight;     // 体重（kg）
+  bool isHealthy;    // 健康状態
+}
+</code></pre>
+<h3 id="データ型の選択"><a class="header" href="#データ型の選択">データ型の選択</a></h3>
+<p>各フィールドにはどのデータ型が適切か考えてみましょう：</p>
+<ul>
+<li><strong>String（文字列）</strong>：名前、品種、毛色など</li>
+<li><strong>int（整数）</strong>：年齢（通常は整数で表現）</li>
+<li><strong>double（小数）</strong>：体重（小数点が必要）</li>
+<li><strong>bool（真偽値）</strong>：健康状態（健康/不健康の2択）</li>
+</ul>
+<h2 id="別の例学生クラス"><a class="header" href="#別の例学生クラス">別の例：学生クラス</a></h2>
+<p>犬以外の例も見てみましょう：</p>
+<pre><code class="language-javascript">class Student {
+  String name;        // 名前
+  int grade;         // 学年
+  int studentId;     // 学籍番号
+  double gpa;        // 成績平均点
+  bool isPresent;    // 出席しているかどうか
+}
+</code></pre>
+<h2 id="クラス名の命名規則"><a class="header" href="#クラス名の命名規則">クラス名の命名規則</a></h2>
+<p>Dartでは、クラス名には特別な命名規則があります：</p>
+<h3 id="1-パスカルケースpascalcaseを使う"><a class="header" href="#1-パスカルケースpascalcaseを使う">1. パスカルケース（PascalCase）を使う</a></h3>
+<pre><code class="language-javascript">// ✅ 正しい例
+class Dog { }
+class Student { }
+class BankAccount { }     // 複数の単語は最初を大文字に
+class GameCharacter { }
+
+// ❌ 間違った例
+class dog { }             // 小文字で始まっている
+class bank_account { }    // アンダースコアを使っている
+class gamecharacter { }   // 2番目の単語が小文字
+</code></pre>
+<h3 id="2-意味のある名前をつける"><a class="header" href="#2-意味のある名前をつける">2. 意味のある名前をつける</a></h3>
+<pre><code class="language-javascript">// ✅ 良い例
+class Car { }           // 車
+class Book { }          // 本
+class MusicPlayer { }   // 音楽プレーヤー
+
+// ❌ 悪い例
+class A { }             // 何を表すかわからない
+class Thing { }         // 抽象的すぎる
+class Data { }          // 何のデータかわからない
+</code></pre>
+<h2 id="練習自分でクラスを作ってみよう"><a class="header" href="#練習自分でクラスを作ってみよう">練習：自分でクラスを作ってみよう</a></h2>
+<h3 id="練習1本bookクラス"><a class="header" href="#練習1本bookクラス">練習1：本（Book）クラス</a></h3>
+<p>本を表現するクラスを作ってみてください。本には次のような属性があります：</p>
+<ul>
+<li>タイトル（文字列）</li>
+<li>著者（文字列）</li>
+<li>ページ数（整数）</li>
+<li>価格（小数）</li>
+<li>読み終わったかどうか（真偽値）</li>
+</ul>
+<pre><code class="language-javascript">class Book {
+  // ここに属性を書いてください
+}
+</code></pre>
+<p><strong>答え</strong>：</p>
+<pre><code class="language-javascript">class Book {
+  String title;        // タイトル
+  String author;       // 著者
+  int pages;          // ページ数
+  double price;       // 価格
+  bool isFinished;    // 読み終わったかどうか
+}
+</code></pre>
+<h3 id="練習2スマートフォンsmartphoneクラス"><a class="header" href="#練習2スマートフォンsmartphoneクラス">練習2：スマートフォン（Smartphone）クラス</a></h3>
+<p>今度はスマートフォンを表現するクラスを作ってみてください：</p>
+<ul>
+<li>機種名（文字列）</li>
+<li>色（文字列）</li>
+<li>バッテリー残量（整数、0-100の値）</li>
+<li>ストレージ容量（整数、GB単位）</li>
+<li>電源が入っているかどうか（真偽値）</li>
+</ul>
+<p><strong>答え</strong>：</p>
+<pre><code class="language-javascript">class Smartphone {
+  String model;           // 機種名
+  String color;           // 色
+  int batteryLevel;       // バッテリー残量（0-100）
+  int storageCapacity;    // ストレージ容量（GB）
+  bool isPoweredOn;       // 電源状態
+}
+</code></pre>
+<h2 id="初期値の設定"><a class="header" href="#初期値の設定">初期値の設定</a></h2>
+<p>フィールドには初期値を設定することもできます：</p>
+<pre><code class="language-javascript">class Dog {
+  String name = "名前未設定";     // デフォルトの名前
+  int age = 0;                  // デフォルトの年齢
+  String breed = "雑種";        // デフォルトの品種
+  bool isHealthy = true;        // デフォルトで健康
+}
+</code></pre>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>この章では、クラスの基本的な定義方法を学びました：</p>
+<ol>
+<li><strong>クラスは設計図</strong>：オブジェクトを作るためのテンプレート</li>
+<li><strong>基本的な構文</strong>：<code>class クラス名 { }</code></li>
+<li><strong>フィールド</strong>：オブジェクトが持つ属性（データ）</li>
+<li><strong>命名規則</strong>：パスカルケースで意味のある名前を</li>
+<li><strong>データ型</strong>：適切な型を選択する</li>
+</ol>
+<p>次の章では、この設計図（クラス）を使って実際のオブジェクトを作る方法を学びます。いよいよ設計図から実物を作り出しますよ！</p>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<ol>
+<li>
+<p>車（Car）を表現するクラスを作ってください。車には以下の属性があります：</p>
+<ul>
+<li>メーカー（文字列）</li>
+<li>車種（文字列）</li>
+<li>年式（整数）</li>
+<li>燃費（小数、km/L）</li>
+<li>エンジンがかかっているかどうか（真偽値）</li>
+</ul>
+</li>
+<li>
+<p>次のクラス名のうち、Dartの命名規則に従っているものはどれでしょうか？</p>
+<ul>
+<li><code>musicPlayer</code></li>
+<li><code>MusicPlayer</code></li>
+<li><code>music_player</code></li>
+<li><code>MUSICPLAYER</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>答え</strong>：</p>
+<ol>
+<li>車クラス：</li>
+</ol>
+<pre><code class="language-javascript">class Car {
+  String manufacturer;    // メーカー
+  String model;          // 車種
+  int year;             // 年式
+  double fuelEfficiency; // 燃費
+  bool isEngineRunning;  // エンジン状態
+}
+</code></pre>
+<ol start="2">
+<li>正しいのは <code>MusicPlayer</code> です（パスカルケース）</li>
+</ol>
 
                     </main>
 

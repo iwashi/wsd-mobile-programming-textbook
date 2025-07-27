@@ -179,6 +179,321 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="デバッグの基本技術"><a class="header" href="#デバッグの基本技術">デバッグの基本技術</a></h1>
+<p>プログラムを書いていると、「コードは正しく見えるのに、期待通りに動かない...」という状況によく遭遇します。このような問題を見つけて修正することを「デバッグ」と呼びます。</p>
+<p>デバッグは探偵のような作業です。問題の手がかりを集めて、原因を特定し、解決策を見つけ出すのです。最初は難しく感じるかもしれませんが、基本的な技術を身につければ、効率よく問題を解決できるようになります。</p>
+<h2 id="デバッグの基本原則"><a class="header" href="#デバッグの基本原則">デバッグの基本原則</a></h2>
+<h3 id="1-慌てずに状況を把握する"><a class="header" href="#1-慌てずに状況を把握する">1. 慌てずに状況を把握する</a></h3>
+<p>問題が発生したら、まず深呼吸をして状況を冷静に分析しましょう。</p>
+<pre><code class="language-javascript">void main() {
+  int total = 0;
+  List&lt;int&gt; scores = [85, 92, 78, 95, 88];
+  
+  for (int score in scores) {
+    total += score;
+  }
+  
+  double average = total / scores.length;
+  print("平均点: $average");  // 期待: 87.6、実際: 87.0
+}
+</code></pre>
+<p>このコードの問題は何でしょうか？整数除算が行われているため、小数点以下が切り捨てられています。</p>
+<h3 id="2-問題を再現する"><a class="header" href="#2-問題を再現する">2. 問題を再現する</a></h3>
+<p>問題を確実に再現できる最小限のコードを作成します。</p>
+<pre><code class="language-javascript">void main() {
+  // 問題を再現する最小限のコード
+  int a = 438;  // 85 + 92 + 78 + 95 + 88
+  int b = 5;
+  double result = a / b;
+  print(result);  // 結果: 87.0（期待: 87.6）
+}
+</code></pre>
+<h2 id="print文を使ったデバッグ"><a class="header" href="#print文を使ったデバッグ">print文を使ったデバッグ</a></h2>
+<p>最も基本的なデバッグ手法は、<code>print文</code>を使って変数の値やプログラムの実行状況を確認することです。</p>
+<h3 id="変数の値を確認する"><a class="header" href="#変数の値を確認する">変数の値を確認する</a></h3>
+<pre><code class="language-javascript">void calculateTotal(List&lt;int&gt; prices) {
+  int total = 0;
+  
+  print("価格リスト: $prices");  // デバッグ用出力
+  
+  for (int i = 0; i &lt; prices.length; i++) {
+    print("処理中の価格[$i]: ${prices[i]}");  // デバッグ用出力
+    total += prices[i];
+    print("現在の合計: $total");  // デバッグ用出力
+  }
+  
+  print("最終合計: $total");
+}
+
+void main() {
+  List&lt;int&gt; prices = [100, 200, 150];
+  calculateTotal(prices);
+}
+</code></pre>
+<p><strong>実行結果：</strong></p>
+<pre><code>価格リスト: [100, 200, 150]
+処理中の価格[0]: 100
+現在の合計: 100
+処理中の価格[1]: 200
+現在の合計: 300
+処理中の価格[2]: 150
+現在の合計: 450
+最終合計: 450
+</code></pre>
+<h3 id="条件分岐の動作を確認する"><a class="header" href="#条件分岐の動作を確認する">条件分岐の動作を確認する</a></h3>
+<pre><code class="language-javascript">void checkGrade(int score) {
+  print("入力されたスコア: $score");  // デバッグ用出力
+  
+  if (score &gt;= 90) {
+    print("条件チェック: score &gt;= 90 → true");
+    print("優秀");
+  } else if (score &gt;= 70) {
+    print("条件チェック: score &gt;= 70 → true");
+    print("良好");
+  } else {
+    print("条件チェック: 上記のいずれも false");
+    print("要努力");
+  }
+}
+
+void main() {
+  checkGrade(85);
+}
+</code></pre>
+<h2 id="デバッグのための関数"><a class="header" href="#デバッグのための関数">デバッグのための関数</a></h2>
+<p>デバッグ用の専用関数を作成すると、コードが見やすくなります。</p>
+<pre><code class="language-javascript">// デバッグ用関数
+void debug(String message, [dynamic value]) {
+  if (value != null) {
+    print("DEBUG: $message → $value");
+  } else {
+    print("DEBUG: $message");
+  }
+}
+
+// 使用例
+void processNumbers(List&lt;int&gt; numbers) {
+  debug("関数開始", "processNumbers");
+  debug("入力データ", numbers);
+  
+  List&lt;int&gt; evenNumbers = [];
+  
+  for (int number in numbers) {
+    debug("処理中の数値", number);
+    
+    if (number % 2 == 0) {
+      debug("偶数を発見", number);
+      evenNumbers.add(number);
+    }
+  }
+  
+  debug("偶数のリスト", evenNumbers);
+  debug("関数終了");
+}
+
+void main() {
+  processNumbers([1, 2, 3, 4, 5, 6]);
+}
+</code></pre>
+<h2 id="assert文を使ったデバッグ"><a class="header" href="#assert文を使ったデバッグ">assert文を使ったデバッグ</a></h2>
+<p><code>assert文</code>は、プログラムの想定が正しいかどうかをチェックするためのツールです。</p>
+<pre><code class="language-javascript">void divide(double a, double b) {
+  // 事前条件をチェック
+  assert(b != 0, "除数はゼロであってはいけません");
+  
+  double result = a / b;
+  
+  // 事後条件をチェック
+  assert(result.isFinite, "結果は有限数である必要があります");
+  
+  print("$a ÷ $b = $result");
+}
+
+void main() {
+  divide(10, 2);   // 正常ケース
+  // divide(10, 0);  // assertエラーが発生
+}
+</code></pre>
+<h2 id="ステップバイステップ実行"><a class="header" href="#ステップバイステップ実行">ステップバイステップ実行</a></h2>
+<p>複雑な処理を小さな単位に分けて、一つずつ確認していきます。</p>
+<pre><code class="language-javascript">// 問題のあるコード例：文字列の反転
+String reverseString(String input) {
+  String result = "";
+  
+  print("開始: input='$input'");
+  
+  for (int i = input.length - 1; i &gt;= 0; i--) {
+    print("i=$i, 文字='${input[i]}'");
+    result += input[i];
+    print("現在のresult='$result'");
+  }
+  
+  print("完了: result='$result'");
+  return result;
+}
+
+void main() {
+  String reversed = reverseString("hello");
+  print("最終結果: $reversed");
+}
+</code></pre>
+<h2 id="エラーログの読み方と活用"><a class="header" href="#エラーログの読み方と活用">エラーログの読み方と活用</a></h2>
+<p>エラーが発生した時は、スタックトレースを注意深く読みましょう。</p>
+<pre><code class="language-javascript">void problematicFunction() {
+  List&lt;String&gt; names = ["田中", "佐藤", "鈴木"];
+  
+  // 意図的にエラーを発生させる
+  print(names[5]);  // 範囲外アクセス
+}
+
+void main() {
+  try {
+    problematicFunction();
+  } catch (e, stackTrace) {
+    print("エラー詳細: $e");
+    print("スタックトレース:");
+    print(stackTrace);
+  }
+}
+</code></pre>
+<p>このエラー情報から、どの行で何が起こったかを特定できます。</p>
+<h2 id="二分探索でバグを特定する"><a class="header" href="#二分探索でバグを特定する">二分探索でバグを特定する</a></h2>
+<p>大きなコードでバグの場所が分からない時は、コードを半分ずつコメントアウトして問題の範囲を絞り込みます。</p>
+<pre><code class="language-javascript">void complexFunction() {
+  // 前半部分
+  print("処理1: データ初期化");
+  List&lt;int&gt; data = [1, 2, 3, 4, 5];
+  
+  print("処理2: データ変換");
+  for (int i = 0; i &lt; data.length; i++) {
+    data[i] = data[i] * 2;
+  }
+  
+  // ここまでは正常に動く
+  print("中間確認: $data");
+  
+  // 後半部分（問題がこの辺りにありそう）
+  print("処理3: 平均計算");
+  int sum = 0;
+  for (int value in data) {
+    sum += value;
+  }
+  
+  // バグ発見！整数除算になっている
+  double average = sum / data.length;  // 修正: sum.toDouble() / data.length
+  print("平均: $average");
+}
+</code></pre>
+<h2 id="デバッグに役立つツールとテクニック"><a class="header" href="#デバッグに役立つツールとテクニック">デバッグに役立つツールとテクニック</a></h2>
+<h3 id="1-境界値をテストする"><a class="header" href="#1-境界値をテストする">1. 境界値をテストする</a></h3>
+<pre><code class="language-javascript">void testBoundaryValues() {
+  List&lt;int&gt; testValues = [
+    -1,    // 負の値
+    0,     // ゼロ
+    1,     // 最小の正の値
+    99,    // 境界値
+    100,   // 期待される最大値
+    101    // 範囲外の値
+  ];
+  
+  for (int value in testValues) {
+    print("テスト値: $value");
+    try {
+      validateScore(value);
+    } catch (e) {
+      print("エラー: $e");
+    }
+  }
+}
+
+void validateScore(int score) {
+  if (score &lt; 0 || score &gt; 100) {
+    throw ArgumentError("スコアは0-100の範囲である必要があります");
+  }
+  print("有効なスコア: $score");
+}
+</code></pre>
+<h3 id="2-入力データのバリエーションをテストする"><a class="header" href="#2-入力データのバリエーションをテストする">2. 入力データのバリエーションをテストする</a></h3>
+<pre><code class="language-javascript">void testVariousInputs() {
+  List&lt;String&gt; testStrings = [
+    "",           // 空文字列
+    "a",          // 1文字
+    "hello",      // 通常の文字列
+    "Hello World", // スペース含む
+    "123",        // 数字のみ
+    "あいうえお",    // 日本語
+  ];
+  
+  for (String testString in testStrings) {
+    print("テスト: '$testString'");
+    processString(testString);
+  }
+}
+
+void processString(String input) {
+  if (input.isEmpty) {
+    print("空文字列が入力されました");
+    return;
+  }
+  
+  print("文字数: ${input.length}");
+  print("最初の文字: ${input[0]}");
+}
+</code></pre>
+<h2 id="デバッグのベストプラクティス"><a class="header" href="#デバッグのベストプラクティス">デバッグのベストプラクティス</a></h2>
+<h3 id="1-再現可能なテストケースを作る"><a class="header" href="#1-再現可能なテストケースを作る">1. 再現可能なテストケースを作る</a></h3>
+<pre><code class="language-javascript">// 問題を再現するテスト関数
+void reproduceIssue() {
+  print("=== 問題の再現テスト ===");
+  
+  // 具体的な入力値で問題を再現
+  List&lt;double&gt; temperatures = [23.5, 25.0, 22.8, 26.1];
+  double average = calculateAverage(temperatures);
+  
+  print("期待値: 24.35");
+  print("実際の値: $average");
+  print("差分: ${(24.35 - average).abs()}");
+}
+
+double calculateAverage(List&lt;double&gt; values) {
+  if (values.isEmpty) return 0.0;
+  
+  double sum = 0.0;
+  for (double value in values) {
+    sum += value;
+  }
+  
+  return sum / values.length;
+}
+</code></pre>
+<h3 id="2-デバッグ情報を整理して表示する"><a class="header" href="#2-デバッグ情報を整理して表示する">2. デバッグ情報を整理して表示する</a></h3>
+<pre><code class="language-javascript">void debugInfo(String section, Map&lt;String, dynamic&gt; variables) {
+  print("=== $section ===");
+  variables.forEach((key, value) {
+    print("  $key: $value");
+  });
+  print("");
+}
+
+void exampleWithDebugInfo() {
+  int a = 10;
+  int b = 3;
+  
+  debugInfo("初期値", {"a": a, "b": b});
+  
+  double result = a / b;
+  
+  debugInfo("計算結果", {
+    "a": a,
+    "b": b,
+    "result": result,
+    "期待値": "約3.33"
+  });
+}
+</code></pre>
+<h2 id="なるほどポイント"><a class="header" href="#なるほどポイント">なるほど！ポイント</a></h2>
+<p>デバッグは技術であり、練習によって上達します。最初はprint文をたくさん使って構いません。慣れてきたら、より効率的な手法を使えるようになります。</p>
+<p>重要なのは、問題を恐れずに「なぜこうなるのだろう？」という好奇心を持って取り組むことです。一つずつ確実に問題を解決していけば、必ず原因を特定できます。</p>
+<p>次のセクションでは、プログラミング初心者がよく遭遇するエラーパターンと、その具体的な対処法について学習します！</p>
 
                     </main>
 
