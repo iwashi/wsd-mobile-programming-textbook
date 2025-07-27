@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>To-Doリストアプリケーション - Dartで学ぶプログラミング入門</title>
+        <title>より高度なDartの機能 - Dartで学ぶプログラミング入門</title>
 
 
         <!-- Custom HTML head -->
@@ -178,7 +178,205 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="to-doリストアプリケーション"><a class="header" href="#to-doリストアプリケーション">To-Doリストアプリケーション</a></h1>
+                        <h1 id="より高度なdartの機能"><a class="header" href="#より高度なdartの機能">より高度なDartの機能</a></h1>
+<p>おめでとうございます！ここまでDartの基本をしっかり学んできましたね。変数、関数、クラス、エラー処理など、プログラミングの土台となる知識を身につけました。</p>
+<p>このセクションでは、これまでの学習を踏まえて、さらに一歩進んだDartの機能を紹介します。これらの機能を使いこなせるようになると、より実用的で効率的なプログラムが書けるようになります。</p>
+<h2 id="1-非同期プログラミングasyncawait"><a class="header" href="#1-非同期プログラミングasyncawait">1. 非同期プログラミング（async/await）</a></h2>
+<h3 id="なぜ必要なの"><a class="header" href="#なぜ必要なの">なぜ必要なの？</a></h3>
+<p>ファイルを読み込んだり、インターネットから情報を取得したりする処理は時間がかかります。その間、プログラムが止まってしまうと、アプリが固まったように見えてしまいます。非同期プログラミングを使うと、時間のかかる処理を待っている間も、他の処理を続けることができます。</p>
+<h3 id="基本的な使い方"><a class="header" href="#基本的な使い方">基本的な使い方</a></h3>
+<pre><code class="language-javascript">// 非同期関数の定義
+Future&lt;String&gt; fetchUserName() async {
+  // 3秒待つ（実際はネットワーク通信などの時間がかかる処理）
+  await Future.delayed(Duration(seconds: 3));
+  return "太郎";
+}
+
+// 非同期関数の呼び出し
+void main() async {
+  print("ユーザー名を取得中...");
+  String name = await fetchUserName();
+  print("ユーザー名: $name");
+}
+</code></pre>
+<p><code>async</code>と<code>await</code>を使うことで、時間のかかる処理を「待つ」ことができます。レストランで注文して料理を待つ間、他のことができるのと同じですね！</p>
+<h2 id="2-ジェネリクス型パラメータ"><a class="header" href="#2-ジェネリクス型パラメータ">2. ジェネリクス（型パラメータ）</a></h2>
+<h3 id="なぜ必要なの-1"><a class="header" href="#なぜ必要なの-1">なぜ必要なの？</a></h3>
+<p>リストを作るとき、<code>List&lt;int&gt;</code>や<code>List&lt;String&gt;</code>のように書きましたね。この<code>&lt;&gt;</code>の中身がジェネリクスです。これを使うと、いろいろな型に対応できる汎用的なクラスや関数を作ることができます。</p>
+<h3 id="基本的な例"><a class="header" href="#基本的な例">基本的な例</a></h3>
+<pre><code class="language-javascript">// ジェネリクスを使った箱クラス
+class Box&lt;T&gt; {
+  T content;
+  
+  Box(this.content);
+  
+  T getContent() {
+    return content;
+  }
+}
+
+void main() {
+  // 数値を入れる箱
+  var numberBox = Box&lt;int&gt;(42);
+  print(numberBox.getContent());  // 42
+  
+  // 文字列を入れる箱
+  var textBox = Box&lt;String&gt;("こんにちは");
+  print(textBox.getContent());  // こんにちは
+}
+</code></pre>
+<p>一つのクラスで、いろいろな型のデータを扱えるようになりました。便利でしょう？</p>
+<h2 id="3-継承とインターフェース"><a class="header" href="#3-継承とインターフェース">3. 継承とインターフェース</a></h2>
+<h3 id="なぜ必要なの-2"><a class="header" href="#なぜ必要なの-2">なぜ必要なの？</a></h3>
+<p>プログラムが大きくなると、似たようなクラスがたくさん出てきます。継承を使うと、共通の機能をまとめて、コードの重複を避けることができます。</p>
+<h3 id="継承の基本"><a class="header" href="#継承の基本">継承の基本</a></h3>
+<pre><code class="language-javascript">// 基本となる動物クラス
+class Animal {
+  String name;
+  
+  Animal(this.name);
+  
+  void eat() {
+    print("$nameが食事をしています");
+  }
+}
+
+// 犬クラス（動物クラスを継承）
+class Dog extends Animal {
+  Dog(String name) : super(name);
+  
+  void bark() {
+    print("$nameがワンワン吠えています");
+  }
+}
+
+// 猫クラス（動物クラスを継承）
+class Cat extends Animal {
+  Cat(String name) : super(name);
+  
+  void meow() {
+    print("$nameがニャーと鳴いています");
+  }
+}
+
+void main() {
+  var dog = Dog("ポチ");
+  dog.eat();   // ポチが食事をしています
+  dog.bark();  // ポチがワンワン吠えています
+  
+  var cat = Cat("タマ");
+  cat.eat();   // タマが食事をしています
+  cat.meow();  // タマがニャーと鳴いています
+}
+</code></pre>
+<h3 id="インターフェースの基本"><a class="header" href="#インターフェースの基本">インターフェースの基本</a></h3>
+<p>インターフェースは、クラスが持つべき機能の「約束」を定義します。</p>
+<pre><code class="language-javascript">// 飛べるものの約束
+abstract class Flyable {
+  void fly();
+}
+
+// 鳥クラス
+class Bird implements Flyable {
+  void fly() {
+    print("羽ばたいて飛んでいます");
+  }
+}
+
+// 飛行機クラス
+class Airplane implements Flyable {
+  void fly() {
+    print("エンジンで飛んでいます");
+  }
+}
+</code></pre>
+<h2 id="4-パッケージの利用"><a class="header" href="#4-パッケージの利用">4. パッケージの利用</a></h2>
+<h3 id="なぜ必要なの-3"><a class="header" href="#なぜ必要なの-3">なぜ必要なの？</a></h3>
+<p>すべてのコードを自分で書く必要はありません！他の人が作った便利な機能（パッケージ）を使うことで、効率的にプログラムを作ることができます。</p>
+<h3 id="パッケージの使い方"><a class="header" href="#パッケージの使い方">パッケージの使い方</a></h3>
+<ol>
+<li><code>pubspec.yaml</code>ファイルにパッケージを追加：</li>
+</ol>
+<pre><code class="language-yaml">dependencies:
+  http: ^1.1.0  # HTTPリクエスト用のパッケージ
+</code></pre>
+<ol start="2">
+<li>パッケージをインポートして使用：</li>
+</ol>
+<pre><code class="language-javascript">import 'package:http/http.dart' as http;
+
+void main() async {
+  // ウェブサイトから情報を取得
+  var response = await http.get(Uri.parse('https://example.com'));
+  print('ステータスコード: ${response.statusCode}');
+}
+</code></pre>
+<p>パッケージを使うことで、複雑な機能も簡単に実装できるようになります！</p>
+<h2 id="5-null安全性"><a class="header" href="#5-null安全性">5. null安全性</a></h2>
+<h3 id="なぜ必要なの-4"><a class="header" href="#なぜ必要なの-4">なぜ必要なの？</a></h3>
+<p>プログラムのエラーで最も多いものの一つが「null参照エラー」です。変数に値が入っていない（null）状態でその変数を使おうとすると、プログラムがクラッシュしてしまいます。</p>
+<h3 id="null安全性の基本"><a class="header" href="#null安全性の基本">null安全性の基本</a></h3>
+<pre><code class="language-javascript">// nullを許可しない変数（通常の変数）
+String name = "太郎";  // 必ず値が必要
+
+// nullを許可する変数（?をつける）
+String? nickname;  // nullでもOK
+
+void main() {
+  // nicknameを使う前にnullチェック
+  if (nickname != null) {
+    print("ニックネーム: $nickname");
+  } else {
+    print("ニックネームはまだ設定されていません");
+  }
+  
+  // ??演算子を使った便利な書き方
+  String displayName = nickname ?? name;
+  print("表示名: $displayName");  // 表示名: 太郎
+}
+</code></pre>
+<p>null安全性により、より安全で信頼性の高いプログラムが書けるようになります。</p>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>今回紹介した機能は、実際のアプリケーション開発では頻繁に使われるものばかりです：</p>
+<ul>
+<li><strong>非同期プログラミング</strong>：時間のかかる処理を効率的に扱う</li>
+<li><strong>ジェネリクス</strong>：汎用的で再利用可能なコードを書く</li>
+<li><strong>継承とインターフェース</strong>：コードを整理し、重複を避ける</li>
+<li><strong>パッケージ</strong>：他の人が作った便利な機能を活用する</li>
+<li><strong>null安全性</strong>：エラーの少ない安全なプログラムを書く</li>
+</ul>
+<p>これらの機能を少しずつ学んでいけば、より複雑で実用的なプログラムが書けるようになります。焦らず、一つずつマスターしていきましょう！</p>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<h3 id="問題1非同期処理を試してみよう"><a class="header" href="#問題1非同期処理を試してみよう">問題1：非同期処理を試してみよう</a></h3>
+<p>次のコードを完成させて、3秒後にメッセージを表示するプログラムを作ってください：</p>
+<pre><code class="language-javascript">Future&lt;void&gt; delayedMessage() async {
+  // ここにコードを追加
+}
+
+void main() async {
+  print("開始");
+  await delayedMessage();
+  print("終了");
+}
+</code></pre>
+<h3 id="問題2ジェネリクスを使ってみよう"><a class="header" href="#問題2ジェネリクスを使ってみよう">問題2：ジェネリクスを使ってみよう</a></h3>
+<p><code>Pair</code>クラスを作って、2つの値をペアで保存できるようにしてください：</p>
+<pre><code class="language-javascript">class Pair&lt;T, U&gt; {
+  // ここにコードを追加
+}
+
+void main() {
+  var pair1 = Pair&lt;int, String&gt;(1, "一");
+  var pair2 = Pair&lt;String, bool&gt;("OK", true);
+}
+</code></pre>
+<h3 id="問題3null安全性を理解しよう"><a class="header" href="#問題3null安全性を理解しよう">問題3：null安全性を理解しよう</a></h3>
+<p>次のコードのエラーを修正してください：</p>
+<pre><code class="language-javascript">void main() {
+  String? message;
+  print(message.length);  // エラー！
+}
+</code></pre>
 
                     </main>
 

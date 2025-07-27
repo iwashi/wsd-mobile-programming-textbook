@@ -300,7 +300,7 @@
 }
 </code></pre>
 <h2 id="問題6bmi計算プログラム"><a class="header" href="#問題6bmi計算プログラム">問題6：BMI計算プログラム</a></h2>
-<p>身長と体重からBMI（Body Mass Index）を計算し、判定結果も表示するプログラムを作成してください。</p>
+<p>身長と体重からBMI（Body Mass Index）を計算するプログラムを作成してください。</p>
 <pre><code class="language-javascript">void main() {
   print('=== BMI計算プログラム ===');
   
@@ -316,109 +316,107 @@
   print('身長: ${height}cm');
   print('体重: ${weight}kg');
   print('BMI: ${bmi.toStringAsFixed(1)}');
-  
-  // BMI判定（簡易版）
-  String status;
-  if (bmi &lt; 18.5) {
-    status = '低体重';
-  } else if (bmi &lt; 25.0) {
-    status = '普通体重';
-  } else if (bmi &lt; 30.0) {
-    status = '肥満（1度）';
-  } else {
-    status = '肥満（2度以上）';
-  }
-  print('判定: $status');
+  print('※BMI 18.5未満：低体重、18.5-25未満：普通体重、25以上：肥満');
 }
 </code></pre>
-<h2 id="問題7複利計算プログラム"><a class="header" href="#問題7複利計算プログラム">問題7：複利計算プログラム</a></h2>
-<p>元本、金利、期間から複利計算を行うプログラムを作成してください。</p>
+<h2 id="問題7単利複利計算プログラム"><a class="header" href="#問題7単利複利計算プログラム">問題7：単利・複利計算プログラム</a></h2>
+<p>元本、金利、期間から単利と複利を計算して比較するプログラムを作成してください。</p>
 <pre><code class="language-javascript">void main() {
-  print('=== 複利計算プログラム ===');
+  print('=== 単利・複利計算プログラム ===');
   
   // 投資条件
   double principal = 100000.0; // 元本（円）
-  double annualRate = 0.03;    // 年利3%
-  int years = 10;              // 10年間
+  double annualRate = 0.05;    // 年利5%
+  int years = 3;               // 3年間
   
   print('元本: ${principal.toInt()}円');
   print('年利: ${(annualRate * 100)}%');
   print('期間: ${years}年');
   print('');
   
-  // 年次計算
-  double amount = principal;
-  for (int year = 1; year &lt;= years; year++) {
-    amount = amount * (1 + annualRate);
-    int yearlyIncrease = (amount - principal).toInt();
-    print('${year}年後: ${amount.toInt()}円 (増加額: ${yearlyIncrease}円)');
-  }
+  // 単利計算（利息 = 元本 × 利率 × 年数）
+  double simpleInterest = principal * annualRate * years;
+  double simpleTotal = principal + simpleInterest;
   
-  // 最終結果
-  int totalIncrease = (amount - principal).toInt();
-  print('');
-  print('最終元利合計: ${amount.toInt()}円');
-  print('利息合計: ${totalIncrease}円');
-}
-</code></pre>
-<h2 id="問題8文字列を使った計算結果の表示"><a class="header" href="#問題8文字列を使った計算結果の表示">問題8：文字列を使った計算結果の表示</a></h2>
-<p>これまでの計算結果を見やすい形式で表示するプログラムを作成してください。</p>
-<pre><code class="language-javascript">void main() {
-  print('=== 計算結果表示プログラム ===');
-  
-  // 計算データ
-  String studentName = '田中太郎';
-  List&lt;int&gt; scores = [85, 92, 78, 88, 95];
-  
-  print('生徒名: $studentName');
-  print('テスト結果:');
-  
-  // 各教科の得点表示
-  List&lt;String&gt; subjects = ['国語', '数学', '英語', '理科', '社会'];
-  int total = 0;
-  
-  for (int i = 0; i &lt; scores.length; i++) {
-    print('  ${subjects[i]}: ${scores[i]}点');
-    total += scores[i];
-  }
-  
-  // 統計計算
-  double average = total / scores.length;
-  int maxScore = scores[0];
-  int minScore = scores[0];
-  
-  for (int score in scores) {
-    if (score &gt; maxScore) maxScore = score;
-    if (score &lt; minScore) minScore = score;
-  }
+  // 複利計算（3年間の場合）
+  double year1 = principal * (1 + annualRate);
+  double year2 = year1 * (1 + annualRate);
+  double year3 = year2 * (1 + annualRate);
+  double compoundInterest = year3 - principal;
   
   // 結果表示
+  print('=== 単利計算 ===');
+  print('利息: ${simpleInterest.toInt()}円');
+  print('元利合計: ${simpleTotal.toInt()}円');
   print('');
-  print('=== 成績統計 ===');
-  print('合計点: ${total}点');
-  print('平均点: ${average.toStringAsFixed(1)}点');
-  print('最高点: ${maxScore}点');
-  print('最低点: ${minScore}点');
+  print('=== 複利計算 ===');
+  print('1年後: ${year1.toInt()}円');
+  print('2年後: ${year2.toInt()}円');
+  print('3年後: ${year3.toInt()}円');
+  print('利息: ${compoundInterest.toInt()}円');
+  print('');
+  print('複利の方が${(compoundInterest - simpleInterest).toInt()}円多くなります');
+}
+</code></pre>
+<h2 id="問題8個人成績計算プログラム"><a class="header" href="#問題8個人成績計算プログラム">問題8：個人成績計算プログラム</a></h2>
+<p>文字列を使って見やすい成績表を作成してください。</p>
+<pre><code class="language-javascript">void main() {
+  print('=== 個人成績計算プログラム ===');
   
-  // 成績判定
-  String grade;
-  if (average &gt;= 90) {
-    grade = 'A（優秀）';
-  } else if (average &gt;= 80) {
-    grade = 'B（良好）';
-  } else if (average &gt;= 70) {
-    grade = 'C（可）';
-  } else {
-    grade = 'D（要努力）';
-  }
-  print('総合評価: $grade');
+  // 学生情報
+  String studentName = '田中太郎';
+  String studentClass = '3年A組';
+  int studentNumber = 15;
+  
+  // 各教科の得点
+  int japanese = 85;
+  int math = 92;
+  int english = 78;
+  int science = 88;
+  int social = 95;
+  
+  // 基本情報の表示
+  print('┌─────────────────────────┐');
+  print('│        成績表           │');
+  print('├─────────────────────────┤');
+  print('│ 氏名: $studentName          │');
+  print('│ クラス: $studentClass           │');
+  print('│ 出席番号: ${studentNumber}番           │');
+  print('├─────────────────────────┤');
+  
+  // 各科目の得点表示
+  print('│ 国語: ${japanese}点             │');
+  print('│ 数学: ${math}点             │');
+  print('│ 英語: ${english}点             │');
+  print('│ 理科: ${science}点             │');
+  print('│ 社会: ${social}点             │');
+  print('├─────────────────────────┤');
+  
+  // 統計計算
+  int total = japanese + math + english + science + social;
+  double average = total / 5;
+  
+  print('│ 合計: ${total}点           │');
+  print('│ 平均: ${average.toStringAsFixed(1)}点          │');
+  print('└─────────────────────────┘');
+  
+  // 追加情報
+  print('');
+  print('各科目の得点率:');
+  print('国語: ${(japanese / 100 * 100).toStringAsFixed(1)}%');
+  print('数学: ${(math / 100 * 100).toStringAsFixed(1)}%');
+  print('英語: ${(english / 100 * 100).toStringAsFixed(1)}%');
+  print('理科: ${(science / 100 * 100).toStringAsFixed(1)}%');
+  print('社会: ${(social / 100 * 100).toStringAsFixed(1)}%');
 }
 </code></pre>
 <h2 id="チャレンジ問題"><a class="header" href="#チャレンジ問題">チャレンジ問題</a></h2>
-<h3 id="1-二次方程式の解を求める"><a class="header" href="#1-二次方程式の解を求める">1. 二次方程式の解を求める</a></h3>
-<p>ax² + bx + c = 0の解を求めるプログラムを作成してください。</p>
-<h3 id="2-年齢計算機"><a class="header" href="#2-年齢計算機">2. 年齢計算機</a></h3>
-<p>生年月日から現在の年齢を計算するプログラムを作成してください。</p>
+<h3 id="1-家計簿計算プログラム"><a class="header" href="#1-家計簿計算プログラム">1. 家計簿計算プログラム</a></h3>
+<p>一ヶ月の収入と支出から貯金額を計算し、年間の貯金予想額も表示するプログラムを作成してください。</p>
+<h3 id="2-物理計算プログラム"><a class="header" href="#2-物理計算プログラム">2. 物理計算プログラム</a></h3>
+<p>速度と時間から距離を計算し、燃費も計算して表示するプログラムを作成してください。（距離 = 速度 × 時間、燃料消費量 = 距離 ÷ 燃費）</p>
+<h3 id="3-図形計算プログラム"><a class="header" href="#3-図形計算プログラム">3. 図形計算プログラム</a></h3>
+<p>正方形、長方形、円の面積を一度に計算して比較表示するプログラムを作成してください。</p>
 <p>これらの練習問題を通じて、算術演算子と文字列操作を組み合わせた実用的なプログラムが作成できるようになります。次の章では、条件分岐について学び、より複雑な判断処理を実装していきます。</p>
 
                     </main>
