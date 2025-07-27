@@ -105,12 +105,6 @@
 
 # 第8部：実践プロジェクト
 
-- [第14章：総合演習](./chapter_14/README.md)
-  - [To-Doリストアプリケーション](./chapter_14/14-1.md)
-  - [簡単なゲーム（数当てゲーム）](./chapter_14/14-2.md)
-  - [成績管理システム](./chapter_14/14-3.md)
-
-- [第15章：次のステップへ](./chapter_15/README.md)
-  - [より高度なDartの機能](./chapter_15/15-1.md)
-  - [FlutterでモバイルアプリDevelopment](./chapter_15/15-2.md)
-  - [継続的な学習のためのリソース](./chapter_15/15-3.md)
+- [第14章：次のステップへ](./chapter_14/README.md)
+  - [より高度なDartの機能](./chapter_14/14-1.md)
+  - [継続的な学習のためのリソース](./chapter_14/14-2.md)
