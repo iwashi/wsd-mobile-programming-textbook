@@ -178,7 +178,151 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="リストに要素を追加削除する"><a class="header" href="#リストに要素を追加削除する">リストに要素を追加・削除する</a></h1>
+                        <h1 id="73-リストに要素を追加削除する"><a class="header" href="#73-リストに要素を追加削除する">7.3 リストに要素を追加・削除する</a></h1>
+<p>リストの便利な点の一つは、プログラムの実行中に要素を追加したり削除したりできることです。このセクションでは、リストを動的に操作する方法を学びます。</p>
+<h2 id="要素の追加"><a class="header" href="#要素の追加">要素の追加</a></h2>
+<h3 id="addメソッド---末尾に追加"><a class="header" href="#addメソッド---末尾に追加">add()メソッド - 末尾に追加</a></h3>
+<p>最も基本的な追加方法は<code>add()</code>メソッドです。リストの最後に新しい要素を追加します：</p>
+<pre><code class="language-javascript">void main() {
+  var todoList = ['宿題をする', '部屋を掃除する'];
+  print('最初のリスト: $todoList');
+  
+  // 新しいタスクを追加
+  todoList.add('買い物に行く');
+  print('追加後: $todoList');
+  
+  // さらに追加
+  todoList.add('友達に電話する');
+  print('さらに追加後: $todoList');
+}
+</code></pre>
+<h3 id="insertメソッド---指定位置に挿入"><a class="header" href="#insertメソッド---指定位置に挿入">insert()メソッド - 指定位置に挿入</a></h3>
+<p>特定の位置に要素を挿入したい場合は<code>insert()</code>を使います：</p>
+<pre><code class="language-javascript">void main() {
+  var fruits = ['りんご', 'バナナ', 'オレンジ'];
+  print('最初: $fruits');
+  
+  // インデックス1の位置に挿入
+  fruits.insert(1, 'いちご');
+  print('挿入後: $fruits');  // [りんご, いちご, バナナ, オレンジ]
+  
+  // 最初に挿入
+  fruits.insert(0, 'ぶどう');
+  print('先頭に挿入: $fruits');
+}
+</code></pre>
+<h3 id="addallメソッド---複数要素を一度に追加"><a class="header" href="#addallメソッド---複数要素を一度に追加">addAll()メソッド - 複数要素を一度に追加</a></h3>
+<p>複数の要素をまとめて追加する場合は<code>addAll()</code>を使います：</p>
+<pre><code class="language-javascript">void main() {
+  var numbers = [1, 2, 3];
+  var moreNumbers = [4, 5, 6];
+  
+  numbers.addAll(moreNumbers);
+  print(numbers);  // [1, 2, 3, 4, 5, 6]
+  
+  // 直接リストを指定することも可能
+  numbers.addAll([7, 8, 9]);
+  print(numbers);  // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+</code></pre>
+<h2 id="要素の削除"><a class="header" href="#要素の削除">要素の削除</a></h2>
+<h3 id="removeメソッド---値を指定して削除"><a class="header" href="#removeメソッド---値を指定して削除">remove()メソッド - 値を指定して削除</a></h3>
+<p>特定の値を持つ要素を削除します（最初に見つかった要素のみ）：</p>
+<pre><code class="language-javascript">void main() {
+  var colors = ['赤', '青', '緑', '青', '黄'];
+  print('最初: $colors');
+  
+  // '青'を削除（最初の一つだけ）
+  colors.remove('青');
+  print('削除後: $colors');  // [赤, 緑, 青, 黄]
+  
+  // 存在しない要素を削除しようとしても大丈夫
+  colors.remove('紫');  // 何も起こらない
+  print('変化なし: $colors');
+}
+</code></pre>
+<h3 id="removeatメソッド---インデックスで削除"><a class="header" href="#removeatメソッド---インデックスで削除">removeAt()メソッド - インデックスで削除</a></h3>
+<p>特定の位置の要素を削除します：</p>
+<pre><code class="language-javascript">void main() {
+  var animals = ['犬', '猫', '鳥', '魚', 'うさぎ'];
+  print('最初: $animals');
+  
+  // インデックス2の要素を削除
+  animals.removeAt(2);
+  print('削除後: $animals');  // [犬, 猫, 魚, うさぎ]
+  
+  // 最後の要素を削除
+  animals.removeAt(animals.length - 1);
+  print('最後を削除: $animals');
+}
+</code></pre>
+<h3 id="removelastメソッド---最後の要素を削除"><a class="header" href="#removelastメソッド---最後の要素を削除">removeLast()メソッド - 最後の要素を削除</a></h3>
+<p>リストの最後の要素を削除します：</p>
+<pre><code class="language-javascript">void main() {
+  var stack = ['皿1', '皿2', '皿3', '皿4'];
+  print('最初の積み重ね: $stack');
+  
+  // 一番上（最後）の皿を取る
+  stack.removeLast();
+  print('1枚取った後: $stack');
+  
+  stack.removeLast();
+  print('もう1枚取った後: $stack');
+}
+</code></pre>
+<h3 id="clearメソッド---全要素を削除"><a class="header" href="#clearメソッド---全要素を削除">clear()メソッド - 全要素を削除</a></h3>
+<p>リストを空にします：</p>
+<pre><code class="language-javascript">void main() {
+  var items = ['アイテム1', 'アイテム2', 'アイテム3'];
+  print('削除前: $items');
+  print('要素数: ${items.length}');
+  
+  items.clear();
+  print('削除後: $items');
+  print('要素数: ${items.length}');  // 0
+}
+</code></pre>
+<h2 id="実践例買い物リストアプリ"><a class="header" href="#実践例買い物リストアプリ">実践例：買い物リストアプリ</a></h2>
+<pre><code class="language-javascript">void main() {
+  // 買い物リストを作成
+  var shoppingList = ['牛乳', 'パン'];
+  print('買い物リスト: $shoppingList');
+  
+  // アイテムを追加
+  print('\n--- アイテムを追加 ---');
+  shoppingList.add('卵');
+  shoppingList.add('バター');
+  print('更新後: $shoppingList');
+  
+  // 優先度の高いアイテムを先頭に追加
+  print('\n--- 優先アイテムを追加 ---');
+  shoppingList.insert(0, '薬');
+  print('更新後: $shoppingList');
+  
+  // 買い物完了したアイテムを削除
+  print('\n--- 買い物完了 ---');
+  shoppingList.remove('パン');
+  print('パンを購入: $shoppingList');
+  
+  // リストの状態を確認
+  print('\n--- 現在の状態 ---');
+  print('残りのアイテム数: ${shoppingList.length}');
+  print('リスト: $shoppingList');
+}
+</code></pre>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<ul>
+<li><strong>追加</strong>: <code>add()</code>で末尾に、<code>insert()</code>で指定位置に、<code>addAll()</code>で複数追加</li>
+<li><strong>削除</strong>: <code>remove()</code>で値指定、<code>removeAt()</code>でインデックス指定、<code>removeLast()</code>で最後を削除</li>
+<li><strong>全削除</strong>: <code>clear()</code>でリストを空にする</li>
+<li>これらのメソッドを使うことで、プログラム実行中にリストを柔軟に操作できます</li>
+</ul>
+<h3 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h3>
+<ol>
+<li>空のリストを作成し、1から5までの数字を順番に追加するプログラムを書いてください</li>
+<li>果物のリスト<code>['りんご', 'みかん', 'ぶどう']</code>から'みかん'を削除し、代わりに'いちご'を同じ位置に追加してください</li>
+<li>ToDoリストを作成し、タスクの追加と完了（削除）をシミュレートするプログラムを書いてください</li>
+</ol>
 
                     </main>
 

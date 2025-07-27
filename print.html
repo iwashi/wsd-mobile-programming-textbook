@@ -6135,11 +6135,730 @@ if (result % 5 == 0) {
 <li>九九の表から特定の答え（例：24）を見つけて、その式をすべて表示する</li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第7章リスト配列"><a class="header" href="#第7章リスト配列">第7章：リスト（配列）</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="複数のデータをまとめて管理する"><a class="header" href="#複数のデータをまとめて管理する">複数のデータをまとめて管理する</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="リストの作成と要素へのアクセス"><a class="header" href="#リストの作成と要素へのアクセス">リストの作成と要素へのアクセス</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="リストに要素を追加削除する"><a class="header" href="#リストに要素を追加削除する">リストに要素を追加・削除する</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="リストと繰り返し処理の組み合わせ"><a class="header" href="#リストと繰り返し処理の組み合わせ">リストと繰り返し処理の組み合わせ</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="実践成績管理プログラム"><a class="header" href="#実践成績管理プログラム">実践：成績管理プログラム</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="71-複数のデータをまとめて管理する"><a class="header" href="#71-複数のデータをまとめて管理する">7.1 複数のデータをまとめて管理する</a></h1>
+<p>これまでの章では、一つ一つの変数に値を保存してきました。しかし、実際のプログラミングでは、たくさんのデータをまとめて扱いたい場面がよくあります。</p>
+<h2 id="なぜリストが必要なのか"><a class="header" href="#なぜリストが必要なのか">なぜリストが必要なのか</a></h2>
+<p>例えば、クラスの生徒30人のテストの点数を管理したいとしましょう。これまでの方法では、こんな風に書かなければなりません：</p>
+<pre><code class="language-javascript">void main() {
+  int score1 = 85;
+  int score2 = 92;
+  int score3 = 78;
+  int score4 = 90;
+  int score5 = 88;
+  // ... 30人分続く
+}
+</code></pre>
+<p>これでは変数を30個も作らなければならず、とても大変です。さらに、平均点を計算したり、最高点を見つけたりするのも困難になります。</p>
+<h2 id="リストとは"><a class="header" href="#リストとは">リストとは</a></h2>
+<p>リスト（配列とも呼ばれます）は、複数のデータを一つの変数にまとめて保存できる仕組みです。同じ種類のデータをひとまとめにして、効率的に管理できます。</p>
+<p>リストのイメージ：</p>
+<pre><code>scores = [85, 92, 78, 90, 88]
+          ↑   ↑   ↑   ↑   ↑
+        0番目 1番目 2番目 3番目 4番目
+</code></pre>
+<h2 id="リストの特徴"><a class="header" href="#リストの特徴">リストの特徴</a></h2>
+<ol>
+<li><strong>順序がある</strong>：データは追加した順番に並んでいます</li>
+<li><strong>番号でアクセス</strong>：0から始まる番号（インデックス）で各要素にアクセスできます</li>
+<li><strong>同じ型のデータ</strong>：通常、リストには同じ種類のデータを入れます</li>
+<li><strong>サイズが変更可能</strong>：データを追加したり削除したりできます</li>
+</ol>
+<h2 id="実生活でのリストの例"><a class="header" href="#実生活でのリストの例">実生活でのリストの例</a></h2>
+<p>リストは私たちの日常生活でもよく見かけます：</p>
+<ul>
+<li><strong>買い物リスト</strong>：「牛乳」「パン」「卵」「りんご」</li>
+<li><strong>成績表</strong>：各科目の点数の一覧</li>
+<li><strong>プレイリスト</strong>：お気に入りの曲のリスト</li>
+<li><strong>連絡先</strong>：友達の名前のリスト</li>
+</ul>
+<h2 id="リストを使うメリット"><a class="header" href="#リストを使うメリット">リストを使うメリット</a></h2>
+<ol>
+<li><strong>コードがシンプルに</strong>：たくさんの変数を作る必要がありません</li>
+<li><strong>繰り返し処理と相性が良い</strong>：for文と組み合わせて全要素を処理できます</li>
+<li><strong>データの追加・削除が簡単</strong>：必要に応じてデータを増減できます</li>
+<li><strong>関連するデータをまとめられる</strong>：同じ種類のデータを論理的にグループ化できます</li>
+</ol>
+<h2 id="まとめ-20"><a class="header" href="#まとめ-20">まとめ</a></h2>
+<p>リストは、複数のデータを効率的に管理するための重要なプログラミングの道具です。次のセクションでは、実際にリストを作成し、使ってみましょう。</p>
+<h3 id="練習問題-13"><a class="header" href="#練習問題-13">練習問題</a></h3>
+<ol>
+<li>あなたの好きな食べ物を5つ思い浮かべてください。これをリストで表現するとどうなるでしょうか？</li>
+<li>一週間の曜日をリストで表現するとどうなるでしょうか？</li>
+<li>リストを使わずに100人分のデータを管理することの問題点を3つ挙げてください。</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="72-リストの作成と要素へのアクセス"><a class="header" href="#72-リストの作成と要素へのアクセス">7.2 リストの作成と要素へのアクセス</a></h1>
+<p>前のセクションでリストの概念を学びました。今度は実際にリストを作成し、使ってみましょう。</p>
+<h2 id="リストの作成"><a class="header" href="#リストの作成">リストの作成</a></h2>
+<p>Dartでリストを作成する最も基本的な方法は、角括弧 <code>[]</code> を使うことです。</p>
+<pre><code class="language-javascript">void main() {
+  // 数値のリストを作成
+  List&lt;int&gt; scores = [85, 92, 78, 90, 88];
+  
+  // 文字列のリストを作成
+  List&lt;String&gt; fruits = ['りんご', 'バナナ', 'オレンジ'];
+  
+  // 空のリストを作成
+  List&lt;String&gt; tasks = [];
+  
+  print(scores);  // [85, 92, 78, 90, 88]
+  print(fruits);  // [りんご, バナナ, オレンジ]
+  print(tasks);   // []
+}
+</code></pre>
+<h2 id="型推論を使った書き方"><a class="header" href="#型推論を使った書き方">型推論を使った書き方</a></h2>
+<p>Dartは賢いので、リストの中身から型を推測してくれます：</p>
+<pre><code class="language-javascript">void main() {
+  // varを使うと型を自動で判断
+  var numbers = [1, 2, 3, 4, 5];        // List&lt;int&gt;と推論
+  var names = ['太郎', '花子', '次郎'];  // List&lt;String&gt;と推論
+  
+  print(numbers);
+  print(names);
+}
+</code></pre>
+<h2 id="要素へのアクセス"><a class="header" href="#要素へのアクセス">要素へのアクセス</a></h2>
+<p>リストの要素には、インデックス（番号）を使ってアクセスします。<strong>重要：インデックスは0から始まります！</strong></p>
+<pre><code class="language-javascript">void main() {
+  var fruits = ['りんご', 'バナナ', 'オレンジ', 'ぶどう', 'いちご'];
+  
+  // インデックスを使って要素を取得
+  print(fruits[0]);  // りんご（1番目の要素）
+  print(fruits[1]);  // バナナ（2番目の要素）
+  print(fruits[4]);  // いちご（5番目の要素）
+  
+  // 要素の値を変更
+  fruits[1] = 'メロン';
+  print(fruits);  // [りんご, メロン, オレンジ, ぶどう, いちご]
+}
+</code></pre>
+<h2 id="リストの長さを調べる"><a class="header" href="#リストの長さを調べる">リストの長さを調べる</a></h2>
+<p>リストに何個の要素が入っているかは、<code>length</code>プロパティで調べられます：</p>
+<pre><code class="language-javascript">void main() {
+  var scores = [85, 92, 78, 90, 88];
+  
+  print('要素の数: ${scores.length}');  // 要素の数: 5
+  
+  // 最後の要素にアクセス
+  print('最後の要素: ${scores[scores.length - 1]}');  // 最後の要素: 88
+}
+</code></pre>
+<h2 id="範囲外アクセスに注意"><a class="header" href="#範囲外アクセスに注意">範囲外アクセスに注意</a></h2>
+<p>存在しないインデックスにアクセスするとエラーになります：</p>
+<pre><code class="language-javascript">void main() {
+  var colors = ['赤', '青', '緑'];
+  
+  print(colors[0]);  // 赤（OK）
+  print(colors[2]);  // 緑（OK）
+  // print(colors[3]);  // エラー！（インデックス3は存在しない）
+}
+</code></pre>
+<h2 id="よく使うリストのプロパティ"><a class="header" href="#よく使うリストのプロパティ">よく使うリストのプロパティ</a></h2>
+<pre><code class="language-javascript">void main() {
+  var numbers = [3, 1, 4, 1, 5, 9];
+  
+  // リストが空かどうか
+  print(numbers.isEmpty);    // false
+  print(numbers.isNotEmpty); // true
+  
+  // 最初と最後の要素
+  print(numbers.first);  // 3
+  print(numbers.last);   // 9
+}
+</code></pre>
+<h2 id="練習日付管理プログラム"><a class="header" href="#練習日付管理プログラム">練習：日付管理プログラム</a></h2>
+<p>曜日を管理する簡単なプログラムを作ってみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // 曜日のリスト
+  var weekdays = ['月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日', '日曜日'];
+  
+  // 今日は何曜日？（0 = 月曜日）
+  int today = 2;  // 水曜日
+  
+  print('今日は${weekdays[today]}です');
+  print('明日は${weekdays[today + 1]}です');
+  
+  // 週末かどうかチェック
+  if (today &gt;= 5) {
+    print('週末です！');
+  } else {
+    print('平日です。');
+  }
+}
+</code></pre>
+<h2 id="まとめ-21"><a class="header" href="#まとめ-21">まとめ</a></h2>
+<ul>
+<li>リストは <code>[]</code> で作成します</li>
+<li>要素へのアクセスは <code>リスト名[インデックス]</code> で行います</li>
+<li>インデックスは<strong>0から始まる</strong>ことを忘れずに！</li>
+<li><code>length</code>でリストの要素数を調べられます</li>
+<li>範囲外のインデックスにアクセスするとエラーになります</li>
+</ul>
+<h3 id="練習問題-14"><a class="header" href="#練習問題-14">練習問題</a></h3>
+<ol>
+<li>あなたの好きな科目を5つ含むリストを作成し、3番目の科目を表示してください</li>
+<li>1から10までの数字を含むリストを作成し、最初と最後の要素を表示してください</li>
+<li>家族の名前のリストを作成し、リストの要素数を表示してください</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="73-リストに要素を追加削除する"><a class="header" href="#73-リストに要素を追加削除する">7.3 リストに要素を追加・削除する</a></h1>
+<p>リストの便利な点の一つは、プログラムの実行中に要素を追加したり削除したりできることです。このセクションでは、リストを動的に操作する方法を学びます。</p>
+<h2 id="要素の追加"><a class="header" href="#要素の追加">要素の追加</a></h2>
+<h3 id="addメソッド---末尾に追加"><a class="header" href="#addメソッド---末尾に追加">add()メソッド - 末尾に追加</a></h3>
+<p>最も基本的な追加方法は<code>add()</code>メソッドです。リストの最後に新しい要素を追加します：</p>
+<pre><code class="language-javascript">void main() {
+  var todoList = ['宿題をする', '部屋を掃除する'];
+  print('最初のリスト: $todoList');
+  
+  // 新しいタスクを追加
+  todoList.add('買い物に行く');
+  print('追加後: $todoList');
+  
+  // さらに追加
+  todoList.add('友達に電話する');
+  print('さらに追加後: $todoList');
+}
+</code></pre>
+<h3 id="insertメソッド---指定位置に挿入"><a class="header" href="#insertメソッド---指定位置に挿入">insert()メソッド - 指定位置に挿入</a></h3>
+<p>特定の位置に要素を挿入したい場合は<code>insert()</code>を使います：</p>
+<pre><code class="language-javascript">void main() {
+  var fruits = ['りんご', 'バナナ', 'オレンジ'];
+  print('最初: $fruits');
+  
+  // インデックス1の位置に挿入
+  fruits.insert(1, 'いちご');
+  print('挿入後: $fruits');  // [りんご, いちご, バナナ, オレンジ]
+  
+  // 最初に挿入
+  fruits.insert(0, 'ぶどう');
+  print('先頭に挿入: $fruits');
+}
+</code></pre>
+<h3 id="addallメソッド---複数要素を一度に追加"><a class="header" href="#addallメソッド---複数要素を一度に追加">addAll()メソッド - 複数要素を一度に追加</a></h3>
+<p>複数の要素をまとめて追加する場合は<code>addAll()</code>を使います：</p>
+<pre><code class="language-javascript">void main() {
+  var numbers = [1, 2, 3];
+  var moreNumbers = [4, 5, 6];
+  
+  numbers.addAll(moreNumbers);
+  print(numbers);  // [1, 2, 3, 4, 5, 6]
+  
+  // 直接リストを指定することも可能
+  numbers.addAll([7, 8, 9]);
+  print(numbers);  // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+</code></pre>
+<h2 id="要素の削除"><a class="header" href="#要素の削除">要素の削除</a></h2>
+<h3 id="removeメソッド---値を指定して削除"><a class="header" href="#removeメソッド---値を指定して削除">remove()メソッド - 値を指定して削除</a></h3>
+<p>特定の値を持つ要素を削除します（最初に見つかった要素のみ）：</p>
+<pre><code class="language-javascript">void main() {
+  var colors = ['赤', '青', '緑', '青', '黄'];
+  print('最初: $colors');
+  
+  // '青'を削除（最初の一つだけ）
+  colors.remove('青');
+  print('削除後: $colors');  // [赤, 緑, 青, 黄]
+  
+  // 存在しない要素を削除しようとしても大丈夫
+  colors.remove('紫');  // 何も起こらない
+  print('変化なし: $colors');
+}
+</code></pre>
+<h3 id="removeatメソッド---インデックスで削除"><a class="header" href="#removeatメソッド---インデックスで削除">removeAt()メソッド - インデックスで削除</a></h3>
+<p>特定の位置の要素を削除します：</p>
+<pre><code class="language-javascript">void main() {
+  var animals = ['犬', '猫', '鳥', '魚', 'うさぎ'];
+  print('最初: $animals');
+  
+  // インデックス2の要素を削除
+  animals.removeAt(2);
+  print('削除後: $animals');  // [犬, 猫, 魚, うさぎ]
+  
+  // 最後の要素を削除
+  animals.removeAt(animals.length - 1);
+  print('最後を削除: $animals');
+}
+</code></pre>
+<h3 id="removelastメソッド---最後の要素を削除"><a class="header" href="#removelastメソッド---最後の要素を削除">removeLast()メソッド - 最後の要素を削除</a></h3>
+<p>リストの最後の要素を削除します：</p>
+<pre><code class="language-javascript">void main() {
+  var stack = ['皿1', '皿2', '皿3', '皿4'];
+  print('最初の積み重ね: $stack');
+  
+  // 一番上（最後）の皿を取る
+  stack.removeLast();
+  print('1枚取った後: $stack');
+  
+  stack.removeLast();
+  print('もう1枚取った後: $stack');
+}
+</code></pre>
+<h3 id="clearメソッド---全要素を削除"><a class="header" href="#clearメソッド---全要素を削除">clear()メソッド - 全要素を削除</a></h3>
+<p>リストを空にします：</p>
+<pre><code class="language-javascript">void main() {
+  var items = ['アイテム1', 'アイテム2', 'アイテム3'];
+  print('削除前: $items');
+  print('要素数: ${items.length}');
+  
+  items.clear();
+  print('削除後: $items');
+  print('要素数: ${items.length}');  // 0
+}
+</code></pre>
+<h2 id="実践例買い物リストアプリ"><a class="header" href="#実践例買い物リストアプリ">実践例：買い物リストアプリ</a></h2>
+<pre><code class="language-javascript">void main() {
+  // 買い物リストを作成
+  var shoppingList = ['牛乳', 'パン'];
+  print('買い物リスト: $shoppingList');
+  
+  // アイテムを追加
+  print('\n--- アイテムを追加 ---');
+  shoppingList.add('卵');
+  shoppingList.add('バター');
+  print('更新後: $shoppingList');
+  
+  // 優先度の高いアイテムを先頭に追加
+  print('\n--- 優先アイテムを追加 ---');
+  shoppingList.insert(0, '薬');
+  print('更新後: $shoppingList');
+  
+  // 買い物完了したアイテムを削除
+  print('\n--- 買い物完了 ---');
+  shoppingList.remove('パン');
+  print('パンを購入: $shoppingList');
+  
+  // リストの状態を確認
+  print('\n--- 現在の状態 ---');
+  print('残りのアイテム数: ${shoppingList.length}');
+  print('リスト: $shoppingList');
+}
+</code></pre>
+<h2 id="まとめ-22"><a class="header" href="#まとめ-22">まとめ</a></h2>
+<ul>
+<li><strong>追加</strong>: <code>add()</code>で末尾に、<code>insert()</code>で指定位置に、<code>addAll()</code>で複数追加</li>
+<li><strong>削除</strong>: <code>remove()</code>で値指定、<code>removeAt()</code>でインデックス指定、<code>removeLast()</code>で最後を削除</li>
+<li><strong>全削除</strong>: <code>clear()</code>でリストを空にする</li>
+<li>これらのメソッドを使うことで、プログラム実行中にリストを柔軟に操作できます</li>
+</ul>
+<h3 id="練習問題-15"><a class="header" href="#練習問題-15">練習問題</a></h3>
+<ol>
+<li>空のリストを作成し、1から5までの数字を順番に追加するプログラムを書いてください</li>
+<li>果物のリスト<code>['りんご', 'みかん', 'ぶどう']</code>から'みかん'を削除し、代わりに'いちご'を同じ位置に追加してください</li>
+<li>ToDoリストを作成し、タスクの追加と完了（削除）をシミュレートするプログラムを書いてください</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="74-リストと繰り返し処理の組み合わせ"><a class="header" href="#74-リストと繰り返し処理の組み合わせ">7.4 リストと繰り返し処理の組み合わせ</a></h1>
+<p>リストとループ（繰り返し処理）を組み合わせることで、リストの全要素に対して効率的に処理を行うことができます。これはプログラミングにおいて非常に重要なテクニックです。</p>
+<h2 id="for文でリストを処理する"><a class="header" href="#for文でリストを処理する">for文でリストを処理する</a></h2>
+<h3 id="インデックスを使った方法"><a class="header" href="#インデックスを使った方法">インデックスを使った方法</a></h3>
+<p>リストの要素数分だけループを回し、インデックスでアクセスする方法：</p>
+<pre><code class="language-javascript">void main() {
+  var scores = [85, 92, 78, 90, 88];
+  
+  // インデックスを使って全要素にアクセス
+  for (int i = 0; i &lt; scores.length; i++) {
+    print('${i + 1}番目の点数: ${scores[i]}');
+  }
+}
+</code></pre>
+<h3 id="for-inループ推奨"><a class="header" href="#for-inループ推奨">for-inループ（推奨）</a></h3>
+<p>Dartには、リストの要素を直接取得できる便利な<code>for-in</code>ループがあります：</p>
+<pre><code class="language-javascript">void main() {
+  var fruits = ['りんご', 'バナナ', 'オレンジ', 'ぶどう'];
+  
+  // for-inループで各要素を処理
+  for (String fruit in fruits) {
+    print('フルーツ: $fruit');
+  }
+  
+  // 型推論を使った書き方
+  for (var fruit in fruits) {
+    print('好きな果物: $fruit');
+  }
+}
+</code></pre>
+<h2 id="実践的な例"><a class="header" href="#実践的な例">実践的な例</a></h2>
+<h3 id="合計と平均を計算"><a class="header" href="#合計と平均を計算">合計と平均を計算</a></h3>
+<pre><code class="language-javascript">void main() {
+  var scores = [85, 92, 78, 90, 88, 95, 82];
+  int total = 0;
+  
+  // 全要素の合計を計算
+  for (var score in scores) {
+    total += score;
+  }
+  
+  // 平均を計算
+  double average = total / scores.length;
+  
+  print('点数: $scores');
+  print('合計: $total点');
+  print('平均: ${average.toStringAsFixed(1)}点');
+}
+</code></pre>
+<h3 id="最大値最小値を見つける"><a class="header" href="#最大値最小値を見つける">最大値・最小値を見つける</a></h3>
+<pre><code class="language-javascript">void main() {
+  var temperatures = [25.5, 28.0, 23.5, 30.0, 22.0, 26.5];
+  
+  // 最初の要素を初期値として設定
+  double maxTemp = temperatures[0];
+  double minTemp = temperatures[0];
+  
+  // 残りの要素と比較
+  for (var temp in temperatures) {
+    if (temp &gt; maxTemp) {
+      maxTemp = temp;
+    }
+    if (temp &lt; minTemp) {
+      minTemp = temp;
+    }
+  }
+  
+  print('気温データ: $temperatures');
+  print('最高気温: $maxTemp°C');
+  print('最低気温: $minTemp°C');
+}
+</code></pre>
+<h3 id="条件に合う要素を数える"><a class="header" href="#条件に合う要素を数える">条件に合う要素を数える</a></h3>
+<pre><code class="language-javascript">void main() {
+  var scores = [85, 92, 78, 90, 88, 65, 95, 82, 70, 91];
+  int passCount = 0;  // 合格者数
+  int excellentCount = 0;  // 優秀者数
+  
+  for (var score in scores) {
+    if (score &gt;= 80) {
+      passCount++;
+    }
+    if (score &gt;= 90) {
+      excellentCount++;
+    }
+  }
+  
+  print('全員の点数: $scores');
+  print('合格者（80点以上）: $passCount人');
+  print('優秀者（90点以上）: $excellentCount人');
+}
+</code></pre>
+<h2 id="要素の変換"><a class="header" href="#要素の変換">要素の変換</a></h2>
+<h3 id="新しいリストを作成"><a class="header" href="#新しいリストを作成">新しいリストを作成</a></h3>
+<pre><code class="language-javascript">void main() {
+  var prices = [100, 250, 180, 300, 120];
+  var discountedPrices = [];
+  
+  // 10%割引の価格を計算
+  for (var price in prices) {
+    var discounted = (price * 0.9).round();
+    discountedPrices.add(discounted);
+  }
+  
+  print('元の価格: $prices');
+  print('割引後: $discountedPrices');
+}
+</code></pre>
+<h3 id="インデックスが必要な場合"><a class="header" href="#インデックスが必要な場合">インデックスが必要な場合</a></h3>
+<p>要素の位置情報が必要な場合は、通常のfor文を使います：</p>
+<pre><code class="language-javascript">void main() {
+  var students = ['田中', '佐藤', '鈴木', '高橋', '渡辺'];
+  var scores = [85, 92, 78, 90, 88];
+  
+  print('成績表:');
+  for (int i = 0; i &lt; students.length; i++) {
+    print('${i + 1}位: ${students[i]}さん - ${scores[i]}点');
+  }
+}
+</code></pre>
+<h2 id="ネストしたループ"><a class="header" href="#ネストしたループ">ネストしたループ</a></h2>
+<p>リストの中にリストがある場合の処理：</p>
+<pre><code class="language-javascript">void main() {
+  // 各生徒の科目別点数
+  var allScores = [
+    [80, 85, 90],  // 生徒1
+    [75, 88, 92],  // 生徒2
+    [90, 85, 88],  // 生徒3
+  ];
+  
+  for (int i = 0; i &lt; allScores.length; i++) {
+    print('\n生徒${i + 1}の成績:');
+    int total = 0;
+    
+    for (var score in allScores[i]) {
+      total += score;
+      print('  点数: $score');
+    }
+    
+    print('  合計: $total点');
+    print('  平均: ${(total / allScores[i].length).toStringAsFixed(1)}点');
+  }
+}
+</code></pre>
+<h2 id="whileループとリスト"><a class="header" href="#whileループとリスト">whileループとリスト</a></h2>
+<p>条件を満たす間、リストを処理する例：</p>
+<pre><code class="language-javascript">void main() {
+  var tasks = ['メール確認', '資料作成', '会議準備', '報告書作成'];
+  
+  print('今日のタスク:');
+  while (tasks.isNotEmpty) {
+    // 最初のタスクを取り出して処理
+    String currentTask = tasks[0];
+    print('実行中: $currentTask');
+    tasks.removeAt(0);
+    
+    print('残りのタスク: ${tasks.length}個');
+  }
+  
+  print('\nすべてのタスクが完了しました！');
+}
+</code></pre>
+<h2 id="まとめ-23"><a class="header" href="#まとめ-23">まとめ</a></h2>
+<ul>
+<li><code>for-in</code>ループは、リストの全要素を簡単に処理できる</li>
+<li>インデックスが必要な場合は、通常の<code>for</code>文を使う</li>
+<li>リストとループを組み合わせることで、合計・平均・最大値などの計算が簡単にできる</li>
+<li>条件に応じた処理や、新しいリストの作成も可能</li>
+</ul>
+<h3 id="練習問題-16"><a class="header" href="#練習問題-16">練習問題</a></h3>
+<ol>
+<li>数値のリスト<code>[5, 10, 15, 20, 25]</code>の全要素を2倍にした新しいリストを作成してください</li>
+<li>名前のリスト<code>['太郎', '花子', '次郎', '三郎']</code>の各要素に「さん」を付けて表示してください</li>
+<li>点数のリスト<code>[65, 78, 82, 90, 55, 88, 70]</code>から、70点未満の点数だけを別のリストに集めてください</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="75-実践成績管理プログラム"><a class="header" href="#75-実践成績管理プログラム">7.5 実践：成績管理プログラム</a></h1>
+<p>これまで学んだリストの知識を総合的に活用して、実用的な成績管理プログラムを作成してみましょう。このプログラムでは、生徒の成績を管理し、様々な統計情報を計算します。</p>
+<h2 id="プログラムの要件"><a class="header" href="#プログラムの要件">プログラムの要件</a></h2>
+<p>作成する成績管理プログラムには以下の機能を実装します：</p>
+<ol>
+<li>生徒の名前と点数を管理</li>
+<li>平均点、最高点、最低点を計算</li>
+<li>成績の分布を表示</li>
+<li>合格者と不合格者を判定</li>
+</ol>
+<h2 id="ステップ1基本的な成績管理"><a class="header" href="#ステップ1基本的な成績管理">ステップ1：基本的な成績管理</a></h2>
+<p>まずは、シンプルな成績管理から始めましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // 生徒の名前
+  var students = ['田中', '佐藤', '鈴木', '高橋', '渡辺'];
+  
+  // 各生徒の点数
+  var scores = [85, 92, 78, 65, 88];
+  
+  print('=== 成績一覧 ===');
+  for (int i = 0; i &lt; students.length; i++) {
+    print('${students[i]}: ${scores[i]}点');
+  }
+}
+</code></pre>
+<h2 id="ステップ2統計情報の計算"><a class="header" href="#ステップ2統計情報の計算">ステップ2：統計情報の計算</a></h2>
+<p>平均点、最高点、最低点を計算する機能を追加します：</p>
+<pre><code class="language-javascript">void main() {
+  var students = ['田中', '佐藤', '鈴木', '高橋', '渡辺', '伊藤', '山田'];
+  var scores = [85, 92, 78, 65, 88, 90, 73];
+  
+  // 成績一覧を表示
+  print('=== 成績一覧 ===');
+  for (int i = 0; i &lt; students.length; i++) {
+    print('${students[i]}: ${scores[i]}点');
+  }
+  
+  // 統計情報を計算
+  int total = 0;
+  int maxScore = scores[0];
+  int minScore = scores[0];
+  String topStudent = students[0];
+  String bottomStudent = students[0];
+  
+  for (int i = 0; i &lt; scores.length; i++) {
+    // 合計を計算
+    total += scores[i];
+    
+    // 最高点を更新
+    if (scores[i] &gt; maxScore) {
+      maxScore = scores[i];
+      topStudent = students[i];
+    }
+    
+    // 最低点を更新
+    if (scores[i] &lt; minScore) {
+      minScore = scores[i];
+      bottomStudent = students[i];
+    }
+  }
+  
+  double average = total / scores.length;
+  
+  print('\n=== 統計情報 ===');
+  print('受験者数: ${scores.length}人');
+  print('平均点: ${average.toStringAsFixed(1)}点');
+  print('最高点: ${topStudent}さん - $maxScore点');
+  print('最低点: ${bottomStudent}さん - $minScore点');
+}
+</code></pre>
+<h2 id="ステップ3合格判定機能"><a class="header" href="#ステップ3合格判定機能">ステップ3：合格判定機能</a></h2>
+<p>80点以上を合格とする判定機能を追加します：</p>
+<pre><code class="language-javascript">void main() {
+  var students = ['田中', '佐藤', '鈴木', '高橋', '渡辺', '伊藤', '山田'];
+  var scores = [85, 92, 78, 65, 88, 90, 73];
+  
+  // 合格基準点
+  int passingScore = 80;
+  
+  // 合格者と不合格者のリストを作成
+  var passedStudents = [];
+  var failedStudents = [];
+  
+  for (int i = 0; i &lt; students.length; i++) {
+    if (scores[i] &gt;= passingScore) {
+      passedStudents.add('${students[i]} (${scores[i]}点)');
+    } else {
+      failedStudents.add('${students[i]} (${scores[i]}点)');
+    }
+  }
+  
+  print('=== 合格判定結果 ===');
+  print('合格基準: $passingScore点以上\n');
+  
+  print('【合格者】 ${passedStudents.length}人');
+  for (var student in passedStudents) {
+    print('  ✓ $student');
+  }
+  
+  print('\n【不合格者】 ${failedStudents.length}人');
+  for (var student in failedStudents) {
+    print('  ✗ $student');
+  }
+  
+  // 合格率を計算
+  double passRate = (passedStudents.length / students.length) * 100;
+  print('\n合格率: ${passRate.toStringAsFixed(1)}%');
+}
+</code></pre>
+<h2 id="ステップ4成績分布の表示"><a class="header" href="#ステップ4成績分布の表示">ステップ4：成績分布の表示</a></h2>
+<p>点数帯ごとの人数を集計します：</p>
+<pre><code class="language-javascript">void main() {
+  var students = ['田中', '佐藤', '鈴木', '高橋', '渡辺', '伊藤', '山田', '中村', '小林', '加藤'];
+  var scores = [85, 92, 78, 65, 88, 90, 73, 95, 82, 69];
+  
+  // 成績分布を集計
+  int excellent = 0;  // 90点以上
+  int good = 0;       // 80-89点
+  int average = 0;    // 70-79点
+  int poor = 0;       // 70点未満
+  
+  for (var score in scores) {
+    if (score &gt;= 90) {
+      excellent++;
+    } else if (score &gt;= 80) {
+      good++;
+    } else if (score &gt;= 70) {
+      average++;
+    } else {
+      poor++;
+    }
+  }
+  
+  print('=== 成績分布 ===');
+  print('90点以上  (優): $excellent人 ${'★' * excellent}');
+  print('80-89点  (良): $good人 ${'★' * good}');
+  print('70-79点  (可): $average人 ${'★' * average}');
+  print('70点未満 (不可): $poor人 ${'★' * poor}');
+}
+</code></pre>
+<h2 id="完成版総合成績管理プログラム"><a class="header" href="#完成版総合成績管理プログラム">完成版：総合成績管理プログラム</a></h2>
+<p>すべての機能を組み合わせた完成版：</p>
+<pre><code class="language-javascript">void main() {
+  // データの準備
+  var students = ['田中', '佐藤', '鈴木', '高橋', '渡辺', '伊藤', '山田', '中村'];
+  var mathScores = [85, 92, 78, 65, 88, 90, 73, 95];
+  var englishScores = [80, 88, 85, 70, 82, 95, 68, 90];
+  
+  // 各生徒の合計点を計算
+  var totalScores = [];
+  for (int i = 0; i &lt; students.length; i++) {
+    totalScores.add(mathScores[i] + englishScores[i]);
+  }
+  
+  print('=== 期末試験成績表 ===');
+  print('生徒名\t数学\t英語\t合計');
+  print('-' * 30);
+  
+  for (int i = 0; i &lt; students.length; i++) {
+    print('${students[i]}\t${mathScores[i]}\t${englishScores[i]}\t${totalScores[i]}');
+  }
+  
+  // 科目別平均
+  double mathAvg = 0;
+  double englishAvg = 0;
+  
+  for (int i = 0; i &lt; students.length; i++) {
+    mathAvg += mathScores[i];
+    englishAvg += englishScores[i];
+  }
+  
+  mathAvg /= students.length;
+  englishAvg /= students.length;
+  
+  print('\n=== 科目別平均点 ===');
+  print('数学: ${mathAvg.toStringAsFixed(1)}点');
+  print('英語: ${englishAvg.toStringAsFixed(1)}点');
+  
+  // 総合成績トップ3
+  print('\n=== 総合成績トップ3 ===');
+  
+  // 成績順にソート（簡易版）
+  for (int i = 0; i &lt; 3 &amp;&amp; i &lt; students.length; i++) {
+    int maxIndex = i;
+    for (int j = i + 1; j &lt; students.length; j++) {
+      if (totalScores[j] &gt; totalScores[maxIndex]) {
+        maxIndex = j;
+      }
+    }
+    
+    // 値を入れ替え
+    if (maxIndex != i) {
+      // 生徒名
+      String tempStudent = students[i];
+      students[i] = students[maxIndex];
+      students[maxIndex] = tempStudent;
+      
+      // 合計点
+      int tempTotal = totalScores[i];
+      totalScores[i] = totalScores[maxIndex];
+      totalScores[maxIndex] = tempTotal;
+      
+      // 数学
+      int tempMath = mathScores[i];
+      mathScores[i] = mathScores[maxIndex];
+      mathScores[maxIndex] = tempMath;
+      
+      // 英語
+      int tempEnglish = englishScores[i];
+      englishScores[i] = englishScores[maxIndex];
+      englishScores[maxIndex] = tempEnglish;
+    }
+    
+    print('${i + 1}位: ${students[i]} - ${totalScores[i]}点');
+  }
+}
+</code></pre>
+<h2 id="発展課題-1"><a class="header" href="#発展課題-1">発展課題</a></h2>
+<p>このプログラムをさらに改良するアイデア：</p>
+<ol>
+<li><strong>科目数を増やす</strong>：国語、理科、社会なども追加</li>
+<li><strong>クラス別管理</strong>：複数のクラスの成績を管理</li>
+<li><strong>成績の推移</strong>：中間試験と期末試験の比較</li>
+<li><strong>評価基準の変更</strong>：S/A/B/C/Dなどの評価を追加</li>
+</ol>
+<h2 id="まとめ-24"><a class="header" href="#まとめ-24">まとめ</a></h2>
+<p>この実践プログラムを通じて、以下のリストの活用方法を学びました：</p>
+<ul>
+<li>複数のリストを連携させたデータ管理</li>
+<li>ループを使った統計情報の計算</li>
+<li>条件分岐とリストを組み合わせた分類処理</li>
+<li>リストの要素を使った比較とソート</li>
+</ul>
+<p>これらの技術は、実際のプログラム開発でも頻繁に使用される重要なスキルです。</p>
+<h3 id="チャレンジ問題-1"><a class="header" href="#チャレンジ問題-1">チャレンジ問題</a></h3>
+<ol>
+<li>生徒を点数順に並べ替えて表示する機能を追加してください</li>
+<li>各科目で平均点以上を取った生徒の名前を表示してください</li>
+<li>成績が前回より上がった生徒を「成績向上者」として表示する機能を作ってください</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第8章マップ連想配列"><a class="header" href="#第8章マップ連想配列">第8章：マップ（連想配列）</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="キーと値のペアでデータを管理"><a class="header" href="#キーと値のペアでデータを管理">キーと値のペアでデータを管理</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="マップの作成と操作"><a class="header" href="#マップの作成と操作">マップの作成と操作</a></h1>

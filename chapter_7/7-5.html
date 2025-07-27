@@ -178,7 +178,246 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="実践成績管理プログラム"><a class="header" href="#実践成績管理プログラム">実践：成績管理プログラム</a></h1>
+                        <h1 id="75-実践成績管理プログラム"><a class="header" href="#75-実践成績管理プログラム">7.5 実践：成績管理プログラム</a></h1>
+<p>これまで学んだリストの知識を総合的に活用して、実用的な成績管理プログラムを作成してみましょう。このプログラムでは、生徒の成績を管理し、様々な統計情報を計算します。</p>
+<h2 id="プログラムの要件"><a class="header" href="#プログラムの要件">プログラムの要件</a></h2>
+<p>作成する成績管理プログラムには以下の機能を実装します：</p>
+<ol>
+<li>生徒の名前と点数を管理</li>
+<li>平均点、最高点、最低点を計算</li>
+<li>成績の分布を表示</li>
+<li>合格者と不合格者を判定</li>
+</ol>
+<h2 id="ステップ1基本的な成績管理"><a class="header" href="#ステップ1基本的な成績管理">ステップ1：基本的な成績管理</a></h2>
+<p>まずは、シンプルな成績管理から始めましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // 生徒の名前
+  var students = ['田中', '佐藤', '鈴木', '高橋', '渡辺'];
+  
+  // 各生徒の点数
+  var scores = [85, 92, 78, 65, 88];
+  
+  print('=== 成績一覧 ===');
+  for (int i = 0; i &lt; students.length; i++) {
+    print('${students[i]}: ${scores[i]}点');
+  }
+}
+</code></pre>
+<h2 id="ステップ2統計情報の計算"><a class="header" href="#ステップ2統計情報の計算">ステップ2：統計情報の計算</a></h2>
+<p>平均点、最高点、最低点を計算する機能を追加します：</p>
+<pre><code class="language-javascript">void main() {
+  var students = ['田中', '佐藤', '鈴木', '高橋', '渡辺', '伊藤', '山田'];
+  var scores = [85, 92, 78, 65, 88, 90, 73];
+  
+  // 成績一覧を表示
+  print('=== 成績一覧 ===');
+  for (int i = 0; i &lt; students.length; i++) {
+    print('${students[i]}: ${scores[i]}点');
+  }
+  
+  // 統計情報を計算
+  int total = 0;
+  int maxScore = scores[0];
+  int minScore = scores[0];
+  String topStudent = students[0];
+  String bottomStudent = students[0];
+  
+  for (int i = 0; i &lt; scores.length; i++) {
+    // 合計を計算
+    total += scores[i];
+    
+    // 最高点を更新
+    if (scores[i] &gt; maxScore) {
+      maxScore = scores[i];
+      topStudent = students[i];
+    }
+    
+    // 最低点を更新
+    if (scores[i] &lt; minScore) {
+      minScore = scores[i];
+      bottomStudent = students[i];
+    }
+  }
+  
+  double average = total / scores.length;
+  
+  print('\n=== 統計情報 ===');
+  print('受験者数: ${scores.length}人');
+  print('平均点: ${average.toStringAsFixed(1)}点');
+  print('最高点: ${topStudent}さん - $maxScore点');
+  print('最低点: ${bottomStudent}さん - $minScore点');
+}
+</code></pre>
+<h2 id="ステップ3合格判定機能"><a class="header" href="#ステップ3合格判定機能">ステップ3：合格判定機能</a></h2>
+<p>80点以上を合格とする判定機能を追加します：</p>
+<pre><code class="language-javascript">void main() {
+  var students = ['田中', '佐藤', '鈴木', '高橋', '渡辺', '伊藤', '山田'];
+  var scores = [85, 92, 78, 65, 88, 90, 73];
+  
+  // 合格基準点
+  int passingScore = 80;
+  
+  // 合格者と不合格者のリストを作成
+  var passedStudents = [];
+  var failedStudents = [];
+  
+  for (int i = 0; i &lt; students.length; i++) {
+    if (scores[i] &gt;= passingScore) {
+      passedStudents.add('${students[i]} (${scores[i]}点)');
+    } else {
+      failedStudents.add('${students[i]} (${scores[i]}点)');
+    }
+  }
+  
+  print('=== 合格判定結果 ===');
+  print('合格基準: $passingScore点以上\n');
+  
+  print('【合格者】 ${passedStudents.length}人');
+  for (var student in passedStudents) {
+    print('  ✓ $student');
+  }
+  
+  print('\n【不合格者】 ${failedStudents.length}人');
+  for (var student in failedStudents) {
+    print('  ✗ $student');
+  }
+  
+  // 合格率を計算
+  double passRate = (passedStudents.length / students.length) * 100;
+  print('\n合格率: ${passRate.toStringAsFixed(1)}%');
+}
+</code></pre>
+<h2 id="ステップ4成績分布の表示"><a class="header" href="#ステップ4成績分布の表示">ステップ4：成績分布の表示</a></h2>
+<p>点数帯ごとの人数を集計します：</p>
+<pre><code class="language-javascript">void main() {
+  var students = ['田中', '佐藤', '鈴木', '高橋', '渡辺', '伊藤', '山田', '中村', '小林', '加藤'];
+  var scores = [85, 92, 78, 65, 88, 90, 73, 95, 82, 69];
+  
+  // 成績分布を集計
+  int excellent = 0;  // 90点以上
+  int good = 0;       // 80-89点
+  int average = 0;    // 70-79点
+  int poor = 0;       // 70点未満
+  
+  for (var score in scores) {
+    if (score &gt;= 90) {
+      excellent++;
+    } else if (score &gt;= 80) {
+      good++;
+    } else if (score &gt;= 70) {
+      average++;
+    } else {
+      poor++;
+    }
+  }
+  
+  print('=== 成績分布 ===');
+  print('90点以上  (優): $excellent人 ${'★' * excellent}');
+  print('80-89点  (良): $good人 ${'★' * good}');
+  print('70-79点  (可): $average人 ${'★' * average}');
+  print('70点未満 (不可): $poor人 ${'★' * poor}');
+}
+</code></pre>
+<h2 id="完成版総合成績管理プログラム"><a class="header" href="#完成版総合成績管理プログラム">完成版：総合成績管理プログラム</a></h2>
+<p>すべての機能を組み合わせた完成版：</p>
+<pre><code class="language-javascript">void main() {
+  // データの準備
+  var students = ['田中', '佐藤', '鈴木', '高橋', '渡辺', '伊藤', '山田', '中村'];
+  var mathScores = [85, 92, 78, 65, 88, 90, 73, 95];
+  var englishScores = [80, 88, 85, 70, 82, 95, 68, 90];
+  
+  // 各生徒の合計点を計算
+  var totalScores = [];
+  for (int i = 0; i &lt; students.length; i++) {
+    totalScores.add(mathScores[i] + englishScores[i]);
+  }
+  
+  print('=== 期末試験成績表 ===');
+  print('生徒名\t数学\t英語\t合計');
+  print('-' * 30);
+  
+  for (int i = 0; i &lt; students.length; i++) {
+    print('${students[i]}\t${mathScores[i]}\t${englishScores[i]}\t${totalScores[i]}');
+  }
+  
+  // 科目別平均
+  double mathAvg = 0;
+  double englishAvg = 0;
+  
+  for (int i = 0; i &lt; students.length; i++) {
+    mathAvg += mathScores[i];
+    englishAvg += englishScores[i];
+  }
+  
+  mathAvg /= students.length;
+  englishAvg /= students.length;
+  
+  print('\n=== 科目別平均点 ===');
+  print('数学: ${mathAvg.toStringAsFixed(1)}点');
+  print('英語: ${englishAvg.toStringAsFixed(1)}点');
+  
+  // 総合成績トップ3
+  print('\n=== 総合成績トップ3 ===');
+  
+  // 成績順にソート（簡易版）
+  for (int i = 0; i &lt; 3 &amp;&amp; i &lt; students.length; i++) {
+    int maxIndex = i;
+    for (int j = i + 1; j &lt; students.length; j++) {
+      if (totalScores[j] &gt; totalScores[maxIndex]) {
+        maxIndex = j;
+      }
+    }
+    
+    // 値を入れ替え
+    if (maxIndex != i) {
+      // 生徒名
+      String tempStudent = students[i];
+      students[i] = students[maxIndex];
+      students[maxIndex] = tempStudent;
+      
+      // 合計点
+      int tempTotal = totalScores[i];
+      totalScores[i] = totalScores[maxIndex];
+      totalScores[maxIndex] = tempTotal;
+      
+      // 数学
+      int tempMath = mathScores[i];
+      mathScores[i] = mathScores[maxIndex];
+      mathScores[maxIndex] = tempMath;
+      
+      // 英語
+      int tempEnglish = englishScores[i];
+      englishScores[i] = englishScores[maxIndex];
+      englishScores[maxIndex] = tempEnglish;
+    }
+    
+    print('${i + 1}位: ${students[i]} - ${totalScores[i]}点');
+  }
+}
+</code></pre>
+<h2 id="発展課題"><a class="header" href="#発展課題">発展課題</a></h2>
+<p>このプログラムをさらに改良するアイデア：</p>
+<ol>
+<li><strong>科目数を増やす</strong>：国語、理科、社会なども追加</li>
+<li><strong>クラス別管理</strong>：複数のクラスの成績を管理</li>
+<li><strong>成績の推移</strong>：中間試験と期末試験の比較</li>
+<li><strong>評価基準の変更</strong>：S/A/B/C/Dなどの評価を追加</li>
+</ol>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>この実践プログラムを通じて、以下のリストの活用方法を学びました：</p>
+<ul>
+<li>複数のリストを連携させたデータ管理</li>
+<li>ループを使った統計情報の計算</li>
+<li>条件分岐とリストを組み合わせた分類処理</li>
+<li>リストの要素を使った比較とソート</li>
+</ul>
+<p>これらの技術は、実際のプログラム開発でも頻繁に使用される重要なスキルです。</p>
+<h3 id="チャレンジ問題"><a class="header" href="#チャレンジ問題">チャレンジ問題</a></h3>
+<ol>
+<li>生徒を点数順に並べ替えて表示する機能を追加してください</li>
+<li>各科目で平均点以上を取った生徒の名前を表示してください</li>
+<li>成績が前回より上がった生徒を「成績向上者」として表示する機能を作ってください</li>
+</ol>
 
                     </main>
 

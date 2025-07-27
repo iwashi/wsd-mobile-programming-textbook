@@ -178,7 +178,119 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="リストの作成と要素へのアクセス"><a class="header" href="#リストの作成と要素へのアクセス">リストの作成と要素へのアクセス</a></h1>
+                        <h1 id="72-リストの作成と要素へのアクセス"><a class="header" href="#72-リストの作成と要素へのアクセス">7.2 リストの作成と要素へのアクセス</a></h1>
+<p>前のセクションでリストの概念を学びました。今度は実際にリストを作成し、使ってみましょう。</p>
+<h2 id="リストの作成"><a class="header" href="#リストの作成">リストの作成</a></h2>
+<p>Dartでリストを作成する最も基本的な方法は、角括弧 <code>[]</code> を使うことです。</p>
+<pre><code class="language-javascript">void main() {
+  // 数値のリストを作成
+  List&lt;int&gt; scores = [85, 92, 78, 90, 88];
+  
+  // 文字列のリストを作成
+  List&lt;String&gt; fruits = ['りんご', 'バナナ', 'オレンジ'];
+  
+  // 空のリストを作成
+  List&lt;String&gt; tasks = [];
+  
+  print(scores);  // [85, 92, 78, 90, 88]
+  print(fruits);  // [りんご, バナナ, オレンジ]
+  print(tasks);   // []
+}
+</code></pre>
+<h2 id="型推論を使った書き方"><a class="header" href="#型推論を使った書き方">型推論を使った書き方</a></h2>
+<p>Dartは賢いので、リストの中身から型を推測してくれます：</p>
+<pre><code class="language-javascript">void main() {
+  // varを使うと型を自動で判断
+  var numbers = [1, 2, 3, 4, 5];        // List&lt;int&gt;と推論
+  var names = ['太郎', '花子', '次郎'];  // List&lt;String&gt;と推論
+  
+  print(numbers);
+  print(names);
+}
+</code></pre>
+<h2 id="要素へのアクセス"><a class="header" href="#要素へのアクセス">要素へのアクセス</a></h2>
+<p>リストの要素には、インデックス（番号）を使ってアクセスします。<strong>重要：インデックスは0から始まります！</strong></p>
+<pre><code class="language-javascript">void main() {
+  var fruits = ['りんご', 'バナナ', 'オレンジ', 'ぶどう', 'いちご'];
+  
+  // インデックスを使って要素を取得
+  print(fruits[0]);  // りんご（1番目の要素）
+  print(fruits[1]);  // バナナ（2番目の要素）
+  print(fruits[4]);  // いちご（5番目の要素）
+  
+  // 要素の値を変更
+  fruits[1] = 'メロン';
+  print(fruits);  // [りんご, メロン, オレンジ, ぶどう, いちご]
+}
+</code></pre>
+<h2 id="リストの長さを調べる"><a class="header" href="#リストの長さを調べる">リストの長さを調べる</a></h2>
+<p>リストに何個の要素が入っているかは、<code>length</code>プロパティで調べられます：</p>
+<pre><code class="language-javascript">void main() {
+  var scores = [85, 92, 78, 90, 88];
+  
+  print('要素の数: ${scores.length}');  // 要素の数: 5
+  
+  // 最後の要素にアクセス
+  print('最後の要素: ${scores[scores.length - 1]}');  // 最後の要素: 88
+}
+</code></pre>
+<h2 id="範囲外アクセスに注意"><a class="header" href="#範囲外アクセスに注意">範囲外アクセスに注意</a></h2>
+<p>存在しないインデックスにアクセスするとエラーになります：</p>
+<pre><code class="language-javascript">void main() {
+  var colors = ['赤', '青', '緑'];
+  
+  print(colors[0]);  // 赤（OK）
+  print(colors[2]);  // 緑（OK）
+  // print(colors[3]);  // エラー！（インデックス3は存在しない）
+}
+</code></pre>
+<h2 id="よく使うリストのプロパティ"><a class="header" href="#よく使うリストのプロパティ">よく使うリストのプロパティ</a></h2>
+<pre><code class="language-javascript">void main() {
+  var numbers = [3, 1, 4, 1, 5, 9];
+  
+  // リストが空かどうか
+  print(numbers.isEmpty);    // false
+  print(numbers.isNotEmpty); // true
+  
+  // 最初と最後の要素
+  print(numbers.first);  // 3
+  print(numbers.last);   // 9
+}
+</code></pre>
+<h2 id="練習日付管理プログラム"><a class="header" href="#練習日付管理プログラム">練習：日付管理プログラム</a></h2>
+<p>曜日を管理する簡単なプログラムを作ってみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // 曜日のリスト
+  var weekdays = ['月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日', '日曜日'];
+  
+  // 今日は何曜日？（0 = 月曜日）
+  int today = 2;  // 水曜日
+  
+  print('今日は${weekdays[today]}です');
+  print('明日は${weekdays[today + 1]}です');
+  
+  // 週末かどうかチェック
+  if (today &gt;= 5) {
+    print('週末です！');
+  } else {
+    print('平日です。');
+  }
+}
+</code></pre>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<ul>
+<li>リストは <code>[]</code> で作成します</li>
+<li>要素へのアクセスは <code>リスト名[インデックス]</code> で行います</li>
+<li>インデックスは<strong>0から始まる</strong>ことを忘れずに！</li>
+<li><code>length</code>でリストの要素数を調べられます</li>
+<li>範囲外のインデックスにアクセスするとエラーになります</li>
+</ul>
+<h3 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h3>
+<ol>
+<li>あなたの好きな科目を5つ含むリストを作成し、3番目の科目を表示してください</li>
+<li>1から10までの数字を含むリストを作成し、最初と最後の要素を表示してください</li>
+<li>家族の名前のリストを作成し、リストの要素数を表示してください</li>
+</ol>
 
                     </main>
 
