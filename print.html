@@ -7752,15 +7752,2312 @@ if (result % 5 == 0) {
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第9章関数の基礎"><a class="header" href="#第9章関数の基礎">第9章：関数の基礎</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="関数とは何か"><a class="header" href="#関数とは何か">関数とは何か</a></h1>
+<p>これまでの章では、変数、条件分岐、繰り返し処理、リスト、マップなど、プログラミングの基本的な要素を学んできました。今回は、プログラムを整理し、効率的にするための重要な概念「関数」について学びます。</p>
+<h2 id="プログラムが長くなると"><a class="header" href="#プログラムが長くなると">プログラムが長くなると...</a></h2>
+<p>これまでに書いたプログラムを思い出してみましょう。プログラムが複雑になるにつれて、次のような問題が出てきます：</p>
+<pre><code class="language-javascript">void main() {
+  // 成績の平均を計算する（1回目）
+  List&lt;int&gt; mathScores = [85, 92, 78, 90, 88];
+  int mathTotal = 0;
+  for (int score in mathScores) {
+    mathTotal += score;
+  }
+  double mathAverage = mathTotal / mathScores.length;
+  print('数学の平均点: ${mathAverage.toStringAsFixed(1)}');
+  
+  // 成績の平均を計算する（2回目）
+  List&lt;int&gt; englishScores = [78, 85, 92, 88, 80];
+  int englishTotal = 0;
+  for (int score in englishScores) {
+    englishTotal += score;
+  }
+  double englishAverage = englishTotal / englishScores.length;
+  print('英語の平均点: ${englishAverage.toStringAsFixed(1)}');
+  
+  // 同じような処理がまだ続く...
+}
+</code></pre>
+<p>このコードには問題があります：</p>
+<ul>
+<li>同じような処理を何度も書いている</li>
+<li>コードが長くなって読みにくい</li>
+<li>修正が必要な時、すべての箇所を変更しなければならない</li>
+</ul>
+<h2 id="関数とは"><a class="header" href="#関数とは">関数とは</a></h2>
+<p>関数は、<strong>特定の処理をまとめて名前を付けたもの</strong>です。一度定義した関数は、何度でも呼び出して使うことができます。</p>
+<p>関数のイメージ：</p>
+<pre><code>関数 = 処理のかたまりに名前を付けたもの
+
+┌─────────────────┐
+│   関数の名前     │
+├─────────────────┤
+│                 │
+│  処理の内容     │
+│                 │
+└─────────────────┘
+</code></pre>
+<h2 id="日常生活での関数の例"><a class="header" href="#日常生活での関数の例">日常生活での関数の例</a></h2>
+<p>関数は、私たちの日常生活でもよく見かける概念です：</p>
+<h3 id="1-レシピ"><a class="header" href="#1-レシピ">1. レシピ</a></h3>
+<ul>
+<li><strong>関数名</strong>：「カレーを作る」</li>
+<li><strong>処理内容</strong>：
+<ol>
+<li>野菜を切る</li>
+<li>肉を炒める</li>
+<li>水を加えて煮込む</li>
+<li>ルーを入れる</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-自動販売機"><a class="header" href="#2-自動販売機">2. 自動販売機</a></h3>
+<ul>
+<li><strong>関数名</strong>：「飲み物を買う」</li>
+<li><strong>入力</strong>：お金、ボタン番号</li>
+<li><strong>処理</strong>：商品を選んで提供</li>
+<li><strong>出力</strong>：飲み物、おつり</li>
+</ul>
+<h3 id="3-電卓"><a class="header" href="#3-電卓">3. 電卓</a></h3>
+<ul>
+<li><strong>関数名</strong>：「足し算をする」</li>
+<li><strong>入力</strong>：2つの数字</li>
+<li><strong>処理</strong>：数字を足す</li>
+<li><strong>出力</strong>：計算結果</li>
+</ul>
+<h2 id="関数を使うメリット"><a class="header" href="#関数を使うメリット">関数を使うメリット</a></h2>
+<h3 id="1-コードの再利用"><a class="header" href="#1-コードの再利用">1. コードの再利用</a></h3>
+<p>同じ処理を何度も書く必要がなくなります：</p>
+<pre><code class="language-javascript">// 関数を使わない場合：同じ処理を3回書く
+void main() {
+  // 1回目
+  print('こんにちは！');
+  print('今日もプログラミングを楽しみましょう！');
+  print('---');
+  
+  // 2回目
+  print('こんにちは！');
+  print('今日もプログラミングを楽しみましょう！');
+  print('---');
+  
+  // 3回目
+  print('こんにちは！');
+  print('今日もプログラミングを楽しみましょう！');
+  print('---');
+}
+</code></pre>
+<h3 id="2-プログラムの整理"><a class="header" href="#2-プログラムの整理">2. プログラムの整理</a></h3>
+<p>処理に名前を付けることで、プログラムが読みやすくなります：</p>
+<pre><code class="language-javascript">// 関数を使った場合：処理の意味が分かりやすい
+void main() {
+  挨拶を表示();  // 何をしているか一目で分かる
+  計算を実行();
+  結果を表示();
+}
+</code></pre>
+<h3 id="3-保守性の向上"><a class="header" href="#3-保守性の向上">3. 保守性の向上</a></h3>
+<p>修正が必要な時、関数の中身を変更するだけで済みます：</p>
+<pre><code class="language-javascript">// 挨拶の内容を変更したい場合、関数の定義を変えるだけ
+void 挨拶を表示() {
+  print('おはようございます！');  // ここを変更するだけ
+  print('今日も一日頑張りましょう！');
+}
+</code></pre>
+<h3 id="4-エラーの削減"><a class="header" href="#4-エラーの削減">4. エラーの削減</a></h3>
+<p>同じ処理を何度も書くと、タイプミスなどのエラーが起きやすくなります。関数を使えば、一箇所で定義した正しい処理を何度でも使えます。</p>
+<h2 id="関数の基本的な構造"><a class="header" href="#関数の基本的な構造">関数の基本的な構造</a></h2>
+<p>関数は以下の要素で構成されます：</p>
+<ol>
+<li><strong>関数名</strong>：関数を識別するための名前</li>
+<li><strong>引数（パラメータ）</strong>：関数に渡す値（省略可能）</li>
+<li><strong>処理内容</strong>：関数が実行する具体的な処理</li>
+<li><strong>戻り値</strong>：関数が返す結果（省略可能）</li>
+</ol>
+<p>簡単な例：</p>
+<pre><code class="language-javascript">// 関数の定義
+void showGreeting() {
+  print('こんにちは！');
+}
+
+// 関数の呼び出し
+void main() {
+  showGreeting();  // 「こんにちは！」と表示される
+}
+</code></pre>
+<h2 id="dartの組み込み関数"><a class="header" href="#dartの組み込み関数">Dartの組み込み関数</a></h2>
+<p>実は、これまでも関数を使ってきました：</p>
+<ul>
+<li><code>print()</code>：画面に文字を表示する関数</li>
+<li><code>toStringAsFixed()</code>：数値を文字列に変換する関数</li>
+<li><code>contains()</code>：リストに要素が含まれているか確認する関数</li>
+</ul>
+<p>これらは、Dartがあらかじめ用意している関数です。私たちも同じように、自分で関数を作ることができます。</p>
+<h2 id="まとめ-29"><a class="header" href="#まとめ-29">まとめ</a></h2>
+<p>関数は、プログラムを整理し、効率的にするための重要な仕組みです：</p>
+<ul>
+<li><strong>処理をまとめる</strong>：関連する処理を一つにまとめる</li>
+<li><strong>名前を付ける</strong>：処理に分かりやすい名前を付ける</li>
+<li><strong>再利用する</strong>：一度定義した処理を何度でも使える</li>
+<li><strong>保守しやすくする</strong>：修正や改良が簡単になる</li>
+</ul>
+<p>次のセクションでは、実際に関数を定義し、使ってみましょう。</p>
+<h3 id="練習問題-21"><a class="header" href="#練習問題-21">練習問題</a></h3>
+<ol>
+<li>日常生活で「関数」のように働いているものを3つ挙げてください。</li>
+<li>プログラムで同じ処理を繰り返し書くことの問題点を説明してください。</li>
+<li>関数を使うメリットを自分の言葉で説明してください。</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="関数の定義と呼び出し"><a class="header" href="#関数の定義と呼び出し">関数の定義と呼び出し</a></h1>
+<p>前のセクションで関数の概念を学びました。ここでは、実際に関数を定義し、呼び出す方法を詳しく見ていきましょう。</p>
+<h2 id="基本的な関数の定義"><a class="header" href="#基本的な関数の定義">基本的な関数の定義</a></h2>
+<p>関数を定義する基本的な形は次のとおりです：</p>
+<pre><code class="language-javascript">void 関数名() {
+  // 処理内容
+}
+</code></pre>
+<p>実際の例：</p>
+<pre><code class="language-javascript">// 関数の定義
+void showGreeting() {
+  print('こんにちは！');
+  print('プログラミングを楽しみましょう！');
+}
+
+// メイン関数
+void main() {
+  // 関数の呼び出し
+  showGreeting();
+}
+</code></pre>
+<p>出力結果：</p>
+<pre><code>こんにちは！
+プログラミングを楽しみましょう！
+</code></pre>
+<h2 id="関数定義の要素"><a class="header" href="#関数定義の要素">関数定義の要素</a></h2>
+<h3 id="1-void-キーワード"><a class="header" href="#1-void-キーワード">1. void キーワード</a></h3>
+<p><code>void</code> は「戻り値なし」を意味します。この関数は何も値を返さず、処理を実行するだけです。</p>
+<h3 id="2-関数名"><a class="header" href="#2-関数名">2. 関数名</a></h3>
+<ul>
+<li>関数の名前は、その関数が何をするか分かりやすくつける</li>
+<li>小文字で始める（キャメルケース）</li>
+<li>動詞で始めることが多い（show、calculate、checkなど）</li>
+</ul>
+<h3 id="3-括弧-"><a class="header" href="#3-括弧-">3. 括弧 ()</a></h3>
+<p>引数（パラメータ）を受け取る場所です。今は空っぽです。</p>
+<h3 id="4-波括弧"><a class="header" href="#4-波括弧">4. 波括弧</a></h3>
+<p>関数の処理内容を囲みます。</p>
+<h2 id="関数の呼び出し"><a class="header" href="#関数の呼び出し">関数の呼び出し</a></h2>
+<p>関数を定義しただけでは実行されません。呼び出す必要があります：</p>
+<pre><code class="language-javascript">void printLine() {
+  print('-------------------');
+}
+
+void main() {
+  print('開始');
+  printLine();  // 関数を呼び出す
+  print('プログラミング入門');
+  printLine();  // 同じ関数を再度呼び出す
+  print('終了');
+}
+</code></pre>
+<p>出力結果：</p>
+<pre><code>開始
+-------------------
+プログラミング入門
+-------------------
+終了
+</code></pre>
+<h2 id="複数の関数を定義する"><a class="header" href="#複数の関数を定義する">複数の関数を定義する</a></h2>
+<p>プログラムには複数の関数を定義できます：</p>
+<pre><code class="language-javascript">// 朝の挨拶を表示する関数
+void sayGoodMorning() {
+  print('おはようございます！');
+  print('今日も一日頑張りましょう！');
+}
+
+// 夜の挨拶を表示する関数
+void sayGoodNight() {
+  print('おやすみなさい！');
+  print('良い夢を！');
+}
+
+// タイトルを表示する関数
+void showTitle() {
+  print('===== 挨拶プログラム =====');
+}
+
+void main() {
+  showTitle();
+  
+  print('\n朝の挨拶：');
+  sayGoodMorning();
+  
+  print('\n夜の挨拶：');
+  sayGoodNight();
+}
+</code></pre>
+<h2 id="関数の中から別の関数を呼び出す"><a class="header" href="#関数の中から別の関数を呼び出す">関数の中から別の関数を呼び出す</a></h2>
+<p>関数の中から他の関数を呼び出すこともできます：</p>
+<pre><code class="language-javascript">void printStar() {
+  print('★');
+}
+
+void printDecoration() {
+  printStar();
+  print('Welcome!');
+  printStar();
+}
+
+void showMenu() {
+  printDecoration();  // 別の関数を呼び出す
+  print('1. 開始');
+  print('2. 設定');
+  print('3. 終了');
+}
+
+void main() {
+  showMenu();
+}
+</code></pre>
+<h2 id="実践例成績表示プログラム"><a class="header" href="#実践例成績表示プログラム">実践例：成績表示プログラム</a></h2>
+<p>関数を使って、成績表示プログラムを整理してみましょう：</p>
+<pre><code class="language-javascript">// ヘッダーを表示する関数
+void printHeader() {
+  print('=' * 30);
+  print('     成績表');
+  print('=' * 30);
+}
+
+// 科目と点数を表示する関数
+void printSubject(String subject, int score) {
+  print('$subject: $score点');
+}
+
+// 区切り線を表示する関数
+void printDivider() {
+  print('-' * 30);
+}
+
+// 評価を表示する関数
+void printEvaluation(double average) {
+  print('平均点: ${average.toStringAsFixed(1)}点');
+  
+  if (average &gt;= 80) {
+    print('評価: 優秀です！');
+  } else if (average &gt;= 60) {
+    print('評価: 良好です！');
+  } else {
+    print('評価: もう少し頑張りましょう！');
+  }
+}
+
+void main() {
+  // 成績データ
+  int math = 85;
+  int english = 78;
+  int science = 92;
+  
+  // ヘッダー表示
+  printHeader();
+  
+  // 各科目の点数表示
+  printSubject('数学', math);
+  printSubject('英語', english);
+  printSubject('理科', science);
+  
+  // 区切り線
+  printDivider();
+  
+  // 平均点と評価
+  double average = (math + english + science) / 3;
+  printEvaluation(average);
+}
+</code></pre>
+<h2 id="関数定義の場所"><a class="header" href="#関数定義の場所">関数定義の場所</a></h2>
+<p>Dartでは、関数は以下の場所に定義できます：</p>
+<pre><code class="language-javascript">// 1. main関数の前
+void greeting() {
+  print('Hello!');
+}
+
+void main() {
+  greeting();
+  
+  // 2. main関数の中（ローカル関数）
+  void localFunction() {
+    print('ローカル関数です');
+  }
+  
+  localFunction();
+}
+
+// 3. main関数の後
+void farewell() {
+  print('Goodbye!');
+}
+</code></pre>
+<p>一般的には、main関数の外側（前または後）に定義することが多いです。</p>
+<h2 id="よくあるエラーと対処法"><a class="header" href="#よくあるエラーと対処法">よくあるエラーと対処法</a></h2>
+<h3 id="1-関数名の重複"><a class="header" href="#1-関数名の重複">1. 関数名の重複</a></h3>
+<pre><code class="language-javascript">// エラー：同じ名前の関数を2つ定義
+void showMessage() {
+  print('メッセージ1');
+}
+
+void showMessage() {  // エラー！
+  print('メッセージ2');
+}
+</code></pre>
+<h3 id="2-定義前の呼び出しローカル関数の場合"><a class="header" href="#2-定義前の呼び出しローカル関数の場合">2. 定義前の呼び出し（ローカル関数の場合）</a></h3>
+<pre><code class="language-javascript">void main() {
+  sayHello();  // エラー！まだ定義されていない
+  
+  void sayHello() {
+    print('Hello!');
+  }
+}
+</code></pre>
+<h3 id="3-括弧を忘れる"><a class="header" href="#3-括弧を忘れる">3. 括弧を忘れる</a></h3>
+<pre><code class="language-javascript">void main() {
+  showMessage;  // エラー！括弧がない
+  showMessage();  // 正しい
+}
+</code></pre>
+<h2 id="まとめ-30"><a class="header" href="#まとめ-30">まとめ</a></h2>
+<p>関数の定義と呼び出しの基本を学びました：</p>
+<ul>
+<li><code>void 関数名() { }</code> で関数を定義</li>
+<li><code>関数名()</code> で関数を呼び出す</li>
+<li>関数は何度でも呼び出せる</li>
+<li>関数の中から別の関数を呼び出せる</li>
+<li>適切な名前を付けることで、コードが読みやすくなる</li>
+</ul>
+<p>次のセクションでは、関数に値を渡したり、結果を返したりする方法を学びます。</p>
+<h3 id="練習問題-22"><a class="header" href="#練習問題-22">練習問題</a></h3>
+<ol>
+<li>自己紹介を表示する関数 <code>introduceMyself()</code> を作成し、3回呼び出してください。</li>
+<li>以下の3つの関数を作成してください：
+<ul>
+<li><code>printTitle()</code>：タイトルを表示</li>
+<li><code>printContent()</code>：内容を表示</li>
+<li><code>printFooter()</code>：フッターを表示</li>
+</ul>
+</li>
+<li>九九の2の段を表示する関数 <code>printTwosTable()</code> を作成してください。</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="引数と戻り値"><a class="header" href="#引数と戻り値">引数と戻り値</a></h1>
+<p>これまでの関数は、決まった処理を実行するだけでした。しかし、関数をより柔軟に使うために、値を受け取ったり（引数）、結果を返したり（戻り値）できます。</p>
+<h2 id="引数パラメータとは"><a class="header" href="#引数パラメータとは">引数（パラメータ）とは</a></h2>
+<p>引数は、関数に渡す値のことです。関数は引数を受け取って、その値を使って処理を行います。</p>
+<h3 id="引数を持つ関数の定義"><a class="header" href="#引数を持つ関数の定義">引数を持つ関数の定義</a></h3>
+<pre><code class="language-javascript">void greet(String name) {
+  print('こんにちは、$nameさん！');
+}
+
+void main() {
+  greet('太郎');  // 引数として '太郎' を渡す
+  greet('花子');  // 引数として '花子' を渡す
+}
+</code></pre>
+<p>出力結果：</p>
+<pre><code>こんにちは、太郎さん！
+こんにちは、花子さん！
+</code></pre>
+<h3 id="複数の引数"><a class="header" href="#複数の引数">複数の引数</a></h3>
+<p>関数は複数の引数を受け取ることができます：</p>
+<pre><code class="language-javascript">void introduce(String name, int age) {
+  print('私の名前は$nameです。');
+  print('年齢は$age歳です。');
+}
+
+void main() {
+  introduce('山田太郎', 20);
+  print('---');
+  introduce('鈴木花子', 18);
+}
+</code></pre>
+<h3 id="異なる型の引数"><a class="header" href="#異なる型の引数">異なる型の引数</a></h3>
+<p>引数には様々な型を使えます：</p>
+<pre><code class="language-javascript">void printScore(String subject, int score, bool isPassed) {
+  print('科目: $subject');
+  print('点数: $score点');
+  if (isPassed) {
+    print('結果: 合格');
+  } else {
+    print('結果: 不合格');
+  }
+  print('');
+}
+
+void main() {
+  printScore('数学', 85, true);
+  printScore('英語', 55, false);
+}
+</code></pre>
+<h2 id="戻り値とは"><a class="header" href="#戻り値とは">戻り値とは</a></h2>
+<p>戻り値は、関数が処理の結果として返す値のことです。</p>
+<h3 id="戻り値を持つ関数の定義"><a class="header" href="#戻り値を持つ関数の定義">戻り値を持つ関数の定義</a></h3>
+<pre><code class="language-javascript">int add(int a, int b) {
+  return a + b;  // 結果を返す
+}
+
+void main() {
+  int result = add(5, 3);  // 戻り値を変数に保存
+  print('5 + 3 = $result');
+}
+</code></pre>
+<h3 id="戻り値の型"><a class="header" href="#戻り値の型">戻り値の型</a></h3>
+<p>関数定義の最初に書く型が戻り値の型です：</p>
+<pre><code class="language-javascript">// int型を返す関数
+int multiply(int x, int y) {
+  return x * y;
+}
+
+// double型を返す関数
+double calculateAverage(int a, int b, int c) {
+  return (a + b + c) / 3.0;
+}
+
+// String型を返す関数
+String getGrade(int score) {
+  if (score &gt;= 80) {
+    return 'A';
+  } else if (score &gt;= 60) {
+    return 'B';
+  } else {
+    return 'C';
+  }
+}
+
+void main() {
+  int product = multiply(4, 5);
+  print('4 × 5 = $product');
+  
+  double avg = calculateAverage(80, 90, 85);
+  print('平均: ${avg.toStringAsFixed(1)}');
+  
+  String grade = getGrade(75);
+  print('成績: $grade');
+}
+</code></pre>
+<h2 id="実践的な例-1"><a class="header" href="#実践的な例-1">実践的な例</a></h2>
+<h3 id="1-税込み価格を計算する関数"><a class="header" href="#1-税込み価格を計算する関数">1. 税込み価格を計算する関数</a></h3>
+<pre><code class="language-javascript">double calculateTaxIncluded(int price, double taxRate) {
+  double tax = price * taxRate;
+  return price + tax;
+}
+
+void main() {
+  int itemPrice = 1000;
+  double taxRate = 0.10;  // 10%
+  
+  double totalPrice = calculateTaxIncluded(itemPrice, taxRate);
+  print('商品価格: $itemPrice円');
+  print('税率: ${(taxRate * 100).toInt()}%');
+  print('税込価格: ${totalPrice.toInt()}円');
+}
+</code></pre>
+<h3 id="2-最大値を見つける関数"><a class="header" href="#2-最大値を見つける関数">2. 最大値を見つける関数</a></h3>
+<pre><code class="language-javascript">int findMax(int a, int b, int c) {
+  int max = a;
+  
+  if (b &gt; max) {
+    max = b;
+  }
+  if (c &gt; max) {
+    max = c;
+  }
+  
+  return max;
+}
+
+void main() {
+  int x = 45;
+  int y = 78;
+  int z = 62;
+  
+  int maximum = findMax(x, y, z);
+  print('$x, $y, $z の中で最大値は $maximum です');
+}
+</code></pre>
+<h3 id="3-bool型を返す関数"><a class="header" href="#3-bool型を返す関数">3. bool型を返す関数</a></h3>
+<pre><code class="language-javascript">bool isAdult(int age) {
+  return age &gt;= 20;
+}
+
+bool canEnter(int age, bool hasTicket) {
+  return isAdult(age) &amp;&amp; hasTicket;
+}
+
+void main() {
+  int personAge = 22;
+  bool ticket = true;
+  
+  if (isAdult(personAge)) {
+    print('成人です');
+  } else {
+    print('未成年です');
+  }
+  
+  if (canEnter(personAge, ticket)) {
+    print('入場できます');
+  } else {
+    print('入場できません');
+  }
+}
+</code></pre>
+<h2 id="引数と戻り値の組み合わせ"><a class="header" href="#引数と戻り値の組み合わせ">引数と戻り値の組み合わせ</a></h2>
+<p>実用的なプログラムでは、引数と戻り値を組み合わせて使います：</p>
+<pre><code class="language-javascript">// BMIを計算する関数
+double calculateBMI(double weight, double height) {
+  return weight / (height * height);
+}
+
+// BMIから肥満度を判定する関数
+String getBMICategory(double bmi) {
+  if (bmi &lt; 18.5) {
+    return '低体重';
+  } else if (bmi &lt; 25) {
+    return '普通体重';
+  } else if (bmi &lt; 30) {
+    return '肥満（1度）';
+  } else {
+    return '肥満（2度以上）';
+  }
+}
+
+// 結果を表示する関数
+void printBMIResult(double weight, double height) {
+  double bmi = calculateBMI(weight, height);
+  String category = getBMICategory(bmi);
+  
+  print('体重: ${weight}kg');
+  print('身長: ${height}m');
+  print('BMI: ${bmi.toStringAsFixed(1)}');
+  print('判定: $category');
+}
+
+void main() {
+  double myWeight = 65.0;  // kg
+  double myHeight = 1.70;  // m
+  
+  printBMIResult(myWeight, myHeight);
+}
+</code></pre>
+<h2 id="関数の戻り値を直接使う"><a class="header" href="#関数の戻り値を直接使う">関数の戻り値を直接使う</a></h2>
+<p>戻り値は変数に保存せずに、直接使うこともできます：</p>
+<pre><code class="language-javascript">int square(int n) {
+  return n * n;
+}
+
+void main() {
+  // 変数に保存する方法
+  int result = square(5);
+  print(result);
+  
+  // 直接使う方法
+  print(square(5));
+  
+  // 計算式の中で使う
+  int sum = square(3) + square(4);  // 3² + 4² = 9 + 16
+  print('3² + 4² = $sum');
+}
+</code></pre>
+<h2 id="よくあるエラーと注意点"><a class="header" href="#よくあるエラーと注意点">よくあるエラーと注意点</a></h2>
+<h3 id="1-戻り値の型が一致しない"><a class="header" href="#1-戻り値の型が一致しない">1. 戻り値の型が一致しない</a></h3>
+<pre><code class="language-javascript">// エラー：int型を返すと宣言したのにString型を返している
+int getValue() {
+  return "Hello";  // エラー！
+}
+</code></pre>
+<h3 id="2-returnを忘れる"><a class="header" href="#2-returnを忘れる">2. returnを忘れる</a></h3>
+<pre><code class="language-javascript">// エラー：戻り値があるのにreturnがない
+int calculate(int x) {
+  int result = x * 2;
+  // return result; を忘れている！
+}
+</code></pre>
+<h3 id="3-引数の数が一致しない"><a class="header" href="#3-引数の数が一致しない">3. 引数の数が一致しない</a></h3>
+<pre><code class="language-javascript">void showInfo(String name, int age) {
+  print('$name: $age歳');
+}
+
+void main() {
+  showInfo('太郎');  // エラー！引数が足りない
+  showInfo('太郎', 20, 'A型');  // エラー！引数が多い
+}
+</code></pre>
+<h2 id="まとめ-31"><a class="header" href="#まとめ-31">まとめ</a></h2>
+<p>引数と戻り値により、関数はより柔軟で再利用可能になります：</p>
+<ul>
+<li><strong>引数</strong>：関数に値を渡す仕組み</li>
+<li><strong>戻り値</strong>：関数から結果を返す仕組み</li>
+<li>引数は複数指定できる</li>
+<li>戻り値は1つだけ（ただし、その型は自由）</li>
+<li><code>return</code>文で値を返す</li>
+</ul>
+<p>次のセクションでは、変数のスコープ（有効範囲）について学びます。</p>
+<h3 id="練習問題-23"><a class="header" href="#練習問題-23">練習問題</a></h3>
+<ol>
+<li>2つの数値を受け取り、大きい方を返す関数 <code>getMax(int a, int b)</code> を作成してください。</li>
+<li>円の半径を受け取り、面積を返す関数 <code>calculateCircleArea(double radius)</code> を作成してください（π = 3.14159）。</li>
+<li>点数を受け取り、合格（60点以上）かどうかを判定する関数 <code>isPassed(int score)</code> を作成してください。</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="変数のスコープ有効範囲"><a class="header" href="#変数のスコープ有効範囲">変数のスコープ（有効範囲）</a></h1>
+<p>関数を使い始めると、変数がどこで使えるか、どこで使えないかが重要になってきます。この「変数が使える範囲」のことをスコープ（有効範囲）と呼びます。</p>
+<h2 id="スコープとは"><a class="header" href="#スコープとは">スコープとは</a></h2>
+<p>スコープは、変数が参照できる範囲のことです。変数は定義された場所によって、使える範囲が決まります。</p>
+<h3 id="基本的な例-3"><a class="header" href="#基本的な例-3">基本的な例</a></h3>
+<pre><code class="language-javascript">void main() {
+  int x = 10;  // main関数内で定義
+  print(x);    // OK: xはここで使える
+}
+
+void anotherFunction() {
+  // print(x);  // エラー！xはここでは使えない
+}
+</code></pre>
+<h2 id="ローカル変数とグローバル変数"><a class="header" href="#ローカル変数とグローバル変数">ローカル変数とグローバル変数</a></h2>
+<h3 id="ローカル変数"><a class="header" href="#ローカル変数">ローカル変数</a></h3>
+<p>関数の中で定義された変数を「ローカル変数」と呼びます。その関数の中でのみ使えます。</p>
+<pre><code class="language-javascript">void calculateSum() {
+  int a = 5;      // ローカル変数
+  int b = 3;      // ローカル変数
+  int sum = a + b;  // ローカル変数
+  print('合計: $sum');
+}
+
+void main() {
+  calculateSum();
+  // print(sum);  // エラー！sumはcalculateSum関数のローカル変数
+}
+</code></pre>
+<h3 id="トップレベル変数グローバル変数"><a class="header" href="#トップレベル変数グローバル変数">トップレベル変数（グローバル変数）</a></h3>
+<p>関数の外で定義された変数は、プログラム全体で使えます。</p>
+<pre><code class="language-javascript">// トップレベル変数（グローバル変数）
+String appName = 'My Calculator';
+int counter = 0;
+
+void showAppInfo() {
+  print('アプリ名: $appName');  // OK: グローバル変数は使える
+  print('カウンター: $counter');
+}
+
+void incrementCounter() {
+  counter++;  // グローバル変数を変更
+}
+
+void main() {
+  showAppInfo();
+  incrementCounter();
+  incrementCounter();
+  print('最終カウンター: $counter');  // 2
+}
+</code></pre>
+<h2 id="ブロックスコープ"><a class="header" href="#ブロックスコープ">ブロックスコープ</a></h2>
+<p>波括弧 <code>{}</code> で囲まれた部分（ブロック）にも独自のスコープがあります。</p>
+<pre><code class="language-javascript">void main() {
+  int x = 10;
+  
+  if (x &gt; 5) {
+    int y = 20;  // if文のブロック内で定義
+    print('x = $x');  // OK: xは外側で定義されている
+    print('y = $y');  // OK: yはこのブロック内で使える
+  }
+  
+  // print(y);  // エラー！yはif文の外では使えない
+  
+  for (int i = 0; i &lt; 3; i++) {
+    print('i = $i');  // OK: iはfor文のブロック内で使える
+  }
+  
+  // print(i);  // エラー！iはfor文の外では使えない
+}
+</code></pre>
+<h2 id="引数のスコープ"><a class="header" href="#引数のスコープ">引数のスコープ</a></h2>
+<p>関数の引数も、その関数内でのみ有効なローカル変数として扱われます。</p>
+<pre><code class="language-javascript">void greet(String name) {  // nameは引数
+  print('こんにちは、$nameさん！');
+  // nameはこの関数内でのみ使える
+}
+
+void farewell() {
+  // print(name);  // エラー！nameはgreet関数の引数
+}
+
+void main() {
+  greet('太郎');
+  // print(name);  // エラー！nameはここでは使えない
+}
+</code></pre>
+<h2 id="同じ名前の変数シャドーイング"><a class="header" href="#同じ名前の変数シャドーイング">同じ名前の変数（シャドーイング）</a></h2>
+<p>異なるスコープでは、同じ名前の変数を定義できます。内側のスコープの変数が外側の変数を「隠す」ことをシャドーイングと呼びます。</p>
+<pre><code class="language-javascript">int x = 10;  // グローバル変数
+
+void testShadowing() {
+  print('グローバルx: $x');  // 10
+  
+  int x = 20;  // ローカル変数（グローバル変数を隠す）
+  print('ローカルx: $x');    // 20
+  
+  if (true) {
+    int x = 30;  // さらに内側のローカル変数
+    print('ブロック内x: $x'); // 30
+  }
+  
+  print('関数内x: $x');  // 20（関数内のローカル変数）
+}
+
+void main() {
+  testShadowing();
+  print('main内でのx: $x');  // 10（グローバル変数）
+}
+</code></pre>
+<h2 id="実践的な例-2"><a class="header" href="#実践的な例-2">実践的な例</a></h2>
+<h3 id="1-カウンター機能"><a class="header" href="#1-カウンター機能">1. カウンター機能</a></h3>
+<pre><code class="language-javascript">// グローバルカウンター
+int globalCount = 0;
+
+void incrementGlobal() {
+  globalCount++;
+  print('グローバルカウント: $globalCount');
+}
+
+void localCounterExample() {
+  int localCount = 0;  // ローカルカウンター
+  
+  for (int i = 0; i &lt; 3; i++) {
+    localCount++;
+    print('ローカルカウント: $localCount');
+  }
+  // 関数が終わるとlocalCountは破棄される
+}
+
+void main() {
+  print('=== グローバルカウンター ===');
+  incrementGlobal();  // 1
+  incrementGlobal();  // 2
+  incrementGlobal();  // 3
+  
+  print('\n=== ローカルカウンター ===');
+  localCounterExample();  // 1, 2, 3
+  localCounterExample();  // また1, 2, 3（リセットされる）
+}
+</code></pre>
+<h3 id="2-設定値の管理"><a class="header" href="#2-設定値の管理">2. 設定値の管理</a></h3>
+<pre><code class="language-javascript">// アプリケーション設定（グローバル）
+String language = '日本語';
+bool isDarkMode = false;
+
+void showSettings() {
+  print('=== 現在の設定 ===');
+  print('言語: $language');
+  print('ダークモード: $isDarkMode');
+}
+
+void changeLanguage(String newLang) {
+  String oldLang = language;  // 古い値を保存（ローカル変数）
+  language = newLang;          // グローバル変数を更新
+  print('言語を $oldLang から $newLang に変更しました');
+}
+
+void toggleDarkMode() {
+  isDarkMode = !isDarkMode;
+  String mode = isDarkMode ? 'ON' : 'OFF';  // ローカル変数
+  print('ダークモード: $mode');
+}
+
+void main() {
+  showSettings();
+  changeLanguage('English');
+  toggleDarkMode();
+  showSettings();
+}
+</code></pre>
+<h3 id="3-計算機の履歴機能"><a class="header" href="#3-計算機の履歴機能">3. 計算機の履歴機能</a></h3>
+<pre><code class="language-javascript">// 計算履歴（グローバル）
+List&lt;String&gt; history = [];
+
+double calculate(double a, double b, String operator) {
+  double result;  // ローカル変数
+  
+  switch (operator) {
+    case '+':
+      result = a + b;
+      break;
+    case '-':
+      result = a - b;
+      break;
+    case '*':
+      result = a * b;
+      break;
+    case '/':
+      result = a / b;
+      break;
+    default:
+      result = 0;
+  }
+  
+  // 履歴に追加（グローバル変数を更新）
+  String record = '$a $operator $b = $result';
+  history.add(record);
+  
+  return result;
+}
+
+void showHistory() {
+  print('\n=== 計算履歴 ===');
+  if (history.isEmpty) {
+    print('履歴はありません');
+  } else {
+    for (int i = 0; i &lt; history.length; i++) {
+      print('${i + 1}: ${history[i]}');
+    }
+  }
+}
+
+void main() {
+  calculate(10, 5, '+');
+  calculate(20, 4, '*');
+  calculate(100, 25, '-');
+  
+  showHistory();
+}
+</code></pre>
+<h2 id="スコープのベストプラクティス"><a class="header" href="#スコープのベストプラクティス">スコープのベストプラクティス</a></h2>
+<h3 id="1-必要最小限のスコープを使う"><a class="header" href="#1-必要最小限のスコープを使う">1. 必要最小限のスコープを使う</a></h3>
+<pre><code class="language-javascript">// 良い例：必要な場所でのみ変数を定義
+void processData() {
+  // データ処理
+  for (int i = 0; i &lt; 10; i++) {
+    int squared = i * i;  // ループ内でのみ必要
+    print(squared);
+  }
+}
+
+// 悪い例：不必要に広いスコープ
+void processDataBad() {
+  int i;
+  int squared;  // ループの外で定義する必要はない
+  
+  for (i = 0; i &lt; 10; i++) {
+    squared = i * i;
+    print(squared);
+  }
+}
+</code></pre>
+<h3 id="2-グローバル変数は慎重に使う"><a class="header" href="#2-グローバル変数は慎重に使う">2. グローバル変数は慎重に使う</a></h3>
+<pre><code class="language-javascript">// 定数はグローバルでもOK
+const double TAX_RATE = 0.10;
+const String APP_VERSION = '1.0.0';
+
+// 状態を持つグローバル変数は最小限に
+int userScore = 0;  // 必要な場合のみ
+
+// できるだけ関数の引数と戻り値を使う
+int addScore(int currentScore, int points) {
+  return currentScore + points;
+}
+</code></pre>
+<h2 id="よくあるエラーと対処法-1"><a class="header" href="#よくあるエラーと対処法-1">よくあるエラーと対処法</a></h2>
+<h3 id="1-スコープ外の変数を参照"><a class="header" href="#1-スコープ外の変数を参照">1. スコープ外の変数を参照</a></h3>
+<pre><code class="language-javascript">void function1() {
+  int localVar = 10;
+}
+
+void function2() {
+  // print(localVar);  // エラー！localVarは function1 のローカル変数
+}
+</code></pre>
+<h3 id="2-初期化前の使用"><a class="header" href="#2-初期化前の使用">2. 初期化前の使用</a></h3>
+<pre><code class="language-javascript">void main() {
+  print(x);  // エラー！まだ定義されていない
+  int x = 10;
+}
+</code></pre>
+<h2 id="まとめ-32"><a class="header" href="#まとめ-32">まとめ</a></h2>
+<p>変数のスコープを理解することで、より安全で管理しやすいプログラムが書けます：</p>
+<ul>
+<li><strong>ローカル変数</strong>：関数やブロック内でのみ有効</li>
+<li><strong>グローバル変数</strong>：プログラム全体で有効</li>
+<li><strong>引数</strong>：関数内でのみ有効なローカル変数</li>
+<li><strong>ブロックスコープ</strong>：<code>{}</code> 内でのみ有効</li>
+<li>必要最小限のスコープを使うことが重要</li>
+</ul>
+<p>次のセクションでは、これまで学んだ関数の知識を使って、実践的な電卓プログラムを作成します。</p>
+<h3 id="練習問題-24"><a class="header" href="#練習問題-24">練習問題</a></h3>
+<ol>
+<li>
+<p>以下のコードで、各 print 文の出力を予想してください：</p>
+<pre><code class="language-javascript">int x = 1;
+void test() {
+  int x = 2;
+  if (true) {
+    int x = 3;
+    print(x);
+  }
+  print(x);
+}
+void main() {
+  test();
+  print(x);
+}
+</code></pre>
+</li>
+<li>
+<p>グローバル変数を使わずに、関数間でデータを受け渡す方法を考えてください。</p>
+</li>
+<li>
+<p>なぜグローバル変数の使用は最小限にすべきなのか、理由を説明してください。</p>
+</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="実践電卓プログラムを関数で整理"><a class="header" href="#実践電卓プログラムを関数で整理">実践：電卓プログラムを関数で整理</a></h1>
+<p>これまで学んだ関数の知識を使って、実践的な電卓プログラムを作成しましょう。関数を使うことで、コードが整理され、機能の追加や修正が簡単になります。</p>
+<h2 id="基本的な電卓関数なし"><a class="header" href="#基本的な電卓関数なし">基本的な電卓（関数なし）</a></h2>
+<p>まず、関数を使わない電卓プログラムを見てみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // 計算1
+  double num1 = 10;
+  double num2 = 5;
+  double result1 = num1 + num2;
+  print('$num1 + $num2 = $result1');
+  
+  // 計算2
+  double num3 = 20;
+  double num4 = 4;
+  double result2 = num3 - num4;
+  print('$num3 - $num4 = $result2');
+  
+  // 同じようなコードが続く...
+}
+</code></pre>
+<p>このアプローチの問題点：</p>
+<ul>
+<li>同じようなコードの繰り返し</li>
+<li>新しい計算を追加するたびにコードが長くなる</li>
+<li>エラーが起きやすい</li>
+</ul>
+<h2 id="関数を使った基本的な電卓"><a class="header" href="#関数を使った基本的な電卓">関数を使った基本的な電卓</a></h2>
+<p>関数を使って整理してみましょう：</p>
+<pre><code class="language-javascript">// 足し算を行う関数
+double add(double a, double b) {
+  return a + b;
+}
+
+// 引き算を行う関数
+double subtract(double a, double b) {
+  return a - b;
+}
+
+// 掛け算を行う関数
+double multiply(double a, double b) {
+  return a * b;
+}
+
+// 割り算を行う関数
+double divide(double a, double b) {
+  if (b == 0) {
+    print('エラー: 0で割ることはできません');
+    return 0;
+  }
+  return a / b;
+}
+
+void main() {
+  double x = 10;
+  double y = 5;
+  
+  print('$x + $y = ${add(x, y)}');
+  print('$x - $y = ${subtract(x, y)}');
+  print('$x × $y = ${multiply(x, y)}');
+  print('$x ÷ $y = ${divide(x, y)}');
+}
+</code></pre>
+<h2 id="機能を追加した電卓"><a class="header" href="#機能を追加した電卓">機能を追加した電卓</a></h2>
+<p>さらに機能を追加してみましょう：</p>
+<pre><code class="language-javascript">// 基本的な計算関数
+double add(double a, double b) =&gt; a + b;
+double subtract(double a, double b) =&gt; a - b;
+double multiply(double a, double b) =&gt; a * b;
+double divide(double a, double b) =&gt; b != 0 ? a / b : 0;
+
+// べき乗を計算する関数
+double power(double base, int exponent) {
+  double result = 1;
+  for (int i = 0; i &lt; exponent; i++) {
+    result *= base;
+  }
+  return result;
+}
+
+// 平方根を計算する関数（簡易版）
+double squareRoot(double n) {
+  if (n &lt; 0) {
+    print('エラー: 負の数の平方根は計算できません');
+    return 0;
+  }
+  
+  // バビロニア法による近似計算
+  double x = n;
+  double root;
+  int count = 0;
+  
+  while (true) {
+    count++;
+    root = 0.5 * (x + (n / x));
+    
+    if ((x - root).abs() &lt; 0.00001) {
+      break;
+    }
+    x = root;
+  }
+  
+  return root;
+}
+
+// パーセント計算
+double percentage(double value, double percent) {
+  return value * (percent / 100);
+}
+
+// 計算結果を表示する関数
+void displayResult(String operation, double result) {
+  print('$operation = $result');
+}
+
+void main() {
+  print('=== 高機能電卓 ===\n');
+  
+  double a = 25;
+  double b = 5;
+  
+  // 基本計算
+  displayResult('$a + $b', add(a, b));
+  displayResult('$a - $b', subtract(a, b));
+  displayResult('$a × $b', multiply(a, b));
+  displayResult('$a ÷ $b', divide(a, b));
+  
+  // 高度な計算
+  displayResult('$a の 2乗', power(a, 2));
+  displayResult('√$a', squareRoot(a));
+  displayResult('$a の 20%', percentage(a, 20));
+}
+</code></pre>
+<h2 id="統一的なインターフェースを持つ電卓"><a class="header" href="#統一的なインターフェースを持つ電卓">統一的なインターフェースを持つ電卓</a></h2>
+<p>演算子を文字列で指定できる電卓を作ってみましょう：</p>
+<pre><code class="language-javascript">// 計算履歴を保存するグローバル変数
+List&lt;String&gt; calculationHistory = [];
+
+// 統一的な計算関数
+double calculate(double a, double b, String operator) {
+  double result;
+  
+  switch (operator) {
+    case '+':
+      result = a + b;
+      break;
+    case '-':
+      result = a - b;
+      break;
+    case '*':
+    case '×':
+      result = a * b;
+      break;
+    case '/':
+    case '÷':
+      if (b == 0) {
+        print('エラー: 0で割ることはできません');
+        return double.nan;  // Not a Number
+      }
+      result = a / b;
+      break;
+    case '^':
+      result = power(a, b.toInt());
+      break;
+    case '%':
+      result = a * (b / 100);
+      break;
+    default:
+      print('エラー: 不明な演算子 "$operator"');
+      return double.nan;
+  }
+  
+  // 履歴に追加
+  String record = '$a $operator $b = $result';
+  calculationHistory.add(record);
+  
+  return result;
+}
+
+// べき乗計算（補助関数）
+double power(double base, int exponent) {
+  if (exponent == 0) return 1;
+  
+  double result = 1;
+  for (int i = 0; i &lt; exponent.abs(); i++) {
+    result *= base;
+  }
+  
+  return exponent &lt; 0 ? 1 / result : result;
+}
+
+// 計算履歴を表示する関数
+void showHistory() {
+  print('\n=== 計算履歴 ===');
+  if (calculationHistory.isEmpty) {
+    print('履歴がありません');
+    return;
+  }
+  
+  for (int i = 0; i &lt; calculationHistory.length; i++) {
+    print('${i + 1}. ${calculationHistory[i]}');
+  }
+}
+
+// 履歴をクリアする関数
+void clearHistory() {
+  calculationHistory.clear();
+  print('履歴をクリアしました');
+}
+
+// 複数の計算を連続で行う関数
+void performCalculations(List&lt;Map&lt;String, dynamic&gt;&gt; operations) {
+  print('=== 連続計算 ===');
+  
+  for (var op in operations) {
+    double a = op['a'];
+    double b = op['b'];
+    String operator = op['operator'];
+    
+    double result = calculate(a, b, operator);
+    
+    if (!result.isNaN) {
+      print('$a $operator $b = $result');
+    }
+  }
+}
+
+void main() {
+  print('=== 多機能電卓プログラム ===\n');
+  
+  // 個別の計算
+  calculate(10, 5, '+');
+  calculate(20, 4, '-');
+  calculate(6, 7, '*');
+  calculate(100, 25, '/');
+  calculate(2, 3, '^');
+  calculate(150, 10, '%');
+  
+  // 履歴表示
+  showHistory();
+  
+  // 連続計算
+  print('\n');
+  List&lt;Map&lt;String, dynamic&gt;&gt; calculations = [
+    {'a': 100, 'b': 50, 'operator': '+'},
+    {'a': 75, 'b': 25, 'operator': '-'},
+    {'a': 12, 'b': 12, 'operator': '×'},
+    {'a': 144, 'b': 12, 'operator': '÷'},
+  ];
+  
+  performCalculations(calculations);
+}
+</code></pre>
+<h2 id="メモリ機能付き電卓"><a class="header" href="#メモリ機能付き電卓">メモリ機能付き電卓</a></h2>
+<p>実際の電卓のようにメモリ機能を追加してみましょう：</p>
+<pre><code class="language-javascript">// メモリ変数（グローバル）
+double memory = 0;
+
+// メモリ操作関数
+void memoryClear() {
+  memory = 0;
+  print('メモリをクリアしました (M = 0)');
+}
+
+void memoryStore(double value) {
+  memory = value;
+  print('メモリに保存しました (M = $value)');
+}
+
+void memoryAdd(double value) {
+  memory += value;
+  print('メモリに加算しました (M = $memory)');
+}
+
+void memorySubtract(double value) {
+  memory -= value;
+  print('メモリから減算しました (M = $memory)');
+}
+
+double memoryRecall() {
+  print('メモリから呼び出し (M = $memory)');
+  return memory;
+}
+
+// 表示を整形する関数
+void displayCalculation(String expression, double result) {
+  print('$expression = ${result.toStringAsFixed(2)}');
+}
+
+// 税込み計算
+double calculateTax(double price, double taxRate) {
+  return price * (1 + taxRate / 100);
+}
+
+// 割引計算
+double calculateDiscount(double price, double discountPercent) {
+  return price * (1 - discountPercent / 100);
+}
+
+void main() {
+  print('=== メモリ機能付き電卓 ===\n');
+  
+  // 基本計算とメモリ操作
+  double result1 = calculate(100, 50, '+');
+  displayCalculation('100 + 50', result1);
+  memoryStore(result1);  // 150をメモリに保存
+  
+  double result2 = calculate(200, 30, '-');
+  displayCalculation('200 - 30', result2);
+  memoryAdd(result2);  // メモリに170を加算（M = 320）
+  
+  // メモリの値を使った計算
+  double memValue = memoryRecall();
+  double result3 = calculate(memValue, 2, '/');
+  displayCalculation('$memValue ÷ 2', result3);
+  
+  print('\n=== 実用的な計算 ===');
+  
+  // 税込み価格計算
+  double price = 1000;
+  double taxRate = 10;  // 10%
+  double priceWithTax = calculateTax(price, taxRate);
+  print('税抜価格: ¥$price');
+  print('税率: $taxRate%');
+  print('税込価格: ¥${priceWithTax.toStringAsFixed(0)}');
+  
+  print('');
+  
+  // 割引計算
+  double originalPrice = 5000;
+  double discount = 20;  // 20%割引
+  double discountedPrice = calculateDiscount(originalPrice, discount);
+  print('定価: ¥$originalPrice');
+  print('割引率: $discount%');
+  print('割引後: ¥${discountedPrice.toStringAsFixed(0)}');
+  
+  // メモリクリア
+  print('\n');
+  memoryClear();
+}
+</code></pre>
+<h2 id="エラー処理を強化した電卓"><a class="header" href="#エラー処理を強化した電卓">エラー処理を強化した電卓</a></h2>
+<p>より堅牢な電卓を作ってみましょう：</p>
+<pre><code class="language-javascript">// 計算結果を表すクラス（簡易版）
+class CalculationResult {
+  final double? value;
+  final String? error;
+  final bool success;
+  
+  CalculationResult.success(this.value) : error = null, success = true;
+  CalculationResult.failure(this.error) : value = null, success = false;
+}
+
+// 安全な計算関数
+CalculationResult safeCalculate(double a, double b, String operator) {
+  try {
+    switch (operator) {
+      case '+':
+        return CalculationResult.success(a + b);
+      case '-':
+        return CalculationResult.success(a - b);
+      case '*':
+        return CalculationResult.success(a * b);
+      case '/':
+        if (b == 0) {
+          return CalculationResult.failure('ゼロ除算エラー');
+        }
+        return CalculationResult.success(a / b);
+      case '^':
+        if (b != b.toInt()) {
+          return CalculationResult.failure('指数は整数である必要があります');
+        }
+        return CalculationResult.success(power(a, b.toInt()));
+      default:
+        return CalculationResult.failure('不明な演算子: $operator');
+    }
+  } catch (e) {
+    return CalculationResult.failure('計算エラー: $e');
+  }
+}
+
+// 計算を実行して結果を表示する関数
+void executeCalculation(double a, double b, String operator) {
+  CalculationResult result = safeCalculate(a, b, operator);
+  
+  if (result.success) {
+    print('$a $operator $b = ${result.value}');
+  } else {
+    print('エラー: ${result.error}');
+  }
+}
+
+// 数式を評価する関数（簡易版）
+void evaluateExpression(String expression) {
+  print('\n式: $expression');
+  
+  // 簡単な数式パーサー（実際にはもっと複雑）
+  List&lt;String&gt; parts = expression.split(' ');
+  if (parts.length != 3) {
+    print('エラー: 式の形式が正しくありません');
+    return;
+  }
+  
+  try {
+    double a = double.parse(parts[0]);
+    String operator = parts[1];
+    double b = double.parse(parts[2]);
+    
+    executeCalculation(a, b, operator);
+  } catch (e) {
+    print('エラー: 数値の解析に失敗しました');
+  }
+}
+
+void main() {
+  print('=== エラー処理強化版電卓 ===\n');
+  
+  // 正常な計算
+  executeCalculation(10, 5, '+');
+  executeCalculation(20, 4, '*');
+  executeCalculation(100, 25, '/');
+  
+  // エラーが発生する計算
+  print('\n--- エラーケース ---');
+  executeCalculation(10, 0, '/');      // ゼロ除算
+  executeCalculation(5, 2.5, '^');     // 小数の指数
+  executeCalculation(10, 5, '&amp;');      // 不明な演算子
+  
+  // 数式の評価
+  print('\n--- 数式評価 ---');
+  evaluateExpression('15 + 25');
+  evaluateExpression('100 / 20');
+  evaluateExpression('50 - 30');
+  evaluateExpression('12 × 3');       // エラー（×は認識されない）
+}
+</code></pre>
+<h2 id="まとめ-33"><a class="header" href="#まとめ-33">まとめ</a></h2>
+<p>関数を使うことで、電卓プログラムが以下のように改善されました：</p>
+<ol>
+<li><strong>コードの整理</strong>：各機能が独立した関数になり、読みやすい</li>
+<li><strong>再利用性</strong>：同じ計算を何度でも簡単に実行できる</li>
+<li><strong>拡張性</strong>：新しい機能を追加しやすい</li>
+<li><strong>保守性</strong>：バグの修正や機能の改良が簡単</li>
+<li><strong>エラー処理</strong>：各機能でエラーを適切に処理できる</li>
+</ol>
+<p>関数は、プログラムを構造化し、管理しやすくするための重要なツールです。</p>
+<h3 id="練習問題-25"><a class="header" href="#練習問題-25">練習問題</a></h3>
+<ol>
+<li>階乗を計算する関数 <code>factorial(int n)</code> を追加してください。</li>
+<li>最大公約数を求める関数 <code>gcd(int a, int b)</code> を追加してください。</li>
+<li>計算履歴から特定の演算子の計算だけを表示する関数を作成してください。</li>
+</ol>
+<h3 id="チャレンジ問題-3"><a class="header" href="#チャレンジ問題-3">チャレンジ問題</a></h3>
+<p>以下の機能を持つ「科学電卓」を作成してください：</p>
+<ul>
+<li>三角関数（sin、cos、tan）の計算（角度は度数法）</li>
+<li>対数計算（底10）</li>
+<li>定数（π、e）を使った計算</li>
+<li>計算結果の単位変換（例：メートル→フィート）</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第10章関数の活用"><a class="header" href="#第10章関数の活用">第10章：関数の活用</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="複数の引数を持つ関数"><a class="header" href="#複数の引数を持つ関数">複数の引数を持つ関数</a></h1>
+<p>これまで、引数を1つだけ持つ関数を学んできました。しかし、実際のプログラミングでは、複数の情報を関数に渡したいことがよくあります。この節では、複数の引数を持つ関数の作り方と使い方を学びましょう。</p>
+<h2 id="複数の引数の基本"><a class="header" href="#複数の引数の基本">複数の引数の基本</a></h2>
+<p>関数は、カンマで区切ることで複数の引数を受け取ることができます。</p>
+<pre><code class="language-javascript">// 2つの数値を足し算する関数
+int add(int a, int b) {
+  return a + b;
+}
+
+void main() {
+  int result = add(3, 5);
+  print(result);  // 8
+}
+</code></pre>
+<h2 id="異なる型の引数を組み合わせる"><a class="header" href="#異なる型の引数を組み合わせる">異なる型の引数を組み合わせる</a></h2>
+<p>引数は異なる型を混在させることもできます。</p>
+<pre><code class="language-javascript">// 名前と年齢を受け取って挨拶を返す関数
+String greeting(String name, int age) {
+  return '$nameさん、$age歳ですね！';
+}
+
+void main() {
+  String message = greeting('太郎', 15);
+  print(message);  // 太郎さん、15歳ですね！
+}
+</code></pre>
+<h2 id="3つ以上の引数"><a class="header" href="#3つ以上の引数">3つ以上の引数</a></h2>
+<p>必要に応じて、3つ以上の引数を持つこともできます。</p>
+<pre><code class="language-javascript">// 長方形の体積を計算する関数
+double calculateVolume(double length, double width, double height) {
+  return length * width * height;
+}
+
+void main() {
+  double volume = calculateVolume(10.0, 5.0, 3.0);
+  print('体積は$volume立方センチメートルです');  // 体積は150.0立方センチメートルです
+}
+</code></pre>
+<h2 id="引数の順序の重要性"><a class="header" href="#引数の順序の重要性">引数の順序の重要性</a></h2>
+<p>複数の引数を持つ関数を呼び出すときは、引数の順序が重要です。</p>
+<pre><code class="language-javascript">// 引き算をする関数
+int subtract(int a, int b) {
+  return a - b;
+}
+
+void main() {
+  print(subtract(10, 3));  // 7
+  print(subtract(3, 10));  // -7（順序が違うと結果も変わる）
+}
+</code></pre>
+<h2 id="実践例bmi計算機"><a class="header" href="#実践例bmi計算機">実践例：BMI計算機</a></h2>
+<p>身長と体重からBMI（体格指数）を計算する関数を作ってみましょう。</p>
+<pre><code class="language-javascript">// BMIを計算する関数
+double calculateBMI(double height, double weight) {
+  // 身長をメートルに変換（入力はcm）
+  double heightInMeters = height / 100;
+  // BMI = 体重(kg) / 身長(m)の2乗
+  return weight / (heightInMeters * heightInMeters);
+}
+
+// BMIの判定をする関数
+String judgeBMI(double bmi) {
+  if (bmi &lt; 18.5) {
+    return '低体重';
+  } else if (bmi &lt; 25) {
+    return '普通体重';
+  } else if (bmi &lt; 30) {
+    return '肥満（1度）';
+  } else {
+    return '肥満（2度以上）';
+  }
+}
+
+void main() {
+  double height = 170.0;  // cm
+  double weight = 65.0;   // kg
+  
+  double bmi = calculateBMI(height, weight);
+  String judgment = judgeBMI(bmi);
+  
+  print('身長${height}cm、体重${weight}kgの場合');
+  print('BMI: ${bmi.toStringAsFixed(1)}');
+  print('判定: $judgment');
+}
+</code></pre>
+<h2 id="練習問題-26"><a class="header" href="#練習問題-26">練習問題</a></h2>
+<ol>
+<li>3つの数値を受け取って、その平均値を返す関数を作ってください。</li>
+</ol>
+<pre><code class="language-javascript">double average(double a, double b, double c) {
+  // ここにコードを書いてください
+}
+
+void main() {
+  print(average(10, 20, 30));  // 20.0 と表示されるはず
+}
+</code></pre>
+<ol start="2">
+<li>商品の価格と個数を受け取って、合計金額を計算する関数を作ってください。</li>
+</ol>
+<pre><code class="language-javascript">int calculateTotal(int price, int quantity) {
+  // ここにコードを書いてください
+}
+
+void main() {
+  int total = calculateTotal(100, 3);
+  print('合計: $total円');  // 合計: 300円 と表示されるはず
+}
+</code></pre>
+<h2 id="まとめ-34"><a class="header" href="#まとめ-34">まとめ</a></h2>
+<ul>
+<li>関数は複数の引数をカンマで区切って受け取ることができる</li>
+<li>引数は異なる型を混在させることができる</li>
+<li>引数の順序は重要で、呼び出し時も定義時と同じ順序で渡す必要がある</li>
+<li>複数の引数を使うことで、より柔軟で再利用可能な関数を作ることができる</li>
+</ul>
+<p>次の節では、オプション引数とデフォルト値について学びます。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="オプション引数とデフォルト値"><a class="header" href="#オプション引数とデフォルト値">オプション引数とデフォルト値</a></h1>
+<p>前節では複数の引数を持つ関数を学びました。しかし、すべての引数を毎回指定するのは面倒な場合があります。Dartでは、引数にデフォルト値を設定することで、オプション引数を作ることができます。</p>
+<h2 id="位置引数のデフォルト値"><a class="header" href="#位置引数のデフォルト値">位置引数のデフォルト値</a></h2>
+<p>角括弧 <code>[]</code> を使って、位置引数にデフォルト値を設定できます。</p>
+<pre><code class="language-javascript">// 挨拶をする関数（時間帯はオプション）
+String greet(String name, [String time = 'こんにちは']) {
+  return '$time、$nameさん！';
+}
+
+void main() {
+  print(greet('太郎'));           // こんにちは、太郎さん！
+  print(greet('花子', 'おはよう')); // おはよう、花子さん！
+}
+</code></pre>
+<h2 id="複数のオプション引数"><a class="header" href="#複数のオプション引数">複数のオプション引数</a></h2>
+<p>複数のオプション引数を設定することもできます。</p>
+<pre><code class="language-javascript">// 自己紹介文を作る関数
+String introduce(String name, [int age = 0, String hobby = '読書']) {
+  if (age == 0) {
+    return '私は$nameです。趣味は$hobbyです。';
+  } else {
+    return '私は$nameです。$age歳です。趣味は$hobbyです。';
+  }
+}
+
+void main() {
+  print(introduce('太郎'));                    // 私は太郎です。趣味は読書です。
+  print(introduce('花子', 15));                // 私は花子です。15歳です。趣味は読書です。
+  print(introduce('次郎', 17, 'サッカー'));      // 私は次郎です。17歳です。趣味はサッカーです。
+}
+</code></pre>
+<h2 id="名前付き引数"><a class="header" href="#名前付き引数">名前付き引数</a></h2>
+<p>波括弧 <code>{}</code> を使って、名前付き引数を作ることができます。名前付き引数は順序を気にせずに指定できます。</p>
+<pre><code class="language-javascript">// 長方形を描画する関数
+void drawRectangle({int width = 10, int height = 5, String char = '*'}) {
+  for (int i = 0; i &lt; height; i++) {
+    print(char * width);
+  }
+}
+
+void main() {
+  print('デフォルトの長方形:');
+  drawRectangle();
+  
+  print('\n幅20の長方形:');
+  drawRectangle(width: 20);
+  
+  print('\n高さ3、文字#の長方形:');
+  drawRectangle(height: 3, char: '#');
+}
+</code></pre>
+<h2 id="必須の名前付き引数"><a class="header" href="#必須の名前付き引数">必須の名前付き引数</a></h2>
+<p><code>required</code> キーワードを使って、名前付き引数を必須にすることができます。</p>
+<pre><code class="language-javascript">// ユーザー情報を登録する関数
+void registerUser({
+  required String name,
+  required String email,
+  int age = 0,
+  String country = '日本'
+}) {
+  print('=== ユーザー登録情報 ===');
+  print('名前: $name');
+  print('メール: $email');
+  print('年齢: ${age == 0 ? "未設定" : age}');
+  print('国: $country');
+}
+
+void main() {
+  // nameとemailは必須
+  registerUser(name: '山田太郎', email: 'yamada@example.com');
+  
+  // すべての引数を指定
+  registerUser(
+    name: '鈴木花子',
+    email: 'suzuki@example.com',
+    age: 25,
+    country: 'アメリカ'
+  );
+}
+</code></pre>
+<h2 id="実践例カスタマイズ可能な電卓"><a class="header" href="#実践例カスタマイズ可能な電卓">実践例：カスタマイズ可能な電卓</a></h2>
+<p>オプション引数を活用した電卓プログラムを作ってみましょう。</p>
+<pre><code class="language-javascript">// 計算結果を表示する関数
+void calculate({
+  required double a,
+  required double b,
+  String operation = '+',
+  bool showProcess = false
+}) {
+  double result;
+  String processText = '';
+  
+  switch (operation) {
+    case '+':
+      result = a + b;
+      processText = '$a + $b = $result';
+      break;
+    case '-':
+      result = a - b;
+      processText = '$a - $b = $result';
+      break;
+    case '*':
+      result = a * b;
+      processText = '$a × $b = $result';
+      break;
+    case '/':
+      if (b != 0) {
+        result = a / b;
+        processText = '$a ÷ $b = $result';
+      } else {
+        print('エラー: 0で割ることはできません');
+        return;
+      }
+      break;
+    default:
+      print('エラー: 無効な演算子です');
+      return;
+  }
+  
+  if (showProcess) {
+    print(processText);
+  } else {
+    print(result);
+  }
+}
+
+void main() {
+  // 基本的な使い方（デフォルトは足し算）
+  calculate(a: 10, b: 5);  // 15
+  
+  // 引き算を指定
+  calculate(a: 10, b: 5, operation: '-');  // 5
+  
+  // 計算過程も表示
+  calculate(a: 10, b: 5, operation: '*', showProcess: true);  // 10 × 5 = 50
+  
+  // 割り算の計算過程を表示
+  calculate(a: 20, b: 4, operation: '/', showProcess: true);  // 20 ÷ 4 = 5.0
+}
+</code></pre>
+<h2 id="練習問題-27"><a class="header" href="#練習問題-27">練習問題</a></h2>
+<ol>
+<li>文字列を装飾する関数を作ってください。デフォルトでは <code>*</code> で囲みます。</li>
+</ol>
+<pre><code class="language-javascript">String decorate(String text, [String decorator = '*']) {
+  // ここにコードを書いてください
+  // 例: decorate('Hello') =&gt; '*Hello*'
+}
+
+void main() {
+  print(decorate('Hello'));      // *Hello*
+  print(decorate('World', '#')); // #World#
+}
+</code></pre>
+<ol start="2">
+<li>名前付き引数を使って、カスタマイズ可能なメッセージ表示関数を作ってください。</li>
+</ol>
+<pre><code class="language-javascript">void showMessage({
+  required String message,
+  String prefix = '[INFO]',
+  bool showTime = false
+}) {
+  // ここにコードを書いてください
+  // showTimeがtrueの場合は現在時刻も表示
+}
+
+void main() {
+  showMessage(message: 'プログラムを開始しました');
+  showMessage(message: 'エラーが発生しました', prefix: '[ERROR]');
+  showMessage(message: '処理が完了しました', showTime: true);
+}
+</code></pre>
+<h2 id="まとめ-35"><a class="header" href="#まとめ-35">まとめ</a></h2>
+<ul>
+<li>角括弧 <code>[]</code> で位置引数のデフォルト値を設定できる</li>
+<li>波括弧 <code>{}</code> で名前付き引数を作ることができる</li>
+<li>名前付き引数は順序を気にせずに指定できる</li>
+<li><code>required</code> キーワードで名前付き引数を必須にできる</li>
+<li>オプション引数を使うことで、関数をより柔軟に使えるようになる</li>
+</ul>
+<p>次の節では、関数を使ったプログラムの設計方法について学びます。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="関数を使ったプログラムの設計"><a class="header" href="#関数を使ったプログラムの設計">関数を使ったプログラムの設計</a></h1>
+<p>これまで関数の作り方や使い方を学んできました。この節では、関数を使ってプログラムをどのように設計すればよいかを学びます。よい設計は、プログラムを読みやすく、修正しやすくします。</p>
+<h2 id="関数設計の基本原則"><a class="header" href="#関数設計の基本原則">関数設計の基本原則</a></h2>
+<h3 id="1-単一責任の原則"><a class="header" href="#1-単一責任の原則">1. 単一責任の原則</a></h3>
+<p>一つの関数は一つのことだけを行うべきです。</p>
+<pre><code class="language-javascript">// 悪い例：複数のことを行う関数
+void processUserData(String name, int age) {
+  // 入力チェック
+  if (name.isEmpty || age &lt; 0) {
+    print('エラー: 無効なデータです');
+    return;
+  }
+  // データ処理
+  String upperName = name.toUpperCase();
+  int nextAge = age + 1;
+  // 結果表示
+  print('名前: $upperName');
+  print('来年の年齢: $nextAge');
+}
+
+// 良い例：それぞれの責任を分離
+bool isValidUserData(String name, int age) {
+  return name.isNotEmpty &amp;&amp; age &gt;= 0;
+}
+
+String formatName(String name) {
+  return name.toUpperCase();
+}
+
+int calculateNextAge(int age) {
+  return age + 1;
+}
+
+void displayUserInfo(String name, int nextAge) {
+  print('名前: $name');
+  print('来年の年齢: $nextAge');
+}
+
+void main() {
+  String name = '太郎';
+  int age = 15;
+  
+  if (isValidUserData(name, age)) {
+    String formattedName = formatName(name);
+    int nextAge = calculateNextAge(age);
+    displayUserInfo(formattedName, nextAge);
+  } else {
+    print('エラー: 無効なデータです');
+  }
+}
+</code></pre>
+<h3 id="2-わかりやすい関数名"><a class="header" href="#2-わかりやすい関数名">2. わかりやすい関数名</a></h3>
+<p>関数名は、その関数が何をするかを明確に表すべきです。</p>
+<pre><code class="language-javascript">// 悪い例：何をする関数かわからない
+double calc(double a, double b) {
+  return a * b * 0.5;
+}
+
+// 良い例：三角形の面積を計算することが明確
+double calculateTriangleArea(double base, double height) {
+  return base * height * 0.5;
+}
+</code></pre>
+<h3 id="3-適切な関数の粒度"><a class="header" href="#3-適切な関数の粒度">3. 適切な関数の粒度</a></h3>
+<p>関数は小さすぎても大きすぎても使いにくくなります。</p>
+<pre><code class="language-javascript">// 成績評価システムの例
+String evaluateGrade(int score) {
+  if (score &gt;= 90) return 'A';
+  if (score &gt;= 80) return 'B';
+  if (score &gt;= 70) return 'C';
+  if (score &gt;= 60) return 'D';
+  return 'F';
+}
+
+String getGradeMessage(String grade) {
+  switch (grade) {
+    case 'A': return '優秀です！';
+    case 'B': return 'よくできました！';
+    case 'C': return '合格です';
+    case 'D': return 'もう少し頑張りましょう';
+    default: return '再試験が必要です';
+  }
+}
+
+void processStudentScore(String name, int score) {
+  String grade = evaluateGrade(score);
+  String message = getGradeMessage(grade);
+  print('$nameさん: $score点 ($grade) - $message');
+}
+</code></pre>
+<h2 id="プログラムの構造化"><a class="header" href="#プログラムの構造化">プログラムの構造化</a></h2>
+<p>大きなプログラムを関数で構造化する例を見てみましょう。</p>
+<pre><code class="language-javascript">// 簡単な在庫管理システム
+Map&lt;String, int&gt; inventory = {};
+
+// 商品を追加する関数
+void addProduct(String product, int quantity) {
+  if (inventory.containsKey(product)) {
+    inventory[product] = inventory[product]! + quantity;
+  } else {
+    inventory[product] = quantity;
+  }
+  print('$productを$quantity個追加しました');
+}
+
+// 商品を販売する関数
+bool sellProduct(String product, int quantity) {
+  if (!inventory.containsKey(product)) {
+    print('エラー: $productは在庫にありません');
+    return false;
+  }
+  
+  if (inventory[product]! &lt; quantity) {
+    print('エラー: $productの在庫が不足しています（在庫: ${inventory[product]}個）');
+    return false;
+  }
+  
+  inventory[product] = inventory[product]! - quantity;
+  print('$productを$quantity個販売しました');
+  return true;
+}
+
+// 在庫を表示する関数
+void displayInventory() {
+  print('\n=== 在庫一覧 ===');
+  if (inventory.isEmpty) {
+    print('在庫がありません');
+  } else {
+    inventory.forEach((product, quantity) {
+      print('$product: $quantity個');
+    });
+  }
+  print('================\n');
+}
+
+// メニューを表示する関数
+void showMenu() {
+  print('1. 商品を追加');
+  print('2. 商品を販売');
+  print('3. 在庫を表示');
+  print('4. 終了');
+  print('選択してください: ');
+}
+
+// メイン処理
+void main() {
+  // デモ用の初期在庫
+  addProduct('りんご', 50);
+  addProduct('みかん', 30);
+  addProduct('バナナ', 20);
+  
+  displayInventory();
+  
+  // 販売のテスト
+  sellProduct('りんご', 10);
+  sellProduct('みかん', 5);
+  sellProduct('ぶどう', 10);  // 在庫にない商品
+  
+  displayInventory();
+  
+  // さらに商品を追加
+  addProduct('りんご', 20);
+  addProduct('ぶどう', 15);
+  
+  displayInventory();
+}
+</code></pre>
+<h2 id="関数の再利用性を高める"><a class="header" href="#関数の再利用性を高める">関数の再利用性を高める</a></h2>
+<p>汎用的な関数を作ることで、様々な場面で再利用できます。</p>
+<pre><code class="language-javascript">// 汎用的な統計関数
+double calculateAverage(List&lt;double&gt; numbers) {
+  if (numbers.isEmpty) return 0;
+  double sum = 0;
+  for (double num in numbers) {
+    sum += num;
+  }
+  return sum / numbers.length;
+}
+
+double findMaximum(List&lt;double&gt; numbers) {
+  if (numbers.isEmpty) return 0;
+  double max = numbers[0];
+  for (double num in numbers) {
+    if (num &gt; max) max = num;
+  }
+  return max;
+}
+
+double findMinimum(List&lt;double&gt; numbers) {
+  if (numbers.isEmpty) return 0;
+  double min = numbers[0];
+  for (double num in numbers) {
+    if (num &lt; min) min = num;
+  }
+  return min;
+}
+
+// 成績分析に使用
+void analyzeTestScores() {
+  List&lt;double&gt; scores = [85.5, 92.0, 78.5, 88.0, 95.5];
+  
+  print('=== テストの成績分析 ===');
+  print('平均点: ${calculateAverage(scores).toStringAsFixed(1)}点');
+  print('最高点: ${findMaximum(scores)}点');
+  print('最低点: ${findMinimum(scores)}点');
+}
+
+// 温度分析に使用
+void analyzeTemperatures() {
+  List&lt;double&gt; temperatures = [28.5, 30.2, 29.8, 31.5, 27.9];
+  
+  print('\n=== 今週の気温分析 ===');
+  print('平均気温: ${calculateAverage(temperatures).toStringAsFixed(1)}°C');
+  print('最高気温: ${findMaximum(temperatures)}°C');
+  print('最低気温: ${findMinimum(temperatures)}°C');
+}
+
+void main() {
+  analyzeTestScores();
+  analyzeTemperatures();
+}
+</code></pre>
+<h2 id="練習問題-28"><a class="header" href="#練習問題-28">練習問題</a></h2>
+<ol>
+<li>以下の処理を適切な関数に分割してください。</li>
+</ol>
+<pre><code class="language-javascript">void main() {
+  // この処理を複数の関数に分割してください
+  String text = 'Hello World';
+  int vowelCount = 0;
+  int consonantCount = 0;
+  
+  for (int i = 0; i &lt; text.length; i++) {
+    String char = text[i].toLowerCase();
+    if (char == 'a' || char == 'e' || char == 'i' || 
+        char == 'o' || char == 'u') {
+      vowelCount++;
+    } else if (char != ' ') {
+      consonantCount++;
+    }
+  }
+  
+  print('母音の数: $vowelCount');
+  print('子音の数: $consonantCount');
+}
+</code></pre>
+<h2 id="まとめ-36"><a class="header" href="#まとめ-36">まとめ</a></h2>
+<ul>
+<li>一つの関数は一つの責任を持つべき（単一責任の原則）</li>
+<li>関数名は何をするかを明確に表すべき</li>
+<li>適切な粒度で関数を分割する</li>
+<li>汎用的な関数を作ることで再利用性を高める</li>
+<li>プログラム全体を関数で構造化することで、理解しやすく保守しやすいコードになる</li>
+</ul>
+<p>次の節では、これまで学んだ知識を活用して、じゃんけんゲームを作ります。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="実践じゃんけんゲームを作る"><a class="header" href="#実践じゃんけんゲームを作る">実践：じゃんけんゲームを作る</a></h1>
+<p>この節では、これまで学んだ関数の知識を活用して、コンピュータと対戦できるじゃんけんゲームを作ります。段階的に機能を追加していき、最終的には完全なゲームを完成させます。</p>
+<h2 id="ステップ1基本的なじゃんけんの判定"><a class="header" href="#ステップ1基本的なじゃんけんの判定">ステップ1：基本的なじゃんけんの判定</a></h2>
+<p>まず、じゃんけんの勝敗を判定する関数を作りましょう。</p>
+<pre><code class="language-javascript">// じゃんけんの手を数値で表現
+// 0: グー、1: チョキ、2: パー
+
+String getHandName(int hand) {
+  switch (hand) {
+    case 0: return 'グー';
+    case 1: return 'チョキ';
+    case 2: return 'パー';
+    default: return '無効';
+  }
+}
+
+// 勝敗を判定する関数
+// 戻り値: 0=引き分け、1=プレイヤーの勝ち、-1=プレイヤーの負け
+int judgeWinner(int playerHand, int computerHand) {
+  if (playerHand == computerHand) {
+    return 0; // 引き分け
+  }
+  
+  // プレイヤーが勝つパターン
+  if ((playerHand == 0 &amp;&amp; computerHand == 1) ||  // グー vs チョキ
+      (playerHand == 1 &amp;&amp; computerHand == 2) ||  // チョキ vs パー
+      (playerHand == 2 &amp;&amp; computerHand == 0)) {  // パー vs グー
+    return 1;
+  }
+  
+  return -1; // プレイヤーの負け
+}
+
+void main() {
+  // テスト
+  int player = 0;  // グー
+  int computer = 1; // チョキ
+  
+  print('あなた: ${getHandName(player)}');
+  print('コンピュータ: ${getHandName(computer)}');
+  
+  int result = judgeWinner(player, computer);
+  if (result == 1) {
+    print('あなたの勝ち！');
+  } else if (result == -1) {
+    print('あなたの負け...');
+  } else {
+    print('引き分け');
+  }
+}
+</code></pre>
+<h2 id="ステップ2ランダムな手を生成"><a class="header" href="#ステップ2ランダムな手を生成">ステップ2：ランダムな手を生成</a></h2>
+<p>コンピュータがランダムに手を選ぶ機能を追加します。</p>
+<pre><code class="language-javascript">import 'dart:math';
+
+// 前のコードに追加
+int generateComputerHand() {
+  Random random = Random();
+  return random.nextInt(3); // 0, 1, 2のいずれかを返す
+}
+
+// 結果を表示する関数
+void displayResult(int playerHand, int computerHand, int result) {
+  print('\n=== じゃんけんの結果 ===');
+  print('あなた: ${getHandName(playerHand)}');
+  print('コンピュータ: ${getHandName(computerHand)}');
+  
+  if (result == 1) {
+    print('結果: あなたの勝ち！');
+  } else if (result == -1) {
+    print('結果: あなたの負け...');
+  } else {
+    print('結果: 引き分け');
+  }
+  print('=====================\n');
+}
+
+void playOneRound(int playerHand) {
+  int computerHand = generateComputerHand();
+  int result = judgeWinner(playerHand, computerHand);
+  displayResult(playerHand, computerHand, result);
+}
+
+void main() {
+  print('じゃんけんゲームを始めます！');
+  playOneRound(0); // グーを出す
+}
+</code></pre>
+<h2 id="ステップ3入力機能の追加"><a class="header" href="#ステップ3入力機能の追加">ステップ3：入力機能の追加</a></h2>
+<p>プレイヤーが手を選べるようにします。</p>
+<pre><code class="language-javascript">// 入力を検証する関数
+bool isValidInput(String input) {
+  return input == '0' || input == '1' || input == '2';
+}
+
+// メニューを表示する関数
+void showHandMenu() {
+  print('じゃんけんの手を選んでください:');
+  print('0: グー');
+  print('1: チョキ');
+  print('2: パー');
+  print('選択: ');
+}
+
+// 入力を処理する関数（デモ用）
+int getPlayerInput(String input) {
+  if (isValidInput(input)) {
+    return int.parse(input);
+  }
+  return -1; // 無効な入力
+}
+</code></pre>
+<h2 id="ステップ4連続対戦と統計機能"><a class="header" href="#ステップ4連続対戦と統計機能">ステップ4：連続対戦と統計機能</a></h2>
+<p>複数回対戦して、勝率を記録する機能を追加します。</p>
+<pre><code class="language-javascript">// ゲームの統計を管理
+class GameStats {
+  int wins = 0;
+  int losses = 0;
+  int draws = 0;
+  
+  int get totalGames =&gt; wins + losses + draws;
+  
+  double get winRate {
+    if (totalGames == 0) return 0;
+    return (wins / totalGames) * 100;
+  }
+}
+
+// 統計を更新する関数
+void updateStats(GameStats stats, int result) {
+  if (result == 1) {
+    stats.wins++;
+  } else if (result == -1) {
+    stats.losses++;
+  } else {
+    stats.draws++;
+  }
+}
+
+// 統計を表示する関数
+void displayStats(GameStats stats) {
+  print('\n=== ゲーム統計 ===');
+  print('総ゲーム数: ${stats.totalGames}');
+  print('勝ち: ${stats.wins}回');
+  print('負け: ${stats.losses}回');
+  print('引き分け: ${stats.draws}回');
+  print('勝率: ${stats.winRate.toStringAsFixed(1)}%');
+  print('==================\n');
+}
+</code></pre>
+<h2 id="完成版じゃんけんゲーム"><a class="header" href="#完成版じゃんけんゲーム">完成版：じゃんけんゲーム</a></h2>
+<p>すべての機能を組み合わせた完成版です。</p>
+<pre><code class="language-javascript">import 'dart:math';
+
+// じゃんけんの手を管理
+String getHandName(int hand) {
+  switch (hand) {
+    case 0: return 'グー✊';
+    case 1: return 'チョキ✌';
+    case 2: return 'パー✋';
+    default: return '無効';
+  }
+}
+
+// 勝敗判定
+int judgeWinner(int playerHand, int computerHand) {
+  if (playerHand == computerHand) return 0;
+  
+  if ((playerHand == 0 &amp;&amp; computerHand == 1) ||
+      (playerHand == 1 &amp;&amp; computerHand == 2) ||
+      (playerHand == 2 &amp;&amp; computerHand == 0)) {
+    return 1;
+  }
+  
+  return -1;
+}
+
+// コンピュータの手を生成
+int generateComputerHand() {
+  return Random().nextInt(3);
+}
+
+// アニメーション効果（じゃんけんぽん！）
+void showAnimation() {
+  print('じゃん...');
+  print('けん...');
+  print('ぽん！');
+}
+
+// 結果表示（詳細版）
+void displayDetailedResult(int playerHand, int computerHand, int result) {
+  showAnimation();
+  
+  print('\n【結果】');
+  print('あなた　　　: ${getHandName(playerHand)}');
+  print('コンピュータ: ${getHandName(computerHand)}');
+  
+  if (result == 1) {
+    print('\n🎉 あなたの勝ち！ 🎉');
+    print(_getWinMessage(playerHand, computerHand));
+  } else if (result == -1) {
+    print('\n😢 あなたの負け... 😢');
+    print(_getLoseMessage(playerHand, computerHand));
+  } else {
+    print('\n🤝 引き分け！ 🤝');
+    print('同じ手でした！');
+  }
+}
+
+// 勝ちメッセージ
+String _getWinMessage(int playerHand, int computerHand) {
+  if (playerHand == 0 &amp;&amp; computerHand == 1) {
+    return 'グーはチョキに勝ちます！';
+  } else if (playerHand == 1 &amp;&amp; computerHand == 2) {
+    return 'チョキはパーに勝ちます！';
+  } else {
+    return 'パーはグーに勝ちます！';
+  }
+}
+
+// 負けメッセージ
+String _getLoseMessage(int playerHand, int computerHand) {
+  if (playerHand == 0 &amp;&amp; computerHand == 2) {
+    return 'グーはパーに負けます...';
+  } else if (playerHand == 1 &amp;&amp; computerHand == 0) {
+    return 'チョキはグーに負けます...';
+  } else {
+    return 'パーはチョキに負けます...';
+  }
+}
+
+// ゲーム統計
+class GameStats {
+  int wins = 0;
+  int losses = 0;
+  int draws = 0;
+  List&lt;String&gt; history = [];
+  
+  void recordGame(int result, int playerHand, int computerHand) {
+    String record = '${getHandName(playerHand)} vs ${getHandName(computerHand)}: ';
+    if (result == 1) {
+      wins++;
+      record += '勝ち';
+    } else if (result == -1) {
+      losses++;
+      record += '負け';
+    } else {
+      draws++;
+      record += '引き分け';
+    }
+    history.add(record);
+  }
+  
+  void showStats() {
+    int total = wins + losses + draws;
+    if (total == 0) {
+      print('まだゲームをプレイしていません');
+      return;
+    }
+    
+    print('\n📊 ゲーム統計 📊');
+    print('総ゲーム数: $total回');
+    print('勝ち: $wins回');
+    print('負け: $losses回');
+    print('引き分け: $draws回');
+    print('勝率: ${(wins / total * 100).toStringAsFixed(1)}%');
+    
+    if (history.length &gt; 0) {
+      print('\n【最近の対戦履歴】');
+      int start = history.length &gt; 5 ? history.length - 5 : 0;
+      for (int i = start; i &lt; history.length; i++) {
+        print('${i - start + 1}. ${history[i]}');
+      }
+    }
+  }
+}
+
+// メインゲーム
+void main() {
+  GameStats stats = GameStats();
+  
+  print('=== じゃんけんゲームへようこそ！ ===\n');
+  
+  // デモ用：5回対戦
+  List&lt;int&gt; demoMoves = [0, 1, 2, 1, 0]; // グー、チョキ、パー、チョキ、グー
+  
+  for (int i = 0; i &lt; demoMoves.length; i++) {
+    print('\n--- 第${i + 1}回戦 ---');
+    int playerHand = demoMoves[i];
+    int computerHand = generateComputerHand();
+    int result = judgeWinner(playerHand, computerHand);
+    
+    displayDetailedResult(playerHand, computerHand, result);
+    stats.recordGame(result, playerHand, computerHand);
+    
+    print('\n続けるには何かキーを押してください...');
+  }
+  
+  // 最終統計
+  print('\n=== ゲーム終了 ===');
+  stats.showStats();
+  
+  // 勝率に応じたメッセージ
+  double winRate = stats.wins / (stats.wins + stats.losses + stats.draws) * 100;
+  print('\n');
+  if (winRate &gt;= 60) {
+    print('🏆 素晴らしい成績です！じゃんけんマスターですね！');
+  } else if (winRate &gt;= 40) {
+    print('👍 良い勝負でした！');
+  } else {
+    print('💪 次はもっと頑張りましょう！');
+  }
+}
+</code></pre>
+<h2 id="練習問題-29"><a class="header" href="#練習問題-29">練習問題</a></h2>
+<ol>
+<li>
+<p>「最初はグー」機能を追加してください（最初に必ずグーを表示）。</p>
+</li>
+<li>
+<p>連勝記録を追跡する機能を追加してください。</p>
+</li>
+<li>
+<p>コンピュータの戦略を追加してください（例：前回プレイヤーが出した手に勝つ手を出しやすくする）。</p>
+</li>
+</ol>
+<h2 id="まとめ-37"><a class="header" href="#まとめ-37">まとめ</a></h2>
+<p>この節では、関数を組み合わせて実用的なじゃんけんゲームを作りました。以下の重要な概念を実践しました：</p>
+<ul>
+<li>関数の分割による責任の明確化</li>
+<li>引数と戻り値を使った関数間のデータ受け渡し</li>
+<li>複数の関数を組み合わせた複雑な処理の実現</li>
+<li>クラスを使った関連データのグループ化</li>
+<li>ユーザー体験を向上させる機能の追加</li>
+</ul>
+<p>これで第10章は完了です。関数を使いこなすことで、より構造化された読みやすいプログラムを作ることができるようになりました。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第11章クラスとオブジェクトの基礎"><a class="header" href="#第11章クラスとオブジェクトの基礎">第11章：クラスとオブジェクトの基礎</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="現実世界をプログラムで表現する"><a class="header" href="#現実世界をプログラムで表現する">現実世界をプログラムで表現する</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="クラスの定義"><a class="header" href="#クラスの定義">クラスの定義</a></h1>

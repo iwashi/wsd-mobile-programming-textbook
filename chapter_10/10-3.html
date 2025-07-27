@@ -179,6 +179,260 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="関数を使ったプログラムの設計"><a class="header" href="#関数を使ったプログラムの設計">関数を使ったプログラムの設計</a></h1>
+<p>これまで関数の作り方や使い方を学んできました。この節では、関数を使ってプログラムをどのように設計すればよいかを学びます。よい設計は、プログラムを読みやすく、修正しやすくします。</p>
+<h2 id="関数設計の基本原則"><a class="header" href="#関数設計の基本原則">関数設計の基本原則</a></h2>
+<h3 id="1-単一責任の原則"><a class="header" href="#1-単一責任の原則">1. 単一責任の原則</a></h3>
+<p>一つの関数は一つのことだけを行うべきです。</p>
+<pre><code class="language-javascript">// 悪い例：複数のことを行う関数
+void processUserData(String name, int age) {
+  // 入力チェック
+  if (name.isEmpty || age &lt; 0) {
+    print('エラー: 無効なデータです');
+    return;
+  }
+  // データ処理
+  String upperName = name.toUpperCase();
+  int nextAge = age + 1;
+  // 結果表示
+  print('名前: $upperName');
+  print('来年の年齢: $nextAge');
+}
+
+// 良い例：それぞれの責任を分離
+bool isValidUserData(String name, int age) {
+  return name.isNotEmpty &amp;&amp; age &gt;= 0;
+}
+
+String formatName(String name) {
+  return name.toUpperCase();
+}
+
+int calculateNextAge(int age) {
+  return age + 1;
+}
+
+void displayUserInfo(String name, int nextAge) {
+  print('名前: $name');
+  print('来年の年齢: $nextAge');
+}
+
+void main() {
+  String name = '太郎';
+  int age = 15;
+  
+  if (isValidUserData(name, age)) {
+    String formattedName = formatName(name);
+    int nextAge = calculateNextAge(age);
+    displayUserInfo(formattedName, nextAge);
+  } else {
+    print('エラー: 無効なデータです');
+  }
+}
+</code></pre>
+<h3 id="2-わかりやすい関数名"><a class="header" href="#2-わかりやすい関数名">2. わかりやすい関数名</a></h3>
+<p>関数名は、その関数が何をするかを明確に表すべきです。</p>
+<pre><code class="language-javascript">// 悪い例：何をする関数かわからない
+double calc(double a, double b) {
+  return a * b * 0.5;
+}
+
+// 良い例：三角形の面積を計算することが明確
+double calculateTriangleArea(double base, double height) {
+  return base * height * 0.5;
+}
+</code></pre>
+<h3 id="3-適切な関数の粒度"><a class="header" href="#3-適切な関数の粒度">3. 適切な関数の粒度</a></h3>
+<p>関数は小さすぎても大きすぎても使いにくくなります。</p>
+<pre><code class="language-javascript">// 成績評価システムの例
+String evaluateGrade(int score) {
+  if (score &gt;= 90) return 'A';
+  if (score &gt;= 80) return 'B';
+  if (score &gt;= 70) return 'C';
+  if (score &gt;= 60) return 'D';
+  return 'F';
+}
+
+String getGradeMessage(String grade) {
+  switch (grade) {
+    case 'A': return '優秀です！';
+    case 'B': return 'よくできました！';
+    case 'C': return '合格です';
+    case 'D': return 'もう少し頑張りましょう';
+    default: return '再試験が必要です';
+  }
+}
+
+void processStudentScore(String name, int score) {
+  String grade = evaluateGrade(score);
+  String message = getGradeMessage(grade);
+  print('$nameさん: $score点 ($grade) - $message');
+}
+</code></pre>
+<h2 id="プログラムの構造化"><a class="header" href="#プログラムの構造化">プログラムの構造化</a></h2>
+<p>大きなプログラムを関数で構造化する例を見てみましょう。</p>
+<pre><code class="language-javascript">// 簡単な在庫管理システム
+Map&lt;String, int&gt; inventory = {};
+
+// 商品を追加する関数
+void addProduct(String product, int quantity) {
+  if (inventory.containsKey(product)) {
+    inventory[product] = inventory[product]! + quantity;
+  } else {
+    inventory[product] = quantity;
+  }
+  print('$productを$quantity個追加しました');
+}
+
+// 商品を販売する関数
+bool sellProduct(String product, int quantity) {
+  if (!inventory.containsKey(product)) {
+    print('エラー: $productは在庫にありません');
+    return false;
+  }
+  
+  if (inventory[product]! &lt; quantity) {
+    print('エラー: $productの在庫が不足しています（在庫: ${inventory[product]}個）');
+    return false;
+  }
+  
+  inventory[product] = inventory[product]! - quantity;
+  print('$productを$quantity個販売しました');
+  return true;
+}
+
+// 在庫を表示する関数
+void displayInventory() {
+  print('\n=== 在庫一覧 ===');
+  if (inventory.isEmpty) {
+    print('在庫がありません');
+  } else {
+    inventory.forEach((product, quantity) {
+      print('$product: $quantity個');
+    });
+  }
+  print('================\n');
+}
+
+// メニューを表示する関数
+void showMenu() {
+  print('1. 商品を追加');
+  print('2. 商品を販売');
+  print('3. 在庫を表示');
+  print('4. 終了');
+  print('選択してください: ');
+}
+
+// メイン処理
+void main() {
+  // デモ用の初期在庫
+  addProduct('りんご', 50);
+  addProduct('みかん', 30);
+  addProduct('バナナ', 20);
+  
+  displayInventory();
+  
+  // 販売のテスト
+  sellProduct('りんご', 10);
+  sellProduct('みかん', 5);
+  sellProduct('ぶどう', 10);  // 在庫にない商品
+  
+  displayInventory();
+  
+  // さらに商品を追加
+  addProduct('りんご', 20);
+  addProduct('ぶどう', 15);
+  
+  displayInventory();
+}
+</code></pre>
+<h2 id="関数の再利用性を高める"><a class="header" href="#関数の再利用性を高める">関数の再利用性を高める</a></h2>
+<p>汎用的な関数を作ることで、様々な場面で再利用できます。</p>
+<pre><code class="language-javascript">// 汎用的な統計関数
+double calculateAverage(List&lt;double&gt; numbers) {
+  if (numbers.isEmpty) return 0;
+  double sum = 0;
+  for (double num in numbers) {
+    sum += num;
+  }
+  return sum / numbers.length;
+}
+
+double findMaximum(List&lt;double&gt; numbers) {
+  if (numbers.isEmpty) return 0;
+  double max = numbers[0];
+  for (double num in numbers) {
+    if (num &gt; max) max = num;
+  }
+  return max;
+}
+
+double findMinimum(List&lt;double&gt; numbers) {
+  if (numbers.isEmpty) return 0;
+  double min = numbers[0];
+  for (double num in numbers) {
+    if (num &lt; min) min = num;
+  }
+  return min;
+}
+
+// 成績分析に使用
+void analyzeTestScores() {
+  List&lt;double&gt; scores = [85.5, 92.0, 78.5, 88.0, 95.5];
+  
+  print('=== テストの成績分析 ===');
+  print('平均点: ${calculateAverage(scores).toStringAsFixed(1)}点');
+  print('最高点: ${findMaximum(scores)}点');
+  print('最低点: ${findMinimum(scores)}点');
+}
+
+// 温度分析に使用
+void analyzeTemperatures() {
+  List&lt;double&gt; temperatures = [28.5, 30.2, 29.8, 31.5, 27.9];
+  
+  print('\n=== 今週の気温分析 ===');
+  print('平均気温: ${calculateAverage(temperatures).toStringAsFixed(1)}°C');
+  print('最高気温: ${findMaximum(temperatures)}°C');
+  print('最低気温: ${findMinimum(temperatures)}°C');
+}
+
+void main() {
+  analyzeTestScores();
+  analyzeTemperatures();
+}
+</code></pre>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<ol>
+<li>以下の処理を適切な関数に分割してください。</li>
+</ol>
+<pre><code class="language-javascript">void main() {
+  // この処理を複数の関数に分割してください
+  String text = 'Hello World';
+  int vowelCount = 0;
+  int consonantCount = 0;
+  
+  for (int i = 0; i &lt; text.length; i++) {
+    String char = text[i].toLowerCase();
+    if (char == 'a' || char == 'e' || char == 'i' || 
+        char == 'o' || char == 'u') {
+      vowelCount++;
+    } else if (char != ' ') {
+      consonantCount++;
+    }
+  }
+  
+  print('母音の数: $vowelCount');
+  print('子音の数: $consonantCount');
+}
+</code></pre>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<ul>
+<li>一つの関数は一つの責任を持つべき（単一責任の原則）</li>
+<li>関数名は何をするかを明確に表すべき</li>
+<li>適切な粒度で関数を分割する</li>
+<li>汎用的な関数を作ることで再利用性を高める</li>
+<li>プログラム全体を関数で構造化することで、理解しやすく保守しやすいコードになる</li>
+</ul>
+<p>次の節では、これまで学んだ知識を活用して、じゃんけんゲームを作ります。</p>
 
                     </main>
 

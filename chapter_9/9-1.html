@@ -179,6 +179,160 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="関数とは何か"><a class="header" href="#関数とは何か">関数とは何か</a></h1>
+<p>これまでの章では、変数、条件分岐、繰り返し処理、リスト、マップなど、プログラミングの基本的な要素を学んできました。今回は、プログラムを整理し、効率的にするための重要な概念「関数」について学びます。</p>
+<h2 id="プログラムが長くなると"><a class="header" href="#プログラムが長くなると">プログラムが長くなると...</a></h2>
+<p>これまでに書いたプログラムを思い出してみましょう。プログラムが複雑になるにつれて、次のような問題が出てきます：</p>
+<pre><code class="language-javascript">void main() {
+  // 成績の平均を計算する（1回目）
+  List&lt;int&gt; mathScores = [85, 92, 78, 90, 88];
+  int mathTotal = 0;
+  for (int score in mathScores) {
+    mathTotal += score;
+  }
+  double mathAverage = mathTotal / mathScores.length;
+  print('数学の平均点: ${mathAverage.toStringAsFixed(1)}');
+  
+  // 成績の平均を計算する（2回目）
+  List&lt;int&gt; englishScores = [78, 85, 92, 88, 80];
+  int englishTotal = 0;
+  for (int score in englishScores) {
+    englishTotal += score;
+  }
+  double englishAverage = englishTotal / englishScores.length;
+  print('英語の平均点: ${englishAverage.toStringAsFixed(1)}');
+  
+  // 同じような処理がまだ続く...
+}
+</code></pre>
+<p>このコードには問題があります：</p>
+<ul>
+<li>同じような処理を何度も書いている</li>
+<li>コードが長くなって読みにくい</li>
+<li>修正が必要な時、すべての箇所を変更しなければならない</li>
+</ul>
+<h2 id="関数とは"><a class="header" href="#関数とは">関数とは</a></h2>
+<p>関数は、<strong>特定の処理をまとめて名前を付けたもの</strong>です。一度定義した関数は、何度でも呼び出して使うことができます。</p>
+<p>関数のイメージ：</p>
+<pre><code>関数 = 処理のかたまりに名前を付けたもの
+
+┌─────────────────┐
+│   関数の名前     │
+├─────────────────┤
+│                 │
+│  処理の内容     │
+│                 │
+└─────────────────┘
+</code></pre>
+<h2 id="日常生活での関数の例"><a class="header" href="#日常生活での関数の例">日常生活での関数の例</a></h2>
+<p>関数は、私たちの日常生活でもよく見かける概念です：</p>
+<h3 id="1-レシピ"><a class="header" href="#1-レシピ">1. レシピ</a></h3>
+<ul>
+<li><strong>関数名</strong>：「カレーを作る」</li>
+<li><strong>処理内容</strong>：
+<ol>
+<li>野菜を切る</li>
+<li>肉を炒める</li>
+<li>水を加えて煮込む</li>
+<li>ルーを入れる</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-自動販売機"><a class="header" href="#2-自動販売機">2. 自動販売機</a></h3>
+<ul>
+<li><strong>関数名</strong>：「飲み物を買う」</li>
+<li><strong>入力</strong>：お金、ボタン番号</li>
+<li><strong>処理</strong>：商品を選んで提供</li>
+<li><strong>出力</strong>：飲み物、おつり</li>
+</ul>
+<h3 id="3-電卓"><a class="header" href="#3-電卓">3. 電卓</a></h3>
+<ul>
+<li><strong>関数名</strong>：「足し算をする」</li>
+<li><strong>入力</strong>：2つの数字</li>
+<li><strong>処理</strong>：数字を足す</li>
+<li><strong>出力</strong>：計算結果</li>
+</ul>
+<h2 id="関数を使うメリット"><a class="header" href="#関数を使うメリット">関数を使うメリット</a></h2>
+<h3 id="1-コードの再利用"><a class="header" href="#1-コードの再利用">1. コードの再利用</a></h3>
+<p>同じ処理を何度も書く必要がなくなります：</p>
+<pre><code class="language-javascript">// 関数を使わない場合：同じ処理を3回書く
+void main() {
+  // 1回目
+  print('こんにちは！');
+  print('今日もプログラミングを楽しみましょう！');
+  print('---');
+  
+  // 2回目
+  print('こんにちは！');
+  print('今日もプログラミングを楽しみましょう！');
+  print('---');
+  
+  // 3回目
+  print('こんにちは！');
+  print('今日もプログラミングを楽しみましょう！');
+  print('---');
+}
+</code></pre>
+<h3 id="2-プログラムの整理"><a class="header" href="#2-プログラムの整理">2. プログラムの整理</a></h3>
+<p>処理に名前を付けることで、プログラムが読みやすくなります：</p>
+<pre><code class="language-javascript">// 関数を使った場合：処理の意味が分かりやすい
+void main() {
+  挨拶を表示();  // 何をしているか一目で分かる
+  計算を実行();
+  結果を表示();
+}
+</code></pre>
+<h3 id="3-保守性の向上"><a class="header" href="#3-保守性の向上">3. 保守性の向上</a></h3>
+<p>修正が必要な時、関数の中身を変更するだけで済みます：</p>
+<pre><code class="language-javascript">// 挨拶の内容を変更したい場合、関数の定義を変えるだけ
+void 挨拶を表示() {
+  print('おはようございます！');  // ここを変更するだけ
+  print('今日も一日頑張りましょう！');
+}
+</code></pre>
+<h3 id="4-エラーの削減"><a class="header" href="#4-エラーの削減">4. エラーの削減</a></h3>
+<p>同じ処理を何度も書くと、タイプミスなどのエラーが起きやすくなります。関数を使えば、一箇所で定義した正しい処理を何度でも使えます。</p>
+<h2 id="関数の基本的な構造"><a class="header" href="#関数の基本的な構造">関数の基本的な構造</a></h2>
+<p>関数は以下の要素で構成されます：</p>
+<ol>
+<li><strong>関数名</strong>：関数を識別するための名前</li>
+<li><strong>引数（パラメータ）</strong>：関数に渡す値（省略可能）</li>
+<li><strong>処理内容</strong>：関数が実行する具体的な処理</li>
+<li><strong>戻り値</strong>：関数が返す結果（省略可能）</li>
+</ol>
+<p>簡単な例：</p>
+<pre><code class="language-javascript">// 関数の定義
+void showGreeting() {
+  print('こんにちは！');
+}
+
+// 関数の呼び出し
+void main() {
+  showGreeting();  // 「こんにちは！」と表示される
+}
+</code></pre>
+<h2 id="dartの組み込み関数"><a class="header" href="#dartの組み込み関数">Dartの組み込み関数</a></h2>
+<p>実は、これまでも関数を使ってきました：</p>
+<ul>
+<li><code>print()</code>：画面に文字を表示する関数</li>
+<li><code>toStringAsFixed()</code>：数値を文字列に変換する関数</li>
+<li><code>contains()</code>：リストに要素が含まれているか確認する関数</li>
+</ul>
+<p>これらは、Dartがあらかじめ用意している関数です。私たちも同じように、自分で関数を作ることができます。</p>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>関数は、プログラムを整理し、効率的にするための重要な仕組みです：</p>
+<ul>
+<li><strong>処理をまとめる</strong>：関連する処理を一つにまとめる</li>
+<li><strong>名前を付ける</strong>：処理に分かりやすい名前を付ける</li>
+<li><strong>再利用する</strong>：一度定義した処理を何度でも使える</li>
+<li><strong>保守しやすくする</strong>：修正や改良が簡単になる</li>
+</ul>
+<p>次のセクションでは、実際に関数を定義し、使ってみましょう。</p>
+<h3 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h3>
+<ol>
+<li>日常生活で「関数」のように働いているものを3つ挙げてください。</li>
+<li>プログラムで同じ処理を繰り返し書くことの問題点を説明してください。</li>
+<li>関数を使うメリットを自分の言葉で説明してください。</li>
+</ol>
 
                     </main>
 

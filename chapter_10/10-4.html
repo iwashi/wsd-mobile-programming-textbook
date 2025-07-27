@@ -179,6 +179,341 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="実践じゃんけんゲームを作る"><a class="header" href="#実践じゃんけんゲームを作る">実践：じゃんけんゲームを作る</a></h1>
+<p>この節では、これまで学んだ関数の知識を活用して、コンピュータと対戦できるじゃんけんゲームを作ります。段階的に機能を追加していき、最終的には完全なゲームを完成させます。</p>
+<h2 id="ステップ1基本的なじゃんけんの判定"><a class="header" href="#ステップ1基本的なじゃんけんの判定">ステップ1：基本的なじゃんけんの判定</a></h2>
+<p>まず、じゃんけんの勝敗を判定する関数を作りましょう。</p>
+<pre><code class="language-javascript">// じゃんけんの手を数値で表現
+// 0: グー、1: チョキ、2: パー
+
+String getHandName(int hand) {
+  switch (hand) {
+    case 0: return 'グー';
+    case 1: return 'チョキ';
+    case 2: return 'パー';
+    default: return '無効';
+  }
+}
+
+// 勝敗を判定する関数
+// 戻り値: 0=引き分け、1=プレイヤーの勝ち、-1=プレイヤーの負け
+int judgeWinner(int playerHand, int computerHand) {
+  if (playerHand == computerHand) {
+    return 0; // 引き分け
+  }
+  
+  // プレイヤーが勝つパターン
+  if ((playerHand == 0 &amp;&amp; computerHand == 1) ||  // グー vs チョキ
+      (playerHand == 1 &amp;&amp; computerHand == 2) ||  // チョキ vs パー
+      (playerHand == 2 &amp;&amp; computerHand == 0)) {  // パー vs グー
+    return 1;
+  }
+  
+  return -1; // プレイヤーの負け
+}
+
+void main() {
+  // テスト
+  int player = 0;  // グー
+  int computer = 1; // チョキ
+  
+  print('あなた: ${getHandName(player)}');
+  print('コンピュータ: ${getHandName(computer)}');
+  
+  int result = judgeWinner(player, computer);
+  if (result == 1) {
+    print('あなたの勝ち！');
+  } else if (result == -1) {
+    print('あなたの負け...');
+  } else {
+    print('引き分け');
+  }
+}
+</code></pre>
+<h2 id="ステップ2ランダムな手を生成"><a class="header" href="#ステップ2ランダムな手を生成">ステップ2：ランダムな手を生成</a></h2>
+<p>コンピュータがランダムに手を選ぶ機能を追加します。</p>
+<pre><code class="language-javascript">import 'dart:math';
+
+// 前のコードに追加
+int generateComputerHand() {
+  Random random = Random();
+  return random.nextInt(3); // 0, 1, 2のいずれかを返す
+}
+
+// 結果を表示する関数
+void displayResult(int playerHand, int computerHand, int result) {
+  print('\n=== じゃんけんの結果 ===');
+  print('あなた: ${getHandName(playerHand)}');
+  print('コンピュータ: ${getHandName(computerHand)}');
+  
+  if (result == 1) {
+    print('結果: あなたの勝ち！');
+  } else if (result == -1) {
+    print('結果: あなたの負け...');
+  } else {
+    print('結果: 引き分け');
+  }
+  print('=====================\n');
+}
+
+void playOneRound(int playerHand) {
+  int computerHand = generateComputerHand();
+  int result = judgeWinner(playerHand, computerHand);
+  displayResult(playerHand, computerHand, result);
+}
+
+void main() {
+  print('じゃんけんゲームを始めます！');
+  playOneRound(0); // グーを出す
+}
+</code></pre>
+<h2 id="ステップ3入力機能の追加"><a class="header" href="#ステップ3入力機能の追加">ステップ3：入力機能の追加</a></h2>
+<p>プレイヤーが手を選べるようにします。</p>
+<pre><code class="language-javascript">// 入力を検証する関数
+bool isValidInput(String input) {
+  return input == '0' || input == '1' || input == '2';
+}
+
+// メニューを表示する関数
+void showHandMenu() {
+  print('じゃんけんの手を選んでください:');
+  print('0: グー');
+  print('1: チョキ');
+  print('2: パー');
+  print('選択: ');
+}
+
+// 入力を処理する関数（デモ用）
+int getPlayerInput(String input) {
+  if (isValidInput(input)) {
+    return int.parse(input);
+  }
+  return -1; // 無効な入力
+}
+</code></pre>
+<h2 id="ステップ4連続対戦と統計機能"><a class="header" href="#ステップ4連続対戦と統計機能">ステップ4：連続対戦と統計機能</a></h2>
+<p>複数回対戦して、勝率を記録する機能を追加します。</p>
+<pre><code class="language-javascript">// ゲームの統計を管理
+class GameStats {
+  int wins = 0;
+  int losses = 0;
+  int draws = 0;
+  
+  int get totalGames =&gt; wins + losses + draws;
+  
+  double get winRate {
+    if (totalGames == 0) return 0;
+    return (wins / totalGames) * 100;
+  }
+}
+
+// 統計を更新する関数
+void updateStats(GameStats stats, int result) {
+  if (result == 1) {
+    stats.wins++;
+  } else if (result == -1) {
+    stats.losses++;
+  } else {
+    stats.draws++;
+  }
+}
+
+// 統計を表示する関数
+void displayStats(GameStats stats) {
+  print('\n=== ゲーム統計 ===');
+  print('総ゲーム数: ${stats.totalGames}');
+  print('勝ち: ${stats.wins}回');
+  print('負け: ${stats.losses}回');
+  print('引き分け: ${stats.draws}回');
+  print('勝率: ${stats.winRate.toStringAsFixed(1)}%');
+  print('==================\n');
+}
+</code></pre>
+<h2 id="完成版じゃんけんゲーム"><a class="header" href="#完成版じゃんけんゲーム">完成版：じゃんけんゲーム</a></h2>
+<p>すべての機能を組み合わせた完成版です。</p>
+<pre><code class="language-javascript">import 'dart:math';
+
+// じゃんけんの手を管理
+String getHandName(int hand) {
+  switch (hand) {
+    case 0: return 'グー✊';
+    case 1: return 'チョキ✌';
+    case 2: return 'パー✋';
+    default: return '無効';
+  }
+}
+
+// 勝敗判定
+int judgeWinner(int playerHand, int computerHand) {
+  if (playerHand == computerHand) return 0;
+  
+  if ((playerHand == 0 &amp;&amp; computerHand == 1) ||
+      (playerHand == 1 &amp;&amp; computerHand == 2) ||
+      (playerHand == 2 &amp;&amp; computerHand == 0)) {
+    return 1;
+  }
+  
+  return -1;
+}
+
+// コンピュータの手を生成
+int generateComputerHand() {
+  return Random().nextInt(3);
+}
+
+// アニメーション効果（じゃんけんぽん！）
+void showAnimation() {
+  print('じゃん...');
+  print('けん...');
+  print('ぽん！');
+}
+
+// 結果表示（詳細版）
+void displayDetailedResult(int playerHand, int computerHand, int result) {
+  showAnimation();
+  
+  print('\n【結果】');
+  print('あなた　　　: ${getHandName(playerHand)}');
+  print('コンピュータ: ${getHandName(computerHand)}');
+  
+  if (result == 1) {
+    print('\n🎉 あなたの勝ち！ 🎉');
+    print(_getWinMessage(playerHand, computerHand));
+  } else if (result == -1) {
+    print('\n😢 あなたの負け... 😢');
+    print(_getLoseMessage(playerHand, computerHand));
+  } else {
+    print('\n🤝 引き分け！ 🤝');
+    print('同じ手でした！');
+  }
+}
+
+// 勝ちメッセージ
+String _getWinMessage(int playerHand, int computerHand) {
+  if (playerHand == 0 &amp;&amp; computerHand == 1) {
+    return 'グーはチョキに勝ちます！';
+  } else if (playerHand == 1 &amp;&amp; computerHand == 2) {
+    return 'チョキはパーに勝ちます！';
+  } else {
+    return 'パーはグーに勝ちます！';
+  }
+}
+
+// 負けメッセージ
+String _getLoseMessage(int playerHand, int computerHand) {
+  if (playerHand == 0 &amp;&amp; computerHand == 2) {
+    return 'グーはパーに負けます...';
+  } else if (playerHand == 1 &amp;&amp; computerHand == 0) {
+    return 'チョキはグーに負けます...';
+  } else {
+    return 'パーはチョキに負けます...';
+  }
+}
+
+// ゲーム統計
+class GameStats {
+  int wins = 0;
+  int losses = 0;
+  int draws = 0;
+  List&lt;String&gt; history = [];
+  
+  void recordGame(int result, int playerHand, int computerHand) {
+    String record = '${getHandName(playerHand)} vs ${getHandName(computerHand)}: ';
+    if (result == 1) {
+      wins++;
+      record += '勝ち';
+    } else if (result == -1) {
+      losses++;
+      record += '負け';
+    } else {
+      draws++;
+      record += '引き分け';
+    }
+    history.add(record);
+  }
+  
+  void showStats() {
+    int total = wins + losses + draws;
+    if (total == 0) {
+      print('まだゲームをプレイしていません');
+      return;
+    }
+    
+    print('\n📊 ゲーム統計 📊');
+    print('総ゲーム数: $total回');
+    print('勝ち: $wins回');
+    print('負け: $losses回');
+    print('引き分け: $draws回');
+    print('勝率: ${(wins / total * 100).toStringAsFixed(1)}%');
+    
+    if (history.length &gt; 0) {
+      print('\n【最近の対戦履歴】');
+      int start = history.length &gt; 5 ? history.length - 5 : 0;
+      for (int i = start; i &lt; history.length; i++) {
+        print('${i - start + 1}. ${history[i]}');
+      }
+    }
+  }
+}
+
+// メインゲーム
+void main() {
+  GameStats stats = GameStats();
+  
+  print('=== じゃんけんゲームへようこそ！ ===\n');
+  
+  // デモ用：5回対戦
+  List&lt;int&gt; demoMoves = [0, 1, 2, 1, 0]; // グー、チョキ、パー、チョキ、グー
+  
+  for (int i = 0; i &lt; demoMoves.length; i++) {
+    print('\n--- 第${i + 1}回戦 ---');
+    int playerHand = demoMoves[i];
+    int computerHand = generateComputerHand();
+    int result = judgeWinner(playerHand, computerHand);
+    
+    displayDetailedResult(playerHand, computerHand, result);
+    stats.recordGame(result, playerHand, computerHand);
+    
+    print('\n続けるには何かキーを押してください...');
+  }
+  
+  // 最終統計
+  print('\n=== ゲーム終了 ===');
+  stats.showStats();
+  
+  // 勝率に応じたメッセージ
+  double winRate = stats.wins / (stats.wins + stats.losses + stats.draws) * 100;
+  print('\n');
+  if (winRate &gt;= 60) {
+    print('🏆 素晴らしい成績です！じゃんけんマスターですね！');
+  } else if (winRate &gt;= 40) {
+    print('👍 良い勝負でした！');
+  } else {
+    print('💪 次はもっと頑張りましょう！');
+  }
+}
+</code></pre>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<ol>
+<li>
+<p>「最初はグー」機能を追加してください（最初に必ずグーを表示）。</p>
+</li>
+<li>
+<p>連勝記録を追跡する機能を追加してください。</p>
+</li>
+<li>
+<p>コンピュータの戦略を追加してください（例：前回プレイヤーが出した手に勝つ手を出しやすくする）。</p>
+</li>
+</ol>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>この節では、関数を組み合わせて実用的なじゃんけんゲームを作りました。以下の重要な概念を実践しました：</p>
+<ul>
+<li>関数の分割による責任の明確化</li>
+<li>引数と戻り値を使った関数間のデータ受け渡し</li>
+<li>複数の関数を組み合わせた複雑な処理の実現</li>
+<li>クラスを使った関連データのグループ化</li>
+<li>ユーザー体験を向上させる機能の追加</li>
+</ul>
+<p>これで第10章は完了です。関数を使いこなすことで、より構造化された読みやすいプログラムを作ることができるようになりました。</p>
 
                     </main>
 

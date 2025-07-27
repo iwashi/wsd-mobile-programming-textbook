@@ -179,6 +179,122 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="複数の引数を持つ関数"><a class="header" href="#複数の引数を持つ関数">複数の引数を持つ関数</a></h1>
+<p>これまで、引数を1つだけ持つ関数を学んできました。しかし、実際のプログラミングでは、複数の情報を関数に渡したいことがよくあります。この節では、複数の引数を持つ関数の作り方と使い方を学びましょう。</p>
+<h2 id="複数の引数の基本"><a class="header" href="#複数の引数の基本">複数の引数の基本</a></h2>
+<p>関数は、カンマで区切ることで複数の引数を受け取ることができます。</p>
+<pre><code class="language-javascript">// 2つの数値を足し算する関数
+int add(int a, int b) {
+  return a + b;
+}
+
+void main() {
+  int result = add(3, 5);
+  print(result);  // 8
+}
+</code></pre>
+<h2 id="異なる型の引数を組み合わせる"><a class="header" href="#異なる型の引数を組み合わせる">異なる型の引数を組み合わせる</a></h2>
+<p>引数は異なる型を混在させることもできます。</p>
+<pre><code class="language-javascript">// 名前と年齢を受け取って挨拶を返す関数
+String greeting(String name, int age) {
+  return '$nameさん、$age歳ですね！';
+}
+
+void main() {
+  String message = greeting('太郎', 15);
+  print(message);  // 太郎さん、15歳ですね！
+}
+</code></pre>
+<h2 id="3つ以上の引数"><a class="header" href="#3つ以上の引数">3つ以上の引数</a></h2>
+<p>必要に応じて、3つ以上の引数を持つこともできます。</p>
+<pre><code class="language-javascript">// 長方形の体積を計算する関数
+double calculateVolume(double length, double width, double height) {
+  return length * width * height;
+}
+
+void main() {
+  double volume = calculateVolume(10.0, 5.0, 3.0);
+  print('体積は$volume立方センチメートルです');  // 体積は150.0立方センチメートルです
+}
+</code></pre>
+<h2 id="引数の順序の重要性"><a class="header" href="#引数の順序の重要性">引数の順序の重要性</a></h2>
+<p>複数の引数を持つ関数を呼び出すときは、引数の順序が重要です。</p>
+<pre><code class="language-javascript">// 引き算をする関数
+int subtract(int a, int b) {
+  return a - b;
+}
+
+void main() {
+  print(subtract(10, 3));  // 7
+  print(subtract(3, 10));  // -7（順序が違うと結果も変わる）
+}
+</code></pre>
+<h2 id="実践例bmi計算機"><a class="header" href="#実践例bmi計算機">実践例：BMI計算機</a></h2>
+<p>身長と体重からBMI（体格指数）を計算する関数を作ってみましょう。</p>
+<pre><code class="language-javascript">// BMIを計算する関数
+double calculateBMI(double height, double weight) {
+  // 身長をメートルに変換（入力はcm）
+  double heightInMeters = height / 100;
+  // BMI = 体重(kg) / 身長(m)の2乗
+  return weight / (heightInMeters * heightInMeters);
+}
+
+// BMIの判定をする関数
+String judgeBMI(double bmi) {
+  if (bmi &lt; 18.5) {
+    return '低体重';
+  } else if (bmi &lt; 25) {
+    return '普通体重';
+  } else if (bmi &lt; 30) {
+    return '肥満（1度）';
+  } else {
+    return '肥満（2度以上）';
+  }
+}
+
+void main() {
+  double height = 170.0;  // cm
+  double weight = 65.0;   // kg
+  
+  double bmi = calculateBMI(height, weight);
+  String judgment = judgeBMI(bmi);
+  
+  print('身長${height}cm、体重${weight}kgの場合');
+  print('BMI: ${bmi.toStringAsFixed(1)}');
+  print('判定: $judgment');
+}
+</code></pre>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<ol>
+<li>3つの数値を受け取って、その平均値を返す関数を作ってください。</li>
+</ol>
+<pre><code class="language-javascript">double average(double a, double b, double c) {
+  // ここにコードを書いてください
+}
+
+void main() {
+  print(average(10, 20, 30));  // 20.0 と表示されるはず
+}
+</code></pre>
+<ol start="2">
+<li>商品の価格と個数を受け取って、合計金額を計算する関数を作ってください。</li>
+</ol>
+<pre><code class="language-javascript">int calculateTotal(int price, int quantity) {
+  // ここにコードを書いてください
+}
+
+void main() {
+  int total = calculateTotal(100, 3);
+  print('合計: $total円');  // 合計: 300円 と表示されるはず
+}
+</code></pre>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<ul>
+<li>関数は複数の引数をカンマで区切って受け取ることができる</li>
+<li>引数は異なる型を混在させることができる</li>
+<li>引数の順序は重要で、呼び出し時も定義時と同じ順序で渡す必要がある</li>
+<li>複数の引数を使うことで、より柔軟で再利用可能な関数を作ることができる</li>
+</ul>
+<p>次の節では、オプション引数とデフォルト値について学びます。</p>
 
                     </main>
 

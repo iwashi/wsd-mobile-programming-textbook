@@ -179,6 +179,263 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="引数と戻り値"><a class="header" href="#引数と戻り値">引数と戻り値</a></h1>
+<p>これまでの関数は、決まった処理を実行するだけでした。しかし、関数をより柔軟に使うために、値を受け取ったり（引数）、結果を返したり（戻り値）できます。</p>
+<h2 id="引数パラメータとは"><a class="header" href="#引数パラメータとは">引数（パラメータ）とは</a></h2>
+<p>引数は、関数に渡す値のことです。関数は引数を受け取って、その値を使って処理を行います。</p>
+<h3 id="引数を持つ関数の定義"><a class="header" href="#引数を持つ関数の定義">引数を持つ関数の定義</a></h3>
+<pre><code class="language-javascript">void greet(String name) {
+  print('こんにちは、$nameさん！');
+}
+
+void main() {
+  greet('太郎');  // 引数として '太郎' を渡す
+  greet('花子');  // 引数として '花子' を渡す
+}
+</code></pre>
+<p>出力結果：</p>
+<pre><code>こんにちは、太郎さん！
+こんにちは、花子さん！
+</code></pre>
+<h3 id="複数の引数"><a class="header" href="#複数の引数">複数の引数</a></h3>
+<p>関数は複数の引数を受け取ることができます：</p>
+<pre><code class="language-javascript">void introduce(String name, int age) {
+  print('私の名前は$nameです。');
+  print('年齢は$age歳です。');
+}
+
+void main() {
+  introduce('山田太郎', 20);
+  print('---');
+  introduce('鈴木花子', 18);
+}
+</code></pre>
+<h3 id="異なる型の引数"><a class="header" href="#異なる型の引数">異なる型の引数</a></h3>
+<p>引数には様々な型を使えます：</p>
+<pre><code class="language-javascript">void printScore(String subject, int score, bool isPassed) {
+  print('科目: $subject');
+  print('点数: $score点');
+  if (isPassed) {
+    print('結果: 合格');
+  } else {
+    print('結果: 不合格');
+  }
+  print('');
+}
+
+void main() {
+  printScore('数学', 85, true);
+  printScore('英語', 55, false);
+}
+</code></pre>
+<h2 id="戻り値とは"><a class="header" href="#戻り値とは">戻り値とは</a></h2>
+<p>戻り値は、関数が処理の結果として返す値のことです。</p>
+<h3 id="戻り値を持つ関数の定義"><a class="header" href="#戻り値を持つ関数の定義">戻り値を持つ関数の定義</a></h3>
+<pre><code class="language-javascript">int add(int a, int b) {
+  return a + b;  // 結果を返す
+}
+
+void main() {
+  int result = add(5, 3);  // 戻り値を変数に保存
+  print('5 + 3 = $result');
+}
+</code></pre>
+<h3 id="戻り値の型"><a class="header" href="#戻り値の型">戻り値の型</a></h3>
+<p>関数定義の最初に書く型が戻り値の型です：</p>
+<pre><code class="language-javascript">// int型を返す関数
+int multiply(int x, int y) {
+  return x * y;
+}
+
+// double型を返す関数
+double calculateAverage(int a, int b, int c) {
+  return (a + b + c) / 3.0;
+}
+
+// String型を返す関数
+String getGrade(int score) {
+  if (score &gt;= 80) {
+    return 'A';
+  } else if (score &gt;= 60) {
+    return 'B';
+  } else {
+    return 'C';
+  }
+}
+
+void main() {
+  int product = multiply(4, 5);
+  print('4 × 5 = $product');
+  
+  double avg = calculateAverage(80, 90, 85);
+  print('平均: ${avg.toStringAsFixed(1)}');
+  
+  String grade = getGrade(75);
+  print('成績: $grade');
+}
+</code></pre>
+<h2 id="実践的な例"><a class="header" href="#実践的な例">実践的な例</a></h2>
+<h3 id="1-税込み価格を計算する関数"><a class="header" href="#1-税込み価格を計算する関数">1. 税込み価格を計算する関数</a></h3>
+<pre><code class="language-javascript">double calculateTaxIncluded(int price, double taxRate) {
+  double tax = price * taxRate;
+  return price + tax;
+}
+
+void main() {
+  int itemPrice = 1000;
+  double taxRate = 0.10;  // 10%
+  
+  double totalPrice = calculateTaxIncluded(itemPrice, taxRate);
+  print('商品価格: $itemPrice円');
+  print('税率: ${(taxRate * 100).toInt()}%');
+  print('税込価格: ${totalPrice.toInt()}円');
+}
+</code></pre>
+<h3 id="2-最大値を見つける関数"><a class="header" href="#2-最大値を見つける関数">2. 最大値を見つける関数</a></h3>
+<pre><code class="language-javascript">int findMax(int a, int b, int c) {
+  int max = a;
+  
+  if (b &gt; max) {
+    max = b;
+  }
+  if (c &gt; max) {
+    max = c;
+  }
+  
+  return max;
+}
+
+void main() {
+  int x = 45;
+  int y = 78;
+  int z = 62;
+  
+  int maximum = findMax(x, y, z);
+  print('$x, $y, $z の中で最大値は $maximum です');
+}
+</code></pre>
+<h3 id="3-bool型を返す関数"><a class="header" href="#3-bool型を返す関数">3. bool型を返す関数</a></h3>
+<pre><code class="language-javascript">bool isAdult(int age) {
+  return age &gt;= 20;
+}
+
+bool canEnter(int age, bool hasTicket) {
+  return isAdult(age) &amp;&amp; hasTicket;
+}
+
+void main() {
+  int personAge = 22;
+  bool ticket = true;
+  
+  if (isAdult(personAge)) {
+    print('成人です');
+  } else {
+    print('未成年です');
+  }
+  
+  if (canEnter(personAge, ticket)) {
+    print('入場できます');
+  } else {
+    print('入場できません');
+  }
+}
+</code></pre>
+<h2 id="引数と戻り値の組み合わせ"><a class="header" href="#引数と戻り値の組み合わせ">引数と戻り値の組み合わせ</a></h2>
+<p>実用的なプログラムでは、引数と戻り値を組み合わせて使います：</p>
+<pre><code class="language-javascript">// BMIを計算する関数
+double calculateBMI(double weight, double height) {
+  return weight / (height * height);
+}
+
+// BMIから肥満度を判定する関数
+String getBMICategory(double bmi) {
+  if (bmi &lt; 18.5) {
+    return '低体重';
+  } else if (bmi &lt; 25) {
+    return '普通体重';
+  } else if (bmi &lt; 30) {
+    return '肥満（1度）';
+  } else {
+    return '肥満（2度以上）';
+  }
+}
+
+// 結果を表示する関数
+void printBMIResult(double weight, double height) {
+  double bmi = calculateBMI(weight, height);
+  String category = getBMICategory(bmi);
+  
+  print('体重: ${weight}kg');
+  print('身長: ${height}m');
+  print('BMI: ${bmi.toStringAsFixed(1)}');
+  print('判定: $category');
+}
+
+void main() {
+  double myWeight = 65.0;  // kg
+  double myHeight = 1.70;  // m
+  
+  printBMIResult(myWeight, myHeight);
+}
+</code></pre>
+<h2 id="関数の戻り値を直接使う"><a class="header" href="#関数の戻り値を直接使う">関数の戻り値を直接使う</a></h2>
+<p>戻り値は変数に保存せずに、直接使うこともできます：</p>
+<pre><code class="language-javascript">int square(int n) {
+  return n * n;
+}
+
+void main() {
+  // 変数に保存する方法
+  int result = square(5);
+  print(result);
+  
+  // 直接使う方法
+  print(square(5));
+  
+  // 計算式の中で使う
+  int sum = square(3) + square(4);  // 3² + 4² = 9 + 16
+  print('3² + 4² = $sum');
+}
+</code></pre>
+<h2 id="よくあるエラーと注意点"><a class="header" href="#よくあるエラーと注意点">よくあるエラーと注意点</a></h2>
+<h3 id="1-戻り値の型が一致しない"><a class="header" href="#1-戻り値の型が一致しない">1. 戻り値の型が一致しない</a></h3>
+<pre><code class="language-javascript">// エラー：int型を返すと宣言したのにString型を返している
+int getValue() {
+  return "Hello";  // エラー！
+}
+</code></pre>
+<h3 id="2-returnを忘れる"><a class="header" href="#2-returnを忘れる">2. returnを忘れる</a></h3>
+<pre><code class="language-javascript">// エラー：戻り値があるのにreturnがない
+int calculate(int x) {
+  int result = x * 2;
+  // return result; を忘れている！
+}
+</code></pre>
+<h3 id="3-引数の数が一致しない"><a class="header" href="#3-引数の数が一致しない">3. 引数の数が一致しない</a></h3>
+<pre><code class="language-javascript">void showInfo(String name, int age) {
+  print('$name: $age歳');
+}
+
+void main() {
+  showInfo('太郎');  // エラー！引数が足りない
+  showInfo('太郎', 20, 'A型');  // エラー！引数が多い
+}
+</code></pre>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>引数と戻り値により、関数はより柔軟で再利用可能になります：</p>
+<ul>
+<li><strong>引数</strong>：関数に値を渡す仕組み</li>
+<li><strong>戻り値</strong>：関数から結果を返す仕組み</li>
+<li>引数は複数指定できる</li>
+<li>戻り値は1つだけ（ただし、その型は自由）</li>
+<li><code>return</code>文で値を返す</li>
+</ul>
+<p>次のセクションでは、変数のスコープ（有効範囲）について学びます。</p>
+<h3 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h3>
+<ol>
+<li>2つの数値を受け取り、大きい方を返す関数 <code>getMax(int a, int b)</code> を作成してください。</li>
+<li>円の半径を受け取り、面積を返す関数 <code>calculateCircleArea(double radius)</code> を作成してください（π = 3.14159）。</li>
+<li>点数を受け取り、合格（60点以上）かどうかを判定する関数 <code>isPassed(int score)</code> を作成してください。</li>
+</ol>
 
                     </main>
 
