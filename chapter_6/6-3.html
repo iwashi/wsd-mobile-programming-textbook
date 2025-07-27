@@ -178,7 +178,239 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="while文の使い方"><a class="header" href="#while文の使い方">while文の使い方</a></h1>
+                        <h1 id="63-while文の使い方"><a class="header" href="#63-while文の使い方">6.3 while文の使い方</a></h1>
+<p>while文は、for文と並んでよく使われる繰り返し処理の構文です。特定の条件が満たされている間、処理を繰り返し続けたいときに使います。</p>
+<h2 id="while文の基本構造"><a class="header" href="#while文の基本構造">while文の基本構造</a></h2>
+<p>while文の基本的な構造は以下のとおりです：</p>
+<pre><code class="language-javascript">while (条件式) {
+  // 条件式がtrueの間、繰り返される処理
+}
+</code></pre>
+<p>条件式がtrueである限り、中括弧内の処理が繰り返し実行されます。</p>
+<h2 id="基本的な例"><a class="header" href="#基本的な例">基本的な例</a></h2>
+<p>まずは簡単な例から見ていきましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int count = 0;
+  
+  while (count &lt; 5) {
+    print('カウント: $count');
+    count++;  // countを1増やす
+  }
+  
+  print('終了！');
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>カウント: 0
+カウント: 1
+カウント: 2
+カウント: 3
+カウント: 4
+終了！
+</code></pre>
+<p>このプログラムの動作：</p>
+<ol>
+<li><code>count &lt; 5</code> を評価（0 &lt; 5 はtrue）</li>
+<li>処理を実行（printとcount++）</li>
+<li>再び条件式を評価</li>
+<li>条件式がfalseになるまで繰り返す</li>
+</ol>
+<h2 id="for文との違い"><a class="header" href="#for文との違い">for文との違い</a></h2>
+<p>同じ処理をfor文とwhile文で書いてみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // for文の場合
+  print('for文:');
+  for (int i = 0; i &lt; 3; i++) {
+    print(i);
+  }
+  
+  // while文の場合
+  print('\nwhile文:');
+  int j = 0;
+  while (j &lt; 3) {
+    print(j);
+    j++;
+  }
+}
+</code></pre>
+<p>while文は、初期化と更新を自分で管理する必要があります。これにより、より柔軟な制御が可能になります。</p>
+<h2 id="while文が適している場面"><a class="header" href="#while文が適している場面">while文が適している場面</a></h2>
+<h3 id="1-繰り返し回数が事前にわからない場合"><a class="header" href="#1-繰り返し回数が事前にわからない場合">1. 繰り返し回数が事前にわからない場合</a></h3>
+<pre><code class="language-javascript">import 'dart:math';
+
+void main() {
+  // ランダムに6が出るまでサイコロを振る
+  Random random = Random();
+  int dice = 0;
+  int count = 0;
+  
+  while (dice != 6) {
+    dice = random.nextInt(6) + 1;  // 1〜6のランダムな数
+    count++;
+    print('${count}回目: $dice');
+  }
+  
+  print('6が出ました！ $count 回かかりました。');
+}
+</code></pre>
+<h3 id="2-ユーザーの入力を待つ場合"><a class="header" href="#2-ユーザーの入力を待つ場合">2. ユーザーの入力を待つ場合</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 簡単なゲームの例（実際の入力処理は簡略化）
+  int playerHP = 100;
+  int enemyHP = 50;
+  
+  print('バトル開始！');
+  
+  while (playerHP &gt; 0 &amp;&amp; enemyHP &gt; 0) {
+    // プレイヤーの攻撃
+    int damage = 20;
+    enemyHP -= damage;
+    print('敵に${damage}のダメージ！ 敵のHP: $enemyHP');
+    
+    if (enemyHP &lt;= 0) {
+      print('勝利！');
+      break;
+    }
+    
+    // 敵の攻撃
+    int enemyDamage = 15;
+    playerHP -= enemyDamage;
+    print('${enemyDamage}のダメージを受けた！ あなたのHP: $playerHP');
+    
+    if (playerHP &lt;= 0) {
+      print('敗北...');
+    }
+  }
+}
+</code></pre>
+<h2 id="do-while文"><a class="header" href="#do-while文">do-while文</a></h2>
+<p>Dartには、少なくとも1回は処理を実行してから条件を確認する<code>do-while文</code>もあります：</p>
+<pre><code class="language-javascript">void main() {
+  int num = 10;
+  
+  // 通常のwhile文（条件が最初からfalseなので実行されない）
+  print('while文:');
+  while (num &lt; 5) {
+    print('これは表示されません');
+    num++;
+  }
+  
+  // do-while文（最低1回は実行される）
+  print('\ndo-while文:');
+  num = 10;
+  do {
+    print('numの値: $num（条件に関係なく1回は実行）');
+    num++;
+  } while (num &lt; 5);
+}
+</code></pre>
+<h2 id="実用的な例"><a class="header" href="#実用的な例">実用的な例</a></h2>
+<h3 id="カウントダウンタイマー"><a class="header" href="#カウントダウンタイマー">カウントダウンタイマー</a></h3>
+<pre><code class="language-javascript">void main() {
+  int seconds = 10;
+  
+  print('カウントダウン開始！');
+  
+  while (seconds &gt; 0) {
+    print('$seconds 秒');
+    seconds--;
+    
+    // 実際のプログラムでは、ここで1秒待つ処理を入れます
+    // await Future.delayed(Duration(seconds: 1));
+  }
+  
+  print('時間切れ！');
+}
+</code></pre>
+<h3 id="数値の桁数を数える"><a class="header" href="#数値の桁数を数える">数値の桁数を数える</a></h3>
+<pre><code class="language-javascript">void main() {
+  int number = 12345;
+  int temp = number;
+  int digitCount = 0;
+  
+  while (temp &gt; 0) {
+    temp = temp ~/ 10;  // 整数除算（10で割った商）
+    digitCount++;
+  }
+  
+  print('$number は $digitCount 桁の数字です');
+}
+</code></pre>
+<h3 id="合計が目標値を超えるまで加算"><a class="header" href="#合計が目標値を超えるまで加算">合計が目標値を超えるまで加算</a></h3>
+<pre><code class="language-javascript">void main() {
+  int sum = 0;
+  int count = 1;
+  int target = 100;
+  
+  while (sum &lt; target) {
+    sum += count;
+    print('$count を足して、合計: $sum');
+    count++;
+  }
+  
+  print('合計が $target を超えました！');
+}
+</code></pre>
+<h2 id="while文使用時の注意点"><a class="header" href="#while文使用時の注意点">while文使用時の注意点</a></h2>
+<h3 id="1-条件式の更新を忘れない"><a class="header" href="#1-条件式の更新を忘れない">1. 条件式の更新を忘れない</a></h3>
+<pre><code class="language-javascript">void main() {
+  int x = 0;
+  
+  // 良い例：xが更新される
+  while (x &lt; 5) {
+    print(x);
+    x++;  // これを忘れると無限ループ！
+  }
+}
+</code></pre>
+<h3 id="2-breakとcontinue"><a class="header" href="#2-breakとcontinue">2. breakとcontinue</a></h3>
+<p>while文の中でも、<code>break</code>と<code>continue</code>が使えます：</p>
+<pre><code class="language-javascript">void main() {
+  int num = 0;
+  
+  while (true) {  // 無限ループ
+    num++;
+    
+    if (num % 2 == 0) {
+      continue;  // 偶数はスキップ
+    }
+    
+    print(num);
+    
+    if (num &gt;= 9) {
+      break;  // 9に達したら終了
+    }
+  }
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>1
+3
+5
+7
+9
+</code></pre>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>while文は、条件に基づいて処理を繰り返すための基本的な構文です：</p>
+<ul>
+<li>繰り返し回数が事前にわからない場合に特に有用</li>
+<li>条件式がtrueの間、処理を繰り返す</li>
+<li>do-while文を使えば、最低1回は処理を実行できる</li>
+<li>無限ループにならないよう、条件式が適切に更新されることを確認する</li>
+</ul>
+<p>次のセクションでは、無限ループとその回避方法について詳しく学習します。</p>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<ol>
+<li>
+<p>1から始めて、合計が50を超えるまで順番に数を足していくプログラムを書いてみましょう。何回足したかも表示してください。</p>
+</li>
+<li>
+<p>ある数字を2で割り続けて、1以下になるまでの回数を数えるプログラムを書いてみましょう。例：16 → 8 → 4 → 2 → 1（4回）</p>
+</li>
+<li>
+<p>フィボナッチ数列（前の2つの数の和が次の数になる）を、1000を超えるまで表示するプログラムを書いてみましょう。</p>
+</li>
+</ol>
 
                     </main>
 

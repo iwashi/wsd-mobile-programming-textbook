@@ -178,7 +178,229 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="複数の条件を組み合わせる"><a class="header" href="#複数の条件を組み合わせる">複数の条件を組み合わせる（&amp;&amp;、||）</a></h1>
+                        <h1 id="54-複数の条件を組み合わせる"><a class="header" href="#54-複数の条件を組み合わせる">5.4 複数の条件を組み合わせる（&amp;&amp;、||）</a></h1>
+<p>実際のプログラムでは、複数の条件を同時に満たす場合や、複数の条件のいずれかを満たす場合の処理が必要になることがあります。このような時に使うのが<strong>論理演算子</strong>です。</p>
+<h2 id="論理演算子の種類"><a class="header" href="#論理演算子の種類">論理演算子の種類</a></h2>
+<p>Dartには3つの論理演算子があります：</p>
+<div class="table-wrapper"><table><thead><tr><th>演算子</th><th>名前</th><th>意味</th><th>例</th></tr></thead><tbody>
+<tr><td><code>&amp;&amp;</code></td><td>AND（論理積）</td><td>すべての条件が真の時に真</td><td><code>(age &gt;= 18) &amp;&amp; (hasLicense)</code></td></tr>
+<tr><td>`</td><td></td><td>`</td><td>OR（論理和）</td></tr>
+<tr><td><code>!</code></td><td>NOT（否定）</td><td>条件の真偽を反転</td><td><code>!(isRaining)</code></td></tr>
+</tbody></table>
+</div>
+<h2 id="and演算子すべての条件を満たす"><a class="header" href="#and演算子すべての条件を満たす">AND演算子（&amp;&amp;）：すべての条件を満たす</a></h2>
+<p><code>&amp;&amp;</code>演算子は、<strong>すべての条件が真の時だけ</strong>全体が真になります。</p>
+<h3 id="基本的な使い方"><a class="header" href="#基本的な使い方">基本的な使い方</a></h3>
+<pre><code class="language-javascript">void main() {
+  int age = 20;
+  bool hasLicense = true;
+  
+  if (age &gt;= 18 &amp;&amp; hasLicense) {
+    print('運転できます');
+  } else {
+    print('運転できません');
+  }
+}
+</code></pre>
+<p>この例では、<code>age &gt;= 18</code>と<code>hasLicense</code>の<strong>両方</strong>が真の時だけ「運転できます」が表示されます。</p>
+<h3 id="実用例映画の年齢制限"><a class="header" href="#実用例映画の年齢制限">実用例：映画の年齢制限</a></h3>
+<pre><code class="language-javascript">void main() {
+  int age = 16;
+  bool parentConsent = false;
+  
+  // 18歳以上、または保護者の同意がある15歳以上なら視聴可能
+  if (age &gt;= 18 || (age &gt;= 15 &amp;&amp; parentConsent)) {
+    print('この映画を見ることができます');
+  } else {
+    print('この映画は見ることができません');
+  }
+}
+</code></pre>
+<h3 id="3つ以上の条件を組み合わせる"><a class="header" href="#3つ以上の条件を組み合わせる">3つ以上の条件を組み合わせる</a></h3>
+<pre><code class="language-javascript">void main() {
+  int score1 = 85;
+  int score2 = 78;
+  int score3 = 92;
+  
+  // すべての科目で70点以上なら合格
+  if (score1 &gt;= 70 &amp;&amp; score2 &gt;= 70 &amp;&amp; score3 &gt;= 70) {
+    print('全科目合格です！');
+  } else {
+    print('一部の科目で再試験が必要です');
+  }
+}
+</code></pre>
+<h2 id="or演算子いずれかの条件を満たす"><a class="header" href="#or演算子いずれかの条件を満たす">OR演算子（||）：いずれかの条件を満たす</a></h2>
+<p><code>||</code>演算子は、<strong>いずれかの条件が真の時</strong>全体が真になります。</p>
+<h3 id="基本的な使い方-1"><a class="header" href="#基本的な使い方-1">基本的な使い方</a></h3>
+<pre><code class="language-javascript">void main() {
+  String day = '土曜日';
+  
+  if (day == '土曜日' || day == '日曜日') {
+    print('今日は休日です');
+  } else {
+    print('今日は平日です');
+  }
+}
+</code></pre>
+<h3 id="実用例割引条件の判定"><a class="header" href="#実用例割引条件の判定">実用例：割引条件の判定</a></h3>
+<pre><code class="language-javascript">void main() {
+  int age = 16;
+  bool isStudent = true;
+  bool isSenior = false;
+  
+  // 学生、65歳以上、または18歳未満なら割引適用
+  if (isStudent || isSenior || age &lt; 18) {
+    print('割引が適用されます');
+  } else {
+    print('通常料金です');
+  }
+}
+</code></pre>
+<h2 id="not演算子条件の否定"><a class="header" href="#not演算子条件の否定">NOT演算子（!）：条件の否定</a></h2>
+<p><code>!</code>演算子は、条件の真偽を反転させます。</p>
+<h3 id="基本的な使い方-2"><a class="header" href="#基本的な使い方-2">基本的な使い方</a></h3>
+<pre><code class="language-javascript">void main() {
+  bool isRaining = false;
+  
+  if (!isRaining) {  // 雨が降っていない場合
+    print('今日は傘が不要です');
+  } else {
+    print('今日は傘を持参しましょう');
+  }
+}
+</code></pre>
+<h3 id="より複雑な例"><a class="header" href="#より複雑な例">より複雑な例</a></h3>
+<pre><code class="language-javascript">void main() {
+  bool isWeekend = true;
+  bool isHoliday = false;
+  
+  if (!(isWeekend || isHoliday)) {  // 週末でも祝日でもない場合
+    print('今日は平日です');
+  } else {
+    print('今日は休日です');
+  }
+}
+</code></pre>
+<h2 id="演算子の優先順位"><a class="header" href="#演算子の優先順位">演算子の優先順位</a></h2>
+<p>論理演算子にも優先順位があります：</p>
+<ol>
+<li><code>!</code> (NOT) - 最優先</li>
+<li><code>&amp;&amp;</code> (AND)</li>
+<li><code>||</code> (OR) - 最後</li>
+</ol>
+<pre><code class="language-javascript">void main() {
+  bool a = true;
+  bool b = false;
+  bool c = true;
+  
+  // !b &amp;&amp; a || c は (!b &amp;&amp; a) || c として評価される
+  print(!b &amp;&amp; a || c);  // true
+}
+</code></pre>
+<p>括弧を使って明示的に優先順位を指定することをお勧めします：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 17;
+  bool hasParentPermission = true;
+  bool isEmergency = false;
+  
+  // 18歳以上、または（17歳以上で保護者の許可あり）、または緊急時
+  if (age &gt;= 18 || (age &gt;= 17 &amp;&amp; hasParentPermission) || isEmergency) {
+    print('許可されています');
+  } else {
+    print('許可されていません');
+  }
+}
+</code></pre>
+<h2 id="真理値表"><a class="header" href="#真理値表">真理値表</a></h2>
+<p>論理演算子の動作を表にまとめると：</p>
+<h3 id="andの真理値表"><a class="header" href="#andの真理値表">AND（&amp;&amp;）の真理値表</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>A</th><th>B</th><th>A &amp;&amp; B</th></tr></thead><tbody>
+<tr><td>true</td><td>true</td><td>true</td></tr>
+<tr><td>true</td><td>false</td><td>false</td></tr>
+<tr><td>false</td><td>true</td><td>false</td></tr>
+<tr><td>false</td><td>false</td><td>false</td></tr>
+</tbody></table>
+</div>
+<h3 id="orの真理値表"><a class="header" href="#orの真理値表">OR（||）の真理値表</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>A</th><th>B</th><th>A || B</th></tr></thead><tbody>
+<tr><td>true</td><td>true</td><td>true</td></tr>
+<tr><td>true</td><td>false</td><td>true</td></tr>
+<tr><td>false</td><td>true</td><td>true</td></tr>
+<tr><td>false</td><td>false</td><td>false</td></tr>
+</tbody></table>
+</div>
+<h3 id="notの真理値表"><a class="header" href="#notの真理値表">NOT（!）の真理値表</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>A</th><th>!A</th></tr></thead><tbody>
+<tr><td>true</td><td>false</td></tr>
+<tr><td>false</td><td>true</td></tr>
+</tbody></table>
+</div>
+<h2 id="実践例総合的な条件判定"><a class="header" href="#実践例総合的な条件判定">実践例：総合的な条件判定</a></h2>
+<p>会員システムの例を見てみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 25;
+  bool isPremiumMember = true;
+  int pointBalance = 500;
+  String membershipType = 'gold';
+  
+  // 複数の条件を組み合わせた判定
+  if ((age &gt;= 18 &amp;&amp; isPremiumMember) || 
+      (pointBalance &gt;= 1000) || 
+      (membershipType == 'gold' || membershipType == 'platinum')) {
+    print('特別サービスを利用できます');
+    
+    if (membershipType == 'platinum' &amp;&amp; pointBalance &gt;= 5000) {
+      print('さらに、最高級サービスも利用可能です');
+    }
+  } else {
+    print('基本サービスのみ利用可能です');
+  }
+}
+</code></pre>
+<h2 id="よくある間違い"><a class="header" href="#よくある間違い">よくある間違い</a></h2>
+<h3 id="1-範囲の条件を間違って書く"><a class="header" href="#1-範囲の条件を間違って書く">1. 範囲の条件を間違って書く</a></h3>
+<pre><code class="language-javascript">// 間違った例
+int age = 25;
+if (18 &lt;= age &lt;= 65) {  // これはエラー！Dartでは使えません
+  print('働き盛りです');
+}
+
+// 正しい例
+int age = 25;
+if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
+  print('働き盛りです');
+}
+</code></pre>
+<h3 id="2-ドモルガンの法則を忘れる"><a class="header" href="#2-ドモルガンの法則を忘れる">2. ド・モルガンの法則を忘れる</a></h3>
+<pre><code class="language-javascript">// 以下の2つは同じ意味です
+!(a &amp;&amp; b) == (!a || !b)
+!(a || b) == (!a &amp;&amp; !b)
+</code></pre>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p>以下のプログラムを完成させてみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int temperature = 25;
+  bool isRaining = false;
+  String season = '春';
+  
+  // 以下の条件でピクニックに適しているか判定してください：
+  // - 気温が15度以上30度以下
+  // - 雨が降っていない
+  // - 季節が春または秋
+  
+  // ここに条件文を書いてください
+}
+</code></pre>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<ul>
+<li><code>&amp;&amp;</code>（AND）：すべての条件が真の時に真</li>
+<li><code>||</code>（OR）：いずれかの条件が真の時に真</li>
+<li><code>!</code>（NOT）：条件の真偽を反転</li>
+<li>複雑な条件では括弧を使って優先順位を明確にする</li>
+<li>論理演算子を組み合わせることで、より柔軟な条件分岐が可能</li>
+</ul>
+<p>次の節では、これまで学んだ条件分岐の知識を使った実践的なプログラムを作成します。</p>
 
                     </main>
 

@@ -178,7 +178,75 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="条件によって処理を変える"><a class="header" href="#条件によって処理を変える">条件によって処理を変える</a></h1>
+                        <h1 id="51-条件によって処理を変える"><a class="header" href="#51-条件によって処理を変える">5.1 条件によって処理を変える</a></h1>
+<p>これまでのプログラムは、上から下へ順番に実行されるだけでした。しかし、実際のプログラムでは「もし～なら○○をする」という条件に応じて異なる処理を行う必要があります。</p>
+<h2 id="プログラムの分岐とは"><a class="header" href="#プログラムの分岐とは">プログラムの分岐とは</a></h2>
+<p>日常生活でも、私たちは常に条件によって行動を変えています：</p>
+<ul>
+<li>雨が降っていたら傘を持つ</li>
+<li>テストの点数が80点以上なら合格</li>
+<li>年齢が18歳以上なら映画を見られる</li>
+</ul>
+<p>プログラミングでも同じように、条件によって異なる処理を実行することを<strong>条件分岐</strong>や<strong>分岐処理</strong>と呼びます。</p>
+<h2 id="最も簡単な条件分岐if文"><a class="header" href="#最も簡単な条件分岐if文">最も簡単な条件分岐：if文</a></h2>
+<p>Dartでは<code>if文</code>を使って条件分岐を行います。基本的な構文は次のとおりです：</p>
+<pre><code class="language-javascript">if (条件) {
+  // 条件が真（true）の時に実行される処理
+}
+</code></pre>
+<p>実際の例を見てみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 20;
+  
+  if (age &gt;= 18) {
+    print('あなたは成人です');
+  }
+  
+  print('プログラム終了');
+}
+</code></pre>
+<p>この例では：</p>
+<ol>
+<li>変数<code>age</code>に20が代入されます</li>
+<li><code>age &gt;= 18</code>（20は18以上か？）が評価されます</li>
+<li>条件が真（true）なので、<code>print('あなたは成人です');</code>が実行されます</li>
+<li>最後に<code>print('プログラム終了');</code>が実行されます</li>
+</ol>
+<h2 id="条件の真偽値"><a class="header" href="#条件の真偽値">条件の真偽値</a></h2>
+<p>条件は必ず<strong>真（true）<strong>または</strong>偽（false）<strong>のどちらかになります。これを</strong>ブール値</strong>（boolean）と呼びます。</p>
+<pre><code class="language-javascript">void main() {
+  bool isRaining = true;
+  
+  if (isRaining) {
+    print('傘を持って出かけます');
+  }
+  
+  print('出発します');
+}
+</code></pre>
+<h2 id="実際に試してみよう"><a class="header" href="#実際に試してみよう">実際に試してみよう</a></h2>
+<p>次のプログラムを実行して、結果を確認してみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int score = 85;
+  
+  print('あなたの点数: $score点');
+  
+  if (score &gt;= 80) {
+    print('合格です！おめでとうございます');
+  }
+  
+  print('結果発表終了');
+}
+</code></pre>
+<p><code>score</code>の値を70や90に変更して、結果がどう変わるか試してみてください。</p>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<ul>
+<li><code>if文</code>を使うと、条件によって処理を変えることができます</li>
+<li>条件は真（true）または偽（false）の値を持ちます</li>
+<li>条件が真の時だけ、if文の中の処理が実行されます</li>
+<li>プログラムは上から下へ順番に実行され、if文の後の処理も続けて実行されます</li>
+</ul>
+<p>次の節では、条件を作るための比較演算子について学びます。</p>
 
                     </main>
 

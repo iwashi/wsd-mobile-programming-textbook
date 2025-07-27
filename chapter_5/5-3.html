@@ -178,7 +178,199 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="if-else文の使い方"><a class="header" href="#if-else文の使い方">if-else文の使い方</a></h1>
+                        <h1 id="53-if-else文の使い方"><a class="header" href="#53-if-else文の使い方">5.3 if-else文の使い方</a></h1>
+<p>これまでのif文では、条件が真の時だけ処理を実行していました。しかし、実際のプログラムでは「条件が真の時はAをして、偽の時はBをする」という2択の処理が必要になることがよくあります。</p>
+<h2 id="if-else文の基本構文"><a class="header" href="#if-else文の基本構文">if-else文の基本構文</a></h2>
+<p><code>if-else文</code>を使うと、条件によって異なる2つの処理を実行できます：</p>
+<pre><code class="language-javascript">if (条件) {
+  // 条件が真（true）の時の処理
+} else {
+  // 条件が偽（false）の時の処理
+}
+</code></pre>
+<h2 id="基本的な例"><a class="header" href="#基本的な例">基本的な例</a></h2>
+<p>年齢による判定プログラムを見てみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 16;
+  
+  if (age &gt;= 18) {
+    print('あなたは成人です');
+  } else {
+    print('あなたは未成年です');
+  }
+  
+  print('判定終了');
+}
+</code></pre>
+<p>この例では：</p>
+<ul>
+<li><code>age &gt;= 18</code>が真（true）なら「あなたは成人です」を表示</li>
+<li><code>age &gt;= 18</code>が偽（false）なら「あなたは未成年です」を表示</li>
+<li>どちらの場合も、最後に「判定終了」を表示</li>
+</ul>
+<h2 id="実用的な例"><a class="header" href="#実用的な例">実用的な例</a></h2>
+<h3 id="例1テストの合否判定"><a class="header" href="#例1テストの合否判定">例1：テストの合否判定</a></h3>
+<pre><code class="language-javascript">void main() {
+  int score = 75;
+  
+  print('あなたの点数: $score点');
+  
+  if (score &gt;= 80) {
+    print('合格です！おめでとうございます');
+    print('次のレベルに進みましょう');
+  } else {
+    print('不合格です');
+    print('もう一度チャレンジしてください');
+  }
+}
+</code></pre>
+<h3 id="例2天気による服装アドバイス"><a class="header" href="#例2天気による服装アドバイス">例2：天気による服装アドバイス</a></h3>
+<pre><code class="language-javascript">void main() {
+  String weather = '雨';
+  
+  if (weather == '雨') {
+    print('傘を持って行きましょう');
+    print('レインコートもあると良いですね');
+  } else {
+    print('傘は不要です');
+    print('晴れやかな気分で出かけましょう');
+  }
+}
+</code></pre>
+<h2 id="else-if文複数の条件を扱う"><a class="header" href="#else-if文複数の条件を扱う">else if文：複数の条件を扱う</a></h2>
+<p>2つ以上の条件を扱いたい場合は、<code>else if</code>を使います：</p>
+<pre><code class="language-javascript">if (条件1) {
+  // 条件1が真の時の処理
+} else if (条件2) {
+  // 条件1が偽で、条件2が真の時の処理
+} else {
+  // すべての条件が偽の時の処理
+}
+</code></pre>
+<h3 id="例成績の評価"><a class="header" href="#例成績の評価">例：成績の評価</a></h3>
+<pre><code class="language-javascript">void main() {
+  int score = 85;
+  
+  print('あなたの点数: $score点');
+  
+  if (score &gt;= 90) {
+    print('評価: A (優秀)');
+  } else if (score &gt;= 80) {
+    print('評価: B (良好)');
+  } else if (score &gt;= 70) {
+    print('評価: C (普通)');
+  } else if (score &gt;= 60) {
+    print('評価: D (合格)');
+  } else {
+    print('評価: F (不合格)');
+  }
+}
+</code></pre>
+<h3 id="例時間帯による挨拶"><a class="header" href="#例時間帯による挨拶">例：時間帯による挨拶</a></h3>
+<pre><code class="language-javascript">void main() {
+  int hour = 14;  // 14時（午後2時）
+  
+  if (hour &lt; 12) {
+    print('おはようございます');
+  } else if (hour &lt; 18) {
+    print('こんにちは');
+  } else {
+    print('こんばんは');
+  }
+}
+</code></pre>
+<h2 id="ネストした条件分岐"><a class="header" href="#ネストした条件分岐">ネストした条件分岐</a></h2>
+<p>if文の中に別のif文を書くこともできます（ネスト）：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 16;
+  bool hasLicense = false;
+  
+  if (age &gt;= 18) {
+    print('年齢条件をクリアしています');
+    
+    if (hasLicense) {
+      print('運転できます');
+    } else {
+      print('運転免許を取得してください');
+    }
+  } else {
+    print('まだ運転はできません');
+    print('18歳になってから免許を取りましょう');
+  }
+}
+</code></pre>
+<h2 id="よくある間違いとその修正"><a class="header" href="#よくある間違いとその修正">よくある間違いとその修正</a></h2>
+<h3 id="1-else文の不適切な使用"><a class="header" href="#1-else文の不適切な使用">1. else文の不適切な使用</a></h3>
+<pre><code class="language-javascript">// 間違った例
+void main() {
+  int score = 85;
+  
+  if (score &gt;= 80) {
+    print('合格です');
+  }
+  
+  if (score &lt; 80) {  // これは別のif文になってしまう
+    print('不合格です');
+  }
+}
+
+// 正しい例
+void main() {
+  int score = 85;
+  
+  if (score &gt;= 80) {
+    print('合格です');
+  } else {  // elseを使って明確に対照的な条件にする
+    print('不合格です');
+  }
+}
+</code></pre>
+<h3 id="2-条件の順序"><a class="header" href="#2-条件の順序">2. 条件の順序</a></h3>
+<pre><code class="language-javascript">// 問題のある例
+void main() {
+  int score = 95;
+  
+  if (score &gt;= 60) {
+    print('合格');
+  } else if (score &gt;= 90) {  // この条件には絶対に到達しない！
+    print('優秀');
+  }
+}
+
+// 正しい例
+void main() {
+  int score = 95;
+  
+  if (score &gt;= 90) {  // 厳しい条件から先に書く
+    print('優秀');
+  } else if (score &gt;= 60) {
+    print('合格');
+  } else {
+    print('不合格');
+  }
+}
+</code></pre>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p>以下のプログラムを完成させてみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int temperature = 25;
+  
+  // 温度による服装アドバイスプログラムを作ってください
+  // 30度以上：「暑いです。薄着で過ごしましょう」
+  // 20度以上30度未満：「過ごしやすい気温です」
+  // 10度以上20度未満：「少し涼しいです。上着があると良いでしょう」
+  // 10度未満：「寒いです。暖かい服装でお出かけください」
+}
+</code></pre>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<ul>
+<li><code>if-else文</code>を使うと、条件による2択の処理ができます</li>
+<li><code>else if</code>を使って、3つ以上の選択肢を作れます</li>
+<li>条件の順序は重要です（厳しい条件から先に書く）</li>
+<li>ネストした条件分岐も可能ですが、複雑になりすぎないよう注意</li>
+<li><code>else</code>は必ず直前の<code>if</code>または<code>else if</code>とペアになります</li>
+</ul>
+<p>次の節では、複数の条件を組み合わせる論理演算子について学びます。</p>
 
                     </main>
 

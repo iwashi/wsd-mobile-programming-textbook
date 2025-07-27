@@ -178,7 +178,209 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="無限ループとその回避方法"><a class="header" href="#無限ループとその回避方法">無限ループとその回避方法</a></h1>
+                        <h1 id="64-無限ループとその回避方法"><a class="header" href="#64-無限ループとその回避方法">6.4 無限ループとその回避方法</a></h1>
+<p>無限ループとは、終了条件を満たすことなく永遠に繰り返し続けるループのことです。プログラミング初心者がよく陥るミスの一つですが、理解すれば簡単に回避できます。</p>
+<h2 id="無限ループとは"><a class="header" href="#無限ループとは">無限ループとは</a></h2>
+<p>無限ループは、ループの終了条件が永遠にfalseにならない（またはtrueのまま）状態です。プログラムが応答しなくなり、強制終了が必要になることがあります。</p>
+<h3 id="無限ループの例"><a class="header" href="#無限ループの例">無限ループの例</a></h3>
+<pre><code class="language-javascript">// 警告：実行しないでください！
+void main() {
+  int i = 0;
+  while (i &gt;= 0) {
+    print(i);
+    i++;  // iは増え続けるので、i &gt;= 0は常にtrue
+  }
+}
+</code></pre>
+<p>このプログラムは、iが0以上である限り続きます。iは増え続けるので、条件は永遠にtrueのままです。</p>
+<h2 id="無限ループが発生する主な原因"><a class="header" href="#無限ループが発生する主な原因">無限ループが発生する主な原因</a></h2>
+<h3 id="1-条件式の更新忘れ"><a class="header" href="#1-条件式の更新忘れ">1. 条件式の更新忘れ</a></h3>
+<pre><code class="language-javascript">// 悪い例：countが更新されない
+void main() {
+  int count = 0;
+  while (count &lt; 10) {
+    print('Hello');
+    // count++; を忘れている！
+  }
+}
+</code></pre>
+<h3 id="2-条件式の論理ミス"><a class="header" href="#2-条件式の論理ミス">2. 条件式の論理ミス</a></h3>
+<pre><code class="language-javascript">// 悪い例：条件が常にtrue
+void main() {
+  int x = 5;
+  while (x != 10 || x != 20) {  // xが10でも20でもこの条件はtrue
+    print(x);
+    x++;
+  }
+}
+</code></pre>
+<p>正しくは <code>&amp;&amp;</code>（かつ）を使うべきです：</p>
+<pre><code class="language-javascript">while (x != 10 &amp;&amp; x != 20) {  // xが10または20になったら終了
+</code></pre>
+<h3 id="3-更新の方向が間違っている"><a class="header" href="#3-更新の方向が間違っている">3. 更新の方向が間違っている</a></h3>
+<pre><code class="language-javascript">// 悪い例：減らすべきところを増やしている
+void main() {
+  int countdown = 10;
+  while (countdown &gt; 0) {
+    print(countdown);
+    countdown++;  // 間違い！countdown--にすべき
+  }
+}
+</code></pre>
+<h2 id="無限ループの検出と対処"><a class="header" href="#無限ループの検出と対処">無限ループの検出と対処</a></h2>
+<h3 id="デバッグ用の出力を追加"><a class="header" href="#デバッグ用の出力を追加">デバッグ用の出力を追加</a></h3>
+<p>ループが正しく動作しているか確認するため、カウンタや変数の値を出力します：</p>
+<pre><code class="language-javascript">void main() {
+  int i = 0;
+  int loopCount = 0;
+  
+  while (i &lt; 100) {
+    loopCount++;
+    print('ループ回数: $loopCount, i = $i');
+    
+    // 安全装置：1000回を超えたら強制終了
+    if (loopCount &gt; 1000) {
+      print('エラー：ループが多すぎます！');
+      break;
+    }
+    
+    i += 10;
+  }
+}
+</code></pre>
+<h3 id="安全な無限ループの作り方"><a class="header" href="#安全な無限ループの作り方">安全な無限ループの作り方</a></h3>
+<p>意図的に無限ループを作る場合は、必ず脱出条件を用意します：</p>
+<pre><code class="language-javascript">void main() {
+  // メニュー選択の例
+  while (true) {  // 意図的な無限ループ
+    print('\nメニュー:');
+    print('1. 開始');
+    print('2. 設定');
+    print('3. 終了');
+    
+    // 実際の入力処理は簡略化
+    int choice = 3;  // 例として3を選択
+    
+    if (choice == 1) {
+      print('ゲームを開始します');
+    } else if (choice == 2) {
+      print('設定画面を開きます');
+    } else if (choice == 3) {
+      print('終了します');
+      break;  // ループを抜ける
+    }
+  }
+}
+</code></pre>
+<h2 id="無限ループを防ぐためのベストプラクティス"><a class="header" href="#無限ループを防ぐためのベストプラクティス">無限ループを防ぐためのベストプラクティス</a></h2>
+<h3 id="1-ループカウンタを使う"><a class="header" href="#1-ループカウンタを使う">1. ループカウンタを使う</a></h3>
+<pre><code class="language-javascript">void main() {
+  int maxIterations = 100;
+  int iterations = 0;
+  double value = 1.0;
+  
+  // 値が0.01より小さくなるまで半分にし続ける
+  while (value &gt; 0.01) {
+    value = value / 2;
+    iterations++;
+    
+    // 安全装置
+    if (iterations &gt;= maxIterations) {
+      print('警告：最大繰り返し回数に達しました');
+      break;
+    }
+  }
+  
+  print('最終的な値: $value');
+  print('繰り返し回数: $iterations');
+}
+</code></pre>
+<h3 id="2-明確な終了条件を設定"><a class="header" href="#2-明確な終了条件を設定">2. 明確な終了条件を設定</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 良い例：明確な終了条件
+  List&lt;int&gt; numbers = [1, 5, 3, 8, 2];
+  int index = 0;
+  
+  // リストのサイズを超えないようにする
+  while (index &lt; numbers.length) {
+    print('numbers[$index] = ${numbers[index]}');
+    index++;
+  }
+}
+</code></pre>
+<h3 id="3-do-whileでの注意点"><a class="header" href="#3-do-whileでの注意点">3. do-whileでの注意点</a></h3>
+<pre><code class="language-javascript">void main() {
+  int num = 100;
+  
+  // 注意：最低1回は実行される
+  do {
+    print('num = $num');
+    num = num ~/ 2;  // 2で割る（整数除算）
+  } while (num &gt; 0);
+  
+  print('終了時のnum: $num');
+}
+</code></pre>
+<h2 id="実践的な例ユーザー入力の検証"><a class="header" href="#実践的な例ユーザー入力の検証">実践的な例：ユーザー入力の検証</a></h2>
+<pre><code class="language-javascript">void main() {
+  // パスワード入力の例（実際の入力は簡略化）
+  String password = '';
+  int attempts = 0;
+  int maxAttempts = 3;
+  
+  while (attempts &lt; maxAttempts) {
+    // 実際にはここでユーザー入力を受け取る
+    password = 'wrong';  // 例として間違ったパスワード
+    attempts++;
+    
+    if (password == 'correct') {
+      print('ログイン成功！');
+      break;
+    } else {
+      print('パスワードが違います。残り${maxAttempts - attempts}回');
+      
+      if (attempts &gt;= maxAttempts) {
+        print('ログイン失敗。アカウントがロックされました。');
+      }
+    }
+  }
+}
+</code></pre>
+<h2 id="トラブルシューティング"><a class="header" href="#トラブルシューティング">トラブルシューティング</a></h2>
+<p>プログラムが応答しなくなった場合：</p>
+<ol>
+<li><strong>DartPadの場合</strong>: ブラウザのタブを更新する</li>
+<li><strong>コマンドラインの場合</strong>: Ctrl+C（Windows/Linux）またはCmd+C（Mac）で強制終了</li>
+<li><strong>IDEの場合</strong>: 停止ボタンをクリック</li>
+</ol>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>無限ループを防ぐための重要なポイント：</p>
+<ul>
+<li>ループの条件式が適切に更新されることを確認する</li>
+<li>論理演算子（&amp;&amp;、||）の使い方に注意する</li>
+<li>デバッグ時は変数の値を出力して動作を確認する</li>
+<li>意図的な無限ループには必ず脱出条件を用意する</li>
+<li>安全装置として最大繰り返し回数を設定することを検討する</li>
+</ul>
+<p>次のセクションでは、これまで学んだループの知識を活用して、九九の表を作成する実践的なプログラムを作ります。</p>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<ol>
+<li>
+<p>次のコードの問題点を指摘し、修正してください：</p>
+<pre><code class="language-javascript">int x = 10;
+while (x &gt; 0) {
+  print(x);
+  x += 1;
+}
+</code></pre>
+</li>
+<li>
+<p>1から始めて3倍していき、1000を超えたら終了するプログラムを書いてください。ただし、無限ループにならないよう安全装置も含めてください。</p>
+</li>
+<li>
+<p>ユーザーが「quit」と入力するまで続くプログラムを書いてください（実際の入力処理は、文字列を順番に試すシミュレーションで構いません）。</p>
+</li>
+</ol>
 
                     </main>
 

@@ -178,7 +178,102 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="同じ処理を繰り返す理由"><a class="header" href="#同じ処理を繰り返す理由">同じ処理を繰り返す理由</a></h1>
+                        <h1 id="61-同じ処理を繰り返す理由"><a class="header" href="#61-同じ処理を繰り返す理由">6.1 同じ処理を繰り返す理由</a></h1>
+<p>プログラミングをしていると、同じような処理を何度も実行したい場面によく出会います。例えば、1から10までの数字を画面に表示したいときを考えてみましょう。</p>
+<h2 id="繰り返し処理がない場合"><a class="header" href="#繰り返し処理がない場合">繰り返し処理がない場合</a></h2>
+<p>まず、繰り返し処理を使わずに1から10までの数字を表示するプログラムを見てみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  print(1);
+  print(2);
+  print(3);
+  print(4);
+  print(5);
+  print(6);
+  print(7);
+  print(8);
+  print(9);
+  print(10);
+}
+</code></pre>
+<p>このプログラムは確かに動作しますが、いくつかの問題があります：</p>
+<ol>
+<li><strong>コードが長い</strong> - 同じようなコードを10回も書く必要があります</li>
+<li><strong>変更が大変</strong> - もし1から100まで表示したくなったら、100行書かなければなりません</li>
+<li><strong>ミスが起きやすい</strong> - コピー＆ペーストの際に、数字を間違える可能性があります</li>
+</ol>
+<h2 id="繰り返し処理の必要性"><a class="header" href="#繰り返し処理の必要性">繰り返し処理の必要性</a></h2>
+<p>このような問題を解決するために、プログラミング言語には「繰り返し処理（ループ）」という機能があります。繰り返し処理を使うと、同じ処理を指定した回数だけ、あるいは特定の条件を満たすまで自動的に繰り返すことができます。</p>
+<pre><code class="language-javascript">void main() {
+  // for文を使って1から10まで表示
+  for (int i = 1; i &lt;= 10; i++) {
+    print(i);
+  }
+}
+</code></pre>
+<p>このコードはたった3行で、先ほどの10行のコードと同じ結果を得られます。しかも、100まで表示したければ、<code>i &lt;= 10</code> を <code>i &lt;= 100</code> に変えるだけです。</p>
+<h2 id="繰り返し処理が役立つ場面"><a class="header" href="#繰り返し処理が役立つ場面">繰り返し処理が役立つ場面</a></h2>
+<p>日常生活やプログラミングで繰り返し処理が役立つ場面は数多くあります：</p>
+<h3 id="1-データの集計"><a class="header" href="#1-データの集計">1. データの集計</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 1から100までの合計を計算
+  int sum = 0;
+  for (int i = 1; i &lt;= 100; i++) {
+    sum = sum + i;
+  }
+  print('1から100までの合計: $sum');  // 5050
+}
+</code></pre>
+<h3 id="2-パターンの生成"><a class="header" href="#2-パターンの生成">2. パターンの生成</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 星のパターンを作る
+  for (int i = 1; i &lt;= 5; i++) {
+    print('*' * i);
+  }
+}
+// 出力：
+// *
+// **
+// ***
+// ****
+// *****
+</code></pre>
+<h3 id="3-ユーザー入力の検証"><a class="header" href="#3-ユーザー入力の検証">3. ユーザー入力の検証</a></h3>
+<pre><code class="language-javascript">void main() {
+  // パスワードの強度をチェック（文字数をカウント）
+  String password = 'myPassword123';
+  int digitCount = 0;
+  
+  for (int i = 0; i &lt; password.length; i++) {
+    if ('0123456789'.contains(password[i])) {
+      digitCount++;
+    }
+  }
+  
+  print('パスワードに含まれる数字の数: $digitCount');
+}
+</code></pre>
+<h2 id="繰り返し処理の基本的な考え方"><a class="header" href="#繰り返し処理の基本的な考え方">繰り返し処理の基本的な考え方</a></h2>
+<p>繰り返し処理を理解するには、以下の3つの要素を意識することが重要です：</p>
+<ol>
+<li><strong>初期状態</strong> - 繰り返しを始める前の状態</li>
+<li><strong>継続条件</strong> - いつまで繰り返すか</li>
+<li><strong>更新処理</strong> - 各繰り返しで何を変更するか</li>
+</ol>
+<p>例えば、1から10まで数える場合：</p>
+<ul>
+<li>初期状態：1から始める</li>
+<li>継続条件：10以下の間は続ける</li>
+<li>更新処理：1ずつ増やす</li>
+</ul>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>繰り返し処理は、プログラミングにおいて非常に重要な概念です。同じ処理を効率的に実行できるだけでなく、コードをより短く、読みやすく、保守しやすくします。</p>
+<p>次のセクションでは、Dartで最もよく使われる繰り返し処理の一つである「for文」について詳しく学んでいきます。</p>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<ol>
+<li>繰り返し処理を使わずに「Hello」を5回表示するプログラムを書いてみましょう。</li>
+<li>そのプログラムを、繰り返し処理を使って書き直すとどうなるか考えてみましょう。</li>
+<li>日常生活で「同じことを繰り返す」場面を3つ挙げて、それをプログラムで表現するとしたらどうなるか考えてみましょう。</li>
+</ol>
 
                     </main>
 

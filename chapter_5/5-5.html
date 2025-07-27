@@ -178,7 +178,312 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="実践年齢による入場料金の計算"><a class="header" href="#実践年齢による入場料金の計算">実践：年齢による入場料金の計算</a></h1>
+                        <h1 id="55-実践年齢による入場料金の計算"><a class="header" href="#55-実践年齢による入場料金の計算">5.5 実践：年齢による入場料金の計算</a></h1>
+<p>これまで学んだ条件分岐の知識を使って、実際のプログラムを作成してみましょう。年齢に応じて入場料金を計算する、実用的なプログラムを作ります。</p>
+<h2 id="課題の設定"><a class="header" href="#課題の設定">課題の設定</a></h2>
+<p>遊園地の入場料金システムを作ります。料金体系は以下のとおりです：</p>
+<ul>
+<li><strong>幼児（3歳未満）</strong>: 無料</li>
+<li><strong>子供（3歳以上12歳未満）</strong>: 800円</li>
+<li><strong>学生（12歳以上18歳未満）</strong>: 1,200円</li>
+<li><strong>大人（18歳以上65歳未満）</strong>: 2,000円</li>
+<li><strong>シニア（65歳以上）</strong>: 1,500円</li>
+</ul>
+<h2 id="ステップ1基本的な料金計算"><a class="header" href="#ステップ1基本的な料金計算">ステップ1：基本的な料金計算</a></h2>
+<p>まず、シンプルな条件分岐で料金を計算してみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 25;
+  int price = 0;
+  String category = '';
+  
+  if (age &lt; 3) {
+    price = 0;
+    category = '幼児';
+  } else if (age &lt; 12) {
+    price = 800;
+    category = '子供';
+  } else if (age &lt; 18) {
+    price = 1200;
+    category = '学生';
+  } else if (age &lt; 65) {
+    price = 2000;
+    category = '大人';
+  } else {
+    price = 1500;
+    category = 'シニア';
+  }
+  
+  print('年齢: $age歳');
+  print('区分: $category');
+  print('料金: ${price}円');
+}
+</code></pre>
+<h2 id="ステップ2学生割引の追加"><a class="header" href="#ステップ2学生割引の追加">ステップ2：学生割引の追加</a></h2>
+<p>学生証を持っている場合は、18歳以上でも学生料金にしましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 20;
+  bool hasStudentCard = true;
+  int price = 0;
+  String category = '';
+  
+  if (age &lt; 3) {
+    price = 0;
+    category = '幼児';
+  } else if (age &lt; 12) {
+    price = 800;
+    category = '子供';
+  } else if (age &lt; 18 || (age &lt; 25 &amp;&amp; hasStudentCard)) {
+    price = 1200;
+    category = '学生';
+  } else if (age &lt; 65) {
+    price = 2000;
+    category = '大人';
+  } else {
+    price = 1500;
+    category = 'シニア';
+  }
+  
+  print('年齢: $age歳');
+  if (hasStudentCard &amp;&amp; age &gt;= 18) {
+    print('学生証あり');
+  }
+  print('区分: $category');
+  print('料金: ${price}円');
+}
+</code></pre>
+<h2 id="ステップ3グループ割引の追加"><a class="header" href="#ステップ3グループ割引の追加">ステップ3：グループ割引の追加</a></h2>
+<p>3人以上のグループなら、1人あたり100円引きにしましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 30;
+  bool hasStudentCard = false;
+  int groupSize = 4;
+  int basePrice = 0;
+  String category = '';
+  
+  // 基本料金の計算
+  if (age &lt; 3) {
+    basePrice = 0;
+    category = '幼児';
+  } else if (age &lt; 12) {
+    basePrice = 800;
+    category = '子供';
+  } else if (age &lt; 18 || (age &lt; 25 &amp;&amp; hasStudentCard)) {
+    basePrice = 1200;
+    category = '学生';
+  } else if (age &lt; 65) {
+    basePrice = 2000;
+    category = '大人';
+  } else {
+    basePrice = 1500;
+    category = 'シニア';
+  }
+  
+  // グループ割引の適用
+  int finalPrice = basePrice;
+  if (groupSize &gt;= 3 &amp;&amp; basePrice &gt; 0) {
+    finalPrice = basePrice - 100;
+  }
+  
+  print('年齢: $age歳');
+  print('グループ人数: $groupSize人');
+  if (hasStudentCard &amp;&amp; age &gt;= 18) {
+    print('学生証あり');
+  }
+  print('区分: $category');
+  print('基本料金: ${basePrice}円');
+  
+  if (groupSize &gt;= 3 &amp;&amp; basePrice &gt; 0) {
+    print('グループ割引: -100円');
+    print('最終料金: ${finalPrice}円');
+  } else {
+    print('最終料金: ${finalPrice}円');
+  }
+}
+</code></pre>
+<h2 id="ステップ4特別な日の料金設定"><a class="header" href="#ステップ4特別な日の料金設定">ステップ4：特別な日の料金設定</a></h2>
+<p>土日や祝日は料金が変わるシステムを追加しましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 22;
+  bool hasStudentCard = true;
+  int groupSize = 2;
+  String dayType = '平日'; // '平日', '土日', '祝日'
+  
+  int basePrice = 0;
+  String category = '';
+  
+  // 基本料金の計算
+  if (age &lt; 3) {
+    basePrice = 0;
+    category = '幼児';
+  } else if (age &lt; 12) {
+    basePrice = 800;
+    category = '子供';
+  } else if (age &lt; 18 || (age &lt; 25 &amp;&amp; hasStudentCard)) {
+    basePrice = 1200;
+    category = '学生';
+  } else if (age &lt; 65) {
+    basePrice = 2000;
+    category = '大人';
+  } else {
+    basePrice = 1500;
+    category = 'シニア';
+  }
+  
+  // 休日料金の適用（幼児は除く）
+  if (basePrice &gt; 0) {
+    if (dayType == '土日') {
+      basePrice = (basePrice * 1.2).round(); // 20%増し
+    } else if (dayType == '祝日') {
+      basePrice = (basePrice * 1.3).round(); // 30%増し
+    }
+  }
+  
+  // グループ割引の適用
+  int finalPrice = basePrice;
+  if (groupSize &gt;= 3 &amp;&amp; basePrice &gt; 0) {
+    finalPrice = basePrice - 100;
+  }
+  
+  // 結果の表示
+  print('=== 入場料金計算システム ===');
+  print('年齢: $age歳');
+  print('日程: $dayType');
+  print('グループ人数: $groupSize人');
+  
+  if (hasStudentCard &amp;&amp; age &gt;= 18 &amp;&amp; age &lt; 25) {
+    print('学生証: あり');
+  }
+  
+  print('区分: $category');
+  
+  if (dayType != '平日' &amp;&amp; basePrice &gt; 0) {
+    String multiplier = dayType == '土日' ? '20%増' : '30%増';
+    print('$dayType料金($multiplier)適用');
+  }
+  
+  if (groupSize &gt;= 3 &amp;&amp; basePrice &gt; 0) {
+    print('グループ割引: -100円');
+  }
+  
+  print('最終料金: ${finalPrice}円');
+  print('========================');
+}
+</code></pre>
+<h2 id="ステップ5エラーチェックの追加"><a class="header" href="#ステップ5エラーチェックの追加">ステップ5：エラーチェックの追加</a></h2>
+<p>不正な値に対する処理を追加しましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = -5; // 不正な値をテスト
+  bool hasStudentCard = false;
+  int groupSize = 0; // 不正な値をテスト
+  String dayType = '祝日';
+  
+  // 入力値の検証
+  if (age &lt; 0 || age &gt; 150) {
+    print('エラー: 年齢は0歳から150歳の間で入力してください');
+    return;
+  }
+  
+  if (groupSize &lt; 1) {
+    print('エラー: グループ人数は1人以上で入力してください');
+    return;
+  }
+  
+  if (dayType != '平日' &amp;&amp; dayType != '土日' &amp;&amp; dayType != '祝日') {
+    print('エラー: 日程は「平日」「土日」「祝日」のいずれかを入力してください');
+    return;
+  }
+  
+  int basePrice = 0;
+  String category = '';
+  
+  // 基本料金の計算
+  if (age &lt; 3) {
+    basePrice = 0;
+    category = '幼児';
+  } else if (age &lt; 12) {
+    basePrice = 800;
+    category = '子供';
+  } else if (age &lt; 18 || (age &lt; 25 &amp;&amp; hasStudentCard)) {
+    basePrice = 1200;
+    category = '学生';
+  } else if (age &lt; 65) {
+    basePrice = 2000;
+    category = '大人';
+  } else {
+    basePrice = 1500;
+    category = 'シニア';
+  }
+  
+  // 休日料金の適用
+  if (basePrice &gt; 0) {
+    if (dayType == '土日') {
+      basePrice = (basePrice * 1.2).round();
+    } else if (dayType == '祝日') {
+      basePrice = (basePrice * 1.3).round();
+    }
+  }
+  
+  // グループ割引の適用
+  int finalPrice = basePrice;
+  if (groupSize &gt;= 3 &amp;&amp; basePrice &gt; 0) {
+    finalPrice = basePrice - 100;
+  }
+  
+  // 結果の表示
+  print('=== 入場料金計算システム ===');
+  print('年齢: $age歳');
+  print('日程: $dayType');
+  print('グループ人数: $groupSize人');
+  
+  if (hasStudentCard &amp;&amp; age &gt;= 18 &amp;&amp; age &lt; 25) {
+    print('学生証: あり');
+  }
+  
+  print('区分: $category');
+  
+  if (dayType != '平日' &amp;&amp; basePrice &gt; 0) {
+    String multiplier = dayType == '土日' ? '20%増' : '30%増';
+    print('$dayType料金($multiplier)適用');
+  }
+  
+  if (groupSize &gt;= 3 &amp;&amp; basePrice &gt; 0) {
+    print('グループ割引: -100円');
+  }
+  
+  print('最終料金: ${finalPrice}円');
+  print('========================');
+}
+</code></pre>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p>以下の条件を追加してプログラムを改良してみましょう：</p>
+<ol>
+<li><strong>障害者割引</strong>: 障害者手帳を持っている場合は半額（<code>bool hasDisabilityCard</code>を追加）</li>
+<li><strong>リピーター割引</strong>: 年間パスポート所持者は300円引き（<code>bool hasAnnualPass</code>を追加）</li>
+<li><strong>早朝割引</strong>: 営業開始から2時間以内の入場で平日のみ200円引き（<code>bool isEarlyBird</code>を追加）</li>
+</ol>
+<pre><code class="language-javascript">void main() {
+  int age = 35;
+  bool hasStudentCard = false;
+  bool hasDisabilityCard = true;
+  bool hasAnnualPass = false;
+  bool isEarlyBird = true;
+  int groupSize = 1;
+  String dayType = '平日';
+  
+  // ここにプログラムを書いてください
+}
+</code></pre>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>この実践例では、以下のプログラミング技術を使いました：</p>
+<ul>
+<li><strong>条件分岐（if-else if-else）</strong>: 年齢による料金区分の判定</li>
+<li><strong>論理演算子（&amp;&amp;、||）</strong>: 学生証と年齢の組み合わせ条件</li>
+<li><strong>複合条件</strong>: 複数の割引条件の組み合わせ</li>
+<li><strong>エラーハンドリング</strong>: 不正な入力値の検証</li>
+<li><strong>計算</strong>: パーセンテージ計算と四捨五入</li>
+</ul>
+<p>このようなプログラムを作ることで、条件分岐の基本的な考え方と実用的な応用方法を身につけることができます。実際のシステム開発でも、このような複雑な条件判定は頻繁に使われます。</p>
+<p>次の章では、同じ処理を繰り返し実行する「ループ」について学びます。</p>
 
                     </main>
 

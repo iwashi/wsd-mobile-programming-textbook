@@ -4257,17 +4257,1883 @@ ${name}さんのテスト結果をお知らせします。
 <p>生年月日から現在の年齢を計算するプログラムを作成してください。</p>
 <p>これらの練習問題を通じて、算術演算子と文字列操作を組み合わせた実用的なプログラムが作成できるようになります。次の章では、条件分岐について学び、より複雑な判断処理を実装していきます。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第5章条件分岐if文"><a class="header" href="#第5章条件分岐if文">第5章：条件分岐（if文）</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="条件によって処理を変える"><a class="header" href="#条件によって処理を変える">条件によって処理を変える</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="比較演算子"><a class="header" href="#比較演算子">比較演算子（==、!=、&gt;、&lt;、&gt;=、&lt;=）</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="if-else文の使い方"><a class="header" href="#if-else文の使い方">if-else文の使い方</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="複数の条件を組み合わせる"><a class="header" href="#複数の条件を組み合わせる">複数の条件を組み合わせる（&amp;&amp;、||）</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="実践年齢による入場料金の計算"><a class="header" href="#実践年齢による入場料金の計算">実践：年齢による入場料金の計算</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="51-条件によって処理を変える"><a class="header" href="#51-条件によって処理を変える">5.1 条件によって処理を変える</a></h1>
+<p>これまでのプログラムは、上から下へ順番に実行されるだけでした。しかし、実際のプログラムでは「もし～なら○○をする」という条件に応じて異なる処理を行う必要があります。</p>
+<h2 id="プログラムの分岐とは"><a class="header" href="#プログラムの分岐とは">プログラムの分岐とは</a></h2>
+<p>日常生活でも、私たちは常に条件によって行動を変えています：</p>
+<ul>
+<li>雨が降っていたら傘を持つ</li>
+<li>テストの点数が80点以上なら合格</li>
+<li>年齢が18歳以上なら映画を見られる</li>
+</ul>
+<p>プログラミングでも同じように、条件によって異なる処理を実行することを<strong>条件分岐</strong>や<strong>分岐処理</strong>と呼びます。</p>
+<h2 id="最も簡単な条件分岐if文"><a class="header" href="#最も簡単な条件分岐if文">最も簡単な条件分岐：if文</a></h2>
+<p>Dartでは<code>if文</code>を使って条件分岐を行います。基本的な構文は次のとおりです：</p>
+<pre><code class="language-javascript">if (条件) {
+  // 条件が真（true）の時に実行される処理
+}
+</code></pre>
+<p>実際の例を見てみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 20;
+  
+  if (age &gt;= 18) {
+    print('あなたは成人です');
+  }
+  
+  print('プログラム終了');
+}
+</code></pre>
+<p>この例では：</p>
+<ol>
+<li>変数<code>age</code>に20が代入されます</li>
+<li><code>age &gt;= 18</code>（20は18以上か？）が評価されます</li>
+<li>条件が真（true）なので、<code>print('あなたは成人です');</code>が実行されます</li>
+<li>最後に<code>print('プログラム終了');</code>が実行されます</li>
+</ol>
+<h2 id="条件の真偽値"><a class="header" href="#条件の真偽値">条件の真偽値</a></h2>
+<p>条件は必ず<strong>真（true）<strong>または</strong>偽（false）<strong>のどちらかになります。これを</strong>ブール値</strong>（boolean）と呼びます。</p>
+<pre><code class="language-javascript">void main() {
+  bool isRaining = true;
+  
+  if (isRaining) {
+    print('傘を持って出かけます');
+  }
+  
+  print('出発します');
+}
+</code></pre>
+<h2 id="実際に試してみよう"><a class="header" href="#実際に試してみよう">実際に試してみよう</a></h2>
+<p>次のプログラムを実行して、結果を確認してみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int score = 85;
+  
+  print('あなたの点数: $score点');
+  
+  if (score &gt;= 80) {
+    print('合格です！おめでとうございます');
+  }
+  
+  print('結果発表終了');
+}
+</code></pre>
+<p><code>score</code>の値を70や90に変更して、結果がどう変わるか試してみてください。</p>
+<h2 id="まとめ-10"><a class="header" href="#まとめ-10">まとめ</a></h2>
+<ul>
+<li><code>if文</code>を使うと、条件によって処理を変えることができます</li>
+<li>条件は真（true）または偽（false）の値を持ちます</li>
+<li>条件が真の時だけ、if文の中の処理が実行されます</li>
+<li>プログラムは上から下へ順番に実行され、if文の後の処理も続けて実行されます</li>
+</ul>
+<p>次の節では、条件を作るための比較演算子について学びます。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="52-比較演算子"><a class="header" href="#52-比較演算子">5.2 比較演算子（==、!=、&gt;、&lt;、&gt;=、&lt;=）</a></h1>
+<p>前の節では、<code>age &gt;= 18</code>のような条件を使いました。この<code>&gt;=</code>は<strong>比較演算子</strong>と呼ばれ、2つの値を比較してtrue（真）またはfalse（偽）を返します。</p>
+<h2 id="比較演算子の種類"><a class="header" href="#比較演算子の種類">比較演算子の種類</a></h2>
+<p>Dartには以下の比較演算子があります：</p>
+<div class="table-wrapper"><table><thead><tr><th>演算子</th><th>意味</th><th>例</th><th>結果</th></tr></thead><tbody>
+<tr><td><code>==</code></td><td>等しい</td><td><code>5 == 5</code></td><td>true</td></tr>
+<tr><td><code>!=</code></td><td>等しくない</td><td><code>5 != 3</code></td><td>true</td></tr>
+<tr><td><code>&gt;</code></td><td>より大きい</td><td><code>7 &gt; 3</code></td><td>true</td></tr>
+<tr><td><code>&lt;</code></td><td>より小さい</td><td><code>2 &lt; 8</code></td><td>true</td></tr>
+<tr><td><code>&gt;=</code></td><td>以上（等しいか大きい）</td><td><code>5 &gt;= 5</code></td><td>true</td></tr>
+<tr><td><code>&lt;=</code></td><td>以下（等しいか小さい）</td><td><code>4 &lt;= 6</code></td><td>true</td></tr>
+</tbody></table>
+</div>
+<h2 id="等価演算子"><a class="header" href="#等価演算子">等価演算子（==、!=）</a></h2>
+<h3 id="等しいかどうか"><a class="header" href="#等しいかどうか">等しいかどうか：==</a></h3>
+<p><code>==</code>演算子は、2つの値が同じかどうかを調べます：</p>
+<pre><code class="language-javascript">void main() {
+  int a = 10;
+  int b = 10;
+  int c = 5;
+  
+  print('a == b: ${a == b}'); // true
+  print('a == c: ${a == c}'); // false
+  
+  String name1 = 'Dart';
+  String name2 = 'Dart';
+  String name3 = 'Java';
+  
+  print('name1 == name2: ${name1 == name2}'); // true
+  print('name1 == name3: ${name1 == name3}'); // false
+}
+</code></pre>
+<p><strong>重要な注意点：</strong> 等しいかどうかの比較には<code>==</code>を使います。<code>=</code>は代入演算子なので間違えないようにしましょう。</p>
+<h3 id="等しくない"><a class="header" href="#等しくない">等しくない：!=</a></h3>
+<p><code>!=</code>演算子は、2つの値が異なるかどうかを調べます：</p>
+<pre><code class="language-javascript">void main() {
+  int score = 75;
+  
+  if (score != 100) {
+    print('満点ではありません');
+  }
+  
+  String weather = '晴れ';
+  if (weather != '雨') {
+    print('傘は不要です');
+  }
+}
+</code></pre>
+<h2 id="大小比較演算子"><a class="header" href="#大小比較演算子">大小比較演算子（&gt;、&lt;、&gt;=、&lt;=）</a></h2>
+<h3 id="より大きいより小さい"><a class="header" href="#より大きいより小さい">より大きい・より小さい：&gt;、&lt;</a></h3>
+<pre><code class="language-javascript">void main() {
+  int myAge = 16;
+  int adultAge = 18;
+  
+  if (myAge &lt; adultAge) {
+    print('まだ未成年です');
+  }
+  
+  double temperature = 35.5;
+  if (temperature &gt; 30.0) {
+    print('暑い日ですね');
+  }
+}
+</code></pre>
+<h3 id="以上以下"><a class="header" href="#以上以下">以上・以下：&gt;=、&lt;=</a></h3>
+<pre><code class="language-javascript">void main() {
+  int testScore = 80;
+  
+  // 80点以上なら合格
+  if (testScore &gt;= 80) {
+    print('合格です！');
+  }
+  
+  // 60点以下なら不合格
+  if (testScore &lt;= 60) {
+    print('不合格です');
+  }
+}
+</code></pre>
+<h2 id="実践例年齢チェックプログラム"><a class="header" href="#実践例年齢チェックプログラム">実践例：年齢チェックプログラム</a></h2>
+<p>様々な比較演算子を使った例を見てみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 17;
+  
+  print('あなたの年齢: $age歳');
+  
+  if (age &lt; 13) {
+    print('子供料金が適用されます');
+  }
+  
+  if (age &gt;= 13) {
+    print('中学生以上ですね');
+  }
+  
+  if (age == 20) {
+    print('成人おめでとうございます！');
+  }
+  
+  if (age != 18) {
+    print('18歳ではありませんね');
+  }
+}
+</code></pre>
+<h2 id="よくある間違い"><a class="header" href="#よくある間違い">よくある間違い</a></h2>
+<h3 id="1-代入演算子と比較演算子の混同"><a class="header" href="#1-代入演算子と比較演算子の混同">1. 代入演算子と比較演算子の混同</a></h3>
+<pre><code class="language-javascript">// 間違い
+if (age = 18) {  // エラー！代入はできません
+  print('18歳です');
+}
+
+// 正しい
+if (age == 18) {  // 比較演算子を使う
+  print('18歳です');
+}
+</code></pre>
+<h3 id="2-文字列の比較"><a class="header" href="#2-文字列の比較">2. 文字列の比較</a></h3>
+<p>文字列も比較できますが、大文字・小文字は区別されます：</p>
+<pre><code class="language-javascript">void main() {
+  String name = 'dart';
+  
+  print('name == "dart": ${name == "dart"}');   // true
+  print('name == "Dart": ${name == "Dart"}');   // false
+  print('name == "DART": ${name == "DART"}');   // false
+}
+</code></pre>
+<h2 id="練習問題-5"><a class="header" href="#練習問題-5">練習問題</a></h2>
+<p>次のプログラムを完成させてみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int number = 42;
+  
+  // 以下の条件をif文で書いてみてください
+  // 1. numberが50より大きい場合
+  // 2. numberが0以上の場合  
+  // 3. numberが42と等しい場合
+  // 4. numberが100と等しくない場合
+}
+</code></pre>
+<h2 id="まとめ-11"><a class="header" href="#まとめ-11">まとめ</a></h2>
+<ul>
+<li>比較演算子は2つの値を比較してtrue/falseを返します</li>
+<li><code>==</code>（等しい）と<code>=</code>（代入）は全く違う意味なので注意</li>
+<li><code>&gt;=</code>や<code>&lt;=</code>は「以上」「以下」を表し、等しい場合も含みます</li>
+<li>文字列の比較では大文字・小文字が区別されます</li>
+</ul>
+<p>次の節では、if-else文を使ってより柔軟な条件分岐を学びます。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="53-if-else文の使い方"><a class="header" href="#53-if-else文の使い方">5.3 if-else文の使い方</a></h1>
+<p>これまでのif文では、条件が真の時だけ処理を実行していました。しかし、実際のプログラムでは「条件が真の時はAをして、偽の時はBをする」という2択の処理が必要になることがよくあります。</p>
+<h2 id="if-else文の基本構文"><a class="header" href="#if-else文の基本構文">if-else文の基本構文</a></h2>
+<p><code>if-else文</code>を使うと、条件によって異なる2つの処理を実行できます：</p>
+<pre><code class="language-javascript">if (条件) {
+  // 条件が真（true）の時の処理
+} else {
+  // 条件が偽（false）の時の処理
+}
+</code></pre>
+<h2 id="基本的な例"><a class="header" href="#基本的な例">基本的な例</a></h2>
+<p>年齢による判定プログラムを見てみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 16;
+  
+  if (age &gt;= 18) {
+    print('あなたは成人です');
+  } else {
+    print('あなたは未成年です');
+  }
+  
+  print('判定終了');
+}
+</code></pre>
+<p>この例では：</p>
+<ul>
+<li><code>age &gt;= 18</code>が真（true）なら「あなたは成人です」を表示</li>
+<li><code>age &gt;= 18</code>が偽（false）なら「あなたは未成年です」を表示</li>
+<li>どちらの場合も、最後に「判定終了」を表示</li>
+</ul>
+<h2 id="実用的な例-5"><a class="header" href="#実用的な例-5">実用的な例</a></h2>
+<h3 id="例1テストの合否判定"><a class="header" href="#例1テストの合否判定">例1：テストの合否判定</a></h3>
+<pre><code class="language-javascript">void main() {
+  int score = 75;
+  
+  print('あなたの点数: $score点');
+  
+  if (score &gt;= 80) {
+    print('合格です！おめでとうございます');
+    print('次のレベルに進みましょう');
+  } else {
+    print('不合格です');
+    print('もう一度チャレンジしてください');
+  }
+}
+</code></pre>
+<h3 id="例2天気による服装アドバイス"><a class="header" href="#例2天気による服装アドバイス">例2：天気による服装アドバイス</a></h3>
+<pre><code class="language-javascript">void main() {
+  String weather = '雨';
+  
+  if (weather == '雨') {
+    print('傘を持って行きましょう');
+    print('レインコートもあると良いですね');
+  } else {
+    print('傘は不要です');
+    print('晴れやかな気分で出かけましょう');
+  }
+}
+</code></pre>
+<h2 id="else-if文複数の条件を扱う"><a class="header" href="#else-if文複数の条件を扱う">else if文：複数の条件を扱う</a></h2>
+<p>2つ以上の条件を扱いたい場合は、<code>else if</code>を使います：</p>
+<pre><code class="language-javascript">if (条件1) {
+  // 条件1が真の時の処理
+} else if (条件2) {
+  // 条件1が偽で、条件2が真の時の処理
+} else {
+  // すべての条件が偽の時の処理
+}
+</code></pre>
+<h3 id="例成績の評価"><a class="header" href="#例成績の評価">例：成績の評価</a></h3>
+<pre><code class="language-javascript">void main() {
+  int score = 85;
+  
+  print('あなたの点数: $score点');
+  
+  if (score &gt;= 90) {
+    print('評価: A (優秀)');
+  } else if (score &gt;= 80) {
+    print('評価: B (良好)');
+  } else if (score &gt;= 70) {
+    print('評価: C (普通)');
+  } else if (score &gt;= 60) {
+    print('評価: D (合格)');
+  } else {
+    print('評価: F (不合格)');
+  }
+}
+</code></pre>
+<h3 id="例時間帯による挨拶"><a class="header" href="#例時間帯による挨拶">例：時間帯による挨拶</a></h3>
+<pre><code class="language-javascript">void main() {
+  int hour = 14;  // 14時（午後2時）
+  
+  if (hour &lt; 12) {
+    print('おはようございます');
+  } else if (hour &lt; 18) {
+    print('こんにちは');
+  } else {
+    print('こんばんは');
+  }
+}
+</code></pre>
+<h2 id="ネストした条件分岐"><a class="header" href="#ネストした条件分岐">ネストした条件分岐</a></h2>
+<p>if文の中に別のif文を書くこともできます（ネスト）：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 16;
+  bool hasLicense = false;
+  
+  if (age &gt;= 18) {
+    print('年齢条件をクリアしています');
+    
+    if (hasLicense) {
+      print('運転できます');
+    } else {
+      print('運転免許を取得してください');
+    }
+  } else {
+    print('まだ運転はできません');
+    print('18歳になってから免許を取りましょう');
+  }
+}
+</code></pre>
+<h2 id="よくある間違いとその修正"><a class="header" href="#よくある間違いとその修正">よくある間違いとその修正</a></h2>
+<h3 id="1-else文の不適切な使用"><a class="header" href="#1-else文の不適切な使用">1. else文の不適切な使用</a></h3>
+<pre><code class="language-javascript">// 間違った例
+void main() {
+  int score = 85;
+  
+  if (score &gt;= 80) {
+    print('合格です');
+  }
+  
+  if (score &lt; 80) {  // これは別のif文になってしまう
+    print('不合格です');
+  }
+}
+
+// 正しい例
+void main() {
+  int score = 85;
+  
+  if (score &gt;= 80) {
+    print('合格です');
+  } else {  // elseを使って明確に対照的な条件にする
+    print('不合格です');
+  }
+}
+</code></pre>
+<h3 id="2-条件の順序"><a class="header" href="#2-条件の順序">2. 条件の順序</a></h3>
+<pre><code class="language-javascript">// 問題のある例
+void main() {
+  int score = 95;
+  
+  if (score &gt;= 60) {
+    print('合格');
+  } else if (score &gt;= 90) {  // この条件には絶対に到達しない！
+    print('優秀');
+  }
+}
+
+// 正しい例
+void main() {
+  int score = 95;
+  
+  if (score &gt;= 90) {  // 厳しい条件から先に書く
+    print('優秀');
+  } else if (score &gt;= 60) {
+    print('合格');
+  } else {
+    print('不合格');
+  }
+}
+</code></pre>
+<h2 id="練習問題-6"><a class="header" href="#練習問題-6">練習問題</a></h2>
+<p>以下のプログラムを完成させてみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int temperature = 25;
+  
+  // 温度による服装アドバイスプログラムを作ってください
+  // 30度以上：「暑いです。薄着で過ごしましょう」
+  // 20度以上30度未満：「過ごしやすい気温です」
+  // 10度以上20度未満：「少し涼しいです。上着があると良いでしょう」
+  // 10度未満：「寒いです。暖かい服装でお出かけください」
+}
+</code></pre>
+<h2 id="まとめ-12"><a class="header" href="#まとめ-12">まとめ</a></h2>
+<ul>
+<li><code>if-else文</code>を使うと、条件による2択の処理ができます</li>
+<li><code>else if</code>を使って、3つ以上の選択肢を作れます</li>
+<li>条件の順序は重要です（厳しい条件から先に書く）</li>
+<li>ネストした条件分岐も可能ですが、複雑になりすぎないよう注意</li>
+<li><code>else</code>は必ず直前の<code>if</code>または<code>else if</code>とペアになります</li>
+</ul>
+<p>次の節では、複数の条件を組み合わせる論理演算子について学びます。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="54-複数の条件を組み合わせる"><a class="header" href="#54-複数の条件を組み合わせる">5.4 複数の条件を組み合わせる（&amp;&amp;、||）</a></h1>
+<p>実際のプログラムでは、複数の条件を同時に満たす場合や、複数の条件のいずれかを満たす場合の処理が必要になることがあります。このような時に使うのが<strong>論理演算子</strong>です。</p>
+<h2 id="論理演算子の種類"><a class="header" href="#論理演算子の種類">論理演算子の種類</a></h2>
+<p>Dartには3つの論理演算子があります：</p>
+<div class="table-wrapper"><table><thead><tr><th>演算子</th><th>名前</th><th>意味</th><th>例</th></tr></thead><tbody>
+<tr><td><code>&amp;&amp;</code></td><td>AND（論理積）</td><td>すべての条件が真の時に真</td><td><code>(age &gt;= 18) &amp;&amp; (hasLicense)</code></td></tr>
+<tr><td>`</td><td></td><td>`</td><td>OR（論理和）</td></tr>
+<tr><td><code>!</code></td><td>NOT（否定）</td><td>条件の真偽を反転</td><td><code>!(isRaining)</code></td></tr>
+</tbody></table>
+</div>
+<h2 id="and演算子すべての条件を満たす"><a class="header" href="#and演算子すべての条件を満たす">AND演算子（&amp;&amp;）：すべての条件を満たす</a></h2>
+<p><code>&amp;&amp;</code>演算子は、<strong>すべての条件が真の時だけ</strong>全体が真になります。</p>
+<h3 id="基本的な使い方-1"><a class="header" href="#基本的な使い方-1">基本的な使い方</a></h3>
+<pre><code class="language-javascript">void main() {
+  int age = 20;
+  bool hasLicense = true;
+  
+  if (age &gt;= 18 &amp;&amp; hasLicense) {
+    print('運転できます');
+  } else {
+    print('運転できません');
+  }
+}
+</code></pre>
+<p>この例では、<code>age &gt;= 18</code>と<code>hasLicense</code>の<strong>両方</strong>が真の時だけ「運転できます」が表示されます。</p>
+<h3 id="実用例映画の年齢制限"><a class="header" href="#実用例映画の年齢制限">実用例：映画の年齢制限</a></h3>
+<pre><code class="language-javascript">void main() {
+  int age = 16;
+  bool parentConsent = false;
+  
+  // 18歳以上、または保護者の同意がある15歳以上なら視聴可能
+  if (age &gt;= 18 || (age &gt;= 15 &amp;&amp; parentConsent)) {
+    print('この映画を見ることができます');
+  } else {
+    print('この映画は見ることができません');
+  }
+}
+</code></pre>
+<h3 id="3つ以上の条件を組み合わせる"><a class="header" href="#3つ以上の条件を組み合わせる">3つ以上の条件を組み合わせる</a></h3>
+<pre><code class="language-javascript">void main() {
+  int score1 = 85;
+  int score2 = 78;
+  int score3 = 92;
+  
+  // すべての科目で70点以上なら合格
+  if (score1 &gt;= 70 &amp;&amp; score2 &gt;= 70 &amp;&amp; score3 &gt;= 70) {
+    print('全科目合格です！');
+  } else {
+    print('一部の科目で再試験が必要です');
+  }
+}
+</code></pre>
+<h2 id="or演算子いずれかの条件を満たす"><a class="header" href="#or演算子いずれかの条件を満たす">OR演算子（||）：いずれかの条件を満たす</a></h2>
+<p><code>||</code>演算子は、<strong>いずれかの条件が真の時</strong>全体が真になります。</p>
+<h3 id="基本的な使い方-2"><a class="header" href="#基本的な使い方-2">基本的な使い方</a></h3>
+<pre><code class="language-javascript">void main() {
+  String day = '土曜日';
+  
+  if (day == '土曜日' || day == '日曜日') {
+    print('今日は休日です');
+  } else {
+    print('今日は平日です');
+  }
+}
+</code></pre>
+<h3 id="実用例割引条件の判定"><a class="header" href="#実用例割引条件の判定">実用例：割引条件の判定</a></h3>
+<pre><code class="language-javascript">void main() {
+  int age = 16;
+  bool isStudent = true;
+  bool isSenior = false;
+  
+  // 学生、65歳以上、または18歳未満なら割引適用
+  if (isStudent || isSenior || age &lt; 18) {
+    print('割引が適用されます');
+  } else {
+    print('通常料金です');
+  }
+}
+</code></pre>
+<h2 id="not演算子条件の否定"><a class="header" href="#not演算子条件の否定">NOT演算子（!）：条件の否定</a></h2>
+<p><code>!</code>演算子は、条件の真偽を反転させます。</p>
+<h3 id="基本的な使い方-3"><a class="header" href="#基本的な使い方-3">基本的な使い方</a></h3>
+<pre><code class="language-javascript">void main() {
+  bool isRaining = false;
+  
+  if (!isRaining) {  // 雨が降っていない場合
+    print('今日は傘が不要です');
+  } else {
+    print('今日は傘を持参しましょう');
+  }
+}
+</code></pre>
+<h3 id="より複雑な例"><a class="header" href="#より複雑な例">より複雑な例</a></h3>
+<pre><code class="language-javascript">void main() {
+  bool isWeekend = true;
+  bool isHoliday = false;
+  
+  if (!(isWeekend || isHoliday)) {  // 週末でも祝日でもない場合
+    print('今日は平日です');
+  } else {
+    print('今日は休日です');
+  }
+}
+</code></pre>
+<h2 id="演算子の優先順位"><a class="header" href="#演算子の優先順位">演算子の優先順位</a></h2>
+<p>論理演算子にも優先順位があります：</p>
+<ol>
+<li><code>!</code> (NOT) - 最優先</li>
+<li><code>&amp;&amp;</code> (AND)</li>
+<li><code>||</code> (OR) - 最後</li>
+</ol>
+<pre><code class="language-javascript">void main() {
+  bool a = true;
+  bool b = false;
+  bool c = true;
+  
+  // !b &amp;&amp; a || c は (!b &amp;&amp; a) || c として評価される
+  print(!b &amp;&amp; a || c);  // true
+}
+</code></pre>
+<p>括弧を使って明示的に優先順位を指定することをお勧めします：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 17;
+  bool hasParentPermission = true;
+  bool isEmergency = false;
+  
+  // 18歳以上、または（17歳以上で保護者の許可あり）、または緊急時
+  if (age &gt;= 18 || (age &gt;= 17 &amp;&amp; hasParentPermission) || isEmergency) {
+    print('許可されています');
+  } else {
+    print('許可されていません');
+  }
+}
+</code></pre>
+<h2 id="真理値表"><a class="header" href="#真理値表">真理値表</a></h2>
+<p>論理演算子の動作を表にまとめると：</p>
+<h3 id="andの真理値表"><a class="header" href="#andの真理値表">AND（&amp;&amp;）の真理値表</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>A</th><th>B</th><th>A &amp;&amp; B</th></tr></thead><tbody>
+<tr><td>true</td><td>true</td><td>true</td></tr>
+<tr><td>true</td><td>false</td><td>false</td></tr>
+<tr><td>false</td><td>true</td><td>false</td></tr>
+<tr><td>false</td><td>false</td><td>false</td></tr>
+</tbody></table>
+</div>
+<h3 id="orの真理値表"><a class="header" href="#orの真理値表">OR（||）の真理値表</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>A</th><th>B</th><th>A || B</th></tr></thead><tbody>
+<tr><td>true</td><td>true</td><td>true</td></tr>
+<tr><td>true</td><td>false</td><td>true</td></tr>
+<tr><td>false</td><td>true</td><td>true</td></tr>
+<tr><td>false</td><td>false</td><td>false</td></tr>
+</tbody></table>
+</div>
+<h3 id="notの真理値表"><a class="header" href="#notの真理値表">NOT（!）の真理値表</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>A</th><th>!A</th></tr></thead><tbody>
+<tr><td>true</td><td>false</td></tr>
+<tr><td>false</td><td>true</td></tr>
+</tbody></table>
+</div>
+<h2 id="実践例総合的な条件判定"><a class="header" href="#実践例総合的な条件判定">実践例：総合的な条件判定</a></h2>
+<p>会員システムの例を見てみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 25;
+  bool isPremiumMember = true;
+  int pointBalance = 500;
+  String membershipType = 'gold';
+  
+  // 複数の条件を組み合わせた判定
+  if ((age &gt;= 18 &amp;&amp; isPremiumMember) || 
+      (pointBalance &gt;= 1000) || 
+      (membershipType == 'gold' || membershipType == 'platinum')) {
+    print('特別サービスを利用できます');
+    
+    if (membershipType == 'platinum' &amp;&amp; pointBalance &gt;= 5000) {
+      print('さらに、最高級サービスも利用可能です');
+    }
+  } else {
+    print('基本サービスのみ利用可能です');
+  }
+}
+</code></pre>
+<h2 id="よくある間違い-1"><a class="header" href="#よくある間違い-1">よくある間違い</a></h2>
+<h3 id="1-範囲の条件を間違って書く"><a class="header" href="#1-範囲の条件を間違って書く">1. 範囲の条件を間違って書く</a></h3>
+<pre><code class="language-javascript">// 間違った例
+int age = 25;
+if (18 &lt;= age &lt;= 65) {  // これはエラー！Dartでは使えません
+  print('働き盛りです');
+}
+
+// 正しい例
+int age = 25;
+if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
+  print('働き盛りです');
+}
+</code></pre>
+<h3 id="2-ドモルガンの法則を忘れる"><a class="header" href="#2-ドモルガンの法則を忘れる">2. ド・モルガンの法則を忘れる</a></h3>
+<pre><code class="language-javascript">// 以下の2つは同じ意味です
+!(a &amp;&amp; b) == (!a || !b)
+!(a || b) == (!a &amp;&amp; !b)
+</code></pre>
+<h2 id="練習問題-7"><a class="header" href="#練習問題-7">練習問題</a></h2>
+<p>以下のプログラムを完成させてみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int temperature = 25;
+  bool isRaining = false;
+  String season = '春';
+  
+  // 以下の条件でピクニックに適しているか判定してください：
+  // - 気温が15度以上30度以下
+  // - 雨が降っていない
+  // - 季節が春または秋
+  
+  // ここに条件文を書いてください
+}
+</code></pre>
+<h2 id="まとめ-13"><a class="header" href="#まとめ-13">まとめ</a></h2>
+<ul>
+<li><code>&amp;&amp;</code>（AND）：すべての条件が真の時に真</li>
+<li><code>||</code>（OR）：いずれかの条件が真の時に真</li>
+<li><code>!</code>（NOT）：条件の真偽を反転</li>
+<li>複雑な条件では括弧を使って優先順位を明確にする</li>
+<li>論理演算子を組み合わせることで、より柔軟な条件分岐が可能</li>
+</ul>
+<p>次の節では、これまで学んだ条件分岐の知識を使った実践的なプログラムを作成します。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="55-実践年齢による入場料金の計算"><a class="header" href="#55-実践年齢による入場料金の計算">5.5 実践：年齢による入場料金の計算</a></h1>
+<p>これまで学んだ条件分岐の知識を使って、実際のプログラムを作成してみましょう。年齢に応じて入場料金を計算する、実用的なプログラムを作ります。</p>
+<h2 id="課題の設定"><a class="header" href="#課題の設定">課題の設定</a></h2>
+<p>遊園地の入場料金システムを作ります。料金体系は以下のとおりです：</p>
+<ul>
+<li><strong>幼児（3歳未満）</strong>: 無料</li>
+<li><strong>子供（3歳以上12歳未満）</strong>: 800円</li>
+<li><strong>学生（12歳以上18歳未満）</strong>: 1,200円</li>
+<li><strong>大人（18歳以上65歳未満）</strong>: 2,000円</li>
+<li><strong>シニア（65歳以上）</strong>: 1,500円</li>
+</ul>
+<h2 id="ステップ1基本的な料金計算"><a class="header" href="#ステップ1基本的な料金計算">ステップ1：基本的な料金計算</a></h2>
+<p>まず、シンプルな条件分岐で料金を計算してみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 25;
+  int price = 0;
+  String category = '';
+  
+  if (age &lt; 3) {
+    price = 0;
+    category = '幼児';
+  } else if (age &lt; 12) {
+    price = 800;
+    category = '子供';
+  } else if (age &lt; 18) {
+    price = 1200;
+    category = '学生';
+  } else if (age &lt; 65) {
+    price = 2000;
+    category = '大人';
+  } else {
+    price = 1500;
+    category = 'シニア';
+  }
+  
+  print('年齢: $age歳');
+  print('区分: $category');
+  print('料金: ${price}円');
+}
+</code></pre>
+<h2 id="ステップ2学生割引の追加"><a class="header" href="#ステップ2学生割引の追加">ステップ2：学生割引の追加</a></h2>
+<p>学生証を持っている場合は、18歳以上でも学生料金にしましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 20;
+  bool hasStudentCard = true;
+  int price = 0;
+  String category = '';
+  
+  if (age &lt; 3) {
+    price = 0;
+    category = '幼児';
+  } else if (age &lt; 12) {
+    price = 800;
+    category = '子供';
+  } else if (age &lt; 18 || (age &lt; 25 &amp;&amp; hasStudentCard)) {
+    price = 1200;
+    category = '学生';
+  } else if (age &lt; 65) {
+    price = 2000;
+    category = '大人';
+  } else {
+    price = 1500;
+    category = 'シニア';
+  }
+  
+  print('年齢: $age歳');
+  if (hasStudentCard &amp;&amp; age &gt;= 18) {
+    print('学生証あり');
+  }
+  print('区分: $category');
+  print('料金: ${price}円');
+}
+</code></pre>
+<h2 id="ステップ3グループ割引の追加"><a class="header" href="#ステップ3グループ割引の追加">ステップ3：グループ割引の追加</a></h2>
+<p>3人以上のグループなら、1人あたり100円引きにしましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 30;
+  bool hasStudentCard = false;
+  int groupSize = 4;
+  int basePrice = 0;
+  String category = '';
+  
+  // 基本料金の計算
+  if (age &lt; 3) {
+    basePrice = 0;
+    category = '幼児';
+  } else if (age &lt; 12) {
+    basePrice = 800;
+    category = '子供';
+  } else if (age &lt; 18 || (age &lt; 25 &amp;&amp; hasStudentCard)) {
+    basePrice = 1200;
+    category = '学生';
+  } else if (age &lt; 65) {
+    basePrice = 2000;
+    category = '大人';
+  } else {
+    basePrice = 1500;
+    category = 'シニア';
+  }
+  
+  // グループ割引の適用
+  int finalPrice = basePrice;
+  if (groupSize &gt;= 3 &amp;&amp; basePrice &gt; 0) {
+    finalPrice = basePrice - 100;
+  }
+  
+  print('年齢: $age歳');
+  print('グループ人数: $groupSize人');
+  if (hasStudentCard &amp;&amp; age &gt;= 18) {
+    print('学生証あり');
+  }
+  print('区分: $category');
+  print('基本料金: ${basePrice}円');
+  
+  if (groupSize &gt;= 3 &amp;&amp; basePrice &gt; 0) {
+    print('グループ割引: -100円');
+    print('最終料金: ${finalPrice}円');
+  } else {
+    print('最終料金: ${finalPrice}円');
+  }
+}
+</code></pre>
+<h2 id="ステップ4特別な日の料金設定"><a class="header" href="#ステップ4特別な日の料金設定">ステップ4：特別な日の料金設定</a></h2>
+<p>土日や祝日は料金が変わるシステムを追加しましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 22;
+  bool hasStudentCard = true;
+  int groupSize = 2;
+  String dayType = '平日'; // '平日', '土日', '祝日'
+  
+  int basePrice = 0;
+  String category = '';
+  
+  // 基本料金の計算
+  if (age &lt; 3) {
+    basePrice = 0;
+    category = '幼児';
+  } else if (age &lt; 12) {
+    basePrice = 800;
+    category = '子供';
+  } else if (age &lt; 18 || (age &lt; 25 &amp;&amp; hasStudentCard)) {
+    basePrice = 1200;
+    category = '学生';
+  } else if (age &lt; 65) {
+    basePrice = 2000;
+    category = '大人';
+  } else {
+    basePrice = 1500;
+    category = 'シニア';
+  }
+  
+  // 休日料金の適用（幼児は除く）
+  if (basePrice &gt; 0) {
+    if (dayType == '土日') {
+      basePrice = (basePrice * 1.2).round(); // 20%増し
+    } else if (dayType == '祝日') {
+      basePrice = (basePrice * 1.3).round(); // 30%増し
+    }
+  }
+  
+  // グループ割引の適用
+  int finalPrice = basePrice;
+  if (groupSize &gt;= 3 &amp;&amp; basePrice &gt; 0) {
+    finalPrice = basePrice - 100;
+  }
+  
+  // 結果の表示
+  print('=== 入場料金計算システム ===');
+  print('年齢: $age歳');
+  print('日程: $dayType');
+  print('グループ人数: $groupSize人');
+  
+  if (hasStudentCard &amp;&amp; age &gt;= 18 &amp;&amp; age &lt; 25) {
+    print('学生証: あり');
+  }
+  
+  print('区分: $category');
+  
+  if (dayType != '平日' &amp;&amp; basePrice &gt; 0) {
+    String multiplier = dayType == '土日' ? '20%増' : '30%増';
+    print('$dayType料金($multiplier)適用');
+  }
+  
+  if (groupSize &gt;= 3 &amp;&amp; basePrice &gt; 0) {
+    print('グループ割引: -100円');
+  }
+  
+  print('最終料金: ${finalPrice}円');
+  print('========================');
+}
+</code></pre>
+<h2 id="ステップ5エラーチェックの追加"><a class="header" href="#ステップ5エラーチェックの追加">ステップ5：エラーチェックの追加</a></h2>
+<p>不正な値に対する処理を追加しましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = -5; // 不正な値をテスト
+  bool hasStudentCard = false;
+  int groupSize = 0; // 不正な値をテスト
+  String dayType = '祝日';
+  
+  // 入力値の検証
+  if (age &lt; 0 || age &gt; 150) {
+    print('エラー: 年齢は0歳から150歳の間で入力してください');
+    return;
+  }
+  
+  if (groupSize &lt; 1) {
+    print('エラー: グループ人数は1人以上で入力してください');
+    return;
+  }
+  
+  if (dayType != '平日' &amp;&amp; dayType != '土日' &amp;&amp; dayType != '祝日') {
+    print('エラー: 日程は「平日」「土日」「祝日」のいずれかを入力してください');
+    return;
+  }
+  
+  int basePrice = 0;
+  String category = '';
+  
+  // 基本料金の計算
+  if (age &lt; 3) {
+    basePrice = 0;
+    category = '幼児';
+  } else if (age &lt; 12) {
+    basePrice = 800;
+    category = '子供';
+  } else if (age &lt; 18 || (age &lt; 25 &amp;&amp; hasStudentCard)) {
+    basePrice = 1200;
+    category = '学生';
+  } else if (age &lt; 65) {
+    basePrice = 2000;
+    category = '大人';
+  } else {
+    basePrice = 1500;
+    category = 'シニア';
+  }
+  
+  // 休日料金の適用
+  if (basePrice &gt; 0) {
+    if (dayType == '土日') {
+      basePrice = (basePrice * 1.2).round();
+    } else if (dayType == '祝日') {
+      basePrice = (basePrice * 1.3).round();
+    }
+  }
+  
+  // グループ割引の適用
+  int finalPrice = basePrice;
+  if (groupSize &gt;= 3 &amp;&amp; basePrice &gt; 0) {
+    finalPrice = basePrice - 100;
+  }
+  
+  // 結果の表示
+  print('=== 入場料金計算システム ===');
+  print('年齢: $age歳');
+  print('日程: $dayType');
+  print('グループ人数: $groupSize人');
+  
+  if (hasStudentCard &amp;&amp; age &gt;= 18 &amp;&amp; age &lt; 25) {
+    print('学生証: あり');
+  }
+  
+  print('区分: $category');
+  
+  if (dayType != '平日' &amp;&amp; basePrice &gt; 0) {
+    String multiplier = dayType == '土日' ? '20%増' : '30%増';
+    print('$dayType料金($multiplier)適用');
+  }
+  
+  if (groupSize &gt;= 3 &amp;&amp; basePrice &gt; 0) {
+    print('グループ割引: -100円');
+  }
+  
+  print('最終料金: ${finalPrice}円');
+  print('========================');
+}
+</code></pre>
+<h2 id="練習問題-8"><a class="header" href="#練習問題-8">練習問題</a></h2>
+<p>以下の条件を追加してプログラムを改良してみましょう：</p>
+<ol>
+<li><strong>障害者割引</strong>: 障害者手帳を持っている場合は半額（<code>bool hasDisabilityCard</code>を追加）</li>
+<li><strong>リピーター割引</strong>: 年間パスポート所持者は300円引き（<code>bool hasAnnualPass</code>を追加）</li>
+<li><strong>早朝割引</strong>: 営業開始から2時間以内の入場で平日のみ200円引き（<code>bool isEarlyBird</code>を追加）</li>
+</ol>
+<pre><code class="language-javascript">void main() {
+  int age = 35;
+  bool hasStudentCard = false;
+  bool hasDisabilityCard = true;
+  bool hasAnnualPass = false;
+  bool isEarlyBird = true;
+  int groupSize = 1;
+  String dayType = '平日';
+  
+  // ここにプログラムを書いてください
+}
+</code></pre>
+<h2 id="まとめ-14"><a class="header" href="#まとめ-14">まとめ</a></h2>
+<p>この実践例では、以下のプログラミング技術を使いました：</p>
+<ul>
+<li><strong>条件分岐（if-else if-else）</strong>: 年齢による料金区分の判定</li>
+<li><strong>論理演算子（&amp;&amp;、||）</strong>: 学生証と年齢の組み合わせ条件</li>
+<li><strong>複合条件</strong>: 複数の割引条件の組み合わせ</li>
+<li><strong>エラーハンドリング</strong>: 不正な入力値の検証</li>
+<li><strong>計算</strong>: パーセンテージ計算と四捨五入</li>
+</ul>
+<p>このようなプログラムを作ることで、条件分岐の基本的な考え方と実用的な応用方法を身につけることができます。実際のシステム開発でも、このような複雑な条件判定は頻繁に使われます。</p>
+<p>次の章では、同じ処理を繰り返し実行する「ループ」について学びます。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第6章繰り返し処理ループ"><a class="header" href="#第6章繰り返し処理ループ">第6章：繰り返し処理（ループ）</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="同じ処理を繰り返す理由"><a class="header" href="#同じ処理を繰り返す理由">同じ処理を繰り返す理由</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="for文の基本"><a class="header" href="#for文の基本">for文の基本</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="while文の使い方"><a class="header" href="#while文の使い方">while文の使い方</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="無限ループとその回避方法"><a class="header" href="#無限ループとその回避方法">無限ループとその回避方法</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="実践九九の表を作る"><a class="header" href="#実践九九の表を作る">実践：九九の表を作る</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="61-同じ処理を繰り返す理由"><a class="header" href="#61-同じ処理を繰り返す理由">6.1 同じ処理を繰り返す理由</a></h1>
+<p>プログラミングをしていると、同じような処理を何度も実行したい場面によく出会います。例えば、1から10までの数字を画面に表示したいときを考えてみましょう。</p>
+<h2 id="繰り返し処理がない場合"><a class="header" href="#繰り返し処理がない場合">繰り返し処理がない場合</a></h2>
+<p>まず、繰り返し処理を使わずに1から10までの数字を表示するプログラムを見てみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  print(1);
+  print(2);
+  print(3);
+  print(4);
+  print(5);
+  print(6);
+  print(7);
+  print(8);
+  print(9);
+  print(10);
+}
+</code></pre>
+<p>このプログラムは確かに動作しますが、いくつかの問題があります：</p>
+<ol>
+<li><strong>コードが長い</strong> - 同じようなコードを10回も書く必要があります</li>
+<li><strong>変更が大変</strong> - もし1から100まで表示したくなったら、100行書かなければなりません</li>
+<li><strong>ミスが起きやすい</strong> - コピー＆ペーストの際に、数字を間違える可能性があります</li>
+</ol>
+<h2 id="繰り返し処理の必要性"><a class="header" href="#繰り返し処理の必要性">繰り返し処理の必要性</a></h2>
+<p>このような問題を解決するために、プログラミング言語には「繰り返し処理（ループ）」という機能があります。繰り返し処理を使うと、同じ処理を指定した回数だけ、あるいは特定の条件を満たすまで自動的に繰り返すことができます。</p>
+<pre><code class="language-javascript">void main() {
+  // for文を使って1から10まで表示
+  for (int i = 1; i &lt;= 10; i++) {
+    print(i);
+  }
+}
+</code></pre>
+<p>このコードはたった3行で、先ほどの10行のコードと同じ結果を得られます。しかも、100まで表示したければ、<code>i &lt;= 10</code> を <code>i &lt;= 100</code> に変えるだけです。</p>
+<h2 id="繰り返し処理が役立つ場面"><a class="header" href="#繰り返し処理が役立つ場面">繰り返し処理が役立つ場面</a></h2>
+<p>日常生活やプログラミングで繰り返し処理が役立つ場面は数多くあります：</p>
+<h3 id="1-データの集計"><a class="header" href="#1-データの集計">1. データの集計</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 1から100までの合計を計算
+  int sum = 0;
+  for (int i = 1; i &lt;= 100; i++) {
+    sum = sum + i;
+  }
+  print('1から100までの合計: $sum');  // 5050
+}
+</code></pre>
+<h3 id="2-パターンの生成"><a class="header" href="#2-パターンの生成">2. パターンの生成</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 星のパターンを作る
+  for (int i = 1; i &lt;= 5; i++) {
+    print('*' * i);
+  }
+}
+// 出力：
+// *
+// **
+// ***
+// ****
+// *****
+</code></pre>
+<h3 id="3-ユーザー入力の検証"><a class="header" href="#3-ユーザー入力の検証">3. ユーザー入力の検証</a></h3>
+<pre><code class="language-javascript">void main() {
+  // パスワードの強度をチェック（文字数をカウント）
+  String password = 'myPassword123';
+  int digitCount = 0;
+  
+  for (int i = 0; i &lt; password.length; i++) {
+    if ('0123456789'.contains(password[i])) {
+      digitCount++;
+    }
+  }
+  
+  print('パスワードに含まれる数字の数: $digitCount');
+}
+</code></pre>
+<h2 id="繰り返し処理の基本的な考え方"><a class="header" href="#繰り返し処理の基本的な考え方">繰り返し処理の基本的な考え方</a></h2>
+<p>繰り返し処理を理解するには、以下の3つの要素を意識することが重要です：</p>
+<ol>
+<li><strong>初期状態</strong> - 繰り返しを始める前の状態</li>
+<li><strong>継続条件</strong> - いつまで繰り返すか</li>
+<li><strong>更新処理</strong> - 各繰り返しで何を変更するか</li>
+</ol>
+<p>例えば、1から10まで数える場合：</p>
+<ul>
+<li>初期状態：1から始める</li>
+<li>継続条件：10以下の間は続ける</li>
+<li>更新処理：1ずつ増やす</li>
+</ul>
+<h2 id="まとめ-15"><a class="header" href="#まとめ-15">まとめ</a></h2>
+<p>繰り返し処理は、プログラミングにおいて非常に重要な概念です。同じ処理を効率的に実行できるだけでなく、コードをより短く、読みやすく、保守しやすくします。</p>
+<p>次のセクションでは、Dartで最もよく使われる繰り返し処理の一つである「for文」について詳しく学んでいきます。</p>
+<h2 id="練習問題-9"><a class="header" href="#練習問題-9">練習問題</a></h2>
+<ol>
+<li>繰り返し処理を使わずに「Hello」を5回表示するプログラムを書いてみましょう。</li>
+<li>そのプログラムを、繰り返し処理を使って書き直すとどうなるか考えてみましょう。</li>
+<li>日常生活で「同じことを繰り返す」場面を3つ挙げて、それをプログラムで表現するとしたらどうなるか考えてみましょう。</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="62-for文の基本"><a class="header" href="#62-for文の基本">6.2 for文の基本</a></h1>
+<p>for文は、プログラミングで最もよく使われる繰り返し処理の一つです。決まった回数だけ処理を繰り返したいときに特に便利です。</p>
+<h2 id="for文の構造"><a class="header" href="#for文の構造">for文の構造</a></h2>
+<p>for文は以下のような構造をしています：</p>
+<pre><code class="language-javascript">for (初期化; 条件式; 更新式) {
+  // 繰り返し実行したい処理
+}
+</code></pre>
+<p>それぞれの部分を詳しく見ていきましょう：</p>
+<ol>
+<li><strong>初期化</strong>: 繰り返しの最初に一度だけ実行される</li>
+<li><strong>条件式</strong>: 繰り返しを続けるかどうかを判断する（trueなら続ける）</li>
+<li><strong>更新式</strong>: 各繰り返しの最後に実行される</li>
+</ol>
+<h2 id="基本的な例-1"><a class="header" href="#基本的な例-1">基本的な例</a></h2>
+<p>最も基本的なfor文の例を見てみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // 0から4まで（5回）繰り返す
+  for (int i = 0; i &lt; 5; i++) {
+    print('現在のiの値: $i');
+  }
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>現在のiの値: 0
+現在のiの値: 1
+現在のiの値: 2
+現在のiの値: 3
+現在のiの値: 4
+</code></pre>
+<p>このプログラムの動作を順番に追ってみましょう：</p>
+<ol>
+<li><code>int i = 0</code> - 変数iを0で初期化</li>
+<li><code>i &lt; 5</code> - iが5より小さいか確認（0 &lt; 5はtrue）</li>
+<li><code>print('現在のiの値: $i')</code> - 処理を実行</li>
+<li><code>i++</code> - iを1増やす（i = 1になる）</li>
+<li>手順2に戻る</li>
+</ol>
+<h2 id="さまざまなfor文の書き方"><a class="header" href="#さまざまなfor文の書き方">さまざまなfor文の書き方</a></h2>
+<h3 id="1から始める場合"><a class="header" href="#1から始める場合">1から始める場合</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 1から10まで表示
+  for (int i = 1; i &lt;= 10; i++) {
+    print(i);
+  }
+}
+</code></pre>
+<h3 id="2ずつ増やす場合"><a class="header" href="#2ずつ増やす場合">2ずつ増やす場合</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 偶数だけを表示（0, 2, 4, 6, 8）
+  for (int i = 0; i &lt; 10; i += 2) {
+    print(i);
+  }
+}
+</code></pre>
+<h3 id="カウントダウン"><a class="header" href="#カウントダウン">カウントダウン</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 10から1までカウントダウン
+  for (int i = 10; i &gt;= 1; i--) {
+    print('$i...');
+  }
+  print('発射！');
+}
+</code></pre>
+<h2 id="インデックスと値の活用"><a class="header" href="#インデックスと値の活用">インデックスと値の活用</a></h2>
+<p>for文では、カウンタ変数（通常はi）を使って、さまざまな計算や処理ができます：</p>
+<pre><code class="language-javascript">void main() {
+  // 配列のようなデータ構造と組み合わせる例
+  List&lt;String&gt; fruits = ['りんご', 'バナナ', 'オレンジ'];
+  
+  for (int i = 0; i &lt; fruits.length; i++) {
+    print('${i + 1}番目: ${fruits[i]}');
+  }
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>1番目: りんご
+2番目: バナナ
+3番目: オレンジ
+</code></pre>
+<h2 id="ネスト入れ子のfor文"><a class="header" href="#ネスト入れ子のfor文">ネスト（入れ子）のfor文</a></h2>
+<p>for文の中に別のfor文を入れることもできます：</p>
+<pre><code class="language-javascript">void main() {
+  // 掛け算の表を作る（3×3）
+  for (int i = 1; i &lt;= 3; i++) {
+    for (int j = 1; j &lt;= 3; j++) {
+      int result = i * j;
+      print('$i × $j = $result');
+    }
+    print('---'); // 区切り線
+  }
+}
+</code></pre>
+<h2 id="for文を使った実用的な例"><a class="header" href="#for文を使った実用的な例">for文を使った実用的な例</a></h2>
+<h3 id="合計値の計算"><a class="header" href="#合計値の計算">合計値の計算</a></h3>
+<pre><code class="language-javascript">void main() {
+  int sum = 0;
+  
+  // 1から10までの合計を計算
+  for (int i = 1; i &lt;= 10; i++) {
+    sum += i;  // sum = sum + i と同じ
+  }
+  
+  print('1から10までの合計: $sum');  // 55
+}
+</code></pre>
+<h3 id="文字列の繰り返し"><a class="header" href="#文字列の繰り返し">文字列の繰り返し</a></h3>
+<pre><code class="language-javascript">void main() {
+  String star = '';
+  
+  // 星を5個並べる
+  for (int i = 0; i &lt; 5; i++) {
+    star += '★';
+    print(star);
+  }
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>★
+★★
+★★★
+★★★★
+★★★★★
+</code></pre>
+<h2 id="for文を使う際の注意点"><a class="header" href="#for文を使う際の注意点">for文を使う際の注意点</a></h2>
+<h3 id="1-無限ループに注意"><a class="header" href="#1-無限ループに注意">1. 無限ループに注意</a></h3>
+<pre><code class="language-javascript">// 危険な例（実行しないでください）
+// for (int i = 0; i &gt;= 0; i++) {
+//   print(i);  // iは増え続けるので、永遠に終わらない
+// }
+</code></pre>
+<h3 id="2-境界値に注意"><a class="header" href="#2-境界値に注意">2. 境界値に注意</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 注意：&lt;= と &lt; の違い
+  print('5回繰り返す（i &lt; 5）:');
+  for (int i = 0; i &lt; 5; i++) {
+    print(i);  // 0, 1, 2, 3, 4
+  }
+  
+  print('\n6回繰り返す（i &lt;= 5）:');
+  for (int i = 0; i &lt;= 5; i++) {
+    print(i);  // 0, 1, 2, 3, 4, 5
+  }
+}
+</code></pre>
+<h2 id="まとめ-16"><a class="header" href="#まとめ-16">まとめ</a></h2>
+<p>for文は、決まった回数の繰り返し処理を簡潔に書くための強力な構文です。以下のポイントを覚えておきましょう：</p>
+<ul>
+<li>初期化、条件式、更新式の3つの要素で構成される</li>
+<li>カウンタ変数を使って繰り返し回数を制御する</li>
+<li>ネストして使うことで、より複雑な処理も可能</li>
+<li>境界値と無限ループに注意する</li>
+</ul>
+<p>次のセクションでは、条件に基づいて繰り返すwhile文について学習します。</p>
+<h2 id="練習問題-10"><a class="header" href="#練習問題-10">練習問題</a></h2>
+<ol>
+<li>1から20までの数字のうち、3の倍数だけを表示するプログラムを書いてみましょう。</li>
+<li>次のパターンを表示するプログラムを書いてみましょう：
+<pre><code>1
+12
+123
+1234
+12345
+</code></pre>
+</li>
+<li>1から50までの数字の中で、偶数の合計を計算するプログラムを書いてみましょう。</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="63-while文の使い方"><a class="header" href="#63-while文の使い方">6.3 while文の使い方</a></h1>
+<p>while文は、for文と並んでよく使われる繰り返し処理の構文です。特定の条件が満たされている間、処理を繰り返し続けたいときに使います。</p>
+<h2 id="while文の基本構造"><a class="header" href="#while文の基本構造">while文の基本構造</a></h2>
+<p>while文の基本的な構造は以下のとおりです：</p>
+<pre><code class="language-javascript">while (条件式) {
+  // 条件式がtrueの間、繰り返される処理
+}
+</code></pre>
+<p>条件式がtrueである限り、中括弧内の処理が繰り返し実行されます。</p>
+<h2 id="基本的な例-2"><a class="header" href="#基本的な例-2">基本的な例</a></h2>
+<p>まずは簡単な例から見ていきましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int count = 0;
+  
+  while (count &lt; 5) {
+    print('カウント: $count');
+    count++;  // countを1増やす
+  }
+  
+  print('終了！');
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>カウント: 0
+カウント: 1
+カウント: 2
+カウント: 3
+カウント: 4
+終了！
+</code></pre>
+<p>このプログラムの動作：</p>
+<ol>
+<li><code>count &lt; 5</code> を評価（0 &lt; 5 はtrue）</li>
+<li>処理を実行（printとcount++）</li>
+<li>再び条件式を評価</li>
+<li>条件式がfalseになるまで繰り返す</li>
+</ol>
+<h2 id="for文との違い"><a class="header" href="#for文との違い">for文との違い</a></h2>
+<p>同じ処理をfor文とwhile文で書いてみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // for文の場合
+  print('for文:');
+  for (int i = 0; i &lt; 3; i++) {
+    print(i);
+  }
+  
+  // while文の場合
+  print('\nwhile文:');
+  int j = 0;
+  while (j &lt; 3) {
+    print(j);
+    j++;
+  }
+}
+</code></pre>
+<p>while文は、初期化と更新を自分で管理する必要があります。これにより、より柔軟な制御が可能になります。</p>
+<h2 id="while文が適している場面"><a class="header" href="#while文が適している場面">while文が適している場面</a></h2>
+<h3 id="1-繰り返し回数が事前にわからない場合"><a class="header" href="#1-繰り返し回数が事前にわからない場合">1. 繰り返し回数が事前にわからない場合</a></h3>
+<pre><code class="language-javascript">import 'dart:math';
+
+void main() {
+  // ランダムに6が出るまでサイコロを振る
+  Random random = Random();
+  int dice = 0;
+  int count = 0;
+  
+  while (dice != 6) {
+    dice = random.nextInt(6) + 1;  // 1〜6のランダムな数
+    count++;
+    print('${count}回目: $dice');
+  }
+  
+  print('6が出ました！ $count 回かかりました。');
+}
+</code></pre>
+<h3 id="2-ユーザーの入力を待つ場合"><a class="header" href="#2-ユーザーの入力を待つ場合">2. ユーザーの入力を待つ場合</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 簡単なゲームの例（実際の入力処理は簡略化）
+  int playerHP = 100;
+  int enemyHP = 50;
+  
+  print('バトル開始！');
+  
+  while (playerHP &gt; 0 &amp;&amp; enemyHP &gt; 0) {
+    // プレイヤーの攻撃
+    int damage = 20;
+    enemyHP -= damage;
+    print('敵に${damage}のダメージ！ 敵のHP: $enemyHP');
+    
+    if (enemyHP &lt;= 0) {
+      print('勝利！');
+      break;
+    }
+    
+    // 敵の攻撃
+    int enemyDamage = 15;
+    playerHP -= enemyDamage;
+    print('${enemyDamage}のダメージを受けた！ あなたのHP: $playerHP');
+    
+    if (playerHP &lt;= 0) {
+      print('敗北...');
+    }
+  }
+}
+</code></pre>
+<h2 id="do-while文"><a class="header" href="#do-while文">do-while文</a></h2>
+<p>Dartには、少なくとも1回は処理を実行してから条件を確認する<code>do-while文</code>もあります：</p>
+<pre><code class="language-javascript">void main() {
+  int num = 10;
+  
+  // 通常のwhile文（条件が最初からfalseなので実行されない）
+  print('while文:');
+  while (num &lt; 5) {
+    print('これは表示されません');
+    num++;
+  }
+  
+  // do-while文（最低1回は実行される）
+  print('\ndo-while文:');
+  num = 10;
+  do {
+    print('numの値: $num（条件に関係なく1回は実行）');
+    num++;
+  } while (num &lt; 5);
+}
+</code></pre>
+<h2 id="実用的な例-6"><a class="header" href="#実用的な例-6">実用的な例</a></h2>
+<h3 id="カウントダウンタイマー"><a class="header" href="#カウントダウンタイマー">カウントダウンタイマー</a></h3>
+<pre><code class="language-javascript">void main() {
+  int seconds = 10;
+  
+  print('カウントダウン開始！');
+  
+  while (seconds &gt; 0) {
+    print('$seconds 秒');
+    seconds--;
+    
+    // 実際のプログラムでは、ここで1秒待つ処理を入れます
+    // await Future.delayed(Duration(seconds: 1));
+  }
+  
+  print('時間切れ！');
+}
+</code></pre>
+<h3 id="数値の桁数を数える"><a class="header" href="#数値の桁数を数える">数値の桁数を数える</a></h3>
+<pre><code class="language-javascript">void main() {
+  int number = 12345;
+  int temp = number;
+  int digitCount = 0;
+  
+  while (temp &gt; 0) {
+    temp = temp ~/ 10;  // 整数除算（10で割った商）
+    digitCount++;
+  }
+  
+  print('$number は $digitCount 桁の数字です');
+}
+</code></pre>
+<h3 id="合計が目標値を超えるまで加算"><a class="header" href="#合計が目標値を超えるまで加算">合計が目標値を超えるまで加算</a></h3>
+<pre><code class="language-javascript">void main() {
+  int sum = 0;
+  int count = 1;
+  int target = 100;
+  
+  while (sum &lt; target) {
+    sum += count;
+    print('$count を足して、合計: $sum');
+    count++;
+  }
+  
+  print('合計が $target を超えました！');
+}
+</code></pre>
+<h2 id="while文使用時の注意点"><a class="header" href="#while文使用時の注意点">while文使用時の注意点</a></h2>
+<h3 id="1-条件式の更新を忘れない"><a class="header" href="#1-条件式の更新を忘れない">1. 条件式の更新を忘れない</a></h3>
+<pre><code class="language-javascript">void main() {
+  int x = 0;
+  
+  // 良い例：xが更新される
+  while (x &lt; 5) {
+    print(x);
+    x++;  // これを忘れると無限ループ！
+  }
+}
+</code></pre>
+<h3 id="2-breakとcontinue"><a class="header" href="#2-breakとcontinue">2. breakとcontinue</a></h3>
+<p>while文の中でも、<code>break</code>と<code>continue</code>が使えます：</p>
+<pre><code class="language-javascript">void main() {
+  int num = 0;
+  
+  while (true) {  // 無限ループ
+    num++;
+    
+    if (num % 2 == 0) {
+      continue;  // 偶数はスキップ
+    }
+    
+    print(num);
+    
+    if (num &gt;= 9) {
+      break;  // 9に達したら終了
+    }
+  }
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>1
+3
+5
+7
+9
+</code></pre>
+<h2 id="まとめ-17"><a class="header" href="#まとめ-17">まとめ</a></h2>
+<p>while文は、条件に基づいて処理を繰り返すための基本的な構文です：</p>
+<ul>
+<li>繰り返し回数が事前にわからない場合に特に有用</li>
+<li>条件式がtrueの間、処理を繰り返す</li>
+<li>do-while文を使えば、最低1回は処理を実行できる</li>
+<li>無限ループにならないよう、条件式が適切に更新されることを確認する</li>
+</ul>
+<p>次のセクションでは、無限ループとその回避方法について詳しく学習します。</p>
+<h2 id="練習問題-11"><a class="header" href="#練習問題-11">練習問題</a></h2>
+<ol>
+<li>
+<p>1から始めて、合計が50を超えるまで順番に数を足していくプログラムを書いてみましょう。何回足したかも表示してください。</p>
+</li>
+<li>
+<p>ある数字を2で割り続けて、1以下になるまでの回数を数えるプログラムを書いてみましょう。例：16 → 8 → 4 → 2 → 1（4回）</p>
+</li>
+<li>
+<p>フィボナッチ数列（前の2つの数の和が次の数になる）を、1000を超えるまで表示するプログラムを書いてみましょう。</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="64-無限ループとその回避方法"><a class="header" href="#64-無限ループとその回避方法">6.4 無限ループとその回避方法</a></h1>
+<p>無限ループとは、終了条件を満たすことなく永遠に繰り返し続けるループのことです。プログラミング初心者がよく陥るミスの一つですが、理解すれば簡単に回避できます。</p>
+<h2 id="無限ループとは"><a class="header" href="#無限ループとは">無限ループとは</a></h2>
+<p>無限ループは、ループの終了条件が永遠にfalseにならない（またはtrueのまま）状態です。プログラムが応答しなくなり、強制終了が必要になることがあります。</p>
+<h3 id="無限ループの例"><a class="header" href="#無限ループの例">無限ループの例</a></h3>
+<pre><code class="language-javascript">// 警告：実行しないでください！
+void main() {
+  int i = 0;
+  while (i &gt;= 0) {
+    print(i);
+    i++;  // iは増え続けるので、i &gt;= 0は常にtrue
+  }
+}
+</code></pre>
+<p>このプログラムは、iが0以上である限り続きます。iは増え続けるので、条件は永遠にtrueのままです。</p>
+<h2 id="無限ループが発生する主な原因"><a class="header" href="#無限ループが発生する主な原因">無限ループが発生する主な原因</a></h2>
+<h3 id="1-条件式の更新忘れ"><a class="header" href="#1-条件式の更新忘れ">1. 条件式の更新忘れ</a></h3>
+<pre><code class="language-javascript">// 悪い例：countが更新されない
+void main() {
+  int count = 0;
+  while (count &lt; 10) {
+    print('Hello');
+    // count++; を忘れている！
+  }
+}
+</code></pre>
+<h3 id="2-条件式の論理ミス"><a class="header" href="#2-条件式の論理ミス">2. 条件式の論理ミス</a></h3>
+<pre><code class="language-javascript">// 悪い例：条件が常にtrue
+void main() {
+  int x = 5;
+  while (x != 10 || x != 20) {  // xが10でも20でもこの条件はtrue
+    print(x);
+    x++;
+  }
+}
+</code></pre>
+<p>正しくは <code>&amp;&amp;</code>（かつ）を使うべきです：</p>
+<pre><code class="language-javascript">while (x != 10 &amp;&amp; x != 20) {  // xが10または20になったら終了
+</code></pre>
+<h3 id="3-更新の方向が間違っている"><a class="header" href="#3-更新の方向が間違っている">3. 更新の方向が間違っている</a></h3>
+<pre><code class="language-javascript">// 悪い例：減らすべきところを増やしている
+void main() {
+  int countdown = 10;
+  while (countdown &gt; 0) {
+    print(countdown);
+    countdown++;  // 間違い！countdown--にすべき
+  }
+}
+</code></pre>
+<h2 id="無限ループの検出と対処"><a class="header" href="#無限ループの検出と対処">無限ループの検出と対処</a></h2>
+<h3 id="デバッグ用の出力を追加"><a class="header" href="#デバッグ用の出力を追加">デバッグ用の出力を追加</a></h3>
+<p>ループが正しく動作しているか確認するため、カウンタや変数の値を出力します：</p>
+<pre><code class="language-javascript">void main() {
+  int i = 0;
+  int loopCount = 0;
+  
+  while (i &lt; 100) {
+    loopCount++;
+    print('ループ回数: $loopCount, i = $i');
+    
+    // 安全装置：1000回を超えたら強制終了
+    if (loopCount &gt; 1000) {
+      print('エラー：ループが多すぎます！');
+      break;
+    }
+    
+    i += 10;
+  }
+}
+</code></pre>
+<h3 id="安全な無限ループの作り方"><a class="header" href="#安全な無限ループの作り方">安全な無限ループの作り方</a></h3>
+<p>意図的に無限ループを作る場合は、必ず脱出条件を用意します：</p>
+<pre><code class="language-javascript">void main() {
+  // メニュー選択の例
+  while (true) {  // 意図的な無限ループ
+    print('\nメニュー:');
+    print('1. 開始');
+    print('2. 設定');
+    print('3. 終了');
+    
+    // 実際の入力処理は簡略化
+    int choice = 3;  // 例として3を選択
+    
+    if (choice == 1) {
+      print('ゲームを開始します');
+    } else if (choice == 2) {
+      print('設定画面を開きます');
+    } else if (choice == 3) {
+      print('終了します');
+      break;  // ループを抜ける
+    }
+  }
+}
+</code></pre>
+<h2 id="無限ループを防ぐためのベストプラクティス"><a class="header" href="#無限ループを防ぐためのベストプラクティス">無限ループを防ぐためのベストプラクティス</a></h2>
+<h3 id="1-ループカウンタを使う"><a class="header" href="#1-ループカウンタを使う">1. ループカウンタを使う</a></h3>
+<pre><code class="language-javascript">void main() {
+  int maxIterations = 100;
+  int iterations = 0;
+  double value = 1.0;
+  
+  // 値が0.01より小さくなるまで半分にし続ける
+  while (value &gt; 0.01) {
+    value = value / 2;
+    iterations++;
+    
+    // 安全装置
+    if (iterations &gt;= maxIterations) {
+      print('警告：最大繰り返し回数に達しました');
+      break;
+    }
+  }
+  
+  print('最終的な値: $value');
+  print('繰り返し回数: $iterations');
+}
+</code></pre>
+<h3 id="2-明確な終了条件を設定"><a class="header" href="#2-明確な終了条件を設定">2. 明確な終了条件を設定</a></h3>
+<pre><code class="language-javascript">void main() {
+  // 良い例：明確な終了条件
+  List&lt;int&gt; numbers = [1, 5, 3, 8, 2];
+  int index = 0;
+  
+  // リストのサイズを超えないようにする
+  while (index &lt; numbers.length) {
+    print('numbers[$index] = ${numbers[index]}');
+    index++;
+  }
+}
+</code></pre>
+<h3 id="3-do-whileでの注意点"><a class="header" href="#3-do-whileでの注意点">3. do-whileでの注意点</a></h3>
+<pre><code class="language-javascript">void main() {
+  int num = 100;
+  
+  // 注意：最低1回は実行される
+  do {
+    print('num = $num');
+    num = num ~/ 2;  // 2で割る（整数除算）
+  } while (num &gt; 0);
+  
+  print('終了時のnum: $num');
+}
+</code></pre>
+<h2 id="実践的な例ユーザー入力の検証"><a class="header" href="#実践的な例ユーザー入力の検証">実践的な例：ユーザー入力の検証</a></h2>
+<pre><code class="language-javascript">void main() {
+  // パスワード入力の例（実際の入力は簡略化）
+  String password = '';
+  int attempts = 0;
+  int maxAttempts = 3;
+  
+  while (attempts &lt; maxAttempts) {
+    // 実際にはここでユーザー入力を受け取る
+    password = 'wrong';  // 例として間違ったパスワード
+    attempts++;
+    
+    if (password == 'correct') {
+      print('ログイン成功！');
+      break;
+    } else {
+      print('パスワードが違います。残り${maxAttempts - attempts}回');
+      
+      if (attempts &gt;= maxAttempts) {
+        print('ログイン失敗。アカウントがロックされました。');
+      }
+    }
+  }
+}
+</code></pre>
+<h2 id="トラブルシューティング"><a class="header" href="#トラブルシューティング">トラブルシューティング</a></h2>
+<p>プログラムが応答しなくなった場合：</p>
+<ol>
+<li><strong>DartPadの場合</strong>: ブラウザのタブを更新する</li>
+<li><strong>コマンドラインの場合</strong>: Ctrl+C（Windows/Linux）またはCmd+C（Mac）で強制終了</li>
+<li><strong>IDEの場合</strong>: 停止ボタンをクリック</li>
+</ol>
+<h2 id="まとめ-18"><a class="header" href="#まとめ-18">まとめ</a></h2>
+<p>無限ループを防ぐための重要なポイント：</p>
+<ul>
+<li>ループの条件式が適切に更新されることを確認する</li>
+<li>論理演算子（&amp;&amp;、||）の使い方に注意する</li>
+<li>デバッグ時は変数の値を出力して動作を確認する</li>
+<li>意図的な無限ループには必ず脱出条件を用意する</li>
+<li>安全装置として最大繰り返し回数を設定することを検討する</li>
+</ul>
+<p>次のセクションでは、これまで学んだループの知識を活用して、九九の表を作成する実践的なプログラムを作ります。</p>
+<h2 id="練習問題-12"><a class="header" href="#練習問題-12">練習問題</a></h2>
+<ol>
+<li>
+<p>次のコードの問題点を指摘し、修正してください：</p>
+<pre><code class="language-javascript">int x = 10;
+while (x &gt; 0) {
+  print(x);
+  x += 1;
+}
+</code></pre>
+</li>
+<li>
+<p>1から始めて3倍していき、1000を超えたら終了するプログラムを書いてください。ただし、無限ループにならないよう安全装置も含めてください。</p>
+</li>
+<li>
+<p>ユーザーが「quit」と入力するまで続くプログラムを書いてください（実際の入力処理は、文字列を順番に試すシミュレーションで構いません）。</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="65-実践九九の表を作る"><a class="header" href="#65-実践九九の表を作る">6.5 実践：九九の表を作る</a></h1>
+<p>これまで学んだfor文とwhile文の知識を活用して、九九の表を作成するプログラムを作ってみましょう。段階的に機能を追加していき、最終的に見やすい九九の表を完成させます。</p>
+<h2 id="ステップ1基本的な九九の表示"><a class="header" href="#ステップ1基本的な九九の表示">ステップ1：基本的な九九の表示</a></h2>
+<p>まずは、特定の段の九九を表示するプログラムから始めましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // 3の段を表示
+  int dan = 3;
+  
+  for (int i = 1; i &lt;= 9; i++) {
+    int result = dan * i;
+    print('$dan × $i = $result');
+  }
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>3 × 1 = 3
+3 × 2 = 6
+3 × 3 = 9
+3 × 4 = 12
+3 × 5 = 15
+3 × 6 = 18
+3 × 7 = 21
+3 × 8 = 24
+3 × 9 = 27
+</code></pre>
+<h2 id="ステップ2すべての段を表示"><a class="header" href="#ステップ2すべての段を表示">ステップ2：すべての段を表示</a></h2>
+<p>次に、ネスト（入れ子）のfor文を使って、1から9までのすべての段を表示します：</p>
+<pre><code class="language-javascript">void main() {
+  // 1から9の段まですべて表示
+  for (int dan = 1; dan &lt;= 9; dan++) {
+    print('\n【${dan}の段】');
+    
+    for (int i = 1; i &lt;= 9; i++) {
+      int result = dan * i;
+      print('$dan × $i = $result');
+    }
+  }
+}
+</code></pre>
+<h2 id="ステップ3横に並べて表示"><a class="header" href="#ステップ3横に並べて表示">ステップ3：横に並べて表示</a></h2>
+<p>九九の表をより見やすくするため、横に並べて表示してみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // 各段を横一列に表示
+  for (int dan = 1; dan &lt;= 9; dan++) {
+    String line = '';
+    
+    for (int i = 1; i &lt;= 9; i++) {
+      int result = dan * i;
+      // 結果を2桁で揃えて表示
+      if (result &lt; 10) {
+        line += ' $result ';
+      } else {
+        line += '$result ';
+      }
+    }
+    
+    print('${dan}の段: $line');
+  }
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>1の段:  1  2  3  4  5  6  7  8  9 
+2の段:  2  4  6  8 10 12 14 16 18 
+3の段:  3  6  9 12 15 18 21 24 27 
+4の段:  4  8 12 16 20 24 28 32 36 
+5の段:  5 10 15 20 25 30 35 40 45 
+6の段:  6 12 18 24 30 36 42 48 54 
+7の段:  7 14 21 28 35 42 49 56 63 
+8の段:  8 16 24 32 40 48 56 64 72 
+9の段:  9 18 27 36 45 54 63 72 81 
+</code></pre>
+<h2 id="ステップ4表形式で表示"><a class="header" href="#ステップ4表形式で表示">ステップ4：表形式で表示</a></h2>
+<p>より本格的な九九の表を作成します：</p>
+<pre><code class="language-javascript">void main() {
+  // ヘッダー行を表示
+  print('    |  1  2  3  4  5  6  7  8  9');
+  print('----+----------------------------');
+  
+  // 各段を表示
+  for (int dan = 1; dan &lt;= 9; dan++) {
+    // 段の数字を表示（右揃え）
+    String danStr = ' $dan  |';
+    
+    // その段の計算結果を横に並べる
+    for (int i = 1; i &lt;= 9; i++) {
+      int result = dan * i;
+      
+      // 結果を3文字幅で右揃え
+      if (result &lt; 10) {
+        danStr += '  $result';
+      } else {
+        danStr += ' $result';
+      }
+    }
+    
+    print(danStr);
+  }
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>    |  1  2  3  4  5  6  7  8  9
+----+----------------------------
+ 1  |  1  2  3  4  5  6  7  8  9
+ 2  |  2  4  6  8 10 12 14 16 18
+ 3  |  3  6  9 12 15 18 21 24 27
+ 4  |  4  8 12 16 20 24 28 32 36
+ 5  |  5 10 15 20 25 30 35 40 45
+ 6  |  6 12 18 24 30 36 42 48 54
+ 7  |  7 14 21 28 35 42 49 56 63
+ 8  |  8 16 24 32 40 48 56 64 72
+ 9  |  9 18 27 36 45 54 63 72 81
+</code></pre>
+<h2 id="ステップ5関数を使って整理"><a class="header" href="#ステップ5関数を使って整理">ステップ5：関数を使って整理</a></h2>
+<p>コードを関数に分割して、より整理されたプログラムにします：</p>
+<pre><code class="language-javascript">// 九九の結果を計算する関数
+int calculateKuku(int dan, int multiplier) {
+  return dan * multiplier;
+}
+
+// 数値を3文字幅でフォーマットする関数
+String formatNumber(int num) {
+  if (num &lt; 10) {
+    return '  $num';
+  } else {
+    return ' $num';
+  }
+}
+
+// ヘッダーを表示する関数
+void printHeader() {
+  print('    |  1  2  3  4  5  6  7  8  9');
+  print('----+----------------------------');
+}
+
+// メイン関数
+void main() {
+  printHeader();
+  
+  // 各段を表示
+  for (int dan = 1; dan &lt;= 9; dan++) {
+    String line = ' $dan  |';
+    
+    for (int i = 1; i &lt;= 9; i++) {
+      int result = calculateKuku(dan, i);
+      line += formatNumber(result);
+    }
+    
+    print(line);
+  }
+}
+</code></pre>
+<h2 id="応用例特定の範囲の九九"><a class="header" href="#応用例特定の範囲の九九">応用例：特定の範囲の九九</a></h2>
+<p>より柔軟な九九の表を作ってみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // カスタマイズ可能な九九の表
+  int startDan = 2;    // 開始の段
+  int endDan = 5;      // 終了の段
+  int startMulti = 3;  // 開始の掛ける数
+  int endMulti = 7;    // 終了の掛ける数
+  
+  // ヘッダー表示
+  String header = '   |';
+  for (int i = startMulti; i &lt;= endMulti; i++) {
+    header += '  $i';
+  }
+  print(header);
+  print('---+' + '-' * ((endMulti - startMulti + 1) * 3));
+  
+  // 指定範囲の九九を表示
+  for (int dan = startDan; dan &lt;= endDan; dan++) {
+    String line = ' $dan |';
+    
+    for (int i = startMulti; i &lt;= endMulti; i++) {
+      int result = dan * i;
+      if (result &lt; 10) {
+        line += '  $result';
+      } else {
+        line += ' $result';
+      }
+    }
+    
+    print(line);
+  }
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>   |  3  4  5  6  7
+---+---------------
+ 2 |  6  8 10 12 14
+ 3 |  9 12 15 18 21
+ 4 | 12 16 20 24 28
+ 5 | 15 20 25 30 35
+</code></pre>
+<h2 id="while文を使った九九"><a class="header" href="#while文を使った九九">while文を使った九九</a></h2>
+<p>for文の代わりにwhile文を使っても九九の表を作れます：</p>
+<pre><code class="language-javascript">void main() {
+  int dan = 1;
+  
+  while (dan &lt;= 9) {
+    int i = 1;
+    print('\n${dan}の段:');
+    
+    while (i &lt;= 9) {
+      int result = dan * i;
+      print('$dan × $i = $result');
+      i++;
+    }
+    
+    dan++;
+  }
+}
+</code></pre>
+<h2 id="チャレンジ課題"><a class="header" href="#チャレンジ課題">チャレンジ課題</a></h2>
+<p>これまでの知識を活用して、以下の課題に挑戦してみましょう：</p>
+<h3 id="1-逆順の九九"><a class="header" href="#1-逆順の九九">1. 逆順の九九</a></h3>
+<p>9の段から1の段まで逆順に表示する九九の表を作ってください。</p>
+<h3 id="2-奇数の段だけの九九"><a class="header" href="#2-奇数の段だけの九九">2. 奇数の段だけの九九</a></h3>
+<p>1、3、5、7、9の段だけを表示する九九の表を作ってください。</p>
+<h3 id="3-色付き九九疑似的に"><a class="header" href="#3-色付き九九疑似的に">3. 色付き九九（疑似的に）</a></h3>
+<p>5の倍数の結果に「*」マークを付けて強調表示する九九の表を作ってください。</p>
+<pre><code class="language-javascript">// ヒント：5の倍数の判定
+if (result % 5 == 0) {
+  // 特別な表示
+}
+</code></pre>
+<h2 id="まとめ-19"><a class="header" href="#まとめ-19">まとめ</a></h2>
+<p>九九の表を作成することで、以下の重要な概念を実践的に学びました：</p>
+<ul>
+<li>ネストされたfor文の使い方</li>
+<li>文字列の連結とフォーマット</li>
+<li>関数による処理の分割</li>
+<li>条件に応じた表示の変更</li>
+</ul>
+<p>これらの技術は、より複雑なプログラムを作成する際の基礎となります。繰り返し処理をマスターすることで、効率的で読みやすいコードが書けるようになります。</p>
+<h2 id="発展課題"><a class="header" href="#発展課題">発展課題</a></h2>
+<p>余裕があれば、以下の発展的な課題にも挑戦してみてください：</p>
+<ol>
+<li>九九の表をCSV形式（カンマ区切り）で出力する</li>
+<li>指定した段だけを表示する機能を追加する</li>
+<li>九九の表から特定の答え（例：24）を見つけて、その式をすべて表示する</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第7章リスト配列"><a class="header" href="#第7章リスト配列">第7章：リスト（配列）</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="複数のデータをまとめて管理する"><a class="header" href="#複数のデータをまとめて管理する">複数のデータをまとめて管理する</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="リストの作成と要素へのアクセス"><a class="header" href="#リストの作成と要素へのアクセス">リストの作成と要素へのアクセス</a></h1>

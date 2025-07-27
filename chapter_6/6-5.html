@@ -178,7 +178,247 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="実践九九の表を作る"><a class="header" href="#実践九九の表を作る">実践：九九の表を作る</a></h1>
+                        <h1 id="65-実践九九の表を作る"><a class="header" href="#65-実践九九の表を作る">6.5 実践：九九の表を作る</a></h1>
+<p>これまで学んだfor文とwhile文の知識を活用して、九九の表を作成するプログラムを作ってみましょう。段階的に機能を追加していき、最終的に見やすい九九の表を完成させます。</p>
+<h2 id="ステップ1基本的な九九の表示"><a class="header" href="#ステップ1基本的な九九の表示">ステップ1：基本的な九九の表示</a></h2>
+<p>まずは、特定の段の九九を表示するプログラムから始めましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // 3の段を表示
+  int dan = 3;
+  
+  for (int i = 1; i &lt;= 9; i++) {
+    int result = dan * i;
+    print('$dan × $i = $result');
+  }
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>3 × 1 = 3
+3 × 2 = 6
+3 × 3 = 9
+3 × 4 = 12
+3 × 5 = 15
+3 × 6 = 18
+3 × 7 = 21
+3 × 8 = 24
+3 × 9 = 27
+</code></pre>
+<h2 id="ステップ2すべての段を表示"><a class="header" href="#ステップ2すべての段を表示">ステップ2：すべての段を表示</a></h2>
+<p>次に、ネスト（入れ子）のfor文を使って、1から9までのすべての段を表示します：</p>
+<pre><code class="language-javascript">void main() {
+  // 1から9の段まですべて表示
+  for (int dan = 1; dan &lt;= 9; dan++) {
+    print('\n【${dan}の段】');
+    
+    for (int i = 1; i &lt;= 9; i++) {
+      int result = dan * i;
+      print('$dan × $i = $result');
+    }
+  }
+}
+</code></pre>
+<h2 id="ステップ3横に並べて表示"><a class="header" href="#ステップ3横に並べて表示">ステップ3：横に並べて表示</a></h2>
+<p>九九の表をより見やすくするため、横に並べて表示してみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // 各段を横一列に表示
+  for (int dan = 1; dan &lt;= 9; dan++) {
+    String line = '';
+    
+    for (int i = 1; i &lt;= 9; i++) {
+      int result = dan * i;
+      // 結果を2桁で揃えて表示
+      if (result &lt; 10) {
+        line += ' $result ';
+      } else {
+        line += '$result ';
+      }
+    }
+    
+    print('${dan}の段: $line');
+  }
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>1の段:  1  2  3  4  5  6  7  8  9 
+2の段:  2  4  6  8 10 12 14 16 18 
+3の段:  3  6  9 12 15 18 21 24 27 
+4の段:  4  8 12 16 20 24 28 32 36 
+5の段:  5 10 15 20 25 30 35 40 45 
+6の段:  6 12 18 24 30 36 42 48 54 
+7の段:  7 14 21 28 35 42 49 56 63 
+8の段:  8 16 24 32 40 48 56 64 72 
+9の段:  9 18 27 36 45 54 63 72 81 
+</code></pre>
+<h2 id="ステップ4表形式で表示"><a class="header" href="#ステップ4表形式で表示">ステップ4：表形式で表示</a></h2>
+<p>より本格的な九九の表を作成します：</p>
+<pre><code class="language-javascript">void main() {
+  // ヘッダー行を表示
+  print('    |  1  2  3  4  5  6  7  8  9');
+  print('----+----------------------------');
+  
+  // 各段を表示
+  for (int dan = 1; dan &lt;= 9; dan++) {
+    // 段の数字を表示（右揃え）
+    String danStr = ' $dan  |';
+    
+    // その段の計算結果を横に並べる
+    for (int i = 1; i &lt;= 9; i++) {
+      int result = dan * i;
+      
+      // 結果を3文字幅で右揃え
+      if (result &lt; 10) {
+        danStr += '  $result';
+      } else {
+        danStr += ' $result';
+      }
+    }
+    
+    print(danStr);
+  }
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>    |  1  2  3  4  5  6  7  8  9
+----+----------------------------
+ 1  |  1  2  3  4  5  6  7  8  9
+ 2  |  2  4  6  8 10 12 14 16 18
+ 3  |  3  6  9 12 15 18 21 24 27
+ 4  |  4  8 12 16 20 24 28 32 36
+ 5  |  5 10 15 20 25 30 35 40 45
+ 6  |  6 12 18 24 30 36 42 48 54
+ 7  |  7 14 21 28 35 42 49 56 63
+ 8  |  8 16 24 32 40 48 56 64 72
+ 9  |  9 18 27 36 45 54 63 72 81
+</code></pre>
+<h2 id="ステップ5関数を使って整理"><a class="header" href="#ステップ5関数を使って整理">ステップ5：関数を使って整理</a></h2>
+<p>コードを関数に分割して、より整理されたプログラムにします：</p>
+<pre><code class="language-javascript">// 九九の結果を計算する関数
+int calculateKuku(int dan, int multiplier) {
+  return dan * multiplier;
+}
+
+// 数値を3文字幅でフォーマットする関数
+String formatNumber(int num) {
+  if (num &lt; 10) {
+    return '  $num';
+  } else {
+    return ' $num';
+  }
+}
+
+// ヘッダーを表示する関数
+void printHeader() {
+  print('    |  1  2  3  4  5  6  7  8  9');
+  print('----+----------------------------');
+}
+
+// メイン関数
+void main() {
+  printHeader();
+  
+  // 各段を表示
+  for (int dan = 1; dan &lt;= 9; dan++) {
+    String line = ' $dan  |';
+    
+    for (int i = 1; i &lt;= 9; i++) {
+      int result = calculateKuku(dan, i);
+      line += formatNumber(result);
+    }
+    
+    print(line);
+  }
+}
+</code></pre>
+<h2 id="応用例特定の範囲の九九"><a class="header" href="#応用例特定の範囲の九九">応用例：特定の範囲の九九</a></h2>
+<p>より柔軟な九九の表を作ってみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  // カスタマイズ可能な九九の表
+  int startDan = 2;    // 開始の段
+  int endDan = 5;      // 終了の段
+  int startMulti = 3;  // 開始の掛ける数
+  int endMulti = 7;    // 終了の掛ける数
+  
+  // ヘッダー表示
+  String header = '   |';
+  for (int i = startMulti; i &lt;= endMulti; i++) {
+    header += '  $i';
+  }
+  print(header);
+  print('---+' + '-' * ((endMulti - startMulti + 1) * 3));
+  
+  // 指定範囲の九九を表示
+  for (int dan = startDan; dan &lt;= endDan; dan++) {
+    String line = ' $dan |';
+    
+    for (int i = startMulti; i &lt;= endMulti; i++) {
+      int result = dan * i;
+      if (result &lt; 10) {
+        line += '  $result';
+      } else {
+        line += ' $result';
+      }
+    }
+    
+    print(line);
+  }
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>   |  3  4  5  6  7
+---+---------------
+ 2 |  6  8 10 12 14
+ 3 |  9 12 15 18 21
+ 4 | 12 16 20 24 28
+ 5 | 15 20 25 30 35
+</code></pre>
+<h2 id="while文を使った九九"><a class="header" href="#while文を使った九九">while文を使った九九</a></h2>
+<p>for文の代わりにwhile文を使っても九九の表を作れます：</p>
+<pre><code class="language-javascript">void main() {
+  int dan = 1;
+  
+  while (dan &lt;= 9) {
+    int i = 1;
+    print('\n${dan}の段:');
+    
+    while (i &lt;= 9) {
+      int result = dan * i;
+      print('$dan × $i = $result');
+      i++;
+    }
+    
+    dan++;
+  }
+}
+</code></pre>
+<h2 id="チャレンジ課題"><a class="header" href="#チャレンジ課題">チャレンジ課題</a></h2>
+<p>これまでの知識を活用して、以下の課題に挑戦してみましょう：</p>
+<h3 id="1-逆順の九九"><a class="header" href="#1-逆順の九九">1. 逆順の九九</a></h3>
+<p>9の段から1の段まで逆順に表示する九九の表を作ってください。</p>
+<h3 id="2-奇数の段だけの九九"><a class="header" href="#2-奇数の段だけの九九">2. 奇数の段だけの九九</a></h3>
+<p>1、3、5、7、9の段だけを表示する九九の表を作ってください。</p>
+<h3 id="3-色付き九九疑似的に"><a class="header" href="#3-色付き九九疑似的に">3. 色付き九九（疑似的に）</a></h3>
+<p>5の倍数の結果に「*」マークを付けて強調表示する九九の表を作ってください。</p>
+<pre><code class="language-javascript">// ヒント：5の倍数の判定
+if (result % 5 == 0) {
+  // 特別な表示
+}
+</code></pre>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<p>九九の表を作成することで、以下の重要な概念を実践的に学びました：</p>
+<ul>
+<li>ネストされたfor文の使い方</li>
+<li>文字列の連結とフォーマット</li>
+<li>関数による処理の分割</li>
+<li>条件に応じた表示の変更</li>
+</ul>
+<p>これらの技術は、より複雑なプログラムを作成する際の基礎となります。繰り返し処理をマスターすることで、効率的で読みやすいコードが書けるようになります。</p>
+<h2 id="発展課題"><a class="header" href="#発展課題">発展課題</a></h2>
+<p>余裕があれば、以下の発展的な課題にも挑戦してみてください：</p>
+<ol>
+<li>九九の表をCSV形式（カンマ区切り）で出力する</li>
+<li>指定した段だけを表示する機能を追加する</li>
+<li>九九の表から特定の答え（例：24）を見つけて、その式をすべて表示する</li>
+</ol>
 
                     </main>
 

@@ -178,7 +178,151 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="比較演算子"><a class="header" href="#比較演算子">比較演算子（==、!=、&gt;、&lt;、&gt;=、&lt;=）</a></h1>
+                        <h1 id="52-比較演算子"><a class="header" href="#52-比較演算子">5.2 比較演算子（==、!=、&gt;、&lt;、&gt;=、&lt;=）</a></h1>
+<p>前の節では、<code>age &gt;= 18</code>のような条件を使いました。この<code>&gt;=</code>は<strong>比較演算子</strong>と呼ばれ、2つの値を比較してtrue（真）またはfalse（偽）を返します。</p>
+<h2 id="比較演算子の種類"><a class="header" href="#比較演算子の種類">比較演算子の種類</a></h2>
+<p>Dartには以下の比較演算子があります：</p>
+<div class="table-wrapper"><table><thead><tr><th>演算子</th><th>意味</th><th>例</th><th>結果</th></tr></thead><tbody>
+<tr><td><code>==</code></td><td>等しい</td><td><code>5 == 5</code></td><td>true</td></tr>
+<tr><td><code>!=</code></td><td>等しくない</td><td><code>5 != 3</code></td><td>true</td></tr>
+<tr><td><code>&gt;</code></td><td>より大きい</td><td><code>7 &gt; 3</code></td><td>true</td></tr>
+<tr><td><code>&lt;</code></td><td>より小さい</td><td><code>2 &lt; 8</code></td><td>true</td></tr>
+<tr><td><code>&gt;=</code></td><td>以上（等しいか大きい）</td><td><code>5 &gt;= 5</code></td><td>true</td></tr>
+<tr><td><code>&lt;=</code></td><td>以下（等しいか小さい）</td><td><code>4 &lt;= 6</code></td><td>true</td></tr>
+</tbody></table>
+</div>
+<h2 id="等価演算子"><a class="header" href="#等価演算子">等価演算子（==、!=）</a></h2>
+<h3 id="等しいかどうか"><a class="header" href="#等しいかどうか">等しいかどうか：==</a></h3>
+<p><code>==</code>演算子は、2つの値が同じかどうかを調べます：</p>
+<pre><code class="language-javascript">void main() {
+  int a = 10;
+  int b = 10;
+  int c = 5;
+  
+  print('a == b: ${a == b}'); // true
+  print('a == c: ${a == c}'); // false
+  
+  String name1 = 'Dart';
+  String name2 = 'Dart';
+  String name3 = 'Java';
+  
+  print('name1 == name2: ${name1 == name2}'); // true
+  print('name1 == name3: ${name1 == name3}'); // false
+}
+</code></pre>
+<p><strong>重要な注意点：</strong> 等しいかどうかの比較には<code>==</code>を使います。<code>=</code>は代入演算子なので間違えないようにしましょう。</p>
+<h3 id="等しくない"><a class="header" href="#等しくない">等しくない：!=</a></h3>
+<p><code>!=</code>演算子は、2つの値が異なるかどうかを調べます：</p>
+<pre><code class="language-javascript">void main() {
+  int score = 75;
+  
+  if (score != 100) {
+    print('満点ではありません');
+  }
+  
+  String weather = '晴れ';
+  if (weather != '雨') {
+    print('傘は不要です');
+  }
+}
+</code></pre>
+<h2 id="大小比較演算子"><a class="header" href="#大小比較演算子">大小比較演算子（&gt;、&lt;、&gt;=、&lt;=）</a></h2>
+<h3 id="より大きいより小さい"><a class="header" href="#より大きいより小さい">より大きい・より小さい：&gt;、&lt;</a></h3>
+<pre><code class="language-javascript">void main() {
+  int myAge = 16;
+  int adultAge = 18;
+  
+  if (myAge &lt; adultAge) {
+    print('まだ未成年です');
+  }
+  
+  double temperature = 35.5;
+  if (temperature &gt; 30.0) {
+    print('暑い日ですね');
+  }
+}
+</code></pre>
+<h3 id="以上以下"><a class="header" href="#以上以下">以上・以下：&gt;=、&lt;=</a></h3>
+<pre><code class="language-javascript">void main() {
+  int testScore = 80;
+  
+  // 80点以上なら合格
+  if (testScore &gt;= 80) {
+    print('合格です！');
+  }
+  
+  // 60点以下なら不合格
+  if (testScore &lt;= 60) {
+    print('不合格です');
+  }
+}
+</code></pre>
+<h2 id="実践例年齢チェックプログラム"><a class="header" href="#実践例年齢チェックプログラム">実践例：年齢チェックプログラム</a></h2>
+<p>様々な比較演算子を使った例を見てみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int age = 17;
+  
+  print('あなたの年齢: $age歳');
+  
+  if (age &lt; 13) {
+    print('子供料金が適用されます');
+  }
+  
+  if (age &gt;= 13) {
+    print('中学生以上ですね');
+  }
+  
+  if (age == 20) {
+    print('成人おめでとうございます！');
+  }
+  
+  if (age != 18) {
+    print('18歳ではありませんね');
+  }
+}
+</code></pre>
+<h2 id="よくある間違い"><a class="header" href="#よくある間違い">よくある間違い</a></h2>
+<h3 id="1-代入演算子と比較演算子の混同"><a class="header" href="#1-代入演算子と比較演算子の混同">1. 代入演算子と比較演算子の混同</a></h3>
+<pre><code class="language-javascript">// 間違い
+if (age = 18) {  // エラー！代入はできません
+  print('18歳です');
+}
+
+// 正しい
+if (age == 18) {  // 比較演算子を使う
+  print('18歳です');
+}
+</code></pre>
+<h3 id="2-文字列の比較"><a class="header" href="#2-文字列の比較">2. 文字列の比較</a></h3>
+<p>文字列も比較できますが、大文字・小文字は区別されます：</p>
+<pre><code class="language-javascript">void main() {
+  String name = 'dart';
+  
+  print('name == "dart": ${name == "dart"}');   // true
+  print('name == "Dart": ${name == "Dart"}');   // false
+  print('name == "DART": ${name == "DART"}');   // false
+}
+</code></pre>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p>次のプログラムを完成させてみましょう：</p>
+<pre><code class="language-javascript">void main() {
+  int number = 42;
+  
+  // 以下の条件をif文で書いてみてください
+  // 1. numberが50より大きい場合
+  // 2. numberが0以上の場合  
+  // 3. numberが42と等しい場合
+  // 4. numberが100と等しくない場合
+}
+</code></pre>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<ul>
+<li>比較演算子は2つの値を比較してtrue/falseを返します</li>
+<li><code>==</code>（等しい）と<code>=</code>（代入）は全く違う意味なので注意</li>
+<li><code>&gt;=</code>や<code>&lt;=</code>は「以上」「以下」を表し、等しい場合も含みます</li>
+<li>文字列の比較では大文字・小文字が区別されます</li>
+</ul>
+<p>次の節では、if-else文を使ってより柔軟な条件分岐を学びます。</p>
 
                     </main>
 
