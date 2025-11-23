@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-d3e6f78f.js";
+            window.path_to_searchindex_js = "../searchindex-1e504851.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-d5f4e2a3.js"></script>
+        <script src="../toc-568a1073.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -460,83 +460,12 @@ void main() {
   print("評価: ${grade}");
 }
 </code></pre>
-<h2 id="練習してみよう"><a class="header" href="#練習してみよう">練習してみよう</a></h2>
-<h3 id="練習1計算機クラス"><a class="header" href="#練習1計算機クラス">練習1：計算機クラス</a></h3>
-<pre><code class="language-javascript">class Calculator {
-  double result = 0.0;  // 計算結果を保存
-  
-  // ここにメソッドを追加してください：
-  // 1. add(double value) - 値を足す
-  // 2. subtract(double value) - 値を引く
-  // 3. multiply(double value) - 値をかける
-  // 4. divide(double value) - 値で割る
-  // 5. clear() - 結果をリセット
-  // 6. getResult() - 現在の結果を返す
-}
-</code></pre>
-<p><strong>答えの例</strong>：</p>
-<pre><code class="language-javascript">class Calculator {
-  double result = 0.0;
-  
-  void add(double value) {
-    result += value;
-    print("+ ${value} = ${result}");
-  }
-  
-  void subtract(double value) {
-    result -= value;
-    print("- ${value} = ${result}");
-  }
-  
-  void multiply(double value) {
-    result *= value;
-    print("× ${value} = ${result}");
-  }
-  
-  void divide(double value) {
-    if (value != 0) {
-      result /= value;
-      print("÷ ${value} = ${result}");
-    } else {
-      print("エラー: 0で割ることはできません");
-    }
-  }
-  
-  void clear() {
-    result = 0.0;
-    print("計算結果をリセットしました");
-  }
-  
-  double getResult() {
-    return result;
-  }
-}
-
-void main() {
-  Calculator calc = Calculator();
-  
-  calc.add(10);        // + 10.0 = 10.0
-  calc.multiply(3);    // × 3.0 = 30.0
-  calc.subtract(5);    // - 5.0 = 25.0
-  calc.divide(5);      // ÷ 5.0 = 5.0
-  
-  print("最終結果: ${calc.getResult()}");
-}
-</code></pre>
-<h3 id="練習2タイマークラス"><a class="header" href="#練習2タイマークラス">練習2：タイマークラス</a></h3>
-<p>時間をカウントするタイマークラスを作ってみてください：</p>
-<pre><code class="language-javascript">class Timer {
-  int seconds = 0;
-  
-  // start() - タイマー開始メッセージ
-  // tick() - 1秒進める
-  // reset() - 0秒にリセット
-  // getTime() - 現在時刻を返す
-  // isTimeUp(int target) - 指定時間に達したかチェック
-}
-</code></pre>
 <h2 id="ゲッターとセッター"><a class="header" href="#ゲッターとセッター">ゲッターとセッター</a></h2>
-<p>フィールドへの安全なアクセスを提供するメソッドパターン：</p>
+<p>フィールドへの安全なアクセスを提供するメソッドパターンです。
+これまで、オブジェクトのフィールドへ直接アクセスしていましたが、どこからでも無制限に変更してしまうと、予期せぬ不具合が生じることがあります。
+例えば、年齢を表すフィールドに負の値を設定するなど、不適切な値を設定してしまうことがあります。</p>
+<p>そこで、ゲッターとセッターを使用することで、フィールドへのアクセスを制御できます。
+ゲッターは値を取得するメソッド、セッターは値を設定するメソッドです。</p>
 <pre><code class="language-javascript">class Person {
   String _name = "";  // プライベートフィールド（_で始まる）
   int _age = 0;
@@ -578,74 +507,6 @@ void main() {
 <li><strong>フィールドアクセス</strong>：メソッド内でフィールドを使用</li>
 <li><strong>実践的な例</strong>：銀行口座、学生成績管理など</li>
 </ol>
-<p>オブジェクトは今や、データを持つだけでなく、そのデータを使って様々な処理ができるようになりました！</p>
-<p>次の章では、これらの知識を使って実際のペット管理アプリを作ってみます。今まで学んだことが全て一つの形になりますよ！</p>
-<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
-<ol>
-<li>次のコードで、<code>pochi.getHumanAge()</code> の戻り値は何でしょうか？</li>
-</ol>
-<pre><code class="language-javascript">class Dog {
-  int age = 0;
-  
-  int getHumanAge() {
-    return age * 7;
-  }
-}
-
-void main() {
-  Dog pochi = Dog();
-  pochi.age = 4;
-  
-  int result = pochi.getHumanAge();
-  print(result);
-}
-</code></pre>
-<ol start="2">
-<li>図書館の本を管理するBookクラスに、以下のメソッドを追加してください：
-<ul>
-<li><code>borrow()</code> - 本を借りる（借用中フラグをtrueにする）</li>
-<li><code>returnBook()</code> - 本を返却する（借用中フラグをfalseにする）</li>
-<li><code>isAvailable()</code> - 貸し出し可能かチェック（借用中でなければtrue）</li>
-</ul>
-</li>
-</ol>
-<p><strong>答え</strong>：</p>
-<ol>
-<li>
-<p>戻り値は <code>28</code> です（4 × 7 = 28）</p>
-</li>
-<li>
-<p>図書館の本クラス：</p>
-</li>
-</ol>
-<pre><code class="language-javascript">class Book {
-  String title = "";
-  String author = "";
-  bool isBorrowed = false;
-  
-  void borrow() {
-    if (!isBorrowed) {
-      isBorrowed = true;
-      print("「${title}」を借りました");
-    } else {
-      print("「${title}」は既に貸し出し中です");
-    }
-  }
-  
-  void returnBook() {
-    if (isBorrowed) {
-      isBorrowed = false;
-      print("「${title}」を返却しました");
-    } else {
-      print("「${title}」は貸し出されていません");
-    }
-  }
-  
-  bool isAvailable() {
-    return !isBorrowed;
-  }
-}
-</code></pre>
 
                     </main>
 
@@ -655,7 +516,7 @@ void main() {
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="../chapter_11/11-5.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../chapter_12/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -669,7 +530,7 @@ void main() {
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="../chapter_11/11-5.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../chapter_12/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>

@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-d3e6f78f.js";
+            window.path_to_searchindex_js = "../searchindex-1e504851.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-d5f4e2a3.js"></script>
+        <script src="../toc-568a1073.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -273,7 +273,6 @@ class Thing { }         // 抽象的すぎる
 class Data { }          // 何のデータかわからない
 </code></pre>
 <h2 id="練習自分でクラスを作ってみよう"><a class="header" href="#練習自分でクラスを作ってみよう">練習：自分でクラスを作ってみよう</a></h2>
-<h3 id="練習1本bookクラス"><a class="header" href="#練習1本bookクラス">練習1：本（Book）クラス</a></h3>
 <p>本を表現するクラスを作ってみてください。本には次のような属性があります：</p>
 <ul>
 <li>タイトル（文字列）</li>
@@ -295,24 +294,6 @@ class Data { }          // 何のデータかわからない
   bool isFinished;    // 読み終わったかどうか
 }
 </code></pre>
-<h3 id="練習2スマートフォンsmartphoneクラス"><a class="header" href="#練習2スマートフォンsmartphoneクラス">練習2：スマートフォン（Smartphone）クラス</a></h3>
-<p>今度はスマートフォンを表現するクラスを作ってみてください：</p>
-<ul>
-<li>機種名（文字列）</li>
-<li>色（文字列）</li>
-<li>バッテリー残量（整数、0-100の値）</li>
-<li>ストレージ容量（整数、GB単位）</li>
-<li>電源が入っているかどうか（真偽値）</li>
-</ul>
-<p><strong>答え</strong>：</p>
-<pre><code class="language-javascript">class Smartphone {
-  String model;           // 機種名
-  String color;           // 色
-  int batteryLevel;       // バッテリー残量（0-100）
-  int storageCapacity;    // ストレージ容量（GB）
-  bool isPoweredOn;       // 電源状態
-}
-</code></pre>
 <h2 id="初期値の設定"><a class="header" href="#初期値の設定">初期値の設定</a></h2>
 <p>フィールドには初期値を設定することもできます：</p>
 <pre><code class="language-javascript">class Dog {
@@ -332,43 +313,6 @@ class Data { }          // 何のデータかわからない
 <li><strong>データ型</strong>：適切な型を選択する</li>
 </ol>
 <p>次の章では、この設計図（クラス）を使って実際のオブジェクトを作る方法を学びます。いよいよ設計図から実物を作り出しますよ！</p>
-<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
-<ol>
-<li>
-<p>車（Car）を表現するクラスを作ってください。車には以下の属性があります：</p>
-<ul>
-<li>メーカー（文字列）</li>
-<li>車種（文字列）</li>
-<li>年式（整数）</li>
-<li>燃費（小数、km/L）</li>
-<li>エンジンがかかっているかどうか（真偽値）</li>
-</ul>
-</li>
-<li>
-<p>次のクラス名のうち、Dartの命名規則に従っているものはどれでしょうか？</p>
-<ul>
-<li><code>musicPlayer</code></li>
-<li><code>MusicPlayer</code></li>
-<li><code>music_player</code></li>
-<li><code>MUSICPLAYER</code></li>
-</ul>
-</li>
-</ol>
-<p><strong>答え</strong>：</p>
-<ol>
-<li>車クラス：</li>
-</ol>
-<pre><code class="language-javascript">class Car {
-  String manufacturer;    // メーカー
-  String model;          // 車種
-  int year;             // 年式
-  double fuelEfficiency; // 燃費
-  bool isEngineRunning;  // エンジン状態
-}
-</code></pre>
-<ol start="2">
-<li>正しいのは <code>MusicPlayer</code> です（パスカルケース）</li>
-</ol>
 
                     </main>
 

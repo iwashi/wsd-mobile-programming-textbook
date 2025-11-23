@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-d3e6f78f.js";
+            window.path_to_searchindex_js = "../searchindex-1e504851.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-d5f4e2a3.js"></script>
+        <script src="../toc-568a1073.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -260,35 +260,6 @@
 3匹目: モコ, 1歳, プードル
 </code></pre>
 <p>なるほど！一つのクラス（設計図）から、異なる情報を持つ複数のオブジェクト（実体）を作れるんですね。</p>
-<h2 id="より実践的な例"><a class="header" href="#より実践的な例">より実践的な例</a></h2>
-<p>学生クラスを使った例も見てみましょう：</p>
-<pre><code class="language-javascript">class Student {
-  String name = "";
-  int grade = 1;
-  int studentId = 0;
-  double gpa = 0.0;
-}
-
-void main() {
-  // 学生オブジェクトを作成
-  Student alice = Student();
-  alice.name = "Alice";
-  alice.grade = 2;
-  alice.studentId = 12345;
-  alice.gpa = 3.8;
-  
-  Student bob = Student();
-  bob.name = "Bob";
-  bob.grade = 3;
-  bob.studentId = 67890;
-  bob.gpa = 3.2;
-  
-  // 学生情報を表示
-  print("=== 学生一覧 ===");
-  print("${alice.name}: ${alice.grade}年生, ID: ${alice.studentId}, GPA: ${alice.gpa}");
-  print("${bob.name}: ${bob.grade}年生, ID: ${bob.studentId}, GPA: ${bob.gpa}");
-}
-</code></pre>
 <h2 id="オブジェクトをリストで管理する"><a class="header" href="#オブジェクトをリストで管理する">オブジェクトをリストで管理する</a></h2>
 <p>たくさんのオブジェクトがある場合は、リストで管理すると便利です：</p>
 <pre><code class="language-javascript">void main() {
@@ -323,7 +294,15 @@ void main() {
 </code></pre>
 <h2 id="より簡潔な書き方"><a class="header" href="#より簡潔な書き方">より簡潔な書き方</a></h2>
 <p>オブジェクトを作ってすぐに値を設定する場合、次のように書くこともできます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-javascript">class Dog {
+  String name = "Unknown";
+  int age = 0;
+  String? breed; // Optional property, can be null
+
+  Dog({this.name = "Unknown", this.age = 0, this.breed});
+}
+
+void main() {
   // 作成と設定を分ける場合
   Dog dog1 = Dog();
   dog1.name = "ポチ";
@@ -336,84 +315,10 @@ void main() {
     ..breed = "秋田犬";
     
   print("${dog1.name}, ${dog1.age}歳");
-  print("${dog2.name}, ${dog2.age}歳, ${dog2.breed}");
+  print("${dog2.name}, ${dog2.age}歳, ${dog2.breed ?? '品種不明'}");
 }
 </code></pre>
 <p><code>..</code> は「<strong>カスケード記法</strong>」と呼ばれ、同じオブジェクトに対して連続して操作を行う時に使います。</p>
-<h2 id="練習してみよう"><a class="header" href="#練習してみよう">練習してみよう</a></h2>
-<h3 id="練習1本オブジェクトを作る"><a class="header" href="#練習1本オブジェクトを作る">練習1：本オブジェクトを作る</a></h3>
-<p>前回作った Book クラスを使って、実際の本オブジェクトを作ってみてください：</p>
-<pre><code class="language-javascript">class Book {
-  String title = "";
-  String author = "";
-  int pages = 0;
-  double price = 0.0;
-  bool isFinished = false;
-}
-
-void main() {
-  // ここに本オブジェクトを作るコードを書いてください
-  // 好きな本の情報を設定してください
-}
-</code></pre>
-<p><strong>答えの例</strong>：</p>
-<pre><code class="language-javascript">void main() {
-  Book myBook = Book();
-  myBook.title = "プログラミング入門";
-  myBook.author = "田中太郎";
-  myBook.pages = 300;
-  myBook.price = 2500.0;
-  myBook.isFinished = false;
-  
-  print("タイトル: ${myBook.title}");
-  print("著者: ${myBook.author}");
-  print("ページ数: ${myBook.pages}ページ");
-  print("価格: ${myBook.price}円");
-  print("読み終わった: ${myBook.isFinished ? 'はい' : 'いいえ'}");
-}
-</code></pre>
-<h3 id="練習2複数の本を管理する"><a class="header" href="#練習2複数の本を管理する">練習2：複数の本を管理する</a></h3>
-<p>3冊の本オブジェクトを作って、リストで管理してみてください：</p>
-<p><strong>答えの例</strong>：</p>
-<pre><code class="language-javascript">void main() {
-  List&lt;Book&gt; books = [];
-  
-  // 1冊目
-  Book book1 = Book()
-    ..title = "Dart入門"
-    ..author = "佐藤花子"
-    ..pages = 250
-    ..price = 2000.0
-    ..isFinished = true;
-  books.add(book1);
-  
-  // 2冊目
-  Book book2 = Book()
-    ..title = "オブジェクト指向"
-    ..author = "山田次郎"
-    ..pages = 400
-    ..price = 3200.0
-    ..isFinished = false;
-  books.add(book2);
-  
-  // 3冊目
-  Book book3 = Book()
-    ..title = "アプリ開発"
-    ..author = "鈴木三郎"
-    ..pages = 350
-    ..price = 2800.0
-    ..isFinished = false;
-  books.add(book3);
-  
-  // 全ての本を表示
-  print("=== 本棚の本たち ===");
-  for (int i = 0; i &lt; books.length; i++) {
-    Book book = books[i];
-    String status = book.isFinished ? "読了" : "未読";
-    print("${i + 1}. 「${book.title}」 著者: ${book.author} (${status})");
-  }
-}
-</code></pre>
 <h2 id="オブジェクトの比較"><a class="header" href="#オブジェクトの比較">オブジェクトの比較</a></h2>
 <p>オブジェクト同士を比較する時は注意が必要です：</p>
 <pre><code class="language-javascript">void main() {
@@ -442,69 +347,6 @@ void main() {
 <li><strong>カスケード記法</strong>：<code>..</code> で連続操作</li>
 <li><strong>オブジェクト比較</strong>：インスタンスの同一性 vs. 内容の比較</li>
 </ol>
-<p>次の章では、オブジェクトに「行動」を追加する方法（メソッド）を学びます。オブジェクトがただデータを持つだけでなく、何かができるようになりますよ！</p>
-<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
-<ol>
-<li>次のコードの実行結果を予想してください：</li>
-</ol>
-<pre><code class="language-javascript">class Car {
-  String model = "";
-  int year = 0;
-}
-
-void main() {
-  Car car1 = Car();
-  car1.model = "プリウス";
-  car1.year = 2022;
-  
-  Car car2 = Car();
-  car2.model = "アクア";
-  car2.year = 2021;
-  
-  print("${car1.model} (${car1.year}年式)");
-  print("${car2.model} (${car2.year}年式)");
-}
-</code></pre>
-<ol start="2">
-<li>スマートフォンクラスを使って、2台のスマートフォンオブジェクトを作り、それぞれの情報を表示するプログラムを書いてください。</li>
-</ol>
-<p><strong>答え</strong>：</p>
-<ol>
-<li>実行結果：</li>
-</ol>
-<pre><code>プリウス (2022年式)
-アクア (2021年式)
-</code></pre>
-<ol start="2">
-<li>スマートフォンの例：</li>
-</ol>
-<pre><code class="language-javascript">class Smartphone {
-  String model = "";
-  String color = "";
-  int batteryLevel = 100;
-  bool isPoweredOn = false;
-}
-
-void main() {
-  Smartphone phone1 = Smartphone()
-    ..model = "iPhone 14"
-    ..color = "ブルー"
-    ..batteryLevel = 85
-    ..isPoweredOn = true;
-    
-  Smartphone phone2 = Smartphone()
-    ..model = "Galaxy S23"
-    ..color = "ブラック"
-    ..batteryLevel = 92
-    ..isPoweredOn = false;
-    
-  print("スマートフォン1: ${phone1.model} (${phone1.color})");
-  print("バッテリー: ${phone1.batteryLevel}% 電源: ${phone1.isPoweredOn ? 'ON' : 'OFF'}");
-  
-  print("スマートフォン2: ${phone2.model} (${phone2.color})");
-  print("バッテリー: ${phone2.batteryLevel}% 電源: ${phone2.isPoweredOn ? 'ON' : 'OFF'}");
-}
-</code></pre>
 
                     </main>
 

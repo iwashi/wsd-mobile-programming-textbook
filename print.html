@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-d3e6f78f.js";
+            window.path_to_searchindex_js = "searchindex-1e504851.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-d5f4e2a3.js"></script>
+        <script src="toc-568a1073.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -7620,13 +7620,6 @@ void main() {
 <li>thisキーワードの使い方</li>
 <li>オブジェクトの振る舞いの実装</li>
 </ul>
-<h3 id="115-実践ペット管理アプリ"><a class="header" href="#115-実践ペット管理アプリ"><a href="#実践ペット管理アプリ">11.5 実践：ペット管理アプリ</a></a></h3>
-<ul>
-<li>Petクラスの設計と実装</li>
-<li>ペットの情報管理と操作</li>
-<li>複数のペットを管理するシステム</li>
-<li>オブジェクト指向らしいプログラムの完成</li>
-</ul>
 <h2 id="学習の目標-10"><a class="header" href="#学習の目標-10">学習の目標</a></h2>
 <p>この章を完了すると、以下のことができるようになります：</p>
 <h3 id="知識面-10"><a class="header" href="#知識面-10">知識面</a></h3>
@@ -7643,12 +7636,6 @@ void main() {
 <li><strong>オブジェクトを活用したプログラム</strong>を作成できる</li>
 <li><strong>現実世界の問題をオブジェクトで表現</strong>できる</li>
 </ul>
-<h3 id="心構え"><a class="header" href="#心構え">心構え</a></h3>
-<ul>
-<li><strong>現実世界とプログラムの対応</strong>を意識している</li>
-<li><strong>データと処理の関連性</strong>を重視している</li>
-<li><strong>保守性の高い設計</strong>を心がけている</li>
-</ul>
 <h2 id="学習のポイント-10"><a class="header" href="#学習のポイント-10">学習のポイント</a></h2>
 <h3 id="-現実世界がお手本"><a class="header" href="#-現実世界がお手本">🌍 現実世界がお手本</a></h3>
 <p>オブジェクト指向は、現実世界の「もの」をプログラムで表現する考え方です。「ペット」「車」「人」など、身近な対象をプログラムで表現することから始めましょう。</p>
@@ -7661,7 +7648,6 @@ void main() {
 <h2 id="次のステップへ-10"><a class="header" href="#次のステップへ-10">次のステップへ</a></h2>
 <p>第11章を修了すると、あなたはオブジェクト指向プログラミングの入り口に立ったことになります。</p>
 <p>第12章では、オブジェクト指向をより本格的に活用する方法を学習します。コンストラクタ、ゲッター・セッター、カプセル化といった重要な概念を学び、より実用的な図書館管理システムを作成します。</p>
-<p><strong>オブジェクト指向で、プログラムがもっと現実世界に近づきます！</strong> 🎭</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="現実世界をプログラムで表現する"><a class="header" href="#現実世界をプログラムで表現する">現実世界をプログラムで表現する</a></h1>
 <p>プログラミングを学んできた皆さんは、これまで数値や文字列、リストなどの基本的なデータを使ってプログラムを作ってきました。でも、現実世界はもっと複雑ですよね。</p>
@@ -7759,32 +7745,6 @@ print("猫: $catName, $catAge歳, $catBreed");
 <li><strong>これから</strong>：関連する情報と処理をオブジェクトとしてまとめて管理</li>
 </ul>
 <p>次の章では、実際にDartでオブジェクトを作る方法を学んでいきます。まずは「<strong>クラス</strong>」という設計図の作り方から始めましょう！</p>
-<h2 id="練習問題-3"><a class="header" href="#練習問題-3">練習問題</a></h2>
-<ol>
-<li>
-<p>あなたの身の回りにある物（例：スマートフォン、本、車など）を一つ選んで、それが持っている属性（何を持っているか）と行動（何ができるか）を3つずつ考えてみてください。</p>
-</li>
-<li>
-<p>学校の「生徒」をオブジェクトとして考える場合、どのような属性と行動があるでしょうか？</p>
-</li>
-</ol>
-<p><strong>答えの例</strong></p>
-<ol>
-<li>
-<p>スマートフォンの場合：</p>
-<ul>
-<li>属性：機種名、色、バッテリー残量</li>
-<li>行動：電話をかける、写真を撮る、アプリを起動する</li>
-</ul>
-</li>
-<li>
-<p>生徒の場合：</p>
-<ul>
-<li>属性：名前、学年、出席番号</li>
-<li>行動：勉強する、友達と話す、宿題を提出する</li>
-</ul>
-</li>
-</ol>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="クラスの定義"><a class="header" href="#クラスの定義">クラスの定義</a></h1>
 <p>前の章で、オブジェクト指向プログラミングの考え方を学びました。今度は、実際にDartでオブジェクトを作るための「<strong>クラス</strong>」について学んでいきましょう。</p>
@@ -7885,7 +7845,6 @@ class Thing { }         // 抽象的すぎる
 class Data { }          // 何のデータかわからない
 </code></pre>
 <h2 id="練習自分でクラスを作ってみよう"><a class="header" href="#練習自分でクラスを作ってみよう">練習：自分でクラスを作ってみよう</a></h2>
-<h3 id="練習1本bookクラス"><a class="header" href="#練習1本bookクラス">練習1：本（Book）クラス</a></h3>
 <p>本を表現するクラスを作ってみてください。本には次のような属性があります：</p>
 <ul>
 <li>タイトル（文字列）</li>
@@ -7907,24 +7866,6 @@ class Data { }          // 何のデータかわからない
   bool isFinished;    // 読み終わったかどうか
 }
 </code></pre>
-<h3 id="練習2スマートフォンsmartphoneクラス"><a class="header" href="#練習2スマートフォンsmartphoneクラス">練習2：スマートフォン（Smartphone）クラス</a></h3>
-<p>今度はスマートフォンを表現するクラスを作ってみてください：</p>
-<ul>
-<li>機種名（文字列）</li>
-<li>色（文字列）</li>
-<li>バッテリー残量（整数、0-100の値）</li>
-<li>ストレージ容量（整数、GB単位）</li>
-<li>電源が入っているかどうか（真偽値）</li>
-</ul>
-<p><strong>答え</strong>：</p>
-<pre><code class="language-javascript">class Smartphone {
-  String model;           // 機種名
-  String color;           // 色
-  int batteryLevel;       // バッテリー残量（0-100）
-  int storageCapacity;    // ストレージ容量（GB）
-  bool isPoweredOn;       // 電源状態
-}
-</code></pre>
 <h2 id="初期値の設定"><a class="header" href="#初期値の設定">初期値の設定</a></h2>
 <p>フィールドには初期値を設定することもできます：</p>
 <pre><code class="language-javascript">class Dog {
@@ -7944,43 +7885,6 @@ class Data { }          // 何のデータかわからない
 <li><strong>データ型</strong>：適切な型を選択する</li>
 </ol>
 <p>次の章では、この設計図（クラス）を使って実際のオブジェクトを作る方法を学びます。いよいよ設計図から実物を作り出しますよ！</p>
-<h2 id="練習問題-4"><a class="header" href="#練習問題-4">練習問題</a></h2>
-<ol>
-<li>
-<p>車（Car）を表現するクラスを作ってください。車には以下の属性があります：</p>
-<ul>
-<li>メーカー（文字列）</li>
-<li>車種（文字列）</li>
-<li>年式（整数）</li>
-<li>燃費（小数、km/L）</li>
-<li>エンジンがかかっているかどうか（真偽値）</li>
-</ul>
-</li>
-<li>
-<p>次のクラス名のうち、Dartの命名規則に従っているものはどれでしょうか？</p>
-<ul>
-<li><code>musicPlayer</code></li>
-<li><code>MusicPlayer</code></li>
-<li><code>music_player</code></li>
-<li><code>MUSICPLAYER</code></li>
-</ul>
-</li>
-</ol>
-<p><strong>答え</strong>：</p>
-<ol>
-<li>車クラス：</li>
-</ol>
-<pre><code class="language-javascript">class Car {
-  String manufacturer;    // メーカー
-  String model;          // 車種
-  int year;             // 年式
-  double fuelEfficiency; // 燃費
-  bool isEngineRunning;  // エンジン状態
-}
-</code></pre>
-<ol start="2">
-<li>正しいのは <code>MusicPlayer</code> です（パスカルケース）</li>
-</ol>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="オブジェクトの作成と使用"><a class="header" href="#オブジェクトの作成と使用">オブジェクトの作成と使用</a></h1>
 <p>前の章で、クラス（設計図）の作り方を学びました。今度は、その設計図を使って実際のオブジェクト（実体）を作る方法を学んでいきましょう！</p>
@@ -8068,35 +7972,6 @@ class Data { }          // 何のデータかわからない
 3匹目: モコ, 1歳, プードル
 </code></pre>
 <p>なるほど！一つのクラス（設計図）から、異なる情報を持つ複数のオブジェクト（実体）を作れるんですね。</p>
-<h2 id="より実践的な例"><a class="header" href="#より実践的な例">より実践的な例</a></h2>
-<p>学生クラスを使った例も見てみましょう：</p>
-<pre><code class="language-javascript">class Student {
-  String name = "";
-  int grade = 1;
-  int studentId = 0;
-  double gpa = 0.0;
-}
-
-void main() {
-  // 学生オブジェクトを作成
-  Student alice = Student();
-  alice.name = "Alice";
-  alice.grade = 2;
-  alice.studentId = 12345;
-  alice.gpa = 3.8;
-  
-  Student bob = Student();
-  bob.name = "Bob";
-  bob.grade = 3;
-  bob.studentId = 67890;
-  bob.gpa = 3.2;
-  
-  // 学生情報を表示
-  print("=== 学生一覧 ===");
-  print("${alice.name}: ${alice.grade}年生, ID: ${alice.studentId}, GPA: ${alice.gpa}");
-  print("${bob.name}: ${bob.grade}年生, ID: ${bob.studentId}, GPA: ${bob.gpa}");
-}
-</code></pre>
 <h2 id="オブジェクトをリストで管理する"><a class="header" href="#オブジェクトをリストで管理する">オブジェクトをリストで管理する</a></h2>
 <p>たくさんのオブジェクトがある場合は、リストで管理すると便利です：</p>
 <pre><code class="language-javascript">void main() {
@@ -8131,7 +8006,15 @@ void main() {
 </code></pre>
 <h2 id="より簡潔な書き方"><a class="header" href="#より簡潔な書き方">より簡潔な書き方</a></h2>
 <p>オブジェクトを作ってすぐに値を設定する場合、次のように書くこともできます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-javascript">class Dog {
+  String name = "Unknown";
+  int age = 0;
+  String? breed; // Optional property, can be null
+
+  Dog({this.name = "Unknown", this.age = 0, this.breed});
+}
+
+void main() {
   // 作成と設定を分ける場合
   Dog dog1 = Dog();
   dog1.name = "ポチ";
@@ -8144,84 +8027,10 @@ void main() {
     ..breed = "秋田犬";
     
   print("${dog1.name}, ${dog1.age}歳");
-  print("${dog2.name}, ${dog2.age}歳, ${dog2.breed}");
+  print("${dog2.name}, ${dog2.age}歳, ${dog2.breed ?? '品種不明'}");
 }
 </code></pre>
 <p><code>..</code> は「<strong>カスケード記法</strong>」と呼ばれ、同じオブジェクトに対して連続して操作を行う時に使います。</p>
-<h2 id="練習してみよう"><a class="header" href="#練習してみよう">練習してみよう</a></h2>
-<h3 id="練習1本オブジェクトを作る"><a class="header" href="#練習1本オブジェクトを作る">練習1：本オブジェクトを作る</a></h3>
-<p>前回作った Book クラスを使って、実際の本オブジェクトを作ってみてください：</p>
-<pre><code class="language-javascript">class Book {
-  String title = "";
-  String author = "";
-  int pages = 0;
-  double price = 0.0;
-  bool isFinished = false;
-}
-
-void main() {
-  // ここに本オブジェクトを作るコードを書いてください
-  // 好きな本の情報を設定してください
-}
-</code></pre>
-<p><strong>答えの例</strong>：</p>
-<pre><code class="language-javascript">void main() {
-  Book myBook = Book();
-  myBook.title = "プログラミング入門";
-  myBook.author = "田中太郎";
-  myBook.pages = 300;
-  myBook.price = 2500.0;
-  myBook.isFinished = false;
-  
-  print("タイトル: ${myBook.title}");
-  print("著者: ${myBook.author}");
-  print("ページ数: ${myBook.pages}ページ");
-  print("価格: ${myBook.price}円");
-  print("読み終わった: ${myBook.isFinished ? 'はい' : 'いいえ'}");
-}
-</code></pre>
-<h3 id="練習2複数の本を管理する"><a class="header" href="#練習2複数の本を管理する">練習2：複数の本を管理する</a></h3>
-<p>3冊の本オブジェクトを作って、リストで管理してみてください：</p>
-<p><strong>答えの例</strong>：</p>
-<pre><code class="language-javascript">void main() {
-  List&lt;Book&gt; books = [];
-  
-  // 1冊目
-  Book book1 = Book()
-    ..title = "Dart入門"
-    ..author = "佐藤花子"
-    ..pages = 250
-    ..price = 2000.0
-    ..isFinished = true;
-  books.add(book1);
-  
-  // 2冊目
-  Book book2 = Book()
-    ..title = "オブジェクト指向"
-    ..author = "山田次郎"
-    ..pages = 400
-    ..price = 3200.0
-    ..isFinished = false;
-  books.add(book2);
-  
-  // 3冊目
-  Book book3 = Book()
-    ..title = "アプリ開発"
-    ..author = "鈴木三郎"
-    ..pages = 350
-    ..price = 2800.0
-    ..isFinished = false;
-  books.add(book3);
-  
-  // 全ての本を表示
-  print("=== 本棚の本たち ===");
-  for (int i = 0; i &lt; books.length; i++) {
-    Book book = books[i];
-    String status = book.isFinished ? "読了" : "未読";
-    print("${i + 1}. 「${book.title}」 著者: ${book.author} (${status})");
-  }
-}
-</code></pre>
 <h2 id="オブジェクトの比較"><a class="header" href="#オブジェクトの比較">オブジェクトの比較</a></h2>
 <p>オブジェクト同士を比較する時は注意が必要です：</p>
 <pre><code class="language-javascript">void main() {
@@ -8250,69 +8059,6 @@ void main() {
 <li><strong>カスケード記法</strong>：<code>..</code> で連続操作</li>
 <li><strong>オブジェクト比較</strong>：インスタンスの同一性 vs. 内容の比較</li>
 </ol>
-<p>次の章では、オブジェクトに「行動」を追加する方法（メソッド）を学びます。オブジェクトがただデータを持つだけでなく、何かができるようになりますよ！</p>
-<h2 id="練習問題-5"><a class="header" href="#練習問題-5">練習問題</a></h2>
-<ol>
-<li>次のコードの実行結果を予想してください：</li>
-</ol>
-<pre><code class="language-javascript">class Car {
-  String model = "";
-  int year = 0;
-}
-
-void main() {
-  Car car1 = Car();
-  car1.model = "プリウス";
-  car1.year = 2022;
-  
-  Car car2 = Car();
-  car2.model = "アクア";
-  car2.year = 2021;
-  
-  print("${car1.model} (${car1.year}年式)");
-  print("${car2.model} (${car2.year}年式)");
-}
-</code></pre>
-<ol start="2">
-<li>スマートフォンクラスを使って、2台のスマートフォンオブジェクトを作り、それぞれの情報を表示するプログラムを書いてください。</li>
-</ol>
-<p><strong>答え</strong>：</p>
-<ol>
-<li>実行結果：</li>
-</ol>
-<pre><code>プリウス (2022年式)
-アクア (2021年式)
-</code></pre>
-<ol start="2">
-<li>スマートフォンの例：</li>
-</ol>
-<pre><code class="language-javascript">class Smartphone {
-  String model = "";
-  String color = "";
-  int batteryLevel = 100;
-  bool isPoweredOn = false;
-}
-
-void main() {
-  Smartphone phone1 = Smartphone()
-    ..model = "iPhone 14"
-    ..color = "ブルー"
-    ..batteryLevel = 85
-    ..isPoweredOn = true;
-    
-  Smartphone phone2 = Smartphone()
-    ..model = "Galaxy S23"
-    ..color = "ブラック"
-    ..batteryLevel = 92
-    ..isPoweredOn = false;
-    
-  print("スマートフォン1: ${phone1.model} (${phone1.color})");
-  print("バッテリー: ${phone1.batteryLevel}% 電源: ${phone1.isPoweredOn ? 'ON' : 'OFF'}");
-  
-  print("スマートフォン2: ${phone2.model} (${phone2.color})");
-  print("バッテリー: ${phone2.batteryLevel}% 電源: ${phone2.isPoweredOn ? 'ON' : 'OFF'}");
-}
-</code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="フィールドとメソッド"><a class="header" href="#フィールドとメソッド">フィールドとメソッド</a></h1>
 <p>これまでの章で、オブジェクトに「データ」（フィールド）を持たせる方法を学びました。今度は、オブジェクトに「行動」（メソッド）を追加する方法を学んでいきましょう！</p>
@@ -8600,83 +8346,12 @@ void main() {
   print("評価: ${grade}");
 }
 </code></pre>
-<h2 id="練習してみよう-1"><a class="header" href="#練習してみよう-1">練習してみよう</a></h2>
-<h3 id="練習1計算機クラス"><a class="header" href="#練習1計算機クラス">練習1：計算機クラス</a></h3>
-<pre><code class="language-javascript">class Calculator {
-  double result = 0.0;  // 計算結果を保存
-  
-  // ここにメソッドを追加してください：
-  // 1. add(double value) - 値を足す
-  // 2. subtract(double value) - 値を引く
-  // 3. multiply(double value) - 値をかける
-  // 4. divide(double value) - 値で割る
-  // 5. clear() - 結果をリセット
-  // 6. getResult() - 現在の結果を返す
-}
-</code></pre>
-<p><strong>答えの例</strong>：</p>
-<pre><code class="language-javascript">class Calculator {
-  double result = 0.0;
-  
-  void add(double value) {
-    result += value;
-    print("+ ${value} = ${result}");
-  }
-  
-  void subtract(double value) {
-    result -= value;
-    print("- ${value} = ${result}");
-  }
-  
-  void multiply(double value) {
-    result *= value;
-    print("× ${value} = ${result}");
-  }
-  
-  void divide(double value) {
-    if (value != 0) {
-      result /= value;
-      print("÷ ${value} = ${result}");
-    } else {
-      print("エラー: 0で割ることはできません");
-    }
-  }
-  
-  void clear() {
-    result = 0.0;
-    print("計算結果をリセットしました");
-  }
-  
-  double getResult() {
-    return result;
-  }
-}
-
-void main() {
-  Calculator calc = Calculator();
-  
-  calc.add(10);        // + 10.0 = 10.0
-  calc.multiply(3);    // × 3.0 = 30.0
-  calc.subtract(5);    // - 5.0 = 25.0
-  calc.divide(5);      // ÷ 5.0 = 5.0
-  
-  print("最終結果: ${calc.getResult()}");
-}
-</code></pre>
-<h3 id="練習2タイマークラス"><a class="header" href="#練習2タイマークラス">練習2：タイマークラス</a></h3>
-<p>時間をカウントするタイマークラスを作ってみてください：</p>
-<pre><code class="language-javascript">class Timer {
-  int seconds = 0;
-  
-  // start() - タイマー開始メッセージ
-  // tick() - 1秒進める
-  // reset() - 0秒にリセット
-  // getTime() - 現在時刻を返す
-  // isTimeUp(int target) - 指定時間に達したかチェック
-}
-</code></pre>
 <h2 id="ゲッターとセッター"><a class="header" href="#ゲッターとセッター">ゲッターとセッター</a></h2>
-<p>フィールドへの安全なアクセスを提供するメソッドパターン：</p>
+<p>フィールドへの安全なアクセスを提供するメソッドパターンです。
+これまで、オブジェクトのフィールドへ直接アクセスしていましたが、どこからでも無制限に変更してしまうと、予期せぬ不具合が生じることがあります。
+例えば、年齢を表すフィールドに負の値を設定するなど、不適切な値を設定してしまうことがあります。</p>
+<p>そこで、ゲッターとセッターを使用することで、フィールドへのアクセスを制御できます。
+ゲッターは値を取得するメソッド、セッターは値を設定するメソッドです。</p>
 <pre><code class="language-javascript">class Person {
   String _name = "";  // プライベートフィールド（_で始まる）
   int _age = 0;
@@ -8718,531 +8393,6 @@ void main() {
 <li><strong>フィールドアクセス</strong>：メソッド内でフィールドを使用</li>
 <li><strong>実践的な例</strong>：銀行口座、学生成績管理など</li>
 </ol>
-<p>オブジェクトは今や、データを持つだけでなく、そのデータを使って様々な処理ができるようになりました！</p>
-<p>次の章では、これらの知識を使って実際のペット管理アプリを作ってみます。今まで学んだことが全て一つの形になりますよ！</p>
-<h2 id="練習問題-6"><a class="header" href="#練習問題-6">練習問題</a></h2>
-<ol>
-<li>次のコードで、<code>pochi.getHumanAge()</code> の戻り値は何でしょうか？</li>
-</ol>
-<pre><code class="language-javascript">class Dog {
-  int age = 0;
-  
-  int getHumanAge() {
-    return age * 7;
-  }
-}
-
-void main() {
-  Dog pochi = Dog();
-  pochi.age = 4;
-  
-  int result = pochi.getHumanAge();
-  print(result);
-}
-</code></pre>
-<ol start="2">
-<li>図書館の本を管理するBookクラスに、以下のメソッドを追加してください：
-<ul>
-<li><code>borrow()</code> - 本を借りる（借用中フラグをtrueにする）</li>
-<li><code>returnBook()</code> - 本を返却する（借用中フラグをfalseにする）</li>
-<li><code>isAvailable()</code> - 貸し出し可能かチェック（借用中でなければtrue）</li>
-</ul>
-</li>
-</ol>
-<p><strong>答え</strong>：</p>
-<ol>
-<li>
-<p>戻り値は <code>28</code> です（4 × 7 = 28）</p>
-</li>
-<li>
-<p>図書館の本クラス：</p>
-</li>
-</ol>
-<pre><code class="language-javascript">class Book {
-  String title = "";
-  String author = "";
-  bool isBorrowed = false;
-  
-  void borrow() {
-    if (!isBorrowed) {
-      isBorrowed = true;
-      print("「${title}」を借りました");
-    } else {
-      print("「${title}」は既に貸し出し中です");
-    }
-  }
-  
-  void returnBook() {
-    if (isBorrowed) {
-      isBorrowed = false;
-      print("「${title}」を返却しました");
-    } else {
-      print("「${title}」は貸し出されていません");
-    }
-  }
-  
-  bool isAvailable() {
-    return !isBorrowed;
-  }
-}
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div>
-<h1 id="実践ペット管理アプリ"><a class="header" href="#実践ペット管理アプリ">実践：ペット管理アプリ</a></h1>
-<p>これまでの章で学んだオブジェクト指向プログラミングの知識を全て使って、実際のペット管理アプリを作ってみましょう！このアプリでは、ペットショップの動物たちを管理する機能を実装します。</p>
-<h2 id="アプリの仕様"><a class="header" href="#アプリの仕様">アプリの仕様</a></h2>
-<p>作成するペット管理アプリには、以下の機能があります：</p>
-<ol>
-<li><strong>ペットの登録</strong> - 新しいペットを追加</li>
-<li><strong>ペット一覧表示</strong> - 全てのペットの情報を表示</li>
-<li><strong>ペット検索</strong> - 名前でペットを検索</li>
-<li><strong>ペットのお世話</strong> - 餌やり、遊び、健康チェック</li>
-<li><strong>ペット情報更新</strong> - 年齢やその他の情報を更新</li>
-</ol>
-<h2 id="ステップ1ペットクラスの設計"><a class="header" href="#ステップ1ペットクラスの設計">ステップ1：ペットクラスの設計</a></h2>
-<p>まず、ペットを表現するクラスを作りましょう：</p>
-<pre><code class="language-javascript">class Pet {
-  String name = "";           // 名前
-  String species = "";        // 種類（犬、猫、うさぎなど）
-  String breed = "";          // 品種
-  int age = 0;               // 年齢
-  String color = "";         // 毛色
-  int hunger = 50;           // 空腹度（0-100、100が最も空腹）
-  int happiness = 50;        // 幸福度（0-100、100が最も幸せ）
-  int health = 100;          // 健康度（0-100、100が最も健康）
-  bool isAdopted = false;    // 里親が見つかったかどうか
-  
-  // ペットの基本情報を表示
-  void showInfo() {
-    print("=== ${name}の情報 ===");
-    print("種類: ${species}");
-    print("品種: ${breed}");
-    print("年齢: ${age}歳");
-    print("毛色: ${color}");
-    print("状態: ${isAdopted ? '里親決定済み' : '里親募集中'}");
-    showStatus();
-  }
-  
-  // ペットの状態（空腹度、幸福度、健康度）を表示
-  void showStatus() {
-    print("--- 状態 ---");
-    print("空腹度: ${hunger}/100 ${_getHungerStatus()}");
-    print("幸福度: ${happiness}/100 ${_getHappinessStatus()}");
-    print("健康度: ${health}/100 ${_getHealthStatus()}");
-  }
-  
-  // 空腹度の状態を文字で表現
-  String _getHungerStatus() {
-    if (hunger &gt;= 80) return "（とても空腹）";
-    if (hunger &gt;= 60) return "（空腹）";
-    if (hunger &gt;= 40) return "（少し空腹）";
-    if (hunger &gt;= 20) return "（満足）";
-    return "（満腹）";
-  }
-  
-  // 幸福度の状態を文字で表現
-  String _getHappinessStatus() {
-    if (happiness &gt;= 80) return "（とても幸せ）";
-    if (happiness &gt;= 60) return "（幸せ）";
-    if (happiness &gt;= 40) return "（普通）";
-    if (happiness &gt;= 20) return "（少し寂しい）";
-    return "（とても寂しい）";
-  }
-  
-  // 健康度の状態を文字で表現
-  String _getHealthStatus() {
-    if (health &gt;= 90) return "（とても健康）";
-    if (health &gt;= 70) return "（健康）";
-    if (health &gt;= 50) return "（普通）";
-    if (health &gt;= 30) return "（少し不調）";
-    return "（要治療）";
-  }
-  
-  // 餌やり
-  void feed() {
-    if (hunger &lt;= 10) {
-      print("${name}はお腹いっぱいで、これ以上食べられません。");
-      return;
-    }
-    
-    hunger = (hunger - 30).clamp(0, 100);
-    happiness = (happiness + 10).clamp(0, 100);
-    health = (health + 5).clamp(0, 100);
-    
-    print("${name}に餌をあげました！");
-    print("${name}は嬉しそうに食べています♪");
-  }
-  
-  // 遊ぶ
-  void play() {
-    if (happiness &gt;= 90) {
-      print("${name}は既にとても幸せで、これ以上遊ぶ必要がありません。");
-      return;
-    }
-    
-    happiness = (happiness + 25).clamp(0, 100);
-    hunger = (hunger + 15).clamp(0, 100);
-    health = (health + 10).clamp(0, 100);
-    
-    print("${name}と遊びました！");
-    print("${name}はとても楽しそうです♪");
-  }
-  
-  // 健康チェック
-  void healthCheck() {
-    print("${name}の健康チェックを行いました。");
-    
-    if (health &gt;= 90) {
-      print("とても健康です！");
-    } else if (health &gt;= 70) {
-      print("健康状態は良好です。");
-    } else if (health &gt;= 50) {
-      print("健康状態は普通です。");
-    } else if (health &gt;= 30) {
-      print("少し体調が悪いようです。様子を見ましょう。");
-      health = (health + 10).clamp(0, 100);  // 少し回復
-    } else {
-      print("健康状態が悪いです。治療が必要です！");
-      health = (health + 20).clamp(0, 100);  // 治療効果
-    }
-  }
-  
-  // 里親が決まる
-  void adopt() {
-    if (isAdopted) {
-      print("${name}は既に里親が決まっています。");
-    } else {
-      isAdopted = true;
-      print("${name}の里親が決まりました！おめでとう！");
-    }
-  }
-  
-  // 時間が経つ（自動的に状態が変化）
-  void passTime() {
-    hunger = (hunger + 10).clamp(0, 100);
-    happiness = (happiness - 5).clamp(0, 100);
-    
-    // 空腹すぎると健康度が下がる
-    if (hunger &gt;= 90) {
-      health = (health - 10).clamp(0, 100);
-    }
-    
-    // 幸福度が低すぎると健康度が下がる
-    if (happiness &lt;= 20) {
-      health = (health - 5).clamp(0, 100);
-    }
-  }
-}
-</code></pre>
-<h2 id="ステップ2ペット管理システムクラス"><a class="header" href="#ステップ2ペット管理システムクラス">ステップ2：ペット管理システムクラス</a></h2>
-<p>複数のペットを管理するシステムクラスを作りましょう：</p>
-<pre><code class="language-javascript">class PetManagementSystem {
-  List&lt;Pet&gt; pets = [];         // ペットのリスト
-  int nextId = 1;             // 次のペットID
-  
-  // 新しいペットを登録
-  void registerPet(String name, String species, String breed, int age, String color) {
-    Pet newPet = Pet()
-      ..name = name
-      ..species = species
-      ..breed = breed
-      ..age = age
-      ..color = color;
-    
-    pets.add(newPet);
-    print("新しいペット「${name}」を登録しました！");
-    print("");
-  }
-  
-  // 全ペットの一覧を表示
-  void showAllPets() {
-    if (pets.isEmpty) {
-      print("登録されているペットはいません。");
-      return;
-    }
-    
-    print("=== ペット一覧 ===");
-    for (int i = 0; i &lt; pets.length; i++) {
-      Pet pet = pets[i];
-      String status = pet.isAdopted ? "里親決定済み" : "里親募集中";
-      print("${i + 1}. ${pet.name} (${pet.species}, ${pet.age}歳) - ${status}");
-    }
-    print("");
-  }
-  
-  // ペットを名前で検索
-  Pet? findPetByName(String name) {
-    for (Pet pet in pets) {
-      if (pet.name.toLowerCase() == name.toLowerCase()) {
-        return pet;
-      }
-    }
-    return null;
-  }
-  
-  // ペットの詳細情報を表示
-  void showPetDetails(String name) {
-    Pet? pet = findPetByName(name);
-    if (pet != null) {
-      pet.showInfo();
-    } else {
-      print("「${name}」という名前のペットは見つかりませんでした。");
-    }
-    print("");
-  }
-  
-  // ペットに餌をあげる
-  void feedPet(String name) {
-    Pet? pet = findPetByName(name);
-    if (pet != null) {
-      pet.feed();
-    } else {
-      print("「${name}」という名前のペットは見つかりませんでした。");
-    }
-    print("");
-  }
-  
-  // ペットと遊ぶ
-  void playWithPet(String name) {
-    Pet? pet = findPetByName(name);
-    if (pet != null) {
-      pet.play();
-    } else {
-      print("「${name}」という名前のペットは見つかりませんでした。");
-    }
-    print("");
-  }
-  
-  // ペットの健康チェック
-  void checkPetHealth(String name) {
-    Pet? pet = findPetByName(name);
-    if (pet != null) {
-      pet.healthCheck();
-    } else {
-      print("「${name}」という名前のペットは見つかりませんでした。");
-    }
-    print("");
-  }
-  
-  // ペットの里親を決める
-  void adoptPet(String name) {
-    Pet? pet = findPetByName(name);
-    if (pet != null) {
-      pet.adopt();
-    } else {
-      print("「${name}」という名前のペットは見つかりませんでした。");
-    }
-    print("");
-  }
-  
-  // 時間を進める（全ペットの状態が変化）
-  void passTime() {
-    print("時間が経ちました...");
-    for (Pet pet in pets) {
-      pet.passTime();
-    }
-    print("全てのペットの状態が変化しました。");
-    print("");
-  }
-  
-  // 里親募集中のペット数を取得
-  int getAvailablePetsCount() {
-    int count = 0;
-    for (Pet pet in pets) {
-      if (!pet.isAdopted) {
-        count++;
-      }
-    }
-    return count;
-  }
-  
-  // 統計情報を表示
-  void showStatistics() {
-    print("=== 統計情報 ===");
-    print("総ペット数: ${pets.length}匹");
-    print("里親募集中: ${getAvailablePetsCount()}匹");
-    print("里親決定済み: ${pets.length - getAvailablePetsCount()}匹");
-    print("");
-  }
-}
-</code></pre>
-<h2 id="ステップ3メインアプリケーション"><a class="header" href="#ステップ3メインアプリケーション">ステップ3：メインアプリケーション</a></h2>
-<p>実際にアプリを動かしてみましょう：</p>
-<pre><code class="language-javascript">void main() {
-  // ペット管理システムを作成
-  PetManagementSystem system = PetManagementSystem();
-  
-  print("🐾 ペットショップ管理アプリへようこそ！ 🐾");
-  print("");
-  
-  // サンプルペットを登録
-  print("--- サンプルペットを登録中... ---");
-  system.registerPet("ポチ", "犬", "柴犬", 3, "茶色");
-  system.registerPet("ミケ", "猫", "三毛猫", 2, "三毛");
-  system.registerPet("ふわり", "うさぎ", "ロップイヤー", 1, "白");
-  system.registerPet("ハチ", "犬", "秋田犬", 5, "茶白");
-  
-  // ペット一覧を表示
-  system.showAllPets();
-  
-  // 統計情報を表示
-  system.showStatistics();
-  
-  // ポチの詳細情報を見る
-  print("--- ポチの詳細情報 ---");
-  system.showPetDetails("ポチ");
-  
-  // ポチと遊ぶ
-  print("--- ポチと遊ぶ ---");
-  system.playWithPet("ポチ");
-  system.showPetDetails("ポチ");
-  
-  // ミケに餌をあげる
-  print("--- ミケに餌をあげる ---");
-  system.feedPet("ミケ");
-  system.showPetDetails("ミケ");
-  
-  // ふわりの健康チェック
-  print("--- ふわりの健康チェック ---");
-  system.checkPetHealth("ふわり");
-  
-  // 時間を進める
-  print("--- 時間が経過 ---");
-  system.passTime();
-  
-  // 再度ポチの状態を確認
-  print("--- 時間経過後のポチの状態 ---");
-  system.showPetDetails("ポチ");
-  
-  // ハチの里親が決まる
-  print("--- ハチの里親決定 ---");
-  system.adoptPet("ハチ");
-  
-  // 最終的な統計
-  print("--- 最終統計 ---");
-  system.showStatistics();
-  system.showAllPets();
-}
-</code></pre>
-<h2 id="実行結果の例"><a class="header" href="#実行結果の例">実行結果の例</a></h2>
-<pre><code>🐾 ペットショップ管理アプリへようこそ！ 🐾
-
---- サンプルペットを登録中... ---
-新しいペット「ポチ」を登録しました！
-
-新しいペット「ミケ」を登録しました！
-
-新しいペット「ふわり」を登録しました！
-
-新しいペット「ハチ」を登録しました！
-
-=== ペット一覧 ===
-1. ポチ (犬, 3歳) - 里親募集中
-2. ミケ (猫, 2歳) - 里親募集中
-3. ふわり (うさぎ, 1歳) - 里親募集中
-4. ハチ (犬, 5歳) - 里親募集中
-
-=== 統計情報 ===
-総ペット数: 4匹
-里親募集中: 4匹
-里親決定済み: 0匹
-
---- ポチの詳細情報 ---
-=== ポチの情報 ===
-種類: 犬
-品種: 柴犬
-年齢: 3歳
-毛色: 茶色
-状態: 里親募集中
---- 状態 ---
-空腹度: 50/100 （普通）
-幸福度: 50/100 （普通）
-健康度: 100/100 （とても健康）
-
---- ポチと遊ぶ ---
-ポチと遊びました！
-ポチはとても楽しそうです♪
-
-=== ポチの情報 ===
-種類: 犬
-品種: 柴犬
-年齢: 3歳
-毛色: 茶色
-状態: 里親募集中
---- 状態 ---
-空腹度: 65/100 （空腹）
-幸福度: 75/100 （幸せ）
-健康度: 100/100 （とても健康）
-</code></pre>
-<h2 id="拡張アイデア"><a class="header" href="#拡張アイデア">拡張アイデア</a></h2>
-<p>このペット管理アプリは、さらに多くの機能を追加できます：</p>
-<h3 id="1-ペットの種類別クラス"><a class="header" href="#1-ペットの種類別クラス">1. ペットの種類別クラス</a></h3>
-<pre><code class="language-javascript">class Dog extends Pet {
-  String favoriteActivity = "散歩";
-  
-  void walk() {
-    print("${name}と散歩に行きました！");
-    happiness = (happiness + 20).clamp(0, 100);
-    health = (health + 15).clamp(0, 100);
-  }
-}
-
-class Cat extends Pet {
-  bool isIndoor = true;
-  
-  void groom() {
-    print("${name}が毛づくろいをしています。");
-    happiness = (happiness + 10).clamp(0, 100);
-  }
-}
-</code></pre>
-<h3 id="2-ペットのスケジュール管理"><a class="header" href="#2-ペットのスケジュール管理">2. ペットのスケジュール管理</a></h3>
-<pre><code class="language-javascript">class PetSchedule {
-  String petName = "";
-  List&lt;String&gt; activities = [];
-  
-  void addActivity(String activity, String time) {
-    activities.add("${time}: ${activity}");
-  }
-  
-  void showSchedule() {
-    print("=== ${petName}のスケジュール ===");
-    for (String activity in activities) {
-      print(activity);
-    }
-  }
-}
-</code></pre>
-<h3 id="3-ペットの成長システム"><a class="header" href="#3-ペットの成長システム">3. ペットの成長システム</a></h3>
-<pre><code class="language-javascript">void growUp() {
-  age++;
-  print("${name}が成長しました！現在${age}歳です。");
-  
-  // 年齢に応じて能力値の上限が変化
-  if (age &gt;= 10) {
-    health = (health - 5).clamp(0, 100);  // 高齢による体力低下
-  }
-}
-</code></pre>
-<h2 id="まとめ-39"><a class="header" href="#まとめ-39">まとめ</a></h2>
-<p>この実践プロジェクトでは、これまで学んだオブジェクト指向プログラミングの概念を全て使いました：</p>
-<ol>
-<li><strong>クラス設計</strong>：PetクラスとPetManagementSystemクラス</li>
-<li><strong>フィールド</strong>：ペットの属性（名前、年齢、状態など）</li>
-<li><strong>メソッド</strong>：ペットの行動（食べる、遊ぶ、健康チェックなど）</li>
-<li><strong>オブジェクト管理</strong>：複数のペットオブジェクトをリストで管理</li>
-<li><strong>情報の隠蔽</strong>：プライベートメソッド（_getHealthStatus()など）</li>
-<li><strong>実用的な機能</strong>：検索、統計、状態変化など</li>
-</ol>
-<p>このようなアプリケーションを作ることで、オブジェクト指向プログラミングの威力を実感できたのではないでしょうか。現実世界の複雑な問題を、クラスとオブジェクトを使って自然に表現し、管理することができました。</p>
-<h2 id="練習課題"><a class="header" href="#練習課題">練習課題</a></h2>
-<ol>
-<li><strong>新機能追加</strong>：ペットの写真URL機能を追加してください</li>
-<li><strong>エラー処理強化</strong>：不正な値の入力に対するチェックを強化してください</li>
-<li><strong>データ保存</strong>：ペット情報をファイルに保存・読み込みする機能を考えてください</li>
-<li><strong>ユーザーインターフェース</strong>：コマンドライン入力による対話的なメニューを作ってください</li>
-</ol>
-<p>プログラミングは創造性の表現です。ぜひ自分なりのアイデアを追加して、オリジナルのペット管理アプリを作ってみてください！</p>
-<p><strong>おめでとうございます！</strong> これでオブジェクト指向プログラミングの基礎をマスターしました。次のステップでは、より高度なオブジェクト指向の概念（継承、ポリモーフィズムなど）を学んでいきます。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="第12章オブジェクト指向の活用"><a class="header" href="#第12章オブジェクト指向の活用">第12章：オブジェクト指向の活用</a></h1>
 <p>クラスとオブジェクトの基礎をマスターしたあなたは、いよいよオブジェクト指向プログラミングを本格的に活用する段階に進みます！</p>
@@ -9292,7 +8442,7 @@ class Cat extends Pet {
 <li><strong>カプセル化されたクラス</strong>を作成できる</li>
 <li><strong>複雑な管理システム</strong>を設計・実装できる</li>
 </ul>
-<h3 id="心構え-1"><a class="header" href="#心構え-1">心構え</a></h3>
+<h3 id="心構え"><a class="header" href="#心構え">心構え</a></h3>
 <ul>
 <li><strong>データの安全性</strong>を最優先に考えている</li>
 <li><strong>拡張性と保守性</strong>を意識した設計ができる</li>
@@ -9478,7 +8628,7 @@ void main() {
   //   入金: +5000円 (残高: 15000円)
 }
 </code></pre>
-<h2 id="まとめ-40"><a class="header" href="#まとめ-40">まとめ</a></h2>
+<h2 id="まとめ-39"><a class="header" href="#まとめ-39">まとめ</a></h2>
 <p>コンストラクタは、オブジェクトを作成する際の重要な仕組みです：</p>
 <ul>
 <li><strong>基本コンストラクタ</strong>: <code>ClassName(this.field1, this.field2)</code>の形式</li>
@@ -9782,7 +8932,7 @@ void main() {
   }
 }
 </code></pre>
-<h2 id="まとめ-41"><a class="header" href="#まとめ-41">まとめ</a></h2>
+<h2 id="まとめ-40"><a class="header" href="#まとめ-40">まとめ</a></h2>
 <p>ゲッターとセッターを使うことで、以下のメリットがあります：</p>
 <ul>
 <li><strong>データの検証</strong>: 不正な値の設定を防ぐ</li>
@@ -10182,7 +9332,7 @@ void main() {
   }
 }
 </code></pre>
-<h2 id="まとめ-42"><a class="header" href="#まとめ-42">まとめ</a></h2>
+<h2 id="まとめ-41"><a class="header" href="#まとめ-41">まとめ</a></h2>
 <p>カプセル化は以下のメリットをもたらします：</p>
 <h3 id="セキュリティと安全性"><a class="header" href="#セキュリティと安全性">セキュリティと安全性</a></h3>
 <ul>
@@ -10810,7 +9960,7 @@ void main() {
 <li><strong>エラーメッセージから問題を特定</strong>できる</li>
 <li><strong>予防的なプログラミング</strong>を実践できる</li>
 </ul>
-<h3 id="心構え-2"><a class="header" href="#心構え-2">心構え</a></h3>
+<h3 id="心構え-1"><a class="header" href="#心構え-1">心構え</a></h3>
 <ul>
 <li><strong>エラーを学習の機会</strong>として活用できる</li>
 <li><strong>段階的な問題解決</strong>のアプローチが身についている</li>
@@ -11880,7 +11030,7 @@ void main() {
 <li><strong>実践的なプロジェクト</strong>を企画・実行できる</li>
 <li><strong>コミュニティ活動</strong>に参加できる</li>
 </ul>
-<h3 id="心構え-3"><a class="header" href="#心構え-3">心構え</a></h3>
+<h3 id="心構え-2"><a class="header" href="#心構え-2">心構え</a></h3>
 <ul>
 <li><strong>生涯学習者</strong>としての意識を持っている</li>
 <li><strong>困難を乗り越える</strong>粘り強さがある</li>
@@ -12087,7 +11237,7 @@ void main() {
 }
 </code></pre>
 <p>null安全性により、より安全で信頼性の高いプログラムが書けるようになります。</p>
-<h2 id="まとめ-43"><a class="header" href="#まとめ-43">まとめ</a></h2>
+<h2 id="まとめ-42"><a class="header" href="#まとめ-42">まとめ</a></h2>
 <p>今回紹介した機能は、実際のアプリケーション開発では頻繁に使われるものばかりです：</p>
 <ul>
 <li><strong>非同期プログラミング</strong>：時間のかかる処理を効率的に扱う</li>
@@ -12097,7 +11247,7 @@ void main() {
 <li><strong>null安全性</strong>：エラーの少ない安全なプログラムを書く</li>
 </ul>
 <p>これらの機能を少しずつ学んでいけば、より複雑で実用的なプログラムが書けるようになります。焦らず、一つずつマスターしていきましょう！</p>
-<h2 id="練習問題-7"><a class="header" href="#練習問題-7">練習問題</a></h2>
+<h2 id="練習問題-3"><a class="header" href="#練習問題-3">練習問題</a></h2>
 <h3 id="問題1非同期処理を試してみよう"><a class="header" href="#問題1非同期処理を試してみよう">問題1：非同期処理を試してみよう</a></h3>
 <p>次のコードを完成させて、3秒後にメッセージを表示するプログラムを作ってください：</p>
 <pre><code class="language-javascript">Future&lt;void&gt; delayedMessage() async {
@@ -12366,7 +11516,7 @@ void エラーの対処法() {
 <li>人工知能・機械学習</li>
 </ul>
 <p>どの道を選んでも、基礎がしっかりしていれば必ず成長できます。</p>
-<h2 id="まとめ-44"><a class="header" href="#まとめ-44">まとめ</a></h2>
+<h2 id="まとめ-43"><a class="header" href="#まとめ-43">まとめ</a></h2>
 <p>継続的な学習のポイント：</p>
 <ol>
 <li>公式リソースを活用する</li>
