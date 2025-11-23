@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-d8b02757.js";
+            window.path_to_searchindex_js = "../searchindex-9bdaf777.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-8071f62d.js"></script>
@@ -206,10 +206,10 @@
 </code></pre>
 <p>このプログラムの動作を順番に追ってみましょう：</p>
 <ol>
-<li><code>int i = 0</code> - 変数iを0で初期化</li>
-<li><code>i &lt; 5</code> - iが5より小さいか確認（0 &lt; 5はtrue）</li>
-<li><code>print('現在のiの値: $i')</code> - 処理を実行</li>
-<li><code>i++</code> - iを1増やす（i = 1になる）</li>
+<li><code>int i = 0</code> 変数iを0で初期化</li>
+<li><code>i &lt; 5</code> iが5より小さいか確認（0 &lt; 5はtrue）</li>
+<li><code>print('現在のiの値: $i')</code> 処理を実行</li>
+<li><code>i++</code> iを1増やす（元のiの値が0であれば、 i = 1になる）</li>
 <li>手順2に戻る</li>
 </ol>
 <h2 id="さまざまなfor文の書き方"><a class="header" href="#さまざまなfor文の書き方">さまざまなfor文の書き方</a></h2>
@@ -239,7 +239,7 @@
 }
 </code></pre>
 <h2 id="インデックスと値の活用"><a class="header" href="#インデックスと値の活用">インデックスと値の活用</a></h2>
-<p>for文では、カウンタ変数（通常はi）を使って、さまざまな計算や処理ができます：</p>
+<p>for文では、カウンタ変数（通常はi）を使って、さまざまな計算や処理ができます。以下はリストの例であり、リストの利用方法は7章で扱います。</p>
 <pre><code class="language-javascript">void main() {
   // 配列のようなデータ構造と組み合わせる例
   List&lt;String&gt; fruits = ['りんご', 'バナナ', 'オレンジ'];
@@ -328,19 +328,6 @@
 <li>境界値と無限ループに注意する</li>
 </ul>
 <p>次のセクションでは、条件に基づいて繰り返すwhile文について学習します。</p>
-<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
-<ol>
-<li>1から20までの数字のうち、3の倍数だけを表示するプログラムを書いてみましょう。</li>
-<li>次のパターンを表示するプログラムを書いてみましょう：
-<pre><code>1
-12
-123
-1234
-12345
-</code></pre>
-</li>
-<li>1から50までの数字の中で、偶数の合計を計算するプログラムを書いてみましょう。</li>
-</ol>
 
                     </main>
 

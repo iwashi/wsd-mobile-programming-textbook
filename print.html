@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-d8b02757.js";
+            window.path_to_searchindex_js = "searchindex-9bdaf777.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-8071f62d.js"></script>
@@ -3999,7 +3999,6 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <li>ネストしたループ（二重ループ）の実装</li>
 <li>九九の表を美しく表示するプログラム</li>
 <li>ループを使った表形式データの生成</li>
-<li>より複雑な繰り返し処理への応用</li>
 </ul>
 <h2 id="学習の目標-5"><a class="header" href="#学習の目標-5">学習の目標</a></h2>
 <p>この章を完了すると、以下のことができるようになります：</p>
@@ -4017,12 +4016,6 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <li><strong>二重ループ</strong>を使った複雑な処理を書ける</li>
 <li><strong>ループの終了条件</strong>を適切に設定できる</li>
 </ul>
-<h3 id="心構え"><a class="header" href="#心構え">心構え</a></h3>
-<ul>
-<li><strong>大量のデータ処理</strong>を自動化する発想力がある</li>
-<li><strong>効率的なアルゴリズム</strong>を考える習慣がついている</li>
-<li><strong>プログラムの安全性</strong>を常に意識している</li>
-</ul>
 <h2 id="学習のポイント-5"><a class="header" href="#学習のポイント-5">学習のポイント</a></h2>
 <h3 id="-ループはプログラムの心臓部"><a class="header" href="#-ループはプログラムの心臓部">🔄 ループはプログラムの心臓部</a></h3>
 <p>ループは、プログラムが本当に威力を発揮する部分です。人間には不可能な大量処理や正確な繰り返しを、コンピュータに任せることができます。</p>
@@ -4035,7 +4028,6 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <h2 id="次のステップへ-5"><a class="header" href="#次のステップへ-5">次のステップへ</a></h2>
 <p>第6章を修了すると、あなたは大量のデータを効率的に処理する力を身につけたことになります。</p>
 <p>第7章では、複数のデータを一つの変数でまとめて管理するリスト（配列）について学習します。ループとリストを組み合わせることで、より実用的で強力なプログラムを作成できるようになります。</p>
-<p><strong>繰り返しができれば、どんな大きな仕事も自動化できます！</strong> ♻️</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="61-同じ処理を繰り返す理由-1"><a class="header" href="#61-同じ処理を繰り返す理由-1">6.1 同じ処理を繰り返す理由</a></h1>
 <p>プログラミングをしていると、同じような処理を何度も実行したい場面によく出会います。例えば、1から10までの数字を画面に表示したいときを考えてみましょう。</p>
@@ -4096,21 +4088,6 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 // ****
 // *****
 </code></pre>
-<h3 id="3-ユーザー入力の検証"><a class="header" href="#3-ユーザー入力の検証">3. ユーザー入力の検証</a></h3>
-<pre><code class="language-javascript">void main() {
-  // パスワードの強度をチェック（文字数をカウント）
-  String password = 'myPassword123';
-  int digitCount = 0;
-  
-  for (int i = 0; i &lt; password.length; i++) {
-    if ('0123456789'.contains(password[i])) {
-      digitCount++;
-    }
-  }
-  
-  print('パスワードに含まれる数字の数: $digitCount');
-}
-</code></pre>
 <h2 id="繰り返し処理の基本的な考え方"><a class="header" href="#繰り返し処理の基本的な考え方">繰り返し処理の基本的な考え方</a></h2>
 <p>繰り返し処理を理解するには、以下の3つの要素を意識することが重要です：</p>
 <ol>
@@ -4127,12 +4104,6 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <h2 id="まとめ-14"><a class="header" href="#まとめ-14">まとめ</a></h2>
 <p>繰り返し処理は、プログラミングにおいて非常に重要な概念です。同じ処理を効率的に実行できるだけでなく、コードをより短く、読みやすく、保守しやすくします。</p>
 <p>次のセクションでは、Dartで最もよく使われる繰り返し処理の一つである「for文」について詳しく学んでいきます。</p>
-<h2 id="練習問題-3"><a class="header" href="#練習問題-3">練習問題</a></h2>
-<ol>
-<li>繰り返し処理を使わずに「Hello」を5回表示するプログラムを書いてみましょう。</li>
-<li>そのプログラムを、繰り返し処理を使って書き直すとどうなるか考えてみましょう。</li>
-<li>日常生活で「同じことを繰り返す」場面を3つ挙げて、それをプログラムで表現するとしたらどうなるか考えてみましょう。</li>
-</ol>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="62-for文の基本-1"><a class="header" href="#62-for文の基本-1">6.2 for文の基本</a></h1>
 <p>for文は、プログラミングで最もよく使われる繰り返し処理の一つです。決まった回数だけ処理を繰り返したいときに特に便利です。</p>
@@ -4166,10 +4137,10 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 </code></pre>
 <p>このプログラムの動作を順番に追ってみましょう：</p>
 <ol>
-<li><code>int i = 0</code> - 変数iを0で初期化</li>
-<li><code>i &lt; 5</code> - iが5より小さいか確認（0 &lt; 5はtrue）</li>
-<li><code>print('現在のiの値: $i')</code> - 処理を実行</li>
-<li><code>i++</code> - iを1増やす（i = 1になる）</li>
+<li><code>int i = 0</code> 変数iを0で初期化</li>
+<li><code>i &lt; 5</code> iが5より小さいか確認（0 &lt; 5はtrue）</li>
+<li><code>print('現在のiの値: $i')</code> 処理を実行</li>
+<li><code>i++</code> iを1増やす（元のiの値が0であれば、 i = 1になる）</li>
 <li>手順2に戻る</li>
 </ol>
 <h2 id="さまざまなfor文の書き方"><a class="header" href="#さまざまなfor文の書き方">さまざまなfor文の書き方</a></h2>
@@ -4199,7 +4170,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 }
 </code></pre>
 <h2 id="インデックスと値の活用"><a class="header" href="#インデックスと値の活用">インデックスと値の活用</a></h2>
-<p>for文では、カウンタ変数（通常はi）を使って、さまざまな計算や処理ができます：</p>
+<p>for文では、カウンタ変数（通常はi）を使って、さまざまな計算や処理ができます。以下はリストの例であり、リストの利用方法は7章で扱います。</p>
 <pre><code class="language-javascript">void main() {
   // 配列のようなデータ構造と組み合わせる例
   List&lt;String&gt; fruits = ['りんご', 'バナナ', 'オレンジ'];
@@ -4288,19 +4259,6 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <li>境界値と無限ループに注意する</li>
 </ul>
 <p>次のセクションでは、条件に基づいて繰り返すwhile文について学習します。</p>
-<h2 id="練習問題-4"><a class="header" href="#練習問題-4">練習問題</a></h2>
-<ol>
-<li>1から20までの数字のうち、3の倍数だけを表示するプログラムを書いてみましょう。</li>
-<li>次のパターンを表示するプログラムを書いてみましょう：
-<pre><code>1
-12
-123
-1234
-12345
-</code></pre>
-</li>
-<li>1から50までの数字の中で、偶数の合計を計算するプログラムを書いてみましょう。</li>
-</ol>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="63-while文の使い方-1"><a class="header" href="#63-while文の使い方-1">6.3 while文の使い方</a></h1>
 <p>while文は、for文と並んでよく使われる繰り返し処理の構文です。特定の条件が満たされている間、処理を繰り返し続けたいときに使います。</p>
@@ -4439,7 +4397,7 @@ void main() {
     print('$seconds 秒');
     seconds--;
     
-    // 実際のプログラムでは、ここで1秒待つ処理を入れます
+    // 実際のプログラムでは、ここで1秒待つ処理を入れます。非同期処理は、授業の後半で説明します。
     // await Future.delayed(Duration(seconds: 1));
   }
   
@@ -4488,7 +4446,7 @@ void main() {
 }
 </code></pre>
 <h3 id="2-breakとcontinue"><a class="header" href="#2-breakとcontinue">2. breakとcontinue</a></h3>
-<p>while文の中でも、<code>break</code>と<code>continue</code>が使えます：</p>
+<p><code>break</code>と<code>continue</code>が使えます。（これは、for文でも使えます。）</p>
 <pre><code class="language-javascript">void main() {
   int num = 0;
   
@@ -4523,18 +4481,6 @@ void main() {
 <li>無限ループにならないよう、条件式が適切に更新されることを確認する</li>
 </ul>
 <p>次のセクションでは、無限ループとその回避方法について詳しく学習します。</p>
-<h2 id="練習問題-5"><a class="header" href="#練習問題-5">練習問題</a></h2>
-<ol>
-<li>
-<p>1から始めて、合計が50を超えるまで順番に数を足していくプログラムを書いてみましょう。何回足したかも表示してください。</p>
-</li>
-<li>
-<p>ある数字を2で割り続けて、1以下になるまでの回数を数えるプログラムを書いてみましょう。例：16 → 8 → 4 → 2 → 1（4回）</p>
-</li>
-<li>
-<p>フィボナッチ数列（前の2つの数の和が次の数になる）を、1000を超えるまで表示するプログラムを書いてみましょう。</p>
-</li>
-</ol>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="64-無限ループとその回避方法-1"><a class="header" href="#64-無限ループとその回避方法-1">6.4 無限ループとその回避方法</a></h1>
 <p>無限ループとは、終了条件を満たすことなく永遠に繰り返し続けるループのことです。プログラミング初心者がよく陥るミスの一つですが、理解すれば簡単に回避できます。</p>
@@ -4630,7 +4576,7 @@ void main() {
   }
 }
 </code></pre>
-<h2 id="無限ループを防ぐためのベストプラクティス"><a class="header" href="#無限ループを防ぐためのベストプラクティス">無限ループを防ぐためのベストプラクティス</a></h2>
+<h2 id="無限ループを防ぐためのプラクティス"><a class="header" href="#無限ループを防ぐためのプラクティス">無限ループを防ぐためのプラクティス</a></h2>
 <h3 id="1-ループカウンタを使う"><a class="header" href="#1-ループカウンタを使う">1. ループカウンタを使う</a></h3>
 <pre><code class="language-javascript">void main() {
   int maxIterations = 100;
@@ -4666,49 +4612,11 @@ void main() {
   }
 }
 </code></pre>
-<h3 id="3-do-whileでの注意点"><a class="header" href="#3-do-whileでの注意点">3. do-whileでの注意点</a></h3>
-<pre><code class="language-javascript">void main() {
-  int num = 100;
-  
-  // 注意：最低1回は実行される
-  do {
-    print('num = $num');
-    num = num ~/ 2;  // 2で割る（整数除算）
-  } while (num &gt; 0);
-  
-  print('終了時のnum: $num');
-}
-</code></pre>
-<h2 id="実践的な例ユーザー入力の検証"><a class="header" href="#実践的な例ユーザー入力の検証">実践的な例：ユーザー入力の検証</a></h2>
-<pre><code class="language-javascript">void main() {
-  // パスワード入力の例（実際の入力は簡略化）
-  String password = '';
-  int attempts = 0;
-  int maxAttempts = 3;
-  
-  while (attempts &lt; maxAttempts) {
-    // 実際にはここでユーザー入力を受け取る
-    password = 'wrong';  // 例として間違ったパスワード
-    attempts++;
-    
-    if (password == 'correct') {
-      print('ログイン成功！');
-      break;
-    } else {
-      print('パスワードが違います。残り${maxAttempts - attempts}回');
-      
-      if (attempts &gt;= maxAttempts) {
-        print('ログイン失敗。アカウントがロックされました。');
-      }
-    }
-  }
-}
-</code></pre>
 <h2 id="トラブルシューティング"><a class="header" href="#トラブルシューティング">トラブルシューティング</a></h2>
 <p>プログラムが応答しなくなった場合：</p>
 <ol>
 <li><strong>DartPadの場合</strong>: ブラウザのタブを更新する</li>
-<li><strong>コマンドラインの場合</strong>: Ctrl+C（Windows/Linux）またはCmd+C（Mac）で強制終了</li>
+<li><strong>コマンドラインの場合</strong>: Cmd+C（Mac）で強制終了</li>
 <li><strong>IDEの場合</strong>: 停止ボタンをクリック</li>
 </ol>
 <h2 id="まとめ-17"><a class="header" href="#まとめ-17">まとめ</a></h2>
@@ -4720,25 +4628,6 @@ void main() {
 <li>意図的な無限ループには必ず脱出条件を用意する</li>
 <li>安全装置として最大繰り返し回数を設定することを検討する</li>
 </ul>
-<p>次のセクションでは、これまで学んだループの知識を活用して、九九の表を作成する実践的なプログラムを作ります。</p>
-<h2 id="練習問題-6"><a class="header" href="#練習問題-6">練習問題</a></h2>
-<ol>
-<li>
-<p>次のコードの問題点を指摘し、修正してください：</p>
-<pre><code class="language-javascript">int x = 10;
-while (x &gt; 0) {
-  print(x);
-  x += 1;
-}
-</code></pre>
-</li>
-<li>
-<p>1から始めて3倍していき、1000を超えたら終了するプログラムを書いてください。ただし、無限ループにならないよう安全装置も含めてください。</p>
-</li>
-<li>
-<p>ユーザーが「quit」と入力するまで続くプログラムを書いてください（実際の入力処理は、文字列を順番に試すシミュレーションで構いません）。</p>
-</li>
-</ol>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="65-実践九九の表を作る-1"><a class="header" href="#65-実践九九の表を作る-1">6.5 実践：九九の表を作る</a></h1>
 <p>これまで学んだfor文とwhile文の知識を活用して、九九の表を作成するプログラムを作ってみましょう。段階的に機能を追加していき、最終的に見やすい九九の表を完成させます。</p>
@@ -4852,87 +4741,6 @@ while (x &gt; 0) {
  8  |  8 16 24 32 40 48 56 64 72
  9  |  9 18 27 36 45 54 63 72 81
 </code></pre>
-<h2 id="ステップ5関数を使って整理"><a class="header" href="#ステップ5関数を使って整理">ステップ5：関数を使って整理</a></h2>
-<p>コードを関数に分割して、より整理されたプログラムにします：</p>
-<pre><code class="language-javascript">// 九九の結果を計算する関数
-int calculateKuku(int dan, int multiplier) {
-  return dan * multiplier;
-}
-
-// 数値を3文字幅でフォーマットする関数
-String formatNumber(int num) {
-  if (num &lt; 10) {
-    return '  $num';
-  } else {
-    return ' $num';
-  }
-}
-
-// ヘッダーを表示する関数
-void printHeader() {
-  print('    |  1  2  3  4  5  6  7  8  9');
-  print('----+----------------------------');
-}
-
-// メイン関数
-void main() {
-  printHeader();
-  
-  // 各段を表示
-  for (int dan = 1; dan &lt;= 9; dan++) {
-    String line = ' $dan  |';
-    
-    for (int i = 1; i &lt;= 9; i++) {
-      int result = calculateKuku(dan, i);
-      line += formatNumber(result);
-    }
-    
-    print(line);
-  }
-}
-</code></pre>
-<h2 id="応用例特定の範囲の九九"><a class="header" href="#応用例特定の範囲の九九">応用例：特定の範囲の九九</a></h2>
-<p>より柔軟な九九の表を作ってみましょう：</p>
-<pre><code class="language-javascript">void main() {
-  // カスタマイズ可能な九九の表
-  int startDan = 2;    // 開始の段
-  int endDan = 5;      // 終了の段
-  int startMulti = 3;  // 開始の掛ける数
-  int endMulti = 7;    // 終了の掛ける数
-  
-  // ヘッダー表示
-  String header = '   |';
-  for (int i = startMulti; i &lt;= endMulti; i++) {
-    header += '  $i';
-  }
-  print(header);
-  print('---+' + '-' * ((endMulti - startMulti + 1) * 3));
-  
-  // 指定範囲の九九を表示
-  for (int dan = startDan; dan &lt;= endDan; dan++) {
-    String line = ' $dan |';
-    
-    for (int i = startMulti; i &lt;= endMulti; i++) {
-      int result = dan * i;
-      if (result &lt; 10) {
-        line += '  $result';
-      } else {
-        line += ' $result';
-      }
-    }
-    
-    print(line);
-  }
-}
-</code></pre>
-<p>実行結果：</p>
-<pre><code>   |  3  4  5  6  7
----+---------------
- 2 |  6  8 10 12 14
- 3 |  9 12 15 18 21
- 4 | 12 16 20 24 28
- 5 | 15 20 25 30 35
-</code></pre>
 <h2 id="while文を使った九九"><a class="header" href="#while文を使った九九">while文を使った九九</a></h2>
 <p>for文の代わりにwhile文を使っても九九の表を作れます：</p>
 <pre><code class="language-javascript">void main() {
@@ -4952,19 +4760,6 @@ void main() {
   }
 }
 </code></pre>
-<h2 id="チャレンジ課題"><a class="header" href="#チャレンジ課題">チャレンジ課題</a></h2>
-<p>これまでの知識を活用して、以下の課題に挑戦してみましょう：</p>
-<h3 id="1-逆順の九九"><a class="header" href="#1-逆順の九九">1. 逆順の九九</a></h3>
-<p>9の段から1の段まで逆順に表示する九九の表を作ってください。</p>
-<h3 id="2-奇数の段だけの九九"><a class="header" href="#2-奇数の段だけの九九">2. 奇数の段だけの九九</a></h3>
-<p>1、3、5、7、9の段だけを表示する九九の表を作ってください。</p>
-<h3 id="3-色付き九九疑似的に"><a class="header" href="#3-色付き九九疑似的に">3. 色付き九九（疑似的に）</a></h3>
-<p>5の倍数の結果に「*」マークを付けて強調表示する九九の表を作ってください。</p>
-<pre><code class="language-javascript">// ヒント：5の倍数の判定
-if (result % 5 == 0) {
-  // 特別な表示
-}
-</code></pre>
 <h2 id="まとめ-18"><a class="header" href="#まとめ-18">まとめ</a></h2>
 <p>九九の表を作成することで、以下の重要な概念を実践的に学びました：</p>
 <ul>
@@ -4974,13 +4769,6 @@ if (result % 5 == 0) {
 <li>条件に応じた表示の変更</li>
 </ul>
 <p>これらの技術は、より複雑なプログラムを作成する際の基礎となります。繰り返し処理をマスターすることで、効率的で読みやすいコードが書けるようになります。</p>
-<h2 id="発展課題"><a class="header" href="#発展課題">発展課題</a></h2>
-<p>余裕があれば、以下の発展的な課題にも挑戦してみてください：</p>
-<ol>
-<li>九九の表をCSV形式（カンマ区切り）で出力する</li>
-<li>指定した段だけを表示する機能を追加する</li>
-<li>九九の表から特定の答え（例：24）を見つけて、その式をすべて表示する</li>
-</ol>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="第7章リスト配列"><a class="header" href="#第7章リスト配列">第7章：リスト（配列）</a></h1>
 <p>ループ処理をマスターしたあなたは、いよいよ複数のデータを効率的に管理する段階に進みます！</p>
@@ -5037,7 +4825,7 @@ if (result % 5 == 0) {
 <li><strong>動的なデータ管理</strong>を行うプログラムを作成できる</li>
 <li><strong>実用的なデータ処理アプリケーション</strong>を実装できる</li>
 </ul>
-<h3 id="心構え-1"><a class="header" href="#心構え-1">心構え</a></h3>
+<h3 id="心構え"><a class="header" href="#心構え">心構え</a></h3>
 <ul>
 <li><strong>データ構造を意識した</strong>プログラム設計ができる</li>
 <li><strong>効率的なデータ管理</strong>の重要性を理解している</li>
@@ -5102,7 +4890,7 @@ if (result % 5 == 0) {
 </ol>
 <h2 id="まとめ-19"><a class="header" href="#まとめ-19">まとめ</a></h2>
 <p>リストは、複数のデータを効率的に管理するための重要なプログラミングの道具です。次のセクションでは、実際にリストを作成し、使ってみましょう。</p>
-<h3 id="練習問題-7"><a class="header" href="#練習問題-7">練習問題</a></h3>
+<h3 id="練習問題-3"><a class="header" href="#練習問題-3">練習問題</a></h3>
 <ol>
 <li>あなたの好きな食べ物を5つ思い浮かべてください。これをリストで表現するとどうなるでしょうか？</li>
 <li>一週間の曜日をリストで表現するとどうなるでしょうか？</li>
@@ -5216,7 +5004,7 @@ if (result % 5 == 0) {
 <li><code>length</code>でリストの要素数を調べられます</li>
 <li>範囲外のインデックスにアクセスするとエラーになります</li>
 </ul>
-<h3 id="練習問題-8"><a class="header" href="#練習問題-8">練習問題</a></h3>
+<h3 id="練習問題-4"><a class="header" href="#練習問題-4">練習問題</a></h3>
 <ol>
 <li>あなたの好きな科目を5つ含むリストを作成し、3番目の科目を表示してください</li>
 <li>1から10までの数字を含むリストを作成し、最初と最後の要素を表示してください</li>
@@ -5362,7 +5150,7 @@ if (result % 5 == 0) {
 <li><strong>全削除</strong>: <code>clear()</code>でリストを空にする</li>
 <li>これらのメソッドを使うことで、プログラム実行中にリストを柔軟に操作できます</li>
 </ul>
-<h3 id="練習問題-9"><a class="header" href="#練習問題-9">練習問題</a></h3>
+<h3 id="練習問題-5"><a class="header" href="#練習問題-5">練習問題</a></h3>
 <ol>
 <li>空のリストを作成し、1から5までの数字を順番に追加するプログラムを書いてください</li>
 <li>果物のリスト<code>['りんご', 'みかん', 'ぶどう']</code>から’みかん’を削除し、代わりに’いちご’を同じ位置に追加してください</li>
@@ -5538,7 +5326,7 @@ if (result % 5 == 0) {
 <li>リストとループを組み合わせることで、合計・平均・最大値などの計算が簡単にできる</li>
 <li>条件に応じた処理や、新しいリストの作成も可能</li>
 </ul>
-<h3 id="練習問題-10"><a class="header" href="#練習問題-10">練習問題</a></h3>
+<h3 id="練習問題-6"><a class="header" href="#練習問題-6">練習問題</a></h3>
 <ol>
 <li>数値のリスト<code>[5, 10, 15, 20, 25]</code>の全要素を2倍にした新しいリストを作成してください</li>
 <li>名前のリスト<code>['太郎', '花子', '次郎', '三郎']</code>の各要素に「さん」を付けて表示してください</li>
@@ -5762,7 +5550,7 @@ if (result % 5 == 0) {
   }
 }
 </code></pre>
-<h2 id="発展課題-1"><a class="header" href="#発展課題-1">発展課題</a></h2>
+<h2 id="発展課題"><a class="header" href="#発展課題">発展課題</a></h2>
 <p>このプログラムをさらに改良するアイデア：</p>
 <ol>
 <li><strong>科目数を増やす</strong>：国語、理科、社会なども追加</li>
@@ -5834,7 +5622,7 @@ if (result % 5 == 0) {
 <li><strong>マップを活用した実用的なプログラム</strong>を作成できる</li>
 <li><strong>複雑なデータ構造</strong>を管理できる</li>
 </ul>
-<h3 id="心構え-2"><a class="header" href="#心構え-2">心構え</a></h3>
+<h3 id="心構え-1"><a class="header" href="#心構え-1">心構え</a></h3>
 <ul>
 <li><strong>データの関連性を意識した</strong>設計ができる</li>
 <li><strong>効率的なデータアクセス</strong>を重視している</li>
@@ -5957,7 +5745,7 @@ if (result % 5 == 0) {
 </code></pre>
 <h2 id="まとめ-24"><a class="header" href="#まとめ-24">まとめ</a></h2>
 <p>マップは、キーと値のペアでデータを管理する強力なデータ構造です。名前やIDなど、意味のあるキーを使ってデータに直接アクセスできるため、関連するデータを効率的に管理できます。次のセクションでは、実際にマップを作成し、操作する方法を詳しく学びましょう。</p>
-<h3 id="練習問題-11"><a class="header" href="#練習問題-11">練習問題</a></h3>
+<h3 id="練習問題-7"><a class="header" href="#練習問題-7">練習問題</a></h3>
 <ol>
 <li>あなたの家族や友人の名前と年齢をマップで表現するとどうなるでしょうか？</li>
 <li>好きな科目とその成績をマップで表現してみましょう。</li>
@@ -6166,7 +5954,7 @@ if (result % 5 == 0) {
 <li><code>forEach</code> や <code>for-in</code> で繰り返し処理</li>
 </ul>
 <p>次のセクションでは、マップのより実践的な活用例を見ていきます。</p>
-<h3 id="練習問題-12"><a class="header" href="#練習問題-12">練習問題</a></h3>
+<h3 id="練習問題-8"><a class="header" href="#練習問題-8">練習問題</a></h3>
 <ol>
 <li>友達の名前と誕生日（月/日）を管理するマップを作成し、3人分のデータを追加してください。</li>
 <li>科目名と成績（A, B, C）を管理するマップを作り、1つの科目の成績を更新する処理を書いてください。</li>
@@ -6410,7 +6198,7 @@ if (result % 5 == 0) {
 <li><strong>グループ化</strong>：カテゴリーごとにデータを整理</li>
 </ol>
 <p>これらの例を参考に、自分のプログラムでもマップを活用してみましょう。</p>
-<h3 id="練習問題-13"><a class="header" href="#練習問題-13">練習問題</a></h3>
+<h3 id="練習問題-9"><a class="header" href="#練習問題-9">練習問題</a></h3>
 <ol>
 <li>都道府県名をキー、県庁所在地を値とするマップを作成し、5つ以上のデータを登録してください。</li>
 <li>商品の売上個数を記録し、売上ランキングを表示するプログラムを作成してください。</li>
@@ -6734,7 +6522,7 @@ if (result % 5 == 0) {
 <li><strong>ユーザーフレンドリーな出力</strong>：分かりやすいメッセージ表示</li>
 <li><strong>データの拡張</strong>：カテゴリー機能など、より複雑な構造への発展</li>
 </ol>
-<h3 id="練習問題-14"><a class="header" href="#練習問題-14">練習問題</a></h3>
+<h3 id="練習問題-10"><a class="header" href="#練習問題-10">練習問題</a></h3>
 <ol>
 <li>辞書プログラムに「単語の頭文字で検索する機能」を追加してください。</li>
 <li>英和辞書を和英辞書に変換する関数を作成してください（キーと値を入れ替える）。</li>
@@ -6803,7 +6591,7 @@ if (result % 5 == 0) {
 <li><strong>既存のコードを関数に分割</strong>して整理できる</li>
 <li><strong>保守性の高いプログラム</strong>を作成できる</li>
 </ul>
-<h3 id="心構え-3"><a class="header" href="#心構え-3">心構え</a></h3>
+<h3 id="心構え-2"><a class="header" href="#心構え-2">心構え</a></h3>
 <ul>
 <li><strong>コードの重複を避ける</strong>習慣がついている</li>
 <li><strong>モジュール化の重要性</strong>を理解している</li>
@@ -6972,7 +6760,7 @@ void main() {
 <li><strong>保守しやすくする</strong>：修正や改良が簡単になる</li>
 </ul>
 <p>次のセクションでは、実際に関数を定義し、使ってみましょう。</p>
-<h3 id="練習問題-15"><a class="header" href="#練習問題-15">練習問題</a></h3>
+<h3 id="練習問題-11"><a class="header" href="#練習問題-11">練習問題</a></h3>
 <ol>
 <li>日常生活で「関数」のように働いているものを3つ挙げてください。</li>
 <li>プログラムで同じ処理を繰り返し書くことの問題点を説明してください。</li>
@@ -7204,7 +6992,7 @@ void showMessage() {  // エラー！
 <li>適切な名前を付けることで、コードが読みやすくなる</li>
 </ul>
 <p>次のセクションでは、関数に値を渡したり、結果を返したりする方法を学びます。</p>
-<h3 id="練習問題-16"><a class="header" href="#練習問題-16">練習問題</a></h3>
+<h3 id="練習問題-12"><a class="header" href="#練習問題-12">練習問題</a></h3>
 <ol>
 <li>自己紹介を表示する関数 <code>introduceMyself()</code> を作成し、3回呼び出してください。</li>
 <li>以下の3つの関数を作成してください：
@@ -7469,7 +7257,7 @@ void main() {
 <li><code>return</code>文で値を返す</li>
 </ul>
 <p>次のセクションでは、変数のスコープ（有効範囲）について学びます。</p>
-<h3 id="練習問題-17"><a class="header" href="#練習問題-17">練習問題</a></h3>
+<h3 id="練習問題-13"><a class="header" href="#練習問題-13">練習問題</a></h3>
 <ol>
 <li>2つの数値を受け取り、大きい方を返す関数 <code>getMax(int a, int b)</code> を作成してください。</li>
 <li>円の半径を受け取り、面積を返す関数 <code>calculateCircleArea(double radius)</code> を作成してください（π = 3.14159）。</li>
@@ -7758,7 +7546,7 @@ void function2() {
 <li>必要最小限のスコープを使うことが重要</li>
 </ul>
 <p>次のセクションでは、これまで学んだ関数の知識を使って、実践的な電卓プログラムを作成します。</p>
-<h3 id="練習問題-18"><a class="header" href="#練習問題-18">練習問題</a></h3>
+<h3 id="練習問題-14"><a class="header" href="#練習問題-14">練習問題</a></h3>
 <ol>
 <li>
 <p>以下のコードで、各 print 文の出力を予想してください：</p>
@@ -8230,7 +8018,7 @@ void main() {
 <li><strong>エラー処理</strong>：各機能でエラーを適切に処理できる</li>
 </ol>
 <p>関数は、プログラムを構造化し、管理しやすくするための重要なツールです。</p>
-<h3 id="練習問題-19"><a class="header" href="#練習問題-19">練習問題</a></h3>
+<h3 id="練習問題-15"><a class="header" href="#練習問題-15">練習問題</a></h3>
 <ol>
 <li>階乗を計算する関数 <code>factorial(int n)</code> を追加してください。</li>
 <li>最大公約数を求める関数 <code>gcd(int a, int b)</code> を追加してください。</li>
@@ -8293,7 +8081,7 @@ void main() {
 <li><strong>関数を組み合わせた大きなプログラム</strong>を作成できる</li>
 <li><strong>ユーザーフレンドリーなアプリケーション</strong>を開発できる</li>
 </ul>
-<h3 id="心構え-4"><a class="header" href="#心構え-4">心構え</a></h3>
+<h3 id="心構え-3"><a class="header" href="#心構え-3">心構え</a></h3>
 <ul>
 <li><strong>設計先行の開発</strong>を心がけている</li>
 <li><strong>ユーザビリティ</strong>を意識したプログラムを作れる</li>
@@ -8398,7 +8186,7 @@ void main() {
   print('判定: $judgment');
 }
 </code></pre>
-<h2 id="練習問題-20"><a class="header" href="#練習問題-20">練習問題</a></h2>
+<h2 id="練習問題-16"><a class="header" href="#練習問題-16">練習問題</a></h2>
 <ol>
 <li>3つの数値を受け取って、その平均値を返す関数を作ってください。</li>
 </ol>
@@ -8571,7 +8359,7 @@ void main() {
   calculate(a: 20, b: 4, operation: '/', showProcess: true);  // 20 ÷ 4 = 5.0
 }
 </code></pre>
-<h2 id="練習問題-21"><a class="header" href="#練習問題-21">練習問題</a></h2>
+<h2 id="練習問題-17"><a class="header" href="#練習問題-17">練習問題</a></h2>
 <ol>
 <li>文字列を装飾する関数を作ってください。デフォルトでは <code>*</code> で囲みます。</li>
 </ol>
@@ -8835,7 +8623,7 @@ void main() {
   analyzeTemperatures();
 }
 </code></pre>
-<h2 id="練習問題-22"><a class="header" href="#練習問題-22">練習問題</a></h2>
+<h2 id="練習問題-18"><a class="header" href="#練習問題-18">練習問題</a></h2>
 <ol>
 <li>以下の処理を適切な関数に分割してください。</li>
 </ol>
@@ -9183,7 +8971,7 @@ void main() {
   }
 }
 </code></pre>
-<h2 id="練習問題-23"><a class="header" href="#練習問題-23">練習問題</a></h2>
+<h2 id="練習問題-19"><a class="header" href="#練習問題-19">練習問題</a></h2>
 <ol>
 <li>
 <p>「最初はグー」機能を追加してください（最初に必ずグーを表示）。</p>
@@ -9261,7 +9049,7 @@ void main() {
 <li><strong>オブジェクトを活用したプログラム</strong>を作成できる</li>
 <li><strong>現実世界の問題をオブジェクトで表現</strong>できる</li>
 </ul>
-<h3 id="心構え-5"><a class="header" href="#心構え-5">心構え</a></h3>
+<h3 id="心構え-4"><a class="header" href="#心構え-4">心構え</a></h3>
 <ul>
 <li><strong>現実世界とプログラムの対応</strong>を意識している</li>
 <li><strong>データと処理の関連性</strong>を重視している</li>
@@ -9377,7 +9165,7 @@ print("猫: $catName, $catAge歳, $catBreed");
 <li><strong>これから</strong>：関連する情報と処理をオブジェクトとしてまとめて管理</li>
 </ul>
 <p>次の章では、実際にDartでオブジェクトを作る方法を学んでいきます。まずは「<strong>クラス</strong>」という設計図の作り方から始めましょう！</p>
-<h2 id="練習問題-24"><a class="header" href="#練習問題-24">練習問題</a></h2>
+<h2 id="練習問題-20"><a class="header" href="#練習問題-20">練習問題</a></h2>
 <ol>
 <li>
 <p>あなたの身の回りにある物（例：スマートフォン、本、車など）を一つ選んで、それが持っている属性（何を持っているか）と行動（何ができるか）を3つずつ考えてみてください。</p>
@@ -9562,7 +9350,7 @@ class Data { }          // 何のデータかわからない
 <li><strong>データ型</strong>：適切な型を選択する</li>
 </ol>
 <p>次の章では、この設計図（クラス）を使って実際のオブジェクトを作る方法を学びます。いよいよ設計図から実物を作り出しますよ！</p>
-<h2 id="練習問題-25"><a class="header" href="#練習問題-25">練習問題</a></h2>
+<h2 id="練習問題-21"><a class="header" href="#練習問題-21">練習問題</a></h2>
 <ol>
 <li>
 <p>車（Car）を表現するクラスを作ってください。車には以下の属性があります：</p>
@@ -9869,7 +9657,7 @@ void main() {
 <li><strong>オブジェクト比較</strong>：インスタンスの同一性 vs. 内容の比較</li>
 </ol>
 <p>次の章では、オブジェクトに「行動」を追加する方法（メソッド）を学びます。オブジェクトがただデータを持つだけでなく、何かができるようになりますよ！</p>
-<h2 id="練習問題-26"><a class="header" href="#練習問題-26">練習問題</a></h2>
+<h2 id="練習問題-22"><a class="header" href="#練習問題-22">練習問題</a></h2>
 <ol>
 <li>次のコードの実行結果を予想してください：</li>
 </ol>
@@ -10338,7 +10126,7 @@ void main() {
 </ol>
 <p>オブジェクトは今や、データを持つだけでなく、そのデータを使って様々な処理ができるようになりました！</p>
 <p>次の章では、これらの知識を使って実際のペット管理アプリを作ってみます。今まで学んだことが全て一つの形になりますよ！</p>
-<h2 id="練習問題-27"><a class="header" href="#練習問題-27">練習問題</a></h2>
+<h2 id="練習問題-23"><a class="header" href="#練習問題-23">練習問題</a></h2>
 <ol>
 <li>次のコードで、<code>pochi.getHumanAge()</code> の戻り値は何でしょうか？</li>
 </ol>
@@ -10910,7 +10698,7 @@ class Cat extends Pet {
 <li><strong>カプセル化されたクラス</strong>を作成できる</li>
 <li><strong>複雑な管理システム</strong>を設計・実装できる</li>
 </ul>
-<h3 id="心構え-6"><a class="header" href="#心構え-6">心構え</a></h3>
+<h3 id="心構え-5"><a class="header" href="#心構え-5">心構え</a></h3>
 <ul>
 <li><strong>データの安全性</strong>を最優先に考えている</li>
 <li><strong>拡張性と保守性</strong>を意識した設計ができる</li>
@@ -12428,7 +12216,7 @@ void main() {
 <li><strong>エラーメッセージから問題を特定</strong>できる</li>
 <li><strong>予防的なプログラミング</strong>を実践できる</li>
 </ul>
-<h3 id="心構え-7"><a class="header" href="#心構え-7">心構え</a></h3>
+<h3 id="心構え-6"><a class="header" href="#心構え-6">心構え</a></h3>
 <ul>
 <li><strong>エラーを学習の機会</strong>として活用できる</li>
 <li><strong>段階的な問題解決</strong>のアプローチが身についている</li>
@@ -13498,7 +13286,7 @@ void main() {
 <li><strong>実践的なプロジェクト</strong>を企画・実行できる</li>
 <li><strong>コミュニティ活動</strong>に参加できる</li>
 </ul>
-<h3 id="心構え-8"><a class="header" href="#心構え-8">心構え</a></h3>
+<h3 id="心構え-7"><a class="header" href="#心構え-7">心構え</a></h3>
 <ul>
 <li><strong>生涯学習者</strong>としての意識を持っている</li>
 <li><strong>困難を乗り越える</strong>粘り強さがある</li>
@@ -13715,7 +13503,7 @@ void main() {
 <li><strong>null安全性</strong>：エラーの少ない安全なプログラムを書く</li>
 </ul>
 <p>これらの機能を少しずつ学んでいけば、より複雑で実用的なプログラムが書けるようになります。焦らず、一つずつマスターしていきましょう！</p>
-<h2 id="練習問題-28"><a class="header" href="#練習問題-28">練習問題</a></h2>
+<h2 id="練習問題-24"><a class="header" href="#練習問題-24">練習問題</a></h2>
 <h3 id="問題1非同期処理を試してみよう"><a class="header" href="#問題1非同期処理を試してみよう">問題1：非同期処理を試してみよう</a></h3>
 <p>次のコードを完成させて、3秒後にメッセージを表示するプログラムを作ってください：</p>
 <pre><code class="language-javascript">Future&lt;void&gt; delayedMessage() async {

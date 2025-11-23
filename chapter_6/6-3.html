@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-d8b02757.js";
+            window.path_to_searchindex_js = "../searchindex-9bdaf777.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-8071f62d.js"></script>
@@ -311,7 +311,7 @@ void main() {
     print('$seconds 秒');
     seconds--;
     
-    // 実際のプログラムでは、ここで1秒待つ処理を入れます
+    // 実際のプログラムでは、ここで1秒待つ処理を入れます。非同期処理は、授業の後半で説明します。
     // await Future.delayed(Duration(seconds: 1));
   }
   
@@ -360,7 +360,7 @@ void main() {
 }
 </code></pre>
 <h3 id="2-breakとcontinue"><a class="header" href="#2-breakとcontinue">2. breakとcontinue</a></h3>
-<p>while文の中でも、<code>break</code>と<code>continue</code>が使えます：</p>
+<p><code>break</code>と<code>continue</code>が使えます。（これは、for文でも使えます。）</p>
 <pre><code class="language-javascript">void main() {
   int num = 0;
   
@@ -395,18 +395,6 @@ void main() {
 <li>無限ループにならないよう、条件式が適切に更新されることを確認する</li>
 </ul>
 <p>次のセクションでは、無限ループとその回避方法について詳しく学習します。</p>
-<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
-<ol>
-<li>
-<p>1から始めて、合計が50を超えるまで順番に数を足していくプログラムを書いてみましょう。何回足したかも表示してください。</p>
-</li>
-<li>
-<p>ある数字を2で割り続けて、1以下になるまでの回数を数えるプログラムを書いてみましょう。例：16 → 8 → 4 → 2 → 1（4回）</p>
-</li>
-<li>
-<p>フィボナッチ数列（前の2つの数の和が次の数になる）を、1000を超えるまで表示するプログラムを書いてみましょう。</p>
-</li>
-</ol>
 
                     </main>
 

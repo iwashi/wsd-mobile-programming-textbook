@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-d8b02757.js";
+            window.path_to_searchindex_js = "../searchindex-9bdaf777.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-8071f62d.js"></script>
@@ -286,87 +286,6 @@
  8  |  8 16 24 32 40 48 56 64 72
  9  |  9 18 27 36 45 54 63 72 81
 </code></pre>
-<h2 id="ステップ5関数を使って整理"><a class="header" href="#ステップ5関数を使って整理">ステップ5：関数を使って整理</a></h2>
-<p>コードを関数に分割して、より整理されたプログラムにします：</p>
-<pre><code class="language-javascript">// 九九の結果を計算する関数
-int calculateKuku(int dan, int multiplier) {
-  return dan * multiplier;
-}
-
-// 数値を3文字幅でフォーマットする関数
-String formatNumber(int num) {
-  if (num &lt; 10) {
-    return '  $num';
-  } else {
-    return ' $num';
-  }
-}
-
-// ヘッダーを表示する関数
-void printHeader() {
-  print('    |  1  2  3  4  5  6  7  8  9');
-  print('----+----------------------------');
-}
-
-// メイン関数
-void main() {
-  printHeader();
-  
-  // 各段を表示
-  for (int dan = 1; dan &lt;= 9; dan++) {
-    String line = ' $dan  |';
-    
-    for (int i = 1; i &lt;= 9; i++) {
-      int result = calculateKuku(dan, i);
-      line += formatNumber(result);
-    }
-    
-    print(line);
-  }
-}
-</code></pre>
-<h2 id="応用例特定の範囲の九九"><a class="header" href="#応用例特定の範囲の九九">応用例：特定の範囲の九九</a></h2>
-<p>より柔軟な九九の表を作ってみましょう：</p>
-<pre><code class="language-javascript">void main() {
-  // カスタマイズ可能な九九の表
-  int startDan = 2;    // 開始の段
-  int endDan = 5;      // 終了の段
-  int startMulti = 3;  // 開始の掛ける数
-  int endMulti = 7;    // 終了の掛ける数
-  
-  // ヘッダー表示
-  String header = '   |';
-  for (int i = startMulti; i &lt;= endMulti; i++) {
-    header += '  $i';
-  }
-  print(header);
-  print('---+' + '-' * ((endMulti - startMulti + 1) * 3));
-  
-  // 指定範囲の九九を表示
-  for (int dan = startDan; dan &lt;= endDan; dan++) {
-    String line = ' $dan |';
-    
-    for (int i = startMulti; i &lt;= endMulti; i++) {
-      int result = dan * i;
-      if (result &lt; 10) {
-        line += '  $result';
-      } else {
-        line += ' $result';
-      }
-    }
-    
-    print(line);
-  }
-}
-</code></pre>
-<p>実行結果：</p>
-<pre><code>   |  3  4  5  6  7
----+---------------
- 2 |  6  8 10 12 14
- 3 |  9 12 15 18 21
- 4 | 12 16 20 24 28
- 5 | 15 20 25 30 35
-</code></pre>
 <h2 id="while文を使った九九"><a class="header" href="#while文を使った九九">while文を使った九九</a></h2>
 <p>for文の代わりにwhile文を使っても九九の表を作れます：</p>
 <pre><code class="language-javascript">void main() {
@@ -386,19 +305,6 @@ void main() {
   }
 }
 </code></pre>
-<h2 id="チャレンジ課題"><a class="header" href="#チャレンジ課題">チャレンジ課題</a></h2>
-<p>これまでの知識を活用して、以下の課題に挑戦してみましょう：</p>
-<h3 id="1-逆順の九九"><a class="header" href="#1-逆順の九九">1. 逆順の九九</a></h3>
-<p>9の段から1の段まで逆順に表示する九九の表を作ってください。</p>
-<h3 id="2-奇数の段だけの九九"><a class="header" href="#2-奇数の段だけの九九">2. 奇数の段だけの九九</a></h3>
-<p>1、3、5、7、9の段だけを表示する九九の表を作ってください。</p>
-<h3 id="3-色付き九九疑似的に"><a class="header" href="#3-色付き九九疑似的に">3. 色付き九九（疑似的に）</a></h3>
-<p>5の倍数の結果に「*」マークを付けて強調表示する九九の表を作ってください。</p>
-<pre><code class="language-javascript">// ヒント：5の倍数の判定
-if (result % 5 == 0) {
-  // 特別な表示
-}
-</code></pre>
 <h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
 <p>九九の表を作成することで、以下の重要な概念を実践的に学びました：</p>
 <ul>
@@ -408,13 +314,6 @@ if (result % 5 == 0) {
 <li>条件に応じた表示の変更</li>
 </ul>
 <p>これらの技術は、より複雑なプログラムを作成する際の基礎となります。繰り返し処理をマスターすることで、効率的で読みやすいコードが書けるようになります。</p>
-<h2 id="発展課題"><a class="header" href="#発展課題">発展課題</a></h2>
-<p>余裕があれば、以下の発展的な課題にも挑戦してみてください：</p>
-<ol>
-<li>九九の表をCSV形式（カンマ区切り）で出力する</li>
-<li>指定した段だけを表示する機能を追加する</li>
-<li>九九の表から特定の答え（例：24）を見つけて、その式をすべて表示する</li>
-</ol>
 
                     </main>
 

@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-d8b02757.js";
+            window.path_to_searchindex_js = "../searchindex-9bdaf777.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-8071f62d.js"></script>
@@ -268,7 +268,7 @@ void main() {
   }
 }
 </code></pre>
-<h2 id="無限ループを防ぐためのベストプラクティス"><a class="header" href="#無限ループを防ぐためのベストプラクティス">無限ループを防ぐためのベストプラクティス</a></h2>
+<h2 id="無限ループを防ぐためのプラクティス"><a class="header" href="#無限ループを防ぐためのプラクティス">無限ループを防ぐためのプラクティス</a></h2>
 <h3 id="1-ループカウンタを使う"><a class="header" href="#1-ループカウンタを使う">1. ループカウンタを使う</a></h3>
 <pre><code class="language-javascript">void main() {
   int maxIterations = 100;
@@ -304,49 +304,11 @@ void main() {
   }
 }
 </code></pre>
-<h3 id="3-do-whileでの注意点"><a class="header" href="#3-do-whileでの注意点">3. do-whileでの注意点</a></h3>
-<pre><code class="language-javascript">void main() {
-  int num = 100;
-  
-  // 注意：最低1回は実行される
-  do {
-    print('num = $num');
-    num = num ~/ 2;  // 2で割る（整数除算）
-  } while (num &gt; 0);
-  
-  print('終了時のnum: $num');
-}
-</code></pre>
-<h2 id="実践的な例ユーザー入力の検証"><a class="header" href="#実践的な例ユーザー入力の検証">実践的な例：ユーザー入力の検証</a></h2>
-<pre><code class="language-javascript">void main() {
-  // パスワード入力の例（実際の入力は簡略化）
-  String password = '';
-  int attempts = 0;
-  int maxAttempts = 3;
-  
-  while (attempts &lt; maxAttempts) {
-    // 実際にはここでユーザー入力を受け取る
-    password = 'wrong';  // 例として間違ったパスワード
-    attempts++;
-    
-    if (password == 'correct') {
-      print('ログイン成功！');
-      break;
-    } else {
-      print('パスワードが違います。残り${maxAttempts - attempts}回');
-      
-      if (attempts &gt;= maxAttempts) {
-        print('ログイン失敗。アカウントがロックされました。');
-      }
-    }
-  }
-}
-</code></pre>
 <h2 id="トラブルシューティング"><a class="header" href="#トラブルシューティング">トラブルシューティング</a></h2>
 <p>プログラムが応答しなくなった場合：</p>
 <ol>
 <li><strong>DartPadの場合</strong>: ブラウザのタブを更新する</li>
-<li><strong>コマンドラインの場合</strong>: Ctrl+C（Windows/Linux）またはCmd+C（Mac）で強制終了</li>
+<li><strong>コマンドラインの場合</strong>: Cmd+C（Mac）で強制終了</li>
 <li><strong>IDEの場合</strong>: 停止ボタンをクリック</li>
 </ol>
 <h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
@@ -358,25 +320,6 @@ void main() {
 <li>意図的な無限ループには必ず脱出条件を用意する</li>
 <li>安全装置として最大繰り返し回数を設定することを検討する</li>
 </ul>
-<p>次のセクションでは、これまで学んだループの知識を活用して、九九の表を作成する実践的なプログラムを作ります。</p>
-<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
-<ol>
-<li>
-<p>次のコードの問題点を指摘し、修正してください：</p>
-<pre><code class="language-javascript">int x = 10;
-while (x &gt; 0) {
-  print(x);
-  x += 1;
-}
-</code></pre>
-</li>
-<li>
-<p>1から始めて3倍していき、1000を超えたら終了するプログラムを書いてください。ただし、無限ループにならないよう安全装置も含めてください。</p>
-</li>
-<li>
-<p>ユーザーが「quit」と入力するまで続くプログラムを書いてください（実際の入力処理は、文字列を順番に試すシミュレーションで構いません）。</p>
-</li>
-</ol>
 
                     </main>
 
