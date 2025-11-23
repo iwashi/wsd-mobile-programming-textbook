@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-9c3636eb.js";
+            window.path_to_searchindex_js = "../searchindex-96867f8f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-5b66f7d5.js"></script>
@@ -269,20 +269,6 @@ print("null：$isNull");        // null：true
 print("nullでない：$isNotNull"); // nullでない：false
 </code></pre>
 <h2 id="bool値の活用例"><a class="header" href="#bool値の活用例">bool値の活用例</a></h2>
-<h3 id="ユーザー状態管理"><a class="header" href="#ユーザー状態管理">ユーザー状態管理</a></h3>
-<pre><code class="language-javascript">// ユーザーの状態を管理
-bool isLoggedIn = false;
-bool isPremiumUser = true;
-bool hasNotifications = true;
-
-String userStatus = """
-ログイン状態：${isLoggedIn ? "ログイン中" : "未ログイン"}
-会員種別：${isPremiumUser ? "プレミアム" : "通常"}
-通知：${hasNotifications ? "あり" : "なし"}
-""";
-
-print(userStatus);
-</code></pre>
 <h3 id="設定管理"><a class="header" href="#設定管理">設定管理</a></h3>
 <pre><code class="language-javascript">// アプリケーション設定
 bool isDarkMode = true;
@@ -347,51 +333,6 @@ bool isTrue = status.toLowerCase() == "true";
 if (isTrue) {
     print("真");
 }
-</code></pre>
-<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
-<ol>
-<li>あなたの年齢が18歳以上かどうかを判定するプログラムを作成してください</li>
-<li>パスワードの強度チェックプログラムを作成してください（8文字以上、大文字・小文字・数字を含む）</li>
-<li>買い物システムで、商品が在庫ありかつ予算内かどうかを判定してください</li>
-</ol>
-<pre><code class="language-javascript">// 解答例
-
-// 1. 年齢判定
-int myAge = 20;
-bool isAdult = myAge &gt;= 18;
-print("成人かどうか：${isAdult ? "はい" : "いいえ"}");
-
-// 2. パスワード強度チェック
-String password = "MyPass123";
-bool hasMinLength = password.length &gt;= 8;
-bool hasUpperCase = password != password.toLowerCase();
-bool hasLowerCase = password != password.toUpperCase();
-bool hasNumber = password.contains(RegExp(r'[0-9]'));
-
-bool isStrongPassword = hasMinLength &amp;&amp; hasUpperCase &amp;&amp; hasLowerCase &amp;&amp; hasNumber;
-
-print("=== パスワード強度チェック ===");
-print("8文字以上：$hasMinLength");
-print("大文字を含む：$hasUpperCase");
-print("小文字を含む：$hasLowerCase");
-print("数字を含む：$hasNumber");
-print("強いパスワード：$isStrongPassword");
-
-// 3. 買い物システム
-String productName = "ノートパソコン";
-double productPrice = 80000.0;
-int stockCount = 3;
-double budget = 100000.0;
-
-bool isInStock = stockCount &gt; 0;
-bool isAffordable = productPrice &lt;= budget;
-bool canPurchase = isInStock &amp;&amp; isAffordable;
-
-print("=== 購入判定 ===");
-print("商品名：$productName");
-print("在庫あり：$isInStock");
-print("予算内：$isAffordable");
-print("購入可能：$canPurchase");
 </code></pre>
 
                     </main>

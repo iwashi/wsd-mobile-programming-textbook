@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-9c3636eb.js";
+            window.path_to_searchindex_js = "../searchindex-96867f8f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-5b66f7d5.js"></script>
@@ -277,7 +277,7 @@ print(words); // [Hello, World]
 <h2 id="日本語文字列の扱い"><a class="header" href="#日本語文字列の扱い">日本語文字列の扱い</a></h2>
 <pre><code class="language-javascript">String japanese = "こんにちは、世界！";
 
-print(japanese.length);     // 文字数：8
+print(japanese.length);     // 文字数：
 print(japanese.contains("世界")); // true
 
 // 日本語での文字列補間
@@ -321,7 +321,7 @@ String userProfile = """
 名前: $userName
 年齢: $userAge歳
 メール: $userEmail
-登録日: 2024年1月15日
+登録日: 2026年1月15日
 """;
 
 print(userProfile);
@@ -358,42 +358,6 @@ String message = "こんにちは、" + name + "さん！";
 </code></pre>
 </li>
 </ol>
-<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
-<ol>
-<li>あなたの自己紹介文を文字列補間を使って作成してください</li>
-<li>商品名と価格を受け取って、「商品名：○○、価格：¥○○」という形式で出力してください</li>
-<li>文字列のメソッドを使って、入力された文字列の情報（長さ、大文字変換など）を表示してください</li>
-</ol>
-<pre><code class="language-javascript">// 解答例
-// 1. 自己紹介
-String myName = "鈴木一郎";
-int myAge = 22;
-String myHobby = "読書";
-
-String selfIntroduction = """
-はじめまして！
-私の名前は${myName}です。
-年齢は${myAge}歳で、趣味は${myHobby}です。
-よろしくお願いします。
-""";
-
-print(selfIntroduction);
-
-// 2. 商品情報
-String productName = "コーヒーメーカー";
-double price = 8980.0;
-
-String productDisplay = "商品名：$productName、価格：¥${price.toStringAsFixed(0)}";
-print(productDisplay);
-
-// 3. 文字列情報
-String inputText = "Programming with Dart";
-print("元の文字列: $inputText");
-print("文字数: ${inputText.length}");
-print("大文字: ${inputText.toUpperCase()}");
-print("小文字: ${inputText.toLowerCase()}");
-print("'Dart'を含むか: ${inputText.contains('Dart')}");
-</code></pre>
 
                     </main>
 

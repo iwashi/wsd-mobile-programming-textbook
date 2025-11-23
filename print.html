@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-9c3636eb.js";
+            window.path_to_searchindex_js = "searchindex-96867f8f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-5b66f7d5.js"></script>
@@ -2268,12 +2268,6 @@ print('条件が真です');
 <li><strong>読みやすい変数名</strong>を使ってコードを作成できる</li>
 <li><strong>型エラー</strong>を理解して修正できる</li>
 </ul>
-<h3 id="心構え"><a class="header" href="#心構え">心構え</a></h3>
-<ul>
-<li><strong>データ型を意識</strong>してプログラムを設計する習慣がついている</li>
-<li><strong>コードの可読性</strong>を重視する姿勢が身についている</li>
-<li><strong>エラーメッセージ</strong>から型の問題を特定できる自信がある</li>
-</ul>
 <h2 id="学習のポイント-2"><a class="header" href="#学習のポイント-2">学習のポイント</a></h2>
 <h3 id="-変数はラベル付きの箱"><a class="header" href="#-変数はラベル付きの箱">🏷️ 変数は「ラベル付きの箱」</a></h3>
 <p>変数は、データを入れておく「箱」のようなものです。箱にはラベル（変数名）が付いていて、中身（値）を出し入れできます。この比喩を使って変数の概念を理解しましょう。</p>
@@ -2286,7 +2280,6 @@ print('条件が真です');
 <h2 id="次のステップへ-2"><a class="header" href="#次のステップへ-2">次のステップへ</a></h2>
 <p>第3章を修了すると、あなたはプログラムの「材料」となるデータを自在に扱えるようになります。</p>
 <p>第4章では、これらのデータを使って「計算」を行う方法を学習します。算術演算子を使った計算、文字列の連結、変数の値の変更など、データを加工して新しい価値を生み出すテクニックを身につけていきます。</p>
-<p><strong>データが使えれば、プログラムの可能性は無限大です！</strong> 📊</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="変数とは何か"><a class="header" href="#変数とは何か">変数とは何か</a></h1>
 <p>プログラムにおいて、<strong>変数</strong>は値を格納するための「箱」のような存在です。この箱には名前を付けることができ、後でその名前を使って中身の値を取り出したり、新しい値を入れ替えたりできます。</p>
@@ -2307,7 +2300,7 @@ String name = "太郎";
 var score = 100;     // intとして推論される
 var message = "こんにちは"; // Stringとして推論される
 
-// 方法3：動的型（Object型）
+// 方法3：dynamicを使用
 dynamic value = 42;
 value = "文字列に変更";  // 異なる型の値を代入可能
 </code></pre>
@@ -2336,17 +2329,6 @@ double pi = 3.14159;
 double radius = 5.0;
 double area = pi * radius * radius;
 print(area);  // 何を計算しているか明確
-</code></pre>
-<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
-<ol>
-<li>あなたの年齢を格納する変数を作成してください</li>
-<li>あなたの名前を格納する変数を作成してください</li>
-<li>これらの変数を使って自己紹介文を出力してください</li>
-</ol>
-<pre><code class="language-javascript">// 解答例
-int myAge = 20;
-String myName = '田中';
-print('私の名前は${myName}で、${myAge}歳です。');
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="数値を扱うintdouble"><a class="header" href="#数値を扱うintdouble">数値を扱う（int、double）</a></h1>
@@ -2378,6 +2360,7 @@ int count = 0;
 count = count + 1;  // または count += 1;
 count++;           // インクリメント（1を足す）
 count--;           // デクリメント（1を引く）
+print(count);
 </code></pre>
 <h2 id="double型小数"><a class="header" href="#double型小数">double型（小数）</a></h2>
 <p><strong>double型</strong>は小数点を含む数値を扱います。</p>
@@ -2430,25 +2413,10 @@ print(price2); // 出力：199.99
 <h2 id="数値の型推論"><a class="header" href="#数値の型推論">数値の型推論</a></h2>
 <pre><code class="language-javascript">// varを使った場合の型推論
 var wholeNumber = 42;      // int型として推論
-var decimalNumber = 42.0;  // double型として推論
+var decimalNumber = 42.5;  // double型として推論
 
 print(wholeNumber.runtimeType);  // 出力：int
 print(decimalNumber.runtimeType); // 出力：double
-</code></pre>
-<h2 id="実用的な例"><a class="header" href="#実用的な例">実用的な例</a></h2>
-<pre><code class="language-javascript">// 商品の価格計算
-double unitPrice = 150.0;  // 単価
-int quantity = 3;          // 数量
-double subtotal = unitPrice * quantity;  // 小計
-double taxRate = 0.10;     // 消費税率（10%）
-double tax = subtotal * taxRate;         // 消費税
-double total = subtotal + tax;           // 合計
-
-print("単価: ${unitPrice}円");
-print("数量: ${quantity}個");
-print("小計: ${subtotal}円");
-print("消費税: ${tax}円");
-print("合計: ${total}円");
 </code></pre>
 <h2 id="注意点-1"><a class="header" href="#注意点-1">注意点</a></h2>
 <ol>
@@ -2466,7 +2434,7 @@ print(result); // 0.30000000000000004（期待値：0.3）
 </code></pre>
 </li>
 </ol>
-<h2 id="練習問題-1"><a class="header" href="#練習問題-1">練習問題</a></h2>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
 <ol>
 <li>あなたの身長（cm）をdouble型で、体重（kg）をint型で宣言してください</li>
 <li>BMIを計算してください（BMI = 体重 ÷ 身長² × 10000）</li>
@@ -2594,7 +2562,7 @@ print(words); // [Hello, World]
 <h2 id="日本語文字列の扱い"><a class="header" href="#日本語文字列の扱い">日本語文字列の扱い</a></h2>
 <pre><code class="language-javascript">String japanese = "こんにちは、世界！";
 
-print(japanese.length);     // 文字数：8
+print(japanese.length);     // 文字数：
 print(japanese.contains("世界")); // true
 
 // 日本語での文字列補間
@@ -2627,7 +2595,7 @@ print(withQuote); // 出力：彼は"こんにちは"と言いました。
 String withBackslash = "ファイルパス: C:\\Users\\Documents";
 print(withBackslash); // 出力：ファイルパス: C:\Users\Documents
 </code></pre>
-<h2 id="実用的な例-1"><a class="header" href="#実用的な例-1">実用的な例</a></h2>
+<h2 id="実用的な例"><a class="header" href="#実用的な例">実用的な例</a></h2>
 <pre><code class="language-javascript">// ユーザー情報の表示
 String userName = "山田花子";
 int userAge = 28;
@@ -2638,7 +2606,7 @@ String userProfile = """
 名前: $userName
 年齢: $userAge歳
 メール: $userEmail
-登録日: 2024年1月15日
+登録日: 2026年1月15日
 """;
 
 print(userProfile);
@@ -2675,42 +2643,6 @@ String message = "こんにちは、" + name + "さん！";
 </code></pre>
 </li>
 </ol>
-<h2 id="練習問題-2"><a class="header" href="#練習問題-2">練習問題</a></h2>
-<ol>
-<li>あなたの自己紹介文を文字列補間を使って作成してください</li>
-<li>商品名と価格を受け取って、「商品名：○○、価格：¥○○」という形式で出力してください</li>
-<li>文字列のメソッドを使って、入力された文字列の情報（長さ、大文字変換など）を表示してください</li>
-</ol>
-<pre><code class="language-javascript">// 解答例
-// 1. 自己紹介
-String myName = "鈴木一郎";
-int myAge = 22;
-String myHobby = "読書";
-
-String selfIntroduction = """
-はじめまして！
-私の名前は${myName}です。
-年齢は${myAge}歳で、趣味は${myHobby}です。
-よろしくお願いします。
-""";
-
-print(selfIntroduction);
-
-// 2. 商品情報
-String productName = "コーヒーメーカー";
-double price = 8980.0;
-
-String productDisplay = "商品名：$productName、価格：¥${price.toStringAsFixed(0)}";
-print(productDisplay);
-
-// 3. 文字列情報
-String inputText = "Programming with Dart";
-print("元の文字列: $inputText");
-print("文字数: ${inputText.length}");
-print("大文字: ${inputText.toUpperCase()}");
-print("小文字: ${inputText.toLowerCase()}");
-print("'Dart'を含むか: ${inputText.contains('Dart')}");
-</code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="真偽値を扱うbool"><a class="header" href="#真偽値を扱うbool">真偽値を扱う（bool）</a></h1>
 <p><strong>bool型</strong>（ブール型）は、真（true）または偽（false）の2つの値のみを持つデータ型です。プログラムでの条件判断や状態管理において非常に重要な役割を果たします。</p>
@@ -2807,20 +2739,6 @@ print("null：$isNull");        // null：true
 print("nullでない：$isNotNull"); // nullでない：false
 </code></pre>
 <h2 id="bool値の活用例"><a class="header" href="#bool値の活用例">bool値の活用例</a></h2>
-<h3 id="ユーザー状態管理"><a class="header" href="#ユーザー状態管理">ユーザー状態管理</a></h3>
-<pre><code class="language-javascript">// ユーザーの状態を管理
-bool isLoggedIn = false;
-bool isPremiumUser = true;
-bool hasNotifications = true;
-
-String userStatus = """
-ログイン状態：${isLoggedIn ? "ログイン中" : "未ログイン"}
-会員種別：${isPremiumUser ? "プレミアム" : "通常"}
-通知：${hasNotifications ? "あり" : "なし"}
-""";
-
-print(userStatus);
-</code></pre>
 <h3 id="設定管理"><a class="header" href="#設定管理">設定管理</a></h3>
 <pre><code class="language-javascript">// アプリケーション設定
 bool isDarkMode = true;
@@ -2886,51 +2804,6 @@ if (isTrue) {
     print("真");
 }
 </code></pre>
-<h2 id="練習問題-3"><a class="header" href="#練習問題-3">練習問題</a></h2>
-<ol>
-<li>あなたの年齢が18歳以上かどうかを判定するプログラムを作成してください</li>
-<li>パスワードの強度チェックプログラムを作成してください（8文字以上、大文字・小文字・数字を含む）</li>
-<li>買い物システムで、商品が在庫ありかつ予算内かどうかを判定してください</li>
-</ol>
-<pre><code class="language-javascript">// 解答例
-
-// 1. 年齢判定
-int myAge = 20;
-bool isAdult = myAge &gt;= 18;
-print("成人かどうか：${isAdult ? "はい" : "いいえ"}");
-
-// 2. パスワード強度チェック
-String password = "MyPass123";
-bool hasMinLength = password.length &gt;= 8;
-bool hasUpperCase = password != password.toLowerCase();
-bool hasLowerCase = password != password.toUpperCase();
-bool hasNumber = password.contains(RegExp(r'[0-9]'));
-
-bool isStrongPassword = hasMinLength &amp;&amp; hasUpperCase &amp;&amp; hasLowerCase &amp;&amp; hasNumber;
-
-print("=== パスワード強度チェック ===");
-print("8文字以上：$hasMinLength");
-print("大文字を含む：$hasUpperCase");
-print("小文字を含む：$hasLowerCase");
-print("数字を含む：$hasNumber");
-print("強いパスワード：$isStrongPassword");
-
-// 3. 買い物システム
-String productName = "ノートパソコン";
-double productPrice = 80000.0;
-int stockCount = 3;
-double budget = 100000.0;
-
-bool isInStock = stockCount &gt; 0;
-bool isAffordable = productPrice &lt;= budget;
-bool canPurchase = isInStock &amp;&amp; isAffordable;
-
-print("=== 購入判定 ===");
-print("商品名：$productName");
-print("在庫あり：$isInStock");
-print("予算内：$isAffordable");
-print("購入可能：$canPurchase");
-</code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="変数の命名規則とわかりやすい名前の付け方"><a class="header" href="#変数の命名規則とわかりやすい名前の付け方">変数の命名規則とわかりやすい名前の付け方</a></h1>
 <p>プログラムにおいて、変数に適切な名前を付けることは、コードの可読性と保守性を大幅に向上させます。Dartには明確な命名規則があり、これに従うことで統一感のあるコードが書けます。</p>
@@ -2969,7 +2842,6 @@ const double TAX_RATE = 0.10;
 // String user name = "太郎";    // スペース不可
 // int 123count = 0;            // 数字から始まる不可
 // String class = "クラス";      // 予約語不可
-// String いろ = "赤";           // 日本語不可（技術的には可能だが非推奨）
 
 // 正しい例
 String userName = "太郎";
@@ -3095,31 +2967,6 @@ bool hasAdminPermission = false;
 bool canEditProfile = true;
 bool canViewReports = true;
 bool isPremiumMember = false;
-
-// セッション管理
-String sessionId = "session_abc123";
-int sessionTimeoutMinutes = 30;
-bool isSessionValid = true;
-DateTime sessionStartTime = DateTime.now();
-</code></pre>
-<h3 id="ショッピングカート"><a class="header" href="#ショッピングカート">ショッピングカート</a></h3>
-<pre><code class="language-javascript">// 商品情報
-String selectedProductId = "prod_001";
-String selectedProductName = "ワイヤレスマウス";
-double selectedProductPrice = 2980.0;
-int selectedProductQuantity = 2;
-
-// カート情報
-int cartItemCount = 5;
-double cartSubtotal = 14900.0;
-double cartTaxAmount = 1490.0;
-double cartTotalAmount = 16390.0;
-
-// 配送情報
-String shippingAddress = "東京都渋谷区...";
-double shippingCost = 500.0;
-bool isFreeShipping = false;
-DateTime estimatedDeliveryDate = DateTime.now();
 </code></pre>
 <h2 id="命名時のチェックリスト"><a class="header" href="#命名時のチェックリスト">命名時のチェックリスト</a></h2>
 <ol>
@@ -3158,7 +3005,7 @@ String userName = "田中";
 int quantity = 5;
 double amount = 1500.0;
 </code></pre>
-<h2 id="練習問題-4"><a class="header" href="#練習問題-4">練習問題</a></h2>
+<h2 id="練習問題-1"><a class="header" href="#練習問題-1">練習問題</a></h2>
 <p>以下の悪い例を、良い変数名に変更してください：</p>
 <pre><code class="language-javascript">// 悪い例
 int x = 20;
@@ -3233,7 +3080,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <li><strong>変数の値を効率的に更新</strong>するコードが書ける</li>
 <li><strong>複雑な計算式</strong>を正確にプログラムで表現できる</li>
 </ul>
-<h3 id="心構え-1"><a class="header" href="#心構え-1">心構え</a></h3>
+<h3 id="心構え"><a class="header" href="#心構え">心構え</a></h3>
 <ul>
 <li><strong>計算の正確性</strong>を重視する習慣がついている</li>
 <li><strong>コードの簡潔性</strong>と<strong>可読性</strong>のバランスを考えられる</li>
@@ -3307,7 +3154,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
   print('$a ÷ $b = $quotient (整数部分のみ)'); // 17 ÷ 5 = 3 (整数部分のみ)
 }
 </code></pre>
-<h2 id="実用的な例-2"><a class="header" href="#実用的な例-2">実用的な例</a></h2>
+<h2 id="実用的な例-1"><a class="header" href="#実用的な例-1">実用的な例</a></h2>
 <pre><code class="language-javascript">void main() {
   // 円の面積を計算する
   double radius = 5.0;
@@ -3385,7 +3232,7 @@ ${name}さんのテスト結果をお知らせします。
   print(report);
 }
 </code></pre>
-<h2 id="実用的な例-3"><a class="header" href="#実用的な例-3">実用的な例</a></h2>
+<h2 id="実用的な例-2"><a class="header" href="#実用的な例-2">実用的な例</a></h2>
 <pre><code class="language-javascript">void main() {
   // 商品情報の表示
   String itemName = 'ノートパソコン';
@@ -3495,7 +3342,7 @@ ${name}さんのテスト結果をお知らせします。
   print('c: $c, d: $d'); // c: 11, d: 10
 }
 </code></pre>
-<h2 id="実用的な例-4"><a class="header" href="#実用的な例-4">実用的な例</a></h2>
+<h2 id="実用的な例-3"><a class="header" href="#実用的な例-3">実用的な例</a></h2>
 <h3 id="カウンターアプリ"><a class="header" href="#カウンターアプリ">カウンターアプリ</a></h3>
 <pre><code class="language-javascript">void main() {
   int visitCount = 0;
@@ -4032,7 +3879,7 @@ ${name}さんのテスト結果をお知らせします。
 <li><strong>実用的な判定プログラム</strong>を作成できる</li>
 <li><strong>条件分岐のテスト</strong>を適切に行える</li>
 </ul>
-<h3 id="心構え-2"><a class="header" href="#心構え-2">心構え</a></h3>
+<h3 id="心構え-1"><a class="header" href="#心構え-1">心構え</a></h3>
 <ul>
 <li><strong>論理的思考</strong>でプログラムの流れを設計できる</li>
 <li><strong>様々なケース</strong>を想定した堅牢なプログラムを書ける</li>
@@ -4253,7 +4100,7 @@ if (age == 18) {  // 比較演算子を使う
   print('name == "DART": ${name == "DART"}');   // false
 }
 </code></pre>
-<h2 id="練習問題-5"><a class="header" href="#練習問題-5">練習問題</a></h2>
+<h2 id="練習問題-2"><a class="header" href="#練習問題-2">練習問題</a></h2>
 <p>次のプログラムを完成させてみましょう：</p>
 <pre><code class="language-javascript">void main() {
   int number = 42;
@@ -4304,7 +4151,7 @@ if (age == 18) {  // 比較演算子を使う
 <li><code>age &gt;= 18</code>が偽（false）なら「あなたは未成年です」を表示</li>
 <li>どちらの場合も、最後に「判定終了」を表示</li>
 </ul>
-<h2 id="実用的な例-5"><a class="header" href="#実用的な例-5">実用的な例</a></h2>
+<h2 id="実用的な例-4"><a class="header" href="#実用的な例-4">実用的な例</a></h2>
 <h3 id="例1テストの合否判定"><a class="header" href="#例1テストの合否判定">例1：テストの合否判定</a></h3>
 <pre><code class="language-javascript">void main() {
   int score = 75;
@@ -4446,7 +4293,7 @@ void main() {
   }
 }
 </code></pre>
-<h2 id="練習問題-6"><a class="header" href="#練習問題-6">練習問題</a></h2>
+<h2 id="練習問題-3"><a class="header" href="#練習問題-3">練習問題</a></h2>
 <p>以下のプログラムを完成させてみましょう：</p>
 <pre><code class="language-javascript">void main() {
   int temperature = 25;
@@ -4691,7 +4538,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 !(a &amp;&amp; b) == (!a || !b)
 !(a || b) == (!a &amp;&amp; !b)
 </code></pre>
-<h2 id="練習問題-7"><a class="header" href="#練習問題-7">練習問題</a></h2>
+<h2 id="練習問題-4"><a class="header" href="#練習問題-4">練習問題</a></h2>
 <p>以下のプログラムを完成させてみましょう：</p>
 <pre><code class="language-javascript">void main() {
   int temperature = 25;
@@ -4992,7 +4839,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
   print('========================');
 }
 </code></pre>
-<h2 id="練習問題-8"><a class="header" href="#練習問題-8">練習問題</a></h2>
+<h2 id="練習問題-5"><a class="header" href="#練習問題-5">練習問題</a></h2>
 <p>以下の条件を追加してプログラムを改良してみましょう：</p>
 <ol>
 <li><strong>障害者割引</strong>: 障害者手帳を持っている場合は半額（<code>bool hasDisabilityCard</code>を追加）</li>
@@ -5078,7 +4925,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <li><strong>二重ループ</strong>を使った複雑な処理を書ける</li>
 <li><strong>ループの終了条件</strong>を適切に設定できる</li>
 </ul>
-<h3 id="心構え-3"><a class="header" href="#心構え-3">心構え</a></h3>
+<h3 id="心構え-2"><a class="header" href="#心構え-2">心構え</a></h3>
 <ul>
 <li><strong>大量のデータ処理</strong>を自動化する発想力がある</li>
 <li><strong>効率的なアルゴリズム</strong>を考える習慣がついている</li>
@@ -5188,7 +5035,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <h2 id="まとめ-15"><a class="header" href="#まとめ-15">まとめ</a></h2>
 <p>繰り返し処理は、プログラミングにおいて非常に重要な概念です。同じ処理を効率的に実行できるだけでなく、コードをより短く、読みやすく、保守しやすくします。</p>
 <p>次のセクションでは、Dartで最もよく使われる繰り返し処理の一つである「for文」について詳しく学んでいきます。</p>
-<h2 id="練習問題-9"><a class="header" href="#練習問題-9">練習問題</a></h2>
+<h2 id="練習問題-6"><a class="header" href="#練習問題-6">練習問題</a></h2>
 <ol>
 <li>繰り返し処理を使わずに「Hello」を5回表示するプログラムを書いてみましょう。</li>
 <li>そのプログラムを、繰り返し処理を使って書き直すとどうなるか考えてみましょう。</li>
@@ -5349,7 +5196,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <li>境界値と無限ループに注意する</li>
 </ul>
 <p>次のセクションでは、条件に基づいて繰り返すwhile文について学習します。</p>
-<h2 id="練習問題-10"><a class="header" href="#練習問題-10">練習問題</a></h2>
+<h2 id="練習問題-7"><a class="header" href="#練習問題-7">練習問題</a></h2>
 <ol>
 <li>1から20までの数字のうち、3の倍数だけを表示するプログラムを書いてみましょう。</li>
 <li>次のパターンを表示するプログラムを書いてみましょう：
@@ -5489,7 +5336,7 @@ void main() {
   } while (num &lt; 5);
 }
 </code></pre>
-<h2 id="実用的な例-6"><a class="header" href="#実用的な例-6">実用的な例</a></h2>
+<h2 id="実用的な例-5"><a class="header" href="#実用的な例-5">実用的な例</a></h2>
 <h3 id="カウントダウンタイマー"><a class="header" href="#カウントダウンタイマー">カウントダウンタイマー</a></h3>
 <pre><code class="language-javascript">void main() {
   int seconds = 10;
@@ -5584,7 +5431,7 @@ void main() {
 <li>無限ループにならないよう、条件式が適切に更新されることを確認する</li>
 </ul>
 <p>次のセクションでは、無限ループとその回避方法について詳しく学習します。</p>
-<h2 id="練習問題-11"><a class="header" href="#練習問題-11">練習問題</a></h2>
+<h2 id="練習問題-8"><a class="header" href="#練習問題-8">練習問題</a></h2>
 <ol>
 <li>
 <p>1から始めて、合計が50を超えるまで順番に数を足していくプログラムを書いてみましょう。何回足したかも表示してください。</p>
@@ -5782,7 +5629,7 @@ void main() {
 <li>安全装置として最大繰り返し回数を設定することを検討する</li>
 </ul>
 <p>次のセクションでは、これまで学んだループの知識を活用して、九九の表を作成する実践的なプログラムを作ります。</p>
-<h2 id="練習問題-12"><a class="header" href="#練習問題-12">練習問題</a></h2>
+<h2 id="練習問題-9"><a class="header" href="#練習問題-9">練習問題</a></h2>
 <ol>
 <li>
 <p>次のコードの問題点を指摘し、修正してください：</p>
@@ -6098,7 +5945,7 @@ if (result % 5 == 0) {
 <li><strong>動的なデータ管理</strong>を行うプログラムを作成できる</li>
 <li><strong>実用的なデータ処理アプリケーション</strong>を実装できる</li>
 </ul>
-<h3 id="心構え-4"><a class="header" href="#心構え-4">心構え</a></h3>
+<h3 id="心構え-3"><a class="header" href="#心構え-3">心構え</a></h3>
 <ul>
 <li><strong>データ構造を意識した</strong>プログラム設計ができる</li>
 <li><strong>効率的なデータ管理</strong>の重要性を理解している</li>
@@ -6163,7 +6010,7 @@ if (result % 5 == 0) {
 </ol>
 <h2 id="まとめ-20"><a class="header" href="#まとめ-20">まとめ</a></h2>
 <p>リストは、複数のデータを効率的に管理するための重要なプログラミングの道具です。次のセクションでは、実際にリストを作成し、使ってみましょう。</p>
-<h3 id="練習問題-13"><a class="header" href="#練習問題-13">練習問題</a></h3>
+<h3 id="練習問題-10"><a class="header" href="#練習問題-10">練習問題</a></h3>
 <ol>
 <li>あなたの好きな食べ物を5つ思い浮かべてください。これをリストで表現するとどうなるでしょうか？</li>
 <li>一週間の曜日をリストで表現するとどうなるでしょうか？</li>
@@ -6277,7 +6124,7 @@ if (result % 5 == 0) {
 <li><code>length</code>でリストの要素数を調べられます</li>
 <li>範囲外のインデックスにアクセスするとエラーになります</li>
 </ul>
-<h3 id="練習問題-14"><a class="header" href="#練習問題-14">練習問題</a></h3>
+<h3 id="練習問題-11"><a class="header" href="#練習問題-11">練習問題</a></h3>
 <ol>
 <li>あなたの好きな科目を5つ含むリストを作成し、3番目の科目を表示してください</li>
 <li>1から10までの数字を含むリストを作成し、最初と最後の要素を表示してください</li>
@@ -6423,7 +6270,7 @@ if (result % 5 == 0) {
 <li><strong>全削除</strong>: <code>clear()</code>でリストを空にする</li>
 <li>これらのメソッドを使うことで、プログラム実行中にリストを柔軟に操作できます</li>
 </ul>
-<h3 id="練習問題-15"><a class="header" href="#練習問題-15">練習問題</a></h3>
+<h3 id="練習問題-12"><a class="header" href="#練習問題-12">練習問題</a></h3>
 <ol>
 <li>空のリストを作成し、1から5までの数字を順番に追加するプログラムを書いてください</li>
 <li>果物のリスト<code>['りんご', 'みかん', 'ぶどう']</code>から’みかん’を削除し、代わりに’いちご’を同じ位置に追加してください</li>
@@ -6599,7 +6446,7 @@ if (result % 5 == 0) {
 <li>リストとループを組み合わせることで、合計・平均・最大値などの計算が簡単にできる</li>
 <li>条件に応じた処理や、新しいリストの作成も可能</li>
 </ul>
-<h3 id="練習問題-16"><a class="header" href="#練習問題-16">練習問題</a></h3>
+<h3 id="練習問題-13"><a class="header" href="#練習問題-13">練習問題</a></h3>
 <ol>
 <li>数値のリスト<code>[5, 10, 15, 20, 25]</code>の全要素を2倍にした新しいリストを作成してください</li>
 <li>名前のリスト<code>['太郎', '花子', '次郎', '三郎']</code>の各要素に「さん」を付けて表示してください</li>
@@ -6895,7 +6742,7 @@ if (result % 5 == 0) {
 <li><strong>マップを活用した実用的なプログラム</strong>を作成できる</li>
 <li><strong>複雑なデータ構造</strong>を管理できる</li>
 </ul>
-<h3 id="心構え-5"><a class="header" href="#心構え-5">心構え</a></h3>
+<h3 id="心構え-4"><a class="header" href="#心構え-4">心構え</a></h3>
 <ul>
 <li><strong>データの関連性を意識した</strong>設計ができる</li>
 <li><strong>効率的なデータアクセス</strong>を重視している</li>
@@ -7018,7 +6865,7 @@ if (result % 5 == 0) {
 </code></pre>
 <h2 id="まとめ-25"><a class="header" href="#まとめ-25">まとめ</a></h2>
 <p>マップは、キーと値のペアでデータを管理する強力なデータ構造です。名前やIDなど、意味のあるキーを使ってデータに直接アクセスできるため、関連するデータを効率的に管理できます。次のセクションでは、実際にマップを作成し、操作する方法を詳しく学びましょう。</p>
-<h3 id="練習問題-17"><a class="header" href="#練習問題-17">練習問題</a></h3>
+<h3 id="練習問題-14"><a class="header" href="#練習問題-14">練習問題</a></h3>
 <ol>
 <li>あなたの家族や友人の名前と年齢をマップで表現するとどうなるでしょうか？</li>
 <li>好きな科目とその成績をマップで表現してみましょう。</li>
@@ -7227,7 +7074,7 @@ if (result % 5 == 0) {
 <li><code>forEach</code> や <code>for-in</code> で繰り返し処理</li>
 </ul>
 <p>次のセクションでは、マップのより実践的な活用例を見ていきます。</p>
-<h3 id="練習問題-18"><a class="header" href="#練習問題-18">練習問題</a></h3>
+<h3 id="練習問題-15"><a class="header" href="#練習問題-15">練習問題</a></h3>
 <ol>
 <li>友達の名前と誕生日（月/日）を管理するマップを作成し、3人分のデータを追加してください。</li>
 <li>科目名と成績（A, B, C）を管理するマップを作り、1つの科目の成績を更新する処理を書いてください。</li>
@@ -7471,7 +7318,7 @@ if (result % 5 == 0) {
 <li><strong>グループ化</strong>：カテゴリーごとにデータを整理</li>
 </ol>
 <p>これらの例を参考に、自分のプログラムでもマップを活用してみましょう。</p>
-<h3 id="練習問題-19"><a class="header" href="#練習問題-19">練習問題</a></h3>
+<h3 id="練習問題-16"><a class="header" href="#練習問題-16">練習問題</a></h3>
 <ol>
 <li>都道府県名をキー、県庁所在地を値とするマップを作成し、5つ以上のデータを登録してください。</li>
 <li>商品の売上個数を記録し、売上ランキングを表示するプログラムを作成してください。</li>
@@ -7795,7 +7642,7 @@ if (result % 5 == 0) {
 <li><strong>ユーザーフレンドリーな出力</strong>：分かりやすいメッセージ表示</li>
 <li><strong>データの拡張</strong>：カテゴリー機能など、より複雑な構造への発展</li>
 </ol>
-<h3 id="練習問題-20"><a class="header" href="#練習問題-20">練習問題</a></h3>
+<h3 id="練習問題-17"><a class="header" href="#練習問題-17">練習問題</a></h3>
 <ol>
 <li>辞書プログラムに「単語の頭文字で検索する機能」を追加してください。</li>
 <li>英和辞書を和英辞書に変換する関数を作成してください（キーと値を入れ替える）。</li>
@@ -7864,7 +7711,7 @@ if (result % 5 == 0) {
 <li><strong>既存のコードを関数に分割</strong>して整理できる</li>
 <li><strong>保守性の高いプログラム</strong>を作成できる</li>
 </ul>
-<h3 id="心構え-6"><a class="header" href="#心構え-6">心構え</a></h3>
+<h3 id="心構え-5"><a class="header" href="#心構え-5">心構え</a></h3>
 <ul>
 <li><strong>コードの重複を避ける</strong>習慣がついている</li>
 <li><strong>モジュール化の重要性</strong>を理解している</li>
@@ -8033,7 +7880,7 @@ void main() {
 <li><strong>保守しやすくする</strong>：修正や改良が簡単になる</li>
 </ul>
 <p>次のセクションでは、実際に関数を定義し、使ってみましょう。</p>
-<h3 id="練習問題-21"><a class="header" href="#練習問題-21">練習問題</a></h3>
+<h3 id="練習問題-18"><a class="header" href="#練習問題-18">練習問題</a></h3>
 <ol>
 <li>日常生活で「関数」のように働いているものを3つ挙げてください。</li>
 <li>プログラムで同じ処理を繰り返し書くことの問題点を説明してください。</li>
@@ -8265,7 +8112,7 @@ void showMessage() {  // エラー！
 <li>適切な名前を付けることで、コードが読みやすくなる</li>
 </ul>
 <p>次のセクションでは、関数に値を渡したり、結果を返したりする方法を学びます。</p>
-<h3 id="練習問題-22"><a class="header" href="#練習問題-22">練習問題</a></h3>
+<h3 id="練習問題-19"><a class="header" href="#練習問題-19">練習問題</a></h3>
 <ol>
 <li>自己紹介を表示する関数 <code>introduceMyself()</code> を作成し、3回呼び出してください。</li>
 <li>以下の3つの関数を作成してください：
@@ -8530,7 +8377,7 @@ void main() {
 <li><code>return</code>文で値を返す</li>
 </ul>
 <p>次のセクションでは、変数のスコープ（有効範囲）について学びます。</p>
-<h3 id="練習問題-23"><a class="header" href="#練習問題-23">練習問題</a></h3>
+<h3 id="練習問題-20"><a class="header" href="#練習問題-20">練習問題</a></h3>
 <ol>
 <li>2つの数値を受け取り、大きい方を返す関数 <code>getMax(int a, int b)</code> を作成してください。</li>
 <li>円の半径を受け取り、面積を返す関数 <code>calculateCircleArea(double radius)</code> を作成してください（π = 3.14159）。</li>
@@ -8819,7 +8666,7 @@ void function2() {
 <li>必要最小限のスコープを使うことが重要</li>
 </ul>
 <p>次のセクションでは、これまで学んだ関数の知識を使って、実践的な電卓プログラムを作成します。</p>
-<h3 id="練習問題-24"><a class="header" href="#練習問題-24">練習問題</a></h3>
+<h3 id="練習問題-21"><a class="header" href="#練習問題-21">練習問題</a></h3>
 <ol>
 <li>
 <p>以下のコードで、各 print 文の出力を予想してください：</p>
@@ -9291,7 +9138,7 @@ void main() {
 <li><strong>エラー処理</strong>：各機能でエラーを適切に処理できる</li>
 </ol>
 <p>関数は、プログラムを構造化し、管理しやすくするための重要なツールです。</p>
-<h3 id="練習問題-25"><a class="header" href="#練習問題-25">練習問題</a></h3>
+<h3 id="練習問題-22"><a class="header" href="#練習問題-22">練習問題</a></h3>
 <ol>
 <li>階乗を計算する関数 <code>factorial(int n)</code> を追加してください。</li>
 <li>最大公約数を求める関数 <code>gcd(int a, int b)</code> を追加してください。</li>
@@ -9354,7 +9201,7 @@ void main() {
 <li><strong>関数を組み合わせた大きなプログラム</strong>を作成できる</li>
 <li><strong>ユーザーフレンドリーなアプリケーション</strong>を開発できる</li>
 </ul>
-<h3 id="心構え-7"><a class="header" href="#心構え-7">心構え</a></h3>
+<h3 id="心構え-6"><a class="header" href="#心構え-6">心構え</a></h3>
 <ul>
 <li><strong>設計先行の開発</strong>を心がけている</li>
 <li><strong>ユーザビリティ</strong>を意識したプログラムを作れる</li>
@@ -9459,7 +9306,7 @@ void main() {
   print('判定: $judgment');
 }
 </code></pre>
-<h2 id="練習問題-26"><a class="header" href="#練習問題-26">練習問題</a></h2>
+<h2 id="練習問題-23"><a class="header" href="#練習問題-23">練習問題</a></h2>
 <ol>
 <li>3つの数値を受け取って、その平均値を返す関数を作ってください。</li>
 </ol>
@@ -9632,7 +9479,7 @@ void main() {
   calculate(a: 20, b: 4, operation: '/', showProcess: true);  // 20 ÷ 4 = 5.0
 }
 </code></pre>
-<h2 id="練習問題-27"><a class="header" href="#練習問題-27">練習問題</a></h2>
+<h2 id="練習問題-24"><a class="header" href="#練習問題-24">練習問題</a></h2>
 <ol>
 <li>文字列を装飾する関数を作ってください。デフォルトでは <code>*</code> で囲みます。</li>
 </ol>
@@ -9896,7 +9743,7 @@ void main() {
   analyzeTemperatures();
 }
 </code></pre>
-<h2 id="練習問題-28"><a class="header" href="#練習問題-28">練習問題</a></h2>
+<h2 id="練習問題-25"><a class="header" href="#練習問題-25">練習問題</a></h2>
 <ol>
 <li>以下の処理を適切な関数に分割してください。</li>
 </ol>
@@ -10244,7 +10091,7 @@ void main() {
   }
 }
 </code></pre>
-<h2 id="練習問題-29"><a class="header" href="#練習問題-29">練習問題</a></h2>
+<h2 id="練習問題-26"><a class="header" href="#練習問題-26">練習問題</a></h2>
 <ol>
 <li>
 <p>「最初はグー」機能を追加してください（最初に必ずグーを表示）。</p>
@@ -10322,7 +10169,7 @@ void main() {
 <li><strong>オブジェクトを活用したプログラム</strong>を作成できる</li>
 <li><strong>現実世界の問題をオブジェクトで表現</strong>できる</li>
 </ul>
-<h3 id="心構え-8"><a class="header" href="#心構え-8">心構え</a></h3>
+<h3 id="心構え-7"><a class="header" href="#心構え-7">心構え</a></h3>
 <ul>
 <li><strong>現実世界とプログラムの対応</strong>を意識している</li>
 <li><strong>データと処理の関連性</strong>を重視している</li>
@@ -10438,7 +10285,7 @@ print("猫: $catName, $catAge歳, $catBreed");
 <li><strong>これから</strong>：関連する情報と処理をオブジェクトとしてまとめて管理</li>
 </ul>
 <p>次の章では、実際にDartでオブジェクトを作る方法を学んでいきます。まずは「<strong>クラス</strong>」という設計図の作り方から始めましょう！</p>
-<h2 id="練習問題-30"><a class="header" href="#練習問題-30">練習問題</a></h2>
+<h2 id="練習問題-27"><a class="header" href="#練習問題-27">練習問題</a></h2>
 <ol>
 <li>
 <p>あなたの身の回りにある物（例：スマートフォン、本、車など）を一つ選んで、それが持っている属性（何を持っているか）と行動（何ができるか）を3つずつ考えてみてください。</p>
@@ -10623,7 +10470,7 @@ class Data { }          // 何のデータかわからない
 <li><strong>データ型</strong>：適切な型を選択する</li>
 </ol>
 <p>次の章では、この設計図（クラス）を使って実際のオブジェクトを作る方法を学びます。いよいよ設計図から実物を作り出しますよ！</p>
-<h2 id="練習問題-31"><a class="header" href="#練習問題-31">練習問題</a></h2>
+<h2 id="練習問題-28"><a class="header" href="#練習問題-28">練習問題</a></h2>
 <ol>
 <li>
 <p>車（Car）を表現するクラスを作ってください。車には以下の属性があります：</p>
@@ -10930,7 +10777,7 @@ void main() {
 <li><strong>オブジェクト比較</strong>：インスタンスの同一性 vs. 内容の比較</li>
 </ol>
 <p>次の章では、オブジェクトに「行動」を追加する方法（メソッド）を学びます。オブジェクトがただデータを持つだけでなく、何かができるようになりますよ！</p>
-<h2 id="練習問題-32"><a class="header" href="#練習問題-32">練習問題</a></h2>
+<h2 id="練習問題-29"><a class="header" href="#練習問題-29">練習問題</a></h2>
 <ol>
 <li>次のコードの実行結果を予想してください：</li>
 </ol>
@@ -11399,7 +11246,7 @@ void main() {
 </ol>
 <p>オブジェクトは今や、データを持つだけでなく、そのデータを使って様々な処理ができるようになりました！</p>
 <p>次の章では、これらの知識を使って実際のペット管理アプリを作ってみます。今まで学んだことが全て一つの形になりますよ！</p>
-<h2 id="練習問題-33"><a class="header" href="#練習問題-33">練習問題</a></h2>
+<h2 id="練習問題-30"><a class="header" href="#練習問題-30">練習問題</a></h2>
 <ol>
 <li>次のコードで、<code>pochi.getHumanAge()</code> の戻り値は何でしょうか？</li>
 </ol>
@@ -11971,7 +11818,7 @@ class Cat extends Pet {
 <li><strong>カプセル化されたクラス</strong>を作成できる</li>
 <li><strong>複雑な管理システム</strong>を設計・実装できる</li>
 </ul>
-<h3 id="心構え-9"><a class="header" href="#心構え-9">心構え</a></h3>
+<h3 id="心構え-8"><a class="header" href="#心構え-8">心構え</a></h3>
 <ul>
 <li><strong>データの安全性</strong>を最優先に考えている</li>
 <li><strong>拡張性と保守性</strong>を意識した設計ができる</li>
@@ -13489,7 +13336,7 @@ void main() {
 <li><strong>エラーメッセージから問題を特定</strong>できる</li>
 <li><strong>予防的なプログラミング</strong>を実践できる</li>
 </ul>
-<h3 id="心構え-10"><a class="header" href="#心構え-10">心構え</a></h3>
+<h3 id="心構え-9"><a class="header" href="#心構え-9">心構え</a></h3>
 <ul>
 <li><strong>エラーを学習の機会</strong>として活用できる</li>
 <li><strong>段階的な問題解決</strong>のアプローチが身についている</li>
@@ -14559,7 +14406,7 @@ void main() {
 <li><strong>実践的なプロジェクト</strong>を企画・実行できる</li>
 <li><strong>コミュニティ活動</strong>に参加できる</li>
 </ul>
-<h3 id="心構え-11"><a class="header" href="#心構え-11">心構え</a></h3>
+<h3 id="心構え-10"><a class="header" href="#心構え-10">心構え</a></h3>
 <ul>
 <li><strong>生涯学習者</strong>としての意識を持っている</li>
 <li><strong>困難を乗り越える</strong>粘り強さがある</li>
@@ -14776,7 +14623,7 @@ void main() {
 <li><strong>null安全性</strong>：エラーの少ない安全なプログラムを書く</li>
 </ul>
 <p>これらの機能を少しずつ学んでいけば、より複雑で実用的なプログラムが書けるようになります。焦らず、一つずつマスターしていきましょう！</p>
-<h2 id="練習問題-34"><a class="header" href="#練習問題-34">練習問題</a></h2>
+<h2 id="練習問題-31"><a class="header" href="#練習問題-31">練習問題</a></h2>
 <h3 id="問題1非同期処理を試してみよう"><a class="header" href="#問題1非同期処理を試してみよう">問題1：非同期処理を試してみよう</a></h3>
 <p>次のコードを完成させて、3秒後にメッセージを表示するプログラムを作ってください：</p>
 <pre><code class="language-javascript">Future&lt;void&gt; delayedMessage() async {

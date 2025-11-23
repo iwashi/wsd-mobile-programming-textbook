@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-9c3636eb.js";
+            window.path_to_searchindex_js = "../searchindex-96867f8f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-5b66f7d5.js"></script>
@@ -203,6 +203,7 @@ int count = 0;
 count = count + 1;  // または count += 1;
 count++;           // インクリメント（1を足す）
 count--;           // デクリメント（1を引く）
+print(count);
 </code></pre>
 <h2 id="double型小数"><a class="header" href="#double型小数">double型（小数）</a></h2>
 <p><strong>double型</strong>は小数点を含む数値を扱います。</p>
@@ -255,25 +256,10 @@ print(price2); // 出力：199.99
 <h2 id="数値の型推論"><a class="header" href="#数値の型推論">数値の型推論</a></h2>
 <pre><code class="language-javascript">// varを使った場合の型推論
 var wholeNumber = 42;      // int型として推論
-var decimalNumber = 42.0;  // double型として推論
+var decimalNumber = 42.5;  // double型として推論
 
 print(wholeNumber.runtimeType);  // 出力：int
 print(decimalNumber.runtimeType); // 出力：double
-</code></pre>
-<h2 id="実用的な例"><a class="header" href="#実用的な例">実用的な例</a></h2>
-<pre><code class="language-javascript">// 商品の価格計算
-double unitPrice = 150.0;  // 単価
-int quantity = 3;          // 数量
-double subtotal = unitPrice * quantity;  // 小計
-double taxRate = 0.10;     // 消費税率（10%）
-double tax = subtotal * taxRate;         // 消費税
-double total = subtotal + tax;           // 合計
-
-print("単価: ${unitPrice}円");
-print("数量: ${quantity}個");
-print("小計: ${subtotal}円");
-print("消費税: ${tax}円");
-print("合計: ${total}円");
 </code></pre>
 <h2 id="注意点"><a class="header" href="#注意点">注意点</a></h2>
 <ol>

@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-9c3636eb.js";
+            window.path_to_searchindex_js = "../searchindex-96867f8f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-5b66f7d5.js"></script>
@@ -211,7 +211,6 @@ const double TAX_RATE = 0.10;
 // String user name = "太郎";    // スペース不可
 // int 123count = 0;            // 数字から始まる不可
 // String class = "クラス";      // 予約語不可
-// String いろ = "赤";           // 日本語不可（技術的には可能だが非推奨）
 
 // 正しい例
 String userName = "太郎";
@@ -337,31 +336,6 @@ bool hasAdminPermission = false;
 bool canEditProfile = true;
 bool canViewReports = true;
 bool isPremiumMember = false;
-
-// セッション管理
-String sessionId = "session_abc123";
-int sessionTimeoutMinutes = 30;
-bool isSessionValid = true;
-DateTime sessionStartTime = DateTime.now();
-</code></pre>
-<h3 id="ショッピングカート"><a class="header" href="#ショッピングカート">ショッピングカート</a></h3>
-<pre><code class="language-javascript">// 商品情報
-String selectedProductId = "prod_001";
-String selectedProductName = "ワイヤレスマウス";
-double selectedProductPrice = 2980.0;
-int selectedProductQuantity = 2;
-
-// カート情報
-int cartItemCount = 5;
-double cartSubtotal = 14900.0;
-double cartTaxAmount = 1490.0;
-double cartTotalAmount = 16390.0;
-
-// 配送情報
-String shippingAddress = "東京都渋谷区...";
-double shippingCost = 500.0;
-bool isFreeShipping = false;
-DateTime estimatedDeliveryDate = DateTime.now();
 </code></pre>
 <h2 id="命名時のチェックリスト"><a class="header" href="#命名時のチェックリスト">命名時のチェックリスト</a></h2>
 <ol>
