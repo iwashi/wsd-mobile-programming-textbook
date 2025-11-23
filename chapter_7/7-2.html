@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-9bdaf777.js";
+            window.path_to_searchindex_js = "../searchindex-3d253f29.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-8071f62d.js"></script>
+        <script src="../toc-94a57eff.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -205,7 +205,8 @@
 }
 </code></pre>
 <h2 id="要素へのアクセス"><a class="header" href="#要素へのアクセス">要素へのアクセス</a></h2>
-<p>リストの要素には、インデックス（番号）を使ってアクセスします。<strong>重要：インデックスは0から始まります！</strong></p>
+<p>リストの要素には、インデックス（番号）を使ってアクセスします。</p>
+<p>大事なことなので、再度書きますが<strong>インデックスは0から始まります！</strong></p>
 <pre><code class="language-javascript">void main() {
   var fruits = ['りんご', 'バナナ', 'オレンジ', 'ぶどう', 'いちご'];
   
@@ -253,26 +254,6 @@
   print(numbers.last);   // 9
 }
 </code></pre>
-<h2 id="練習日付管理プログラム"><a class="header" href="#練習日付管理プログラム">練習：日付管理プログラム</a></h2>
-<p>曜日を管理する簡単なプログラムを作ってみましょう：</p>
-<pre><code class="language-javascript">void main() {
-  // 曜日のリスト
-  var weekdays = ['月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日', '日曜日'];
-  
-  // 今日は何曜日？（0 = 月曜日）
-  int today = 2;  // 水曜日
-  
-  print('今日は${weekdays[today]}です');
-  print('明日は${weekdays[today + 1]}です');
-  
-  // 週末かどうかチェック
-  if (today &gt;= 5) {
-    print('週末です！');
-  } else {
-    print('平日です。');
-  }
-}
-</code></pre>
 <h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
 <ul>
 <li>リストは <code>[]</code> で作成します</li>
@@ -281,12 +262,6 @@
 <li><code>length</code>でリストの要素数を調べられます</li>
 <li>範囲外のインデックスにアクセスするとエラーになります</li>
 </ul>
-<h3 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h3>
-<ol>
-<li>あなたの好きな科目を5つ含むリストを作成し、3番目の科目を表示してください</li>
-<li>1から10までの数字を含むリストを作成し、最初と最後の要素を表示してください</li>
-<li>家族の名前のリストを作成し、リストの要素数を表示してください</li>
-</ol>
 
                     </main>
 
