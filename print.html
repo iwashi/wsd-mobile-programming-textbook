@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-acfe9f5d.js";
+            window.path_to_searchindex_js = "searchindex-d3e6f78f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-d5f4e2a3.js"></script>
@@ -6969,30 +6969,6 @@ void main() {
   print('判定: $judgment');
 }
 </code></pre>
-<h2 id="練習問題-3"><a class="header" href="#練習問題-3">練習問題</a></h2>
-<ol>
-<li>3つの数値を受け取って、その平均値を返す関数を作ってください。</li>
-</ol>
-<pre><code class="language-javascript">double average(double a, double b, double c) {
-  // ここにコードを書いてください
-}
-
-void main() {
-  print(average(10, 20, 30));  // 20.0 と表示されるはず
-}
-</code></pre>
-<ol start="2">
-<li>商品の価格と個数を受け取って、合計金額を計算する関数を作ってください。</li>
-</ol>
-<pre><code class="language-javascript">int calculateTotal(int price, int quantity) {
-  // ここにコードを書いてください
-}
-
-void main() {
-  int total = calculateTotal(100, 3);
-  print('合計: $total円');  // 合計: 300円 と表示されるはず
-}
-</code></pre>
 <h2 id="まとめ-31"><a class="header" href="#まとめ-31">まとめ</a></h2>
 <ul>
 <li>関数は複数の引数をカンマで区切って受け取ることができる</li>
@@ -7082,98 +7058,6 @@ void main() {
   );
 }
 </code></pre>
-<h2 id="実践例カスタマイズ可能な電卓"><a class="header" href="#実践例カスタマイズ可能な電卓">実践例：カスタマイズ可能な電卓</a></h2>
-<p>オプション引数を活用した電卓プログラムを作ってみましょう。</p>
-<pre><code class="language-javascript">// 計算結果を表示する関数
-void calculate({
-  required double a,
-  required double b,
-  String operation = '+',
-  bool showProcess = false
-}) {
-  double result;
-  String processText = '';
-  
-  switch (operation) {
-    case '+':
-      result = a + b;
-      processText = '$a + $b = $result';
-      break;
-    case '-':
-      result = a - b;
-      processText = '$a - $b = $result';
-      break;
-    case '*':
-      result = a * b;
-      processText = '$a × $b = $result';
-      break;
-    case '/':
-      if (b != 0) {
-        result = a / b;
-        processText = '$a ÷ $b = $result';
-      } else {
-        print('エラー: 0で割ることはできません');
-        return;
-      }
-      break;
-    default:
-      print('エラー: 無効な演算子です');
-      return;
-  }
-  
-  if (showProcess) {
-    print(processText);
-  } else {
-    print(result);
-  }
-}
-
-void main() {
-  // 基本的な使い方（デフォルトは足し算）
-  calculate(a: 10, b: 5);  // 15
-  
-  // 引き算を指定
-  calculate(a: 10, b: 5, operation: '-');  // 5
-  
-  // 計算過程も表示
-  calculate(a: 10, b: 5, operation: '*', showProcess: true);  // 10 × 5 = 50
-  
-  // 割り算の計算過程を表示
-  calculate(a: 20, b: 4, operation: '/', showProcess: true);  // 20 ÷ 4 = 5.0
-}
-</code></pre>
-<h2 id="練習問題-4"><a class="header" href="#練習問題-4">練習問題</a></h2>
-<ol>
-<li>文字列を装飾する関数を作ってください。デフォルトでは <code>*</code> で囲みます。</li>
-</ol>
-<pre><code class="language-javascript">String decorate(String text, [String decorator = '*']) {
-  // ここにコードを書いてください
-  // 例: decorate('Hello') =&gt; '*Hello*'
-}
-
-void main() {
-  print(decorate('Hello'));      // *Hello*
-  print(decorate('World', '#')); // #World#
-}
-</code></pre>
-<ol start="2">
-<li>名前付き引数を使って、カスタマイズ可能なメッセージ表示関数を作ってください。</li>
-</ol>
-<pre><code class="language-javascript">void showMessage({
-  required String message,
-  String prefix = '[INFO]',
-  bool showTime = false
-}) {
-  // ここにコードを書いてください
-  // showTimeがtrueの場合は現在時刻も表示
-}
-
-void main() {
-  showMessage(message: 'プログラムを開始しました');
-  showMessage(message: 'エラーが発生しました', prefix: '[ERROR]');
-  showMessage(message: '処理が完了しました', showTime: true);
-}
-</code></pre>
 <h2 id="まとめ-32"><a class="header" href="#まとめ-32">まとめ</a></h2>
 <ul>
 <li>角括弧 <code>[]</code> で位置引数のデフォルト値を設定できる</li>
@@ -7182,10 +7066,10 @@ void main() {
 <li><code>required</code> キーワードで名前付き引数を必須にできる</li>
 <li>オプション引数を使うことで、関数をより柔軟に使えるようになる</li>
 </ul>
-<p>次の節では、関数を使ったプログラムの設計方法について学びます。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="関数を使ったプログラムの設計"><a class="header" href="#関数を使ったプログラムの設計">関数を使ったプログラムの設計</a></h1>
 <p>これまで関数の作り方や使い方を学んできました。この節では、関数を使ってプログラムをどのように設計すればよいかを学びます。よい設計は、プログラムを読みやすく、修正しやすくします。</p>
+<p>なお、本節の内容はやや発展的であるため、現時点ですぐに理解できなくても構いません。</p>
 <h2 id="関数設計の基本原則"><a class="header" href="#関数設計の基本原則">関数設計の基本原則</a></h2>
 <h3 id="1-単一責任の原則"><a class="header" href="#1-単一責任の原則">1. 単一責任の原則</a></h3>
 <p>一つの関数は一つのことだけを行うべきです。</p>
@@ -7406,30 +7290,6 @@ void main() {
   analyzeTemperatures();
 }
 </code></pre>
-<h2 id="練習問題-5"><a class="header" href="#練習問題-5">練習問題</a></h2>
-<ol>
-<li>以下の処理を適切な関数に分割してください。</li>
-</ol>
-<pre><code class="language-javascript">void main() {
-  // この処理を複数の関数に分割してください
-  String text = 'Hello World';
-  int vowelCount = 0;
-  int consonantCount = 0;
-  
-  for (int i = 0; i &lt; text.length; i++) {
-    String char = text[i].toLowerCase();
-    if (char == 'a' || char == 'e' || char == 'i' || 
-        char == 'o' || char == 'u') {
-      vowelCount++;
-    } else if (char != ' ') {
-      consonantCount++;
-    }
-  }
-  
-  print('母音の数: $vowelCount');
-  print('子音の数: $consonantCount');
-}
-</code></pre>
 <h2 id="まとめ-33"><a class="header" href="#まとめ-33">まとめ</a></h2>
 <ul>
 <li>一つの関数は一つの責任を持つべき（単一責任の原則）</li>
@@ -7495,6 +7355,35 @@ void main() {
 <p>コンピュータがランダムに手を選ぶ機能を追加します。</p>
 <pre><code class="language-javascript">import 'dart:math';
 
+// じゃんけんの手を数値で表現
+// 0: グー、1: チョキ、2: パー
+
+String getHandName(int hand) {
+  switch (hand) {
+    case 0: return 'グー';
+    case 1: return 'チョキ';
+    case 2: return 'パー';
+    default: return '無効';
+  }
+}
+
+// 勝敗を判定する関数
+// 戻り値: 0=引き分け、1=プレイヤーの勝ち、-1=プレイヤーの負け
+int judgeWinner(int playerHand, int computerHand) {
+  if (playerHand == computerHand) {
+    return 0; // 引き分け
+  }
+  
+  // プレイヤーが勝つパターン
+  if ((playerHand == 0 &amp;&amp; computerHand == 1) ||  // グー vs チョキ
+      (playerHand == 1 &amp;&amp; computerHand == 2) ||  // チョキ vs パー
+      (playerHand == 2 &amp;&amp; computerHand == 0)) {  // パー vs グー
+    return 1;
+  }
+  
+  return -1; // プレイヤーの負け
+}
+
 // 前のコードに追加
 int generateComputerHand() {
   Random random = Random();
@@ -7528,70 +7417,8 @@ void main() {
   playOneRound(0); // グーを出す
 }
 </code></pre>
-<h2 id="ステップ3入力機能の追加"><a class="header" href="#ステップ3入力機能の追加">ステップ3：入力機能の追加</a></h2>
-<p>プレイヤーが手を選べるようにします。</p>
-<pre><code class="language-javascript">// 入力を検証する関数
-bool isValidInput(String input) {
-  return input == '0' || input == '1' || input == '2';
-}
-
-// メニューを表示する関数
-void showHandMenu() {
-  print('じゃんけんの手を選んでください:');
-  print('0: グー');
-  print('1: チョキ');
-  print('2: パー');
-  print('選択: ');
-}
-
-// 入力を処理する関数（デモ用）
-int getPlayerInput(String input) {
-  if (isValidInput(input)) {
-    return int.parse(input);
-  }
-  return -1; // 無効な入力
-}
-</code></pre>
-<h2 id="ステップ4連続対戦と統計機能"><a class="header" href="#ステップ4連続対戦と統計機能">ステップ4：連続対戦と統計機能</a></h2>
-<p>複数回対戦して、勝率を記録する機能を追加します。</p>
-<pre><code class="language-javascript">// ゲームの統計を管理
-class GameStats {
-  int wins = 0;
-  int losses = 0;
-  int draws = 0;
-  
-  int get totalGames =&gt; wins + losses + draws;
-  
-  double get winRate {
-    if (totalGames == 0) return 0;
-    return (wins / totalGames) * 100;
-  }
-}
-
-// 統計を更新する関数
-void updateStats(GameStats stats, int result) {
-  if (result == 1) {
-    stats.wins++;
-  } else if (result == -1) {
-    stats.losses++;
-  } else {
-    stats.draws++;
-  }
-}
-
-// 統計を表示する関数
-void displayStats(GameStats stats) {
-  print('\n=== ゲーム統計 ===');
-  print('総ゲーム数: ${stats.totalGames}');
-  print('勝ち: ${stats.wins}回');
-  print('負け: ${stats.losses}回');
-  print('引き分け: ${stats.draws}回');
-  print('勝率: ${stats.winRate.toStringAsFixed(1)}%');
-  print('==================\n');
-}
-</code></pre>
 <h2 id="完成版じゃんけんゲーム"><a class="header" href="#完成版じゃんけんゲーム">完成版：じゃんけんゲーム</a></h2>
-<p>すべての機能を組み合わせた完成版です。</p>
+<p>その他の機能を組み合わせた完成版です。</p>
 <pre><code class="language-javascript">import 'dart:math';
 
 // じゃんけんの手を管理
@@ -7734,8 +7561,6 @@ void main() {
     
     displayDetailedResult(playerHand, computerHand, result);
     stats.recordGame(result, playerHand, computerHand);
-    
-    print('\n続けるには何かキーを押してください...');
   }
   
   // 最終統計
@@ -7754,18 +7579,6 @@ void main() {
   }
 }
 </code></pre>
-<h2 id="練習問題-6"><a class="header" href="#練習問題-6">練習問題</a></h2>
-<ol>
-<li>
-<p>「最初はグー」機能を追加してください（最初に必ずグーを表示）。</p>
-</li>
-<li>
-<p>連勝記録を追跡する機能を追加してください。</p>
-</li>
-<li>
-<p>コンピュータの戦略を追加してください（例：前回プレイヤーが出した手に勝つ手を出しやすくする）。</p>
-</li>
-</ol>
 <h2 id="まとめ-34"><a class="header" href="#まとめ-34">まとめ</a></h2>
 <p>この節では、関数を組み合わせて実用的なじゃんけんゲームを作りました。以下の重要な概念を実践しました：</p>
 <ul>
@@ -7773,9 +7586,7 @@ void main() {
 <li>引数と戻り値を使った関数間のデータ受け渡し</li>
 <li>複数の関数を組み合わせた複雑な処理の実現</li>
 <li>クラスを使った関連データのグループ化</li>
-<li>ユーザー体験を向上させる機能の追加</li>
 </ul>
-<p>これで第10章は完了です。関数を使いこなすことで、より構造化された読みやすいプログラムを作ることができるようになりました。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="第11章クラスとオブジェクトの基礎"><a class="header" href="#第11章クラスとオブジェクトの基礎">第11章：クラスとオブジェクトの基礎</a></h1>
 <p>関数を駆使したプログラム設計をマスターしたあなたは、いよいよプログラミングの新しい世界に足を踏み入れます！</p>
@@ -7948,7 +7759,7 @@ print("猫: $catName, $catAge歳, $catBreed");
 <li><strong>これから</strong>：関連する情報と処理をオブジェクトとしてまとめて管理</li>
 </ul>
 <p>次の章では、実際にDartでオブジェクトを作る方法を学んでいきます。まずは「<strong>クラス</strong>」という設計図の作り方から始めましょう！</p>
-<h2 id="練習問題-7"><a class="header" href="#練習問題-7">練習問題</a></h2>
+<h2 id="練習問題-3"><a class="header" href="#練習問題-3">練習問題</a></h2>
 <ol>
 <li>
 <p>あなたの身の回りにある物（例：スマートフォン、本、車など）を一つ選んで、それが持っている属性（何を持っているか）と行動（何ができるか）を3つずつ考えてみてください。</p>
@@ -8133,7 +7944,7 @@ class Data { }          // 何のデータかわからない
 <li><strong>データ型</strong>：適切な型を選択する</li>
 </ol>
 <p>次の章では、この設計図（クラス）を使って実際のオブジェクトを作る方法を学びます。いよいよ設計図から実物を作り出しますよ！</p>
-<h2 id="練習問題-8"><a class="header" href="#練習問題-8">練習問題</a></h2>
+<h2 id="練習問題-4"><a class="header" href="#練習問題-4">練習問題</a></h2>
 <ol>
 <li>
 <p>車（Car）を表現するクラスを作ってください。車には以下の属性があります：</p>
@@ -8440,7 +8251,7 @@ void main() {
 <li><strong>オブジェクト比較</strong>：インスタンスの同一性 vs. 内容の比較</li>
 </ol>
 <p>次の章では、オブジェクトに「行動」を追加する方法（メソッド）を学びます。オブジェクトがただデータを持つだけでなく、何かができるようになりますよ！</p>
-<h2 id="練習問題-9"><a class="header" href="#練習問題-9">練習問題</a></h2>
+<h2 id="練習問題-5"><a class="header" href="#練習問題-5">練習問題</a></h2>
 <ol>
 <li>次のコードの実行結果を予想してください：</li>
 </ol>
@@ -8909,7 +8720,7 @@ void main() {
 </ol>
 <p>オブジェクトは今や、データを持つだけでなく、そのデータを使って様々な処理ができるようになりました！</p>
 <p>次の章では、これらの知識を使って実際のペット管理アプリを作ってみます。今まで学んだことが全て一つの形になりますよ！</p>
-<h2 id="練習問題-10"><a class="header" href="#練習問題-10">練習問題</a></h2>
+<h2 id="練習問題-6"><a class="header" href="#練習問題-6">練習問題</a></h2>
 <ol>
 <li>次のコードで、<code>pochi.getHumanAge()</code> の戻り値は何でしょうか？</li>
 </ol>
@@ -12286,7 +12097,7 @@ void main() {
 <li><strong>null安全性</strong>：エラーの少ない安全なプログラムを書く</li>
 </ul>
 <p>これらの機能を少しずつ学んでいけば、より複雑で実用的なプログラムが書けるようになります。焦らず、一つずつマスターしていきましょう！</p>
-<h2 id="練習問題-11"><a class="header" href="#練習問題-11">練習問題</a></h2>
+<h2 id="練習問題-7"><a class="header" href="#練習問題-7">練習問題</a></h2>
 <h3 id="問題1非同期処理を試してみよう"><a class="header" href="#問題1非同期処理を試してみよう">問題1：非同期処理を試してみよう</a></h3>
 <p>次のコードを完成させて、3秒後にメッセージを表示するプログラムを作ってください：</p>
 <pre><code class="language-javascript">Future&lt;void&gt; delayedMessage() async {

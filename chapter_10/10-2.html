@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-acfe9f5d.js";
+            window.path_to_searchindex_js = "../searchindex-d3e6f78f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d5f4e2a3.js"></script>
@@ -254,98 +254,6 @@ void main() {
   );
 }
 </code></pre>
-<h2 id="実践例カスタマイズ可能な電卓"><a class="header" href="#実践例カスタマイズ可能な電卓">実践例：カスタマイズ可能な電卓</a></h2>
-<p>オプション引数を活用した電卓プログラムを作ってみましょう。</p>
-<pre><code class="language-javascript">// 計算結果を表示する関数
-void calculate({
-  required double a,
-  required double b,
-  String operation = '+',
-  bool showProcess = false
-}) {
-  double result;
-  String processText = '';
-  
-  switch (operation) {
-    case '+':
-      result = a + b;
-      processText = '$a + $b = $result';
-      break;
-    case '-':
-      result = a - b;
-      processText = '$a - $b = $result';
-      break;
-    case '*':
-      result = a * b;
-      processText = '$a × $b = $result';
-      break;
-    case '/':
-      if (b != 0) {
-        result = a / b;
-        processText = '$a ÷ $b = $result';
-      } else {
-        print('エラー: 0で割ることはできません');
-        return;
-      }
-      break;
-    default:
-      print('エラー: 無効な演算子です');
-      return;
-  }
-  
-  if (showProcess) {
-    print(processText);
-  } else {
-    print(result);
-  }
-}
-
-void main() {
-  // 基本的な使い方（デフォルトは足し算）
-  calculate(a: 10, b: 5);  // 15
-  
-  // 引き算を指定
-  calculate(a: 10, b: 5, operation: '-');  // 5
-  
-  // 計算過程も表示
-  calculate(a: 10, b: 5, operation: '*', showProcess: true);  // 10 × 5 = 50
-  
-  // 割り算の計算過程を表示
-  calculate(a: 20, b: 4, operation: '/', showProcess: true);  // 20 ÷ 4 = 5.0
-}
-</code></pre>
-<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
-<ol>
-<li>文字列を装飾する関数を作ってください。デフォルトでは <code>*</code> で囲みます。</li>
-</ol>
-<pre><code class="language-javascript">String decorate(String text, [String decorator = '*']) {
-  // ここにコードを書いてください
-  // 例: decorate('Hello') =&gt; '*Hello*'
-}
-
-void main() {
-  print(decorate('Hello'));      // *Hello*
-  print(decorate('World', '#')); // #World#
-}
-</code></pre>
-<ol start="2">
-<li>名前付き引数を使って、カスタマイズ可能なメッセージ表示関数を作ってください。</li>
-</ol>
-<pre><code class="language-javascript">void showMessage({
-  required String message,
-  String prefix = '[INFO]',
-  bool showTime = false
-}) {
-  // ここにコードを書いてください
-  // showTimeがtrueの場合は現在時刻も表示
-}
-
-void main() {
-  showMessage(message: 'プログラムを開始しました');
-  showMessage(message: 'エラーが発生しました', prefix: '[ERROR]');
-  showMessage(message: '処理が完了しました', showTime: true);
-}
-</code></pre>
 <h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
 <ul>
 <li>角括弧 <code>[]</code> で位置引数のデフォルト値を設定できる</li>
@@ -354,7 +262,6 @@ void main() {
 <li><code>required</code> キーワードで名前付き引数を必須にできる</li>
 <li>オプション引数を使うことで、関数をより柔軟に使えるようになる</li>
 </ul>
-<p>次の節では、関数を使ったプログラムの設計方法について学びます。</p>
 
                     </main>
 

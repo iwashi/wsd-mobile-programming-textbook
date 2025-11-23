@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-acfe9f5d.js";
+            window.path_to_searchindex_js = "../searchindex-d3e6f78f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d5f4e2a3.js"></script>
@@ -176,6 +176,7 @@
                     <main>
                         <h1 id="関数を使ったプログラムの設計"><a class="header" href="#関数を使ったプログラムの設計">関数を使ったプログラムの設計</a></h1>
 <p>これまで関数の作り方や使い方を学んできました。この節では、関数を使ってプログラムをどのように設計すればよいかを学びます。よい設計は、プログラムを読みやすく、修正しやすくします。</p>
+<p>なお、本節の内容はやや発展的であるため、現時点ですぐに理解できなくても構いません。</p>
 <h2 id="関数設計の基本原則"><a class="header" href="#関数設計の基本原則">関数設計の基本原則</a></h2>
 <h3 id="1-単一責任の原則"><a class="header" href="#1-単一責任の原則">1. 単一責任の原則</a></h3>
 <p>一つの関数は一つのことだけを行うべきです。</p>
@@ -394,30 +395,6 @@ void analyzeTemperatures() {
 void main() {
   analyzeTestScores();
   analyzeTemperatures();
-}
-</code></pre>
-<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
-<ol>
-<li>以下の処理を適切な関数に分割してください。</li>
-</ol>
-<pre><code class="language-javascript">void main() {
-  // この処理を複数の関数に分割してください
-  String text = 'Hello World';
-  int vowelCount = 0;
-  int consonantCount = 0;
-  
-  for (int i = 0; i &lt; text.length; i++) {
-    String char = text[i].toLowerCase();
-    if (char == 'a' || char == 'e' || char == 'i' || 
-        char == 'o' || char == 'u') {
-      vowelCount++;
-    } else if (char != ' ') {
-      consonantCount++;
-    }
-  }
-  
-  print('母音の数: $vowelCount');
-  print('子音の数: $consonantCount');
 }
 </code></pre>
 <h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
