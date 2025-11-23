@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-96867f8f.js";
+            window.path_to_searchindex_js = "../searchindex-8f4caf76.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-5b66f7d5.js"></script>
@@ -195,7 +195,6 @@ int b = 3;
 print(a + b);  // 加算：13
 print(a - b);  // 減算：7
 print(a * b);  // 乗算：30
-print(a ~/ b); // 整数除算：3（小数部分は切り捨て）
 print(a % b);  // 余り：1
 
 // 代入演算子
@@ -277,30 +276,6 @@ print(result); // 0.30000000000000004（期待値：0.3）
 </code></pre>
 </li>
 </ol>
-<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
-<ol>
-<li>あなたの身長（cm）をdouble型で、体重（kg）をint型で宣言してください</li>
-<li>BMIを計算してください（BMI = 体重 ÷ 身長² × 10000）</li>
-<li>円の半径を入力として、円周と面積を計算してください</li>
-</ol>
-<pre><code class="language-javascript">// 解答例
-double height = 170.5;  // cm
-int weight = 65;        // kg
-
-// BMI計算
-double bmi = weight / (height * height) * 10000;
-print("BMI: ${bmi.toStringAsFixed(1)}");
-
-// 円の計算
-double radius = 5.0;
-double pi = 3.14159;
-double circumference = 2 * pi * radius;  // 円周
-double area = pi * radius * radius;      // 面積
-
-print("半径: ${radius}");
-print("円周: ${circumference.toStringAsFixed(2)}");
-print("面積: ${area.toStringAsFixed(2)}");
-</code></pre>
 
                     </main>
 

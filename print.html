@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-96867f8f.js";
+            window.path_to_searchindex_js = "searchindex-8f4caf76.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-5b66f7d5.js"></script>
@@ -2352,7 +2352,6 @@ int b = 3;
 print(a + b);  // 加算：13
 print(a - b);  // 減算：7
 print(a * b);  // 乗算：30
-print(a ~/ b); // 整数除算：3（小数部分は切り捨て）
 print(a % b);  // 余り：1
 
 // 代入演算子
@@ -2434,30 +2433,6 @@ print(result); // 0.30000000000000004（期待値：0.3）
 </code></pre>
 </li>
 </ol>
-<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
-<ol>
-<li>あなたの身長（cm）をdouble型で、体重（kg）をint型で宣言してください</li>
-<li>BMIを計算してください（BMI = 体重 ÷ 身長² × 10000）</li>
-<li>円の半径を入力として、円周と面積を計算してください</li>
-</ol>
-<pre><code class="language-javascript">// 解答例
-double height = 170.5;  // cm
-int weight = 65;        // kg
-
-// BMI計算
-double bmi = weight / (height * height) * 10000;
-print("BMI: ${bmi.toStringAsFixed(1)}");
-
-// 円の計算
-double radius = 5.0;
-double pi = 3.14159;
-double circumference = 2 * pi * radius;  // 円周
-double area = pi * radius * radius;      // 面積
-
-print("半径: ${radius}");
-print("円周: ${circumference.toStringAsFixed(2)}");
-print("面積: ${area.toStringAsFixed(2)}");
-</code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="文字列を扱うstring"><a class="header" href="#文字列を扱うstring">文字列を扱う（String）</a></h1>
 <p><strong>String型</strong>は文字列（テキスト）を扱うためのデータ型です。プログラムでは、名前やメッセージ、説明文など、文字の情報を扱う機会が非常に多くあります。</p>
@@ -3005,7 +2980,7 @@ String userName = "田中";
 int quantity = 5;
 double amount = 1500.0;
 </code></pre>
-<h2 id="練習問題-1"><a class="header" href="#練習問題-1">練習問題</a></h2>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
 <p>以下の悪い例を、良い変数名に変更してください：</p>
 <pre><code class="language-javascript">// 悪い例
 int x = 20;
@@ -3026,7 +3001,6 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <p>良い変数名を付けることで、コードは自己文書化され、他の人（未来の自分も含む）が理解しやすくなります。時間をかけて適切な名前を考えることは、長期的にプログラムの品質向上につながります。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="第4章計算と演算子"><a class="header" href="#第4章計算と演算子">第4章：計算と演算子</a></h1>
-<p>変数とデータ型をマスターしたあなたは、いよいよデータを「加工」する力を身につけます！</p>
 <p>この章では、プログラムで計算を行うための演算子について学習します。数値の四則演算から文字列の連結、変数の値の変更まで、データを操作するための基本的なテクニックを習得します。また、演算の優先順位も理解することで、複雑な計算も正確に行えるようになります。最後には学習した内容を活かした実践的な計算プログラムに挑戦します。</p>
 <h2 id="この章の構成-3"><a class="header" href="#この章の構成-3">この章の構成</a></h2>
 <h3 id="41-算術演算子-"><a class="header" href="#41-算術演算子-"><a href="#算術演算子-">4.1 算術演算子（+、-、*、/、%）</a></a></h3>
@@ -3036,12 +3010,9 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <li>整数同士の割り算と浮動小数点の割り算の違い</li>
 <li>実際の計算プログラムでの活用例</li>
 </ul>
-<h3 id="42-文字列の連結"><a class="header" href="#42-文字列の連結"><a href="#文字列の連結-1">4.2 文字列の連結</a></a></h3>
+<h3 id="42-文字列と数字の変換"><a class="header" href="#42-文字列と数字の変換"><a href="#文字列と数値の変換">4.2 文字列と数字の変換</a></a></h3>
 <ul>
-<li>+演算子を使った文字列の結合</li>
-<li>文字列と数値の組み合わせ方</li>
-<li>文字列補間（$記法）の便利な使い方</li>
-<li>複雑な文字列作成のテクニック</li>
+<li>文字列と数値の変換</li>
 </ul>
 <h3 id="43-変数の値を変更する"><a class="header" href="#43-変数の値を変更する"><a href="#変数の値を変更する">4.3 変数の値を変更する</a></a></h3>
 <ul>
@@ -3056,13 +3027,6 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <li>括弧を使った優先順位の制御</li>
 <li>複雑な式を読みやすくする書き方</li>
 <li>よくある優先順位の間違いと対策</li>
-</ul>
-<h3 id="45-練習問題簡単な計算プログラム"><a class="header" href="#45-練習問題簡単な計算プログラム"><a href="#練習問題簡単な計算プログラム">4.5 練習問題：簡単な計算プログラム</a></a></h3>
-<ul>
-<li>消費税計算プログラムの作成</li>
-<li>単位変換プログラムの実装</li>
-<li>図形の面積・体積計算</li>
-<li>実践的な計算アプリケーションへの応用</li>
 </ul>
 <h2 id="学習の目標-3"><a class="header" href="#学習の目標-3">学習の目標</a></h2>
 <p>この章を完了すると、以下のことができるようになります：</p>
@@ -3080,12 +3044,6 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <li><strong>変数の値を効率的に更新</strong>するコードが書ける</li>
 <li><strong>複雑な計算式</strong>を正確にプログラムで表現できる</li>
 </ul>
-<h3 id="心構え"><a class="header" href="#心構え">心構え</a></h3>
-<ul>
-<li><strong>計算の正確性</strong>を重視する習慣がついている</li>
-<li><strong>コードの簡潔性</strong>と<strong>可読性</strong>のバランスを考えられる</li>
-<li><strong>実世界の問題</strong>をプログラムで解決する発想力がある</li>
-</ul>
 <h2 id="学習のポイント-3"><a class="header" href="#学習のポイント-3">学習のポイント</a></h2>
 <h3 id="-プログラムは正確な計算機"><a class="header" href="#-プログラムは正確な計算機">🧮 プログラムは正確な計算機</a></h3>
 <p>コンピュータは人間と違って計算を間違えません。しかし、プログラムを書く人間が演算子や優先順位を間違えると、期待した結果になりません。慎重に式を組み立てましょう。</p>
@@ -3093,12 +3051,9 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <p>数値計算だけでなく、文字列の連結も重要な操作です。ユーザーに分かりやすいメッセージを作るために、文字列操作を積極的に活用しましょう。</p>
 <h3 id="-複合代入演算子で効率アップ"><a class="header" href="#-複合代入演算子で効率アップ">⚡ 複合代入演算子で効率アップ</a></h3>
 <p><code>count = count + 1</code> よりも <code>count++</code> の方が短くて読みやすいです。コードを簡潔に書けるテクニックを身につけましょう。</p>
-<h3 id="-実践で理解を深める"><a class="header" href="#-実践で理解を深める">🎯 実践で理解を深める</a></h3>
-<p>この章の練習問題は、実際に使えるプログラムを作ります。日常生活で使える計算プログラムを作ることで、プログラミングの実用性を実感しましょう。</p>
 <h2 id="次のステップへ-3"><a class="header" href="#次のステップへ-3">次のステップへ</a></h2>
 <p>第4章を修了すると、あなたは基本的な計算処理をプログラムで実現できるようになります。</p>
 <p>第5章では、プログラムに「判断力」を与える条件分岐について学習します。if文を使って条件によって処理を変える方法を学び、より柔軟で実用的なプログラムを作成できるようになります。</p>
-<p><strong>計算ができれば、コンピュータの力を存分に活用できます！</strong> 💪</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="算術演算子-"><a class="header" href="#算術演算子-">算術演算子（+、-、*、/、%）</a></h1>
 <p>プログラミングでは、数学と同じように計算を行うことができます。Dartには基本的な算術演算子が用意されており、これらを使って様々な計算を実行できます。</p>
@@ -3154,106 +3109,8 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
   print('$a ÷ $b = $quotient (整数部分のみ)'); // 17 ÷ 5 = 3 (整数部分のみ)
 }
 </code></pre>
-<h2 id="実用的な例-1"><a class="header" href="#実用的な例-1">実用的な例</a></h2>
-<pre><code class="language-javascript">void main() {
-  // 円の面積を計算する
-  double radius = 5.0;
-  double pi = 3.14159;
-  double area = pi * radius * radius;
-  print('半径${radius}の円の面積: $area');
-  
-  // 時間の変換（秒を時分秒に変換）
-  int totalSeconds = 3661;
-  int hours = totalSeconds ~/ 3600;
-  int minutes = (totalSeconds % 3600) ~/ 60;
-  int seconds = totalSeconds % 60;
-  print('${totalSeconds}秒 = ${hours}時間${minutes}分${seconds}秒');
-}
-</code></pre>
-<p>算術演算子を使うことで、プログラムで様々な計算処理を実装できます。次は文字列の連結について学んでいきましょう。</p>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="文字列の連結-1"><a class="header" href="#文字列の連結-1">文字列の連結</a></h1>
-<p>数値の計算だけでなく、文字列（テキスト）同士を結合することもプログラミングでは頻繁に行います。Dartでは複数の方法で文字列を連結することができます。</p>
-<h2 id="演算子を使った文字列連結"><a class="header" href="#演算子を使った文字列連結">+演算子を使った文字列連結</a></h2>
-<p>最もシンプルな方法は、+演算子を使って文字列を連結することです：</p>
-<pre><code class="language-javascript">void main() {
-  String firstName = 'たろう';
-  String lastName = '田中';
-  String fullName = lastName + firstName;
-  print(fullName); // 田中たろう
-}
-</code></pre>
-<p>複数の文字列を連結することもできます：</p>
-<pre><code class="language-javascript">void main() {
-  String greeting = 'こんにちは';
-  String name = '山田さん';
-  String punctuation = '！';
-  String message = greeting + '、' + name + punctuation;
-  print(message); // こんにちは、山田さん！
-}
-</code></pre>
-<h2 id="文字列補間テンプレート文字列"><a class="header" href="#文字列補間テンプレート文字列">文字列補間（テンプレート文字列）</a></h2>
-<p>より読みやすく、便利な方法として文字列補間があります。<code>$</code>記号を使って変数の値を文字列に埋め込むことができます：</p>
-<pre><code class="language-javascript">void main() {
-  String name = '佐藤';
-  int age = 25;
-  String introduction = '私の名前は${name}です。${age}歳です。';
-  print(introduction); // 私の名前は佐藤です。25歳です。
-}
-</code></pre>
-<p>変数名が単純な場合は、波括弧を省略できます：</p>
-<pre><code class="language-javascript">void main() {
-  String product = 'りんご';
-  int price = 150;
-  print('$productの価格は$price円です。'); // りんごの価格は150円です。
-}
-</code></pre>
-<h2 id="計算結果を文字列に含める"><a class="header" href="#計算結果を文字列に含める">計算結果を文字列に含める</a></h2>
-<p>文字列補間では、計算式も直接記述できます：</p>
-<pre><code class="language-javascript">void main() {
-  int width = 5;
-  int height = 3;
-  print('長方形の面積は${width * height}平方センチメートルです。');
-  // 長方形の面積は15平方センチメートルです。
-}
-</code></pre>
-<h2 id="複数行の文字列"><a class="header" href="#複数行の文字列">複数行の文字列</a></h2>
-<p>長い文字列や複数行にわたる文字列を作る場合：</p>
-<pre><code class="language-javascript">void main() {
-  String name = '鈴木';
-  int score = 85;
-  
-  String report = '''
-お疲れ様です。
-${name}さんのテスト結果をお知らせします。
-点数: $score点
-  ''';
-  
-  print(report);
-}
-</code></pre>
-<h2 id="実用的な例-2"><a class="header" href="#実用的な例-2">実用的な例</a></h2>
-<pre><code class="language-javascript">void main() {
-  // 商品情報の表示
-  String itemName = 'ノートパソコン';
-  double price = 89800.0;
-  int quantity = 2;
-  double total = price * quantity;
-  
-  print('=== 注文確認 ===');
-  print('商品名: $itemName');
-  print('単価: ${price.toInt()}円');
-  print('数量: $quantity個');
-  print('合計: ${total.toInt()}円');
-  
-  // 挨拶メッセージの生成
-  String userName = 'やまだ';
-  String timeOfDay = '午前';
-  String greeting = '$timeOfDay中です、${userName}さん。今日も頑張りましょう！';
-  print(greeting);
-}
-</code></pre>
-<h2 id="文字列と数値の変換"><a class="header" href="#文字列と数値の変換">文字列と数値の変換</a></h2>
+<h1 id="文字列と数値の変換"><a class="header" href="#文字列と数値の変換">文字列と数値の変換</a></h1>
 <p>文字列と数値を組み合わせる際の注意点：</p>
 <pre><code class="language-javascript">void main() {
   String numText = '123';
@@ -3342,68 +3199,6 @@ ${name}さんのテスト結果をお知らせします。
   print('c: $c, d: $d'); // c: 11, d: 10
 }
 </code></pre>
-<h2 id="実用的な例-3"><a class="header" href="#実用的な例-3">実用的な例</a></h2>
-<h3 id="カウンターアプリ"><a class="header" href="#カウンターアプリ">カウンターアプリ</a></h3>
-<pre><code class="language-javascript">void main() {
-  int visitCount = 0;
-  
-  print('=== ウェブサイトの訪問カウンター ===');
-  print('現在の訪問者数: $visitCount');
-  
-  // 新しい訪問者
-  visitCount++;
-  print('新しい訪問者が来ました: $visitCount');
-  
-  visitCount++;
-  print('また新しい訪問者: $visitCount');
-  
-  visitCount += 5; // 一度に5人増加
-  print('グループで訪問: $visitCount');
-}
-</code></pre>
-<h3 id="買い物かごの計算"><a class="header" href="#買い物かごの計算">買い物かごの計算</a></h3>
-<pre><code class="language-javascript">void main() {
-  double total = 0.0;
-  print('=== お買い物かご ===');
-  print('現在の合計: ${total}円');
-  
-  // 商品を追加
-  total += 250; // りんご
-  print('りんごを追加: ${total}円');
-  
-  total += 180; // バナナ
-  print('バナナを追加: ${total}円');
-  
-  total += 320; // オレンジ
-  print('オレンジを追加: ${total}円');
-  
-  // 割引適用
-  total *= 0.9; // 10%割引
-  print('10%割引適用: ${total}円');
-}
-</code></pre>
-<h3 id="ゲームのスコア管理"><a class="header" href="#ゲームのスコア管理">ゲームのスコア管理</a></h3>
-<pre><code class="language-javascript">void main() {
-  int score = 0;
-  int level = 1;
-  
-  print('=== ゲーム開始 ===');
-  print('スコア: $score, レベル: $level');
-  
-  // 敵を倒した
-  score += 100;
-  print('敵を倒した！ スコア: $score');
-  
-  // ボーナスアイテム取得
-  score *= 2;
-  print('ボーナス倍率！ スコア: $score');
-  
-  // レベルアップ
-  level++;
-  score += level * 50; // レベルに応じたボーナス
-  print('レベルアップ！ レベル: $level, スコア: $score');
-}
-</code></pre>
 <h2 id="const-と-final-について"><a class="header" href="#const-と-final-について">const と final について</a></h2>
 <p>値を変更できない変数もあります：</p>
 <pre><code class="language-javascript">void main() {
@@ -3450,104 +3245,6 @@ ${name}さんのテスト結果をお知らせします。
   print('(10 + 5) / (3 * 2) = $result3'); // 2.5
 }
 </code></pre>
-<h2 id="dartの演算子優先順位表"><a class="header" href="#dartの演算子優先順位表">Dartの演算子優先順位表</a></h2>
-<p>高い優先順位から低い優先順位の順番：</p>
-<ol>
-<li><strong>後置演算子</strong>: <code>++</code>, <code>--</code>, <code>[]</code>, <code>()</code></li>
-<li><strong>前置演算子</strong>: <code>-</code>, <code>!</code>, <code>++</code>, <code>--</code></li>
-<li><strong>乗算系</strong>: <code>*</code>, <code>/</code>, <code>%</code>, <code>~/</code></li>
-<li><strong>加算系</strong>: <code>+</code>, <code>-</code></li>
-<li><strong>比較演算子</strong>: <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></li>
-<li><strong>等価演算子</strong>: <code>==</code>, <code>!=</code></li>
-<li><strong>論理AND</strong>: <code>&amp;&amp;</code></li>
-<li><strong>論理OR</strong>: <code>||</code></li>
-<li><strong>代入演算子</strong>: <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code></li>
-</ol>
-<h2 id="実例で確認"><a class="header" href="#実例で確認">実例で確認</a></h2>
-<h3 id="複雑な計算式"><a class="header" href="#複雑な計算式">複雑な計算式</a></h3>
-<pre><code class="language-javascript">void main() {
-  int a = 5;
-  int b = 3;
-  int c = 2;
-  
-  // 優先順位に従った計算
-  int result1 = a + b * c;
-  print('$a + $b * $c = $result1'); // 5 + 3 * 2 = 11
-  
-  // 括弧で順序を変更
-  int result2 = (a + b) * c;
-  print('($a + $b) * $c = $result2'); // (5 + 3) * 2 = 16
-  
-  // さらに複雑な例
-  double result3 = a + b * c / 2.0 - 1;
-  print('$a + $b * $c / 2.0 - 1 = $result3'); // 5 + 3 * 2 / 2.0 - 1 = 7
-}
-</code></pre>
-<h3 id="よくある間違いの例"><a class="header" href="#よくある間違いの例">よくある間違いの例</a></h3>
-<pre><code class="language-javascript">void main() {
-  // 間違いやすい例1: 平均の計算
-  int score1 = 80;
-  int score2 = 90;
-  int score3 = 85;
-  
-  // 間違った書き方
-  double wrong = score1 + score2 + score3 / 3;
-  print('間違った平均: $wrong'); // 80 + 90 + 85/3 = 198.33... (間違い)
-  
-  // 正しい書き方
-  double correct = (score1 + score2 + score3) / 3;
-  print('正しい平均: $correct'); // (80 + 90 + 85) / 3 = 85.0
-}
-</code></pre>
-<h3 id="割引計算の例"><a class="header" href="#割引計算の例">割引計算の例</a></h3>
-<pre><code class="language-javascript">void main() {
-  double price = 1000;
-  double discountRate = 0.2; // 20%割引
-  double taxRate = 0.1; // 10%の税
-  
-  // 間違った計算順序
-  double wrong = price - price * discountRate + price * taxRate;
-  print('間違った計算: ${wrong}円'); // 割引後に税金が元の価格に適用される
-  
-  // 正しい計算順序
-  double discountedPrice = price * (1 - discountRate);
-  double correct = discountedPrice * (1 + taxRate);
-  print('正しい計算: ${correct}円'); // (1000 * 0.8) * 1.1 = 880円
-  
-  // または括弧を使って一行で
-  double oneLine = (price * (1 - discountRate)) * (1 + taxRate);
-  print('一行での計算: ${oneLine}円');
-}
-</code></pre>
-<h2 id="論理演算子の優先順位"><a class="header" href="#論理演算子の優先順位">論理演算子の優先順位</a></h2>
-<pre><code class="language-javascript">void main() {
-  bool a = true;
-  bool b = false;
-  bool c = true;
-  
-  // &amp;&amp;（AND）は||（OR）より優先順位が高い
-  bool result1 = a || b &amp;&amp; c;
-  print('$a || $b &amp;&amp; $c = $result1'); // true || (false &amp;&amp; true) = true
-  
-  // 括弧で順序を明示
-  bool result2 = (a || b) &amp;&amp; c;
-  print('($a || $b) &amp;&amp; $c = $result2'); // (true || false) &amp;&amp; true = true
-}
-</code></pre>
-<h2 id="代入演算子と優先順位"><a class="header" href="#代入演算子と優先順位">代入演算子と優先順位</a></h2>
-<pre><code class="language-javascript">void main() {
-  int x = 5;
-  int y = 3;
-  
-  // 代入演算子は最も優先順位が低い
-  x += y * 2; // x = x + (y * 2) と同じ
-  print('x = $x'); // x = 11
-  
-  int z = 10;
-  z *= 2 + 3; // z = z * (2 + 3) と同じ
-  print('z = $z'); // z = 50
-}
-</code></pre>
 <h2 id="実践的なアドバイス"><a class="header" href="#実践的なアドバイス">実践的なアドバイス</a></h2>
 <h3 id="1-読みやすさを優先する"><a class="header" href="#1-読みやすさを優先する">1. 読みやすさを優先する</a></h3>
 <pre><code class="language-javascript">void main() {
@@ -3584,245 +3281,6 @@ ${name}さんのテスト結果をお知らせします。
 <p>演算の優先順位を理解することで、正確な計算結果を得ることができ、他の人が読みやすいコードを書くことができます。次は練習問題で、これまで学んだ計算や演算子を実際に使ってみましょう。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="練習問題簡単な計算プログラム"><a class="header" href="#練習問題簡単な計算プログラム">練習問題：簡単な計算プログラム</a></h1>
-<p>これまで学んだ算術演算子、文字列連結、変数の更新、演算の優先順位を使って、実際に計算プログラムを作ってみましょう。段階的に難易度を上げながら、様々な計算処理を実装します。</p>
-<h2 id="問題1基本的な四則演算"><a class="header" href="#問題1基本的な四則演算">問題1：基本的な四則演算</a></h2>
-<p>二つの数値を使って、四則演算の結果を表示するプログラムを作成してください。</p>
-<pre><code class="language-javascript">void main() {
-  // 変数の設定
-  int a = 15;
-  int b = 4;
-  
-  // 四則演算の実行と表示
-  print('=== 基本的な四則演算 ===');
-  print('a = $a, b = $b');
-  print('');
-  
-  int sum = a + b;
-  print('足し算: $a + $b = $sum');
-  
-  int difference = a - b;
-  print('引き算: $a - $b = $difference');
-  
-  int product = a * b;
-  print('掛け算: $a × $b = $product');
-  
-  double quotient = a / b;
-  print('割り算: $a ÷ $b = $quotient');
-  
-  int remainder = a % b;
-  print('余り: $a % $b = $remainder');
-  
-  int integerDivision = a ~/ b;
-  print('整数除算: $a ~/ $b = $integerDivision');
-}
-</code></pre>
-<h2 id="問題2円の面積と円周の計算"><a class="header" href="#問題2円の面積と円周の計算">問題2：円の面積と円周の計算</a></h2>
-<p>半径を指定して、円の面積と円周を計算するプログラムを作成してください。</p>
-<pre><code class="language-javascript">void main() {
-  // 変数の設定
-  double radius = 7.5;
-  double pi = 3.14159;
-  
-  print('=== 円の計算 ===');
-  print('半径: ${radius}cm');
-  print('');
-  
-  // 円周の計算 (2πr)
-  double circumference = 2 * pi * radius;
-  print('円周: ${circumference.toStringAsFixed(2)}cm');
-  
-  // 面積の計算 (πr²)
-  double area = pi * radius * radius;
-  print('面積: ${area.toStringAsFixed(2)}cm²');
-}
-</code></pre>
-<h2 id="問題3温度変換プログラム"><a class="header" href="#問題3温度変換プログラム">問題3：温度変換プログラム</a></h2>
-<p>摂氏温度を華氏温度に変換し、逆の変換も行うプログラムを作成してください。</p>
-<pre><code class="language-javascript">void main() {
-  print('=== 温度変換プログラム ===');
-  
-  // 摂氏から華氏への変換
-  double celsius = 25.0;
-  double fahrenheit = celsius * 9 / 5 + 32;
-  print('摂氏${celsius}度 → 華氏${fahrenheit}度');
-  
-  // 華氏から摂氏への変換
-  double fahrenheit2 = 77.0;
-  double celsius2 = (fahrenheit2 - 32) * 5 / 9;
-  print('華氏${fahrenheit2}度 → 摂氏${celsius2.toStringAsFixed(1)}度');
-}
-</code></pre>
-<h2 id="問題4買い物の計算プログラム"><a class="header" href="#問題4買い物の計算プログラム">問題4：買い物の計算プログラム</a></h2>
-<p>商品の価格、数量、税率から最終的な支払い金額を計算するプログラムを作成してください。</p>
-<pre><code class="language-javascript">void main() {
-  print('=== お買い物計算 ===');
-  
-  // 商品情報
-  String productName = 'プログラミング入門書';
-  double unitPrice = 2800.0;
-  int quantity = 3;
-  double taxRate = 0.10; // 10%
-  double discountRate = 0.15; // 15%割引
-  
-  // 計算処理
-  double subtotal = unitPrice * quantity;
-  double discountAmount = subtotal * discountRate;
-  double discountedPrice = subtotal - discountAmount;
-  double tax = discountedPrice * taxRate;
-  double total = discountedPrice + tax;
-  
-  // 結果表示
-  print('商品名: $productName');
-  print('単価: ${unitPrice.toInt()}円');
-  print('数量: $quantity冊');
-  print('小計: ${subtotal.toInt()}円');
-  print('割引(${(discountRate * 100).toInt()}%): -${discountAmount.toInt()}円');
-  print('割引後価格: ${discountedPrice.toInt()}円');
-  print('消費税(${(taxRate * 100).toInt()}%): ${tax.toInt()}円');
-  print('合計金額: ${total.toInt()}円');
-}
-</code></pre>
-<h2 id="問題5時間計算プログラム"><a class="header" href="#問題5時間計算プログラム">問題5：時間計算プログラム</a></h2>
-<p>秒数を入力として、時間、分、秒に変換するプログラムを作成してください。</p>
-<pre><code class="language-javascript">void main() {
-  print('=== 時間変換プログラム ===');
-  
-  // 総秒数
-  int totalSeconds = 7325;
-  
-  // 時間、分、秒への変換
-  int hours = totalSeconds ~/ 3600;
-  int remainingAfterHours = totalSeconds % 3600;
-  int minutes = remainingAfterHours ~/ 60;
-  int seconds = remainingAfterHours % 60;
-  
-  print('総秒数: ${totalSeconds}秒');
-  print('変換結果: ${hours}時間${minutes}分${seconds}秒');
-  
-  // 逆の計算も確認
-  int backToSeconds = hours * 3600 + minutes * 60 + seconds;
-  print('確認: ${backToSeconds}秒 (元の値と一致: ${backToSeconds == totalSeconds})');
-}
-</code></pre>
-<h2 id="問題6bmi計算プログラム"><a class="header" href="#問題6bmi計算プログラム">問題6：BMI計算プログラム</a></h2>
-<p>身長と体重からBMI（Body Mass Index）を計算するプログラムを作成してください。</p>
-<pre><code class="language-javascript">void main() {
-  print('=== BMI計算プログラム ===');
-  
-  // 身体データ
-  double height = 170.5; // cm
-  double weight = 65.3;  // kg
-  
-  // BMI計算（体重kg ÷ (身長m)²）
-  double heightInMeters = height / 100;
-  double bmi = weight / (heightInMeters * heightInMeters);
-  
-  // 結果表示
-  print('身長: ${height}cm');
-  print('体重: ${weight}kg');
-  print('BMI: ${bmi.toStringAsFixed(1)}');
-  print('※BMI 18.5未満：低体重、18.5-25未満：普通体重、25以上：肥満');
-}
-</code></pre>
-<h2 id="問題7単利複利計算プログラム"><a class="header" href="#問題7単利複利計算プログラム">問題7：単利・複利計算プログラム</a></h2>
-<p>元本、金利、期間から単利と複利を計算して比較するプログラムを作成してください。</p>
-<pre><code class="language-javascript">void main() {
-  print('=== 単利・複利計算プログラム ===');
-  
-  // 投資条件
-  double principal = 100000.0; // 元本（円）
-  double annualRate = 0.05;    // 年利5%
-  int years = 3;               // 3年間
-  
-  print('元本: ${principal.toInt()}円');
-  print('年利: ${(annualRate * 100)}%');
-  print('期間: ${years}年');
-  print('');
-  
-  // 単利計算（利息 = 元本 × 利率 × 年数）
-  double simpleInterest = principal * annualRate * years;
-  double simpleTotal = principal + simpleInterest;
-  
-  // 複利計算（3年間の場合）
-  double year1 = principal * (1 + annualRate);
-  double year2 = year1 * (1 + annualRate);
-  double year3 = year2 * (1 + annualRate);
-  double compoundInterest = year3 - principal;
-  
-  // 結果表示
-  print('=== 単利計算 ===');
-  print('利息: ${simpleInterest.toInt()}円');
-  print('元利合計: ${simpleTotal.toInt()}円');
-  print('');
-  print('=== 複利計算 ===');
-  print('1年後: ${year1.toInt()}円');
-  print('2年後: ${year2.toInt()}円');
-  print('3年後: ${year3.toInt()}円');
-  print('利息: ${compoundInterest.toInt()}円');
-  print('');
-  print('複利の方が${(compoundInterest - simpleInterest).toInt()}円多くなります');
-}
-</code></pre>
-<h2 id="問題8個人成績計算プログラム"><a class="header" href="#問題8個人成績計算プログラム">問題8：個人成績計算プログラム</a></h2>
-<p>文字列を使って見やすい成績表を作成してください。</p>
-<pre><code class="language-javascript">void main() {
-  print('=== 個人成績計算プログラム ===');
-  
-  // 学生情報
-  String studentName = '田中太郎';
-  String studentClass = '3年A組';
-  int studentNumber = 15;
-  
-  // 各教科の得点
-  int japanese = 85;
-  int math = 92;
-  int english = 78;
-  int science = 88;
-  int social = 95;
-  
-  // 基本情報の表示
-  print('┌─────────────────────────┐');
-  print('│        成績表           │');
-  print('├─────────────────────────┤');
-  print('│ 氏名: $studentName          │');
-  print('│ クラス: $studentClass           │');
-  print('│ 出席番号: ${studentNumber}番           │');
-  print('├─────────────────────────┤');
-  
-  // 各科目の得点表示
-  print('│ 国語: ${japanese}点             │');
-  print('│ 数学: ${math}点             │');
-  print('│ 英語: ${english}点             │');
-  print('│ 理科: ${science}点             │');
-  print('│ 社会: ${social}点             │');
-  print('├─────────────────────────┤');
-  
-  // 統計計算
-  int total = japanese + math + english + science + social;
-  double average = total / 5;
-  
-  print('│ 合計: ${total}点           │');
-  print('│ 平均: ${average.toStringAsFixed(1)}点          │');
-  print('└─────────────────────────┘');
-  
-  // 追加情報
-  print('');
-  print('各科目の得点率:');
-  print('国語: ${(japanese / 100 * 100).toStringAsFixed(1)}%');
-  print('数学: ${(math / 100 * 100).toStringAsFixed(1)}%');
-  print('英語: ${(english / 100 * 100).toStringAsFixed(1)}%');
-  print('理科: ${(science / 100 * 100).toStringAsFixed(1)}%');
-  print('社会: ${(social / 100 * 100).toStringAsFixed(1)}%');
-}
-</code></pre>
-<h2 id="チャレンジ問題"><a class="header" href="#チャレンジ問題">チャレンジ問題</a></h2>
-<h3 id="1-家計簿計算プログラム"><a class="header" href="#1-家計簿計算プログラム">1. 家計簿計算プログラム</a></h3>
-<p>一ヶ月の収入と支出から貯金額を計算し、年間の貯金予想額も表示するプログラムを作成してください。</p>
-<h3 id="2-物理計算プログラム"><a class="header" href="#2-物理計算プログラム">2. 物理計算プログラム</a></h3>
-<p>速度と時間から距離を計算し、燃費も計算して表示するプログラムを作成してください。（距離 = 速度 × 時間、燃料消費量 = 距離 ÷ 燃費）</p>
-<h3 id="3-図形計算プログラム"><a class="header" href="#3-図形計算プログラム">3. 図形計算プログラム</a></h3>
-<p>正方形、長方形、円の面積を一度に計算して比較表示するプログラムを作成してください。</p>
-<p>これらの練習問題を通じて、算術演算子と文字列操作を組み合わせた実用的なプログラムが作成できるようになります。次の章では、条件分岐について学び、より複雑な判断処理を実装していきます。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="第5章条件分岐if文"><a class="header" href="#第5章条件分岐if文">第5章：条件分岐（if文）</a></h1>
 <p>計算と演算をマスターしたあなたは、いよいよプログラムに「判断力」を与える段階に進みます！</p>
@@ -3879,7 +3337,7 @@ ${name}さんのテスト結果をお知らせします。
 <li><strong>実用的な判定プログラム</strong>を作成できる</li>
 <li><strong>条件分岐のテスト</strong>を適切に行える</li>
 </ul>
-<h3 id="心構え-1"><a class="header" href="#心構え-1">心構え</a></h3>
+<h3 id="心構え"><a class="header" href="#心構え">心構え</a></h3>
 <ul>
 <li><strong>論理的思考</strong>でプログラムの流れを設計できる</li>
 <li><strong>様々なケース</strong>を想定した堅牢なプログラムを書ける</li>
@@ -4100,7 +3558,7 @@ if (age == 18) {  // 比較演算子を使う
   print('name == "DART": ${name == "DART"}');   // false
 }
 </code></pre>
-<h2 id="練習問題-2"><a class="header" href="#練習問題-2">練習問題</a></h2>
+<h2 id="練習問題-1"><a class="header" href="#練習問題-1">練習問題</a></h2>
 <p>次のプログラムを完成させてみましょう：</p>
 <pre><code class="language-javascript">void main() {
   int number = 42;
@@ -4151,7 +3609,7 @@ if (age == 18) {  // 比較演算子を使う
 <li><code>age &gt;= 18</code>が偽（false）なら「あなたは未成年です」を表示</li>
 <li>どちらの場合も、最後に「判定終了」を表示</li>
 </ul>
-<h2 id="実用的な例-4"><a class="header" href="#実用的な例-4">実用的な例</a></h2>
+<h2 id="実用的な例-1"><a class="header" href="#実用的な例-1">実用的な例</a></h2>
 <h3 id="例1テストの合否判定"><a class="header" href="#例1テストの合否判定">例1：テストの合否判定</a></h3>
 <pre><code class="language-javascript">void main() {
   int score = 75;
@@ -4293,7 +3751,7 @@ void main() {
   }
 }
 </code></pre>
-<h2 id="練習問題-3"><a class="header" href="#練習問題-3">練習問題</a></h2>
+<h2 id="練習問題-2"><a class="header" href="#練習問題-2">練習問題</a></h2>
 <p>以下のプログラムを完成させてみましょう：</p>
 <pre><code class="language-javascript">void main() {
   int temperature = 25;
@@ -4538,7 +3996,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 !(a &amp;&amp; b) == (!a || !b)
 !(a || b) == (!a &amp;&amp; !b)
 </code></pre>
-<h2 id="練習問題-4"><a class="header" href="#練習問題-4">練習問題</a></h2>
+<h2 id="練習問題-3"><a class="header" href="#練習問題-3">練習問題</a></h2>
 <p>以下のプログラムを完成させてみましょう：</p>
 <pre><code class="language-javascript">void main() {
   int temperature = 25;
@@ -4839,7 +4297,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
   print('========================');
 }
 </code></pre>
-<h2 id="練習問題-5"><a class="header" href="#練習問題-5">練習問題</a></h2>
+<h2 id="練習問題-4"><a class="header" href="#練習問題-4">練習問題</a></h2>
 <p>以下の条件を追加してプログラムを改良してみましょう：</p>
 <ol>
 <li><strong>障害者割引</strong>: 障害者手帳を持っている場合は半額（<code>bool hasDisabilityCard</code>を追加）</li>
@@ -4925,7 +4383,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <li><strong>二重ループ</strong>を使った複雑な処理を書ける</li>
 <li><strong>ループの終了条件</strong>を適切に設定できる</li>
 </ul>
-<h3 id="心構え-2"><a class="header" href="#心構え-2">心構え</a></h3>
+<h3 id="心構え-1"><a class="header" href="#心構え-1">心構え</a></h3>
 <ul>
 <li><strong>大量のデータ処理</strong>を自動化する発想力がある</li>
 <li><strong>効率的なアルゴリズム</strong>を考える習慣がついている</li>
@@ -5035,7 +4493,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <h2 id="まとめ-15"><a class="header" href="#まとめ-15">まとめ</a></h2>
 <p>繰り返し処理は、プログラミングにおいて非常に重要な概念です。同じ処理を効率的に実行できるだけでなく、コードをより短く、読みやすく、保守しやすくします。</p>
 <p>次のセクションでは、Dartで最もよく使われる繰り返し処理の一つである「for文」について詳しく学んでいきます。</p>
-<h2 id="練習問題-6"><a class="header" href="#練習問題-6">練習問題</a></h2>
+<h2 id="練習問題-5"><a class="header" href="#練習問題-5">練習問題</a></h2>
 <ol>
 <li>繰り返し処理を使わずに「Hello」を5回表示するプログラムを書いてみましょう。</li>
 <li>そのプログラムを、繰り返し処理を使って書き直すとどうなるか考えてみましょう。</li>
@@ -5196,7 +4654,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <li>境界値と無限ループに注意する</li>
 </ul>
 <p>次のセクションでは、条件に基づいて繰り返すwhile文について学習します。</p>
-<h2 id="練習問題-7"><a class="header" href="#練習問題-7">練習問題</a></h2>
+<h2 id="練習問題-6"><a class="header" href="#練習問題-6">練習問題</a></h2>
 <ol>
 <li>1から20までの数字のうち、3の倍数だけを表示するプログラムを書いてみましょう。</li>
 <li>次のパターンを表示するプログラムを書いてみましょう：
@@ -5336,7 +4794,7 @@ void main() {
   } while (num &lt; 5);
 }
 </code></pre>
-<h2 id="実用的な例-5"><a class="header" href="#実用的な例-5">実用的な例</a></h2>
+<h2 id="実用的な例-2"><a class="header" href="#実用的な例-2">実用的な例</a></h2>
 <h3 id="カウントダウンタイマー"><a class="header" href="#カウントダウンタイマー">カウントダウンタイマー</a></h3>
 <pre><code class="language-javascript">void main() {
   int seconds = 10;
@@ -5431,7 +4889,7 @@ void main() {
 <li>無限ループにならないよう、条件式が適切に更新されることを確認する</li>
 </ul>
 <p>次のセクションでは、無限ループとその回避方法について詳しく学習します。</p>
-<h2 id="練習問題-8"><a class="header" href="#練習問題-8">練習問題</a></h2>
+<h2 id="練習問題-7"><a class="header" href="#練習問題-7">練習問題</a></h2>
 <ol>
 <li>
 <p>1から始めて、合計が50を超えるまで順番に数を足していくプログラムを書いてみましょう。何回足したかも表示してください。</p>
@@ -5629,7 +5087,7 @@ void main() {
 <li>安全装置として最大繰り返し回数を設定することを検討する</li>
 </ul>
 <p>次のセクションでは、これまで学んだループの知識を活用して、九九の表を作成する実践的なプログラムを作ります。</p>
-<h2 id="練習問題-9"><a class="header" href="#練習問題-9">練習問題</a></h2>
+<h2 id="練習問題-8"><a class="header" href="#練習問題-8">練習問題</a></h2>
 <ol>
 <li>
 <p>次のコードの問題点を指摘し、修正してください：</p>
@@ -5945,7 +5403,7 @@ if (result % 5 == 0) {
 <li><strong>動的なデータ管理</strong>を行うプログラムを作成できる</li>
 <li><strong>実用的なデータ処理アプリケーション</strong>を実装できる</li>
 </ul>
-<h3 id="心構え-3"><a class="header" href="#心構え-3">心構え</a></h3>
+<h3 id="心構え-2"><a class="header" href="#心構え-2">心構え</a></h3>
 <ul>
 <li><strong>データ構造を意識した</strong>プログラム設計ができる</li>
 <li><strong>効率的なデータ管理</strong>の重要性を理解している</li>
@@ -6010,7 +5468,7 @@ if (result % 5 == 0) {
 </ol>
 <h2 id="まとめ-20"><a class="header" href="#まとめ-20">まとめ</a></h2>
 <p>リストは、複数のデータを効率的に管理するための重要なプログラミングの道具です。次のセクションでは、実際にリストを作成し、使ってみましょう。</p>
-<h3 id="練習問題-10"><a class="header" href="#練習問題-10">練習問題</a></h3>
+<h3 id="練習問題-9"><a class="header" href="#練習問題-9">練習問題</a></h3>
 <ol>
 <li>あなたの好きな食べ物を5つ思い浮かべてください。これをリストで表現するとどうなるでしょうか？</li>
 <li>一週間の曜日をリストで表現するとどうなるでしょうか？</li>
@@ -6124,7 +5582,7 @@ if (result % 5 == 0) {
 <li><code>length</code>でリストの要素数を調べられます</li>
 <li>範囲外のインデックスにアクセスするとエラーになります</li>
 </ul>
-<h3 id="練習問題-11"><a class="header" href="#練習問題-11">練習問題</a></h3>
+<h3 id="練習問題-10"><a class="header" href="#練習問題-10">練習問題</a></h3>
 <ol>
 <li>あなたの好きな科目を5つ含むリストを作成し、3番目の科目を表示してください</li>
 <li>1から10までの数字を含むリストを作成し、最初と最後の要素を表示してください</li>
@@ -6270,7 +5728,7 @@ if (result % 5 == 0) {
 <li><strong>全削除</strong>: <code>clear()</code>でリストを空にする</li>
 <li>これらのメソッドを使うことで、プログラム実行中にリストを柔軟に操作できます</li>
 </ul>
-<h3 id="練習問題-12"><a class="header" href="#練習問題-12">練習問題</a></h3>
+<h3 id="練習問題-11"><a class="header" href="#練習問題-11">練習問題</a></h3>
 <ol>
 <li>空のリストを作成し、1から5までの数字を順番に追加するプログラムを書いてください</li>
 <li>果物のリスト<code>['りんご', 'みかん', 'ぶどう']</code>から’みかん’を削除し、代わりに’いちご’を同じ位置に追加してください</li>
@@ -6446,7 +5904,7 @@ if (result % 5 == 0) {
 <li>リストとループを組み合わせることで、合計・平均・最大値などの計算が簡単にできる</li>
 <li>条件に応じた処理や、新しいリストの作成も可能</li>
 </ul>
-<h3 id="練習問題-13"><a class="header" href="#練習問題-13">練習問題</a></h3>
+<h3 id="練習問題-12"><a class="header" href="#練習問題-12">練習問題</a></h3>
 <ol>
 <li>数値のリスト<code>[5, 10, 15, 20, 25]</code>の全要素を2倍にした新しいリストを作成してください</li>
 <li>名前のリスト<code>['太郎', '花子', '次郎', '三郎']</code>の各要素に「さん」を付けて表示してください</li>
@@ -6687,7 +6145,7 @@ if (result % 5 == 0) {
 <li>リストの要素を使った比較とソート</li>
 </ul>
 <p>これらの技術は、実際のプログラム開発でも頻繁に使用される重要なスキルです。</p>
-<h3 id="チャレンジ問題-1"><a class="header" href="#チャレンジ問題-1">チャレンジ問題</a></h3>
+<h3 id="チャレンジ問題"><a class="header" href="#チャレンジ問題">チャレンジ問題</a></h3>
 <ol>
 <li>生徒を点数順に並べ替えて表示する機能を追加してください</li>
 <li>各科目で平均点以上を取った生徒の名前を表示してください</li>
@@ -6742,7 +6200,7 @@ if (result % 5 == 0) {
 <li><strong>マップを活用した実用的なプログラム</strong>を作成できる</li>
 <li><strong>複雑なデータ構造</strong>を管理できる</li>
 </ul>
-<h3 id="心構え-4"><a class="header" href="#心構え-4">心構え</a></h3>
+<h3 id="心構え-3"><a class="header" href="#心構え-3">心構え</a></h3>
 <ul>
 <li><strong>データの関連性を意識した</strong>設計ができる</li>
 <li><strong>効率的なデータアクセス</strong>を重視している</li>
@@ -6865,7 +6323,7 @@ if (result % 5 == 0) {
 </code></pre>
 <h2 id="まとめ-25"><a class="header" href="#まとめ-25">まとめ</a></h2>
 <p>マップは、キーと値のペアでデータを管理する強力なデータ構造です。名前やIDなど、意味のあるキーを使ってデータに直接アクセスできるため、関連するデータを効率的に管理できます。次のセクションでは、実際にマップを作成し、操作する方法を詳しく学びましょう。</p>
-<h3 id="練習問題-14"><a class="header" href="#練習問題-14">練習問題</a></h3>
+<h3 id="練習問題-13"><a class="header" href="#練習問題-13">練習問題</a></h3>
 <ol>
 <li>あなたの家族や友人の名前と年齢をマップで表現するとどうなるでしょうか？</li>
 <li>好きな科目とその成績をマップで表現してみましょう。</li>
@@ -7074,7 +6532,7 @@ if (result % 5 == 0) {
 <li><code>forEach</code> や <code>for-in</code> で繰り返し処理</li>
 </ul>
 <p>次のセクションでは、マップのより実践的な活用例を見ていきます。</p>
-<h3 id="練習問題-15"><a class="header" href="#練習問題-15">練習問題</a></h3>
+<h3 id="練習問題-14"><a class="header" href="#練習問題-14">練習問題</a></h3>
 <ol>
 <li>友達の名前と誕生日（月/日）を管理するマップを作成し、3人分のデータを追加してください。</li>
 <li>科目名と成績（A, B, C）を管理するマップを作り、1つの科目の成績を更新する処理を書いてください。</li>
@@ -7318,7 +6776,7 @@ if (result % 5 == 0) {
 <li><strong>グループ化</strong>：カテゴリーごとにデータを整理</li>
 </ol>
 <p>これらの例を参考に、自分のプログラムでもマップを活用してみましょう。</p>
-<h3 id="練習問題-16"><a class="header" href="#練習問題-16">練習問題</a></h3>
+<h3 id="練習問題-15"><a class="header" href="#練習問題-15">練習問題</a></h3>
 <ol>
 <li>都道府県名をキー、県庁所在地を値とするマップを作成し、5つ以上のデータを登録してください。</li>
 <li>商品の売上個数を記録し、売上ランキングを表示するプログラムを作成してください。</li>
@@ -7642,13 +7100,13 @@ if (result % 5 == 0) {
 <li><strong>ユーザーフレンドリーな出力</strong>：分かりやすいメッセージ表示</li>
 <li><strong>データの拡張</strong>：カテゴリー機能など、より複雑な構造への発展</li>
 </ol>
-<h3 id="練習問題-17"><a class="header" href="#練習問題-17">練習問題</a></h3>
+<h3 id="練習問題-16"><a class="header" href="#練習問題-16">練習問題</a></h3>
 <ol>
 <li>辞書プログラムに「単語の頭文字で検索する機能」を追加してください。</li>
 <li>英和辞書を和英辞書に変換する関数を作成してください（キーと値を入れ替える）。</li>
 <li>辞書データをファイルに保存し、次回起動時に読み込む機能を考えてみてください（擬似コード）。</li>
 </ol>
-<h3 id="チャレンジ問題-2"><a class="header" href="#チャレンジ問題-2">チャレンジ問題</a></h3>
+<h3 id="チャレンジ問題-1"><a class="header" href="#チャレンジ問題-1">チャレンジ問題</a></h3>
 <p>以下の機能を持つ「学習記録付き単語帳」を作成してください：</p>
 <ul>
 <li>単語ごとに「学習回数」を記録</li>
@@ -7711,7 +7169,7 @@ if (result % 5 == 0) {
 <li><strong>既存のコードを関数に分割</strong>して整理できる</li>
 <li><strong>保守性の高いプログラム</strong>を作成できる</li>
 </ul>
-<h3 id="心構え-5"><a class="header" href="#心構え-5">心構え</a></h3>
+<h3 id="心構え-4"><a class="header" href="#心構え-4">心構え</a></h3>
 <ul>
 <li><strong>コードの重複を避ける</strong>習慣がついている</li>
 <li><strong>モジュール化の重要性</strong>を理解している</li>
@@ -7880,7 +7338,7 @@ void main() {
 <li><strong>保守しやすくする</strong>：修正や改良が簡単になる</li>
 </ul>
 <p>次のセクションでは、実際に関数を定義し、使ってみましょう。</p>
-<h3 id="練習問題-18"><a class="header" href="#練習問題-18">練習問題</a></h3>
+<h3 id="練習問題-17"><a class="header" href="#練習問題-17">練習問題</a></h3>
 <ol>
 <li>日常生活で「関数」のように働いているものを3つ挙げてください。</li>
 <li>プログラムで同じ処理を繰り返し書くことの問題点を説明してください。</li>
@@ -8112,7 +7570,7 @@ void showMessage() {  // エラー！
 <li>適切な名前を付けることで、コードが読みやすくなる</li>
 </ul>
 <p>次のセクションでは、関数に値を渡したり、結果を返したりする方法を学びます。</p>
-<h3 id="練習問題-19"><a class="header" href="#練習問題-19">練習問題</a></h3>
+<h3 id="練習問題-18"><a class="header" href="#練習問題-18">練習問題</a></h3>
 <ol>
 <li>自己紹介を表示する関数 <code>introduceMyself()</code> を作成し、3回呼び出してください。</li>
 <li>以下の3つの関数を作成してください：
@@ -8377,7 +7835,7 @@ void main() {
 <li><code>return</code>文で値を返す</li>
 </ul>
 <p>次のセクションでは、変数のスコープ（有効範囲）について学びます。</p>
-<h3 id="練習問題-20"><a class="header" href="#練習問題-20">練習問題</a></h3>
+<h3 id="練習問題-19"><a class="header" href="#練習問題-19">練習問題</a></h3>
 <ol>
 <li>2つの数値を受け取り、大きい方を返す関数 <code>getMax(int a, int b)</code> を作成してください。</li>
 <li>円の半径を受け取り、面積を返す関数 <code>calculateCircleArea(double radius)</code> を作成してください（π = 3.14159）。</li>
@@ -8666,7 +8124,7 @@ void function2() {
 <li>必要最小限のスコープを使うことが重要</li>
 </ul>
 <p>次のセクションでは、これまで学んだ関数の知識を使って、実践的な電卓プログラムを作成します。</p>
-<h3 id="練習問題-21"><a class="header" href="#練習問題-21">練習問題</a></h3>
+<h3 id="練習問題-20"><a class="header" href="#練習問題-20">練習問題</a></h3>
 <ol>
 <li>
 <p>以下のコードで、各 print 文の出力を予想してください：</p>
@@ -9138,13 +8596,13 @@ void main() {
 <li><strong>エラー処理</strong>：各機能でエラーを適切に処理できる</li>
 </ol>
 <p>関数は、プログラムを構造化し、管理しやすくするための重要なツールです。</p>
-<h3 id="練習問題-22"><a class="header" href="#練習問題-22">練習問題</a></h3>
+<h3 id="練習問題-21"><a class="header" href="#練習問題-21">練習問題</a></h3>
 <ol>
 <li>階乗を計算する関数 <code>factorial(int n)</code> を追加してください。</li>
 <li>最大公約数を求める関数 <code>gcd(int a, int b)</code> を追加してください。</li>
 <li>計算履歴から特定の演算子の計算だけを表示する関数を作成してください。</li>
 </ol>
-<h3 id="チャレンジ問題-3"><a class="header" href="#チャレンジ問題-3">チャレンジ問題</a></h3>
+<h3 id="チャレンジ問題-2"><a class="header" href="#チャレンジ問題-2">チャレンジ問題</a></h3>
 <p>以下の機能を持つ「科学電卓」を作成してください：</p>
 <ul>
 <li>三角関数（sin、cos、tan）の計算（角度は度数法）</li>
@@ -9201,7 +8659,7 @@ void main() {
 <li><strong>関数を組み合わせた大きなプログラム</strong>を作成できる</li>
 <li><strong>ユーザーフレンドリーなアプリケーション</strong>を開発できる</li>
 </ul>
-<h3 id="心構え-6"><a class="header" href="#心構え-6">心構え</a></h3>
+<h3 id="心構え-5"><a class="header" href="#心構え-5">心構え</a></h3>
 <ul>
 <li><strong>設計先行の開発</strong>を心がけている</li>
 <li><strong>ユーザビリティ</strong>を意識したプログラムを作れる</li>
@@ -9306,7 +8764,7 @@ void main() {
   print('判定: $judgment');
 }
 </code></pre>
-<h2 id="練習問題-23"><a class="header" href="#練習問題-23">練習問題</a></h2>
+<h2 id="練習問題-22"><a class="header" href="#練習問題-22">練習問題</a></h2>
 <ol>
 <li>3つの数値を受け取って、その平均値を返す関数を作ってください。</li>
 </ol>
@@ -9479,7 +8937,7 @@ void main() {
   calculate(a: 20, b: 4, operation: '/', showProcess: true);  // 20 ÷ 4 = 5.0
 }
 </code></pre>
-<h2 id="練習問題-24"><a class="header" href="#練習問題-24">練習問題</a></h2>
+<h2 id="練習問題-23"><a class="header" href="#練習問題-23">練習問題</a></h2>
 <ol>
 <li>文字列を装飾する関数を作ってください。デフォルトでは <code>*</code> で囲みます。</li>
 </ol>
@@ -9743,7 +9201,7 @@ void main() {
   analyzeTemperatures();
 }
 </code></pre>
-<h2 id="練習問題-25"><a class="header" href="#練習問題-25">練習問題</a></h2>
+<h2 id="練習問題-24"><a class="header" href="#練習問題-24">練習問題</a></h2>
 <ol>
 <li>以下の処理を適切な関数に分割してください。</li>
 </ol>
@@ -10091,7 +9549,7 @@ void main() {
   }
 }
 </code></pre>
-<h2 id="練習問題-26"><a class="header" href="#練習問題-26">練習問題</a></h2>
+<h2 id="練習問題-25"><a class="header" href="#練習問題-25">練習問題</a></h2>
 <ol>
 <li>
 <p>「最初はグー」機能を追加してください（最初に必ずグーを表示）。</p>
@@ -10169,7 +9627,7 @@ void main() {
 <li><strong>オブジェクトを活用したプログラム</strong>を作成できる</li>
 <li><strong>現実世界の問題をオブジェクトで表現</strong>できる</li>
 </ul>
-<h3 id="心構え-7"><a class="header" href="#心構え-7">心構え</a></h3>
+<h3 id="心構え-6"><a class="header" href="#心構え-6">心構え</a></h3>
 <ul>
 <li><strong>現実世界とプログラムの対応</strong>を意識している</li>
 <li><strong>データと処理の関連性</strong>を重視している</li>
@@ -10285,7 +9743,7 @@ print("猫: $catName, $catAge歳, $catBreed");
 <li><strong>これから</strong>：関連する情報と処理をオブジェクトとしてまとめて管理</li>
 </ul>
 <p>次の章では、実際にDartでオブジェクトを作る方法を学んでいきます。まずは「<strong>クラス</strong>」という設計図の作り方から始めましょう！</p>
-<h2 id="練習問題-27"><a class="header" href="#練習問題-27">練習問題</a></h2>
+<h2 id="練習問題-26"><a class="header" href="#練習問題-26">練習問題</a></h2>
 <ol>
 <li>
 <p>あなたの身の回りにある物（例：スマートフォン、本、車など）を一つ選んで、それが持っている属性（何を持っているか）と行動（何ができるか）を3つずつ考えてみてください。</p>
@@ -10470,7 +9928,7 @@ class Data { }          // 何のデータかわからない
 <li><strong>データ型</strong>：適切な型を選択する</li>
 </ol>
 <p>次の章では、この設計図（クラス）を使って実際のオブジェクトを作る方法を学びます。いよいよ設計図から実物を作り出しますよ！</p>
-<h2 id="練習問題-28"><a class="header" href="#練習問題-28">練習問題</a></h2>
+<h2 id="練習問題-27"><a class="header" href="#練習問題-27">練習問題</a></h2>
 <ol>
 <li>
 <p>車（Car）を表現するクラスを作ってください。車には以下の属性があります：</p>
@@ -10777,7 +10235,7 @@ void main() {
 <li><strong>オブジェクト比較</strong>：インスタンスの同一性 vs. 内容の比較</li>
 </ol>
 <p>次の章では、オブジェクトに「行動」を追加する方法（メソッド）を学びます。オブジェクトがただデータを持つだけでなく、何かができるようになりますよ！</p>
-<h2 id="練習問題-29"><a class="header" href="#練習問題-29">練習問題</a></h2>
+<h2 id="練習問題-28"><a class="header" href="#練習問題-28">練習問題</a></h2>
 <ol>
 <li>次のコードの実行結果を予想してください：</li>
 </ol>
@@ -11246,7 +10704,7 @@ void main() {
 </ol>
 <p>オブジェクトは今や、データを持つだけでなく、そのデータを使って様々な処理ができるようになりました！</p>
 <p>次の章では、これらの知識を使って実際のペット管理アプリを作ってみます。今まで学んだことが全て一つの形になりますよ！</p>
-<h2 id="練習問題-30"><a class="header" href="#練習問題-30">練習問題</a></h2>
+<h2 id="練習問題-29"><a class="header" href="#練習問題-29">練習問題</a></h2>
 <ol>
 <li>次のコードで、<code>pochi.getHumanAge()</code> の戻り値は何でしょうか？</li>
 </ol>
@@ -11818,7 +11276,7 @@ class Cat extends Pet {
 <li><strong>カプセル化されたクラス</strong>を作成できる</li>
 <li><strong>複雑な管理システム</strong>を設計・実装できる</li>
 </ul>
-<h3 id="心構え-8"><a class="header" href="#心構え-8">心構え</a></h3>
+<h3 id="心構え-7"><a class="header" href="#心構え-7">心構え</a></h3>
 <ul>
 <li><strong>データの安全性</strong>を最優先に考えている</li>
 <li><strong>拡張性と保守性</strong>を意識した設計ができる</li>
@@ -13336,7 +12794,7 @@ void main() {
 <li><strong>エラーメッセージから問題を特定</strong>できる</li>
 <li><strong>予防的なプログラミング</strong>を実践できる</li>
 </ul>
-<h3 id="心構え-9"><a class="header" href="#心構え-9">心構え</a></h3>
+<h3 id="心構え-8"><a class="header" href="#心構え-8">心構え</a></h3>
 <ul>
 <li><strong>エラーを学習の機会</strong>として活用できる</li>
 <li><strong>段階的な問題解決</strong>のアプローチが身についている</li>
@@ -14406,7 +13864,7 @@ void main() {
 <li><strong>実践的なプロジェクト</strong>を企画・実行できる</li>
 <li><strong>コミュニティ活動</strong>に参加できる</li>
 </ul>
-<h3 id="心構え-10"><a class="header" href="#心構え-10">心構え</a></h3>
+<h3 id="心構え-9"><a class="header" href="#心構え-9">心構え</a></h3>
 <ul>
 <li><strong>生涯学習者</strong>としての意識を持っている</li>
 <li><strong>困難を乗り越える</strong>粘り強さがある</li>
@@ -14623,7 +14081,7 @@ void main() {
 <li><strong>null安全性</strong>：エラーの少ない安全なプログラムを書く</li>
 </ul>
 <p>これらの機能を少しずつ学んでいけば、より複雑で実用的なプログラムが書けるようになります。焦らず、一つずつマスターしていきましょう！</p>
-<h2 id="練習問題-31"><a class="header" href="#練習問題-31">練習問題</a></h2>
+<h2 id="練習問題-30"><a class="header" href="#練習問題-30">練習問題</a></h2>
 <h3 id="問題1非同期処理を試してみよう"><a class="header" href="#問題1非同期処理を試してみよう">問題1：非同期処理を試してみよう</a></h3>
 <p>次のコードを完成させて、3秒後にメッセージを表示するプログラムを作ってください：</p>
 <pre><code class="language-javascript">Future&lt;void&gt; delayedMessage() async {

@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-96867f8f.js";
+            window.path_to_searchindex_js = "../searchindex-8f4caf76.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-5b66f7d5.js"></script>
@@ -247,68 +247,6 @@
   int c = 10;
   int d = c++; // 先にcの値をdに代入してからcを1増やす
   print('c: $c, d: $d'); // c: 11, d: 10
-}
-</code></pre>
-<h2 id="実用的な例"><a class="header" href="#実用的な例">実用的な例</a></h2>
-<h3 id="カウンターアプリ"><a class="header" href="#カウンターアプリ">カウンターアプリ</a></h3>
-<pre><code class="language-javascript">void main() {
-  int visitCount = 0;
-  
-  print('=== ウェブサイトの訪問カウンター ===');
-  print('現在の訪問者数: $visitCount');
-  
-  // 新しい訪問者
-  visitCount++;
-  print('新しい訪問者が来ました: $visitCount');
-  
-  visitCount++;
-  print('また新しい訪問者: $visitCount');
-  
-  visitCount += 5; // 一度に5人増加
-  print('グループで訪問: $visitCount');
-}
-</code></pre>
-<h3 id="買い物かごの計算"><a class="header" href="#買い物かごの計算">買い物かごの計算</a></h3>
-<pre><code class="language-javascript">void main() {
-  double total = 0.0;
-  print('=== お買い物かご ===');
-  print('現在の合計: ${total}円');
-  
-  // 商品を追加
-  total += 250; // りんご
-  print('りんごを追加: ${total}円');
-  
-  total += 180; // バナナ
-  print('バナナを追加: ${total}円');
-  
-  total += 320; // オレンジ
-  print('オレンジを追加: ${total}円');
-  
-  // 割引適用
-  total *= 0.9; // 10%割引
-  print('10%割引適用: ${total}円');
-}
-</code></pre>
-<h3 id="ゲームのスコア管理"><a class="header" href="#ゲームのスコア管理">ゲームのスコア管理</a></h3>
-<pre><code class="language-javascript">void main() {
-  int score = 0;
-  int level = 1;
-  
-  print('=== ゲーム開始 ===');
-  print('スコア: $score, レベル: $level');
-  
-  // 敵を倒した
-  score += 100;
-  print('敵を倒した！ スコア: $score');
-  
-  // ボーナスアイテム取得
-  score *= 2;
-  print('ボーナス倍率！ スコア: $score');
-  
-  // レベルアップ
-  level++;
-  score += level * 50; // レベルに応じたボーナス
-  print('レベルアップ！ レベル: $level, スコア: $score');
 }
 </code></pre>
 <h2 id="const-と-final-について"><a class="header" href="#const-と-final-について">const と final について</a></h2>
