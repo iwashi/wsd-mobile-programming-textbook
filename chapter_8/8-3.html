@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-3d253f29.js";
+            window.path_to_searchindex_js = "../searchindex-758610f3.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-94a57eff.js"></script>
@@ -356,51 +356,6 @@
   print('\n最も頻出する単語: $mostFrequent ($maxCount回)');
 }
 </code></pre>
-<h2 id="6-電話帳アプリケーション"><a class="header" href="#6-電話帳アプリケーション">6. 電話帳アプリケーション</a></h2>
-<p>名前から電話番号とメールアドレスを検索する例：</p>
-<pre><code class="language-javascript">void main() {
-  // 連絡先情報
-  Map&lt;String, Map&lt;String, String&gt;&gt; contacts = {
-    '田中太郎': {
-      '電話': '090-1234-5678',
-      'メール': 'tanaka@example.com'
-    },
-    '鈴木花子': {
-      '電話': '080-9876-5432',
-      'メール': 'suzuki@example.com'
-    },
-    '佐藤次郎': {
-      '電話': '070-1111-2222',
-      'メール': 'sato@example.com'
-    }
-  };
-  
-  // 連絡先を検索する関数
-  void searchContact(String name) {
-    if (contacts.containsKey(name)) {
-      print('\n=== $nameの連絡先 ===');
-      contacts[name]!.forEach((type, info) {
-        print('$type: $info');
-      });
-    } else {
-      print('\n$nameは連絡先に登録されていません');
-    }
-  }
-  
-  // 検索実行
-  searchContact('鈴木花子');
-  searchContact('山田太郎');
-  
-  // 新しい連絡先を追加
-  contacts['山田花子'] = {
-    '電話': '090-3333-4444',
-    'メール': 'yamada@example.com'
-  };
-  
-  print('\n新しい連絡先を追加しました');
-  searchContact('山田花子');
-}
-</code></pre>
 <h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
 <p>マップは以下のような場面で特に便利です：</p>
 <ol>
@@ -411,12 +366,6 @@
 <li><strong>グループ化</strong>：カテゴリーごとにデータを整理</li>
 </ol>
 <p>これらの例を参考に、自分のプログラムでもマップを活用してみましょう。</p>
-<h3 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h3>
-<ol>
-<li>都道府県名をキー、県庁所在地を値とするマップを作成し、5つ以上のデータを登録してください。</li>
-<li>商品の売上個数を記録し、売上ランキングを表示するプログラムを作成してください。</li>
-<li>ユーザーのログイン回数を記録し、最もアクティブなユーザーを見つけるプログラムを作成してください。</li>
-</ol>
 
                     </main>
 

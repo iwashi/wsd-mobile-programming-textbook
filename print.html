@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-3d253f29.js";
+            window.path_to_searchindex_js = "searchindex-758610f3.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-94a57eff.js"></script>
@@ -5325,12 +5325,6 @@ void main() {
 <li><strong>マップを活用した実用的なプログラム</strong>を作成できる</li>
 <li><strong>複雑なデータ構造</strong>を管理できる</li>
 </ul>
-<h3 id="心構え"><a class="header" href="#心構え">心構え</a></h3>
-<ul>
-<li><strong>データの関連性を意識した</strong>設計ができる</li>
-<li><strong>効率的なデータアクセス</strong>を重視している</li>
-<li><strong>実用的なアプリケーション</strong>を作る発想力がある</li>
-</ul>
 <h2 id="学習のポイント-7"><a class="header" href="#学習のポイント-7">学習のポイント</a></h2>
 <h3 id="-マップはラベル付きの引き出し"><a class="header" href="#-マップはラベル付きの引き出し">🗂️ マップは「ラベル付きの引き出し」</a></h3>
 <p>マップは、それぞれの引き出しにラベル（キー）が付いた整理棚のようなものです。「田中さんの電話番号」「りんごの値段」のように、意味のある名前でデータにアクセスできます。</p>
@@ -5343,7 +5337,6 @@ void main() {
 <h2 id="次のステップへ-7"><a class="header" href="#次のステップへ-7">次のステップへ</a></h2>
 <p>第8章を修了すると、あなたは基本的なデータ構造（リストとマップ）を自在に使いこなせるようになります。</p>
 <p>第9章では、プログラムをより整理して管理しやすくする「関数」について学習します。同じ処理をまとめて再利用可能にする関数の概念を学ぶことで、より保守性の高いプログラムを作成できるようになります。</p>
-<p><strong>データの関連性を表現できれば、現実世界をプログラムで再現できます！</strong> 🌐</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="キーと値のペアでデータを管理"><a class="header" href="#キーと値のペアでデータを管理">キーと値のペアでデータを管理</a></h1>
 <p>前章では、リストを使って複数のデータをまとめて管理する方法を学びました。リストは順番に並んだデータを扱うのに便利でしたが、今回はもう一つの重要なデータ構造「マップ（Map）」について学びます。</p>
@@ -5448,12 +5441,6 @@ void main() {
 </code></pre>
 <h2 id="まとめ-23"><a class="header" href="#まとめ-23">まとめ</a></h2>
 <p>マップは、キーと値のペアでデータを管理する強力なデータ構造です。名前やIDなど、意味のあるキーを使ってデータに直接アクセスできるため、関連するデータを効率的に管理できます。次のセクションでは、実際にマップを作成し、操作する方法を詳しく学びましょう。</p>
-<h3 id="練習問題-3"><a class="header" href="#練習問題-3">練習問題</a></h3>
-<ol>
-<li>あなたの家族や友人の名前と年齢をマップで表現するとどうなるでしょうか？</li>
-<li>好きな科目とその成績をマップで表現してみましょう。</li>
-<li>リストではなくマップを使うべき場面を3つ考えてください。</li>
-</ol>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="マップの作成と操作"><a class="header" href="#マップの作成と操作">マップの作成と操作</a></h1>
 <p>前のセクションでマップの概念を学びました。ここでは、実際にマップを作成し、操作する方法を詳しく見ていきましょう。</p>
@@ -5615,37 +5602,6 @@ void main() {
   }
 }
 </code></pre>
-<h2 id="実践的な例在庫管理"><a class="header" href="#実践的な例在庫管理">実践的な例：在庫管理</a></h2>
-<pre><code class="language-javascript">void main() {
-  // 商品の在庫数を管理
-  Map&lt;String, int&gt; inventory = {
-    'りんご': 50,
-    'バナナ': 30,
-    'オレンジ': 25
-  };
-  
-  print('現在の在庫: $inventory');
-  
-  // 商品を販売（在庫を減らす）
-  String soldItem = 'バナナ';
-  int soldQuantity = 5;
-  
-  if (inventory.containsKey(soldItem)) {
-    inventory[soldItem] = inventory[soldItem]! - soldQuantity;
-    print('$soldItemを$soldQuantity個販売しました');
-  }
-  
-  // 新商品を追加
-  inventory['ぶどう'] = 20;
-  print('新商品ぶどうを追加しました');
-  
-  // 在庫確認
-  print('\n=== 在庫一覧 ===');
-  inventory.forEach((item, quantity) {
-    print('$item: $quantity個');
-  });
-}
-</code></pre>
 <h2 id="まとめ-24"><a class="header" href="#まとめ-24">まとめ</a></h2>
 <p>マップの基本的な操作方法を学びました：</p>
 <ul>
@@ -5657,12 +5613,6 @@ void main() {
 <li><code>forEach</code> や <code>for-in</code> で繰り返し処理</li>
 </ul>
 <p>次のセクションでは、マップのより実践的な活用例を見ていきます。</p>
-<h3 id="練習問題-4"><a class="header" href="#練習問題-4">練習問題</a></h3>
-<ol>
-<li>友達の名前と誕生日（月/日）を管理するマップを作成し、3人分のデータを追加してください。</li>
-<li>科目名と成績（A, B, C）を管理するマップを作り、1つの科目の成績を更新する処理を書いてください。</li>
-<li>商品名と価格のマップから、すべての商品の合計金額を計算するプログラムを作成してください。</li>
-</ol>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="マップの活用例"><a class="header" href="#マップの活用例">マップの活用例</a></h1>
 <p>これまでマップの基本的な使い方を学びました。ここでは、実際のプログラミングでよく使われるマップの活用例を見ていきましょう。</p>
@@ -5846,51 +5796,6 @@ void main() {
   print('\n最も頻出する単語: $mostFrequent ($maxCount回)');
 }
 </code></pre>
-<h2 id="6-電話帳アプリケーション"><a class="header" href="#6-電話帳アプリケーション">6. 電話帳アプリケーション</a></h2>
-<p>名前から電話番号とメールアドレスを検索する例：</p>
-<pre><code class="language-javascript">void main() {
-  // 連絡先情報
-  Map&lt;String, Map&lt;String, String&gt;&gt; contacts = {
-    '田中太郎': {
-      '電話': '090-1234-5678',
-      'メール': 'tanaka@example.com'
-    },
-    '鈴木花子': {
-      '電話': '080-9876-5432',
-      'メール': 'suzuki@example.com'
-    },
-    '佐藤次郎': {
-      '電話': '070-1111-2222',
-      'メール': 'sato@example.com'
-    }
-  };
-  
-  // 連絡先を検索する関数
-  void searchContact(String name) {
-    if (contacts.containsKey(name)) {
-      print('\n=== $nameの連絡先 ===');
-      contacts[name]!.forEach((type, info) {
-        print('$type: $info');
-      });
-    } else {
-      print('\n$nameは連絡先に登録されていません');
-    }
-  }
-  
-  // 検索実行
-  searchContact('鈴木花子');
-  searchContact('山田太郎');
-  
-  // 新しい連絡先を追加
-  contacts['山田花子'] = {
-    '電話': '090-3333-4444',
-    'メール': 'yamada@example.com'
-  };
-  
-  print('\n新しい連絡先を追加しました');
-  searchContact('山田花子');
-}
-</code></pre>
 <h2 id="まとめ-25"><a class="header" href="#まとめ-25">まとめ</a></h2>
 <p>マップは以下のような場面で特に便利です：</p>
 <ol>
@@ -5901,12 +5806,6 @@ void main() {
 <li><strong>グループ化</strong>：カテゴリーごとにデータを整理</li>
 </ol>
 <p>これらの例を参考に、自分のプログラムでもマップを活用してみましょう。</p>
-<h3 id="練習問題-5"><a class="header" href="#練習問題-5">練習問題</a></h3>
-<ol>
-<li>都道府県名をキー、県庁所在地を値とするマップを作成し、5つ以上のデータを登録してください。</li>
-<li>商品の売上個数を記録し、売上ランキングを表示するプログラムを作成してください。</li>
-<li>ユーザーのログイン回数を記録し、最もアクティブなユーザーを見つけるプログラムを作成してください。</li>
-</ol>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="実践簡単な辞書プログラム"><a class="header" href="#実践簡単な辞書プログラム">実践：簡単な辞書プログラム</a></h1>
 <p>これまで学んだマップの知識を活用して、英和辞書プログラムを作ってみましょう。このプログラムでは、英単語を入力すると日本語の意味を表示し、新しい単語を追加したり、既存の単語を編集したりできます。</p>
@@ -6054,190 +5953,13 @@ void main() {
   showAllWords();
 }
 </code></pre>
-<h2 id="インタラクティブな辞書プログラム"><a class="header" href="#インタラクティブな辞書プログラム">インタラクティブな辞書プログラム</a></h2>
-<pre><code class="language-javascript">void main() {
-  // 辞書データ
-  Map&lt;String, String&gt; dictionary = {
-    'apple': 'りんご',
-    'book': '本',
-    'cat': '猫',
-    'dog': '犬',
-    'eat': '食べる',
-    'friend': '友達',
-    'good': '良い',
-    'hello': 'こんにちは'
-  };
-  
-  // 統計情報を表示する関数
-  void showStatistics() {
-    print('\n=== 辞書の統計情報 ===');
-    print('登録単語数: ${dictionary.length}個');
-    
-    // 最も短い単語と最も長い単語を見つける
-    String shortest = '';
-    String longest = '';
-    
-    dictionary.keys.forEach((word) {
-      if (shortest.isEmpty || word.length &lt; shortest.length) {
-        shortest = word;
-      }
-      if (word.length &gt; longest.length) {
-        longest = word;
-      }
-    });
-    
-    print('最も短い単語: $shortest (${shortest.length}文字)');
-    print('最も長い単語: $longest (${longest.length}文字)');
-  }
-  
-  // 部分一致検索する関数
-  void searchPartial(String keyword) {
-    print('\n=== 「$keyword」を含む単語 ===');
-    
-    List&lt;String&gt; matches = [];
-    dictionary.keys.forEach((word) {
-      if (word.contains(keyword.toLowerCase())) {
-        matches.add(word);
-      }
-    });
-    
-    if (matches.isEmpty) {
-      print('見つかりませんでした');
-    } else {
-      matches.forEach((word) {
-        print('$word: ${dictionary[word]}');
-      });
-      print('\n${matches.length}個の単語が見つかりました');
-    }
-  }
-  
-  // クイズ機能
-  void quiz() {
-    print('\n=== 英単語クイズ ===');
-    print('日本語の意味から英単語を当ててください\n');
-    
-    // ランダムに単語を選ぶ（簡易版）
-    List&lt;String&gt; words = dictionary.keys.toList();
-    
-    // 3問出題
-    for (int i = 0; i &lt; 3; i++) {
-      String word = words[i * 2]; // 簡易的な選択
-      String meaning = dictionary[word]!;
-      
-      print('問題${i + 1}: 「$meaning」の英単語は？');
-      print('（ヒント: ${word.length}文字）');
-      
-      // 実際のプログラムでは、ここでユーザー入力を受け取る
-      print('答え: $word\n');
-    }
-  }
-  
-  // メイン処理
-  print('=== 多機能英和辞書プログラム ===\n');
-  
-  // 統計情報を表示
-  showStatistics();
-  
-  // 部分一致検索
-  searchPartial('oo');
-  
-  // クイズ
-  quiz();
-}
-</code></pre>
-<h2 id="発展課題カテゴリー付き辞書"><a class="header" href="#発展課題カテゴリー付き辞書">発展課題：カテゴリー付き辞書</a></h2>
-<pre><code class="language-javascript">void main() {
-  // カテゴリー別の辞書
-  Map&lt;String, Map&lt;String, String&gt;&gt; categorizedDictionary = {
-    '動物': {
-      'cat': '猫',
-      'dog': '犬',
-      'bird': '鳥',
-      'fish': '魚'
-    },
-    '食べ物': {
-      'apple': 'りんご',
-      'bread': 'パン',
-      'milk': '牛乳',
-      'rice': 'ご飯'
-    },
-    '動作': {
-      'eat': '食べる',
-      'drink': '飲む',
-      'run': '走る',
-      'sleep': '寝る'
-    }
-  };
-  
-  // カテゴリー一覧を表示
-  void showCategories() {
-    print('=== カテゴリー一覧 ===');
-    categorizedDictionary.forEach((category, words) {
-      print('$category: ${words.length}個の単語');
-    });
-  }
-  
-  // カテゴリー内の単語を表示
-  void showWordsInCategory(String category) {
-    if (categorizedDictionary.containsKey(category)) {
-      print('\n=== $categoryの単語 ===');
-      categorizedDictionary[category]!.forEach((word, meaning) {
-        print('$word: $meaning');
-      });
-    } else {
-      print('\n「$category」というカテゴリーはありません');
-    }
-  }
-  
-  // 単語を検索（全カテゴリー）
-  void searchWordInAllCategories(String word) {
-    String lowerWord = word.toLowerCase();
-    bool found = false;
-    
-    print('\n「$word」を検索中...');
-    
-    categorizedDictionary.forEach((category, words) {
-      if (words.containsKey(lowerWord)) {
-        print('✓ カテゴリー「$category」で見つかりました');
-        print('  意味: ${words[lowerWord]}');
-        found = true;
-      }
-    });
-    
-    if (!found) {
-      print('✗ どのカテゴリーにも見つかりませんでした');
-    }
-  }
-  
-  // 実行例
-  showCategories();
-  showWordsInCategory('動物');
-  searchWordInAllCategories('apple');
-  searchWordInAllCategories('jump');
-}
-</code></pre>
 <h2 id="まとめ-26"><a class="header" href="#まとめ-26">まとめ</a></h2>
 <p>この実践プログラムで学んだこと：</p>
 <ol>
 <li><strong>マップを使ったデータ管理</strong>：単語と意味のペアを効率的に管理</li>
 <li><strong>関数の活用</strong>：機能ごとに関数を分けて整理</li>
 <li><strong>エラー処理</strong>：存在しない単語の場合の処理</li>
-<li><strong>ユーザーフレンドリーな出力</strong>：分かりやすいメッセージ表示</li>
-<li><strong>データの拡張</strong>：カテゴリー機能など、より複雑な構造への発展</li>
 </ol>
-<h3 id="練習問題-6"><a class="header" href="#練習問題-6">練習問題</a></h3>
-<ol>
-<li>辞書プログラムに「単語の頭文字で検索する機能」を追加してください。</li>
-<li>英和辞書を和英辞書に変換する関数を作成してください（キーと値を入れ替える）。</li>
-<li>辞書データをファイルに保存し、次回起動時に読み込む機能を考えてみてください（擬似コード）。</li>
-</ol>
-<h3 id="チャレンジ問題"><a class="header" href="#チャレンジ問題">チャレンジ問題</a></h3>
-<p>以下の機能を持つ「学習記録付き単語帳」を作成してください：</p>
-<ul>
-<li>単語ごとに「学習回数」を記録</li>
-<li>「苦手な単語」（間違えた回数が多い）を表示</li>
-<li>学習履歴から「今日の復習単語」を提案</li>
-</ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="第9章関数の基礎"><a class="header" href="#第9章関数の基礎">第9章：関数の基礎</a></h1>
 <p>データ構造をマスターしたあなたは、いよいよプログラムをより効率的に整理する段階に進みます！</p>
@@ -6294,7 +6016,7 @@ void main() {
 <li><strong>既存のコードを関数に分割</strong>して整理できる</li>
 <li><strong>保守性の高いプログラム</strong>を作成できる</li>
 </ul>
-<h3 id="心構え-1"><a class="header" href="#心構え-1">心構え</a></h3>
+<h3 id="心構え"><a class="header" href="#心構え">心構え</a></h3>
 <ul>
 <li><strong>コードの重複を避ける</strong>習慣がついている</li>
 <li><strong>モジュール化の重要性</strong>を理解している</li>
@@ -6463,7 +6185,7 @@ void main() {
 <li><strong>保守しやすくする</strong>：修正や改良が簡単になる</li>
 </ul>
 <p>次のセクションでは、実際に関数を定義し、使ってみましょう。</p>
-<h3 id="練習問題-7"><a class="header" href="#練習問題-7">練習問題</a></h3>
+<h3 id="練習問題-3"><a class="header" href="#練習問題-3">練習問題</a></h3>
 <ol>
 <li>日常生活で「関数」のように働いているものを3つ挙げてください。</li>
 <li>プログラムで同じ処理を繰り返し書くことの問題点を説明してください。</li>
@@ -6695,7 +6417,7 @@ void showMessage() {  // エラー！
 <li>適切な名前を付けることで、コードが読みやすくなる</li>
 </ul>
 <p>次のセクションでは、関数に値を渡したり、結果を返したりする方法を学びます。</p>
-<h3 id="練習問題-8"><a class="header" href="#練習問題-8">練習問題</a></h3>
+<h3 id="練習問題-4"><a class="header" href="#練習問題-4">練習問題</a></h3>
 <ol>
 <li>自己紹介を表示する関数 <code>introduceMyself()</code> を作成し、3回呼び出してください。</li>
 <li>以下の3つの関数を作成してください：
@@ -6960,7 +6682,7 @@ void main() {
 <li><code>return</code>文で値を返す</li>
 </ul>
 <p>次のセクションでは、変数のスコープ（有効範囲）について学びます。</p>
-<h3 id="練習問題-9"><a class="header" href="#練習問題-9">練習問題</a></h3>
+<h3 id="練習問題-5"><a class="header" href="#練習問題-5">練習問題</a></h3>
 <ol>
 <li>2つの数値を受け取り、大きい方を返す関数 <code>getMax(int a, int b)</code> を作成してください。</li>
 <li>円の半径を受け取り、面積を返す関数 <code>calculateCircleArea(double radius)</code> を作成してください（π = 3.14159）。</li>
@@ -7249,7 +6971,7 @@ void function2() {
 <li>必要最小限のスコープを使うことが重要</li>
 </ul>
 <p>次のセクションでは、これまで学んだ関数の知識を使って、実践的な電卓プログラムを作成します。</p>
-<h3 id="練習問題-10"><a class="header" href="#練習問題-10">練習問題</a></h3>
+<h3 id="練習問題-6"><a class="header" href="#練習問題-6">練習問題</a></h3>
 <ol>
 <li>
 <p>以下のコードで、各 print 文の出力を予想してください：</p>
@@ -7721,13 +7443,13 @@ void main() {
 <li><strong>エラー処理</strong>：各機能でエラーを適切に処理できる</li>
 </ol>
 <p>関数は、プログラムを構造化し、管理しやすくするための重要なツールです。</p>
-<h3 id="練習問題-11"><a class="header" href="#練習問題-11">練習問題</a></h3>
+<h3 id="練習問題-7"><a class="header" href="#練習問題-7">練習問題</a></h3>
 <ol>
 <li>階乗を計算する関数 <code>factorial(int n)</code> を追加してください。</li>
 <li>最大公約数を求める関数 <code>gcd(int a, int b)</code> を追加してください。</li>
 <li>計算履歴から特定の演算子の計算だけを表示する関数を作成してください。</li>
 </ol>
-<h3 id="チャレンジ問題-1"><a class="header" href="#チャレンジ問題-1">チャレンジ問題</a></h3>
+<h3 id="チャレンジ問題"><a class="header" href="#チャレンジ問題">チャレンジ問題</a></h3>
 <p>以下の機能を持つ「科学電卓」を作成してください：</p>
 <ul>
 <li>三角関数（sin、cos、tan）の計算（角度は度数法）</li>
@@ -7784,7 +7506,7 @@ void main() {
 <li><strong>関数を組み合わせた大きなプログラム</strong>を作成できる</li>
 <li><strong>ユーザーフレンドリーなアプリケーション</strong>を開発できる</li>
 </ul>
-<h3 id="心構え-2"><a class="header" href="#心構え-2">心構え</a></h3>
+<h3 id="心構え-1"><a class="header" href="#心構え-1">心構え</a></h3>
 <ul>
 <li><strong>設計先行の開発</strong>を心がけている</li>
 <li><strong>ユーザビリティ</strong>を意識したプログラムを作れる</li>
@@ -7889,7 +7611,7 @@ void main() {
   print('判定: $judgment');
 }
 </code></pre>
-<h2 id="練習問題-12"><a class="header" href="#練習問題-12">練習問題</a></h2>
+<h2 id="練習問題-8"><a class="header" href="#練習問題-8">練習問題</a></h2>
 <ol>
 <li>3つの数値を受け取って、その平均値を返す関数を作ってください。</li>
 </ol>
@@ -8062,7 +7784,7 @@ void main() {
   calculate(a: 20, b: 4, operation: '/', showProcess: true);  // 20 ÷ 4 = 5.0
 }
 </code></pre>
-<h2 id="練習問題-13"><a class="header" href="#練習問題-13">練習問題</a></h2>
+<h2 id="練習問題-9"><a class="header" href="#練習問題-9">練習問題</a></h2>
 <ol>
 <li>文字列を装飾する関数を作ってください。デフォルトでは <code>*</code> で囲みます。</li>
 </ol>
@@ -8326,7 +8048,7 @@ void main() {
   analyzeTemperatures();
 }
 </code></pre>
-<h2 id="練習問題-14"><a class="header" href="#練習問題-14">練習問題</a></h2>
+<h2 id="練習問題-10"><a class="header" href="#練習問題-10">練習問題</a></h2>
 <ol>
 <li>以下の処理を適切な関数に分割してください。</li>
 </ol>
@@ -8674,7 +8396,7 @@ void main() {
   }
 }
 </code></pre>
-<h2 id="練習問題-15"><a class="header" href="#練習問題-15">練習問題</a></h2>
+<h2 id="練習問題-11"><a class="header" href="#練習問題-11">練習問題</a></h2>
 <ol>
 <li>
 <p>「最初はグー」機能を追加してください（最初に必ずグーを表示）。</p>
@@ -8752,7 +8474,7 @@ void main() {
 <li><strong>オブジェクトを活用したプログラム</strong>を作成できる</li>
 <li><strong>現実世界の問題をオブジェクトで表現</strong>できる</li>
 </ul>
-<h3 id="心構え-3"><a class="header" href="#心構え-3">心構え</a></h3>
+<h3 id="心構え-2"><a class="header" href="#心構え-2">心構え</a></h3>
 <ul>
 <li><strong>現実世界とプログラムの対応</strong>を意識している</li>
 <li><strong>データと処理の関連性</strong>を重視している</li>
@@ -8868,7 +8590,7 @@ print("猫: $catName, $catAge歳, $catBreed");
 <li><strong>これから</strong>：関連する情報と処理をオブジェクトとしてまとめて管理</li>
 </ul>
 <p>次の章では、実際にDartでオブジェクトを作る方法を学んでいきます。まずは「<strong>クラス</strong>」という設計図の作り方から始めましょう！</p>
-<h2 id="練習問題-16"><a class="header" href="#練習問題-16">練習問題</a></h2>
+<h2 id="練習問題-12"><a class="header" href="#練習問題-12">練習問題</a></h2>
 <ol>
 <li>
 <p>あなたの身の回りにある物（例：スマートフォン、本、車など）を一つ選んで、それが持っている属性（何を持っているか）と行動（何ができるか）を3つずつ考えてみてください。</p>
@@ -9053,7 +8775,7 @@ class Data { }          // 何のデータかわからない
 <li><strong>データ型</strong>：適切な型を選択する</li>
 </ol>
 <p>次の章では、この設計図（クラス）を使って実際のオブジェクトを作る方法を学びます。いよいよ設計図から実物を作り出しますよ！</p>
-<h2 id="練習問題-17"><a class="header" href="#練習問題-17">練習問題</a></h2>
+<h2 id="練習問題-13"><a class="header" href="#練習問題-13">練習問題</a></h2>
 <ol>
 <li>
 <p>車（Car）を表現するクラスを作ってください。車には以下の属性があります：</p>
@@ -9360,7 +9082,7 @@ void main() {
 <li><strong>オブジェクト比較</strong>：インスタンスの同一性 vs. 内容の比較</li>
 </ol>
 <p>次の章では、オブジェクトに「行動」を追加する方法（メソッド）を学びます。オブジェクトがただデータを持つだけでなく、何かができるようになりますよ！</p>
-<h2 id="練習問題-18"><a class="header" href="#練習問題-18">練習問題</a></h2>
+<h2 id="練習問題-14"><a class="header" href="#練習問題-14">練習問題</a></h2>
 <ol>
 <li>次のコードの実行結果を予想してください：</li>
 </ol>
@@ -9829,7 +9551,7 @@ void main() {
 </ol>
 <p>オブジェクトは今や、データを持つだけでなく、そのデータを使って様々な処理ができるようになりました！</p>
 <p>次の章では、これらの知識を使って実際のペット管理アプリを作ってみます。今まで学んだことが全て一つの形になりますよ！</p>
-<h2 id="練習問題-19"><a class="header" href="#練習問題-19">練習問題</a></h2>
+<h2 id="練習問題-15"><a class="header" href="#練習問題-15">練習問題</a></h2>
 <ol>
 <li>次のコードで、<code>pochi.getHumanAge()</code> の戻り値は何でしょうか？</li>
 </ol>
@@ -10401,7 +10123,7 @@ class Cat extends Pet {
 <li><strong>カプセル化されたクラス</strong>を作成できる</li>
 <li><strong>複雑な管理システム</strong>を設計・実装できる</li>
 </ul>
-<h3 id="心構え-4"><a class="header" href="#心構え-4">心構え</a></h3>
+<h3 id="心構え-3"><a class="header" href="#心構え-3">心構え</a></h3>
 <ul>
 <li><strong>データの安全性</strong>を最優先に考えている</li>
 <li><strong>拡張性と保守性</strong>を意識した設計ができる</li>
@@ -11919,7 +11641,7 @@ void main() {
 <li><strong>エラーメッセージから問題を特定</strong>できる</li>
 <li><strong>予防的なプログラミング</strong>を実践できる</li>
 </ul>
-<h3 id="心構え-5"><a class="header" href="#心構え-5">心構え</a></h3>
+<h3 id="心構え-4"><a class="header" href="#心構え-4">心構え</a></h3>
 <ul>
 <li><strong>エラーを学習の機会</strong>として活用できる</li>
 <li><strong>段階的な問題解決</strong>のアプローチが身についている</li>
@@ -12989,7 +12711,7 @@ void main() {
 <li><strong>実践的なプロジェクト</strong>を企画・実行できる</li>
 <li><strong>コミュニティ活動</strong>に参加できる</li>
 </ul>
-<h3 id="心構え-6"><a class="header" href="#心構え-6">心構え</a></h3>
+<h3 id="心構え-5"><a class="header" href="#心構え-5">心構え</a></h3>
 <ul>
 <li><strong>生涯学習者</strong>としての意識を持っている</li>
 <li><strong>困難を乗り越える</strong>粘り強さがある</li>
@@ -13206,7 +12928,7 @@ void main() {
 <li><strong>null安全性</strong>：エラーの少ない安全なプログラムを書く</li>
 </ul>
 <p>これらの機能を少しずつ学んでいけば、より複雑で実用的なプログラムが書けるようになります。焦らず、一つずつマスターしていきましょう！</p>
-<h2 id="練習問題-20"><a class="header" href="#練習問題-20">練習問題</a></h2>
+<h2 id="練習問題-16"><a class="header" href="#練習問題-16">練習問題</a></h2>
 <h3 id="問題1非同期処理を試してみよう"><a class="header" href="#問題1非同期処理を試してみよう">問題1：非同期処理を試してみよう</a></h3>
 <p>次のコードを完成させて、3秒後にメッセージを表示するプログラムを作ってください：</p>
 <pre><code class="language-javascript">Future&lt;void&gt; delayedMessage() async {

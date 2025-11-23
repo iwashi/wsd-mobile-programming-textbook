@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-3d253f29.js";
+            window.path_to_searchindex_js = "../searchindex-758610f3.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-94a57eff.js"></script>
@@ -334,37 +334,6 @@
   }
 }
 </code></pre>
-<h2 id="実践的な例在庫管理"><a class="header" href="#実践的な例在庫管理">実践的な例：在庫管理</a></h2>
-<pre><code class="language-javascript">void main() {
-  // 商品の在庫数を管理
-  Map&lt;String, int&gt; inventory = {
-    'りんご': 50,
-    'バナナ': 30,
-    'オレンジ': 25
-  };
-  
-  print('現在の在庫: $inventory');
-  
-  // 商品を販売（在庫を減らす）
-  String soldItem = 'バナナ';
-  int soldQuantity = 5;
-  
-  if (inventory.containsKey(soldItem)) {
-    inventory[soldItem] = inventory[soldItem]! - soldQuantity;
-    print('$soldItemを$soldQuantity個販売しました');
-  }
-  
-  // 新商品を追加
-  inventory['ぶどう'] = 20;
-  print('新商品ぶどうを追加しました');
-  
-  // 在庫確認
-  print('\n=== 在庫一覧 ===');
-  inventory.forEach((item, quantity) {
-    print('$item: $quantity個');
-  });
-}
-</code></pre>
 <h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
 <p>マップの基本的な操作方法を学びました：</p>
 <ul>
@@ -376,12 +345,6 @@
 <li><code>forEach</code> や <code>for-in</code> で繰り返し処理</li>
 </ul>
 <p>次のセクションでは、マップのより実践的な活用例を見ていきます。</p>
-<h3 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h3>
-<ol>
-<li>友達の名前と誕生日（月/日）を管理するマップを作成し、3人分のデータを追加してください。</li>
-<li>科目名と成績（A, B, C）を管理するマップを作り、1つの科目の成績を更新する処理を書いてください。</li>
-<li>商品名と価格のマップから、すべての商品の合計金額を計算するプログラムを作成してください。</li>
-</ol>
 
                     </main>
 
