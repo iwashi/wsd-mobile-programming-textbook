@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-d7e21e4a.js";
+            window.path_to_searchindex_js = "../searchindex-d8b02757.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-e0947a2c.js"></script>
+        <script src="../toc-8071f62d.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -356,30 +356,8 @@
 </tbody>
 </table>
 </div>
-<h2 id="実践例総合的な条件判定"><a class="header" href="#実践例総合的な条件判定">実践例：総合的な条件判定</a></h2>
-<p>会員システムの例を見てみましょう：</p>
-<pre><code class="language-javascript">void main() {
-  int age = 25;
-  bool isPremiumMember = true;
-  int pointBalance = 500;
-  String membershipType = 'gold';
-  
-  // 複数の条件を組み合わせた判定
-  if ((age &gt;= 18 &amp;&amp; isPremiumMember) || 
-      (pointBalance &gt;= 1000) || 
-      (membershipType == 'gold' || membershipType == 'platinum')) {
-    print('特別サービスを利用できます');
-    
-    if (membershipType == 'platinum' &amp;&amp; pointBalance &gt;= 5000) {
-      print('さらに、最高級サービスも利用可能です');
-    }
-  } else {
-    print('基本サービスのみ利用可能です');
-  }
-}
-</code></pre>
 <h2 id="よくある間違い"><a class="header" href="#よくある間違い">よくある間違い</a></h2>
-<h3 id="1-範囲の条件を間違って書く"><a class="header" href="#1-範囲の条件を間違って書く">1. 範囲の条件を間違って書く</a></h3>
+<h3 id="範囲の条件を間違って書く"><a class="header" href="#範囲の条件を間違って書く">範囲の条件を間違って書く</a></h3>
 <pre><code class="language-javascript">// 間違った例
 int age = 25;
 if (18 &lt;= age &lt;= 65) {  // これはエラー！Dartでは使えません
@@ -392,11 +370,6 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
   print('働き盛りです');
 }
 </code></pre>
-<h3 id="2-ドモルガンの法則を忘れる"><a class="header" href="#2-ドモルガンの法則を忘れる">2. ド・モルガンの法則を忘れる</a></h3>
-<pre><code class="language-javascript">// 以下の2つは同じ意味です
-!(a &amp;&amp; b) == (!a || !b)
-!(a || b) == (!a &amp;&amp; !b)
-</code></pre>
 <h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
 <ul>
 <li><code>&amp;&amp;</code>（AND）：すべての条件が真の時に真</li>
@@ -405,7 +378,6 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <li>複雑な条件では括弧を使って優先順位を明確にする</li>
 <li>論理演算子を組み合わせることで、より柔軟な条件分岐が可能</li>
 </ul>
-<p>次の節では、これまで学んだ条件分岐の知識を使った実践的なプログラムを作成します。</p>
 
                     </main>
 
@@ -415,7 +387,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="../chapter_5/5-5.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../chapter_6/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -429,7 +401,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="../chapter_5/5-5.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../chapter_6/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
