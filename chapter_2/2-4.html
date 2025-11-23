@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-2b9cd427.js";
+            window.path_to_searchindex_js = "../searchindex-9c3636eb.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-5b66f7d5.js"></script>
@@ -289,56 +289,6 @@ a = 10, b = 5
   print('プログラムを終了します');
 }
 </code></pre>
-<h2 id="実行順序の追跡"><a class="header" href="#実行順序の追跡">実行順序の追跡</a></h2>
-<p>プログラムがどの順序で実行されているかを確認するために、各ステップに番号を付ける方法があります：</p>
-<h3 id="方法1-コメントで順序を記録"><a class="header" href="#方法1-コメントで順序を記録">方法1: コメントで順序を記録</a></h3>
-<pre><code class="language-javascript">void main() {
-  // ステップ1: プログラム開始の通知
-  print('プログラム開始');
-  
-  // ステップ2: データの初期化
-  String name = '佐藤花子';
-  int age = 17;
-  
-  // ステップ3: 基本情報の表示
-  print('名前: $name');
-  print('年齢: $age');
-  
-  // ステップ4: 計算処理
-  int nextAge = age + 1;
-  
-  // ステップ5: 結果の表示
-  print('来年の年齢: $nextAge');
-  
-  // ステップ6: プログラム終了の通知
-  print('プログラム終了');
-}
-</code></pre>
-<h3 id="方法2-実行順序を出力で確認"><a class="header" href="#方法2-実行順序を出力で確認">方法2: 実行順序を出力で確認</a></h3>
-<pre><code class="language-javascript">void main() {
-  print('[1] main関数が開始されました');
-  
-  print('[2] 変数の初期化を行います');
-  int x = 100;
-  int y = 50;
-  
-  print('[3] 計算処理を実行します');
-  int difference = x - y;
-  
-  print('[4] 結果を表示します');
-  print('$x - $y = $difference');
-  
-  print('[5] main関数が終了します');
-}
-</code></pre>
-<p>実行結果：</p>
-<pre><code>[1] main関数が開始されました
-[2] 変数の初期化を行います
-[3] 計算処理を実行します
-[4] 結果を表示します
-100 - 50 = 50
-[5] main関数が終了します
-</code></pre>
 <h2 id="複雑な実行順序の例"><a class="header" href="#複雑な実行順序の例">複雑な実行順序の例</a></h2>
 <h3 id="例1-学生の成績処理システム"><a class="header" href="#例1-学生の成績処理システム">例1: 学生の成績処理システム</a></h3>
 <pre><code class="language-javascript">void main() {
@@ -420,35 +370,6 @@ a = 10, b = 5
   print('計算完了しました！');
 }
 </code></pre>
-<h2 id="実行順序を変えると起こる問題"><a class="header" href="#実行順序を変えると起こる問題">実行順序を変えると起こる問題</a></h2>
-<h3 id="問題例1-変数の順序問題"><a class="header" href="#問題例1-変数の順序問題">問題例1: 変数の順序問題</a></h3>
-<pre><code class="language-javascript">void main() {
-  // これはエラーになる例
-  // print('合計: $total');  // totalがまだ定義されていないためエラー
-  
-  // 正しい順序
-  int a = 10;
-  int b = 20;
-  int total = a + b;
-  print('合計: $total');  // この順序なら正常に動作
-}
-</code></pre>
-<h3 id="問題例2-論理的な順序問題"><a class="header" href="#問題例2-論理的な順序問題">問題例2: 論理的な順序問題</a></h3>
-<pre><code class="language-javascript">void main() {
-  // 論理的におかしい順序の例
-  print('結果を発表します');
-  print('計算完了！');
-  print('計算を開始します');  // 順序が逆転している
-  
-  print('');
-  
-  // 正しい論理的順序
-  print('計算を開始します');
-  int result = 5 * 8;
-  print('計算完了！');
-  print('結果を発表します: $result');
-}
-</code></pre>
 <h2 id="デバッグと実行順序"><a class="header" href="#デバッグと実行順序">デバッグと実行順序</a></h2>
 <p>プログラムに問題があるとき、実行順序を追跡することでデバッグ（問題の発見と修正）ができます：</p>
 <pre><code class="language-javascript">void main() {
@@ -473,80 +394,6 @@ a = 10, b = 5
   print('デバッグ終了');
 }
 </code></pre>
-<h2 id="実行順序の制御予告"><a class="header" href="#実行順序の制御予告">実行順序の制御（予告）</a></h2>
-<p>今は順次実行だけを学んでいますが、後の章では実行順序を制御する方法を学びます：</p>
-<h3 id="条件分岐第5章で詳しく学習"><a class="header" href="#条件分岐第5章で詳しく学習">条件分岐（第5章で詳しく学習）</a></h3>
-<pre><code class="language-javascript">void main() {
-  int score = 85;
-  
-  print('成績を判定します');
-  if (score &gt;= 80) {
-    print('優秀です！');
-  } else {
-    print('頑張りましょう');
-  }
-  print('判定完了');
-}
-</code></pre>
-<h3 id="繰り返し処理第6章で詳しく学習"><a class="header" href="#繰り返し処理第6章で詳しく学習">繰り返し処理（第6章で詳しく学習）</a></h3>
-<pre><code class="language-javascript">void main() {
-  print('カウントダウン開始');
-  
-  for (int i = 3; i &gt;= 1; i--) {
-    print('${i}...');
-  }
-  
-  print('発射！');
-}
-</code></pre>
-<h2 id="演習問題"><a class="header" href="#演習問題">演習問題</a></h2>
-<h3 id="演習1-朝の準備プログラム"><a class="header" href="#演習1-朝の準備プログラム">演習1: 朝の準備プログラム</a></h3>
-<p>朝の準備の手順をプログラムで表現してください。以下の順序で実行されるようにしてください：</p>
-<ol>
-<li>起床の挨拶</li>
-<li>歯磨き</li>
-<li>洗顔</li>
-<li>朝食</li>
-<li>準備完了の挨拶</li>
-</ol>
-<p>解答例：</p>
-<pre><code class="language-javascript">void main() {
-  print('=== 朝の準備 ===');
-  print('1. おはようございます！起床しました');
-  print('2. 歯磨きをします');
-  print('3. 洗顔をします');
-  print('4. 朝食を食べます');
-  print('5. 準備完了！今日も一日頑張ります');
-}
-</code></pre>
-<h3 id="演習2-図書館での本の貸出プログラム"><a class="header" href="#演習2-図書館での本の貸出プログラム">演習2: 図書館での本の貸出プログラム</a></h3>
-<p>図書館で本を借りる手順をプログラムで表現してください：</p>
-<p>解答例：</p>
-<pre><code class="language-javascript">void main() {
-  print('=== 図書館 本の貸出システム ===');
-  
-  // 利用者情報
-  String userName = '田中太郎';
-  String bookTitle = 'Dartプログラミング入門';
-  String borrowDate = '2024年1月15日';
-  String returnDate = '2024年1月29日';
-  
-  print('1. 利用者確認を行います');
-  print('   利用者: $userName');
-  
-  print('2. 本の情報を確認します');
-  print('   書籍名: $bookTitle');
-  
-  print('3. 貸出処理を実行します');
-  print('   貸出日: $borrowDate');
-  print('   返却予定日: $returnDate');
-  
-  print('4. 貸出完了');
-  print('   ※返却期限を守ってください');
-  
-  print('貸出処理が完了しました');
-}
-</code></pre>
 <h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
 <p>プログラムの実行順序について学んだ重要なポイント：</p>
 <h3 id="基本原則"><a class="header" href="#基本原則">基本原則</a></h3>
@@ -564,8 +411,6 @@ a = 10, b = 5
 <h3 id="注意点"><a class="header" href="#注意点">注意点</a></h3>
 <ul>
 <li><strong>変数の定義順序</strong>: 使用する前に定義する</li>
-<li><strong>論理的な順序</strong>: 現実の手順に合わせた順序</li>
-<li><strong>出力の一貫性</strong>: ユーザーにとって分かりやすい順序</li>
 </ul>
 <p>プログラムの実行順序を理解することは、より複雑なプログラムを作るための基礎となります。次の節では、プログラムでエラーが発生したときの対処法について学びます。</p>
 

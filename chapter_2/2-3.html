@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-2b9cd427.js";
+            window.path_to_searchindex_js = "../searchindex-9c3636eb.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-5b66f7d5.js"></script>
@@ -176,7 +176,8 @@
                     <main>
                         <h1 id="23-print文で画面に表示する"><a class="header" href="#23-print文で画面に表示する">2.3 print文で画面に表示する</a></h1>
 <h2 id="print文とは"><a class="header" href="#print文とは">print文とは</a></h2>
-<p><strong>print文</strong>は、Dartで最も基本的で重要な機能の一つです。プログラムから画面（コンソール）に文字や数値を表示するために使います。今まで何度も使ってきた<code>print()</code>が、まさにこのprint文です。</p>
+<p><strong>print文</strong>は、Dartで最も基本的で重要な機能の一つです。プログラムから画面（コンソール）に文字や数値を表示するために使います。</p>
+<p>以下のコードに示すように、すでに何度も使ってきた<code>print()</code>がまさにこのprint文です。</p>
 <pre><code class="language-javascript">void main() {
   print('Hello, World!');
 }
@@ -296,7 +297,7 @@ Dartプログラミング
 <pre><code class="language-javascript">void main() {
   print('=== 成績表 ===');
   print('名前      | 数学 | 英語 | 理科');
-  print('----------|------|------|------');
+  print('---------|------|-----|-----');
   print('田中太郎  |  85  |  78  |  92');
   print('佐藤花子  |  90  |  88  |  85');
   print('山田次郎  |  75  |  82  |  79');
@@ -313,7 +314,7 @@ Dartプログラミング
 <h3 id="3-パターンやデザインの表示"><a class="header" href="#3-パターンやデザインの表示">3. パターンやデザインの表示</a></h3>
 <pre><code class="language-javascript">void main() {
   print('★☆★☆★☆★☆★☆');
-  print('   プログラム開始   ');
+  print('プログラム開始');
   print('★☆★☆★☆★☆★☆');
   print('');
   
@@ -391,46 +392,6 @@ Dartプログラミング
 田中太郎	16	東京都
 佐藤花子	17	大阪府
 </code></pre>
-<h2 id="print文の実用例"><a class="header" href="#print文の実用例">print文の実用例</a></h2>
-<h3 id="1-プログラムの進行状況を表示"><a class="header" href="#1-プログラムの進行状況を表示">1. プログラムの進行状況を表示</a></h3>
-<pre><code class="language-javascript">void main() {
-  print('[1/5] プログラム開始');
-  print('[2/5] データ読み込み中...');
-  print('[3/5] 計算処理中...');
-  print('[4/5] 結果の検証中...');
-  print('[5/5] 処理完了！');
-}
-</code></pre>
-<h3 id="2-メニューの表示"><a class="header" href="#2-メニューの表示">2. メニューの表示</a></h3>
-<pre><code class="language-javascript">void main() {
-  print('=== メニュー ===');
-  print('1. 新規作成');
-  print('2. ファイルを開く');
-  print('3. 保存');
-  print('4. 終了');
-  print('');
-  print('選択してください (1-4): ');
-}
-</code></pre>
-<h3 id="3-計算過程の表示"><a class="header" href="#3-計算過程の表示">3. 計算過程の表示</a></h3>
-<pre><code class="language-javascript">void main() {
-  int principal = 100000;  // 元金
-  double rate = 0.05;      // 利率5%
-  int years = 3;           // 3年
-  
-  print('=== 複利計算 ===');
-  print('元金: ${principal}円');
-  print('利率: ${(rate * 100)}%');
-  print('期間: ${years}年');
-  print('');
-  
-  double amount = principal;
-  for (int year = 1; year &lt;= years; year++) {
-    amount = amount * (1 + rate);
-    print('${year}年後: ${amount.toStringAsFixed(0)}円');
-  }
-}
-</code></pre>
 <h2 id="print文でのデバッグ"><a class="header" href="#print文でのデバッグ">print文でのデバッグ</a></h2>
 <p>プログラムの動作を確認するために、print文を使ってデバッグ（問題の発見と修正）ができます：</p>
 <pre><code class="language-javascript">void main() {
@@ -478,52 +439,6 @@ print('Hello, World!');
 print('Hello, World!';
 print 'Hello, World!');
 </code></pre>
-<h2 id="応用演習"><a class="header" href="#応用演習">応用演習</a></h2>
-<h3 id="演習1-自己紹介カードを作成"><a class="header" href="#演習1-自己紹介カードを作成">演習1: 自己紹介カードを作成</a></h3>
-<p>以下の情報を使って、見栄えの良い自己紹介カードを表示するプログラムを作成してください：</p>
-<ul>
-<li>名前: 山田太郎</li>
-<li>年齢: 17歳</li>
-<li>学校: サンプル高校</li>
-<li>趣味: プログラミング、読書</li>
-</ul>
-<p>解答例：</p>
-<pre><code class="language-javascript">void main() {
-  String name = '山田太郎';
-  int age = 17;
-  String school = 'サンプル高校';
-  String hobby1 = 'プログラミング';
-  String hobby2 = '読書';
-  
-  print('┌─────────────────────┐');
-  print('│      自己紹介カード      │');
-  print('├─────────────────────┤');
-  print('│ 名前: $name          │');
-  print('│ 年齢: ${age}歳              │');
-  print('│ 学校: $school        │');
-  print('│ 趣味: $hobby1、$hobby2    │');
-  print('└─────────────────────┘');
-}
-</code></pre>
-<h3 id="演習2-計算機の結果表示"><a class="header" href="#演習2-計算機の結果表示">演習2: 計算機の結果表示</a></h3>
-<p>二つの数値で四則演算を行い、結果を見やすく表示するプログラムを作成してください。</p>
-<p>解答例：</p>
-<pre><code class="language-javascript">void main() {
-  int num1 = 15;
-  int num2 = 4;
-  
-  print('=== 計算機 ===');
-  print('数値1: $num1');
-  print('数値2: $num2');
-  print('');
-  print('計算結果:');
-  print('  $num1 + $num2 = ${num1 + num2}');
-  print('  $num1 - $num2 = ${num1 - num2}');
-  print('  $num1 × $num2 = ${num1 * num2}');
-  print('  $num1 ÷ $num2 = ${num1 / num2}');
-  print('  $num1 % $num2 = ${num1 % num2}  (余り)');
-}
-</code></pre>
 <h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
 <p>print文の重要なポイント：</p>
 <h3 id="基本的な使い方"><a class="header" href="#基本的な使い方">基本的な使い方</a></h3>
@@ -543,12 +458,6 @@ print 'Hello, World!');
 <li><strong>改行</strong>: <code>\n</code></li>
 <li><strong>タブ</strong>: <code>\t</code></li>
 <li><strong>引用符</strong>: <code>\"</code> または <code>\'</code></li>
-</ul>
-<h3 id="実用的な活用"><a class="header" href="#実用的な活用">実用的な活用</a></h3>
-<ul>
-<li><strong>デバッグ</strong>: 変数の値や処理の流れを確認</li>
-<li><strong>ユーザー界面</strong>: メニューや結果の表示</li>
-<li><strong>レポート</strong>: 整理された情報の出力</li>
 </ul>
 <p>print文は、プログラムとユーザー（あるいは開発者）をつなぐ重要な架け橋です。見やすく、分かりやすい出力を心がけることで、より良いプログラムが作れるようになります。</p>
 <p>次の節では、プログラムがどのような順序で実行されるかを詳しく学びます。</p>

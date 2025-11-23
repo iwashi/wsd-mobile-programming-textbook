@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-2b9cd427.js";
+            window.path_to_searchindex_js = "searchindex-9c3636eb.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-5b66f7d5.js"></script>
@@ -870,12 +870,6 @@ void main() {
 <li><strong>print文</strong>を自在に使って情報を表示できる</li>
 <li><strong>エラーメッセージ</strong>を読んで、問題を自分で解決できる</li>
 </ul>
-<h3 id="心構え"><a class="header" href="#心構え">心構え</a></h3>
-<ul>
-<li>エラーを<strong>学習のチャンス</strong>として前向きに捉えている</li>
-<li><strong>読みやすいコード</strong>を書くことの大切さを実感している</li>
-<li><strong>段階的な問題解決</strong>の手法が身についている</li>
-</ul>
 <h2 id="学習のポイント-1"><a class="header" href="#学習のポイント-1">学習のポイント</a></h2>
 <h3 id="-コメントは未来への贈り物"><a class="header" href="#-コメントは未来への贈り物">📖 コメントは未来への贈り物</a></h3>
 <p>今は簡単に見えるコードも、1週間後には「何をしているのか分からない」ということがよくあります。コメントは未来の自分への親切な説明書だと考えましょう。</p>
@@ -1071,42 +1065,6 @@ void main() {
   print('line 3');
 }
 </code></pre>
-<h2 id="プログラム構造の視覚化"><a class="header" href="#プログラム構造の視覚化">プログラム構造の視覚化</a></h2>
-<pre><code>プログラム全体
-│
-├── main関数
-    │
-    ├── 文1: print('Hello');
-    ├── 文2: print('World');
-    └── 文3: print('!');
-</code></pre>
-<p>この階層構造を理解することで、より複雑なプログラムも整理して書けるようになります。</p>
-<h2 id="良い構造の例と悪い構造の例"><a class="header" href="#良い構造の例と悪い構造の例">良い構造の例と悪い構造の例</a></h2>
-<h3 id="良い構造の例"><a class="header" href="#良い構造の例">良い構造の例</a></h3>
-<pre><code class="language-javascript">void main() {
-  // プログラムの目的を明確に
-  print('今日の予定表');
-  print('================');
-  
-  // 朝の予定
-  print('9:00  朝食');
-  print('10:00 勉強');
-  
-  // 昼の予定
-  print('12:00 昼食');
-  print('13:00 休憩');
-  
-  // 夜の予定
-  print('18:00 夕食');
-  print('20:00 プログラミング学習');
-}
-</code></pre>
-<h3 id="悪い構造の例"><a class="header" href="#悪い構造の例">悪い構造の例</a></h3>
-<pre><code class="language-javascript">void main() {
-print('今日の予定表');print('================');print('9:00  朝食');print('10:00 勉強');print('12:00 昼食');print('13:00 休憩');print('18:00 夕食');print('20:00 プログラミング学習');
-}
-</code></pre>
-<p>同じ動作をしますが、読みやすさが全く違います。</p>
 <h2 id="まとめ-5"><a class="header" href="#まとめ-5">まとめ</a></h2>
 <p>プログラムの基本構造：</p>
 <ol>
@@ -1165,7 +1123,8 @@ print('今日の予定表');print('================');print('9:00  朝食');prin
 }
 </code></pre>
 <h3 id="3-ドキュメンテーションコメント"><a class="header" href="#3-ドキュメンテーションコメント">3. ドキュメンテーションコメント（///）</a></h3>
-<p><code>///</code> で始まるコメントは、特別な<strong>ドキュメンテーションコメント</strong>です。後で学ぶ関数やクラスの説明を書くときに使います。</p>
+<p><code>///</code> で始まるコメントは、特別な<strong>ドキュメンテーションコメント</strong>です。
+<a href="https://api.dart.dev/">https://api.dart.dev/</a> にあるようなドキュメントを書く場合に利用します。</p>
 <pre><code class="language-javascript">/// このプログラムは挨拶を表示するプログラムです。
 /// 学習の第一歩として作成しました。
 void main() {
@@ -1279,7 +1238,7 @@ void main() {
 </code></pre>
 <h2 id="コメントを書くべき場面"><a class="header" href="#コメントを書くべき場面">コメントを書くべき場面</a></h2>
 <h3 id="1-プログラムの目的を説明するとき"><a class="header" href="#1-プログラムの目的を説明するとき">1. プログラムの目的を説明するとき</a></h3>
-<pre><code class="language-javascript">// 目的: 1から100までの数値の合計を求める
+<pre><code class="language-javascript">// 1から100までの数値の合計を求める
 void main() {
   int sum = 0;
   for (int i = 1; i &lt;= 100; i++) {
@@ -1290,6 +1249,7 @@ void main() {
 </code></pre>
 <h3 id="2-複雑な計算をするとき"><a class="header" href="#2-複雑な計算をするとき">2. 複雑な計算をするとき</a></h3>
 <pre><code class="language-javascript">void main() {
+  // (以下は、簡単な計算であるが本来はもっと複雑な場合に書くと良い）
   // 円の面積を計算（半径5の場合）
   // 公式: 面積 = π × 半径²
   double radius = 5.0;
@@ -1364,39 +1324,6 @@ void main() {
 <p>1行コメントは簡潔に、複数行コメントも必要以上に長くしない。</p>
 <h3 id="3-定期的に更新する"><a class="header" href="#3-定期的に更新する">3. 定期的に更新する</a></h3>
 <p>コードを変更したら、関連するコメントも忘れずに更新する。</p>
-<h3 id="4-日本語を使う"><a class="header" href="#4-日本語を使う">4. 日本語を使う</a></h3>
-<p>初学者は日本語でコメントを書いて構いません。理解しやすさを最優先にしましょう。</p>
-<h2 id="演習-コメントを追加してみよう"><a class="header" href="#演習-コメントを追加してみよう">演習: コメントを追加してみよう</a></h2>
-<p>以下のプログラムに適切なコメントを追加してください：</p>
-<pre><code class="language-javascript">void main() {
-  String name = '山田花子';
-  int age = 20;
-  String hobby = 'reading';
-  
-  print('自己紹介');
-  print('名前: $name');
-  print('年齢: $age');
-  print('趣味: $hobby');
-}
-</code></pre>
-<p>解答例：</p>
-<pre><code class="language-javascript">void main() {
-  // 自己紹介プログラム - 基本情報を画面に表示
-  
-  // 個人情報の設定
-  String name = '山田花子';    // 名前
-  int age = 20;               // 年齢
-  String hobby = 'reading';   // 趣味（英語で記録）
-  
-  // 自己紹介の表示
-  print('自己紹介');
-  print('名前: $name');
-  print('年齢: $age');
-  print('趣味: $hobby');
-  
-  // TODO: 将来的には趣味を日本語表示に変更する
-}
-</code></pre>
 <h2 id="まとめ-6"><a class="header" href="#まとめ-6">まとめ</a></h2>
 <p>コメントの重要性：</p>
 <ol>
@@ -1422,7 +1349,8 @@ void main() {
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="23-print文で画面に表示する-1"><a class="header" href="#23-print文で画面に表示する-1">2.3 print文で画面に表示する</a></h1>
 <h2 id="print文とは"><a class="header" href="#print文とは">print文とは</a></h2>
-<p><strong>print文</strong>は、Dartで最も基本的で重要な機能の一つです。プログラムから画面（コンソール）に文字や数値を表示するために使います。今まで何度も使ってきた<code>print()</code>が、まさにこのprint文です。</p>
+<p><strong>print文</strong>は、Dartで最も基本的で重要な機能の一つです。プログラムから画面（コンソール）に文字や数値を表示するために使います。</p>
+<p>以下のコードに示すように、すでに何度も使ってきた<code>print()</code>がまさにこのprint文です。</p>
 <pre><code class="language-javascript">void main() {
   print('Hello, World!');
 }
@@ -1542,7 +1470,7 @@ Dartプログラミング
 <pre><code class="language-javascript">void main() {
   print('=== 成績表 ===');
   print('名前      | 数学 | 英語 | 理科');
-  print('----------|------|------|------');
+  print('---------|------|-----|-----');
   print('田中太郎  |  85  |  78  |  92');
   print('佐藤花子  |  90  |  88  |  85');
   print('山田次郎  |  75  |  82  |  79');
@@ -1559,7 +1487,7 @@ Dartプログラミング
 <h3 id="3-パターンやデザインの表示"><a class="header" href="#3-パターンやデザインの表示">3. パターンやデザインの表示</a></h3>
 <pre><code class="language-javascript">void main() {
   print('★☆★☆★☆★☆★☆');
-  print('   プログラム開始   ');
+  print('プログラム開始');
   print('★☆★☆★☆★☆★☆');
   print('');
   
@@ -1637,46 +1565,6 @@ Dartプログラミング
 田中太郎	16	東京都
 佐藤花子	17	大阪府
 </code></pre>
-<h2 id="print文の実用例"><a class="header" href="#print文の実用例">print文の実用例</a></h2>
-<h3 id="1-プログラムの進行状況を表示"><a class="header" href="#1-プログラムの進行状況を表示">1. プログラムの進行状況を表示</a></h3>
-<pre><code class="language-javascript">void main() {
-  print('[1/5] プログラム開始');
-  print('[2/5] データ読み込み中...');
-  print('[3/5] 計算処理中...');
-  print('[4/5] 結果の検証中...');
-  print('[5/5] 処理完了！');
-}
-</code></pre>
-<h3 id="2-メニューの表示"><a class="header" href="#2-メニューの表示">2. メニューの表示</a></h3>
-<pre><code class="language-javascript">void main() {
-  print('=== メニュー ===');
-  print('1. 新規作成');
-  print('2. ファイルを開く');
-  print('3. 保存');
-  print('4. 終了');
-  print('');
-  print('選択してください (1-4): ');
-}
-</code></pre>
-<h3 id="3-計算過程の表示"><a class="header" href="#3-計算過程の表示">3. 計算過程の表示</a></h3>
-<pre><code class="language-javascript">void main() {
-  int principal = 100000;  // 元金
-  double rate = 0.05;      // 利率5%
-  int years = 3;           // 3年
-  
-  print('=== 複利計算 ===');
-  print('元金: ${principal}円');
-  print('利率: ${(rate * 100)}%');
-  print('期間: ${years}年');
-  print('');
-  
-  double amount = principal;
-  for (int year = 1; year &lt;= years; year++) {
-    amount = amount * (1 + rate);
-    print('${year}年後: ${amount.toStringAsFixed(0)}円');
-  }
-}
-</code></pre>
 <h2 id="print文でのデバッグ"><a class="header" href="#print文でのデバッグ">print文でのデバッグ</a></h2>
 <p>プログラムの動作を確認するために、print文を使ってデバッグ（問題の発見と修正）ができます：</p>
 <pre><code class="language-javascript">void main() {
@@ -1724,52 +1612,6 @@ print('Hello, World!');
 print('Hello, World!';
 print 'Hello, World!');
 </code></pre>
-<h2 id="応用演習"><a class="header" href="#応用演習">応用演習</a></h2>
-<h3 id="演習1-自己紹介カードを作成"><a class="header" href="#演習1-自己紹介カードを作成">演習1: 自己紹介カードを作成</a></h3>
-<p>以下の情報を使って、見栄えの良い自己紹介カードを表示するプログラムを作成してください：</p>
-<ul>
-<li>名前: 山田太郎</li>
-<li>年齢: 17歳</li>
-<li>学校: サンプル高校</li>
-<li>趣味: プログラミング、読書</li>
-</ul>
-<p>解答例：</p>
-<pre><code class="language-javascript">void main() {
-  String name = '山田太郎';
-  int age = 17;
-  String school = 'サンプル高校';
-  String hobby1 = 'プログラミング';
-  String hobby2 = '読書';
-  
-  print('┌─────────────────────┐');
-  print('│      自己紹介カード      │');
-  print('├─────────────────────┤');
-  print('│ 名前: $name          │');
-  print('│ 年齢: ${age}歳              │');
-  print('│ 学校: $school        │');
-  print('│ 趣味: $hobby1、$hobby2    │');
-  print('└─────────────────────┘');
-}
-</code></pre>
-<h3 id="演習2-計算機の結果表示"><a class="header" href="#演習2-計算機の結果表示">演習2: 計算機の結果表示</a></h3>
-<p>二つの数値で四則演算を行い、結果を見やすく表示するプログラムを作成してください。</p>
-<p>解答例：</p>
-<pre><code class="language-javascript">void main() {
-  int num1 = 15;
-  int num2 = 4;
-  
-  print('=== 計算機 ===');
-  print('数値1: $num1');
-  print('数値2: $num2');
-  print('');
-  print('計算結果:');
-  print('  $num1 + $num2 = ${num1 + num2}');
-  print('  $num1 - $num2 = ${num1 - num2}');
-  print('  $num1 × $num2 = ${num1 * num2}');
-  print('  $num1 ÷ $num2 = ${num1 / num2}');
-  print('  $num1 % $num2 = ${num1 % num2}  (余り)');
-}
-</code></pre>
 <h2 id="まとめ-7"><a class="header" href="#まとめ-7">まとめ</a></h2>
 <p>print文の重要なポイント：</p>
 <h3 id="基本的な使い方"><a class="header" href="#基本的な使い方">基本的な使い方</a></h3>
@@ -1789,12 +1631,6 @@ print 'Hello, World!');
 <li><strong>改行</strong>: <code>\n</code></li>
 <li><strong>タブ</strong>: <code>\t</code></li>
 <li><strong>引用符</strong>: <code>\"</code> または <code>\'</code></li>
-</ul>
-<h3 id="実用的な活用"><a class="header" href="#実用的な活用">実用的な活用</a></h3>
-<ul>
-<li><strong>デバッグ</strong>: 変数の値や処理の流れを確認</li>
-<li><strong>ユーザー界面</strong>: メニューや結果の表示</li>
-<li><strong>レポート</strong>: 整理された情報の出力</li>
 </ul>
 <p>print文は、プログラムとユーザー（あるいは開発者）をつなぐ重要な架け橋です。見やすく、分かりやすい出力を心がけることで、より良いプログラムが作れるようになります。</p>
 <p>次の節では、プログラムがどのような順序で実行されるかを詳しく学びます。</p>
@@ -1914,56 +1750,6 @@ a = 10, b = 5
   print('プログラムを終了します');
 }
 </code></pre>
-<h2 id="実行順序の追跡"><a class="header" href="#実行順序の追跡">実行順序の追跡</a></h2>
-<p>プログラムがどの順序で実行されているかを確認するために、各ステップに番号を付ける方法があります：</p>
-<h3 id="方法1-コメントで順序を記録"><a class="header" href="#方法1-コメントで順序を記録">方法1: コメントで順序を記録</a></h3>
-<pre><code class="language-javascript">void main() {
-  // ステップ1: プログラム開始の通知
-  print('プログラム開始');
-  
-  // ステップ2: データの初期化
-  String name = '佐藤花子';
-  int age = 17;
-  
-  // ステップ3: 基本情報の表示
-  print('名前: $name');
-  print('年齢: $age');
-  
-  // ステップ4: 計算処理
-  int nextAge = age + 1;
-  
-  // ステップ5: 結果の表示
-  print('来年の年齢: $nextAge');
-  
-  // ステップ6: プログラム終了の通知
-  print('プログラム終了');
-}
-</code></pre>
-<h3 id="方法2-実行順序を出力で確認"><a class="header" href="#方法2-実行順序を出力で確認">方法2: 実行順序を出力で確認</a></h3>
-<pre><code class="language-javascript">void main() {
-  print('[1] main関数が開始されました');
-  
-  print('[2] 変数の初期化を行います');
-  int x = 100;
-  int y = 50;
-  
-  print('[3] 計算処理を実行します');
-  int difference = x - y;
-  
-  print('[4] 結果を表示します');
-  print('$x - $y = $difference');
-  
-  print('[5] main関数が終了します');
-}
-</code></pre>
-<p>実行結果：</p>
-<pre><code>[1] main関数が開始されました
-[2] 変数の初期化を行います
-[3] 計算処理を実行します
-[4] 結果を表示します
-100 - 50 = 50
-[5] main関数が終了します
-</code></pre>
 <h2 id="複雑な実行順序の例"><a class="header" href="#複雑な実行順序の例">複雑な実行順序の例</a></h2>
 <h3 id="例1-学生の成績処理システム"><a class="header" href="#例1-学生の成績処理システム">例1: 学生の成績処理システム</a></h3>
 <pre><code class="language-javascript">void main() {
@@ -2045,35 +1831,6 @@ a = 10, b = 5
   print('計算完了しました！');
 }
 </code></pre>
-<h2 id="実行順序を変えると起こる問題"><a class="header" href="#実行順序を変えると起こる問題">実行順序を変えると起こる問題</a></h2>
-<h3 id="問題例1-変数の順序問題"><a class="header" href="#問題例1-変数の順序問題">問題例1: 変数の順序問題</a></h3>
-<pre><code class="language-javascript">void main() {
-  // これはエラーになる例
-  // print('合計: $total');  // totalがまだ定義されていないためエラー
-  
-  // 正しい順序
-  int a = 10;
-  int b = 20;
-  int total = a + b;
-  print('合計: $total');  // この順序なら正常に動作
-}
-</code></pre>
-<h3 id="問題例2-論理的な順序問題"><a class="header" href="#問題例2-論理的な順序問題">問題例2: 論理的な順序問題</a></h3>
-<pre><code class="language-javascript">void main() {
-  // 論理的におかしい順序の例
-  print('結果を発表します');
-  print('計算完了！');
-  print('計算を開始します');  // 順序が逆転している
-  
-  print('');
-  
-  // 正しい論理的順序
-  print('計算を開始します');
-  int result = 5 * 8;
-  print('計算完了！');
-  print('結果を発表します: $result');
-}
-</code></pre>
 <h2 id="デバッグと実行順序"><a class="header" href="#デバッグと実行順序">デバッグと実行順序</a></h2>
 <p>プログラムに問題があるとき、実行順序を追跡することでデバッグ（問題の発見と修正）ができます：</p>
 <pre><code class="language-javascript">void main() {
@@ -2098,80 +1855,6 @@ a = 10, b = 5
   print('デバッグ終了');
 }
 </code></pre>
-<h2 id="実行順序の制御予告"><a class="header" href="#実行順序の制御予告">実行順序の制御（予告）</a></h2>
-<p>今は順次実行だけを学んでいますが、後の章では実行順序を制御する方法を学びます：</p>
-<h3 id="条件分岐第5章で詳しく学習"><a class="header" href="#条件分岐第5章で詳しく学習">条件分岐（第5章で詳しく学習）</a></h3>
-<pre><code class="language-javascript">void main() {
-  int score = 85;
-  
-  print('成績を判定します');
-  if (score &gt;= 80) {
-    print('優秀です！');
-  } else {
-    print('頑張りましょう');
-  }
-  print('判定完了');
-}
-</code></pre>
-<h3 id="繰り返し処理第6章で詳しく学習"><a class="header" href="#繰り返し処理第6章で詳しく学習">繰り返し処理（第6章で詳しく学習）</a></h3>
-<pre><code class="language-javascript">void main() {
-  print('カウントダウン開始');
-  
-  for (int i = 3; i &gt;= 1; i--) {
-    print('${i}...');
-  }
-  
-  print('発射！');
-}
-</code></pre>
-<h2 id="演習問題"><a class="header" href="#演習問題">演習問題</a></h2>
-<h3 id="演習1-朝の準備プログラム"><a class="header" href="#演習1-朝の準備プログラム">演習1: 朝の準備プログラム</a></h3>
-<p>朝の準備の手順をプログラムで表現してください。以下の順序で実行されるようにしてください：</p>
-<ol>
-<li>起床の挨拶</li>
-<li>歯磨き</li>
-<li>洗顔</li>
-<li>朝食</li>
-<li>準備完了の挨拶</li>
-</ol>
-<p>解答例：</p>
-<pre><code class="language-javascript">void main() {
-  print('=== 朝の準備 ===');
-  print('1. おはようございます！起床しました');
-  print('2. 歯磨きをします');
-  print('3. 洗顔をします');
-  print('4. 朝食を食べます');
-  print('5. 準備完了！今日も一日頑張ります');
-}
-</code></pre>
-<h3 id="演習2-図書館での本の貸出プログラム"><a class="header" href="#演習2-図書館での本の貸出プログラム">演習2: 図書館での本の貸出プログラム</a></h3>
-<p>図書館で本を借りる手順をプログラムで表現してください：</p>
-<p>解答例：</p>
-<pre><code class="language-javascript">void main() {
-  print('=== 図書館 本の貸出システム ===');
-  
-  // 利用者情報
-  String userName = '田中太郎';
-  String bookTitle = 'Dartプログラミング入門';
-  String borrowDate = '2024年1月15日';
-  String returnDate = '2024年1月29日';
-  
-  print('1. 利用者確認を行います');
-  print('   利用者: $userName');
-  
-  print('2. 本の情報を確認します');
-  print('   書籍名: $bookTitle');
-  
-  print('3. 貸出処理を実行します');
-  print('   貸出日: $borrowDate');
-  print('   返却予定日: $returnDate');
-  
-  print('4. 貸出完了');
-  print('   ※返却期限を守ってください');
-  
-  print('貸出処理が完了しました');
-}
-</code></pre>
 <h2 id="まとめ-8"><a class="header" href="#まとめ-8">まとめ</a></h2>
 <p>プログラムの実行順序について学んだ重要なポイント：</p>
 <h3 id="基本原則"><a class="header" href="#基本原則">基本原則</a></h3>
@@ -2180,7 +1863,7 @@ a = 10, b = 5
 <li><strong>依存関係</strong>: 後の処理が前の処理結果に依存する場合、順序が重要</li>
 <li><strong>初期化</strong>: 変数は使用する前に定義・初期化する必要がある</li>
 </ul>
-<h3 id="実用的な活用-1"><a class="header" href="#実用的な活用-1">実用的な活用</a></h3>
+<h3 id="実用的な活用"><a class="header" href="#実用的な活用">実用的な活用</a></h3>
 <ul>
 <li><strong>段階的処理</strong>: 複雑な処理を段階に分けて整理</li>
 <li><strong>デバッグ</strong>: 実行順序を追跡して問題を発見</li>
@@ -2189,8 +1872,6 @@ a = 10, b = 5
 <h3 id="注意点"><a class="header" href="#注意点">注意点</a></h3>
 <ul>
 <li><strong>変数の定義順序</strong>: 使用する前に定義する</li>
-<li><strong>論理的な順序</strong>: 現実の手順に合わせた順序</li>
-<li><strong>出力の一貫性</strong>: ユーザーにとって分かりやすい順序</li>
 </ul>
 <p>プログラムの実行順序を理解することは、より複雑なプログラムを作るための基礎となります。次の節では、プログラムでエラーが発生したときの対処法について学びます。</p>
 <div style="break-before: page; page-break-before: always;"></div>
@@ -2252,7 +1933,7 @@ a = 10, b = 5
 }
 </code></pre>
 <p>エラーメッセージ：</p>
-<pre><code>Error: Undefined name 'unknownVariable'.
+<pre><code>main.dart:2:9: Error: Undefined name 'unknownVariable'.
 </code></pre>
 <p><strong>意味</strong>: 「’unknownVariable’という名前が定義されていません」</p>
 <p><strong>解決方法</strong>: 変数を事前に定義するか、正しい変数名を使う</p>
@@ -2304,8 +1985,7 @@ a = 10, b = 5
 }
 </code></pre>
 <p>エラーメッセージ：</p>
-<pre><code>Unhandled exception:
-IntegerDivisionByZeroException
+<pre><code>Uncaught Error, error: Error: Unsupported operation: Infinity
 </code></pre>
 <p><strong>意味</strong>: 「処理されていない例外：ゼロによる整数除算例外」</p>
 <p><strong>解決方法</strong>: ゼロ割りを避ける</p>
@@ -2323,8 +2003,10 @@ IntegerDivisionByZeroException
 <h2 id="エラーメッセージの読み方"><a class="header" href="#エラーメッセージの読み方">エラーメッセージの読み方</a></h2>
 <h3 id="1-エラーメッセージの構造"><a class="header" href="#1-エラーメッセージの構造">1. エラーメッセージの構造</a></h3>
 <p>典型的なエラーメッセージは以下の構造になっています：</p>
-<pre><code>Error: [エラーの種類]: [詳細な説明]
-  at line [行番号] column [列番号] of [ファイル名]
+<pre><code>compileNewDDC
+main.dart:[行番号]:[列番号]: Error: Undefined name 'unknownVariable'.
+  print(unknownVariable);  // 定義されていない変数
+        ^^^^^^^^^^^^^^^
 </code></pre>
 <h3 id="2-重要な情報を見つける"><a class="header" href="#2-重要な情報を見つける">2. 重要な情報を見つける</a></h3>
 <h4 id="行番号の確認"><a class="header" href="#行番号の確認">行番号の確認</a></h4>
@@ -2338,58 +2020,35 @@ void main() {
 }
 </code></pre>
 <p>エラーメッセージ：</p>
-<pre><code>Error: Expected ';' after this.
-  at line 3 column 18 of file.dart
+<pre><code>compileNewDDC
+main.dart:4:16: Error: Expected ';' after this.
+  print('Hello')  // 3行目：セミコロンがない
 </code></pre>
-<p><strong>読み方</strong>: 「3行目の18文字目にセミコロンが必要です」</p>
-<h4 id="エラーの種類を理解する"><a class="header" href="#エラーの種類を理解する">エラーの種類を理解する</a></h4>
-<ul>
-<li><strong>Expected</strong>: 「〜が期待されています」</li>
-<li><strong>Undefined</strong>: 「〜が定義されていません」</li>
-<li><strong>Can’t be assigned</strong>: 「〜を代入できません」</li>
-<li><strong>Exception</strong>: 「例外が発生しました」</li>
-</ul>
+<p><strong>読み方</strong>: 「3行目の16文字目にセミコロンが必要です」</p>
 <h3 id="3-エラーメッセージの具体例と解読"><a class="header" href="#3-エラーメッセージの具体例と解読">3. エラーメッセージの具体例と解読</a></h3>
-<h4 id="例1-複雑な構文エラー"><a class="header" href="#例1-複雑な構文エラー">例1: 複雑な構文エラー</a></h4>
+<h4 id="例-構文エラー"><a class="header" href="#例-構文エラー">例: 構文エラー</a></h4>
 <pre><code class="language-javascript">void main() {
   String message = 'Hello, World!;
   print(message);
 }
 </code></pre>
 <p>エラーメッセージ：</p>
-<pre><code>Error: Unterminated string literal.
-  at line 2 column 20 of file.dart
+<pre><code>main.dart:2:20: Error: String starting with ' must end with '.
+  String message = 'Hello, World!;
+                   ^^^^^^^^^^^^^^^
+main.dart:2:20: Error: Expected ';' after this.
+  String message = 'Hello, World!;
+                   ^^^^^^^^^^^^^^^
 </code></pre>
 <p><strong>解読</strong>:</p>
 <ul>
-<li><strong>Unterminated string literal</strong>: 「終了されていない文字列リテラル」</li>
-<li><strong>line 2 column 20</strong>: 「2行目の20文字目」</li>
-<li><strong>問題</strong>: 文字列の終了引用符がない</li>
+<li><strong>String starting with ’ must end with ’</strong>: 「文字列リテラルは引用符で始まり、引用符で終わる必要があります」</li>
+<li><strong>line 2 column 20</strong>: 「2行目の20文字目に問題があります」</li>
 <li><strong>解決</strong>: 文字列を正しく閉じる</li>
 </ul>
 <pre><code class="language-javascript">void main() {
   String message = 'Hello, World!';  // 引用符を正しく閉じる
   print(message);
-}
-</code></pre>
-<h4 id="例2-関数呼び出しのエラー"><a class="header" href="#例2-関数呼び出しのエラー">例2: 関数呼び出しのエラー</a></h4>
-<pre><code class="language-javascript">void main() {
-  print('Hello', 'World');  // print関数は1つの引数のみ受け取る
-}
-</code></pre>
-<p>エラーメッセージ：</p>
-<pre><code>Error: Too many positional arguments: 1 expected, but 2 found.
-</code></pre>
-<p><strong>解読</strong>:</p>
-<ul>
-<li><strong>Too many positional arguments</strong>: 「位置引数が多すぎます」</li>
-<li><strong>1 expected, but 2 found</strong>: 「1つ期待されているが、2つ見つかりました」</li>
-<li><strong>解決</strong>: 引数を1つにするか、文字列を結合する</li>
-</ul>
-<pre><code class="language-javascript">void main() {
-  print('Hello World');           // 1つの文字列にする
-  // または
-  print('Hello' + ' ' + 'World'); // 文字列を結合する
 }
 </code></pre>
 <h2 id="よくあるエラーとその対処法"><a class="header" href="#よくあるエラーとその対処法">よくあるエラーとその対処法</a></h2>
@@ -2531,41 +2190,6 @@ print('条件が真です');
   print('ステップ5: 完了');
 }
 </code></pre>
-<h2 id="実践演習"><a class="header" href="#実践演習">実践演習</a></h2>
-<h3 id="演習1-エラーを修正しよう"><a class="header" href="#演習1-エラーを修正しよう">演習1: エラーを修正しよう</a></h3>
-<p>以下のプログラムにはエラーがあります。エラーメッセージを読んで修正してください。</p>
-<pre><code class="language-javascript">void main() {
-  String name = 'プログラミング'
-  int score = '85';
-  print('科目: $name')
-  print('点数: $score点');
-</code></pre>
-<p><strong>解答例</strong>:</p>
-<pre><code class="language-javascript">void main() {
-  String name = 'プログラミング';  // セミコロンを追加
-  int score = 85;                   // 文字列ではなく数値を代入
-  print('科目: $name');             // セミコロンを追加
-  print('点数: $score点');
-}
-</code></pre>
-<h3 id="演習2-エラーメッセージを読み解こう"><a class="header" href="#演習2-エラーメッセージを読み解こう">演習2: エラーメッセージを読み解こう</a></h3>
-<p>以下のエラーメッセージから、何が問題で、どう修正すべきかを考えてください。</p>
-<pre><code>Error: Undefined name 'userName'.
-  at line 4 column 9 of program.dart
-</code></pre>
-<p><strong>問題のコード</strong>:</p>
-<pre><code class="language-javascript">void main() {
-  String userNaem = '田中太郎';  // スペルミス
-  int userAge = 25;
-  print('名前: $userName');      // 4行目：間違った変数名
-  print('年齢: $userAge');
-}
-</code></pre>
-<p><strong>解答</strong>:</p>
-<ul>
-<li>2行目の変数名 <code>userNaem</code> を <code>userName</code> に修正</li>
-<li>または4行目の <code>userName</code> を <code>userNaem</code> に修正</li>
-</ul>
 <h2 id="まとめ-9"><a class="header" href="#まとめ-9">まとめ</a></h2>
 <p>エラーメッセージの理解について学んだ重要なポイント：</p>
 <h3 id="エラーの捉え方"><a class="header" href="#エラーの捉え方">エラーの捉え方</a></h3>
@@ -2573,13 +2197,6 @@ print('条件が真です');
 <li><strong>エラーは敵ではない</strong>: 問題を教えてくれる親切な機能</li>
 <li><strong>学習の機会</strong>: エラーから多くのことを学べる</li>
 <li><strong>スキル向上</strong>: エラー対処能力はプログラミング力の一部</li>
-</ul>
-<h3 id="エラーの種類"><a class="header" href="#エラーの種類">エラーの種類</a></h3>
-<ul>
-<li><strong>構文エラー</strong>: プログラムの書き方の間違い</li>
-<li><strong>名前エラー</strong>: 存在しない変数・関数の使用</li>
-<li><strong>型エラー</strong>: データ型の不一致</li>
-<li><strong>実行時エラー</strong>: プログラム実行中の問題</li>
 </ul>
 <h3 id="解決のアプローチ"><a class="header" href="#解決のアプローチ">解決のアプローチ</a></h3>
 <ul>
@@ -2590,7 +2207,7 @@ print('条件が真です');
 <h3 id="重要な習慣"><a class="header" href="#重要な習慣">重要な習慣</a></h3>
 <ul>
 <li><strong>こまめな実行</strong>: 少し書いたら動作確認</li>
-<li><strong>整理された コード</strong>: インデントとコメントの活用</li>
+<li><strong>整理されたコード</strong>: インデントとコメントの活用</li>
 <li><strong>段階的開発</strong>: 複雑な処理を段階に分ける</li>
 </ul>
 <p>エラーメッセージを読めるようになることで、プログラミングの学習効率が大幅に向上します。エラーを恐れず、エラーメッセージから学ぶ姿勢を大切にしましょう。</p>
@@ -2651,7 +2268,7 @@ print('条件が真です');
 <li><strong>読みやすい変数名</strong>を使ってコードを作成できる</li>
 <li><strong>型エラー</strong>を理解して修正できる</li>
 </ul>
-<h3 id="心構え-1"><a class="header" href="#心構え-1">心構え</a></h3>
+<h3 id="心構え"><a class="header" href="#心構え">心構え</a></h3>
 <ul>
 <li><strong>データ型を意識</strong>してプログラムを設計する習慣がついている</li>
 <li><strong>コードの可読性</strong>を重視する姿勢が身についている</li>
@@ -3616,7 +3233,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <li><strong>変数の値を効率的に更新</strong>するコードが書ける</li>
 <li><strong>複雑な計算式</strong>を正確にプログラムで表現できる</li>
 </ul>
-<h3 id="心構え-2"><a class="header" href="#心構え-2">心構え</a></h3>
+<h3 id="心構え-1"><a class="header" href="#心構え-1">心構え</a></h3>
 <ul>
 <li><strong>計算の正確性</strong>を重視する習慣がついている</li>
 <li><strong>コードの簡潔性</strong>と<strong>可読性</strong>のバランスを考えられる</li>
@@ -4415,7 +4032,7 @@ ${name}さんのテスト結果をお知らせします。
 <li><strong>実用的な判定プログラム</strong>を作成できる</li>
 <li><strong>条件分岐のテスト</strong>を適切に行える</li>
 </ul>
-<h3 id="心構え-3"><a class="header" href="#心構え-3">心構え</a></h3>
+<h3 id="心構え-2"><a class="header" href="#心構え-2">心構え</a></h3>
 <ul>
 <li><strong>論理的思考</strong>でプログラムの流れを設計できる</li>
 <li><strong>様々なケース</strong>を想定した堅牢なプログラムを書ける</li>
@@ -5461,7 +5078,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <li><strong>二重ループ</strong>を使った複雑な処理を書ける</li>
 <li><strong>ループの終了条件</strong>を適切に設定できる</li>
 </ul>
-<h3 id="心構え-4"><a class="header" href="#心構え-4">心構え</a></h3>
+<h3 id="心構え-3"><a class="header" href="#心構え-3">心構え</a></h3>
 <ul>
 <li><strong>大量のデータ処理</strong>を自動化する発想力がある</li>
 <li><strong>効率的なアルゴリズム</strong>を考える習慣がついている</li>
@@ -6481,7 +6098,7 @@ if (result % 5 == 0) {
 <li><strong>動的なデータ管理</strong>を行うプログラムを作成できる</li>
 <li><strong>実用的なデータ処理アプリケーション</strong>を実装できる</li>
 </ul>
-<h3 id="心構え-5"><a class="header" href="#心構え-5">心構え</a></h3>
+<h3 id="心構え-4"><a class="header" href="#心構え-4">心構え</a></h3>
 <ul>
 <li><strong>データ構造を意識した</strong>プログラム設計ができる</li>
 <li><strong>効率的なデータ管理</strong>の重要性を理解している</li>
@@ -7278,7 +6895,7 @@ if (result % 5 == 0) {
 <li><strong>マップを活用した実用的なプログラム</strong>を作成できる</li>
 <li><strong>複雑なデータ構造</strong>を管理できる</li>
 </ul>
-<h3 id="心構え-6"><a class="header" href="#心構え-6">心構え</a></h3>
+<h3 id="心構え-5"><a class="header" href="#心構え-5">心構え</a></h3>
 <ul>
 <li><strong>データの関連性を意識した</strong>設計ができる</li>
 <li><strong>効率的なデータアクセス</strong>を重視している</li>
@@ -8247,7 +7864,7 @@ if (result % 5 == 0) {
 <li><strong>既存のコードを関数に分割</strong>して整理できる</li>
 <li><strong>保守性の高いプログラム</strong>を作成できる</li>
 </ul>
-<h3 id="心構え-7"><a class="header" href="#心構え-7">心構え</a></h3>
+<h3 id="心構え-6"><a class="header" href="#心構え-6">心構え</a></h3>
 <ul>
 <li><strong>コードの重複を避ける</strong>習慣がついている</li>
 <li><strong>モジュール化の重要性</strong>を理解している</li>
@@ -9737,7 +9354,7 @@ void main() {
 <li><strong>関数を組み合わせた大きなプログラム</strong>を作成できる</li>
 <li><strong>ユーザーフレンドリーなアプリケーション</strong>を開発できる</li>
 </ul>
-<h3 id="心構え-8"><a class="header" href="#心構え-8">心構え</a></h3>
+<h3 id="心構え-7"><a class="header" href="#心構え-7">心構え</a></h3>
 <ul>
 <li><strong>設計先行の開発</strong>を心がけている</li>
 <li><strong>ユーザビリティ</strong>を意識したプログラムを作れる</li>
@@ -10705,7 +10322,7 @@ void main() {
 <li><strong>オブジェクトを活用したプログラム</strong>を作成できる</li>
 <li><strong>現実世界の問題をオブジェクトで表現</strong>できる</li>
 </ul>
-<h3 id="心構え-9"><a class="header" href="#心構え-9">心構え</a></h3>
+<h3 id="心構え-8"><a class="header" href="#心構え-8">心構え</a></h3>
 <ul>
 <li><strong>現実世界とプログラムの対応</strong>を意識している</li>
 <li><strong>データと処理の関連性</strong>を重視している</li>
@@ -12354,7 +11971,7 @@ class Cat extends Pet {
 <li><strong>カプセル化されたクラス</strong>を作成できる</li>
 <li><strong>複雑な管理システム</strong>を設計・実装できる</li>
 </ul>
-<h3 id="心構え-10"><a class="header" href="#心構え-10">心構え</a></h3>
+<h3 id="心構え-9"><a class="header" href="#心構え-9">心構え</a></h3>
 <ul>
 <li><strong>データの安全性</strong>を最優先に考えている</li>
 <li><strong>拡張性と保守性</strong>を意識した設計ができる</li>
@@ -13828,7 +13445,7 @@ void main() {
 <p>オブジェクト指向プログラミングをマスターしたあなたは、いよいよプロフェッショナルな開発者として不可欠なスキルを身につける段階に進みます！</p>
 <p>この章では、プログラム開発で避けて通れない「エラー」への対処法について学習します。エラーの種類を理解し、try-catch文を使った適切なエラーハンドリング、効果的なデバッグ技術を習得します。エラーを恐れるのではなく、エラーと上手に付き合うことで、より堅牢で信頼性の高いプログラムを作成できるようになります。</p>
 <h2 id="この章の構成-12"><a class="header" href="#この章の構成-12">この章の構成</a></h2>
-<h3 id="131-エラーの種類を理解する"><a class="header" href="#131-エラーの種類を理解する"><a href="#エラーの種類を理解する-1">13.1 エラーの種類を理解する</a></a></h3>
+<h3 id="131-エラーの種類を理解する"><a class="header" href="#131-エラーの種類を理解する"><a href="#エラーの種類を理解する">13.1 エラーの種類を理解する</a></a></h3>
 <ul>
 <li>コンパイルエラーと実行時エラーの違い</li>
 <li>論理エラー（バグ）の特徴と見つけ方</li>
@@ -13872,7 +13489,7 @@ void main() {
 <li><strong>エラーメッセージから問題を特定</strong>できる</li>
 <li><strong>予防的なプログラミング</strong>を実践できる</li>
 </ul>
-<h3 id="心構え-11"><a class="header" href="#心構え-11">心構え</a></h3>
+<h3 id="心構え-10"><a class="header" href="#心構え-10">心構え</a></h3>
 <ul>
 <li><strong>エラーを学習の機会</strong>として活用できる</li>
 <li><strong>段階的な問題解決</strong>のアプローチが身についている</li>
@@ -13892,7 +13509,7 @@ void main() {
 <p>第14章では、これまでに学習したすべての内容を振り返り、さらなる学習のためのリソースと方向性について学習します。プログラマーとしての継続的な成長の道筋を見つけ、より高度なDart開発への扉を開いていきます。</p>
 <p><strong>エラーと友達になれば、プログラミングはもっと楽しくなります！</strong> 🤝</p>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="エラーの種類を理解する-1"><a class="header" href="#エラーの種類を理解する-1">エラーの種類を理解する</a></h1>
+<h1 id="エラーの種類を理解する"><a class="header" href="#エラーの種類を理解する">エラーの種類を理解する</a></h1>
 <p>プログラミングを学習していると、必ずエラーに遭遇します。エラーが発生すると「プログラムが動かない！」と焦ってしまうかもしれませんが、実はエラーはプログラマーにとって大切な情報源なのです。エラーメッセージは、何が問題なのかを教えてくれる親切なガイドのような存在です。</p>
 <p>この章では、Dartで発生する様々なエラーの種類を理解し、それぞれにどう対処すべきかを学んでいきましょう。</p>
 <h2 id="エラーとは何か-1"><a class="header" href="#エラーとは何か-1">エラーとは何か</a></h2>
@@ -14942,7 +14559,7 @@ void main() {
 <li><strong>実践的なプロジェクト</strong>を企画・実行できる</li>
 <li><strong>コミュニティ活動</strong>に参加できる</li>
 </ul>
-<h3 id="心構え-12"><a class="header" href="#心構え-12">心構え</a></h3>
+<h3 id="心構え-11"><a class="header" href="#心構え-11">心構え</a></h3>
 <ul>
 <li><strong>生涯学習者</strong>としての意識を持っている</li>
 <li><strong>困難を乗り越える</strong>粘り強さがある</li>

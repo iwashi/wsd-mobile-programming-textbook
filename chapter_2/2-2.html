@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-2b9cd427.js";
+            window.path_to_searchindex_js = "../searchindex-9c3636eb.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-5b66f7d5.js"></script>
@@ -214,7 +214,8 @@
 }
 </code></pre>
 <h3 id="3-ドキュメンテーションコメント"><a class="header" href="#3-ドキュメンテーションコメント">3. ドキュメンテーションコメント（///）</a></h3>
-<p><code>///</code> で始まるコメントは、特別な<strong>ドキュメンテーションコメント</strong>です。後で学ぶ関数やクラスの説明を書くときに使います。</p>
+<p><code>///</code> で始まるコメントは、特別な<strong>ドキュメンテーションコメント</strong>です。
+<a href="https://api.dart.dev/">https://api.dart.dev/</a> にあるようなドキュメントを書く場合に利用します。</p>
 <pre><code class="language-javascript">/// このプログラムは挨拶を表示するプログラムです。
 /// 学習の第一歩として作成しました。
 void main() {
@@ -328,7 +329,7 @@ void main() {
 </code></pre>
 <h2 id="コメントを書くべき場面"><a class="header" href="#コメントを書くべき場面">コメントを書くべき場面</a></h2>
 <h3 id="1-プログラムの目的を説明するとき"><a class="header" href="#1-プログラムの目的を説明するとき">1. プログラムの目的を説明するとき</a></h3>
-<pre><code class="language-javascript">// 目的: 1から100までの数値の合計を求める
+<pre><code class="language-javascript">// 1から100までの数値の合計を求める
 void main() {
   int sum = 0;
   for (int i = 1; i &lt;= 100; i++) {
@@ -339,6 +340,7 @@ void main() {
 </code></pre>
 <h3 id="2-複雑な計算をするとき"><a class="header" href="#2-複雑な計算をするとき">2. 複雑な計算をするとき</a></h3>
 <pre><code class="language-javascript">void main() {
+  // (以下は、簡単な計算であるが本来はもっと複雑な場合に書くと良い）
   // 円の面積を計算（半径5の場合）
   // 公式: 面積 = π × 半径²
   double radius = 5.0;
@@ -413,39 +415,6 @@ void main() {
 <p>1行コメントは簡潔に、複数行コメントも必要以上に長くしない。</p>
 <h3 id="3-定期的に更新する"><a class="header" href="#3-定期的に更新する">3. 定期的に更新する</a></h3>
 <p>コードを変更したら、関連するコメントも忘れずに更新する。</p>
-<h3 id="4-日本語を使う"><a class="header" href="#4-日本語を使う">4. 日本語を使う</a></h3>
-<p>初学者は日本語でコメントを書いて構いません。理解しやすさを最優先にしましょう。</p>
-<h2 id="演習-コメントを追加してみよう"><a class="header" href="#演習-コメントを追加してみよう">演習: コメントを追加してみよう</a></h2>
-<p>以下のプログラムに適切なコメントを追加してください：</p>
-<pre><code class="language-javascript">void main() {
-  String name = '山田花子';
-  int age = 20;
-  String hobby = 'reading';
-  
-  print('自己紹介');
-  print('名前: $name');
-  print('年齢: $age');
-  print('趣味: $hobby');
-}
-</code></pre>
-<p>解答例：</p>
-<pre><code class="language-javascript">void main() {
-  // 自己紹介プログラム - 基本情報を画面に表示
-  
-  // 個人情報の設定
-  String name = '山田花子';    // 名前
-  int age = 20;               // 年齢
-  String hobby = 'reading';   // 趣味（英語で記録）
-  
-  // 自己紹介の表示
-  print('自己紹介');
-  print('名前: $name');
-  print('年齢: $age');
-  print('趣味: $hobby');
-  
-  // TODO: 将来的には趣味を日本語表示に変更する
-}
-</code></pre>
 <h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
 <p>コメントの重要性：</p>
 <ol>
