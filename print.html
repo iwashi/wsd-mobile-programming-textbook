@@ -13,21 +13,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
 
@@ -37,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-2b9cd427.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-5b66f7d5.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -54,7 +53,7 @@
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -83,12 +82,12 @@
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -103,39 +102,39 @@
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
                         </button>
                     </div>
 
@@ -143,44 +142,40 @@
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
-                        </a>
-                        <a href="https://github.com/yourusername/wsd_mobile_programming_textbook" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
 
                     </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="はじめに"><a class="header" href="#はじめに">はじめに</a></h1>
-<p>本書『Dartで学ぶプログラミング入門』をお手に取りいただき、ありがとうございます。</p>
 <h2 id="本書の目的"><a class="header" href="#本書の目的">本書の目的</a></h2>
 <p>本書は、プログラミングをまったく初めて学ぶ方を対象に、Dart言語を通じてプログラミングの基本的な考え方と技術を習得していただくことを目的としています。</p>
 <h2 id="なぜdartなのか"><a class="header" href="#なぜdartなのか">なぜDartなのか</a></h2>
@@ -193,10 +188,9 @@
 </ul>
 <h2 id="本書の特徴"><a class="header" href="#本書の特徴">本書の特徴</a></h2>
 <ol>
-<li><strong>段階的な学習</strong>：基礎から応用まで、無理のないペースで学べます</li>
+<li><strong>段階的な学習</strong>：基礎から応用まで段階的に学べるように</li>
 <li><strong>豊富な例題</strong>：各章に実践的なコード例を掲載</li>
 <li><strong>練習問題</strong>：理解度を確認できる問題を用意</li>
-<li><strong>実践プロジェクト</strong>：学んだ知識を活かせる総合演習</li>
 </ol>
 <h2 id="本書の使い方"><a class="header" href="#本書の使い方">本書の使い方</a></h2>
 <ul>
@@ -213,39 +207,39 @@
 <li>DartPad（https://dartpad.dev）へのアクセス</li>
 </ul>
 <p>それでは、プログラミングの世界への第一歩を踏み出しましょう！</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="第1章プログラミングとは"><a class="header" href="#第1章プログラミングとは">第1章：プログラミングとは</a></h1>
-<p>プログラミングの学習を始めるあなたを歓迎します！</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="第1章プログラミングとは"><a class="header" href="#第1章プログラミングとは">第1章：プログラミングとは</a></h1>
 <p>この章では、プログラミングの世界への入り口として、最も基本的で重要な概念を学びます。コンピュータとプログラムの関係から始まり、プログラミング言語の役割、そしてなぜ「Dart」という言語を選んで学習するのかを理解していきます。</p>
 <h2 id="この章の構成"><a class="header" href="#この章の構成">この章の構成</a></h2>
-<h3 id="11-コンピュータとプログラムの関係"><a class="header" href="#11-コンピュータとプログラムの関係"><a href="chapter_1/./1-1.html">1.1 コンピュータとプログラムの関係</a></a></h3>
+<h3 id="11-コンピュータとプログラムの関係"><a class="header" href="#11-コンピュータとプログラムの関係"><a href="#11-コンピュータとプログラムの関係-1">1.1 コンピュータとプログラムの関係</a></a></h3>
 <ul>
 <li>コンピュータは指示に従う道具であることを理解する</li>
 <li>プログラムとは何かを具体例で学ぶ</li>
 <li>コンピュータの特徴（正確性、高速性、融通の利かなさ）を知る</li>
 <li>なぜ詳細な指示書（プログラム）が必要なのかを理解する</li>
 </ul>
-<h3 id="12-プログラミング言語の役割"><a class="header" href="#12-プログラミング言語の役割"><a href="chapter_1/./1-2.html">1.2 プログラミング言語の役割</a></a></h3>
+<h3 id="12-プログラミング言語の役割"><a class="header" href="#12-プログラミング言語の役割"><a href="#12-プログラミング言語の役割-1">1.2 プログラミング言語の役割</a></a></h3>
 <ul>
 <li>人間とコンピュータの架け橋としてのプログラミング言語</li>
 <li>コンピュータが本当に理解する0と1の世界</li>
 <li>様々なプログラミング言語の種類と特徴</li>
 <li>プログラミング言語の共通する基本要素</li>
 </ul>
-<h3 id="13-なぜdartを学ぶのか"><a class="header" href="#13-なぜdartを学ぶのか"><a href="chapter_1/./1-3.html">1.3 なぜDartを学ぶのか</a></a></h3>
+<h3 id="13-なぜdartを学ぶのか"><a class="header" href="#13-なぜdartを学ぶのか"><a href="#13-なぜdartを学ぶのか-1">1.3 なぜDartを学ぶのか</a></a></h3>
 <ul>
 <li>Dartという言語の特徴と魅力</li>
 <li>初学者にとってのDartの利点</li>
 <li>モバイルアプリ開発での実用性</li>
 <li>他の言語との比較と将来性</li>
 </ul>
-<h3 id="14-開発環境の準備dartpadの使い方"><a class="header" href="#14-開発環境の準備dartpadの使い方"><a href="chapter_1/./1-4.html">1.4 開発環境の準備（DartPadの使い方）</a></a></h3>
+<h3 id="14-開発環境の準備dartpadの使い方"><a class="header" href="#14-開発環境の準備dartpadの使い方"><a href="#14-開発環境の準備dartpadの使い方-1">1.4 開発環境の準備（DartPadの使い方）</a></a></h3>
 <ul>
 <li>DartPadの使い方をマスターする</li>
 <li>実際にプログラムを書いて実行する体験</li>
 <li>エラーが発生したときの対処法</li>
 <li>効率的な学習を進めるためのコツ</li>
 </ul>
-<h3 id="15-はじめてのプログラムhello-world"><a class="header" href="#15-はじめてのプログラムhello-world"><a href="chapter_1/./1-5.html">1.5 はじめてのプログラム「Hello, World!」</a></a></h3>
+<h3 id="15-はじめてのプログラムhello-world"><a class="header" href="#15-はじめてのプログラムhello-world"><a href="#15-はじめてのプログラムhello-world-1">1.5 はじめてのプログラム「Hello, World!」</a></a></h3>
 <ul>
 <li>プログラミングの伝統「Hello, World!」の作成</li>
 <li>プログラムの詳細な解説</li>
@@ -268,12 +262,6 @@
 <li><strong>エラーメッセージ</strong>を読んで、問題を解決できる</li>
 <li><strong>コメント</strong>を使ってプログラムに説明を追加できる</li>
 </ul>
-<h3 id="心構え"><a class="header" href="#心構え">心構え</a></h3>
-<ul>
-<li>プログラミング学習への<strong>意欲と自信</strong>を持っている</li>
-<li>エラーを恐れずに<strong>試行錯誤</strong>する姿勢が身についている</li>
-<li><strong>創造的思考</strong>でプログラムを作る楽しさを感じている</li>
-</ul>
 <h2 id="学習のポイント"><a class="header" href="#学習のポイント">学習のポイント</a></h2>
 <h3 id="-理論と実践のバランス"><a class="header" href="#-理論と実践のバランス">📚 理論と実践のバランス</a></h3>
 <p>各節では理論的な説明の後に、必ず実際にコードを書く機会があります。理解したことをすぐに手を動かして確認しましょう。</p>
@@ -281,13 +269,12 @@
 <p>「なぜこうなるのか？」「もしこう変更したらどうなるか？」という疑問を常に持ち、実際に試してみることで理解が深まります。</p>
 <h3 id="-完璧を求めすぎない"><a class="header" href="#-完璧を求めすぎない">🎯 完璧を求めすぎない</a></h3>
 <p>最初からすべてを理解する必要はありません。「なんとなく分かった」という感覚から始めて、後の章で詳細を学んでいきます。</p>
-<h3 id="-コミュニティの活用"><a class="header" href="#-コミュニティの活用">🤝 コミュニティの活用</a></h3>
-<p>分からないことがあれば、オンラインのコミュニティやフォーラムで質問することを恐れないでください。プログラマーは助け合いの文化があります。</p>
 <h2 id="次のステップへ"><a class="header" href="#次のステップへ">次のステップへ</a></h2>
 <p>第1章を修了すると、あなたは「プログラマー」としての第一歩を踏み出したことになります。</p>
 <p>第2章では、プログラムの基本要素について詳しく学び、より実用的なプログラムを作成していきます。この章で学んだ基礎知識が、今後のすべての学習の土台となります。</p>
 <p><strong>さあ、プログラミングの冒険を始めましょう！</strong> 🚀</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="11-コンピュータとプログラムの関係-1"><a class="header" href="#11-コンピュータとプログラムの関係-1">1.1 コンピュータとプログラムの関係</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="11-コンピュータとプログラムの関係-1"><a class="header" href="#11-コンピュータとプログラムの関係-1">1.1 コンピュータとプログラムの関係</a></h1>
 <h2 id="コンピュータは指示に従う道具"><a class="header" href="#コンピュータは指示に従う道具">コンピュータは指示に従う道具</a></h2>
 <p>私たちの身の回りには多くのコンピュータが存在しています。パソコンやスマートフォンはもちろん、テレビ、冷蔵庫、電子レンジ、自動車など、今や生活のあらゆる場面でコンピュータが活用されています。</p>
 <p>コンピュータは非常に高性能な計算機ではありますが、実は<strong>人間からの指示がなければ何もできません</strong>。コンピュータが何かを実行するためには、「何をすべきか」を詳細に教える必要があります。</p>
@@ -316,6 +303,7 @@
 <p>コンピュータには以下のような特徴があります：</p>
 <h3 id="1-正確性"><a class="header" href="#1-正確性">1. 正確性</a></h3>
 <p>人間は計算ミスをすることがありますが、コンピュータは与えられた指示を正確に実行します。1 + 1 を何万回計算しても、必ず 2 という答えを返します。</p>
+<p>昨今では大規模言語モデルの特性から、出力が不確実になることもありますが、内部処理にて計算を正確に行っていることは変わりません。</p>
 <h3 id="2-高速性"><a class="header" href="#2-高速性">2. 高速性</a></h3>
 <p>人間が1秒間に1回しかできない計算を、コンピュータは何百万回、何億回と実行できます。</p>
 <h3 id="3-疲れない"><a class="header" href="#3-疲れない">3. 疲れない</a></h3>
@@ -351,7 +339,8 @@
 <li>プログラミング学習は技術習得以上の価値がある</li>
 </ul>
 <p>次の節では、コンピュータに指示を伝える手段である「プログラミング言語」について学びます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="12-プログラミング言語の役割-1"><a class="header" href="#12-プログラミング言語の役割-1">1.2 プログラミング言語の役割</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="12-プログラミング言語の役割-1"><a class="header" href="#12-プログラミング言語の役割-1">1.2 プログラミング言語の役割</a></h1>
 <h2 id="人間とコンピュータの架け橋"><a class="header" href="#人間とコンピュータの架け橋">人間とコンピュータの架け橋</a></h2>
 <p>前の節で学んだように、コンピュータは人間からの指示がなければ動きません。しかし、私たちが普段使っている日本語や英語をコンピュータがそのまま理解することはできません。コンピュータが理解できる言葉は、実は「0と1の組み合わせ」だけなのです。</p>
 <p><strong>プログラミング言語</strong>は、人間が考える内容をコンピュータが理解できる形に翻訳する役割を果たします。つまり、人間とコンピュータの間の「通訳」のような存在です。</p>
@@ -371,7 +360,7 @@
 <h3 id="3-再利用しやすくするため"><a class="header" href="#3-再利用しやすくするため">3. 再利用しやすくするため</a></h3>
 <p>一度書いたプログラムを他の場面でも使えるように、部品として組み合わせやすい形にするためです。</p>
 <h2 id="プログラミング言語の種類"><a class="header" href="#プログラミング言語の種類">プログラミング言語の種類</a></h2>
-<p>世界には数百種類のプログラミング言語が存在します。それぞれ異なる特徴と得意分野を持っています：</p>
+<p>世界には数百種類のプログラミング言語が存在します。それぞれ異なる特徴と得意分野を持っています。例えば次のようなものがあります。</p>
 <h3 id="web開発"><a class="header" href="#web開発">Web開発</a></h3>
 <ul>
 <li><strong>JavaScript</strong>: Webページに動きを付ける</li>
@@ -393,7 +382,6 @@
 <h3 id="学習向け"><a class="header" href="#学習向け">学習向け</a></h3>
 <ul>
 <li><strong>Scratch</strong>: 子供向けのビジュアルプログラミング</li>
-<li><strong>Python</strong>: 読みやすく書きやすい文法</li>
 </ul>
 <h2 id="プログラミング言語の共通点"><a class="header" href="#プログラミング言語の共通点">プログラミング言語の共通点</a></h2>
 <p>様々なプログラミング言語がありますが、どの言語にも共通する基本的な要素があります：</p>
@@ -407,43 +395,29 @@
 <p>同じ処理を何度も実行する仕組み</p>
 <h3 id="5-処理をまとめる仕組み"><a class="header" href="#5-処理をまとめる仕組み">5. 処理をまとめる仕組み</a></h3>
 <p>関連する処理をひとまとめにして、名前を付けて呼び出せる仕組み</p>
-<h2 id="言語を選ぶ基準"><a class="header" href="#言語を選ぶ基準">言語を選ぶ基準</a></h2>
-<p>プログラミング言語を選ぶときの基準：</p>
-<h3 id="1-作りたいものに適しているか"><a class="header" href="#1-作りたいものに適しているか">1. 作りたいものに適しているか</a></h3>
-<ul>
-<li>Webサイトを作りたい → JavaScript、Python</li>
-<li>スマホアプリを作りたい → Dart、Swift、Kotlin</li>
-<li>データ分析をしたい → Python、R</li>
-</ul>
-<h3 id="2-学習しやすいか"><a class="header" href="#2-学習しやすいか">2. 学習しやすいか</a></h3>
-<ul>
-<li>初心者に優しい文法か</li>
-<li>情報や教材が豊富か</li>
-<li>コミュニティが活発か</li>
-</ul>
-<h3 id="3-将来性があるか"><a class="header" href="#3-将来性があるか">3. 将来性があるか</a></h3>
-<ul>
-<li>需要が高い分野で使われているか</li>
-<li>継続的に発展している言語か</li>
-</ul>
 <h2 id="プログラミング言語と自然言語の違い"><a class="header" href="#プログラミング言語と自然言語の違い">プログラミング言語と自然言語の違い</a></h2>
 <p>私たちが普段使う日本語と、プログラミング言語には大きな違いがあります：</p>
-<div class="table-wrapper"><table><thead><tr><th>特徴</th><th>自然言語（日本語）</th><th>プログラミング言語</th></tr></thead><tbody>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>特徴</th><th>自然言語（日本語）</th><th>プログラミング言語</th></tr>
+</thead>
+<tbody>
 <tr><td><strong>曖昧さ</strong></td><td>文脈で理解できる</td><td>厳密で明確である必要がある</td></tr>
 <tr><td><strong>文法</strong></td><td>多少間違っても通じる</td><td>正確でなければエラーになる</td></tr>
 <tr><td><strong>表現</strong></td><td>感情や感覚も表現できる</td><td>論理的な処理のみ</td></tr>
-<tr><td><strong>学習</strong></td><td>自然に身につく</td><td>意識的に学習が必要</td></tr>
-</tbody></table>
+</tbody>
+</table>
 </div>
 <h2 id="まとめ-1"><a class="header" href="#まとめ-1">まとめ</a></h2>
 <ul>
 <li>プログラミング言語は人間とコンピュータの通訳役</li>
 <li>0と1しか理解できないコンピュータに、人間が理解しやすい形で指示を出せる</li>
 <li>用途に応じて多くの種類があるが、基本的な考え方は共通している</li>
-<li>作りたいものや学習のしやすさを考慮して言語を選ぶことが重要</li>
 </ul>
 <p>次の節では、数あるプログラミング言語の中から、なぜ「Dart」を選んで学ぶのかについて説明します。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="13-なぜdartを学ぶのか-1"><a class="header" href="#13-なぜdartを学ぶのか-1">1.3 なぜDartを学ぶのか</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="13-なぜdartを学ぶのか-1"><a class="header" href="#13-なぜdartを学ぶのか-1">1.3 なぜDartを学ぶのか</a></h1>
 <h2 id="dartとは何か"><a class="header" href="#dartとは何か">Dartとは何か</a></h2>
 <p><strong>Dart</strong>は、Google社が開発したプログラミング言語です。2011年に最初のバージョンが発表され、現在では世界中の多くの開発者に使われています。</p>
 <p>Dartは特に「<strong>Flutter</strong>」というフレームワークと組み合わせることで、iOS・Android両方で動くモバイルアプリを一つのコードで作れることで注目を集めています。</p>
@@ -485,32 +459,6 @@ bool isStudent = true; // 真偽値
 <li>iOS・Android両方で動くアプリが作れる</li>
 </ul>
 <p>これは開発効率を大幅に向上させる革新的な技術です。</p>
-<h3 id="具体的な活用例"><a class="header" href="#具体的な活用例">具体的な活用例</a></h3>
-<p>Dart/Flutterで作られた有名なアプリには以下があります：</p>
-<ul>
-<li><strong>Google Pay</strong>: Googleの決済アプリ</li>
-<li><strong>BMW</strong>: 車の制御アプリ</li>
-<li><strong>eBay Motors</strong>: 中古車売買アプリ</li>
-<li><strong>Alibaba</strong>: 中国の大手ECサイトのアプリ</li>
-</ul>
-<p>これらの例を見ると、Dartが「学習用の言語」ではなく、実際のビジネスで使われている「実用的な言語」であることが分かります。</p>
-<h2 id="他の言語と比べたdartの特徴"><a class="header" href="#他の言語と比べたdartの特徴">他の言語と比べたDartの特徴</a></h2>
-<h3 id="python-との比較"><a class="header" href="#python-との比較">Python との比較</a></h3>
-<div class="table-wrapper"><table><thead><tr><th>特徴</th><th>Python</th><th>Dart</th></tr></thead><tbody>
-<tr><td><strong>学習しやすさ</strong></td><td>★★★★★</td><td>★★★★☆</td></tr>
-<tr><td><strong>モバイルアプリ</strong></td><td>△</td><td>★★★★★</td></tr>
-<tr><td><strong>実行速度</strong></td><td>★★☆☆☆</td><td>★★★★☆</td></tr>
-<tr><td><strong>将来性</strong></td><td>★★★★★</td><td>★★★★☆</td></tr>
-</tbody></table>
-</div>
-<h3 id="javascript-との比較"><a class="header" href="#javascript-との比較">JavaScript との比較</a></h3>
-<div class="table-wrapper"><table><thead><tr><th>特徴</th><th>JavaScript</th><th>Dart</th></tr></thead><tbody>
-<tr><td><strong>Web開発</strong></td><td>★★★★★</td><td>★★★☆☆</td></tr>
-<tr><td><strong>型安全性</strong></td><td>★★☆☆☆</td><td>★★★★★</td></tr>
-<tr><td><strong>モバイルアプリ</strong></td><td>★★★☆☆</td><td>★★★★★</td></tr>
-<tr><td><strong>学習の難易度</strong></td><td>★★★☆☆</td><td>★★★★☆</td></tr>
-</tbody></table>
-</div>
 <h2 id="なぜ最初の言語としてdartが良いのか"><a class="header" href="#なぜ最初の言語としてdartが良いのか">なぜ最初の言語としてDartが良いのか</a></h2>
 <h3 id="1-現代的な言語設計"><a class="header" href="#1-現代的な言語設計">1. 現代的な言語設計</a></h3>
 <p>Dartは比較的新しい言語のため、過去の言語の問題点を解決した現代的な設計になっています。古い言語にありがちな「歴史的な事情による複雑さ」がありません。</p>
@@ -522,107 +470,64 @@ bool isStudent = true; // 真偽値
 <li>デスクトップアプリケーション</li>
 </ul>
 <p>最初に学んだ一つの言語で、様々な種類のプログラムを作れるのは学習のモチベーション維持につながります。</p>
-<h3 id="3-エラーメッセージが親切"><a class="header" href="#3-エラーメッセージが親切">3. エラーメッセージが親切</a></h3>
-<p>初心者がプログラムを書くとき、必ずエラー（間違い）が発生します。Dartは、エラーが起きたときの説明が分かりやすく、どこを直せば良いかを具体的に教えてくれます。</p>
-<h3 id="4-開発環境が整っている"><a class="header" href="#4-開発環境が整っている">4. 開発環境が整っている</a></h3>
+<h3 id="3-開発環境が整っている"><a class="header" href="#3-開発環境が整っている">3. 開発環境が整っている</a></h3>
 <ul>
 <li><strong>DartPad</strong>: ブラウザ上で手軽にDartを試せる</li>
 <li><strong>Visual Studio Code</strong>: 無料で高機能な開発環境</li>
 <li><strong>豊富なサンプルコード</strong>: 公式サイトに多くの例が掲載</li>
 </ul>
-<h2 id="学習後の発展性"><a class="header" href="#学習後の発展性">学習後の発展性</a></h2>
-<p>Dartを学んだ後の発展の道筋：</p>
-<h3 id="短期的な目標3-6ヶ月"><a class="header" href="#短期的な目標3-6ヶ月">短期的な目標（3-6ヶ月）</a></h3>
-<ol>
-<li>基本的なDartプログラムが書ける</li>
-<li>簡単な計算プログラムやゲームが作れる</li>
-<li>オブジェクト指向の基本概念を理解できる</li>
-</ol>
-<h3 id="中期的な目標6ヶ月-1年"><a class="header" href="#中期的な目標6ヶ月-1年">中期的な目標（6ヶ月-1年）</a></h3>
-<ol>
-<li>Flutterを使ったモバイルアプリ開発</li>
-<li>データベースを使ったアプリの作成</li>
-<li>Web APIを利用したアプリの開発</li>
-</ol>
-<h3 id="長期的な目標1年以上"><a class="header" href="#長期的な目標1年以上">長期的な目標（1年以上）</a></h3>
-<ol>
-<li>実際のビジネスで使えるアプリの開発</li>
-<li>他の言語（Python、JavaScript等）への発展</li>
-<li>システム設計や技術選択ができるエンジニアへの成長</li>
-</ol>
-<h2 id="現在のトレンドとdart"><a class="header" href="#現在のトレンドとdart">現在のトレンドとDart</a></h2>
-<h3 id="プログラミング教育の変化"><a class="header" href="#プログラミング教育の変化">プログラミング教育の変化</a></h3>
-<p>近年、プログラミング教育では「実用性」が重視されるようになっています。学習のためだけの言語ではなく、実際の仕事で使われている言語を学ぶことが推奨されています。</p>
-<h3 id="モバイルファーストの時代"><a class="header" href="#モバイルファーストの時代">モバイルファーストの時代</a></h3>
-<p>現在はスマートフォンが主要なコンピューティングデバイスとなっています。モバイルアプリ開発に特化したDartを学ぶことは、時代の流れに合った選択と言えます。</p>
-<h3 id="google-のサポート"><a class="header" href="#google-のサポート">Google のサポート</a></h3>
-<p>Dartは Google が開発・維持している言語のため、継続的な改善と長期的なサポートが期待できます。</p>
 <h2 id="まとめ-2"><a class="header" href="#まとめ-2">まとめ</a></h2>
 <p>Dartを最初のプログラミング言語として選ぶ理由：</p>
 <ul>
 <li><strong>初学者に優しい</strong>: 読みやすい文法と親切なエラーメッセージ</li>
 <li><strong>実用性が高い</strong>: 実際のビジネスで使われている現役の言語</li>
-<li><strong>将来性がある</strong>: モバイルアプリ開発という成長分野での需要</li>
 <li><strong>学習環境が整っている</strong>: 無料のツールと豊富な学習リソース</li>
 <li><strong>発展性がある</strong>: 一つの言語で様々な種類のアプリケーションが作れる</li>
 </ul>
 <p>次の節では、実際にDartプログラムを書くための開発環境「DartPad」の使い方を学びます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="14-開発環境の準備dartpadの使い方-1"><a class="header" href="#14-開発環境の準備dartpadの使い方-1">1.4 開発環境の準備（DartPadの使い方）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="14-開発環境の準備dartpadの使い方-1"><a class="header" href="#14-開発環境の準備dartpadの使い方-1">1.4 開発環境の準備（DartPadの使い方）</a></h1>
 <h2 id="プログラミングを始める前に"><a class="header" href="#プログラミングを始める前に">プログラミングを始める前に</a></h2>
 <p>プログラミングを学ぶためには、コードを書いて実行できる環境が必要です。通常、プログラミング言語を使うには複雑なソフトウェアのインストールが必要ですが、Dartの場合は<strong>DartPad</strong>という素晴らしいツールがあります。</p>
 <p><strong>DartPad</strong>は、ブラウザ上でDartプログラムを書いて実行できる無料のオンラインエディタです。何もインストールする必要がなく、インターネットに接続されたコンピュータがあれば、すぐにプログラミングを始められます。</p>
 <h2 id="dartpadにアクセスしよう"><a class="header" href="#dartpadにアクセスしよう">DartPadにアクセスしよう</a></h2>
-<h3 id="ステップ1-ブラウザでアクセス"><a class="header" href="#ステップ1-ブラウザでアクセス">ステップ1: ブラウザでアクセス</a></h3>
 <p>お使いのWebブラウザ（Chrome、Firefox、Safari、Edgeなど）で以下のURLにアクセスしてください：</p>
-<p><strong>https://dartpad.dev/</strong></p>
-<h3 id="ステップ2-画面の確認"><a class="header" href="#ステップ2-画面の確認">ステップ2: 画面の確認</a></h3>
-<p>DartPadが読み込まれると、以下のような画面が表示されます：</p>
-<pre><code>┌─────────────────────────────────────┐
-│ DartPad                             │
-├─────────────────────────────────────┤
-│ コードエディタ（左側）  │ 実行結果（右側） │
-│                        │              │
-│ void main() {          │              │
-│   print('Hello');      │              │
-│ }                      │              │
-│                        │              │
-├─────────────────────────────────────┤
-│ [▶ Run] [Format] [Reset] [Share]    │
-└─────────────────────────────────────┘
-</code></pre>
+<p><a href="https://dartpad.dev/">https://dartpad.dev/</a></p>
 <h2 id="dartpadの画面構成"><a class="header" href="#dartpadの画面構成">DartPadの画面構成</a></h2>
 <h3 id="1-コードエディタ左側"><a class="header" href="#1-コードエディタ左側">1. コードエディタ（左側）</a></h3>
 <p>ここにDartのプログラムコードを入力します。既に簡単なサンプルコードが入力されているはずです。</p>
 <h3 id="2-実行結果表示エリア右側"><a class="header" href="#2-実行結果表示エリア右側">2. 実行結果表示エリア（右側）</a></h3>
 <p>プログラムを実行したときの結果がここに表示されます。</p>
 <h3 id="3-操作ボタン"><a class="header" href="#3-操作ボタン">3. 操作ボタン</a></h3>
-<ul>
-<li><strong>Run（▶）</strong>: プログラムを実行する</li>
-<li><strong>Format</strong>: コードを整形する（見やすく並べ直す）</li>
-<li><strong>Reset</strong>: コードを初期状態に戻す</li>
-<li><strong>Share</strong>: 作成したプログラムを他の人と共有する</li>
-</ul>
+<p>Run（▶）がプログラムを実行するボタンです。</p>
 <h2 id="最初のプログラムを実行してみよう"><a class="header" href="#最初のプログラムを実行してみよう">最初のプログラムを実行してみよう</a></h2>
 <p>DartPadを開いたとき、既に以下のようなプログラムが入力されているはずです：</p>
-<pre><code class="language-javascript">void main() {
-  print('Hello, World!');
+<pre><code class="language-dart">void main() {
+  for (var i = 0; i &lt; 10; i++) {
+    print('hello ${i + 1}');
+  }
 }
 </code></pre>
 <h3 id="実行方法"><a class="header" href="#実行方法">実行方法</a></h3>
 <ol>
 <li><strong>「Run」ボタン</strong>（▶マーク）をクリックします</li>
-<li>右側の実行結果エリアに「Hello, World!」と表示されれば成功です</li>
+<li>右側の実行結果エリアに以下の内容が表示されれば成功です</li>
 </ol>
-<h3 id="プログラムの説明"><a class="header" href="#プログラムの説明">プログラムの説明</a></h3>
-<ul>
-<li><code>void main() { }</code>: プログラムの開始点を示します</li>
-<li><code>print('Hello, World!');</code>: 文字列を画面に表示する命令です</li>
-<li>セミコロン（;）: Dartでは文の終わりにセミコロンを付けます</li>
-</ul>
+<pre><code>hello 1
+hello 2
+hello 3
+hello 4
+hello 5
+hello 6
+hello 7
+hello 8
+hello 9
+hello 10
+</code></pre>
 <h2 id="dartpadでプログラムを書いてみよう"><a class="header" href="#dartpadでプログラムを書いてみよう">DartPadでプログラムを書いてみよう</a></h2>
-<h3 id="演習1-メッセージを変更してみる"><a class="header" href="#演習1-メッセージを変更してみる">演習1: メッセージを変更してみる</a></h3>
+<h3 id="演習1-プログラミむを書き換えてみうよう"><a class="header" href="#演習1-プログラミむを書き換えてみうよう">演習1: プログラミむを書き換えてみうよう</a></h3>
 <ol>
-<li><code>'Hello, World!'</code> の部分を <code>'こんにちは、Dart!'</code> に変更してみましょう</li>
+<li><code>'こんにちは、Dart!'</code> を表示するように、以下のプログラムに変更してみましょう</li>
 <li>Runボタンを押して、表示が変わることを確認しましょう</li>
 </ol>
 <pre><code class="language-javascript">void main() {
@@ -653,14 +558,14 @@ bool isStudent = true; // 真偽値
   print('Hello')  // セミコロンが抜けている
 }
 </code></pre>
-<p><strong>エラーメッセージ</strong>: 「Expected to find ';'」
+<p><strong>エラーメッセージ</strong>: 「Expected to find ‘;’」
 <strong>解決方法</strong>: 行の終わりにセミコロン（;）を追加する</p>
 <h4 id="2-括弧の不一致"><a class="header" href="#2-括弧の不一致">2. 括弧の不一致</a></h4>
 <pre><code class="language-javascript">void main() {
   print('Hello';  // 閉じ括弧が抜けている
 }
 </code></pre>
-<p><strong>エラーメッセージ</strong>: 「Expected to find ')'」
+<p><strong>エラーメッセージ</strong>: 「Expected to find ‘)’」
 <strong>解決方法</strong>: 開き括弧と閉じ括弧の数を確認する</p>
 <h4 id="3-引用符の不一致"><a class="header" href="#3-引用符の不一致">3. 引用符の不一致</a></h4>
 <pre><code class="language-javascript">void main() {
@@ -682,9 +587,7 @@ bool isStudent = true; // 真偽値
 <p>「Format」ボタンを押すと、コードが見やすく整理されます。特にインデント（字下げ）が自動で調整されます。</p>
 <h3 id="2-リアルタイムエラー表示"><a class="header" href="#2-リアルタイムエラー表示">2. リアルタイムエラー表示</a></h3>
 <p>コードを入力している最中に、エラーがある部分が赤い波線で表示されます。</p>
-<h3 id="3-コード補完"><a class="header" href="#3-コード補完">3. コード補完</a></h3>
-<p>入力を始めると、続きの候補が表示されることがあります。Tabキーで選択できます。</p>
-<h3 id="4-作品の保存と共有"><a class="header" href="#4-作品の保存と共有">4. 作品の保存と共有</a></h3>
+<h3 id="3-作品の保存と共有"><a class="header" href="#3-作品の保存と共有">3. 作品の保存と共有</a></h3>
 <p>「Share」ボタンを押すと、作成したプログラムのURLが生成されます。このURLを保存しておけば、後で同じプログラムを開くことができます。</p>
 <h2 id="学習を効率的に進めるコツ"><a class="header" href="#学習を効率的に進めるコツ">学習を効率的に進めるコツ</a></h2>
 <h3 id="1-こまめに実行する"><a class="header" href="#1-こまめに実行する">1. こまめに実行する</a></h3>
@@ -695,14 +598,6 @@ bool isStudent = true; // 真偽値
 <p>教材通りにコードを入力するだけでなく、「もしこう書いたらどうなるだろう？」という好奇心を持って、色々な変更を試してみましょう。</p>
 <h3 id="4-メモを残す"><a class="header" href="#4-メモを残す">4. メモを残す</a></h3>
 <p>面白い発見やよく使うコードパターンは、別途メモに残しておくと後で役立ちます。</p>
-<h2 id="次のステップに向けて"><a class="header" href="#次のステップに向けて">次のステップに向けて</a></h2>
-<p>DartPadの使い方に慣れたら、以下のことを試してみましょう：</p>
-<ol>
-<li><strong>様々な計算</strong>: 足し算だけでなく、引き算、掛け算、割り算</li>
-<li><strong>文字列の操作</strong>: 文字列の結合や表示方法の変更</li>
-<li><strong>変数の使用</strong>: 値を保存して再利用する</li>
-<li><strong>条件分岐</strong>: 条件によって処理を変える</li>
-</ol>
 <h2 id="まとめ-3"><a class="header" href="#まとめ-3">まとめ</a></h2>
 <ul>
 <li><strong>DartPad</strong>は、ブラウザでDartプログラムを実行できる無料ツール</li>
@@ -712,7 +607,8 @@ bool isStudent = true; // 真偽値
 <li>こまめに実行して、実験精神を持って学習を進める</li>
 </ul>
 <p>次の節では、プログラミングの伝統的な最初のプログラム「Hello, World!」について詳しく学び、実際にDartPadで作成してみます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="15-はじめてのプログラムhello-world-1"><a class="header" href="#15-はじめてのプログラムhello-world-1">1.5 はじめてのプログラム「Hello, World!」</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="15-はじめてのプログラムhello-world-1"><a class="header" href="#15-はじめてのプログラムhello-world-1">1.5 はじめてのプログラム「Hello, World!」</a></h1>
 <h2 id="hello-worldの伝統"><a class="header" href="#hello-worldの伝統">「Hello, World!」の伝統</a></h2>
 <p>プログラミングの世界には、新しい言語を学ぶ際に「<strong>Hello, World!</strong>」というメッセージを画面に表示するプログラムを最初に作るという伝統があります。</p>
 <p>この伝統は1978年、ブライアン・カーニハンとデニス・リッチーが書いた『The C Programming Language』という本から始まりました。以来40年以上にわたって、世界中のプログラマーが最初のプログラムとして「Hello, World!」を作成しています。</p>
@@ -745,7 +641,7 @@ bool isStudent = true; // 真偽値
 </code></pre>
 <h3 id="1行目-void-main-"><a class="header" href="#1行目-void-main-">1行目: <code>void main() {</code></a></h3>
 <ul>
-<li><strong><code>void</code></strong>: このプログラムが値を返さないことを表します</li>
+<li><strong><code>void</code></strong>: このプログラムが値を返さないことを表します。後ほど詳しく学びます。</li>
 <li><strong><code>main</code></strong>: プログラムの開始点（エントリーポイント）の名前</li>
 <li><strong><code>()</code></strong>: この関数が引数（外部からの値）を受け取らないことを表します</li>
 <li><strong><code>{</code></strong>: プログラムの処理内容の開始を示します</li>
@@ -754,7 +650,7 @@ bool isStudent = true; // 真偽値
 <ul>
 <li><strong><code>print</code></strong>: 画面に文字を表示するための命令（関数）</li>
 <li><strong><code>(</code></strong>: 関数に渡す値の開始を示します</li>
-<li><strong><code>'Hello, World!'</code></strong>: 表示したい文字列（シングルクォートで囲みます）</li>
+<li><strong><code>'Hello, World!'</code></strong>: 表示したい文字列（シングルクォートで囲んでいます）</li>
 <li><strong><code>)</code></strong>: 関数に渡す値の終了を示します</li>
 <li><strong><code>;</code></strong>: 命令の終了を示します（セミコロン）</li>
 </ul>
@@ -780,7 +676,7 @@ bool isStudent = true; // 真偽値
 </code></pre>
 <h2 id="引用符の使い方"><a class="header" href="#引用符の使い方">引用符の使い方</a></h2>
 <p>Dartでは文字列を表現するために引用符を使います。</p>
-<h3 id="シングルクォート推奨"><a class="header" href="#シングルクォート推奨">シングルクォート（推奨）</a></h3>
+<h3 id="シングルクォート"><a class="header" href="#シングルクォート">シングルクォート</a></h3>
 <pre><code class="language-javascript">void main() {
   print('Hello, World!');
 }
@@ -894,38 +790,7 @@ void main() {
   print('Hello, World!');
 }
 </code></pre>
-<h2 id="発展練習-創作プログラム"><a class="header" href="#発展練習-創作プログラム">発展練習: 創作プログラム</a></h2>
-<p>今まで学んだことを使って、創作的なプログラムを作ってみましょう：</p>
-<h3 id="アスキーアート"><a class="header" href="#アスキーアート">アスキーアート</a></h3>
-<pre><code class="language-javascript">void main() {
-  print('  /\\_/\\  ');
-  print(' ( o.o ) ');
-  print('  &gt; ^ &lt;  ');
-  print('ネコちゃんだよ！');
-}
-</code></pre>
-<h3 id="詩や歌詞"><a class="header" href="#詩や歌詞">詩や歌詞</a></h3>
-<pre><code class="language-javascript">void main() {
-  print('🌟 きらきら星 🌟');
-  print('');
-  print('きらきら ひかる');
-  print('おそらの ほしよ');
-  print('まばたき しては');
-  print('みんなを みてる');
-}
-</code></pre>
-<h3 id="計算結果の表示"><a class="header" href="#計算結果の表示">計算結果の表示</a></h3>
-<pre><code class="language-javascript">void main() {
-  print('簡単な計算をしてみましょう');
-  print('');
-  print('5 + 3 = ');
-  print(5 + 3);
-  print('');
-  print('10 × 7 = ');
-  print(10 * 7);
-}
-</code></pre>
-<h2 id="次のステップに向けて-1"><a class="header" href="#次のステップに向けて-1">次のステップに向けて</a></h2>
+<h2 id="次のステップに向けて"><a class="header" href="#次のステップに向けて">次のステップに向けて</a></h2>
 <p>「Hello, World!」プログラムが成功したら、次の学習に進む準備ができています：</p>
 <h3 id="第2章で学ぶこと"><a class="header" href="#第2章で学ぶこと">第2章で学ぶこと</a></h3>
 <ol>
@@ -948,43 +813,41 @@ void main() {
 <li><strong>DartPad</strong>を使って実際にプログラムを作成・実行できた</li>
 <li><strong>プログラムの基本構造</strong>（main関数、print文、セミコロンなど）を理解した</li>
 <li><strong>エラーの対処法</strong>と<strong>コメントの書き方</strong>を覚えた</li>
-<li><strong>創造的なプログラム</strong>を作ることで表現力を身につけた</li>
 </ul>
-<p><strong>あなたは今、プログラマーへの第一歩を踏み出しました！</strong></p>
-<p>この成功体験を大切にして、次の章でさらに深くプログラミングの世界を探求していきましょう。プログラミングは、あなたの創造力を現実のものにする強力な道具です。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="第2章プログラムの基本要素"><a class="header" href="#第2章プログラムの基本要素">第2章：プログラムの基本要素</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="第2章プログラムの基本要素"><a class="header" href="#第2章プログラムの基本要素">第2章：プログラムの基本要素</a></h1>
 <p>Hello, World!を実行できたあなたは、もうプログラマーの仲間入りです！</p>
 <p>この章では、プログラムがどのような要素で構成されているかを詳しく学びます。プログラムの構造を理解し、コメントの書き方、画面への出力方法、そしてプログラムの実行順序について学習します。また、避けては通れないエラーメッセージの読み方も身につけて、自信を持ってプログラミングを進められるようになります。</p>
 <h2 id="この章の構成-1"><a class="header" href="#この章の構成-1">この章の構成</a></h2>
-<h3 id="21-プログラムの構造を理解しよう"><a class="header" href="#21-プログラムの構造を理解しよう"><a href="chapter_2/./2-1.html">2.1 プログラムの構造を理解しよう</a></a></h3>
+<h3 id="21-プログラムの構造を理解しよう"><a class="header" href="#21-プログラムの構造を理解しよう"><a href="#21-プログラムの構造を理解しよう-1">2.1 プログラムの構造を理解しよう</a></a></h3>
 <ul>
 <li>Dartプログラムの基本的な構造を知る</li>
 <li>main関数の役割と重要性を理解する</li>
 <li>文（statement）と式（expression）の違いを学ぶ</li>
 <li>セミコロンの役割と使い方を覚える</li>
 </ul>
-<h3 id="22-コメントの書き方と重要性"><a class="header" href="#22-コメントの書き方と重要性"><a href="chapter_2/./2-2.html">2.2 コメントの書き方と重要性</a></a></h3>
+<h3 id="22-コメントの書き方と重要性"><a class="header" href="#22-コメントの書き方と重要性"><a href="#22-コメントの書き方と重要性-1">2.2 コメントの書き方と重要性</a></a></h3>
 <ul>
 <li>コメントがなぜ必要なのかを理解する</li>
 <li>単行コメント（//）と複数行コメント（/* */）の使い分け</li>
 <li>良いコメントと悪いコメントの例</li>
 <li>将来の自分や他の人のためのコメント作成術</li>
 </ul>
-<h3 id="23-print文で画面に表示する"><a class="header" href="#23-print文で画面に表示する"><a href="chapter_2/./2-3.html">2.3 print文で画面に表示する</a></a></h3>
+<h3 id="23-print文で画面に表示する"><a class="header" href="#23-print文で画面に表示する"><a href="#23-print文で画面に表示する-1">2.3 print文で画面に表示する</a></a></h3>
 <ul>
 <li>print文の基本的な使い方をマスターする</li>
 <li>文字列、数値、変数の表示方法</li>
 <li>複数の値を一度に表示するテクニック</li>
 <li>デバッグツールとしてのprint文の活用</li>
 </ul>
-<h3 id="24-プログラムの実行順序"><a class="header" href="#24-プログラムの実行順序"><a href="chapter_2/./2-4.html">2.4 プログラムの実行順序</a></a></h3>
+<h3 id="24-プログラムの実行順序"><a class="header" href="#24-プログラムの実行順序"><a href="#24-プログラムの実行順序-1">2.4 プログラムの実行順序</a></a></h3>
 <ul>
 <li>プログラムが上から下へ実行される仕組み</li>
 <li>実行順序を意識したプログラムの書き方</li>
 <li>順序が重要な場面とその理由</li>
 <li>実行の流れを追跡する練習</li>
 </ul>
-<h3 id="25-エラーメッセージの読み方"><a class="header" href="#25-エラーメッセージの読み方"><a href="chapter_2/./2-5.html">2.5 エラーメッセージの読み方</a></a></h3>
+<h3 id="25-エラーメッセージの読み方"><a class="header" href="#25-エラーメッセージの読み方"><a href="#25-エラーメッセージの読み方-1">2.5 エラーメッセージの読み方</a></a></h3>
 <ul>
 <li>エラーは敵ではなく、親切な案内役</li>
 <li>よく遭遇するエラーの種類と解決方法</li>
@@ -1007,7 +870,7 @@ void main() {
 <li><strong>print文</strong>を自在に使って情報を表示できる</li>
 <li><strong>エラーメッセージ</strong>を読んで、問題を自分で解決できる</li>
 </ul>
-<h3 id="心構え-1"><a class="header" href="#心構え-1">心構え</a></h3>
+<h3 id="心構え"><a class="header" href="#心構え">心構え</a></h3>
 <ul>
 <li>エラーを<strong>学習のチャンス</strong>として前向きに捉えている</li>
 <li><strong>読みやすいコード</strong>を書くことの大切さを実感している</li>
@@ -1026,7 +889,8 @@ void main() {
 <p>第2章を修了すると、あなたはプログラムの基本的な構造とエラー対処法を身につけたことになります。</p>
 <p>第3章では、プログラムで扱うデータの種類（変数とデータ型）について学習します。数値、文字列、真偽値など、プログラムが処理する様々な情報の扱い方を学び、より実用的なプログラムを作る準備を整えていきます。</p>
 <p><strong>基礎がしっかりしていれば、どんな高い建物も建てられます！</strong> 🏗️</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="21-プログラムの構造を理解しよう-1"><a class="header" href="#21-プログラムの構造を理解しよう-1">2.1 プログラムの構造を理解しよう</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="21-プログラムの構造を理解しよう-1"><a class="header" href="#21-プログラムの構造を理解しよう-1">2.1 プログラムの構造を理解しよう</a></h1>
 <h2 id="プログラムの基本的な構成要素"><a class="header" href="#プログラムの基本的な構成要素">プログラムの基本的な構成要素</a></h2>
 <p>前の章で「Hello, World!」プログラムを作成しましたが、今度はそのプログラムがどのような部品で構成されているかを詳しく見てみましょう。</p>
 <pre><code class="language-javascript">void main() {
@@ -1260,7 +1124,8 @@ print('今日の予定表');print('================');print('9:00  朝食');prin
 <li><strong>保守・修正が簡単になる</strong></li>
 </ul>
 <p>次の節では、プログラムをより理解しやすくする「コメント」について学びます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="22-コメントの書き方と重要性-1"><a class="header" href="#22-コメントの書き方と重要性-1">2.2 コメントの書き方と重要性</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="22-コメントの書き方と重要性-1"><a class="header" href="#22-コメントの書き方と重要性-1">2.2 コメントの書き方と重要性</a></h1>
 <h2 id="コメントとは何か"><a class="header" href="#コメントとは何か">コメントとは何か</a></h2>
 <p><strong>コメント</strong>とは、プログラムの中に書く「説明文」のことです。プログラムの実行には影響しませんが、コードを読む人（自分自身を含む）がプログラムを理解しやすくするために書きます。</p>
 <pre><code class="language-javascript">void main() {
@@ -1554,7 +1419,8 @@ void main() {
 <li><strong>明確性</strong>: 分かりやすい表現</li>
 </ul>
 <p>次の節では、プログラムで最も基本的な出力機能である「print文」について詳しく学びます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="23-print文で画面に表示する-1"><a class="header" href="#23-print文で画面に表示する-1">2.3 print文で画面に表示する</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="23-print文で画面に表示する-1"><a class="header" href="#23-print文で画面に表示する-1">2.3 print文で画面に表示する</a></h1>
 <h2 id="print文とは"><a class="header" href="#print文とは">print文とは</a></h2>
 <p><strong>print文</strong>は、Dartで最も基本的で重要な機能の一つです。プログラムから画面（コンソール）に文字や数値を表示するために使います。今まで何度も使ってきた<code>print()</code>が、まさにこのprint文です。</p>
 <pre><code class="language-javascript">void main() {
@@ -1731,13 +1597,19 @@ Dartプログラミング
 これは \ バックスラッシュを含む文字列です
 </code></pre>
 <h3 id="2-よく使うエスケープシーケンス"><a class="header" href="#2-よく使うエスケープシーケンス">2. よく使うエスケープシーケンス</a></h3>
-<div class="table-wrapper"><table><thead><tr><th>エスケープシーケンス</th><th>意味</th><th>例</th></tr></thead><tbody>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>エスケープシーケンス</th><th>意味</th><th>例</th></tr>
+</thead>
+<tbody>
 <tr><td><code>\n</code></td><td>改行</td><td><code>print('1行目\n2行目');</code></td></tr>
 <tr><td><code>\t</code></td><td>タブ</td><td><code>print('名前\t年齢');</code></td></tr>
 <tr><td><code>\"</code></td><td>ダブルクォート</td><td><code>print("彼は\"こんにちは\"と言った");</code></td></tr>
 <tr><td><code>\'</code></td><td>シングルクォート</td><td><code>print('It\'s a pen');</code></td></tr>
 <tr><td><code>\\</code></td><td>バックスラッシュ</td><td><code>print('ファイルパス: C:\\Users');</code></td></tr>
-</tbody></table>
+</tbody>
+</table>
 </div>
 <h3 id="改行の例"><a class="header" href="#改行の例">改行の例</a></h3>
 <pre><code class="language-javascript">void main() {
@@ -1926,7 +1798,8 @@ print 'Hello, World!');
 </ul>
 <p>print文は、プログラムとユーザー（あるいは開発者）をつなぐ重要な架け橋です。見やすく、分かりやすい出力を心がけることで、より良いプログラムが作れるようになります。</p>
 <p>次の節では、プログラムがどのような順序で実行されるかを詳しく学びます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="24-プログラムの実行順序-1"><a class="header" href="#24-プログラムの実行順序-1">2.4 プログラムの実行順序</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="24-プログラムの実行順序-1"><a class="header" href="#24-プログラムの実行順序-1">2.4 プログラムの実行順序</a></h1>
 <h2 id="プログラムは上から下へ実行される"><a class="header" href="#プログラムは上から下へ実行される">プログラムは上から下へ実行される</a></h2>
 <p>プログラミングにおいて最も基本的で重要な概念の一つが、<strong>プログラムの実行順序</strong>です。コンピュータは、プログラムを<strong>上から下へ、一行ずつ順番に</strong>実行します。</p>
 <pre><code class="language-javascript">void main() {
@@ -2320,7 +2193,8 @@ a = 10, b = 5
 <li><strong>出力の一貫性</strong>: ユーザーにとって分かりやすい順序</li>
 </ul>
 <p>プログラムの実行順序を理解することは、より複雑なプログラムを作るための基礎となります。次の節では、プログラムでエラーが発生したときの対処法について学びます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="25-エラーメッセージの読み方-1"><a class="header" href="#25-エラーメッセージの読み方-1">2.5 エラーメッセージの読み方</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="25-エラーメッセージの読み方-1"><a class="header" href="#25-エラーメッセージの読み方-1">2.5 エラーメッセージの読み方</a></h1>
 <h2 id="エラーは学習の大切なパートナー"><a class="header" href="#エラーは学習の大切なパートナー">エラーは学習の大切なパートナー</a></h2>
 <p>プログラミングを学ぶ過程で、<strong>エラー</strong>（間違い）に遭遇することは避けられません。しかし、エラーは「失敗」ではなく、より良いプログラムを作るための<strong>重要な手がかり</strong>です。エラーメッセージを正しく理解することで、問題を素早く解決し、プログラミングスキルを向上させることができます。</p>
 <h2 id="エラーとは何か"><a class="header" href="#エラーとは何か">エラーとは何か</a></h2>
@@ -2380,7 +2254,7 @@ a = 10, b = 5
 <p>エラーメッセージ：</p>
 <pre><code>Error: Undefined name 'unknownVariable'.
 </code></pre>
-<p><strong>意味</strong>: 「'unknownVariable'という名前が定義されていません」</p>
+<p><strong>意味</strong>: 「’unknownVariable’という名前が定義されていません」</p>
 <p><strong>解決方法</strong>: 変数を事前に定義するか、正しい変数名を使う</p>
 <pre><code class="language-javascript">void main() {
   String knownVariable = 'Hello';
@@ -2396,7 +2270,7 @@ a = 10, b = 5
 <p>エラーメッセージ：</p>
 <pre><code>Error: Undefined name 'namme'.
 </code></pre>
-<p><strong>意味</strong>: 「'namme'という名前が定義されていません」</p>
+<p><strong>意味</strong>: 「’namme’という名前が定義されていません」</p>
 <p><strong>解決方法</strong>: 正しいスペルに修正する</p>
 <pre><code class="language-javascript">void main() {
   String name = 'Dart';
@@ -2472,7 +2346,7 @@ void main() {
 <ul>
 <li><strong>Expected</strong>: 「〜が期待されています」</li>
 <li><strong>Undefined</strong>: 「〜が定義されていません」</li>
-<li><strong>Can't be assigned</strong>: 「〜を代入できません」</li>
+<li><strong>Can’t be assigned</strong>: 「〜を代入できません」</li>
 <li><strong>Exception</strong>: 「例外が発生しました」</li>
 </ul>
 <h3 id="3-エラーメッセージの具体例と解読"><a class="header" href="#3-エラーメッセージの具体例と解読">3. エラーメッセージの具体例と解読</a></h3>
@@ -2519,7 +2393,7 @@ void main() {
 }
 </code></pre>
 <h2 id="よくあるエラーとその対処法"><a class="header" href="#よくあるエラーとその対処法">よくあるエラーとその対処法</a></h2>
-<h3 id="1-expected--after-this"><a class="header" href="#1-expected--after-this">1. 「Expected ';' after this」</a></h3>
+<h3 id="1-expected--after-this"><a class="header" href="#1-expected--after-this">1. 「Expected ‘;’ after this」</a></h3>
 <p><strong>原因</strong>: セミコロンの忘れ
 <strong>対処法</strong>: 文の最後にセミコロンを追加する</p>
 <pre><code class="language-javascript">// 間違い
@@ -2528,7 +2402,7 @@ print('Hello')
 // 正しい
 print('Hello');
 </code></pre>
-<h3 id="2-undefined-name-変数名"><a class="header" href="#2-undefined-name-変数名">2. 「Undefined name '変数名'」</a></h3>
+<h3 id="2-undefined-name-変数名"><a class="header" href="#2-undefined-name-変数名">2. 「Undefined name ‘変数名’」</a></h3>
 <p><strong>原因</strong>: 変数名のスペルミスまたは未定義
 <strong>対処法</strong>: 正しいスペルに修正するか、変数を定義する</p>
 <pre><code class="language-javascript">// 間違い
@@ -2539,7 +2413,7 @@ print(naem);  // スペルミス
 String name = 'Dart';
 print(name);  // 正しいスペル
 </code></pre>
-<h3 id="3-expected--to-close-block-opened"><a class="header" href="#3-expected--to-close-block-opened">3. 「Expected '}' to close block opened」</a></h3>
+<h3 id="3-expected--to-close-block-opened"><a class="header" href="#3-expected--to-close-block-opened">3. 「Expected ‘}’ to close block opened」</a></h3>
 <p><strong>原因</strong>: 中括弧の不一致
 <strong>対処法</strong>: 開いた中括弧に対応する閉じ中括弧を追加する</p>
 <pre><code class="language-javascript">// 間違い
@@ -2552,7 +2426,7 @@ void main() {
   print('Hello');
 }  // } を追加
 </code></pre>
-<h3 id="4-a-value-of-type-string-cant-be-assigned-to-a-variable-of-type-int"><a class="header" href="#4-a-value-of-type-string-cant-be-assigned-to-a-variable-of-type-int">4. 「A value of type 'String' can't be assigned to a variable of type 'int'」</a></h3>
+<h3 id="4-a-value-of-type-string-cant-be-assigned-to-a-variable-of-type-int"><a class="header" href="#4-a-value-of-type-string-cant-be-assigned-to-a-variable-of-type-int">4. 「A value of type ‘String’ can’t be assigned to a variable of type ‘int’」</a></h3>
 <p><strong>原因</strong>: 型の不一致
 <strong>対処法</strong>: 正しい型の値を代入する</p>
 <pre><code class="language-javascript">// 間違い
@@ -2721,39 +2595,40 @@ print('条件が真です');
 </ul>
 <p>エラーメッセージを読めるようになることで、プログラミングの学習効率が大幅に向上します。エラーを恐れず、エラーメッセージから学ぶ姿勢を大切にしましょう。</p>
 <p>第2章はこれで完了です。次の第3章では、プログラムで データを扱うための「変数とデータ型」について学びます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="第3章変数とデータ型"><a class="header" href="#第3章変数とデータ型">第3章：変数とデータ型</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="第3章変数とデータ型"><a class="header" href="#第3章変数とデータ型">第3章：変数とデータ型</a></h1>
 <p>プログラムの基本構造を理解したあなたは、いよいよプログラムで「データ」を扱う段階に進みます！</p>
 <p>この章では、プログラムが処理する様々な種類のデータと、それらを格納する「変数」について学習します。数値、文字列、真偽値といった基本的なデータ型の特徴を理解し、適切な変数名の付け方も身につけます。データを自在に扱えるようになることで、プログラムでできることが大幅に広がります。</p>
 <h2 id="この章の構成-2"><a class="header" href="#この章の構成-2">この章の構成</a></h2>
-<h3 id="31-変数とは何か"><a class="header" href="#31-変数とは何か"><a href="chapter_3/./3-1.html">3.1 変数とは何か</a></a></h3>
+<h3 id="31-変数とは何か"><a class="header" href="#31-変数とは何か"><a href="#変数とは何か">3.1 変数とは何か</a></a></h3>
 <ul>
 <li>変数の概念と役割を理解する</li>
 <li>変数宣言の基本的な書き方（var、final、const）</li>
 <li>変数への値の代入と読み取り</li>
 <li>変数を使う利点と実際の活用例</li>
 </ul>
-<h3 id="32-数値を扱うintdouble"><a class="header" href="#32-数値を扱うintdouble"><a href="chapter_3/./3-2.html">3.2 数値を扱う（int、double）</a></a></h3>
+<h3 id="32-数値を扱うintdouble"><a class="header" href="#32-数値を扱うintdouble"><a href="#数値を扱うintdouble">3.2 数値を扱う（int、double）</a></a></h3>
 <ul>
 <li>整数型（int）と浮動小数点型（double）の違い</li>
 <li>数値リテラルの書き方と注意点</li>
 <li>数値型の変換と演算</li>
 <li>実際のプログラムでの数値の活用方法</li>
 </ul>
-<h3 id="33-文字列を扱うstring"><a class="header" href="#33-文字列を扱うstring"><a href="chapter_3/./3-3.html">3.3 文字列を扱う（String）</a></a></h3>
+<h3 id="33-文字列を扱うstring"><a class="header" href="#33-文字列を扱うstring"><a href="#文字列を扱うstring">3.3 文字列を扱う（String）</a></a></h3>
 <ul>
 <li>文字列型（String）の基本的な使い方</li>
 <li>文字列リテラルの様々な書き方</li>
 <li>文字列の長さや一部分の取得</li>
 <li>文字列操作の基本テクニック</li>
 </ul>
-<h3 id="34-真偽値を扱うbool"><a class="header" href="#34-真偽値を扱うbool"><a href="chapter_3/./3-4.html">3.4 真偽値を扱う（bool）</a></a></h3>
+<h3 id="34-真偽値を扱うbool"><a class="header" href="#34-真偽値を扱うbool"><a href="#真偽値を扱うbool">3.4 真偽値を扱う（bool）</a></a></h3>
 <ul>
 <li>真偽値型（bool）とtrue/falseの概念</li>
 <li>条件判定における真偽値の重要性</li>
 <li>真偽値を返す演算と比較</li>
 <li>プログラムの分岐処理への準備</li>
 </ul>
-<h3 id="35-変数の命名規則とわかりやすい名前の付け方"><a class="header" href="#35-変数の命名規則とわかりやすい名前の付け方"><a href="chapter_3/./3-5.html">3.5 変数の命名規則とわかりやすい名前の付け方</a></a></h3>
+<h3 id="35-変数の命名規則とわかりやすい名前の付け方"><a class="header" href="#35-変数の命名規則とわかりやすい名前の付け方"><a href="#変数の命名規則とわかりやすい名前の付け方">3.5 変数の命名規則とわかりやすい名前の付け方</a></a></h3>
 <ul>
 <li>Dartの変数命名ルール（camelCase）</li>
 <li>読みやすく理解しやすい変数名の考え方</li>
@@ -2776,7 +2651,7 @@ print('条件が真です');
 <li><strong>読みやすい変数名</strong>を使ってコードを作成できる</li>
 <li><strong>型エラー</strong>を理解して修正できる</li>
 </ul>
-<h3 id="心構え-2"><a class="header" href="#心構え-2">心構え</a></h3>
+<h3 id="心構え-1"><a class="header" href="#心構え-1">心構え</a></h3>
 <ul>
 <li><strong>データ型を意識</strong>してプログラムを設計する習慣がついている</li>
 <li><strong>コードの可読性</strong>を重視する姿勢が身についている</li>
@@ -2795,7 +2670,8 @@ print('条件が真です');
 <p>第3章を修了すると、あなたはプログラムの「材料」となるデータを自在に扱えるようになります。</p>
 <p>第4章では、これらのデータを使って「計算」を行う方法を学習します。算術演算子を使った計算、文字列の連結、変数の値の変更など、データを加工して新しい価値を生み出すテクニックを身につけていきます。</p>
 <p><strong>データが使えれば、プログラムの可能性は無限大です！</strong> 📊</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="変数とは何か"><a class="header" href="#変数とは何か">変数とは何か</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="変数とは何か"><a class="header" href="#変数とは何か">変数とは何か</a></h1>
 <p>プログラムにおいて、<strong>変数</strong>は値を格納するための「箱」のような存在です。この箱には名前を付けることができ、後でその名前を使って中身の値を取り出したり、新しい値を入れ替えたりできます。</p>
 <h2 id="変数の基本概念"><a class="header" href="#変数の基本概念">変数の基本概念</a></h2>
 <p>変数を日常生活に例えると、ラベルの貼られた収納ボックスのようなものです。</p>
@@ -2855,7 +2731,8 @@ int myAge = 20;
 String myName = '田中';
 print('私の名前は${myName}で、${myAge}歳です。');
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="数値を扱うintdouble"><a class="header" href="#数値を扱うintdouble">数値を扱う（int、double）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="数値を扱うintdouble"><a class="header" href="#数値を扱うintdouble">数値を扱う（int、double）</a></h1>
 <p>プログラミングにおいて、数値の扱いは基本的な操作の一つです。Dartでは主に2つの数値型を使います：<strong>int</strong>（整数）と<strong>double</strong>（小数）です。</p>
 <h2 id="int型整数"><a class="header" href="#int型整数">int型（整数）</a></h2>
 <p><strong>int型</strong>は整数（小数点のない数値）を扱います。</p>
@@ -2996,7 +2873,8 @@ print("半径: ${radius}");
 print("円周: ${circumference.toStringAsFixed(2)}");
 print("面積: ${area.toStringAsFixed(2)}");
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="文字列を扱うstring"><a class="header" href="#文字列を扱うstring">文字列を扱う（String）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="文字列を扱うstring"><a class="header" href="#文字列を扱うstring">文字列を扱う（String）</a></h1>
 <p><strong>String型</strong>は文字列（テキスト）を扱うためのデータ型です。プログラムでは、名前やメッセージ、説明文など、文字の情報を扱う機会が非常に多くあります。</p>
 <h2 id="string型の基本"><a class="header" href="#string型の基本">String型の基本</a></h2>
 <p>文字列は引用符（<code>"</code>または<code>'</code>）で囲んで表現します。</p>
@@ -3216,7 +3094,8 @@ print("大文字: ${inputText.toUpperCase()}");
 print("小文字: ${inputText.toLowerCase()}");
 print("'Dart'を含むか: ${inputText.contains('Dart')}");
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="真偽値を扱うbool"><a class="header" href="#真偽値を扱うbool">真偽値を扱う（bool）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="真偽値を扱うbool"><a class="header" href="#真偽値を扱うbool">真偽値を扱う（bool）</a></h1>
 <p><strong>bool型</strong>（ブール型）は、真（true）または偽（false）の2つの値のみを持つデータ型です。プログラムでの条件判断や状態管理において非常に重要な役割を果たします。</p>
 <h2 id="bool型の基本"><a class="header" href="#bool型の基本">bool型の基本</a></h2>
 <p>bool型の変数は<code>true</code>または<code>false</code>の値のみを格納できます。</p>
@@ -3435,7 +3314,8 @@ print("在庫あり：$isInStock");
 print("予算内：$isAffordable");
 print("購入可能：$canPurchase");
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="変数の命名規則とわかりやすい名前の付け方"><a class="header" href="#変数の命名規則とわかりやすい名前の付け方">変数の命名規則とわかりやすい名前の付け方</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="変数の命名規則とわかりやすい名前の付け方"><a class="header" href="#変数の命名規則とわかりやすい名前の付け方">変数の命名規則とわかりやすい名前の付け方</a></h1>
 <p>プログラムにおいて、変数に適切な名前を付けることは、コードの可読性と保守性を大幅に向上させます。Dartには明確な命名規則があり、これに従うことで統一感のあるコードが書けます。</p>
 <h2 id="dartの命名規則"><a class="header" href="#dartの命名規則">Dartの命名規則</a></h2>
 <h3 id="1-キャメルケースcamelcase"><a class="header" href="#1-キャメルケースcamelcase">1. キャメルケース（camelCase）</a></h3>
@@ -3680,39 +3560,40 @@ double courseFee = 1500.0;        // または tuitionFee, price
 int courseCount = 5;              // または enrolledCourseCount, totalCourses
 </code></pre>
 <p>良い変数名を付けることで、コードは自己文書化され、他の人（未来の自分も含む）が理解しやすくなります。時間をかけて適切な名前を考えることは、長期的にプログラムの品質向上につながります。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="第4章計算と演算子"><a class="header" href="#第4章計算と演算子">第4章：計算と演算子</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="第4章計算と演算子"><a class="header" href="#第4章計算と演算子">第4章：計算と演算子</a></h1>
 <p>変数とデータ型をマスターしたあなたは、いよいよデータを「加工」する力を身につけます！</p>
 <p>この章では、プログラムで計算を行うための演算子について学習します。数値の四則演算から文字列の連結、変数の値の変更まで、データを操作するための基本的なテクニックを習得します。また、演算の優先順位も理解することで、複雑な計算も正確に行えるようになります。最後には学習した内容を活かした実践的な計算プログラムに挑戦します。</p>
 <h2 id="この章の構成-3"><a class="header" href="#この章の構成-3">この章の構成</a></h2>
-<h3 id="41-算術演算子-"><a class="header" href="#41-算術演算子-"><a href="chapter_4/./4-1.html">4.1 算術演算子（+、-、*、/、%）</a></a></h3>
+<h3 id="41-算術演算子-"><a class="header" href="#41-算術演算子-"><a href="#算術演算子-">4.1 算術演算子（+、-、*、/、%）</a></a></h3>
 <ul>
 <li>四則演算（+、-、*、/）の基本的な使い方</li>
 <li>余りを求める演算子（%）の活用法</li>
 <li>整数同士の割り算と浮動小数点の割り算の違い</li>
 <li>実際の計算プログラムでの活用例</li>
 </ul>
-<h3 id="42-文字列の連結"><a class="header" href="#42-文字列の連結"><a href="chapter_4/./4-2.html">4.2 文字列の連結</a></a></h3>
+<h3 id="42-文字列の連結"><a class="header" href="#42-文字列の連結"><a href="#文字列の連結-1">4.2 文字列の連結</a></a></h3>
 <ul>
 <li>+演算子を使った文字列の結合</li>
 <li>文字列と数値の組み合わせ方</li>
 <li>文字列補間（$記法）の便利な使い方</li>
 <li>複雑な文字列作成のテクニック</li>
 </ul>
-<h3 id="43-変数の値を変更する"><a class="header" href="#43-変数の値を変更する"><a href="chapter_4/./4-3.html">4.3 変数の値を変更する</a></a></h3>
+<h3 id="43-変数の値を変更する"><a class="header" href="#43-変数の値を変更する"><a href="#変数の値を変更する">4.3 変数の値を変更する</a></a></h3>
 <ul>
 <li>代入演算子（=）の基本的な使い方</li>
 <li>複合代入演算子（+=、-=、*=、/=）の活用</li>
-<li>インクリメント（++）とデクリメント（--）</li>
+<li>インクリメント（++）とデクリメント（–）</li>
 <li>変数の値を効率的に更新する方法</li>
 </ul>
-<h3 id="44-演算の優先順位"><a class="header" href="#44-演算の優先順位"><a href="chapter_4/./4-4.html">4.4 演算の優先順位</a></a></h3>
+<h3 id="44-演算の優先順位"><a class="header" href="#44-演算の優先順位"><a href="#演算の優先順位">4.4 演算の優先順位</a></a></h3>
 <ul>
 <li>数学と同じ演算の優先順位ルール</li>
 <li>括弧を使った優先順位の制御</li>
 <li>複雑な式を読みやすくする書き方</li>
 <li>よくある優先順位の間違いと対策</li>
 </ul>
-<h3 id="45-練習問題簡単な計算プログラム"><a class="header" href="#45-練習問題簡単な計算プログラム"><a href="chapter_4/./4-5.html">4.5 練習問題：簡単な計算プログラム</a></a></h3>
+<h3 id="45-練習問題簡単な計算プログラム"><a class="header" href="#45-練習問題簡単な計算プログラム"><a href="#練習問題簡単な計算プログラム">4.5 練習問題：簡単な計算プログラム</a></a></h3>
 <ul>
 <li>消費税計算プログラムの作成</li>
 <li>単位変換プログラムの実装</li>
@@ -3735,7 +3616,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <li><strong>変数の値を効率的に更新</strong>するコードが書ける</li>
 <li><strong>複雑な計算式</strong>を正確にプログラムで表現できる</li>
 </ul>
-<h3 id="心構え-3"><a class="header" href="#心構え-3">心構え</a></h3>
+<h3 id="心構え-2"><a class="header" href="#心構え-2">心構え</a></h3>
 <ul>
 <li><strong>計算の正確性</strong>を重視する習慣がついている</li>
 <li><strong>コードの簡潔性</strong>と<strong>可読性</strong>のバランスを考えられる</li>
@@ -3754,7 +3635,8 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <p>第4章を修了すると、あなたは基本的な計算処理をプログラムで実現できるようになります。</p>
 <p>第5章では、プログラムに「判断力」を与える条件分岐について学習します。if文を使って条件によって処理を変える方法を学び、より柔軟で実用的なプログラムを作成できるようになります。</p>
 <p><strong>計算ができれば、コンピュータの力を存分に活用できます！</strong> 💪</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="算術演算子-"><a class="header" href="#算術演算子-">算術演算子（+、-、*、/、%）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="算術演算子-"><a class="header" href="#算術演算子-">算術演算子（+、-、*、/、%）</a></h1>
 <p>プログラミングでは、数学と同じように計算を行うことができます。Dartには基本的な算術演算子が用意されており、これらを使って様々な計算を実行できます。</p>
 <h2 id="基本的な算術演算子"><a class="header" href="#基本的な算術演算子">基本的な算術演算子</a></h2>
 <h3 id="足し算"><a class="header" href="#足し算">足し算（+）</a></h3>
@@ -3825,7 +3707,8 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 }
 </code></pre>
 <p>算術演算子を使うことで、プログラムで様々な計算処理を実装できます。次は文字列の連結について学んでいきましょう。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="文字列の連結-1"><a class="header" href="#文字列の連結-1">文字列の連結</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="文字列の連結-1"><a class="header" href="#文字列の連結-1">文字列の連結</a></h1>
 <p>数値の計算だけでなく、文字列（テキスト）同士を結合することもプログラミングでは頻繁に行います。Dartでは複数の方法で文字列を連結することができます。</p>
 <h2 id="演算子を使った文字列連結"><a class="header" href="#演算子を使った文字列連結">+演算子を使った文字列連結</a></h2>
 <p>最もシンプルな方法は、+演算子を使って文字列を連結することです：</p>
@@ -3919,7 +3802,8 @@ ${name}さんのテスト結果をお知らせします。
 }
 </code></pre>
 <p>文字列連結を活用することで、ユーザーに分かりやすいメッセージを表示したり、データを見やすい形式で出力したりできます。次は変数の値を変更する方法について学んでいきましょう。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="変数の値を変更する"><a class="header" href="#変数の値を変更する">変数の値を変更する</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="変数の値を変更する"><a class="header" href="#変数の値を変更する">変数の値を変更する</a></h1>
 <p>プログラムを実行している間、変数の値を変更する必要がある場面は多くあります。Dartでは変数の値を更新したり、計算結果で変数を更新したりする便利な方法が用意されています。</p>
 <h2 id="基本的な変数の更新"><a class="header" href="#基本的な変数の更新">基本的な変数の更新</a></h2>
 <p>変数に新しい値を代入することで、変数の値を変更できます：</p>
@@ -4072,7 +3956,8 @@ ${name}さんのテスト結果をお知らせします。
 }
 </code></pre>
 <p>変数の値を適切に更新することで、プログラムの状態を管理し、動的な処理を実現できます。次は演算の優先順位について学んでいきましょう。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="演算の優先順位"><a class="header" href="#演算の優先順位">演算の優先順位</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="演算の優先順位"><a class="header" href="#演算の優先順位">演算の優先順位</a></h1>
 <p>数学と同様に、プログラミングでも計算には決まった順番があります。演算子の優先順位を理解することで、期待通りの計算結果を得ることができます。</p>
 <h2 id="基本的な演算の優先順位"><a class="header" href="#基本的な演算の優先順位">基本的な演算の優先順位</a></h2>
 <p>数学の計算と同じルールが適用されます：</p>
@@ -4233,7 +4118,8 @@ ${name}さんのテスト結果をお知らせします。
 }
 </code></pre>
 <p>演算の優先順位を理解することで、正確な計算結果を得ることができ、他の人が読みやすいコードを書くことができます。次は練習問題で、これまで学んだ計算や演算子を実際に使ってみましょう。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="練習問題簡単な計算プログラム"><a class="header" href="#練習問題簡単な計算プログラム">練習問題：簡単な計算プログラム</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="練習問題簡単な計算プログラム"><a class="header" href="#練習問題簡単な計算プログラム">練習問題：簡単な計算プログラム</a></h1>
 <p>これまで学んだ算術演算子、文字列連結、変数の更新、演算の優先順位を使って、実際に計算プログラムを作ってみましょう。段階的に難易度を上げながら、様々な計算処理を実装します。</p>
 <h2 id="問題1基本的な四則演算"><a class="header" href="#問題1基本的な四則演算">問題1：基本的な四則演算</a></h2>
 <p>二つの数値を使って、四則演算の結果を表示するプログラムを作成してください。</p>
@@ -4473,39 +4359,40 @@ ${name}さんのテスト結果をお知らせします。
 <h3 id="3-図形計算プログラム"><a class="header" href="#3-図形計算プログラム">3. 図形計算プログラム</a></h3>
 <p>正方形、長方形、円の面積を一度に計算して比較表示するプログラムを作成してください。</p>
 <p>これらの練習問題を通じて、算術演算子と文字列操作を組み合わせた実用的なプログラムが作成できるようになります。次の章では、条件分岐について学び、より複雑な判断処理を実装していきます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="第5章条件分岐if文"><a class="header" href="#第5章条件分岐if文">第5章：条件分岐（if文）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="第5章条件分岐if文"><a class="header" href="#第5章条件分岐if文">第5章：条件分岐（if文）</a></h1>
 <p>計算と演算をマスターしたあなたは、いよいよプログラムに「判断力」を与える段階に進みます！</p>
 <p>この章では、条件によって処理を変える条件分岐について学習します。if文を使って「もし〜なら○○をする」という論理を実装し、比較演算子で条件を作成する方法を習得します。複数の条件を組み合わせるテクニックも学び、最後には実践的な年齢による料金計算プログラムを作成します。これにより、プログラムがより柔軟で実用的になります。</p>
 <h2 id="この章の構成-4"><a class="header" href="#この章の構成-4">この章の構成</a></h2>
-<h3 id="51-条件によって処理を変える"><a class="header" href="#51-条件によって処理を変える"><a href="chapter_5/./5-1.html">5.1 条件によって処理を変える</a></a></h3>
+<h3 id="51-条件によって処理を変える"><a class="header" href="#51-条件によって処理を変える"><a href="#51-条件によって処理を変える-1">5.1 条件によって処理を変える</a></a></h3>
 <ul>
 <li>if文の基本的な構文と仕組み</li>
 <li>条件式がtrueの場合とfalseの場合の動作</li>
 <li>if文を使った簡単な分岐処理の例</li>
 <li>条件分岐がプログラムにもたらす柔軟性</li>
 </ul>
-<h3 id="52-比較演算子"><a class="header" href="#52-比較演算子"><a href="chapter_5/./5-2.html">5.2 比較演算子（==、!=、&gt;、&lt;、&gt;=、&lt;=）</a></a></h3>
+<h3 id="52-比較演算子"><a class="header" href="#52-比較演算子"><a href="#52-比較演算子-1">5.2 比較演算子（==、!=、&gt;、&lt;、&gt;=、&lt;=）</a></a></h3>
 <ul>
 <li>等しいかどうかを判定する（==、!=）</li>
 <li>大小関係を判定する（&gt;、&lt;、&gt;=、&lt;=）</li>
 <li>数値と文字列での比較の違い</li>
 <li>比較演算子を組み合わせた複雑な条件</li>
 </ul>
-<h3 id="53-if-else文の使い方"><a class="header" href="#53-if-else文の使い方"><a href="chapter_5/./5-3.html">5.3 if-else文の使い方</a></a></h3>
+<h3 id="53-if-else文の使い方"><a class="header" href="#53-if-else文の使い方"><a href="#53-if-else文の使い方-1">5.3 if-else文の使い方</a></a></h3>
 <ul>
 <li>if-else文による二択の処理分岐</li>
 <li>else if文を使った多段階の条件判定</li>
 <li>ネストしたif文の書き方と注意点</li>
 <li>読みやすい条件分岐コードの書き方</li>
 </ul>
-<h3 id="54-複数の条件を組み合わせる"><a class="header" href="#54-複数の条件を組み合わせる"><a href="chapter_5/./5-4.html">5.4 複数の条件を組み合わせる（&amp;&amp;、||）</a></a></h3>
+<h3 id="54-複数の条件を組み合わせる"><a class="header" href="#54-複数の条件を組み合わせる"><a href="#54-複数の条件を組み合わせる-1">5.4 複数の条件を組み合わせる（&amp;&amp;、||）</a></a></h3>
 <ul>
 <li>AND演算子（&amp;&amp;）で複数条件をすべて満たす場合</li>
 <li>OR演算子（||）でいずれかの条件を満たす場合</li>
 <li>NOT演算子（!）で条件を反転させる</li>
 <li>複雑な論理式の組み立て方と優先順位</li>
 </ul>
-<h3 id="55-実践年齢による入場料金の計算"><a class="header" href="#55-実践年齢による入場料金の計算"><a href="chapter_5/./5-5.html">5.5 実践：年齢による入場料金の計算</a></a></h3>
+<h3 id="55-実践年齢による入場料金の計算"><a class="header" href="#55-実践年齢による入場料金の計算"><a href="#55-実践年齢による入場料金の計算-1">5.5 実践：年齢による入場料金の計算</a></a></h3>
 <ul>
 <li>実際の料金システムをプログラムで実装</li>
 <li>複数の条件を組み合わせた実用的な例</li>
@@ -4528,7 +4415,7 @@ ${name}さんのテスト結果をお知らせします。
 <li><strong>実用的な判定プログラム</strong>を作成できる</li>
 <li><strong>条件分岐のテスト</strong>を適切に行える</li>
 </ul>
-<h3 id="心構え-4"><a class="header" href="#心構え-4">心構え</a></h3>
+<h3 id="心構え-3"><a class="header" href="#心構え-3">心構え</a></h3>
 <ul>
 <li><strong>論理的思考</strong>でプログラムの流れを設計できる</li>
 <li><strong>様々なケース</strong>を想定した堅牢なプログラムを書ける</li>
@@ -4547,7 +4434,8 @@ ${name}さんのテスト結果をお知らせします。
 <p>第5章を修了すると、あなたはプログラムに判断力を持たせることができるようになります。</p>
 <p>第6章では、同じ処理を効率的に繰り返す「ループ処理」について学習します。for文やwhile文を使って、手作業では不可能な大量の処理を自動化する方法を身につけ、プログラムの真価を発揮できるようになります。</p>
 <p><strong>判断ができれば、プログラムは賢くなります！</strong> 🧠</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="51-条件によって処理を変える-1"><a class="header" href="#51-条件によって処理を変える-1">5.1 条件によって処理を変える</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="51-条件によって処理を変える-1"><a class="header" href="#51-条件によって処理を変える-1">5.1 条件によって処理を変える</a></h1>
 <p>これまでのプログラムは、上から下へ順番に実行されるだけでした。しかし、実際のプログラムでは「もし～なら○○をする」という条件に応じて異なる処理を行う必要があります。</p>
 <h2 id="プログラムの分岐とは"><a class="header" href="#プログラムの分岐とは">プログラムの分岐とは</a></h2>
 <p>日常生活でも、私たちは常に条件によって行動を変えています：</p>
@@ -4616,18 +4504,25 @@ ${name}さんのテスト結果をお知らせします。
 <li>プログラムは上から下へ順番に実行され、if文の後の処理も続けて実行されます</li>
 </ul>
 <p>次の節では、条件を作るための比較演算子について学びます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="52-比較演算子-1"><a class="header" href="#52-比較演算子-1">5.2 比較演算子（==、!=、&gt;、&lt;、&gt;=、&lt;=）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="52-比較演算子-1"><a class="header" href="#52-比較演算子-1">5.2 比較演算子（==、!=、&gt;、&lt;、&gt;=、&lt;=）</a></h1>
 <p>前の節では、<code>age &gt;= 18</code>のような条件を使いました。この<code>&gt;=</code>は<strong>比較演算子</strong>と呼ばれ、2つの値を比較してtrue（真）またはfalse（偽）を返します。</p>
 <h2 id="比較演算子の種類"><a class="header" href="#比較演算子の種類">比較演算子の種類</a></h2>
 <p>Dartには以下の比較演算子があります：</p>
-<div class="table-wrapper"><table><thead><tr><th>演算子</th><th>意味</th><th>例</th><th>結果</th></tr></thead><tbody>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>演算子</th><th>意味</th><th>例</th><th>結果</th></tr>
+</thead>
+<tbody>
 <tr><td><code>==</code></td><td>等しい</td><td><code>5 == 5</code></td><td>true</td></tr>
 <tr><td><code>!=</code></td><td>等しくない</td><td><code>5 != 3</code></td><td>true</td></tr>
 <tr><td><code>&gt;</code></td><td>より大きい</td><td><code>7 &gt; 3</code></td><td>true</td></tr>
 <tr><td><code>&lt;</code></td><td>より小さい</td><td><code>2 &lt; 8</code></td><td>true</td></tr>
 <tr><td><code>&gt;=</code></td><td>以上（等しいか大きい）</td><td><code>5 &gt;= 5</code></td><td>true</td></tr>
 <tr><td><code>&lt;=</code></td><td>以下（等しいか小さい）</td><td><code>4 &lt;= 6</code></td><td>true</td></tr>
-</tbody></table>
+</tbody>
+</table>
 </div>
 <h2 id="等価演算子"><a class="header" href="#等価演算子">等価演算子（==、!=）</a></h2>
 <h3 id="等しいかどうか"><a class="header" href="#等しいかどうか">等しいかどうか：==</a></h3>
@@ -4761,7 +4656,8 @@ if (age == 18) {  // 比較演算子を使う
 <li>文字列の比較では大文字・小文字が区別されます</li>
 </ul>
 <p>次の節では、if-else文を使ってより柔軟な条件分岐を学びます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="53-if-else文の使い方-1"><a class="header" href="#53-if-else文の使い方-1">5.3 if-else文の使い方</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="53-if-else文の使い方-1"><a class="header" href="#53-if-else文の使い方-1">5.3 if-else文の使い方</a></h1>
 <p>これまでのif文では、条件が真の時だけ処理を実行していました。しかし、実際のプログラムでは「条件が真の時はAをして、偽の時はBをする」という2択の処理が必要になることがよくあります。</p>
 <h2 id="if-else文の基本構文"><a class="header" href="#if-else文の基本構文">if-else文の基本構文</a></h2>
 <p><code>if-else文</code>を使うと、条件によって異なる2つの処理を実行できます：</p>
@@ -4954,15 +4850,22 @@ void main() {
 <li><code>else</code>は必ず直前の<code>if</code>または<code>else if</code>とペアになります</li>
 </ul>
 <p>次の節では、複数の条件を組み合わせる論理演算子について学びます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="54-複数の条件を組み合わせる-1"><a class="header" href="#54-複数の条件を組み合わせる-1">5.4 複数の条件を組み合わせる（&amp;&amp;、||）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="54-複数の条件を組み合わせる-1"><a class="header" href="#54-複数の条件を組み合わせる-1">5.4 複数の条件を組み合わせる（&amp;&amp;、||）</a></h1>
 <p>実際のプログラムでは、複数の条件を同時に満たす場合や、複数の条件のいずれかを満たす場合の処理が必要になることがあります。このような時に使うのが<strong>論理演算子</strong>です。</p>
 <h2 id="論理演算子の種類"><a class="header" href="#論理演算子の種類">論理演算子の種類</a></h2>
 <p>Dartには3つの論理演算子があります：</p>
-<div class="table-wrapper"><table><thead><tr><th>演算子</th><th>名前</th><th>意味</th><th>例</th></tr></thead><tbody>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>演算子</th><th>名前</th><th>意味</th><th>例</th></tr>
+</thead>
+<tbody>
 <tr><td><code>&amp;&amp;</code></td><td>AND（論理積）</td><td>すべての条件が真の時に真</td><td><code>(age &gt;= 18) &amp;&amp; (hasLicense)</code></td></tr>
 <tr><td>`</td><td></td><td>`</td><td>OR（論理和）</td></tr>
 <tr><td><code>!</code></td><td>NOT（否定）</td><td>条件の真偽を反転</td><td><code>!(isRaining)</code></td></tr>
-</tbody></table>
+</tbody>
+</table>
 </div>
 <h2 id="and演算子すべての条件を満たす"><a class="header" href="#and演算子すべての条件を満たす">AND演算子（&amp;&amp;）：すべての条件を満たす</a></h2>
 <p><code>&amp;&amp;</code>演算子は、<strong>すべての条件が真の時だけ</strong>全体が真になります。</p>
@@ -5008,7 +4911,7 @@ void main() {
 </code></pre>
 <h2 id="or演算子いずれかの条件を満たす"><a class="header" href="#or演算子いずれかの条件を満たす">OR演算子（||）：いずれかの条件を満たす</a></h2>
 <p><code>||</code>演算子は、<strong>いずれかの条件が真の時</strong>全体が真になります。</p>
-<h3 id="基本的な使い方-2"><a class="header" href="#基本的な使い方-2">基本的な使い方</a></h3>
+<h3 id="基本的な使い方-1-1"><a class="header" href="#基本的な使い方-1-1">基本的な使い方</a></h3>
 <pre><code class="language-javascript">void main() {
   String day = '土曜日';
   
@@ -5035,7 +4938,7 @@ void main() {
 </code></pre>
 <h2 id="not演算子条件の否定"><a class="header" href="#not演算子条件の否定">NOT演算子（!）：条件の否定</a></h2>
 <p><code>!</code>演算子は、条件の真偽を反転させます。</p>
-<h3 id="基本的な使い方-3"><a class="header" href="#基本的な使い方-3">基本的な使い方</a></h3>
+<h3 id="基本的な使い方-2"><a class="header" href="#基本的な使い方-2">基本的な使い方</a></h3>
 <pre><code class="language-javascript">void main() {
   bool isRaining = false;
   
@@ -5091,26 +4994,44 @@ void main() {
 <h2 id="真理値表"><a class="header" href="#真理値表">真理値表</a></h2>
 <p>論理演算子の動作を表にまとめると：</p>
 <h3 id="andの真理値表"><a class="header" href="#andの真理値表">AND（&amp;&amp;）の真理値表</a></h3>
-<div class="table-wrapper"><table><thead><tr><th>A</th><th>B</th><th>A &amp;&amp; B</th></tr></thead><tbody>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>A</th><th>B</th><th>A &amp;&amp; B</th></tr>
+</thead>
+<tbody>
 <tr><td>true</td><td>true</td><td>true</td></tr>
 <tr><td>true</td><td>false</td><td>false</td></tr>
 <tr><td>false</td><td>true</td><td>false</td></tr>
 <tr><td>false</td><td>false</td><td>false</td></tr>
-</tbody></table>
+</tbody>
+</table>
 </div>
 <h3 id="orの真理値表"><a class="header" href="#orの真理値表">OR（||）の真理値表</a></h3>
-<div class="table-wrapper"><table><thead><tr><th>A</th><th>B</th><th>A || B</th></tr></thead><tbody>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>A</th><th>B</th><th>A || B</th></tr>
+</thead>
+<tbody>
 <tr><td>true</td><td>true</td><td>true</td></tr>
 <tr><td>true</td><td>false</td><td>true</td></tr>
 <tr><td>false</td><td>true</td><td>true</td></tr>
 <tr><td>false</td><td>false</td><td>false</td></tr>
-</tbody></table>
+</tbody>
+</table>
 </div>
 <h3 id="notの真理値表"><a class="header" href="#notの真理値表">NOT（!）の真理値表</a></h3>
-<div class="table-wrapper"><table><thead><tr><th>A</th><th>!A</th></tr></thead><tbody>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>A</th><th>!A</th></tr>
+</thead>
+<tbody>
 <tr><td>true</td><td>false</td></tr>
 <tr><td>false</td><td>true</td></tr>
-</tbody></table>
+</tbody>
+</table>
 </div>
 <h2 id="実践例総合的な条件判定"><a class="header" href="#実践例総合的な条件判定">実践例：総合的な条件判定</a></h2>
 <p>会員システムの例を見てみましょう：</p>
@@ -5177,7 +5098,8 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <li>論理演算子を組み合わせることで、より柔軟な条件分岐が可能</li>
 </ul>
 <p>次の節では、これまで学んだ条件分岐の知識を使った実践的なプログラムを作成します。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="55-実践年齢による入場料金の計算-1"><a class="header" href="#55-実践年齢による入場料金の計算-1">5.5 実践：年齢による入場料金の計算</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="55-実践年齢による入場料金の計算-1"><a class="header" href="#55-実践年齢による入場料金の計算-1">5.5 実践：年齢による入場料金の計算</a></h1>
 <p>これまで学んだ条件分岐の知識を使って、実際のプログラムを作成してみましょう。年齢に応じて入場料金を計算する、実用的なプログラムを作ります。</p>
 <h2 id="課題の設定"><a class="header" href="#課題の設定">課題の設定</a></h2>
 <p>遊園地の入場料金システムを作ります。料金体系は以下のとおりです：</p>
@@ -5483,39 +5405,40 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 </ul>
 <p>このようなプログラムを作ることで、条件分岐の基本的な考え方と実用的な応用方法を身につけることができます。実際のシステム開発でも、このような複雑な条件判定は頻繁に使われます。</p>
 <p>次の章では、同じ処理を繰り返し実行する「ループ」について学びます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="第6章繰り返し処理ループ"><a class="header" href="#第6章繰り返し処理ループ">第6章：繰り返し処理（ループ）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="第6章繰り返し処理ループ"><a class="header" href="#第6章繰り返し処理ループ">第6章：繰り返し処理（ループ）</a></h1>
 <p>条件分岐をマスターしたあなたは、いよいよプログラムの真の力を発揮する段階に入ります！</p>
 <p>この章では、同じ処理を効率的に繰り返すループ処理について学習します。手作業では不可能な大量の処理を自動化し、for文やwhile文を使いこなすことで、プログラムの生産性を劇的に向上させます。また、無限ループの危険性とその回避方法も学び、最後には九九の表を作成する実践的なプログラムに挑戦します。</p>
 <h2 id="この章の構成-5"><a class="header" href="#この章の構成-5">この章の構成</a></h2>
-<h3 id="61-同じ処理を繰り返す理由"><a class="header" href="#61-同じ処理を繰り返す理由"><a href="chapter_6/./6-1.html">6.1 同じ処理を繰り返す理由</a></a></h3>
+<h3 id="61-同じ処理を繰り返す理由"><a class="header" href="#61-同じ処理を繰り返す理由"><a href="#61-同じ処理を繰り返す理由-1">6.1 同じ処理を繰り返す理由</a></a></h3>
 <ul>
 <li>繰り返し処理がなぜ重要なのかを理解する</li>
 <li>手作業とプログラムによる自動化の違い</li>
 <li>ループを使うことで得られる利点</li>
 <li>実際の開発現場でのループ活用例</li>
 </ul>
-<h3 id="62-for文の基本"><a class="header" href="#62-for文の基本"><a href="chapter_6/./6-2.html">6.2 for文の基本</a></a></h3>
+<h3 id="62-for文の基本"><a class="header" href="#62-for文の基本"><a href="#62-for文の基本-1">6.2 for文の基本</a></a></h3>
 <ul>
 <li>for文の基本的な構文と仕組み</li>
 <li>カウンタ変数を使った回数指定の繰り返し</li>
 <li>for文の各部分（初期化、条件、増分）の役割</li>
 <li>実用的なfor文の使用例</li>
 </ul>
-<h3 id="63-while文の使い方"><a class="header" href="#63-while文の使い方"><a href="chapter_6/./6-3.html">6.3 while文の使い方</a></a></h3>
+<h3 id="63-while文の使い方"><a class="header" href="#63-while文の使い方"><a href="#63-while文の使い方-1">6.3 while文の使い方</a></a></h3>
 <ul>
 <li>while文の基本的な構文と動作原理</li>
 <li>条件が満たされる間の繰り返し処理</li>
 <li>for文とwhile文の使い分け</li>
 <li>while文を使った柔軟な繰り返し制御</li>
 </ul>
-<h3 id="64-無限ループとその回避方法"><a class="header" href="#64-無限ループとその回避方法"><a href="chapter_6/./6-4.html">6.4 無限ループとその回避方法</a></a></h3>
+<h3 id="64-無限ループとその回避方法"><a class="header" href="#64-無限ループとその回避方法"><a href="#64-無限ループとその回避方法-1">6.4 無限ループとその回避方法</a></a></h3>
 <ul>
 <li>無限ループが発生する原因と危険性</li>
 <li>プログラムが止まらなくなったときの対処法</li>
 <li>適切な終了条件の設定方法</li>
 <li>ループを安全に使うためのベストプラクティス</li>
 </ul>
-<h3 id="65-実践九九の表を作る"><a class="header" href="#65-実践九九の表を作る"><a href="chapter_6/./6-5.html">6.5 実践：九九の表を作る</a></a></h3>
+<h3 id="65-実践九九の表を作る"><a class="header" href="#65-実践九九の表を作る"><a href="#65-実践九九の表を作る-1">6.5 実践：九九の表を作る</a></a></h3>
 <ul>
 <li>ネストしたループ（二重ループ）の実装</li>
 <li>九九の表を美しく表示するプログラム</li>
@@ -5538,7 +5461,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <li><strong>二重ループ</strong>を使った複雑な処理を書ける</li>
 <li><strong>ループの終了条件</strong>を適切に設定できる</li>
 </ul>
-<h3 id="心構え-5"><a class="header" href="#心構え-5">心構え</a></h3>
+<h3 id="心構え-4"><a class="header" href="#心構え-4">心構え</a></h3>
 <ul>
 <li><strong>大量のデータ処理</strong>を自動化する発想力がある</li>
 <li><strong>効率的なアルゴリズム</strong>を考える習慣がついている</li>
@@ -5557,7 +5480,8 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <p>第6章を修了すると、あなたは大量のデータを効率的に処理する力を身につけたことになります。</p>
 <p>第7章では、複数のデータを一つの変数でまとめて管理するリスト（配列）について学習します。ループとリストを組み合わせることで、より実用的で強力なプログラムを作成できるようになります。</p>
 <p><strong>繰り返しができれば、どんな大きな仕事も自動化できます！</strong> ♻️</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="61-同じ処理を繰り返す理由-1"><a class="header" href="#61-同じ処理を繰り返す理由-1">6.1 同じ処理を繰り返す理由</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="61-同じ処理を繰り返す理由-1"><a class="header" href="#61-同じ処理を繰り返す理由-1">6.1 同じ処理を繰り返す理由</a></h1>
 <p>プログラミングをしていると、同じような処理を何度も実行したい場面によく出会います。例えば、1から10までの数字を画面に表示したいときを考えてみましょう。</p>
 <h2 id="繰り返し処理がない場合"><a class="header" href="#繰り返し処理がない場合">繰り返し処理がない場合</a></h2>
 <p>まず、繰り返し処理を使わずに1から10までの数字を表示するプログラムを見てみましょう：</p>
@@ -5653,7 +5577,8 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <li>そのプログラムを、繰り返し処理を使って書き直すとどうなるか考えてみましょう。</li>
 <li>日常生活で「同じことを繰り返す」場面を3つ挙げて、それをプログラムで表現するとしたらどうなるか考えてみましょう。</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="62-for文の基本-1"><a class="header" href="#62-for文の基本-1">6.2 for文の基本</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="62-for文の基本-1"><a class="header" href="#62-for文の基本-1">6.2 for文の基本</a></h1>
 <p>for文は、プログラミングで最もよく使われる繰り返し処理の一つです。決まった回数だけ処理を繰り返したいときに特に便利です。</p>
 <h2 id="for文の構造"><a class="header" href="#for文の構造">for文の構造</a></h2>
 <p>for文は以下のような構造をしています：</p>
@@ -5820,7 +5745,8 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 </li>
 <li>1から50までの数字の中で、偶数の合計を計算するプログラムを書いてみましょう。</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="63-while文の使い方-1"><a class="header" href="#63-while文の使い方-1">6.3 while文の使い方</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="63-while文の使い方-1"><a class="header" href="#63-while文の使い方-1">6.3 while文の使い方</a></h1>
 <p>while文は、for文と並んでよく使われる繰り返し処理の構文です。特定の条件が満たされている間、処理を繰り返し続けたいときに使います。</p>
 <h2 id="while文の基本構造"><a class="header" href="#while文の基本構造">while文の基本構造</a></h2>
 <p>while文の基本的な構造は以下のとおりです：</p>
@@ -6053,7 +5979,8 @@ void main() {
 <p>フィボナッチ数列（前の2つの数の和が次の数になる）を、1000を超えるまで表示するプログラムを書いてみましょう。</p>
 </li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="64-無限ループとその回避方法-1"><a class="header" href="#64-無限ループとその回避方法-1">6.4 無限ループとその回避方法</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="64-無限ループとその回避方法-1"><a class="header" href="#64-無限ループとその回避方法-1">6.4 無限ループとその回避方法</a></h1>
 <p>無限ループとは、終了条件を満たすことなく永遠に繰り返し続けるループのことです。プログラミング初心者がよく陥るミスの一つですが、理解すれば簡単に回避できます。</p>
 <h2 id="無限ループとは"><a class="header" href="#無限ループとは">無限ループとは</a></h2>
 <p>無限ループは、ループの終了条件が永遠にfalseにならない（またはtrueのまま）状態です。プログラムが応答しなくなり、強制終了が必要になることがあります。</p>
@@ -6256,7 +6183,8 @@ while (x &gt; 0) {
 <p>ユーザーが「quit」と入力するまで続くプログラムを書いてください（実際の入力処理は、文字列を順番に試すシミュレーションで構いません）。</p>
 </li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="65-実践九九の表を作る-1"><a class="header" href="#65-実践九九の表を作る-1">6.5 実践：九九の表を作る</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="65-実践九九の表を作る-1"><a class="header" href="#65-実践九九の表を作る-1">6.5 実践：九九の表を作る</a></h1>
 <p>これまで学んだfor文とwhile文の知識を活用して、九九の表を作成するプログラムを作ってみましょう。段階的に機能を追加していき、最終的に見やすい九九の表を完成させます。</p>
 <h2 id="ステップ1基本的な九九の表示"><a class="header" href="#ステップ1基本的な九九の表示">ステップ1：基本的な九九の表示</a></h2>
 <p>まずは、特定の段の九九を表示するプログラムから始めましょう：</p>
@@ -6497,39 +6425,40 @@ if (result % 5 == 0) {
 <li>指定した段だけを表示する機能を追加する</li>
 <li>九九の表から特定の答え（例：24）を見つけて、その式をすべて表示する</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="第7章リスト配列"><a class="header" href="#第7章リスト配列">第7章：リスト（配列）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="第7章リスト配列"><a class="header" href="#第7章リスト配列">第7章：リスト（配列）</a></h1>
 <p>ループ処理をマスターしたあなたは、いよいよ複数のデータを効率的に管理する段階に進みます！</p>
 <p>この章では、リスト（配列）を使って複数のデータを一つの変数でまとめて扱う方法を学習します。リストの作成から要素へのアクセス、要素の追加・削除、そしてループとの組み合わせまで、データ管理の基本テクニックを習得します。最後には成績管理プログラムを作成し、実用的なデータ処理のスキルを身につけます。</p>
 <h2 id="この章の構成-6"><a class="header" href="#この章の構成-6">この章の構成</a></h2>
-<h3 id="71-複数のデータをまとめて管理する"><a class="header" href="#71-複数のデータをまとめて管理する"><a href="chapter_7/./7-1.html">7.1 複数のデータをまとめて管理する</a></a></h3>
+<h3 id="71-複数のデータをまとめて管理する"><a class="header" href="#71-複数のデータをまとめて管理する"><a href="#71-複数のデータをまとめて管理する-1">7.1 複数のデータをまとめて管理する</a></a></h3>
 <ul>
 <li>リスト（配列）の概念と必要性を理解する</li>
 <li>一つずつ変数を作る方法の限界</li>
 <li>リストを使うことで得られる利点</li>
 <li>実際のプログラムでのリスト活用例</li>
 </ul>
-<h3 id="72-リストの作成と要素へのアクセス"><a class="header" href="#72-リストの作成と要素へのアクセス"><a href="chapter_7/./7-2.html">7.2 リストの作成と要素へのアクセス</a></a></h3>
+<h3 id="72-リストの作成と要素へのアクセス"><a class="header" href="#72-リストの作成と要素へのアクセス"><a href="#72-リストの作成と要素へのアクセス-1">7.2 リストの作成と要素へのアクセス</a></a></h3>
 <ul>
 <li>リストの基本的な作成方法</li>
 <li>インデックスを使った要素へのアクセス</li>
 <li>リストの長さ（length）の取得</li>
 <li>要素の値の読み取りと変更</li>
 </ul>
-<h3 id="73-リストに要素を追加削除する"><a class="header" href="#73-リストに要素を追加削除する"><a href="chapter_7/./7-3.html">7.3 リストに要素を追加・削除する</a></a></h3>
+<h3 id="73-リストに要素を追加削除する"><a class="header" href="#73-リストに要素を追加削除する"><a href="#73-リストに要素を追加削除する-1">7.3 リストに要素を追加・削除する</a></a></h3>
 <ul>
 <li>add()メソッドを使った要素の追加</li>
 <li>remove()、removeAt()を使った要素の削除</li>
 <li>insert()を使った任意の位置への追加</li>
 <li>リストの動的な操作テクニック</li>
 </ul>
-<h3 id="74-リストと繰り返し処理の組み合わせ"><a class="header" href="#74-リストと繰り返し処理の組み合わせ"><a href="chapter_7/./7-4.html">7.4 リストと繰り返し処理の組み合わせ</a></a></h3>
+<h3 id="74-リストと繰り返し処理の組み合わせ"><a class="header" href="#74-リストと繰り返し処理の組み合わせ"><a href="#74-リストと繰り返し処理の組み合わせ-1">7.4 リストと繰り返し処理の組み合わせ</a></a></h3>
 <ul>
 <li>for文を使ったリスト全体の処理</li>
 <li>for-in文による要素の順次処理</li>
 <li>while文とリストの組み合わせ</li>
 <li>リストを使った効率的なデータ処理</li>
 </ul>
-<h3 id="75-実践成績管理プログラム"><a class="header" href="#75-実践成績管理プログラム"><a href="chapter_7/./7-5.html">7.5 実践：成績管理プログラム</a></a></h3>
+<h3 id="75-実践成績管理プログラム"><a class="header" href="#75-実践成績管理プログラム"><a href="#75-実践成績管理プログラム-1">7.5 実践：成績管理プログラム</a></a></h3>
 <ul>
 <li>学生の成績をリストで管理する</li>
 <li>平均点、最高点、最低点の計算</li>
@@ -6552,7 +6481,7 @@ if (result % 5 == 0) {
 <li><strong>動的なデータ管理</strong>を行うプログラムを作成できる</li>
 <li><strong>実用的なデータ処理アプリケーション</strong>を実装できる</li>
 </ul>
-<h3 id="心構え-6"><a class="header" href="#心構え-6">心構え</a></h3>
+<h3 id="心構え-5"><a class="header" href="#心構え-5">心構え</a></h3>
 <ul>
 <li><strong>データ構造を意識した</strong>プログラム設計ができる</li>
 <li><strong>効率的なデータ管理</strong>の重要性を理解している</li>
@@ -6571,7 +6500,8 @@ if (result % 5 == 0) {
 <p>第7章を修了すると、あなたは複数のデータを効率的に管理し、処理することができるようになります。</p>
 <p>第8章では、キーと値のペアでデータを管理するマップ（連想配列）について学習します。リストとは異なる新しいデータ構造を学ぶことで、より柔軟で高度なデータ管理が可能になります。</p>
 <p><strong>データをまとめて扱えれば、プログラムの可能性が大きく広がります！</strong> 📊</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="71-複数のデータをまとめて管理する-1"><a class="header" href="#71-複数のデータをまとめて管理する-1">7.1 複数のデータをまとめて管理する</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="71-複数のデータをまとめて管理する-1"><a class="header" href="#71-複数のデータをまとめて管理する-1">7.1 複数のデータをまとめて管理する</a></h1>
 <p>これまでの章では、一つ一つの変数に値を保存してきました。しかし、実際のプログラミングでは、たくさんのデータをまとめて扱いたい場面がよくあります。</p>
 <h2 id="なぜリストが必要なのか"><a class="header" href="#なぜリストが必要なのか">なぜリストが必要なのか</a></h2>
 <p>例えば、クラスの生徒30人のテストの点数を管理したいとしましょう。これまでの方法では、こんな風に書かなければなりません：</p>
@@ -6622,7 +6552,8 @@ if (result % 5 == 0) {
 <li>一週間の曜日をリストで表現するとどうなるでしょうか？</li>
 <li>リストを使わずに100人分のデータを管理することの問題点を3つ挙げてください。</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="72-リストの作成と要素へのアクセス-1"><a class="header" href="#72-リストの作成と要素へのアクセス-1">7.2 リストの作成と要素へのアクセス</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="72-リストの作成と要素へのアクセス-1"><a class="header" href="#72-リストの作成と要素へのアクセス-1">7.2 リストの作成と要素へのアクセス</a></h1>
 <p>前のセクションでリストの概念を学びました。今度は実際にリストを作成し、使ってみましょう。</p>
 <h2 id="リストの作成"><a class="header" href="#リストの作成">リストの作成</a></h2>
 <p>Dartでリストを作成する最も基本的な方法は、角括弧 <code>[]</code> を使うことです。</p>
@@ -6735,7 +6666,8 @@ if (result % 5 == 0) {
 <li>1から10までの数字を含むリストを作成し、最初と最後の要素を表示してください</li>
 <li>家族の名前のリストを作成し、リストの要素数を表示してください</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="73-リストに要素を追加削除する-1"><a class="header" href="#73-リストに要素を追加削除する-1">7.3 リストに要素を追加・削除する</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="73-リストに要素を追加削除する-1"><a class="header" href="#73-リストに要素を追加削除する-1">7.3 リストに要素を追加・削除する</a></h1>
 <p>リストの便利な点の一つは、プログラムの実行中に要素を追加したり削除したりできることです。このセクションでは、リストを動的に操作する方法を学びます。</p>
 <h2 id="要素の追加"><a class="header" href="#要素の追加">要素の追加</a></h2>
 <h3 id="addメソッド---末尾に追加"><a class="header" href="#addメソッド---末尾に追加">add()メソッド - 末尾に追加</a></h3>
@@ -6877,10 +6809,11 @@ if (result % 5 == 0) {
 <h3 id="練習問題-15"><a class="header" href="#練習問題-15">練習問題</a></h3>
 <ol>
 <li>空のリストを作成し、1から5までの数字を順番に追加するプログラムを書いてください</li>
-<li>果物のリスト<code>['りんご', 'みかん', 'ぶどう']</code>から'みかん'を削除し、代わりに'いちご'を同じ位置に追加してください</li>
+<li>果物のリスト<code>['りんご', 'みかん', 'ぶどう']</code>から’みかん’を削除し、代わりに’いちご’を同じ位置に追加してください</li>
 <li>ToDoリストを作成し、タスクの追加と完了（削除）をシミュレートするプログラムを書いてください</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="74-リストと繰り返し処理の組み合わせ-1"><a class="header" href="#74-リストと繰り返し処理の組み合わせ-1">7.4 リストと繰り返し処理の組み合わせ</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="74-リストと繰り返し処理の組み合わせ-1"><a class="header" href="#74-リストと繰り返し処理の組み合わせ-1">7.4 リストと繰り返し処理の組み合わせ</a></h1>
 <p>リストとループ（繰り返し処理）を組み合わせることで、リストの全要素に対して効率的に処理を行うことができます。これはプログラミングにおいて非常に重要なテクニックです。</p>
 <h2 id="for文でリストを処理する"><a class="header" href="#for文でリストを処理する">for文でリストを処理する</a></h2>
 <h3 id="インデックスを使った方法"><a class="header" href="#インデックスを使った方法">インデックスを使った方法</a></h3>
@@ -7055,7 +6988,8 @@ if (result % 5 == 0) {
 <li>名前のリスト<code>['太郎', '花子', '次郎', '三郎']</code>の各要素に「さん」を付けて表示してください</li>
 <li>点数のリスト<code>[65, 78, 82, 90, 55, 88, 70]</code>から、70点未満の点数だけを別のリストに集めてください</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="75-実践成績管理プログラム-1"><a class="header" href="#75-実践成績管理プログラム-1">7.5 実践：成績管理プログラム</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="75-実践成績管理プログラム-1"><a class="header" href="#75-実践成績管理プログラム-1">7.5 実践：成績管理プログラム</a></h1>
 <p>これまで学んだリストの知識を総合的に活用して、実用的な成績管理プログラムを作成してみましょう。このプログラムでは、生徒の成績を管理し、様々な統計情報を計算します。</p>
 <h2 id="プログラムの要件"><a class="header" href="#プログラムの要件">プログラムの要件</a></h2>
 <p>作成する成績管理プログラムには以下の機能を実装します：</p>
@@ -7295,32 +7229,33 @@ if (result % 5 == 0) {
 <li>各科目で平均点以上を取った生徒の名前を表示してください</li>
 <li>成績が前回より上がった生徒を「成績向上者」として表示する機能を作ってください</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="第8章マップ連想配列"><a class="header" href="#第8章マップ連想配列">第8章：マップ（連想配列）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="第8章マップ連想配列"><a class="header" href="#第8章マップ連想配列">第8章：マップ（連想配列）</a></h1>
 <p>リストでデータをまとめて管理できるようになったあなたは、さらに柔軟なデータ管理手法を学ぶ段階に進みます！</p>
 <p>この章では、キーと値のペアでデータを管理するマップ（連想配列）について学習します。リストが順番でデータを管理するのに対し、マップは意味のある名前（キー）でデータにアクセスできる画期的な仕組みです。マップの基本操作から実用的な活用法まで学び、最後には簡単な辞書プログラムを作成します。</p>
 <h2 id="この章の構成-7"><a class="header" href="#この章の構成-7">この章の構成</a></h2>
-<h3 id="81-キーと値のペアでデータを管理"><a class="header" href="#81-キーと値のペアでデータを管理"><a href="chapter_8/./8-1.html">8.1 キーと値のペアでデータを管理</a></a></h3>
+<h3 id="81-キーと値のペアでデータを管理"><a class="header" href="#81-キーと値のペアでデータを管理"><a href="#キーと値のペアでデータを管理">8.1 キーと値のペアでデータを管理</a></a></h3>
 <ul>
 <li>マップ（連想配列）の概念と特徴</li>
 <li>リストとマップの違いと使い分け</li>
 <li>キー（key）と値（value）の関係性</li>
 <li>実世界でのマップ活用例</li>
 </ul>
-<h3 id="82-マップの作成と操作"><a class="header" href="#82-マップの作成と操作"><a href="chapter_8/./8-2.html">8.2 マップの作成と操作</a></a></h3>
+<h3 id="82-マップの作成と操作"><a class="header" href="#82-マップの作成と操作"><a href="#マップの作成と操作">8.2 マップの作成と操作</a></a></h3>
 <ul>
 <li>マップの基本的な作成方法</li>
 <li>要素の追加、取得、更新、削除</li>
 <li>containsKey()やkeys、valuesの活用</li>
 <li>マップの便利なメソッドの使い方</li>
 </ul>
-<h3 id="83-マップの活用例"><a class="header" href="#83-マップの活用例"><a href="chapter_8/./8-3.html">8.3 マップの活用例</a></a></h3>
+<h3 id="83-マップの活用例"><a class="header" href="#83-マップの活用例"><a href="#マップの活用例">8.3 マップの活用例</a></a></h3>
 <ul>
 <li>設定情報の管理</li>
 <li>ユーザー情報の保存</li>
 <li>カウンターとしての利用</li>
 <li>より高度なデータ構造の構築</li>
 </ul>
-<h3 id="84-実践簡単な辞書プログラム"><a class="header" href="#84-実践簡単な辞書プログラム"><a href="chapter_8/./8-4.html">8.4 実践：簡単な辞書プログラム</a></a></h3>
+<h3 id="84-実践簡単な辞書プログラム"><a class="header" href="#84-実践簡単な辞書プログラム"><a href="#実践簡単な辞書プログラム">8.4 実践：簡単な辞書プログラム</a></a></h3>
 <ul>
 <li>英単語と日本語訳を管理する辞書</li>
 <li>単語の検索、追加、削除機能</li>
@@ -7343,7 +7278,7 @@ if (result % 5 == 0) {
 <li><strong>マップを活用した実用的なプログラム</strong>を作成できる</li>
 <li><strong>複雑なデータ構造</strong>を管理できる</li>
 </ul>
-<h3 id="心構え-7"><a class="header" href="#心構え-7">心構え</a></h3>
+<h3 id="心構え-6"><a class="header" href="#心構え-6">心構え</a></h3>
 <ul>
 <li><strong>データの関連性を意識した</strong>設計ができる</li>
 <li><strong>効率的なデータアクセス</strong>を重視している</li>
@@ -7362,7 +7297,8 @@ if (result % 5 == 0) {
 <p>第8章を修了すると、あなたは基本的なデータ構造（リストとマップ）を自在に使いこなせるようになります。</p>
 <p>第9章では、プログラムをより整理して管理しやすくする「関数」について学習します。同じ処理をまとめて再利用可能にする関数の概念を学ぶことで、より保守性の高いプログラムを作成できるようになります。</p>
 <p><strong>データの関連性を表現できれば、現実世界をプログラムで再現できます！</strong> 🌐</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="キーと値のペアでデータを管理"><a class="header" href="#キーと値のペアでデータを管理">キーと値のペアでデータを管理</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="キーと値のペアでデータを管理"><a class="header" href="#キーと値のペアでデータを管理">キーと値のペアでデータを管理</a></h1>
 <p>前章では、リストを使って複数のデータをまとめて管理する方法を学びました。リストは順番に並んだデータを扱うのに便利でしたが、今回はもう一つの重要なデータ構造「マップ（Map）」について学びます。</p>
 <h2 id="リストの制限"><a class="header" href="#リストの制限">リストの制限</a></h2>
 <p>リストは素晴らしいツールですが、ある種の問題には向いていません。例えば、生徒の名前と点数を管理したいとき、リストだけでは次のような問題があります：</p>
@@ -7394,7 +7330,7 @@ if (result % 5 == 0) {
 </code></pre>
 <p>ここで：</p>
 <ul>
-<li><strong>キー</strong>：データを識別するための名前（例：'田中'）</li>
+<li><strong>キー</strong>：データを識別するための名前（例：‘田中’）</li>
 <li><strong>値</strong>：キーに関連付けられたデータ（例：85）</li>
 </ul>
 <h2 id="実生活でのマップの例"><a class="header" href="#実生活でのマップの例">実生活でのマップの例</a></h2>
@@ -7471,7 +7407,8 @@ if (result % 5 == 0) {
 <li>好きな科目とその成績をマップで表現してみましょう。</li>
 <li>リストではなくマップを使うべき場面を3つ考えてください。</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="マップの作成と操作"><a class="header" href="#マップの作成と操作">マップの作成と操作</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="マップの作成と操作"><a class="header" href="#マップの作成と操作">マップの作成と操作</a></h1>
 <p>前のセクションでマップの概念を学びました。ここでは、実際にマップを作成し、操作する方法を詳しく見ていきましょう。</p>
 <h2 id="マップの作成"><a class="header" href="#マップの作成">マップの作成</a></h2>
 <h3 id="1-空のマップを作る"><a class="header" href="#1-空のマップを作る">1. 空のマップを作る</a></h3>
@@ -7679,7 +7616,8 @@ if (result % 5 == 0) {
 <li>科目名と成績（A, B, C）を管理するマップを作り、1つの科目の成績を更新する処理を書いてください。</li>
 <li>商品名と価格のマップから、すべての商品の合計金額を計算するプログラムを作成してください。</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="マップの活用例"><a class="header" href="#マップの活用例">マップの活用例</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="マップの活用例"><a class="header" href="#マップの活用例">マップの活用例</a></h1>
 <p>これまでマップの基本的な使い方を学びました。ここでは、実際のプログラミングでよく使われるマップの活用例を見ていきましょう。</p>
 <h2 id="1-成績管理システム"><a class="header" href="#1-成績管理システム">1. 成績管理システム</a></h2>
 <p>複数の生徒の成績を科目ごとに管理する例です：</p>
@@ -7922,7 +7860,8 @@ if (result % 5 == 0) {
 <li>商品の売上個数を記録し、売上ランキングを表示するプログラムを作成してください。</li>
 <li>ユーザーのログイン回数を記録し、最もアクティブなユーザーを見つけるプログラムを作成してください。</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="実践簡単な辞書プログラム"><a class="header" href="#実践簡単な辞書プログラム">実践：簡単な辞書プログラム</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="実践簡単な辞書プログラム"><a class="header" href="#実践簡単な辞書プログラム">実践：簡単な辞書プログラム</a></h1>
 <p>これまで学んだマップの知識を活用して、英和辞書プログラムを作ってみましょう。このプログラムでは、英単語を入力すると日本語の意味を表示し、新しい単語を追加したり、既存の単語を編集したりできます。</p>
 <h2 id="プログラムの設計"><a class="header" href="#プログラムの設計">プログラムの設計</a></h2>
 <p>作成する辞書プログラムの機能：</p>
@@ -8252,39 +8191,40 @@ if (result % 5 == 0) {
 <li>「苦手な単語」（間違えた回数が多い）を表示</li>
 <li>学習履歴から「今日の復習単語」を提案</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="第9章関数の基礎"><a class="header" href="#第9章関数の基礎">第9章：関数の基礎</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="第9章関数の基礎"><a class="header" href="#第9章関数の基礎">第9章：関数の基礎</a></h1>
 <p>データ構造をマスターしたあなたは、いよいよプログラムをより効率的に整理する段階に進みます！</p>
 <p>この章では、同じ処理をまとめて再利用可能にする「関数」について学習します。関数の定義と呼び出し、引数と戻り値の仕組み、変数のスコープ（有効範囲）など、プログラムをモジュール化するための基本概念を習得します。最後には電卓プログラムを関数で整理し、保守性の高いコードの書き方を身につけます。</p>
 <h2 id="この章の構成-8"><a class="header" href="#この章の構成-8">この章の構成</a></h2>
-<h3 id="91-関数とは何か"><a class="header" href="#91-関数とは何か"><a href="chapter_9/./9-1.html">9.1 関数とは何か</a></a></h3>
+<h3 id="91-関数とは何か"><a class="header" href="#91-関数とは何か"><a href="#関数とは何か">9.1 関数とは何か</a></a></h3>
 <ul>
 <li>関数の概念と必要性を理解する</li>
 <li>コードの重複を避ける重要性</li>
 <li>関数を使うことで得られる利点</li>
 <li>実際のプログラムでの関数活用例</li>
 </ul>
-<h3 id="92-関数の定義と呼び出し"><a class="header" href="#92-関数の定義と呼び出し"><a href="chapter_9/./9-2.html">9.2 関数の定義と呼び出し</a></a></h3>
+<h3 id="92-関数の定義と呼び出し"><a class="header" href="#92-関数の定義と呼び出し"><a href="#関数の定義と呼び出し">9.2 関数の定義と呼び出し</a></a></h3>
 <ul>
 <li>関数の基本的な定義方法</li>
 <li>関数の呼び出し（実行）の仕方</li>
 <li>main関数と自作関数の関係</li>
 <li>関数名の付け方のベストプラクティス</li>
 </ul>
-<h3 id="93-引数と戻り値"><a class="header" href="#93-引数と戻り値"><a href="chapter_9/./9-3.html">9.3 引数と戻り値</a></a></h3>
+<h3 id="93-引数と戻り値"><a class="header" href="#93-引数と戻り値"><a href="#引数と戻り値">9.3 引数と戻り値</a></a></h3>
 <ul>
 <li>引数（パラメータ）の役割と使い方</li>
 <li>戻り値（return）による結果の返却</li>
 <li>引数なし・戻り値なしの関数</li>
 <li>型指定の重要性</li>
 </ul>
-<h3 id="94-変数のスコープ有効範囲"><a class="header" href="#94-変数のスコープ有効範囲"><a href="chapter_9/./9-4.html">9.4 変数のスコープ（有効範囲）</a></a></h3>
+<h3 id="94-変数のスコープ有効範囲"><a class="header" href="#94-変数のスコープ有効範囲"><a href="#変数のスコープ有効範囲">9.4 変数のスコープ（有効範囲）</a></a></h3>
 <ul>
 <li>ローカル変数とグローバル変数の違い</li>
 <li>変数の有効範囲（スコープ）の概念</li>
 <li>関数内での変数の扱い方</li>
 <li>スコープを意識したプログラム設計</li>
 </ul>
-<h3 id="95-実践電卓プログラムを関数で整理"><a class="header" href="#95-実践電卓プログラムを関数で整理"><a href="chapter_9/./9-5.html">9.5 実践：電卓プログラムを関数で整理</a></a></h3>
+<h3 id="95-実践電卓プログラムを関数で整理"><a class="header" href="#95-実践電卓プログラムを関数で整理"><a href="#実践電卓プログラムを関数で整理">9.5 実践：電卓プログラムを関数で整理</a></a></h3>
 <ul>
 <li>四則演算を関数として分離</li>
 <li>メニュー表示や入力処理の関数化</li>
@@ -8307,7 +8247,7 @@ if (result % 5 == 0) {
 <li><strong>既存のコードを関数に分割</strong>して整理できる</li>
 <li><strong>保守性の高いプログラム</strong>を作成できる</li>
 </ul>
-<h3 id="心構え-8"><a class="header" href="#心構え-8">心構え</a></h3>
+<h3 id="心構え-7"><a class="header" href="#心構え-7">心構え</a></h3>
 <ul>
 <li><strong>コードの重複を避ける</strong>習慣がついている</li>
 <li><strong>モジュール化の重要性</strong>を理解している</li>
@@ -8326,9 +8266,10 @@ if (result % 5 == 0) {
 <p>第9章を修了すると、あなたはプログラムを効率的に整理し、再利用可能な部品として関数を作ることができるようになります。</p>
 <p>第10章では、関数をより高度に活用する方法を学習します。複数の引数、オプション引数、関数を使ったより洗練されたプログラム設計を学び、実践的なじゃんけんゲームを作成します。</p>
 <p><strong>関数が使えれば、プログラムはもっと美しく、管理しやすくなります！</strong> ⚙️</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="関数とは何か"><a class="header" href="#関数とは何か">関数とは何か</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="関数とは何か"><a class="header" href="#関数とは何か">関数とは何か</a></h1>
 <p>これまでの章では、変数、条件分岐、繰り返し処理、リスト、マップなど、プログラミングの基本的な要素を学んできました。今回は、プログラムを整理し、効率的にするための重要な概念「関数」について学びます。</p>
-<h2 id="プログラムが長くなると"><a class="header" href="#プログラムが長くなると">プログラムが長くなると...</a></h2>
+<h2 id="プログラムが長くなると"><a class="header" href="#プログラムが長くなると">プログラムが長くなると…</a></h2>
 <p>これまでに書いたプログラムを思い出してみましょう。プログラムが複雑になるにつれて、次のような問題が出てきます：</p>
 <pre><code class="language-javascript">void main() {
   // 成績の平均を計算する（1回目）
@@ -8481,7 +8422,8 @@ void main() {
 <li>プログラムで同じ処理を繰り返し書くことの問題点を説明してください。</li>
 <li>関数を使うメリットを自分の言葉で説明してください。</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="関数の定義と呼び出し"><a class="header" href="#関数の定義と呼び出し">関数の定義と呼び出し</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="関数の定義と呼び出し"><a class="header" href="#関数の定義と呼び出し">関数の定義と呼び出し</a></h1>
 <p>前のセクションで関数の概念を学びました。ここでは、実際に関数を定義し、呼び出す方法を詳しく見ていきましょう。</p>
 <h2 id="基本的な関数の定義"><a class="header" href="#基本的な関数の定義">基本的な関数の定義</a></h2>
 <p>関数を定義する基本的な形は次のとおりです：</p>
@@ -8718,7 +8660,8 @@ void showMessage() {  // エラー！
 </li>
 <li>九九の2の段を表示する関数 <code>printTwosTable()</code> を作成してください。</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="引数と戻り値"><a class="header" href="#引数と戻り値">引数と戻り値</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="引数と戻り値"><a class="header" href="#引数と戻り値">引数と戻り値</a></h1>
 <p>これまでの関数は、決まった処理を実行するだけでした。しかし、関数をより柔軟に使うために、値を受け取ったり（引数）、結果を返したり（戻り値）できます。</p>
 <h2 id="引数パラメータとは"><a class="header" href="#引数パラメータとは">引数（パラメータ）とは</a></h2>
 <p>引数は、関数に渡す値のことです。関数は引数を受け取って、その値を使って処理を行います。</p>
@@ -8976,7 +8919,8 @@ void main() {
 <li>円の半径を受け取り、面積を返す関数 <code>calculateCircleArea(double radius)</code> を作成してください（π = 3.14159）。</li>
 <li>点数を受け取り、合格（60点以上）かどうかを判定する関数 <code>isPassed(int score)</code> を作成してください。</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="変数のスコープ有効範囲"><a class="header" href="#変数のスコープ有効範囲">変数のスコープ（有効範囲）</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="変数のスコープ有効範囲"><a class="header" href="#変数のスコープ有効範囲">変数のスコープ（有効範囲）</a></h1>
 <p>関数を使い始めると、変数がどこで使えるか、どこで使えないかが重要になってきます。この「変数が使える範囲」のことをスコープ（有効範囲）と呼びます。</p>
 <h2 id="スコープとは"><a class="header" href="#スコープとは">スコープとは</a></h2>
 <p>スコープは、変数が参照できる範囲のことです。変数は定義された場所によって、使える範囲が決まります。</p>
@@ -9284,7 +9228,8 @@ void main() {
 <p>なぜグローバル変数の使用は最小限にすべきなのか、理由を説明してください。</p>
 </li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="実践電卓プログラムを関数で整理"><a class="header" href="#実践電卓プログラムを関数で整理">実践：電卓プログラムを関数で整理</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="実践電卓プログラムを関数で整理"><a class="header" href="#実践電卓プログラムを関数で整理">実践：電卓プログラムを関数で整理</a></h1>
 <p>これまで学んだ関数の知識を使って、実践的な電卓プログラムを作成しましょう。関数を使うことで、コードが整理され、機能の追加や修正が簡単になります。</p>
 <h2 id="基本的な電卓関数なし"><a class="header" href="#基本的な電卓関数なし">基本的な電卓（関数なし）</a></h2>
 <p>まず、関数を使わない電卓プログラムを見てみましょう：</p>
@@ -9743,32 +9688,33 @@ void main() {
 <li>定数（π、e）を使った計算</li>
 <li>計算結果の単位変換（例：メートル→フィート）</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="第10章関数の活用"><a class="header" href="#第10章関数の活用">第10章：関数の活用</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="第10章関数の活用"><a class="header" href="#第10章関数の活用">第10章：関数の活用</a></h1>
 <p>関数の基礎をマスターしたあなたは、いよいよ関数をより高度に活用する段階に進みます！</p>
 <p>この章では、複数の引数を持つ関数、オプション引数とデフォルト値、関数を使ったより洗練されたプログラム設計について学習します。関数の力を最大限に活用することで、柔軟で拡張性のあるプログラムを作成できるようになります。最後には本格的なじゃんけんゲームを関数を使って設計し、実践的なプログラム開発スキルを身につけます。</p>
 <h2 id="この章の構成-9"><a class="header" href="#この章の構成-9">この章の構成</a></h2>
-<h3 id="101-複数の引数を持つ関数"><a class="header" href="#101-複数の引数を持つ関数"><a href="chapter_10/./10-1.html">10.1 複数の引数を持つ関数</a></a></h3>
+<h3 id="101-複数の引数を持つ関数"><a class="header" href="#101-複数の引数を持つ関数"><a href="#複数の引数を持つ関数">10.1 複数の引数を持つ関数</a></a></h3>
 <ul>
 <li>複数の引数を受け取る関数の定義</li>
 <li>引数の順序と型の重要性</li>
 <li>引数を使った柔軟な処理の実装</li>
 <li>実用的な複数引数関数の例</li>
 </ul>
-<h3 id="102-オプション引数とデフォルト値"><a class="header" href="#102-オプション引数とデフォルト値"><a href="chapter_10/./10-2.html">10.2 オプション引数とデフォルト値</a></a></h3>
+<h3 id="102-オプション引数とデフォルト値"><a class="header" href="#102-オプション引数とデフォルト値"><a href="#オプション引数とデフォルト値">10.2 オプション引数とデフォルト値</a></a></h3>
 <ul>
 <li>オプション引数（省略可能な引数）の概念</li>
 <li>デフォルト値の設定と活用方法</li>
 <li>名前付き引数による呼び出し</li>
 <li>より使いやすい関数の設計</li>
 </ul>
-<h3 id="103-関数を使ったプログラムの設計"><a class="header" href="#103-関数を使ったプログラムの設計"><a href="chapter_10/./10-3.html">10.3 関数を使ったプログラムの設計</a></a></h3>
+<h3 id="103-関数を使ったプログラムの設計"><a class="header" href="#103-関数を使ったプログラムの設計"><a href="#関数を使ったプログラムの設計">10.3 関数を使ったプログラムの設計</a></a></h3>
 <ul>
 <li>機能別に関数を分割する設計手法</li>
 <li>関数間の連携と責任分散</li>
 <li>メインロジックと補助機能の分離</li>
 <li>保守性と拡張性を考慮した設計</li>
 </ul>
-<h3 id="104-実践じゃんけんゲームを作る"><a class="header" href="#104-実践じゃんけんゲームを作る"><a href="chapter_10/./10-4.html">10.4 実践：じゃんけんゲームを作る</a></a></h3>
+<h3 id="104-実践じゃんけんゲームを作る"><a class="header" href="#104-実践じゃんけんゲームを作る"><a href="#実践じゃんけんゲームを作る">10.4 実践：じゃんけんゲームを作る</a></a></h3>
 <ul>
 <li>ゲームロジックを関数で構築</li>
 <li>ユーザー入力、判定、結果表示の関数化</li>
@@ -9791,7 +9737,7 @@ void main() {
 <li><strong>関数を組み合わせた大きなプログラム</strong>を作成できる</li>
 <li><strong>ユーザーフレンドリーなアプリケーション</strong>を開発できる</li>
 </ul>
-<h3 id="心構え-9"><a class="header" href="#心構え-9">心構え</a></h3>
+<h3 id="心構え-8"><a class="header" href="#心構え-8">心構え</a></h3>
 <ul>
 <li><strong>設計先行の開発</strong>を心がけている</li>
 <li><strong>ユーザビリティ</strong>を意識したプログラムを作れる</li>
@@ -9810,7 +9756,8 @@ void main() {
 <p>第10章を修了すると、あなたは関数を駆使して複雑で実用的なプログラムを設計・実装できるようになります。</p>
 <p>第11章では、プログラミングの新しいパラダイム「オブジェクト指向プログラミング」の入り口として、クラスとオブジェクトについて学習します。より現実世界に近い形でプログラムを設計する手法を身につけていきます。</p>
 <p><strong>関数を極めれば、どんな複雑なプログラムも美しく整理できます！</strong> 🎨</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="複数の引数を持つ関数"><a class="header" href="#複数の引数を持つ関数">複数の引数を持つ関数</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="複数の引数を持つ関数"><a class="header" href="#複数の引数を持つ関数">複数の引数を持つ関数</a></h1>
 <p>これまで、引数を1つだけ持つ関数を学んできました。しかし、実際のプログラミングでは、複数の情報を関数に渡したいことがよくあります。この節では、複数の引数を持つ関数の作り方と使い方を学びましょう。</p>
 <h2 id="複数の引数の基本"><a class="header" href="#複数の引数の基本">複数の引数の基本</a></h2>
 <p>関数は、カンマで区切ることで複数の引数を受け取ることができます。</p>
@@ -9927,7 +9874,8 @@ void main() {
 <li>複数の引数を使うことで、より柔軟で再利用可能な関数を作ることができる</li>
 </ul>
 <p>次の節では、オプション引数とデフォルト値について学びます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="オプション引数とデフォルト値"><a class="header" href="#オプション引数とデフォルト値">オプション引数とデフォルト値</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="オプション引数とデフォルト値"><a class="header" href="#オプション引数とデフォルト値">オプション引数とデフォルト値</a></h1>
 <p>前節では複数の引数を持つ関数を学びました。しかし、すべての引数を毎回指定するのは面倒な場合があります。Dartでは、引数にデフォルト値を設定することで、オプション引数を作ることができます。</p>
 <h2 id="位置引数のデフォルト値"><a class="header" href="#位置引数のデフォルト値">位置引数のデフォルト値</a></h2>
 <p>角括弧 <code>[]</code> を使って、位置引数にデフォルト値を設定できます。</p>
@@ -10108,7 +10056,8 @@ void main() {
 <li>オプション引数を使うことで、関数をより柔軟に使えるようになる</li>
 </ul>
 <p>次の節では、関数を使ったプログラムの設計方法について学びます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="関数を使ったプログラムの設計"><a class="header" href="#関数を使ったプログラムの設計">関数を使ったプログラムの設計</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="関数を使ったプログラムの設計"><a class="header" href="#関数を使ったプログラムの設計">関数を使ったプログラムの設計</a></h1>
 <p>これまで関数の作り方や使い方を学んできました。この節では、関数を使ってプログラムをどのように設計すればよいかを学びます。よい設計は、プログラムを読みやすく、修正しやすくします。</p>
 <h2 id="関数設計の基本原則"><a class="header" href="#関数設計の基本原則">関数設計の基本原則</a></h2>
 <h3 id="1-単一責任の原則"><a class="header" href="#1-単一責任の原則">1. 単一責任の原則</a></h3>
@@ -10363,7 +10312,8 @@ void main() {
 <li>プログラム全体を関数で構造化することで、理解しやすく保守しやすいコードになる</li>
 </ul>
 <p>次の節では、これまで学んだ知識を活用して、じゃんけんゲームを作ります。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="実践じゃんけんゲームを作る"><a class="header" href="#実践じゃんけんゲームを作る">実践：じゃんけんゲームを作る</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="実践じゃんけんゲームを作る"><a class="header" href="#実践じゃんけんゲームを作る">実践：じゃんけんゲームを作る</a></h1>
 <p>この節では、これまで学んだ関数の知識を活用して、コンピュータと対戦できるじゃんけんゲームを作ります。段階的に機能を追加していき、最終的には完全なゲームを完成させます。</p>
 <h2 id="ステップ1基本的なじゃんけんの判定"><a class="header" href="#ステップ1基本的なじゃんけんの判定">ステップ1：基本的なじゃんけんの判定</a></h2>
 <p>まず、じゃんけんの勝敗を判定する関数を作りましょう。</p>
@@ -10699,39 +10649,40 @@ void main() {
 <li>ユーザー体験を向上させる機能の追加</li>
 </ul>
 <p>これで第10章は完了です。関数を使いこなすことで、より構造化された読みやすいプログラムを作ることができるようになりました。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="第11章クラスとオブジェクトの基礎"><a class="header" href="#第11章クラスとオブジェクトの基礎">第11章：クラスとオブジェクトの基礎</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="第11章クラスとオブジェクトの基礎"><a class="header" href="#第11章クラスとオブジェクトの基礎">第11章：クラスとオブジェクトの基礎</a></h1>
 <p>関数を駆使したプログラム設計をマスターしたあなたは、いよいよプログラミングの新しい世界に足を踏み入れます！</p>
 <p>この章では、オブジェクト指向プログラミングの基礎となる「クラス」と「オブジェクト」について学習します。現実世界の「もの」をプログラムで表現する方法を学び、データと処理をまとめて管理する新しいアプローチを習得します。最後にはペット管理アプリを作成し、オブジェクト指向の実用性を体験します。</p>
 <h2 id="この章の構成-10"><a class="header" href="#この章の構成-10">この章の構成</a></h2>
-<h3 id="111-現実世界をプログラムで表現する"><a class="header" href="#111-現実世界をプログラムで表現する"><a href="chapter_11/./11-1.html">11.1 現実世界をプログラムで表現する</a></a></h3>
+<h3 id="111-現実世界をプログラムで表現する"><a class="header" href="#111-現実世界をプログラムで表現する"><a href="#現実世界をプログラムで表現する">11.1 現実世界をプログラムで表現する</a></a></h3>
 <ul>
 <li>オブジェクト指向プログラミングの考え方</li>
 <li>現実の「もの」をプログラムで表現する利点</li>
 <li>クラスとオブジェクトの概念的な理解</li>
 <li>従来の関数中心設計との違い</li>
 </ul>
-<h3 id="112-クラスの定義"><a class="header" href="#112-クラスの定義"><a href="chapter_11/./11-2.html">11.2 クラスの定義</a></a></h3>
+<h3 id="112-クラスの定義"><a class="header" href="#112-クラスの定義"><a href="#クラスの定義">11.2 クラスの定義</a></a></h3>
 <ul>
 <li>クラスの基本的な定義方法</li>
 <li>フィールド（属性）の宣言</li>
 <li>クラス名の命名規則</li>
 <li>クラス設計の基本原則</li>
 </ul>
-<h3 id="113-オブジェクトの作成と使用"><a class="header" href="#113-オブジェクトの作成と使用"><a href="chapter_11/./11-3.html">11.3 オブジェクトの作成と使用</a></a></h3>
+<h3 id="113-オブジェクトの作成と使用"><a class="header" href="#113-オブジェクトの作成と使用"><a href="#オブジェクトの作成と使用">11.3 オブジェクトの作成と使用</a></a></h3>
 <ul>
 <li>クラスからオブジェクトを作成する方法</li>
 <li>オブジェクトのフィールドへのアクセス</li>
 <li>複数のオブジェクトの管理</li>
 <li>オブジェクトのライフサイクル</li>
 </ul>
-<h3 id="114-フィールドとメソッド"><a class="header" href="#114-フィールドとメソッド"><a href="chapter_11/./11-4.html">11.4 フィールドとメソッド</a></a></h3>
+<h3 id="114-フィールドとメソッド"><a class="header" href="#114-フィールドとメソッド"><a href="#フィールドとメソッド">11.4 フィールドとメソッド</a></a></h3>
 <ul>
 <li>フィールド（データ）とメソッド（処理）の関係</li>
 <li>メソッドの定義と呼び出し</li>
 <li>thisキーワードの使い方</li>
 <li>オブジェクトの振る舞いの実装</li>
 </ul>
-<h3 id="115-実践ペット管理アプリ"><a class="header" href="#115-実践ペット管理アプリ"><a href="chapter_11/./11-5.html">11.5 実践：ペット管理アプリ</a></a></h3>
+<h3 id="115-実践ペット管理アプリ"><a class="header" href="#115-実践ペット管理アプリ"><a href="#実践ペット管理アプリ">11.5 実践：ペット管理アプリ</a></a></h3>
 <ul>
 <li>Petクラスの設計と実装</li>
 <li>ペットの情報管理と操作</li>
@@ -10754,7 +10705,7 @@ void main() {
 <li><strong>オブジェクトを活用したプログラム</strong>を作成できる</li>
 <li><strong>現実世界の問題をオブジェクトで表現</strong>できる</li>
 </ul>
-<h3 id="心構え-10"><a class="header" href="#心構え-10">心構え</a></h3>
+<h3 id="心構え-9"><a class="header" href="#心構え-9">心構え</a></h3>
 <ul>
 <li><strong>現実世界とプログラムの対応</strong>を意識している</li>
 <li><strong>データと処理の関連性</strong>を重視している</li>
@@ -10773,7 +10724,8 @@ void main() {
 <p>第11章を修了すると、あなたはオブジェクト指向プログラミングの入り口に立ったことになります。</p>
 <p>第12章では、オブジェクト指向をより本格的に活用する方法を学習します。コンストラクタ、ゲッター・セッター、カプセル化といった重要な概念を学び、より実用的な図書館管理システムを作成します。</p>
 <p><strong>オブジェクト指向で、プログラムがもっと現実世界に近づきます！</strong> 🎭</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="現実世界をプログラムで表現する"><a class="header" href="#現実世界をプログラムで表現する">現実世界をプログラムで表現する</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="現実世界をプログラムで表現する"><a class="header" href="#現実世界をプログラムで表現する">現実世界をプログラムで表現する</a></h1>
 <p>プログラミングを学んできた皆さんは、これまで数値や文字列、リストなどの基本的なデータを使ってプログラムを作ってきました。でも、現実世界はもっと複雑ですよね。</p>
 <h2 id="現実世界の複雑さ"><a class="header" href="#現実世界の複雑さ">現実世界の複雑さ</a></h2>
 <p>例えば、ペットショップを考えてみましょう。そこには様々な動物がいます：</p>
@@ -10835,8 +10787,8 @@ print("猫: $catName, $catAge歳, $catBreed");
 <h3 id="現実世界での考え方"><a class="header" href="#現実世界での考え方">現実世界での考え方</a></h3>
 <p>現実世界で「犬」について考える時、私たちは自然にこう考えます：</p>
 <ul>
-<li><strong>犬は何を持っているか</strong>（属性）：名前、年齢、品種、色...</li>
-<li><strong>犬は何ができるか</strong>（行動）：鳴く、走る、食べる、寝る...</li>
+<li><strong>犬は何を持っているか</strong>（属性）：名前、年齢、品種、色…</li>
+<li><strong>犬は何ができるか</strong>（行動）：鳴く、走る、食べる、寝る…</li>
 </ul>
 <h3 id="プログラムでの表現"><a class="header" href="#プログラムでの表現">プログラムでの表現</a></h3>
 <p>オブジェクト指向では、この考え方をそのままプログラムにします：</p>
@@ -10895,7 +10847,8 @@ print("猫: $catName, $catAge歳, $catBreed");
 </ul>
 </li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="クラスの定義"><a class="header" href="#クラスの定義">クラスの定義</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="クラスの定義"><a class="header" href="#クラスの定義">クラスの定義</a></h1>
 <p>前の章で、オブジェクト指向プログラミングの考え方を学びました。今度は、実際にDartでオブジェクトを作るための「<strong>クラス</strong>」について学んでいきましょう。</p>
 <h2 id="クラスとは何でしょうか"><a class="header" href="#クラスとは何でしょうか">クラスとは何でしょうか？</a></h2>
 <p>クラスは、オブジェクトの「<strong>設計図</strong>」や「<strong>型紙</strong>」のようなものです。</p>
@@ -11090,7 +11043,8 @@ class Data { }          // 何のデータかわからない
 <ol start="2">
 <li>正しいのは <code>MusicPlayer</code> です（パスカルケース）</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="オブジェクトの作成と使用"><a class="header" href="#オブジェクトの作成と使用">オブジェクトの作成と使用</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="オブジェクトの作成と使用"><a class="header" href="#オブジェクトの作成と使用">オブジェクトの作成と使用</a></h1>
 <p>前の章で、クラス（設計図）の作り方を学びました。今度は、その設計図を使って実際のオブジェクト（実体）を作る方法を学んでいきましょう！</p>
 <h2 id="オブジェクトを作ってみよう"><a class="header" href="#オブジェクトを作ってみよう">オブジェクトを作ってみよう</a></h2>
 <p>まず、前回作った犬のクラスを使ってみましょう：</p>
@@ -11421,19 +11375,20 @@ void main() {
   print("バッテリー: ${phone2.batteryLevel}% 電源: ${phone2.isPoweredOn ? 'ON' : 'OFF'}");
 }
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="フィールドとメソッド"><a class="header" href="#フィールドとメソッド">フィールドとメソッド</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="フィールドとメソッド"><a class="header" href="#フィールドとメソッド">フィールドとメソッド</a></h1>
 <p>これまでの章で、オブジェクトに「データ」（フィールド）を持たせる方法を学びました。今度は、オブジェクトに「行動」（メソッド）を追加する方法を学んでいきましょう！</p>
 <h2 id="現実世界での持っているものとできること"><a class="header" href="#現実世界での持っているものとできること">現実世界での「持っているもの」と「できること」</a></h2>
 <p>現実世界の物事を考える時、私たちは自然に次の2つに分けて考えます：</p>
 <h3 id="犬の例"><a class="header" href="#犬の例">犬の例</a></h3>
 <ul>
-<li><strong>持っているもの</strong>（属性）：名前、年齢、品種、色...</li>
-<li><strong>できること</strong>（行動）：鳴く、走る、食べる、寝る...</li>
+<li><strong>持っているもの</strong>（属性）：名前、年齢、品種、色…</li>
+<li><strong>できること</strong>（行動）：鳴く、走る、食べる、寝る…</li>
 </ul>
 <h3 id="スマートフォンの例"><a class="header" href="#スマートフォンの例">スマートフォンの例</a></h3>
 <ul>
-<li><strong>持っているもの</strong>（属性）：機種名、色、バッテリー残量...</li>
-<li><strong>できること</strong>（行動）：電話をかける、写真を撮る、アプリを起動する...</li>
+<li><strong>持っているもの</strong>（属性）：機種名、色、バッテリー残量…</li>
+<li><strong>できること</strong>（行動）：電話をかける、写真を撮る、アプリを起動する…</li>
 </ul>
 <p>プログラムでも、この考え方をそのまま使えます！</p>
 <h2 id="フィールド-vs-メソッド"><a class="header" href="#フィールド-vs-メソッド">フィールド vs. メソッド</a></h2>
@@ -11893,7 +11848,8 @@ void main() {
   }
 }
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="実践ペット管理アプリ"><a class="header" href="#実践ペット管理アプリ">実践：ペット管理アプリ</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="実践ペット管理アプリ"><a class="header" href="#実践ペット管理アプリ">実践：ペット管理アプリ</a></h1>
 <p>これまでの章で学んだオブジェクト指向プログラミングの知識を全て使って、実際のペット管理アプリを作ってみましょう！このアプリでは、ペットショップの動物たちを管理する機能を実装します。</p>
 <h2 id="アプリの仕様"><a class="header" href="#アプリの仕様">アプリの仕様</a></h2>
 <p>作成するペット管理アプリには、以下の機能があります：</p>
@@ -12349,32 +12305,33 @@ class Cat extends Pet {
 </ol>
 <p>プログラミングは創造性の表現です。ぜひ自分なりのアイデアを追加して、オリジナルのペット管理アプリを作ってみてください！</p>
 <p><strong>おめでとうございます！</strong> これでオブジェクト指向プログラミングの基礎をマスターしました。次のステップでは、より高度なオブジェクト指向の概念（継承、ポリモーフィズムなど）を学んでいきます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="第12章オブジェクト指向の活用"><a class="header" href="#第12章オブジェクト指向の活用">第12章：オブジェクト指向の活用</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="第12章オブジェクト指向の活用"><a class="header" href="#第12章オブジェクト指向の活用">第12章：オブジェクト指向の活用</a></h1>
 <p>クラスとオブジェクトの基礎をマスターしたあなたは、いよいよオブジェクト指向プログラミングを本格的に活用する段階に進みます！</p>
 <p>この章では、オブジェクト指向のより高度な概念であるコンストラクタ、ゲッター・セッター、そしてカプセル化について学習します。これらの技術を習得することで、より安全で使いやすく、保守性の高いクラスを設計できるようになります。最後には本格的な図書館管理システムを作成し、オブジェクト指向の真価を体験します。</p>
 <h2 id="この章の構成-11"><a class="header" href="#この章の構成-11">この章の構成</a></h2>
-<h3 id="121-コンストラクタ"><a class="header" href="#121-コンストラクタ"><a href="chapter_12/./12-1.html">12.1 コンストラクタ</a></a></h3>
+<h3 id="121-コンストラクタ"><a class="header" href="#121-コンストラクタ"><a href="#コンストラクタ">12.1 コンストラクタ</a></a></h3>
 <ul>
 <li>コンストラクタの概念と必要性</li>
 <li>基本的なコンストラクタの定義方法</li>
 <li>引数を持つコンストラクタの活用</li>
 <li>オブジェクトの初期化における重要性</li>
 </ul>
-<h3 id="122-ゲッターとセッター"><a class="header" href="#122-ゲッターとセッター"><a href="chapter_12/./12-2.html">12.2 ゲッターとセッター</a></a></h3>
+<h3 id="122-ゲッターとセッター"><a class="header" href="#122-ゲッターとセッター"><a href="#ゲッターとセッター-1">12.2 ゲッターとセッター</a></a></h3>
 <ul>
 <li>ゲッターとセッターの役割と利点</li>
 <li>プロパティの安全な読み取りと変更</li>
 <li>データの妥当性チェック機能</li>
 <li>Dartでのget/set記法の使い方</li>
 </ul>
-<h3 id="123-カプセル化の考え方"><a class="header" href="#123-カプセル化の考え方"><a href="chapter_12/./12-3.html">12.3 カプセル化の考え方</a></a></h3>
+<h3 id="123-カプセル化の考え方"><a class="header" href="#123-カプセル化の考え方"><a href="#カプセル化の考え方">12.3 カプセル化の考え方</a></a></h3>
 <ul>
 <li>カプセル化の概念とその重要性</li>
 <li>プライベートフィールドとメソッド</li>
 <li>情報隠蔽による安全性の向上</li>
 <li>オブジェクト指向の三大原則の理解</li>
 </ul>
-<h3 id="124-実践図書館管理システム"><a class="header" href="#124-実践図書館管理システム"><a href="chapter_12/./12-4.html">12.4 実践：図書館管理システム</a></a></h3>
+<h3 id="124-実践図書館管理システム"><a class="header" href="#124-実践図書館管理システム"><a href="#実践図書館管理システム">12.4 実践：図書館管理システム</a></a></h3>
 <ul>
 <li>Bookクラスの設計と実装</li>
 <li>Libraryクラスによる書籍管理</li>
@@ -12397,7 +12354,7 @@ class Cat extends Pet {
 <li><strong>カプセル化されたクラス</strong>を作成できる</li>
 <li><strong>複雑な管理システム</strong>を設計・実装できる</li>
 </ul>
-<h3 id="心構え-11"><a class="header" href="#心構え-11">心構え</a></h3>
+<h3 id="心構え-10"><a class="header" href="#心構え-10">心構え</a></h3>
 <ul>
 <li><strong>データの安全性</strong>を最優先に考えている</li>
 <li><strong>拡張性と保守性</strong>を意識した設計ができる</li>
@@ -12416,7 +12373,8 @@ class Cat extends Pet {
 <p>第12章を修了すると、あなたはオブジェクト指向プログラミングの核心的な概念を理解し、実用的なアプリケーションを設計・実装できるようになります。</p>
 <p>第13章では、プログラム開発で避けて通れない「エラー」への対処法について学習します。try-catch文を使ったエラーハンドリングとデバッグ技術を身につけ、より堅牢で信頼性の高いプログラムを作成できるようになります。</p>
 <p><strong>オブジェクト指向を極めれば、現実世界の複雑さをプログラムで表現できます！</strong> 🏆</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="コンストラクタ"><a class="header" href="#コンストラクタ">コンストラクタ</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="コンストラクタ"><a class="header" href="#コンストラクタ">コンストラクタ</a></h1>
 <p>コンストラクタは、クラスからオブジェクトを作成するときに自動的に呼び出される特別なメソッドです。オブジェクトの初期化を行うために使用されます。</p>
 <h2 id="コンストラクタとは"><a class="header" href="#コンストラクタとは">コンストラクタとは</a></h2>
 <p>前章でクラスの基本を学びましたが、オブジェクトを作成する際に初期値を設定したり、必要な準備を行ったりする方法を学びましょう。</p>
@@ -12591,7 +12549,8 @@ void main() {
 <li><strong>初期化処理</strong>: フィールドの設定以外の準備作業も可能</li>
 </ul>
 <p>コンストラクタを適切に使うことで、安全で使いやすいクラスを作成できます。次のセクションでは、オブジェクトのデータにアクセスする際の制御方法について学びましょう。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="ゲッターとセッター-1"><a class="header" href="#ゲッターとセッター-1">ゲッターとセッター</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="ゲッターとセッター-1"><a class="header" href="#ゲッターとセッター-1">ゲッターとセッター</a></h1>
 <p>ゲッターとセッターは、クラスのフィールドに対するアクセスを制御する仕組みです。データの取得や設定時に特別な処理を行ったり、不正な値の設定を防いだりできます。</p>
 <h2 id="ゲッターとセッターとは"><a class="header" href="#ゲッターとセッターとは">ゲッターとセッターとは</a></h2>
 <p>オブジェクトのデータに直接アクセスするのではなく、メソッドを通してアクセスすることで、より安全で柔軟なプログラムを作成できます。</p>
@@ -12895,7 +12854,8 @@ void main() {
 <li><strong>将来の拡張性</strong>: 後からロジックを追加しやすい</li>
 </ul>
 <p>次のセクションでは、これらの仕組みを支える「カプセル化」の考え方について詳しく学びましょう。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="カプセル化の考え方"><a class="header" href="#カプセル化の考え方">カプセル化の考え方</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="カプセル化の考え方"><a class="header" href="#カプセル化の考え方">カプセル化の考え方</a></h1>
 <p>カプセル化は、オブジェクト指向プログラミングの最も重要な概念の一つです。データとそれを操作するメソッドを一つにまとめ、外部からの不適切なアクセスを制限することで、プログラムの安全性と保守性を向上させます。</p>
 <h2 id="カプセル化とは"><a class="header" href="#カプセル化とは">カプセル化とは</a></h2>
 <p>カプセル化とは、「内部の仕組みを隠して、決められた方法でのみアクセスできるようにする」ことです。薬のカプセルのように、中身を保護し、正しい方法で取り扱えるようにするイメージです。</p>
@@ -13305,7 +13265,8 @@ void main() {
 <li>ドキュメント化しやすい</li>
 </ul>
 <p>カプセル化を意識してクラスを設計することで、より堅牢で保守しやすいプログラムを作成できます。次のセクションでは、これまで学んだ概念を使って実践的な図書館管理システムを作成してみましょう。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="実践図書館管理システム"><a class="header" href="#実践図書館管理システム">実践：図書館管理システム</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="実践図書館管理システム"><a class="header" href="#実践図書館管理システム">実践：図書館管理システム</a></h1>
 <p>これまで学んだコンストラクタ、ゲッター・セッター、カプセル化の概念を組み合わせて、実際の図書館管理システムを作成してみましょう。このシステムでは、本の管理、利用者の管理、貸出・返却処理を行います。</p>
 <h2 id="システムの設計"><a class="header" href="#システムの設計">システムの設計</a></h2>
 <p>図書館管理システムでは、以下のクラスを作成します：</p>
@@ -13862,32 +13823,33 @@ void main() {
 <li><strong>システム設計</strong>: 全体的な機能を整理して実装する方法</li>
 </ol>
 <p>このような実践的なプロジェクトを通して、オブジェクト指向プログラミングの威力と有用性を実感できるでしょう。プログラムを拡張して、新しい機能を追加してみることをお勧めします！</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="第13章エラーへの対処"><a class="header" href="#第13章エラーへの対処">第13章：エラーへの対処</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="第13章エラーへの対処"><a class="header" href="#第13章エラーへの対処">第13章：エラーへの対処</a></h1>
 <p>オブジェクト指向プログラミングをマスターしたあなたは、いよいよプロフェッショナルな開発者として不可欠なスキルを身につける段階に進みます！</p>
 <p>この章では、プログラム開発で避けて通れない「エラー」への対処法について学習します。エラーの種類を理解し、try-catch文を使った適切なエラーハンドリング、効果的なデバッグ技術を習得します。エラーを恐れるのではなく、エラーと上手に付き合うことで、より堅牢で信頼性の高いプログラムを作成できるようになります。</p>
 <h2 id="この章の構成-12"><a class="header" href="#この章の構成-12">この章の構成</a></h2>
-<h3 id="131-エラーの種類を理解する"><a class="header" href="#131-エラーの種類を理解する"><a href="chapter_13/./13-1.html">13.1 エラーの種類を理解する</a></a></h3>
+<h3 id="131-エラーの種類を理解する"><a class="header" href="#131-エラーの種類を理解する"><a href="#エラーの種類を理解する-1">13.1 エラーの種類を理解する</a></a></h3>
 <ul>
 <li>コンパイルエラーと実行時エラーの違い</li>
 <li>論理エラー（バグ）の特徴と見つけ方</li>
 <li>エラーメッセージの読み方と活用法</li>
 <li>エラーを分類して対処する重要性</li>
 </ul>
-<h3 id="132-try-catch文でエラーを処理する"><a class="header" href="#132-try-catch文でエラーを処理する"><a href="chapter_13/./13-2.html">13.2 try-catch文でエラーを処理する</a></a></h3>
+<h3 id="132-try-catch文でエラーを処理する"><a class="header" href="#132-try-catch文でエラーを処理する"><a href="#try-catch文でエラーを処理する">13.2 try-catch文でエラーを処理する</a></a></h3>
 <ul>
 <li>try-catch文の基本的な使い方</li>
 <li>特定のエラーをキャッチする方法</li>
 <li>finally句による後始末の実装</li>
 <li>適切なエラー処理の設計パターン</li>
 </ul>
-<h3 id="133-デバッグの基本技術"><a class="header" href="#133-デバッグの基本技術"><a href="chapter_13/./13-3.html">13.3 デバッグの基本技術</a></a></h3>
+<h3 id="133-デバッグの基本技術"><a class="header" href="#133-デバッグの基本技術"><a href="#デバッグの基本技術">13.3 デバッグの基本技術</a></a></h3>
 <ul>
 <li>print文を使った基本的なデバッグ</li>
 <li>ブレークポイントとステップ実行</li>
 <li>変数の値の追跡と確認方法</li>
 <li>効率的なデバッグの戦略</li>
 </ul>
-<h3 id="134-よくあるエラーとその対処法"><a class="header" href="#134-よくあるエラーとその対処法"><a href="chapter_13/./13-4.html">13.4 よくあるエラーとその対処法</a></a></h3>
+<h3 id="134-よくあるエラーとその対処法"><a class="header" href="#134-よくあるエラーとその対処法"><a href="#よくあるエラーとその対処法-1">13.4 よくあるエラーとその対処法</a></a></h3>
 <ul>
 <li>Null参照エラーの予防と対処</li>
 <li>配列の範囲外アクセスエラー</li>
@@ -13910,7 +13872,7 @@ void main() {
 <li><strong>エラーメッセージから問題を特定</strong>できる</li>
 <li><strong>予防的なプログラミング</strong>を実践できる</li>
 </ul>
-<h3 id="心構え-12"><a class="header" href="#心構え-12">心構え</a></h3>
+<h3 id="心構え-11"><a class="header" href="#心構え-11">心構え</a></h3>
 <ul>
 <li><strong>エラーを学習の機会</strong>として活用できる</li>
 <li><strong>段階的な問題解決</strong>のアプローチが身についている</li>
@@ -13929,7 +13891,8 @@ void main() {
 <p>第13章を修了すると、あなたはエラーハンドリングとデバッグの基本的なスキルを身につけ、より信頼性の高いプログラムを作成できるようになります。</p>
 <p>第14章では、これまでに学習したすべての内容を振り返り、さらなる学習のためのリソースと方向性について学習します。プログラマーとしての継続的な成長の道筋を見つけ、より高度なDart開発への扉を開いていきます。</p>
 <p><strong>エラーと友達になれば、プログラミングはもっと楽しくなります！</strong> 🤝</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="エラーの種類を理解する-1"><a class="header" href="#エラーの種類を理解する-1">エラーの種類を理解する</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="エラーの種類を理解する-1"><a class="header" href="#エラーの種類を理解する-1">エラーの種類を理解する</a></h1>
 <p>プログラミングを学習していると、必ずエラーに遭遇します。エラーが発生すると「プログラムが動かない！」と焦ってしまうかもしれませんが、実はエラーはプログラマーにとって大切な情報源なのです。エラーメッセージは、何が問題なのかを教えてくれる親切なガイドのような存在です。</p>
 <p>この章では、Dartで発生する様々なエラーの種類を理解し、それぞれにどう対処すべきかを学んでいきましょう。</p>
 <h2 id="エラーとは何か-1"><a class="header" href="#エラーとは何か-1">エラーとは何か</a></h2>
@@ -14033,7 +13996,8 @@ void main() {
 <h2 id="なるほどポイント"><a class="header" href="#なるほどポイント">なるほど！ポイント</a></h2>
 <p>エラーは敵ではなく、プログラムをより良くするためのヒントです。エラーメッセージをしっかり読むことで、問題を素早く特定し、解決することができます。</p>
 <p>次のセクションでは、エラーが発生した時にプログラムが停止しないようにする「try-catch文」について学習します。エラーを優雅に処理する方法を身につけましょう！</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="try-catch文でエラーを処理する"><a class="header" href="#try-catch文でエラーを処理する">try-catch文でエラーを処理する</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="try-catch文でエラーを処理する"><a class="header" href="#try-catch文でエラーを処理する">try-catch文でエラーを処理する</a></h1>
 <p>前のセクションでエラーの種類について学びました。今度は、エラーが発生してもプログラムが停止しないようにする方法を学びましょう。これを「エラーハンドリング」と呼びます。</p>
 <p>Dartでは、<code>try-catch文</code>を使用してエラーを優雅に処理することができます。まるで「もしエラーが起きたら、こう対処してね」という指示書を書くようなものです。</p>
 <h2 id="try-catch文の基本構文"><a class="header" href="#try-catch文の基本構文">try-catch文の基本構文</a></h2>
@@ -14248,8 +14212,9 @@ void main() {
 <p>try-catch文を使うことで、エラーが発生してもプログラムが突然停止することを防げます。これにより、ユーザーにとって使いやすいアプリケーションを作ることができます。</p>
 <p>重要なのは、すべてのコードをtry-catchで囲むのではなく、本当にエラーが発生する可能性がある部分にのみ使用することです。また、エラーが発生した時には、適切なメッセージをユーザーに表示して、次にどうすべきかを案内することが大切です。</p>
 <p>次のセクションでは、バグを見つけて修正するための「デバッグの基本技術」について学習します！</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="デバッグの基本技術"><a class="header" href="#デバッグの基本技術">デバッグの基本技術</a></h1>
-<p>プログラムを書いていると、「コードは正しく見えるのに、期待通りに動かない...」という状況によく遭遇します。このような問題を見つけて修正することを「デバッグ」と呼びます。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="デバッグの基本技術"><a class="header" href="#デバッグの基本技術">デバッグの基本技術</a></h1>
+<p>プログラムを書いていると、「コードは正しく見えるのに、期待通りに動かない…」という状況によく遭遇します。このような問題を見つけて修正することを「デバッグ」と呼びます。</p>
 <p>デバッグは探偵のような作業です。問題の手がかりを集めて、原因を特定し、解決策を見つけ出すのです。最初は難しく感じるかもしれませんが、基本的な技術を身につければ、効率よく問題を解決できるようになります。</p>
 <h2 id="デバッグの基本原則"><a class="header" href="#デバッグの基本原則">デバッグの基本原則</a></h2>
 <h3 id="1-慌てずに状況を把握する"><a class="header" href="#1-慌てずに状況を把握する">1. 慌てずに状況を把握する</a></h3>
@@ -14564,7 +14529,8 @@ void exampleWithDebugInfo() {
 <p>デバッグは技術であり、練習によって上達します。最初はprint文をたくさん使って構いません。慣れてきたら、より効率的な手法を使えるようになります。</p>
 <p>重要なのは、問題を恐れずに「なぜこうなるのだろう？」という好奇心を持って取り組むことです。一つずつ確実に問題を解決していけば、必ず原因を特定できます。</p>
 <p>次のセクションでは、プログラミング初心者がよく遭遇するエラーパターンと、その具体的な対処法について学習します！</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="よくあるエラーとその対処法-1"><a class="header" href="#よくあるエラーとその対処法-1">よくあるエラーとその対処法</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="よくあるエラーとその対処法-1"><a class="header" href="#よくあるエラーとその対処法-1">よくあるエラーとその対処法</a></h1>
 <p>プログラミングを始めたばかりの頃は、同じようなエラーを何度も繰り返してしまうものです。でも大丈夫です！これは誰もが通る道です。この章では、初心者がよく遭遇するエラーパターンと、その具体的な対処法をご紹介します。</p>
 <p>エラーを恐れる必要はありません。むしろ、エラーは「もっと良いコードを書くためのヒント」を教えてくれる先生のような存在だと考えましょう。</p>
 <h2 id="1-構文エラーsyntax-error-1"><a class="header" href="#1-構文エラーsyntax-error-1">1. 構文エラー（Syntax Error）</a></h2>
@@ -14941,18 +14907,19 @@ void main() {
 </ol>
 <p>エラーは成長のチャンスです。一つずつ丁寧に解決していけば、必ず上達します！</p>
 <p>これで第13章「エラーへの対処」の学習は完了です。エラーハンドリングとデバッグのスキルを身につけることで、より堅牢で使いやすいプログラムを作成できるようになりましたね。次の章では、これまで学んだ知識を活用して実際のプロジェクトに挑戦していきましょう！</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="第14章次のステップへ"><a class="header" href="#第14章次のステップへ">第14章：次のステップへ</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="第14章次のステップへ"><a class="header" href="#第14章次のステップへ">第14章：次のステップへ</a></h1>
 <p>エラーハンドリングとデバッグをマスターしたあなたは、いよいよDartプログラミングの基礎学習を完了し、次のレベルへと向かう準備が整いました！</p>
 <p>この最終章では、これまでに学習したすべての内容を振り返り、さらなる成長のための道筋を示します。より高度なDart機能の紹介から継続的な学習のためのリソースまで、プログラマーとしての新しい旅路への出発点となる知識を提供します。あなたのプログラミングの冒険は、ここから本格的に始まります！</p>
 <h2 id="この章の構成-13"><a class="header" href="#この章の構成-13">この章の構成</a></h2>
-<h3 id="141-より高度なdartの機能"><a class="header" href="#141-より高度なdartの機能"><a href="chapter_14/./14-1.html">14.1 より高度なDartの機能</a></a></h3>
+<h3 id="141-より高度なdartの機能"><a class="header" href="#141-より高度なdartの機能"><a href="#より高度なdartの機能">14.1 より高度なDartの機能</a></a></h3>
 <ul>
 <li>非同期プログラミング（async/await）</li>
 <li>ジェネリクス（型パラメータ）の基本</li>
 <li>ミックスイン（mixin）の概念</li>
 <li>パッケージ管理とpub.dev の活用</li>
 </ul>
-<h3 id="142-継続的な学習のためのリソース"><a class="header" href="#142-継続的な学習のためのリソース"><a href="chapter_14/./14-2.html">14.2 継続的な学習のためのリソース</a></a></h3>
+<h3 id="142-継続的な学習のためのリソース"><a class="header" href="#142-継続的な学習のためのリソース"><a href="#継続的な学習のためのリソース">14.2 継続的な学習のためのリソース</a></a></h3>
 <ul>
 <li>公式ドキュメントとAPI リファレンス</li>
 <li>オンライン学習プラットフォームの活用</li>
@@ -14975,7 +14942,7 @@ void main() {
 <li><strong>実践的なプロジェクト</strong>を企画・実行できる</li>
 <li><strong>コミュニティ活動</strong>に参加できる</li>
 </ul>
-<h3 id="心構え-13"><a class="header" href="#心構え-13">心構え</a></h3>
+<h3 id="心構え-12"><a class="header" href="#心構え-12">心構え</a></h3>
 <ul>
 <li><strong>生涯学習者</strong>としての意識を持っている</li>
 <li><strong>困難を乗り越える</strong>粘り強さがある</li>
@@ -15023,13 +14990,14 @@ void main() {
 <p><strong>あなたのプログラミングの旅は、ここからが本当のスタートです！</strong></p>
 <p>この教科書で学んだことを土台に、自分だけの素晴らしいアプリケーションを作り、世界に新しい価値を提供してください。プログラミングの力で、あなたの夢を現実にしていきましょう！</p>
 <p><strong>頑張って、素晴らしいプログラマーになってください！</strong> 🎉✨</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="より高度なdartの機能"><a class="header" href="#より高度なdartの機能">より高度なDartの機能</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="より高度なdartの機能"><a class="header" href="#より高度なdartの機能">より高度なDartの機能</a></h1>
 <p>おめでとうございます！ここまでDartの基本をしっかり学んできましたね。変数、関数、クラス、エラー処理など、プログラミングの土台となる知識を身につけました。</p>
 <p>このセクションでは、これまでの学習を踏まえて、さらに一歩進んだDartの機能を紹介します。これらの機能を使いこなせるようになると、より実用的で効率的なプログラムが書けるようになります。</p>
 <h2 id="1-非同期プログラミングasyncawait"><a class="header" href="#1-非同期プログラミングasyncawait">1. 非同期プログラミング（async/await）</a></h2>
 <h3 id="なぜ必要なの"><a class="header" href="#なぜ必要なの">なぜ必要なの？</a></h3>
 <p>ファイルを読み込んだり、インターネットから情報を取得したりする処理は時間がかかります。その間、プログラムが止まってしまうと、アプリが固まったように見えてしまいます。非同期プログラミングを使うと、時間のかかる処理を待っている間も、他の処理を続けることができます。</p>
-<h3 id="基本的な使い方-4"><a class="header" href="#基本的な使い方-4">基本的な使い方</a></h3>
+<h3 id="基本的な使い方-3"><a class="header" href="#基本的な使い方-3">基本的な使い方</a></h3>
 <pre><code class="language-javascript">// 非同期関数の定義
 Future&lt;String&gt; fetchUserName() async {
   // 3秒待つ（実際はネットワーク通信などの時間がかかる処理）
@@ -15222,7 +15190,8 @@ void main() {
   print(message.length);  // エラー！
 }
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="継続的な学習のためのリソース"><a class="header" href="#継続的な学習のためのリソース">継続的な学習のためのリソース</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="継続的な学習のためのリソース"><a class="header" href="#継続的な学習のためのリソース">継続的な学習のためのリソース</a></h1>
 <p>おめでとうございます！この本を通じて、プログラミングの基礎をしっかりと学んでこられました。しかし、プログラミングの学習は、ここで終わりではありません。むしろ、これからが本当の冒険の始まりです。</p>
 <p>このセクションでは、さらなるスキルアップのためのリソースと、学習を継続するための方法をご紹介します。</p>
 <h2 id="dartの公式リソース"><a class="header" href="#dartの公式リソース">Dartの公式リソース</a></h2>
@@ -15489,6 +15458,11 @@ void エラーの対処法() {
 
         </div>
 
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
 
 
@@ -15497,13 +15471,13 @@ void エラーの対処法() {
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
 
