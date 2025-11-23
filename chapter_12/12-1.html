@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-1e504851.js";
+            window.path_to_searchindex_js = "../searchindex-a88a67f9.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-568a1073.js"></script>
+        <script src="../toc-50a693d5.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -247,7 +247,7 @@ void main() {
 }
 </code></pre>
 <h2 id="オプション引数を持つコンストラクタ"><a class="header" href="#オプション引数を持つコンストラクタ">オプション引数を持つコンストラクタ</a></h2>
-<p>引数に初期値を設定することで、オプション引数を持つコンストラクタを作成できます。</p>
+<p>引数に初期値を設定することで、オプション引数を持つコンストラクタを作成できます。Flutter の開発でよく使います。</p>
 <pre><code class="language-javascript">class Student {
   String name;
   int grade;
@@ -297,47 +297,115 @@ void main() {
   String ownerName;
   double balance;
   List&lt;String&gt; transactionHistory;
-  
-  BankAccount(this.accountNumber, this.ownerName) {
-    balance = 0.0; // 残高は0から開始
-    transactionHistory = []; // 取引履歴を初期化
-    
-    // 口座開設の記録
+
+  // コンストラクタはbalanceとtransactionHistoryの初期化リストを使用します。
+  // コンストラクタ本体の実行前にフィールドが初期化されることを保証します。
+  BankAccount(this.accountNumber, this.ownerName)
+      : balance = 0.0,
+        transactionHistory = [] {
+    // 口座作成を記録
     transactionHistory.add('口座開設: ${DateTime.now()}');
     print('口座が作成されました: $accountNumber (名義: $ownerName)');
   }
-  
+
+  /// 指定された金額を口座に入金します。
+  /// 金額は正の数である必要があります。
   void deposit(double amount) {
+    if (amount &lt;= 0) {
+      print('エラー: 入金額は正の数である必要があります。');
+      return;
+    }
     balance += amount;
-    transactionHistory.add('入金: +$amount円 (残高: $balance円)');
+    transactionHistory.add('入金: +${amount.toStringAsFixed(2)}円 (残高: ${balance.toStringAsFixed(2)}円)');
+    print('${ownerName}の口座 $accountNumber に ${amount.toStringAsFixed(2)}円入金されました。');
   }
-  
+
+  /// 指定された金額を口座から引き出します。
+  /// 金額は正の数であり、現在の残高以下である必要があります。
+  /// 引き出しが成功した場合はtrueを返し、それ以外の場合（例：残高不足）はfalseを返します。
+  bool withdraw(double amount) {
+    if (amount &lt;= 0) {
+      print('エラー: 出金額は正の数である必要があります。');
+      return false;
+    }
+    if (balance &gt;= amount) {
+      balance -= amount;
+      transactionHistory.add('出金: -${amount.toStringAsFixed(2)}円 (残高: ${balance.toStringAsFixed(2)}円)');
+      print('${ownerName}の口座 $accountNumber から ${amount.toStringAsFixed(2)}円出金されました。');
+      return true;
+    } else {
+      print(
+          'エラー: 残高不足です。${amount.toStringAsFixed(2)}円を引き出すには、${(amount - balance).toStringAsFixed(2)}円足りません。現在の残高: ${balance.toStringAsFixed(2)}円');
+      transactionHistory.add('出金失敗 (残高不足): -${amount.toStringAsFixed(2)}円 (試行時の残高: ${balance.toStringAsFixed(2)}円)');
+      return false;
+    }
+  }
+
+  /// 取引履歴を含むすべての口座情報を表示します。
   void showAccount() {
+    print('\n--- 口座情報 ---');
     print('口座番号: $accountNumber');
     print('名義: $ownerName');
-    print('残高: $balance円');
+    // 残高を通貨表示のために小数点以下2桁にフォーマット
+    print('残高: ${balance.toStringAsFixed(2)}円');
     print('取引履歴:');
-    for (String transaction in transactionHistory) {
-      print('  $transaction');
+    if (transactionHistory.isEmpty) {
+      print('  取引履歴はありません。');
+    } else {
+      for (final transaction in transactionHistory) {
+        print('  $transaction');
+      }
     }
+    print('----------------');
   }
 }
 
 void main() {
-  BankAccount account = BankAccount('123-456-789', '田中太郎');
+  // 新しい銀行口座を作成
+  final account = BankAccount('123-456-789', '田中太郎');
   // 出力: 口座が作成されました: 123-456-789 (名義: 田中太郎)
-  
+
+  // いくつかの預金を実行
   account.deposit(10000);
   account.deposit(5000);
-  
+
+  // 預金後の口座詳細を表示
   account.showAccount();
-  // 口座番号: 123-456-789
-  // 名義: 田中太郎
-  // 残高: 15000円
-  // 取引履歴:
-  //   口座開設: 2024-xx-xx xx:xx:xx.xxx
-  //   入金: +10000円 (残高: 10000円)
-  //   入金: +5000円 (残高: 15000円)
+  // 予想残高: 15000.00円
+
+  // 成功する引き出しを実行
+  account.withdraw(2000);
+
+  // 引き出し後の口座詳細を表示
+  account.showAccount();
+  // 予想残高: 13000.00円
+
+  // 失敗する引き出しを試行 (残高不足)
+  account.withdraw(15000);
+
+  // 口座詳細を表示; 残高は変更されていないはず
+  account.showAccount();
+  // 予想残高: 13000.00円
+
+  // 小数値での預金
+  account.deposit(3000.55);
+
+  // 小数値での引き出し
+  account.withdraw(100.25);
+
+  // 最終的な口座詳細を表示
+  account.showAccount();
+  // 予想残高: 13000.00 + 3000.55 - 100.25 = 15900.30円
+
+  // 預金の無効な入力をテスト
+  account.deposit(0);
+  account.deposit(-100);
+
+  // 引き出しの無効な入力をテスト
+  account.withdraw(0);
+  account.withdraw(-50);
+
+  account.showAccount();
 }
 </code></pre>
 <h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
@@ -348,7 +416,6 @@ void main() {
 <li><strong>オプション引数</strong>: 初期値を設定して柔軟なオブジェクト作成</li>
 <li><strong>初期化処理</strong>: フィールドの設定以外の準備作業も可能</li>
 </ul>
-<p>コンストラクタを適切に使うことで、安全で使いやすいクラスを作成できます。次のセクションでは、オブジェクトのデータにアクセスする際の制御方法について学びましょう。</p>
 
                     </main>
 

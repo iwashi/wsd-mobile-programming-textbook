@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-1e504851.js";
+            window.path_to_searchindex_js = "../searchindex-a88a67f9.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-568a1073.js"></script>
+        <script src="../toc-50a693d5.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -179,6 +179,10 @@
 <h2 id="ゲッターとセッターとは"><a class="header" href="#ゲッターとセッターとは">ゲッターとセッターとは</a></h2>
 <p>オブジェクトのデータに直接アクセスするのではなく、メソッドを通してアクセスすることで、より安全で柔軟なプログラムを作成できます。</p>
 <h3 id="基本的なゲッターとセッター"><a class="header" href="#基本的なゲッターとセッター">基本的なゲッターとセッター</a></h3>
+<p>以下の例では、 <code>this._celsius</code> というプライベートフィールドに対して、ゲッターとセッターを定義しています。
+プライベートフィールドとは、クラスの外部からアクセスできないフィールドを指します。
+プライベートフィールドを活用する理由は、不正な値の設定を防いだり、外部から見えないようにしたりするためです。</p>
+<p>Dartでは、アンダースコア(_)でプライベートフィールドを表現できます。</p>
 <pre><code class="language-javascript">class Temperature {
   double _celsius; // アンダースコア(_)でプライベートフィールドを表現
   
@@ -477,7 +481,6 @@ void main() {
 <li><strong>アクセス制御</strong>: データの読み取り専用や書き込み専用を実現</li>
 <li><strong>将来の拡張性</strong>: 後からロジックを追加しやすい</li>
 </ul>
-<p>次のセクションでは、これらの仕組みを支える「カプセル化」の考え方について詳しく学びましょう。</p>
 
                     </main>
 
