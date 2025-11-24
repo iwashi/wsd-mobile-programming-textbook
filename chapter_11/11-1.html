@@ -184,7 +184,7 @@
 <li>うさぎ：名前は「ふわり」、年齢は1歳、品種は「ロップイヤー」</li>
 </ul>
 <p>これまで学んだ方法で、この情報を表現してみましょう：</p>
-<pre><code class="language-javascript">// 犬の情報
+<pre><code class="language-dart">// 犬の情報
 String dogName = "ポチ";
 int dogAge = 3;
 String dogBreed = "柴犬";
@@ -203,7 +203,7 @@ String rabbitBreed = "ロップイヤー";
 <h2 id="従来の方法の問題点"><a class="header" href="#従来の方法の問題点">従来の方法の問題点</a></h2>
 <h3 id="1-関連性がわからない"><a class="header" href="#1-関連性がわからない">1. 関連性がわからない</a></h3>
 <p>変数がたくさんあると、どの名前がどの動物のものか混乱してしまいます。</p>
-<pre><code class="language-javascript">// これらが同じ動物の情報だとわかりますか？
+<pre><code class="language-dart">// これらが同じ動物の情報だとわかりますか？
 String dogName = "ポチ";
 String catBreed = "三毛猫";
 int dogAge = 3;
@@ -212,7 +212,7 @@ String rabbitName = "ふわり";
 </code></pre>
 <h3 id="2-データの管理が大変"><a class="header" href="#2-データの管理が大変">2. データの管理が大変</a></h3>
 <p>新しい動物を追加するたびに、複数の変数を作る必要があります：</p>
-<pre><code class="language-javascript">// 新しい犬を追加
+<pre><code class="language-dart">// 新しい犬を追加
 String dog2Name = "シロ";
 int dog2Age = 5;
 String dog2Breed = "ゴールデンレトリバー";
@@ -224,7 +224,7 @@ String dog3Breed = "ラブラドール";
 </code></pre>
 <h3 id="3-処理が複雑になる"><a class="header" href="#3-処理が複雑になる">3. 処理が複雑になる</a></h3>
 <p>全ての動物の情報を表示したい時、とても面倒です：</p>
-<pre><code class="language-javascript">print("犬: $dogName, $dogAge歳, $dogBreed");
+<pre><code class="language-dart">print("犬: $dogName, $dogAge歳, $dogBreed");
 print("犬: $dog2Name, $dog2Age歳, $dog2Breed");
 print("犬: $dog3Name, $dog3Age歳, $dog3Breed");
 print("猫: $catName, $catAge歳, $catBreed");
@@ -241,7 +241,7 @@ print("猫: $catName, $catAge歳, $catBreed");
 </ul>
 <h3 id="プログラムでの表現"><a class="header" href="#プログラムでの表現">プログラムでの表現</a></h3>
 <p>オブジェクト指向では、この考え方をそのままプログラムにします：</p>
-<pre><code class="language-javascript">// 犬オブジェクトのイメージ
+<pre><code class="language-dart">// 犬オブジェクトのイメージ
 犬 {
   // 属性（何を持っているか）
   名前: "ポチ"

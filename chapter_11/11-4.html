@@ -190,7 +190,7 @@
 </ul>
 <p>プログラムでも、この考え方をそのまま使えます！</p>
 <h2 id="フィールド-vs-メソッド"><a class="header" href="#フィールド-vs-メソッド">フィールド vs. メソッド</a></h2>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   // フィールド（持っているもの / データ）
   String name = "";
   int age = 0;
@@ -220,7 +220,7 @@
 </ul>
 <h2 id="最初のメソッドを作ってみよう"><a class="header" href="#最初のメソッドを作ってみよう">最初のメソッドを作ってみよう</a></h2>
 <p>シンプルな犬クラスにメソッドを追加してみましょう：</p>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   String name = "";
   int age = 0;
   
@@ -250,23 +250,23 @@ void main() {
 こんにちは！僕の名前はポチです。3歳です。
 </code></pre>
 <h3 id="メソッド呼び出しの構文"><a class="header" href="#メソッド呼び出しの構文">メソッド呼び出しの構文</a></h3>
-<pre><code class="language-javascript">オブジェクト名.メソッド名();
+<pre><code class="language-dart">オブジェクト名.メソッド名();
 </code></pre>
 <p>フィールドにアクセスする時と同じドット記法を使いますが、メソッドの場合は最後に <code>()</code> が付きます。</p>
 <h2 id="メソッドの基本構文"><a class="header" href="#メソッドの基本構文">メソッドの基本構文</a></h2>
-<pre><code class="language-javascript">戻り値の型 メソッド名() {
+<pre><code class="language-dart">戻り値の型 メソッド名() {
   // 処理内容
 }
 </code></pre>
 <h3 id="void-メソッド"><a class="header" href="#void-メソッド">void メソッド</a></h3>
 <p><code>void</code> は「何も返さない」という意味です：</p>
-<pre><code class="language-javascript">void greet() {
+<pre><code class="language-dart">void greet() {
   print("こんにちは！");
 }
 </code></pre>
 <h2 id="パラメータ引数のあるメソッド"><a class="header" href="#パラメータ引数のあるメソッド">パラメータ（引数）のあるメソッド</a></h2>
 <p>メソッドに情報を渡すことができます：</p>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   String name = "";
   
   // 名前を指定して挨拶
@@ -292,7 +292,7 @@ void main() {
 </code></pre>
 <h2 id="戻り値のあるメソッド"><a class="header" href="#戻り値のあるメソッド">戻り値のあるメソッド</a></h2>
 <p>メソッドから値を返すことができます：</p>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   String name = "";
   int age = 0;
   
@@ -333,7 +333,7 @@ void main() {
 大人？ はい
 </code></pre>
 <h2 id="より実践的な例銀行口座クラス"><a class="header" href="#より実践的な例銀行口座クラス">より実践的な例：銀行口座クラス</a></h2>
-<pre><code class="language-javascript">class BankAccount {
+<pre><code class="language-dart">class BankAccount {
   String accountHolder = "";  // 口座名義
   double balance = 0.0;       // 残高
   
@@ -403,7 +403,7 @@ void main() {
 </code></pre>
 <h2 id="メソッドからフィールドにアクセス"><a class="header" href="#メソッドからフィールドにアクセス">メソッドからフィールドにアクセス</a></h2>
 <p>メソッドの中では、同じオブジェクトのフィールドに自由にアクセスできます：</p>
-<pre><code class="language-javascript">class Student {
+<pre><code class="language-dart">class Student {
   String name = "";
   List&lt;int&gt; scores = [];
   
@@ -467,7 +467,7 @@ void main() {
 <p>そこで、ゲッターとセッターを使用することで、フィールドへのアクセスを制御できます。
 ゲッターは値を取得するメソッド、セッターは値を設定するメソッドです。
 より詳しい具体例は12章で説明します。</p>
-<pre><code class="language-javascript">class Person {
+<pre><code class="language-dart">class Person {
   String _name = "";  // プライベートフィールド（_で始まる）
   int _age = 0;
   

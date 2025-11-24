@@ -185,26 +185,26 @@
 <li><strong>実際のたい焼き</strong>：これがオブジェクト（実体）</li>
 </ul>
 <p>一つの型（クラス）があれば、同じ形のたい焼き（オブジェクト）を何個でも作ることができますね！</p>
-<pre><code class="language-javascript">// たい焼きのイメージ
+<pre><code class="language-dart">// たい焼きのイメージ
 たい焼きの型（クラス） → たい焼き1（オブジェクト）
                     → たい焼き2（オブジェクト）
                     → たい焼き3（オブジェクト）
 </code></pre>
 <h2 id="dartでのクラスの基本形"><a class="header" href="#dartでのクラスの基本形">Dartでのクラスの基本形</a></h2>
 <p>Dartでクラスを定義する基本的な形は次のようになります：</p>
-<pre><code class="language-javascript">class クラス名 {
+<pre><code class="language-dart">class クラス名 {
   // ここにクラスの内容を書きます
 }
 </code></pre>
 <h3 id="実際に犬のクラスを作ってみましょう"><a class="header" href="#実際に犬のクラスを作ってみましょう">実際に犬のクラスを作ってみましょう</a></h3>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   // まずは空のクラスを作成
 }
 </code></pre>
 <p>おめでとうございます！これで最初のクラスができました。でも、まだ何も中身がありませんね。</p>
 <h2 id="クラスに属性フィールドを追加する"><a class="header" href="#クラスに属性フィールドを追加する">クラスに属性（フィールド）を追加する</a></h2>
 <p>犬には名前、年齢、品種などの情報が必要です。これらを<strong>フィールド</strong>（または<strong>プロパティ</strong>）と呼びます。</p>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   // 犬の属性（フィールド）
   String name;    // 名前
   int age;        // 年齢
@@ -219,7 +219,7 @@
 </ul>
 <h2 id="より詳しいクラスの例"><a class="header" href="#より詳しいクラスの例">より詳しいクラスの例</a></h2>
 <p>もう少し現実的な例を見てみましょう：</p>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   // 基本情報
   String name;        // 名前
   int age;           // 年齢
@@ -239,7 +239,7 @@
 </ul>
 <h2 id="別の例学生クラス"><a class="header" href="#別の例学生クラス">別の例：学生クラス</a></h2>
 <p>犬以外の例も見てみましょう：</p>
-<pre><code class="language-javascript">class Student {
+<pre><code class="language-dart">class Student {
   String name;        // 名前
   int grade;         // 学年
   int studentId;     // 学籍番号
@@ -250,7 +250,7 @@
 <h2 id="クラス名の命名規則"><a class="header" href="#クラス名の命名規則">クラス名の命名規則</a></h2>
 <p>Dartでは、クラス名には特別な命名規則があります：</p>
 <h3 id="1-パスカルケースpascalcaseを使う"><a class="header" href="#1-パスカルケースpascalcaseを使う">1. パスカルケース（PascalCase）を使う</a></h3>
-<pre><code class="language-javascript">// ✅ 正しい例
+<pre><code class="language-dart">// ✅ 正しい例
 class Dog { }
 class Student { }
 class BankAccount { }     // 複数の単語は最初を大文字に
@@ -262,7 +262,7 @@ class bank_account { }    // アンダースコアを使っている
 class gamecharacter { }   // 2番目の単語が小文字
 </code></pre>
 <h3 id="2-意味のある名前をつける"><a class="header" href="#2-意味のある名前をつける">2. 意味のある名前をつける</a></h3>
-<pre><code class="language-javascript">// ✅ 良い例
+<pre><code class="language-dart">// ✅ 良い例
 class Car { }           // 車
 class Book { }          // 本
 class MusicPlayer { }   // 音楽プレーヤー
@@ -281,12 +281,12 @@ class Data { }          // 何のデータかわからない
 <li>価格（小数）</li>
 <li>読み終わったかどうか（真偽値）</li>
 </ul>
-<pre><code class="language-javascript">class Book {
+<pre><code class="language-dart">class Book {
   // ここに属性を書いてください
 }
 </code></pre>
 <p><strong>答え</strong>：</p>
-<pre><code class="language-javascript">class Book {
+<pre><code class="language-dart">class Book {
   String title;        // タイトル
   String author;       // 著者
   int pages;          // ページ数
@@ -296,7 +296,7 @@ class Data { }          // 何のデータかわからない
 </code></pre>
 <h2 id="初期値の設定"><a class="header" href="#初期値の設定">初期値の設定</a></h2>
 <p>フィールドには初期値を設定することもできます：</p>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   String name = "名前未設定";     // デフォルトの名前
   int age = 0;                  // デフォルトの年齢
   String breed = "雑種";        // デフォルトの品種

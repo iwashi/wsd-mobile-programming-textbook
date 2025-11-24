@@ -178,14 +178,14 @@
 <p>前の章で、クラス（設計図）の作り方を学びました。今度は、その設計図を使って実際のオブジェクト（実体）を作る方法を学んでいきましょう！</p>
 <h2 id="オブジェクトを作ってみよう"><a class="header" href="#オブジェクトを作ってみよう">オブジェクトを作ってみよう</a></h2>
 <p>まず、前回作った犬のクラスを使ってみましょう：</p>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   String name = "";
   int age = 0;
   String breed = "";
 }
 </code></pre>
 <p>このクラスから実際の犬オブジェクトを作るには、次のように書きます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 犬オブジェクトを作成
   Dog myDog = Dog();
   
@@ -193,7 +193,7 @@
 }
 </code></pre>
 <h3 id="オブジェクト作成の構文"><a class="header" href="#オブジェクト作成の構文">オブジェクト作成の構文</a></h3>
-<pre><code class="language-javascript">クラス名 変数名 = クラス名();
+<pre><code class="language-dart">クラス名 変数名 = クラス名();
 </code></pre>
 <p>たい焼きの例で考えると：</p>
 <ul>
@@ -202,7 +202,7 @@
 </ul>
 <h2 id="オブジェクトのフィールドにアクセスする"><a class="header" href="#オブジェクトのフィールドにアクセスする">オブジェクトのフィールドにアクセスする</a></h2>
 <p>作ったオブジェクトの情報を設定したり、読み取ったりしてみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 犬オブジェクトを作成
   Dog myDog = Dog();
   
@@ -224,12 +224,12 @@
 </code></pre>
 <h3 id="ドット記法"><a class="header" href="#ドット記法">ドット記法（.）</a></h3>
 <p>オブジェクトのフィールドには「<strong>ドット記法</strong>」でアクセスします：</p>
-<pre><code class="language-javascript">オブジェクト名.フィールド名
+<pre><code class="language-dart">オブジェクト名.フィールド名
 </code></pre>
 <p>これは「オブジェクト名の中にあるフィールド名」という意味です。</p>
 <h2 id="複数のオブジェクトを作る"><a class="header" href="#複数のオブジェクトを作る">複数のオブジェクトを作る</a></h2>
 <p>同じクラスから複数のオブジェクトを作ることができます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 1匹目の犬
   Dog dog1 = Dog();
   dog1.name = "ポチ";
@@ -262,7 +262,7 @@
 <p>なるほど！一つのクラス（設計図）から、異なる情報を持つ複数のオブジェクト（実体）を作れるんですね。</p>
 <h2 id="オブジェクトをリストで管理する"><a class="header" href="#オブジェクトをリストで管理する">オブジェクトをリストで管理する</a></h2>
 <p>たくさんのオブジェクトがある場合は、リストで管理すると便利です：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 犬のリストを作成
   List&lt;Dog&gt; dogs = [];
   
@@ -294,7 +294,7 @@
 </code></pre>
 <h2 id="より簡潔な書き方"><a class="header" href="#より簡潔な書き方">より簡潔な書き方</a></h2>
 <p>オブジェクトを作ってすぐに値を設定する場合、次のように書くこともできます：</p>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   String name = "Unknown";
   int age = 0;
   String? breed; // Optional property, can be null
@@ -321,7 +321,7 @@ void main() {
 <p><code>..</code> は「<strong>カスケード記法</strong>」と呼ばれ、同じオブジェクトに対して連続して操作を行う時に使います。</p>
 <h2 id="オブジェクトの比較"><a class="header" href="#オブジェクトの比較">オブジェクトの比較</a></h2>
 <p>オブジェクト同士を比較する時は注意が必要です：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   Dog dog1 = Dog();
   dog1.name = "ポチ";
   

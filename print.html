@@ -7660,7 +7660,7 @@ void main() {
 <li>うさぎ：名前は「ふわり」、年齢は1歳、品種は「ロップイヤー」</li>
 </ul>
 <p>これまで学んだ方法で、この情報を表現してみましょう：</p>
-<pre><code class="language-javascript">// 犬の情報
+<pre><code class="language-dart">// 犬の情報
 String dogName = "ポチ";
 int dogAge = 3;
 String dogBreed = "柴犬";
@@ -7679,7 +7679,7 @@ String rabbitBreed = "ロップイヤー";
 <h2 id="従来の方法の問題点"><a class="header" href="#従来の方法の問題点">従来の方法の問題点</a></h2>
 <h3 id="1-関連性がわからない"><a class="header" href="#1-関連性がわからない">1. 関連性がわからない</a></h3>
 <p>変数がたくさんあると、どの名前がどの動物のものか混乱してしまいます。</p>
-<pre><code class="language-javascript">// これらが同じ動物の情報だとわかりますか？
+<pre><code class="language-dart">// これらが同じ動物の情報だとわかりますか？
 String dogName = "ポチ";
 String catBreed = "三毛猫";
 int dogAge = 3;
@@ -7688,7 +7688,7 @@ String rabbitName = "ふわり";
 </code></pre>
 <h3 id="2-データの管理が大変"><a class="header" href="#2-データの管理が大変">2. データの管理が大変</a></h3>
 <p>新しい動物を追加するたびに、複数の変数を作る必要があります：</p>
-<pre><code class="language-javascript">// 新しい犬を追加
+<pre><code class="language-dart">// 新しい犬を追加
 String dog2Name = "シロ";
 int dog2Age = 5;
 String dog2Breed = "ゴールデンレトリバー";
@@ -7700,7 +7700,7 @@ String dog3Breed = "ラブラドール";
 </code></pre>
 <h3 id="3-処理が複雑になる"><a class="header" href="#3-処理が複雑になる">3. 処理が複雑になる</a></h3>
 <p>全ての動物の情報を表示したい時、とても面倒です：</p>
-<pre><code class="language-javascript">print("犬: $dogName, $dogAge歳, $dogBreed");
+<pre><code class="language-dart">print("犬: $dogName, $dogAge歳, $dogBreed");
 print("犬: $dog2Name, $dog2Age歳, $dog2Breed");
 print("犬: $dog3Name, $dog3Age歳, $dog3Breed");
 print("猫: $catName, $catAge歳, $catBreed");
@@ -7717,7 +7717,7 @@ print("猫: $catName, $catAge歳, $catBreed");
 </ul>
 <h3 id="プログラムでの表現"><a class="header" href="#プログラムでの表現">プログラムでの表現</a></h3>
 <p>オブジェクト指向では、この考え方をそのままプログラムにします：</p>
-<pre><code class="language-javascript">// 犬オブジェクトのイメージ
+<pre><code class="language-dart">// 犬オブジェクトのイメージ
 犬 {
   // 属性（何を持っているか）
   名前: "ポチ"
@@ -7758,26 +7758,26 @@ print("猫: $catName, $catAge歳, $catBreed");
 <li><strong>実際のたい焼き</strong>：これがオブジェクト（実体）</li>
 </ul>
 <p>一つの型（クラス）があれば、同じ形のたい焼き（オブジェクト）を何個でも作ることができますね！</p>
-<pre><code class="language-javascript">// たい焼きのイメージ
+<pre><code class="language-dart">// たい焼きのイメージ
 たい焼きの型（クラス） → たい焼き1（オブジェクト）
                     → たい焼き2（オブジェクト）
                     → たい焼き3（オブジェクト）
 </code></pre>
 <h2 id="dartでのクラスの基本形"><a class="header" href="#dartでのクラスの基本形">Dartでのクラスの基本形</a></h2>
 <p>Dartでクラスを定義する基本的な形は次のようになります：</p>
-<pre><code class="language-javascript">class クラス名 {
+<pre><code class="language-dart">class クラス名 {
   // ここにクラスの内容を書きます
 }
 </code></pre>
 <h3 id="実際に犬のクラスを作ってみましょう"><a class="header" href="#実際に犬のクラスを作ってみましょう">実際に犬のクラスを作ってみましょう</a></h3>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   // まずは空のクラスを作成
 }
 </code></pre>
 <p>おめでとうございます！これで最初のクラスができました。でも、まだ何も中身がありませんね。</p>
 <h2 id="クラスに属性フィールドを追加する"><a class="header" href="#クラスに属性フィールドを追加する">クラスに属性（フィールド）を追加する</a></h2>
 <p>犬には名前、年齢、品種などの情報が必要です。これらを<strong>フィールド</strong>（または<strong>プロパティ</strong>）と呼びます。</p>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   // 犬の属性（フィールド）
   String name;    // 名前
   int age;        // 年齢
@@ -7792,7 +7792,7 @@ print("猫: $catName, $catAge歳, $catBreed");
 </ul>
 <h2 id="より詳しいクラスの例"><a class="header" href="#より詳しいクラスの例">より詳しいクラスの例</a></h2>
 <p>もう少し現実的な例を見てみましょう：</p>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   // 基本情報
   String name;        // 名前
   int age;           // 年齢
@@ -7812,7 +7812,7 @@ print("猫: $catName, $catAge歳, $catBreed");
 </ul>
 <h2 id="別の例学生クラス"><a class="header" href="#別の例学生クラス">別の例：学生クラス</a></h2>
 <p>犬以外の例も見てみましょう：</p>
-<pre><code class="language-javascript">class Student {
+<pre><code class="language-dart">class Student {
   String name;        // 名前
   int grade;         // 学年
   int studentId;     // 学籍番号
@@ -7823,7 +7823,7 @@ print("猫: $catName, $catAge歳, $catBreed");
 <h2 id="クラス名の命名規則"><a class="header" href="#クラス名の命名規則">クラス名の命名規則</a></h2>
 <p>Dartでは、クラス名には特別な命名規則があります：</p>
 <h3 id="1-パスカルケースpascalcaseを使う"><a class="header" href="#1-パスカルケースpascalcaseを使う">1. パスカルケース（PascalCase）を使う</a></h3>
-<pre><code class="language-javascript">// ✅ 正しい例
+<pre><code class="language-dart">// ✅ 正しい例
 class Dog { }
 class Student { }
 class BankAccount { }     // 複数の単語は最初を大文字に
@@ -7835,7 +7835,7 @@ class bank_account { }    // アンダースコアを使っている
 class gamecharacter { }   // 2番目の単語が小文字
 </code></pre>
 <h3 id="2-意味のある名前をつける"><a class="header" href="#2-意味のある名前をつける">2. 意味のある名前をつける</a></h3>
-<pre><code class="language-javascript">// ✅ 良い例
+<pre><code class="language-dart">// ✅ 良い例
 class Car { }           // 車
 class Book { }          // 本
 class MusicPlayer { }   // 音楽プレーヤー
@@ -7854,12 +7854,12 @@ class Data { }          // 何のデータかわからない
 <li>価格（小数）</li>
 <li>読み終わったかどうか（真偽値）</li>
 </ul>
-<pre><code class="language-javascript">class Book {
+<pre><code class="language-dart">class Book {
   // ここに属性を書いてください
 }
 </code></pre>
 <p><strong>答え</strong>：</p>
-<pre><code class="language-javascript">class Book {
+<pre><code class="language-dart">class Book {
   String title;        // タイトル
   String author;       // 著者
   int pages;          // ページ数
@@ -7869,7 +7869,7 @@ class Data { }          // 何のデータかわからない
 </code></pre>
 <h2 id="初期値の設定"><a class="header" href="#初期値の設定">初期値の設定</a></h2>
 <p>フィールドには初期値を設定することもできます：</p>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   String name = "名前未設定";     // デフォルトの名前
   int age = 0;                  // デフォルトの年齢
   String breed = "雑種";        // デフォルトの品種
@@ -7891,14 +7891,14 @@ class Data { }          // 何のデータかわからない
 <p>前の章で、クラス（設計図）の作り方を学びました。今度は、その設計図を使って実際のオブジェクト（実体）を作る方法を学んでいきましょう！</p>
 <h2 id="オブジェクトを作ってみよう"><a class="header" href="#オブジェクトを作ってみよう">オブジェクトを作ってみよう</a></h2>
 <p>まず、前回作った犬のクラスを使ってみましょう：</p>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   String name = "";
   int age = 0;
   String breed = "";
 }
 </code></pre>
 <p>このクラスから実際の犬オブジェクトを作るには、次のように書きます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 犬オブジェクトを作成
   Dog myDog = Dog();
   
@@ -7906,7 +7906,7 @@ class Data { }          // 何のデータかわからない
 }
 </code></pre>
 <h3 id="オブジェクト作成の構文"><a class="header" href="#オブジェクト作成の構文">オブジェクト作成の構文</a></h3>
-<pre><code class="language-javascript">クラス名 変数名 = クラス名();
+<pre><code class="language-dart">クラス名 変数名 = クラス名();
 </code></pre>
 <p>たい焼きの例で考えると：</p>
 <ul>
@@ -7915,7 +7915,7 @@ class Data { }          // 何のデータかわからない
 </ul>
 <h2 id="オブジェクトのフィールドにアクセスする"><a class="header" href="#オブジェクトのフィールドにアクセスする">オブジェクトのフィールドにアクセスする</a></h2>
 <p>作ったオブジェクトの情報を設定したり、読み取ったりしてみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 犬オブジェクトを作成
   Dog myDog = Dog();
   
@@ -7937,12 +7937,12 @@ class Data { }          // 何のデータかわからない
 </code></pre>
 <h3 id="ドット記法"><a class="header" href="#ドット記法">ドット記法（.）</a></h3>
 <p>オブジェクトのフィールドには「<strong>ドット記法</strong>」でアクセスします：</p>
-<pre><code class="language-javascript">オブジェクト名.フィールド名
+<pre><code class="language-dart">オブジェクト名.フィールド名
 </code></pre>
 <p>これは「オブジェクト名の中にあるフィールド名」という意味です。</p>
 <h2 id="複数のオブジェクトを作る"><a class="header" href="#複数のオブジェクトを作る">複数のオブジェクトを作る</a></h2>
 <p>同じクラスから複数のオブジェクトを作ることができます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 1匹目の犬
   Dog dog1 = Dog();
   dog1.name = "ポチ";
@@ -7975,7 +7975,7 @@ class Data { }          // 何のデータかわからない
 <p>なるほど！一つのクラス（設計図）から、異なる情報を持つ複数のオブジェクト（実体）を作れるんですね。</p>
 <h2 id="オブジェクトをリストで管理する"><a class="header" href="#オブジェクトをリストで管理する">オブジェクトをリストで管理する</a></h2>
 <p>たくさんのオブジェクトがある場合は、リストで管理すると便利です：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 犬のリストを作成
   List&lt;Dog&gt; dogs = [];
   
@@ -8007,7 +8007,7 @@ class Data { }          // 何のデータかわからない
 </code></pre>
 <h2 id="より簡潔な書き方"><a class="header" href="#より簡潔な書き方">より簡潔な書き方</a></h2>
 <p>オブジェクトを作ってすぐに値を設定する場合、次のように書くこともできます：</p>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   String name = "Unknown";
   int age = 0;
   String? breed; // Optional property, can be null
@@ -8034,7 +8034,7 @@ void main() {
 <p><code>..</code> は「<strong>カスケード記法</strong>」と呼ばれ、同じオブジェクトに対して連続して操作を行う時に使います。</p>
 <h2 id="オブジェクトの比較"><a class="header" href="#オブジェクトの比較">オブジェクトの比較</a></h2>
 <p>オブジェクト同士を比較する時は注意が必要です：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   Dog dog1 = Dog();
   dog1.name = "ポチ";
   
@@ -8077,7 +8077,7 @@ void main() {
 </ul>
 <p>プログラムでも、この考え方をそのまま使えます！</p>
 <h2 id="フィールド-vs-メソッド"><a class="header" href="#フィールド-vs-メソッド">フィールド vs. メソッド</a></h2>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   // フィールド（持っているもの / データ）
   String name = "";
   int age = 0;
@@ -8107,7 +8107,7 @@ void main() {
 </ul>
 <h2 id="最初のメソッドを作ってみよう"><a class="header" href="#最初のメソッドを作ってみよう">最初のメソッドを作ってみよう</a></h2>
 <p>シンプルな犬クラスにメソッドを追加してみましょう：</p>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   String name = "";
   int age = 0;
   
@@ -8137,23 +8137,23 @@ void main() {
 こんにちは！僕の名前はポチです。3歳です。
 </code></pre>
 <h3 id="メソッド呼び出しの構文"><a class="header" href="#メソッド呼び出しの構文">メソッド呼び出しの構文</a></h3>
-<pre><code class="language-javascript">オブジェクト名.メソッド名();
+<pre><code class="language-dart">オブジェクト名.メソッド名();
 </code></pre>
 <p>フィールドにアクセスする時と同じドット記法を使いますが、メソッドの場合は最後に <code>()</code> が付きます。</p>
 <h2 id="メソッドの基本構文"><a class="header" href="#メソッドの基本構文">メソッドの基本構文</a></h2>
-<pre><code class="language-javascript">戻り値の型 メソッド名() {
+<pre><code class="language-dart">戻り値の型 メソッド名() {
   // 処理内容
 }
 </code></pre>
 <h3 id="void-メソッド"><a class="header" href="#void-メソッド">void メソッド</a></h3>
 <p><code>void</code> は「何も返さない」という意味です：</p>
-<pre><code class="language-javascript">void greet() {
+<pre><code class="language-dart">void greet() {
   print("こんにちは！");
 }
 </code></pre>
 <h2 id="パラメータ引数のあるメソッド"><a class="header" href="#パラメータ引数のあるメソッド">パラメータ（引数）のあるメソッド</a></h2>
 <p>メソッドに情報を渡すことができます：</p>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   String name = "";
   
   // 名前を指定して挨拶
@@ -8179,7 +8179,7 @@ void main() {
 </code></pre>
 <h2 id="戻り値のあるメソッド"><a class="header" href="#戻り値のあるメソッド">戻り値のあるメソッド</a></h2>
 <p>メソッドから値を返すことができます：</p>
-<pre><code class="language-javascript">class Dog {
+<pre><code class="language-dart">class Dog {
   String name = "";
   int age = 0;
   
@@ -8220,7 +8220,7 @@ void main() {
 大人？ はい
 </code></pre>
 <h2 id="より実践的な例銀行口座クラス"><a class="header" href="#より実践的な例銀行口座クラス">より実践的な例：銀行口座クラス</a></h2>
-<pre><code class="language-javascript">class BankAccount {
+<pre><code class="language-dart">class BankAccount {
   String accountHolder = "";  // 口座名義
   double balance = 0.0;       // 残高
   
@@ -8290,7 +8290,7 @@ void main() {
 </code></pre>
 <h2 id="メソッドからフィールドにアクセス"><a class="header" href="#メソッドからフィールドにアクセス">メソッドからフィールドにアクセス</a></h2>
 <p>メソッドの中では、同じオブジェクトのフィールドに自由にアクセスできます：</p>
-<pre><code class="language-javascript">class Student {
+<pre><code class="language-dart">class Student {
   String name = "";
   List&lt;int&gt; scores = [];
   
@@ -8354,7 +8354,7 @@ void main() {
 <p>そこで、ゲッターとセッターを使用することで、フィールドへのアクセスを制御できます。
 ゲッターは値を取得するメソッド、セッターは値を設定するメソッドです。
 より詳しい具体例は12章で説明します。</p>
-<pre><code class="language-javascript">class Person {
+<pre><code class="language-dart">class Person {
   String _name = "";  // プライベートフィールド（_で始まる）
   int _age = 0;
   
