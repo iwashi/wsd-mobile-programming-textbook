@@ -178,7 +178,7 @@
 <p>前のセクションでリストの概念を学びました。今度は実際にリストを作成し、使ってみましょう。</p>
 <h2 id="リストの作成"><a class="header" href="#リストの作成">リストの作成</a></h2>
 <p>Dartでリストを作成する最も基本的な方法は、角括弧 <code>[]</code> を使うことです。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 数値のリストを作成
   List&lt;int&gt; scores = [85, 92, 78, 90, 88];
   
@@ -195,7 +195,7 @@
 </code></pre>
 <h2 id="型推論を使った書き方"><a class="header" href="#型推論を使った書き方">型推論を使った書き方</a></h2>
 <p>Dartは賢いので、リストの中身から型を推測してくれます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // varを使うと型を自動で判断
   var numbers = [1, 2, 3, 4, 5];        // List&lt;int&gt;と推論
   var names = ['太郎', '花子', '次郎'];  // List&lt;String&gt;と推論
@@ -207,7 +207,7 @@
 <h2 id="要素へのアクセス"><a class="header" href="#要素へのアクセス">要素へのアクセス</a></h2>
 <p>リストの要素には、インデックス（番号）を使ってアクセスします。</p>
 <p>大事なことなので、再度書きますが<strong>インデックスは0から始まります！</strong></p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var fruits = ['りんご', 'バナナ', 'オレンジ', 'ぶどう', 'いちご'];
   
   // インデックスを使って要素を取得
@@ -222,7 +222,7 @@
 </code></pre>
 <h2 id="リストの長さを調べる"><a class="header" href="#リストの長さを調べる">リストの長さを調べる</a></h2>
 <p>リストに何個の要素が入っているかは、<code>length</code>プロパティで調べられます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var scores = [85, 92, 78, 90, 88];
   
   print('要素の数: ${scores.length}');  // 要素の数: 5
@@ -233,7 +233,7 @@
 </code></pre>
 <h2 id="範囲外アクセスに注意"><a class="header" href="#範囲外アクセスに注意">範囲外アクセスに注意</a></h2>
 <p>存在しないインデックスにアクセスするとエラーになります：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var colors = ['赤', '青', '緑'];
   
   print(colors[0]);  // 赤（OK）
@@ -242,7 +242,7 @@
 }
 </code></pre>
 <h2 id="よく使うリストのプロパティ"><a class="header" href="#よく使うリストのプロパティ">よく使うリストのプロパティ</a></h2>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var numbers = [3, 1, 4, 1, 5, 9];
   
   // リストが空かどうか

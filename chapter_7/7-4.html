@@ -180,7 +180,7 @@
 <h2 id="for文でリストを処理する"><a class="header" href="#for文でリストを処理する">for文でリストを処理する</a></h2>
 <h3 id="インデックスを使った方法"><a class="header" href="#インデックスを使った方法">インデックスを使った方法</a></h3>
 <p>リストの要素数分だけループを回し、インデックスでアクセスする方法：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var scores = [85, 92, 78, 90, 88];
   
   // インデックスを使って全要素にアクセス
@@ -191,7 +191,7 @@
 </code></pre>
 <h3 id="for-inループ推奨"><a class="header" href="#for-inループ推奨">for-inループ（推奨）</a></h3>
 <p>Dartには、リストの要素を直接取得できる便利な<code>for-in</code>ループがあります：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var fruits = ['りんご', 'バナナ', 'オレンジ', 'ぶどう'];
   
   // for-inループで各要素を処理
@@ -207,7 +207,7 @@
 </code></pre>
 <h2 id="実践的な例"><a class="header" href="#実践的な例">実践的な例</a></h2>
 <h3 id="合計と平均を計算"><a class="header" href="#合計と平均を計算">合計と平均を計算</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var scores = [85, 92, 78, 90, 88, 95, 82];
   int total = 0;
   
@@ -225,7 +225,7 @@
 }
 </code></pre>
 <h3 id="最大値最小値を見つける"><a class="header" href="#最大値最小値を見つける">最大値・最小値を見つける</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var temperatures = [25.5, 28.0, 23.5, 30.0, 22.0, 26.5];
   
   // 最初の要素を初期値として設定
@@ -248,7 +248,7 @@
 }
 </code></pre>
 <h3 id="条件に合う要素を数える"><a class="header" href="#条件に合う要素を数える">条件に合う要素を数える</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var scores = [85, 92, 78, 90, 88, 65, 95, 82, 70, 91];
   int passCount = 0;  // 合格者数
   int excellentCount = 0;  // 優秀者数
@@ -269,7 +269,7 @@
 </code></pre>
 <h2 id="要素の変換"><a class="header" href="#要素の変換">要素の変換</a></h2>
 <h3 id="新しいリストを作成"><a class="header" href="#新しいリストを作成">新しいリストを作成</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var prices = [100, 250, 180, 300, 120];
   var discountedPrices = [];
   
@@ -285,7 +285,7 @@
 </code></pre>
 <h3 id="インデックスが必要な場合"><a class="header" href="#インデックスが必要な場合">インデックスが必要な場合</a></h3>
 <p>要素の位置情報が必要な場合は、通常のfor文を使います：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var students = ['田中', '佐藤', '鈴木', '高橋', '渡辺'];
   var scores = [85, 92, 78, 90, 88];
   
@@ -297,7 +297,7 @@
 </code></pre>
 <h2 id="ネストしたループ"><a class="header" href="#ネストしたループ">ネストしたループ</a></h2>
 <p>リストの中にリストがある場合の処理：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 各生徒の科目別点数
   var allScores = [
     [80, 85, 90],  // 生徒1
@@ -321,7 +321,7 @@
 </code></pre>
 <h2 id="whileループとリスト"><a class="header" href="#whileループとリスト">whileループとリスト</a></h2>
 <p>条件を満たす間、リストを処理する例：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var tasks = ['メール確認', '資料作成', '会議準備', '報告書作成'];
   
   print('今日のタスク:');

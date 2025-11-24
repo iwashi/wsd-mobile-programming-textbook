@@ -4836,7 +4836,7 @@ void main() {
 <p>これまでの章では、一つ一つの変数に値を保存してきました。しかし、実際のプログラミングでは、たくさんのデータをまとめて扱いたい場面がよくあります。</p>
 <h2 id="なぜリストが必要なのか"><a class="header" href="#なぜリストが必要なのか">なぜリストが必要なのか</a></h2>
 <p>例えば、クラスの生徒30人のテストの点数を管理したいとしましょう。これまでの方法では、こんな風に書かなければなりません：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int score1 = 85;
   int score2 = 92;
   int score3 = 78;
@@ -4882,7 +4882,7 @@ void main() {
 <p>前のセクションでリストの概念を学びました。今度は実際にリストを作成し、使ってみましょう。</p>
 <h2 id="リストの作成"><a class="header" href="#リストの作成">リストの作成</a></h2>
 <p>Dartでリストを作成する最も基本的な方法は、角括弧 <code>[]</code> を使うことです。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 数値のリストを作成
   List&lt;int&gt; scores = [85, 92, 78, 90, 88];
   
@@ -4899,7 +4899,7 @@ void main() {
 </code></pre>
 <h2 id="型推論を使った書き方"><a class="header" href="#型推論を使った書き方">型推論を使った書き方</a></h2>
 <p>Dartは賢いので、リストの中身から型を推測してくれます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // varを使うと型を自動で判断
   var numbers = [1, 2, 3, 4, 5];        // List&lt;int&gt;と推論
   var names = ['太郎', '花子', '次郎'];  // List&lt;String&gt;と推論
@@ -4911,7 +4911,7 @@ void main() {
 <h2 id="要素へのアクセス"><a class="header" href="#要素へのアクセス">要素へのアクセス</a></h2>
 <p>リストの要素には、インデックス（番号）を使ってアクセスします。</p>
 <p>大事なことなので、再度書きますが<strong>インデックスは0から始まります！</strong></p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var fruits = ['りんご', 'バナナ', 'オレンジ', 'ぶどう', 'いちご'];
   
   // インデックスを使って要素を取得
@@ -4926,7 +4926,7 @@ void main() {
 </code></pre>
 <h2 id="リストの長さを調べる"><a class="header" href="#リストの長さを調べる">リストの長さを調べる</a></h2>
 <p>リストに何個の要素が入っているかは、<code>length</code>プロパティで調べられます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var scores = [85, 92, 78, 90, 88];
   
   print('要素の数: ${scores.length}');  // 要素の数: 5
@@ -4937,7 +4937,7 @@ void main() {
 </code></pre>
 <h2 id="範囲外アクセスに注意"><a class="header" href="#範囲外アクセスに注意">範囲外アクセスに注意</a></h2>
 <p>存在しないインデックスにアクセスするとエラーになります：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var colors = ['赤', '青', '緑'];
   
   print(colors[0]);  // 赤（OK）
@@ -4946,7 +4946,7 @@ void main() {
 }
 </code></pre>
 <h2 id="よく使うリストのプロパティ"><a class="header" href="#よく使うリストのプロパティ">よく使うリストのプロパティ</a></h2>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var numbers = [3, 1, 4, 1, 5, 9];
   
   // リストが空かどうか
@@ -4972,7 +4972,7 @@ void main() {
 <h2 id="要素の追加"><a class="header" href="#要素の追加">要素の追加</a></h2>
 <h3 id="addメソッド---末尾に追加"><a class="header" href="#addメソッド---末尾に追加">add()メソッド - 末尾に追加</a></h3>
 <p>最も基本的な追加方法は<code>add()</code>メソッドです。リストの最後に新しい要素を追加します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var todoList = ['宿題をする', '部屋を掃除する'];
   print('最初のリスト: $todoList');
   
@@ -4987,7 +4987,7 @@ void main() {
 </code></pre>
 <h3 id="insertメソッド---指定位置に挿入"><a class="header" href="#insertメソッド---指定位置に挿入">insert()メソッド - 指定位置に挿入</a></h3>
 <p>特定の位置に要素を挿入したい場合は<code>insert()</code>を使います：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var fruits = ['りんご', 'バナナ', 'オレンジ'];
   print('最初: $fruits');
   
@@ -5002,7 +5002,7 @@ void main() {
 </code></pre>
 <h3 id="addallメソッド---複数要素を一度に追加"><a class="header" href="#addallメソッド---複数要素を一度に追加">addAll()メソッド - 複数要素を一度に追加</a></h3>
 <p>複数の要素をまとめて追加する場合は<code>addAll()</code>を使います：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var numbers = [1, 2, 3];
   var moreNumbers = [4, 5, 6];
   
@@ -5017,7 +5017,7 @@ void main() {
 <h2 id="要素の削除"><a class="header" href="#要素の削除">要素の削除</a></h2>
 <h3 id="removeメソッド---値を指定して削除"><a class="header" href="#removeメソッド---値を指定して削除">remove()メソッド - 値を指定して削除</a></h3>
 <p>特定の値を持つ要素を削除します（最初に見つかった要素のみ）：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var colors = ['赤', '青', '緑', '青', '黄'];
   print('最初: $colors');
   
@@ -5032,7 +5032,7 @@ void main() {
 </code></pre>
 <h3 id="removeatメソッド---インデックスで削除"><a class="header" href="#removeatメソッド---インデックスで削除">removeAt()メソッド - インデックスで削除</a></h3>
 <p>特定の位置の要素を削除します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var animals = ['犬', '猫', '鳥', '魚', 'うさぎ'];
   print('最初: $animals');
   
@@ -5047,7 +5047,7 @@ void main() {
 </code></pre>
 <h3 id="removelastメソッド---最後の要素を削除"><a class="header" href="#removelastメソッド---最後の要素を削除">removeLast()メソッド - 最後の要素を削除</a></h3>
 <p>リストの最後の要素を削除します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var stack = ['皿1', '皿2', '皿3', '皿4'];
   print('最初の積み重ね: $stack');
   
@@ -5061,7 +5061,7 @@ void main() {
 </code></pre>
 <h3 id="clearメソッド---全要素を削除"><a class="header" href="#clearメソッド---全要素を削除">clear()メソッド - 全要素を削除</a></h3>
 <p>リストを空にします：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var items = ['アイテム1', 'アイテム2', 'アイテム3'];
   print('削除前: $items');
   print('要素数: ${items.length}');
@@ -5072,7 +5072,7 @@ void main() {
 }
 </code></pre>
 <h2 id="実践例買い物リストアプリ"><a class="header" href="#実践例買い物リストアプリ">実践例：買い物リストアプリ</a></h2>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 買い物リストを作成
   var shoppingList = ['牛乳', 'パン'];
   print('買い物リスト: $shoppingList');
@@ -5113,7 +5113,7 @@ void main() {
 <h2 id="for文でリストを処理する"><a class="header" href="#for文でリストを処理する">for文でリストを処理する</a></h2>
 <h3 id="インデックスを使った方法"><a class="header" href="#インデックスを使った方法">インデックスを使った方法</a></h3>
 <p>リストの要素数分だけループを回し、インデックスでアクセスする方法：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var scores = [85, 92, 78, 90, 88];
   
   // インデックスを使って全要素にアクセス
@@ -5124,7 +5124,7 @@ void main() {
 </code></pre>
 <h3 id="for-inループ推奨"><a class="header" href="#for-inループ推奨">for-inループ（推奨）</a></h3>
 <p>Dartには、リストの要素を直接取得できる便利な<code>for-in</code>ループがあります：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var fruits = ['りんご', 'バナナ', 'オレンジ', 'ぶどう'];
   
   // for-inループで各要素を処理
@@ -5140,7 +5140,7 @@ void main() {
 </code></pre>
 <h2 id="実践的な例"><a class="header" href="#実践的な例">実践的な例</a></h2>
 <h3 id="合計と平均を計算"><a class="header" href="#合計と平均を計算">合計と平均を計算</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var scores = [85, 92, 78, 90, 88, 95, 82];
   int total = 0;
   
@@ -5158,7 +5158,7 @@ void main() {
 }
 </code></pre>
 <h3 id="最大値最小値を見つける"><a class="header" href="#最大値最小値を見つける">最大値・最小値を見つける</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var temperatures = [25.5, 28.0, 23.5, 30.0, 22.0, 26.5];
   
   // 最初の要素を初期値として設定
@@ -5181,7 +5181,7 @@ void main() {
 }
 </code></pre>
 <h3 id="条件に合う要素を数える"><a class="header" href="#条件に合う要素を数える">条件に合う要素を数える</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var scores = [85, 92, 78, 90, 88, 65, 95, 82, 70, 91];
   int passCount = 0;  // 合格者数
   int excellentCount = 0;  // 優秀者数
@@ -5202,7 +5202,7 @@ void main() {
 </code></pre>
 <h2 id="要素の変換"><a class="header" href="#要素の変換">要素の変換</a></h2>
 <h3 id="新しいリストを作成"><a class="header" href="#新しいリストを作成">新しいリストを作成</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var prices = [100, 250, 180, 300, 120];
   var discountedPrices = [];
   
@@ -5218,7 +5218,7 @@ void main() {
 </code></pre>
 <h3 id="インデックスが必要な場合"><a class="header" href="#インデックスが必要な場合">インデックスが必要な場合</a></h3>
 <p>要素の位置情報が必要な場合は、通常のfor文を使います：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var students = ['田中', '佐藤', '鈴木', '高橋', '渡辺'];
   var scores = [85, 92, 78, 90, 88];
   
@@ -5230,7 +5230,7 @@ void main() {
 </code></pre>
 <h2 id="ネストしたループ"><a class="header" href="#ネストしたループ">ネストしたループ</a></h2>
 <p>リストの中にリストがある場合の処理：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 各生徒の科目別点数
   var allScores = [
     [80, 85, 90],  // 生徒1
@@ -5254,7 +5254,7 @@ void main() {
 </code></pre>
 <h2 id="whileループとリスト"><a class="header" href="#whileループとリスト">whileループとリスト</a></h2>
 <p>条件を満たす間、リストを処理する例：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var tasks = ['メール確認', '資料作成', '会議準備', '報告書作成'];
   
   print('今日のタスク:');

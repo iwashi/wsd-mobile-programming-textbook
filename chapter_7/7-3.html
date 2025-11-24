@@ -179,7 +179,7 @@
 <h2 id="要素の追加"><a class="header" href="#要素の追加">要素の追加</a></h2>
 <h3 id="addメソッド---末尾に追加"><a class="header" href="#addメソッド---末尾に追加">add()メソッド - 末尾に追加</a></h3>
 <p>最も基本的な追加方法は<code>add()</code>メソッドです。リストの最後に新しい要素を追加します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var todoList = ['宿題をする', '部屋を掃除する'];
   print('最初のリスト: $todoList');
   
@@ -194,7 +194,7 @@
 </code></pre>
 <h3 id="insertメソッド---指定位置に挿入"><a class="header" href="#insertメソッド---指定位置に挿入">insert()メソッド - 指定位置に挿入</a></h3>
 <p>特定の位置に要素を挿入したい場合は<code>insert()</code>を使います：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var fruits = ['りんご', 'バナナ', 'オレンジ'];
   print('最初: $fruits');
   
@@ -209,7 +209,7 @@
 </code></pre>
 <h3 id="addallメソッド---複数要素を一度に追加"><a class="header" href="#addallメソッド---複数要素を一度に追加">addAll()メソッド - 複数要素を一度に追加</a></h3>
 <p>複数の要素をまとめて追加する場合は<code>addAll()</code>を使います：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var numbers = [1, 2, 3];
   var moreNumbers = [4, 5, 6];
   
@@ -224,7 +224,7 @@
 <h2 id="要素の削除"><a class="header" href="#要素の削除">要素の削除</a></h2>
 <h3 id="removeメソッド---値を指定して削除"><a class="header" href="#removeメソッド---値を指定して削除">remove()メソッド - 値を指定して削除</a></h3>
 <p>特定の値を持つ要素を削除します（最初に見つかった要素のみ）：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var colors = ['赤', '青', '緑', '青', '黄'];
   print('最初: $colors');
   
@@ -239,7 +239,7 @@
 </code></pre>
 <h3 id="removeatメソッド---インデックスで削除"><a class="header" href="#removeatメソッド---インデックスで削除">removeAt()メソッド - インデックスで削除</a></h3>
 <p>特定の位置の要素を削除します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var animals = ['犬', '猫', '鳥', '魚', 'うさぎ'];
   print('最初: $animals');
   
@@ -254,7 +254,7 @@
 </code></pre>
 <h3 id="removelastメソッド---最後の要素を削除"><a class="header" href="#removelastメソッド---最後の要素を削除">removeLast()メソッド - 最後の要素を削除</a></h3>
 <p>リストの最後の要素を削除します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var stack = ['皿1', '皿2', '皿3', '皿4'];
   print('最初の積み重ね: $stack');
   
@@ -268,7 +268,7 @@
 </code></pre>
 <h3 id="clearメソッド---全要素を削除"><a class="header" href="#clearメソッド---全要素を削除">clear()メソッド - 全要素を削除</a></h3>
 <p>リストを空にします：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   var items = ['アイテム1', 'アイテム2', 'アイテム3'];
   print('削除前: $items');
   print('要素数: ${items.length}');
@@ -279,7 +279,7 @@
 }
 </code></pre>
 <h2 id="実践例買い物リストアプリ"><a class="header" href="#実践例買い物リストアプリ">実践例：買い物リストアプリ</a></h2>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 買い物リストを作成
   var shoppingList = ['牛乳', 'パン'];
   print('買い物リスト: $shoppingList');
