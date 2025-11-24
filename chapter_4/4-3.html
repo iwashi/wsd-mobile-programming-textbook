@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-834104f1.js";
+            window.path_to_searchindex_js = "../searchindex-30eb4032.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-cc584fa8.js"></script>
@@ -178,7 +178,7 @@
 <p>プログラムを実行している間、変数の値を変更する必要がある場面は多くあります。Dartでは変数の値を更新したり、計算結果で変数を更新したりする便利な方法が用意されています。</p>
 <h2 id="基本的な変数の更新"><a class="header" href="#基本的な変数の更新">基本的な変数の更新</a></h2>
 <p>変数に新しい値を代入することで、変数の値を変更できます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int score = 80;
   print('最初の点数: $score'); // 最初の点数: 80
   
@@ -187,7 +187,7 @@
 }
 </code></pre>
 <p>文字列変数の場合：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String status = '待機中';
   print('現在の状態: $status'); // 現在の状態: 待機中
   
@@ -198,7 +198,7 @@
 <h2 id="代入演算子を使った更新"><a class="header" href="#代入演算子を使った更新">代入演算子を使った更新</a></h2>
 <h3 id="複合代入演算子"><a class="header" href="#複合代入演算子">複合代入演算子</a></h3>
 <p>変数の現在の値を使って計算し、その結果を同じ変数に代入する場合、複合代入演算子が便利です：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int money = 1000;
   print('最初の所持金: $money円');
   
@@ -217,7 +217,7 @@
 </code></pre>
 <h3 id="文字列の複合代入"><a class="header" href="#文字列の複合代入">文字列の複合代入</a></h3>
 <p>文字列でも複合代入演算子を使用できます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String message = 'こんにちは';
   print(message); // こんにちは
   
@@ -229,7 +229,7 @@
 </code></pre>
 <h2 id="インクリメントデクリメント演算子"><a class="header" href="#インクリメントデクリメント演算子">インクリメント・デクリメント演算子</a></h2>
 <p>値を1増やしたり1減らしたりする場合の省略記法：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int counter = 5;
   print('カウンター: $counter'); // カウンター: 5
   
@@ -251,7 +251,7 @@
 </code></pre>
 <h2 id="const-と-final-について"><a class="header" href="#const-と-final-について">const と final について</a></h2>
 <p>値を変更できない変数もあります：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // final: 実行時に一度だけ値を設定
   final int maxRetries = 3;
   // maxRetries = 5; // エラー：変更できません

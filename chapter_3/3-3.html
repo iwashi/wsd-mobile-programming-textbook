@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-834104f1.js";
+            window.path_to_searchindex_js = "../searchindex-30eb4032.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-cc584fa8.js"></script>
@@ -178,7 +178,7 @@
 <p><strong>String型</strong>は文字列（テキスト）を扱うためのデータ型です。プログラムでは、名前やメッセージ、説明文など、文字の情報を扱う機会が非常に多くあります。</p>
 <h2 id="string型の基本"><a class="header" href="#string型の基本">String型の基本</a></h2>
 <p>文字列は引用符（<code>"</code>または<code>'</code>）で囲んで表現します。</p>
-<pre><code class="language-javascript">// String型の変数宣言
+<pre><code class="language-dart">// String型の変数宣言
 String name = "田中太郎";
 String message = "こんにちは、世界！";
 String empty = "";  // 空文字列
@@ -192,7 +192,7 @@ print(greeting); // 出力：おはようございます
 </code></pre>
 <h2 id="文字列の連結"><a class="header" href="#文字列の連結">文字列の連結</a></h2>
 <p>複数の文字列を結合することができます。</p>
-<pre><code class="language-javascript">String firstName = "太郎";
+<pre><code class="language-dart">String firstName = "太郎";
 String lastName = "田中";
 
 // + 演算子を使った連結
@@ -205,7 +205,7 @@ print(introduction); // 出力：私の名前は田中太郎です。
 </code></pre>
 <h2 id="文字列補間string-interpolation"><a class="header" href="#文字列補間string-interpolation">文字列補間（String Interpolation）</a></h2>
 <p><code>$</code>記号を使って、文字列の中に変数の値を埋め込むことができます。</p>
-<pre><code class="language-javascript">String name = "佐藤";
+<pre><code class="language-dart">String name = "佐藤";
 int age = 25;
 double height = 170.5;
 
@@ -223,7 +223,7 @@ print(info); // 出力：身長は170.5cmです。
 </code></pre>
 <h2 id="複数行文字列"><a class="header" href="#複数行文字列">複数行文字列</a></h2>
 <p>長い文字列や改行を含む文字列は、3つの引用符で囲みます。</p>
-<pre><code class="language-javascript">String multiLine = """
+<pre><code class="language-dart">String multiLine = """
 これは
 複数行の
 文字列です。
@@ -250,7 +250,7 @@ String htmlTemplate = """
 </code></pre>
 <h2 id="文字列のメソッド"><a class="header" href="#文字列のメソッド">文字列のメソッド</a></h2>
 <p>Stringには便利なメソッドが多数用意されています。</p>
-<pre><code class="language-javascript">String text = "Hello World";
+<pre><code class="language-dart">String text = "Hello World";
 
 // 基本情報
 print(text.length);        // 文字列の長さ：11
@@ -275,9 +275,9 @@ List&lt;String&gt; words = text.split(" ");
 print(words); // [Hello, World]
 </code></pre>
 <h2 id="日本語文字列の扱い"><a class="header" href="#日本語文字列の扱い">日本語文字列の扱い</a></h2>
-<pre><code class="language-javascript">String japanese = "こんにちは、世界！";
+<pre><code class="language-dart">String japanese = "こんにちは、世界！";
 
-print(japanese.length);     // 文字数：
+print(japanese.length);     // 文字数：9
 print(japanese.contains("世界")); // true
 
 // 日本語での文字列補間
@@ -291,7 +291,7 @@ print(mixed); // 出力：私の名前はタナカ太郎です。
 </code></pre>
 <h2 id="エスケープシーケンス"><a class="header" href="#エスケープシーケンス">エスケープシーケンス</a></h2>
 <p>特殊な文字を文字列に含める方法です。</p>
-<pre><code class="language-javascript">// 改行文字
+<pre><code class="language-dart">// 改行文字
 String withNewline = "1行目\n2行目";
 print(withNewline);
 // 出力：
@@ -311,7 +311,7 @@ String withBackslash = "ファイルパス: C:\\Users\\Documents";
 print(withBackslash); // 出力：ファイルパス: C:\Users\Documents
 </code></pre>
 <h2 id="実用的な例"><a class="header" href="#実用的な例">実用的な例</a></h2>
-<pre><code class="language-javascript">// ユーザー情報の表示
+<pre><code class="language-dart">// ユーザー情報の表示
 String userName = "山田花子";
 int userAge = 28;
 String userEmail = "hanako@example.com";
@@ -341,7 +341,7 @@ print(productInfo);
 <ol>
 <li>
 <p><strong>文字列補間を積極的に使用</strong>：</p>
-<pre><code class="language-javascript">// 良い例
+<pre><code class="language-dart">// 良い例
 String message = "こんにちは、${name}さん！";
 
 // あまり良くない例
@@ -350,7 +350,7 @@ String message = "こんにちは、" + name + "さん！";
 </li>
 <li>
 <p><strong>長い文字列は複数行文字列を使用</strong>：</p>
-<pre><code class="language-javascript">String longText = """
+<pre><code class="language-dart">String longText = """
 この文章は非常に長く、
 複数行にわたって書かれています。
 読みやすさを重視しています。

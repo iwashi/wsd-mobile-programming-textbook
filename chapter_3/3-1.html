@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-834104f1.js";
+            window.path_to_searchindex_js = "../searchindex-30eb4032.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-cc584fa8.js"></script>
@@ -185,7 +185,7 @@
 </ul>
 <h2 id="dartでの変数の宣言"><a class="header" href="#dartでの変数の宣言">Dartでの変数の宣言</a></h2>
 <p>Dartで変数を作成するには、いくつかの方法があります：</p>
-<pre><code class="language-javascript">// 方法1：型を明示して宣言
+<pre><code class="language-dart">// 方法1：型を明示して宣言
 int age = 25;
 String name = "太郎";
 
@@ -198,7 +198,7 @@ dynamic value = 42;
 value = "文字列に変更";  // 異なる型の値を代入可能
 </code></pre>
 <h2 id="変数の初期化と代入"><a class="header" href="#変数の初期化と代入">変数の初期化と代入</a></h2>
-<pre><code class="language-javascript">// 変数の宣言と初期化
+<pre><code class="language-dart">// 変数の宣言と初期化
 int count = 0;
 
 // 後から値を代入
@@ -214,7 +214,7 @@ print(count);  // 出力：15
 <li><strong>保守性の向上</strong>：値の変更が一箇所で済む</li>
 <li><strong>計算の中間結果保存</strong>：複雑な計算を段階的に実行</li>
 </ol>
-<pre><code class="language-javascript">// 変数を使わない場合（良くない例）
+<pre><code class="language-dart">// 変数を使わない場合（良くない例）
 print(3.14159 * 5 * 5);  // 円の面積
 
 // 変数を使う場合（良い例）

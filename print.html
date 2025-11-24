@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-834104f1.js";
+            window.path_to_searchindex_js = "searchindex-30eb4032.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-cc584fa8.js"></script>
@@ -2294,7 +2294,7 @@ print('条件が真です');
 </ul>
 <h2 id="dartでの変数の宣言"><a class="header" href="#dartでの変数の宣言">Dartでの変数の宣言</a></h2>
 <p>Dartで変数を作成するには、いくつかの方法があります：</p>
-<pre><code class="language-javascript">// 方法1：型を明示して宣言
+<pre><code class="language-dart">// 方法1：型を明示して宣言
 int age = 25;
 String name = "太郎";
 
@@ -2307,7 +2307,7 @@ dynamic value = 42;
 value = "文字列に変更";  // 異なる型の値を代入可能
 </code></pre>
 <h2 id="変数の初期化と代入"><a class="header" href="#変数の初期化と代入">変数の初期化と代入</a></h2>
-<pre><code class="language-javascript">// 変数の宣言と初期化
+<pre><code class="language-dart">// 変数の宣言と初期化
 int count = 0;
 
 // 後から値を代入
@@ -2323,7 +2323,7 @@ print(count);  // 出力：15
 <li><strong>保守性の向上</strong>：値の変更が一箇所で済む</li>
 <li><strong>計算の中間結果保存</strong>：複雑な計算を段階的に実行</li>
 </ol>
-<pre><code class="language-javascript">// 変数を使わない場合（良くない例）
+<pre><code class="language-dart">// 変数を使わない場合（良くない例）
 print(3.14159 * 5 * 5);  // 円の面積
 
 // 変数を使う場合（良い例）
@@ -2337,7 +2337,7 @@ print(area);  // 何を計算しているか明確
 <p>プログラミングにおいて、数値の扱いは基本的な操作の一つです。Dartでは主に2つの数値型を使います：<strong>int</strong>（整数）と<strong>double</strong>（小数）です。</p>
 <h2 id="int型整数"><a class="header" href="#int型整数">int型（整数）</a></h2>
 <p><strong>int型</strong>は整数（小数点のない数値）を扱います。</p>
-<pre><code class="language-javascript">// int型の変数宣言
+<pre><code class="language-dart">// int型の変数宣言
 int age = 25;
 int population = 1000000;
 int temperature = -5;  // 負の数も扱える
@@ -2347,7 +2347,7 @@ print(population); // 出力：1000000
 print(temperature); // 出力：-5
 </code></pre>
 <h3 id="int型の操作"><a class="header" href="#int型の操作">int型の操作</a></h3>
-<pre><code class="language-javascript">int a = 10;
+<pre><code class="language-dart">int a = 10;
 int b = 3;
 
 // 基本的な算術演算
@@ -2365,7 +2365,7 @@ print(count);
 </code></pre>
 <h2 id="double型小数"><a class="header" href="#double型小数">double型（小数）</a></h2>
 <p><strong>double型</strong>は小数点を含む数値を扱います。</p>
-<pre><code class="language-javascript">// double型の変数宣言
+<pre><code class="language-dart">// double型の変数宣言
 double price = 199.99;
 double pi = 3.14159;
 double rate = 0.05;  // 5%を表現
@@ -2375,7 +2375,7 @@ print(pi);    // 出力：3.14159
 print(rate);  // 出力：0.05
 </code></pre>
 <h3 id="double型の操作"><a class="header" href="#double型の操作">double型の操作</a></h3>
-<pre><code class="language-javascript">double x = 10.5;
+<pre><code class="language-dart">double x = 10.5;
 double y = 3.2;
 
 // 基本的な算術演算
@@ -2392,7 +2392,7 @@ print(value.ceil());      // 切り上げ：4
 </code></pre>
 <h2 id="型変換"><a class="header" href="#型変換">型変換</a></h2>
 <p>int型とdouble型を相互に変換できます。</p>
-<pre><code class="language-javascript">// intからdoubleへ
+<pre><code class="language-dart">// intからdoubleへ
 int intValue = 42;
 double doubleValue = intValue.toDouble();
 print(doubleValue); // 出力：42.0
@@ -2412,7 +2412,7 @@ double price2 = double.parse(priceString);
 print(price2); // 出力：199.99
 </code></pre>
 <h2 id="数値の型推論"><a class="header" href="#数値の型推論">数値の型推論</a></h2>
-<pre><code class="language-javascript">// varを使った場合の型推論
+<pre><code class="language-dart">// varを使った場合の型推論
 var wholeNumber = 42;      // int型として推論
 var decimalNumber = 42.5;  // double型として推論
 
@@ -2430,7 +2430,7 @@ print(decimalNumber.runtimeType); // 出力：double
 </li>
 <li>
 <p><strong>精度の問題</strong>：</p>
-<pre><code class="language-javascript">double result = 0.1 + 0.2;
+<pre><code class="language-dart">double result = 0.1 + 0.2;
 print(result); // 0.30000000000000004（期待値：0.3）
 </code></pre>
 </li>
@@ -2440,7 +2440,7 @@ print(result); // 0.30000000000000004（期待値：0.3）
 <p><strong>String型</strong>は文字列（テキスト）を扱うためのデータ型です。プログラムでは、名前やメッセージ、説明文など、文字の情報を扱う機会が非常に多くあります。</p>
 <h2 id="string型の基本"><a class="header" href="#string型の基本">String型の基本</a></h2>
 <p>文字列は引用符（<code>"</code>または<code>'</code>）で囲んで表現します。</p>
-<pre><code class="language-javascript">// String型の変数宣言
+<pre><code class="language-dart">// String型の変数宣言
 String name = "田中太郎";
 String message = "こんにちは、世界！";
 String empty = "";  // 空文字列
@@ -2454,7 +2454,7 @@ print(greeting); // 出力：おはようございます
 </code></pre>
 <h2 id="文字列の連結"><a class="header" href="#文字列の連結">文字列の連結</a></h2>
 <p>複数の文字列を結合することができます。</p>
-<pre><code class="language-javascript">String firstName = "太郎";
+<pre><code class="language-dart">String firstName = "太郎";
 String lastName = "田中";
 
 // + 演算子を使った連結
@@ -2467,7 +2467,7 @@ print(introduction); // 出力：私の名前は田中太郎です。
 </code></pre>
 <h2 id="文字列補間string-interpolation"><a class="header" href="#文字列補間string-interpolation">文字列補間（String Interpolation）</a></h2>
 <p><code>$</code>記号を使って、文字列の中に変数の値を埋め込むことができます。</p>
-<pre><code class="language-javascript">String name = "佐藤";
+<pre><code class="language-dart">String name = "佐藤";
 int age = 25;
 double height = 170.5;
 
@@ -2485,7 +2485,7 @@ print(info); // 出力：身長は170.5cmです。
 </code></pre>
 <h2 id="複数行文字列"><a class="header" href="#複数行文字列">複数行文字列</a></h2>
 <p>長い文字列や改行を含む文字列は、3つの引用符で囲みます。</p>
-<pre><code class="language-javascript">String multiLine = """
+<pre><code class="language-dart">String multiLine = """
 これは
 複数行の
 文字列です。
@@ -2512,7 +2512,7 @@ String htmlTemplate = """
 </code></pre>
 <h2 id="文字列のメソッド"><a class="header" href="#文字列のメソッド">文字列のメソッド</a></h2>
 <p>Stringには便利なメソッドが多数用意されています。</p>
-<pre><code class="language-javascript">String text = "Hello World";
+<pre><code class="language-dart">String text = "Hello World";
 
 // 基本情報
 print(text.length);        // 文字列の長さ：11
@@ -2537,9 +2537,9 @@ List&lt;String&gt; words = text.split(" ");
 print(words); // [Hello, World]
 </code></pre>
 <h2 id="日本語文字列の扱い"><a class="header" href="#日本語文字列の扱い">日本語文字列の扱い</a></h2>
-<pre><code class="language-javascript">String japanese = "こんにちは、世界！";
+<pre><code class="language-dart">String japanese = "こんにちは、世界！";
 
-print(japanese.length);     // 文字数：
+print(japanese.length);     // 文字数：9
 print(japanese.contains("世界")); // true
 
 // 日本語での文字列補間
@@ -2553,7 +2553,7 @@ print(mixed); // 出力：私の名前はタナカ太郎です。
 </code></pre>
 <h2 id="エスケープシーケンス"><a class="header" href="#エスケープシーケンス">エスケープシーケンス</a></h2>
 <p>特殊な文字を文字列に含める方法です。</p>
-<pre><code class="language-javascript">// 改行文字
+<pre><code class="language-dart">// 改行文字
 String withNewline = "1行目\n2行目";
 print(withNewline);
 // 出力：
@@ -2573,7 +2573,7 @@ String withBackslash = "ファイルパス: C:\\Users\\Documents";
 print(withBackslash); // 出力：ファイルパス: C:\Users\Documents
 </code></pre>
 <h2 id="実用的な例"><a class="header" href="#実用的な例">実用的な例</a></h2>
-<pre><code class="language-javascript">// ユーザー情報の表示
+<pre><code class="language-dart">// ユーザー情報の表示
 String userName = "山田花子";
 int userAge = 28;
 String userEmail = "hanako@example.com";
@@ -2603,7 +2603,7 @@ print(productInfo);
 <ol>
 <li>
 <p><strong>文字列補間を積極的に使用</strong>：</p>
-<pre><code class="language-javascript">// 良い例
+<pre><code class="language-dart">// 良い例
 String message = "こんにちは、${name}さん！";
 
 // あまり良くない例
@@ -2612,7 +2612,7 @@ String message = "こんにちは、" + name + "さん！";
 </li>
 <li>
 <p><strong>長い文字列は複数行文字列を使用</strong>：</p>
-<pre><code class="language-javascript">String longText = """
+<pre><code class="language-dart">String longText = """
 この文章は非常に長く、
 複数行にわたって書かれています。
 読みやすさを重視しています。
@@ -2625,7 +2625,7 @@ String message = "こんにちは、" + name + "さん！";
 <p><strong>bool型</strong>（ブール型）は、真（true）または偽（false）の2つの値のみを持つデータ型です。プログラムでの条件判断や状態管理において非常に重要な役割を果たします。</p>
 <h2 id="bool型の基本"><a class="header" href="#bool型の基本">bool型の基本</a></h2>
 <p>bool型の変数は<code>true</code>または<code>false</code>の値のみを格納できます。</p>
-<pre><code class="language-javascript">// bool型の変数宣言
+<pre><code class="language-dart">// bool型の変数宣言
 bool isActive = true;
 bool isComplete = false;
 bool hasError = true;
@@ -2640,7 +2640,7 @@ print(isReady.runtimeType); // 出力：bool
 </code></pre>
 <h2 id="比較演算子とbool値"><a class="header" href="#比較演算子とbool値">比較演算子とbool値</a></h2>
 <p>比較演算子を使うと、その結果としてbool値が得られます。</p>
-<pre><code class="language-javascript">int a = 10;
+<pre><code class="language-dart">int a = 10;
 int b = 5;
 
 // 等価比較
@@ -2661,7 +2661,7 @@ print(name1 != name2); // true
 </code></pre>
 <h2 id="論理演算子"><a class="header" href="#論理演算子">論理演算子</a></h2>
 <p>複数の条件を組み合わせる際に使用します。</p>
-<pre><code class="language-javascript">bool isSunny = true;
+<pre><code class="language-dart">bool isSunny = true;
 bool isWarm = false;
 bool hasUmbrella = true;
 
@@ -2678,7 +2678,7 @@ bool isRainy = !isSunny;
 print(isRainy); // false
 </code></pre>
 <h2 id="実用的な条件判断"><a class="header" href="#実用的な条件判断">実用的な条件判断</a></h2>
-<pre><code class="language-javascript">int age = 20;
+<pre><code class="language-dart">int age = 20;
 bool hasLicense = true;
 double accountBalance = 5000.0;
 
@@ -2700,7 +2700,7 @@ bool canBuyAndDrive = canBuy &amp;&amp; canDrive;
 print("購入して運転可能：$canBuyAndDrive"); // 購入して運転可能：true
 </code></pre>
 <h2 id="文字列やnullとの比較"><a class="header" href="#文字列やnullとの比較">文字列やnullとの比較</a></h2>
-<pre><code class="language-javascript">String input = "";
+<pre><code class="language-dart">String input = "";
 String? optionalValue = null;
 
 // 空文字列のチェック
@@ -2717,7 +2717,7 @@ print("nullでない：$isNotNull"); // nullでない：false
 </code></pre>
 <h2 id="bool値の活用例"><a class="header" href="#bool値の活用例">bool値の活用例</a></h2>
 <h3 id="設定管理"><a class="header" href="#設定管理">設定管理</a></h3>
-<pre><code class="language-javascript">// アプリケーション設定
+<pre><code class="language-dart">// アプリケーション設定
 bool isDarkMode = true;
 bool enableNotifications = false;
 bool autoSave = true;
@@ -2728,7 +2728,7 @@ print("通知：${enableNotifications ? "ON" : "OFF"}");
 print("自動保存：${autoSave ? "ON" : "OFF"}");
 </code></pre>
 <h3 id="バリデーション妥当性検証"><a class="header" href="#バリデーション妥当性検証">バリデーション（妥当性検証）</a></h3>
-<pre><code class="language-javascript">String email = "user@example.com";
+<pre><code class="language-dart">String email = "user@example.com";
 String password = "password123";
 
 // 簡単なバリデーション
@@ -2748,7 +2748,7 @@ print("フォーム有効：$isFormValid");
 </code></pre>
 <h2 id="三項演算子条件演算子"><a class="header" href="#三項演算子条件演算子">三項演算子（条件演算子）</a></h2>
 <p>bool値を使った簡潔な条件分岐ができます。</p>
-<pre><code class="language-javascript">int score = 85;
+<pre><code class="language-dart">int score = 85;
 bool isPassing = score &gt;= 60;
 
 // 三項演算子：条件 ? 真の場合の値 : 偽の場合の値
@@ -2759,7 +2759,7 @@ print("結果：$result");  // 結果：合格
 print("評価：$grade");   // 評価：B
 </code></pre>
 <h2 id="よくある間違いと注意点"><a class="header" href="#よくある間違いと注意点">よくある間違いと注意点</a></h2>
-<pre><code class="language-javascript">// 間違い：数値をboolとして使おうとする（Dartでは不可）
+<pre><code class="language-dart">// 間違い：数値をboolとして使おうとする（Dartでは不可）
 // int flag = 1;
 // if (flag) { ... }  // エラー！
 
@@ -2787,7 +2787,7 @@ if (isTrue) {
 <h2 id="dartの命名規則"><a class="header" href="#dartの命名規則">Dartの命名規則</a></h2>
 <h3 id="1-キャメルケースcamelcase"><a class="header" href="#1-キャメルケースcamelcase">1. キャメルケース（camelCase）</a></h3>
 <p>変数名や関数名には<strong>キャメルケース</strong>を使用します。</p>
-<pre><code class="language-javascript">// 良い例
+<pre><code class="language-dart">// 良い例
 String userName = "田中太郎";
 int userAge = 25;
 double accountBalance = 50000.0;
@@ -2804,7 +2804,7 @@ bool hasPermission = false;
 <li><strong>プライベート変数</strong>：アンダースコアで始める</li>
 <li><strong>定数</strong>：すべて大文字でアンダースコア区切り</li>
 </ul>
-<pre><code class="language-javascript">// プライベート変数（クラス内でのみ使用）
+<pre><code class="language-dart">// プライベート変数（クラス内でのみ使用）
 String _privateVariable = "内部用";
 int _internalCounter = 0;
 
@@ -2814,7 +2814,7 @@ const int MAX_RETRY_COUNT = 3;
 const double TAX_RATE = 0.10;
 </code></pre>
 <h3 id="3-使ってはいけない文字パターン"><a class="header" href="#3-使ってはいけない文字パターン">3. 使ってはいけない文字・パターン</a></h3>
-<pre><code class="language-javascript">// 間違った例
+<pre><code class="language-dart">// 間違った例
 // String user-name = "太郎";    // ハイフン不可
 // String user name = "太郎";    // スペース不可
 // int 123count = 0;            // 数字から始まる不可
@@ -2828,7 +2828,7 @@ String color = "赤";
 </code></pre>
 <h2 id="わかりやすい変数名の付け方"><a class="header" href="#わかりやすい変数名の付け方">わかりやすい変数名の付け方</a></h2>
 <h3 id="1-目的を明確に表現する"><a class="header" href="#1-目的を明確に表現する">1. 目的を明確に表現する</a></h3>
-<pre><code class="language-javascript">// 悪い例：何を表しているかわからない
+<pre><code class="language-dart">// 悪い例：何を表しているかわからない
 int x = 25;
 String s = "田中";
 bool f = true;
@@ -2839,7 +2839,7 @@ String customerName = "田中";
 bool isActiveUser = true;
 </code></pre>
 <h3 id="2-略語を避ける"><a class="header" href="#2-略語を避ける">2. 略語を避ける</a></h3>
-<pre><code class="language-javascript">// 悪い例：略語が多い
+<pre><code class="language-dart">// 悪い例：略語が多い
 String usr = "田中";
 int cnt = 0;
 bool flg = true;
@@ -2850,7 +2850,7 @@ int count = 0;
 bool isEnabled = true;
 </code></pre>
 <h3 id="3-文脈に応じた具体性"><a class="header" href="#3-文脈に応じた具体性">3. 文脈に応じた具体性</a></h3>
-<pre><code class="language-javascript">// 一般的すぎる例
+<pre><code class="language-dart">// 一般的すぎる例
 String data = "情報";
 int number = 42;
 
@@ -2860,7 +2860,7 @@ int orderQuantity = 42;
 </code></pre>
 <h2 id="データ型別の命名例"><a class="header" href="#データ型別の命名例">データ型別の命名例</a></h2>
 <h3 id="string型の変数"><a class="header" href="#string型の変数">String型の変数</a></h3>
-<pre><code class="language-javascript">// 名前関連
+<pre><code class="language-dart">// 名前関連
 String firstName = "太郎";
 String lastName = "田中";
 String fullName = "田中太郎";
@@ -2877,7 +2877,7 @@ String productCode = "PROD-001";
 String sessionToken = "abc123xyz";
 </code></pre>
 <h3 id="int型の変数"><a class="header" href="#int型の変数">int型の変数</a></h3>
-<pre><code class="language-javascript">// 個数・数量
+<pre><code class="language-dart">// 個数・数量
 int itemCount = 5;
 int totalQuantity = 100;
 int remainingStock = 25;
@@ -2893,7 +2893,7 @@ int experienceYears = 5;
 int timeoutSeconds = 60;
 </code></pre>
 <h3 id="double型の変数"><a class="header" href="#double型の変数">double型の変数</a></h3>
-<pre><code class="language-javascript">// 金額・価格
+<pre><code class="language-dart">// 金額・価格
 double productPrice = 1980.0;
 double totalAmount = 5940.0;
 double taxAmount = 594.0;
@@ -2909,7 +2909,7 @@ double completionRatio = 0.75;  // 75%
 </code></pre>
 <h3 id="bool型の変数"><a class="header" href="#bool型の変数">bool型の変数</a></h3>
 <p>bool型は「is」「has」「can」などの接頭語を使うと読みやすくなります。</p>
-<pre><code class="language-javascript">// is + 形容詞
+<pre><code class="language-dart">// is + 形容詞
 bool isActive = true;
 bool isVisible = false;
 bool isComplete = true;
@@ -2932,7 +2932,7 @@ bool isSelected = false;
 </code></pre>
 <h2 id="実用的な命名例"><a class="header" href="#実用的な命名例">実用的な命名例</a></h2>
 <h3 id="ユーザー管理システム"><a class="header" href="#ユーザー管理システム">ユーザー管理システム</a></h3>
-<pre><code class="language-javascript">// ユーザー基本情報
+<pre><code class="language-dart">// ユーザー基本情報
 String currentUserId = "user_12345";
 String currentUserName = "田中太郎";
 String currentUserEmail = "tanaka@example.com";
@@ -2954,7 +2954,7 @@ bool isPremiumMember = false;
 <li><strong>文脈</strong>：そのコードの文脈で適切な名前か？</li>
 </ol>
 <h2 id="よくある間違いと改善例"><a class="header" href="#よくある間違いと改善例">よくある間違いと改善例</a></h2>
-<pre><code class="language-javascript">// 間違い：意味が不明
+<pre><code class="language-dart">// 間違い：意味が不明
 int i = 0;
 String str = "データ";
 bool flag = true;
@@ -2984,7 +2984,7 @@ double amount = 1500.0;
 </code></pre>
 <h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
 <p>以下の悪い例を、良い変数名に変更してください：</p>
-<pre><code class="language-javascript">// 悪い例
+<pre><code class="language-dart">// 悪い例
 int x = 20;
 String s = "太郎";
 bool f = true;
@@ -2993,7 +2993,7 @@ int c = 5;
 
 // あなたの改善案を考えてください
 </code></pre>
-<pre><code class="language-javascript">// 解答例
+<pre><code class="language-dart">// 解答例
 int studentAge = 20;              // または userAge, personAge
 String studentName = "太郎";       // または firstName, userName
 bool isEnrolled = true;           // または isActive, isRegistered
@@ -3061,7 +3061,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <p>プログラミングでは、数学と同じように計算を行うことができます。Dartには基本的な算術演算子が用意されており、これらを使って様々な計算を実行できます。</p>
 <h2 id="基本的な算術演算子"><a class="header" href="#基本的な算術演算子">基本的な算術演算子</a></h2>
 <h3 id="足し算"><a class="header" href="#足し算">足し算（+）</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int a = 5;
   int b = 3;
   int sum = a + b;
@@ -3069,7 +3069,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 }
 </code></pre>
 <h3 id="引き算-"><a class="header" href="#引き算-">引き算（-）</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int x = 10;
   int y = 4;
   int difference = x - y;
@@ -3077,7 +3077,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 }
 </code></pre>
 <h3 id="掛け算"><a class="header" href="#掛け算">掛け算（*）</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int width = 6;
   int height = 4;
   int area = width * height;
@@ -3085,7 +3085,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 }
 </code></pre>
 <h3 id="割り算"><a class="header" href="#割り算">割り算（/）</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   double num1 = 15.0;
   double num2 = 4.0;
   double result = num1 / num2;
@@ -3094,7 +3094,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 </code></pre>
 <p><strong>注意</strong>: 割り算の結果は常に<code>double</code>型になります。整数同士の割り算でも小数点以下の値が返されます。</p>
 <h3 id="余りを求める"><a class="header" href="#余りを求める">余りを求める（%）</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int dividend = 17;
   int divisor = 5;
   int remainder = dividend % divisor;
@@ -3104,7 +3104,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <p>余り演算子（%）は、割り算の余りを求める演算子です。偶数・奇数の判定や、特定の間隔での処理などでよく使われます。</p>
 <h2 id="整数除算"><a class="header" href="#整数除算">整数除算（~/）</a></h2>
 <p>Dartには整数除算を行う特別な演算子もあります：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int a = 17;
   int b = 5;
   int quotient = a ~/ b; // 整数除算
@@ -3114,7 +3114,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="文字列と数値の変換"><a class="header" href="#文字列と数値の変換">文字列と数値の変換</a></h1>
 <p>文字列と数値を組み合わせる際の注意点：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String numText = '123';
   int number = int.parse(numText); // 文字列を整数に変換
   print('文字列「$numText」を数値に変換: $number');
@@ -3130,7 +3130,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <p>プログラムを実行している間、変数の値を変更する必要がある場面は多くあります。Dartでは変数の値を更新したり、計算結果で変数を更新したりする便利な方法が用意されています。</p>
 <h2 id="基本的な変数の更新"><a class="header" href="#基本的な変数の更新">基本的な変数の更新</a></h2>
 <p>変数に新しい値を代入することで、変数の値を変更できます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int score = 80;
   print('最初の点数: $score'); // 最初の点数: 80
   
@@ -3139,7 +3139,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 }
 </code></pre>
 <p>文字列変数の場合：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String status = '待機中';
   print('現在の状態: $status'); // 現在の状態: 待機中
   
@@ -3150,7 +3150,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <h2 id="代入演算子を使った更新"><a class="header" href="#代入演算子を使った更新">代入演算子を使った更新</a></h2>
 <h3 id="複合代入演算子"><a class="header" href="#複合代入演算子">複合代入演算子</a></h3>
 <p>変数の現在の値を使って計算し、その結果を同じ変数に代入する場合、複合代入演算子が便利です：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int money = 1000;
   print('最初の所持金: $money円');
   
@@ -3169,7 +3169,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 </code></pre>
 <h3 id="文字列の複合代入"><a class="header" href="#文字列の複合代入">文字列の複合代入</a></h3>
 <p>文字列でも複合代入演算子を使用できます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String message = 'こんにちは';
   print(message); // こんにちは
   
@@ -3181,7 +3181,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 </code></pre>
 <h2 id="インクリメントデクリメント演算子"><a class="header" href="#インクリメントデクリメント演算子">インクリメント・デクリメント演算子</a></h2>
 <p>値を1増やしたり1減らしたりする場合の省略記法：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int counter = 5;
   print('カウンター: $counter'); // カウンター: 5
   
@@ -3203,7 +3203,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 </code></pre>
 <h2 id="const-と-final-について"><a class="header" href="#const-と-final-について">const と final について</a></h2>
 <p>値を変更できない変数もあります：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // final: 実行時に一度だけ値を設定
   final int maxRetries = 3;
   // maxRetries = 5; // エラー：変更できません
@@ -3222,18 +3222,18 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <p>数学と同様に、プログラミングでも計算には決まった順番があります。演算子の優先順位を理解することで、期待通りの計算結果を得ることができます。</p>
 <h2 id="基本的な演算の優先順位"><a class="header" href="#基本的な演算の優先順位">基本的な演算の優先順位</a></h2>
 <p>数学の計算と同じルールが適用されます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 掛け算と割り算は足し算と引き算より先に実行される
   int result1 = 2 + 3 * 4;
   print('2 + 3 * 4 = $result1'); // 2 + 3 * 4 = 14 (3*4が先に計算される)
   
-  int result2 = 10 - 6 / 2;
+  double result2 = 10 - 6 / 2;
   print('10 - 6 / 2 = $result2'); // 10 - 6 / 2 = 7 (6/2が先に計算される)
 }
 </code></pre>
 <h2 id="括弧を使った優先順位の変更"><a class="header" href="#括弧を使った優先順位の変更">括弧を使った優先順位の変更</a></h2>
 <p>括弧を使うことで、計算の順序を明示的に指定できます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 括弧なし
   int result1 = 2 + 3 * 4;
   print('2 + 3 * 4 = $result1'); // 14
@@ -3249,7 +3249,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 </code></pre>
 <h2 id="実践的なアドバイス"><a class="header" href="#実践的なアドバイス">実践的なアドバイス</a></h2>
 <h3 id="1-読みやすさを優先する"><a class="header" href="#1-読みやすさを優先する">1. 読みやすさを優先する</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int a = 10, b = 5, c = 2;
   
   // 技術的には正しいが読みにくい
@@ -3262,7 +3262,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 }
 </code></pre>
 <h3 id="2-段階的な計算"><a class="header" href="#2-段階的な計算">2. 段階的な計算</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 複雑な計算は段階的に分ける
   double basePrice = 1200;
   double discountRate = 0.15;

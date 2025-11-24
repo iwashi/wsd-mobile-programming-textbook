@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-834104f1.js";
+            window.path_to_searchindex_js = "../searchindex-30eb4032.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-cc584fa8.js"></script>
@@ -178,7 +178,7 @@
 <p><strong>bool型</strong>（ブール型）は、真（true）または偽（false）の2つの値のみを持つデータ型です。プログラムでの条件判断や状態管理において非常に重要な役割を果たします。</p>
 <h2 id="bool型の基本"><a class="header" href="#bool型の基本">bool型の基本</a></h2>
 <p>bool型の変数は<code>true</code>または<code>false</code>の値のみを格納できます。</p>
-<pre><code class="language-javascript">// bool型の変数宣言
+<pre><code class="language-dart">// bool型の変数宣言
 bool isActive = true;
 bool isComplete = false;
 bool hasError = true;
@@ -193,7 +193,7 @@ print(isReady.runtimeType); // 出力：bool
 </code></pre>
 <h2 id="比較演算子とbool値"><a class="header" href="#比較演算子とbool値">比較演算子とbool値</a></h2>
 <p>比較演算子を使うと、その結果としてbool値が得られます。</p>
-<pre><code class="language-javascript">int a = 10;
+<pre><code class="language-dart">int a = 10;
 int b = 5;
 
 // 等価比較
@@ -214,7 +214,7 @@ print(name1 != name2); // true
 </code></pre>
 <h2 id="論理演算子"><a class="header" href="#論理演算子">論理演算子</a></h2>
 <p>複数の条件を組み合わせる際に使用します。</p>
-<pre><code class="language-javascript">bool isSunny = true;
+<pre><code class="language-dart">bool isSunny = true;
 bool isWarm = false;
 bool hasUmbrella = true;
 
@@ -231,7 +231,7 @@ bool isRainy = !isSunny;
 print(isRainy); // false
 </code></pre>
 <h2 id="実用的な条件判断"><a class="header" href="#実用的な条件判断">実用的な条件判断</a></h2>
-<pre><code class="language-javascript">int age = 20;
+<pre><code class="language-dart">int age = 20;
 bool hasLicense = true;
 double accountBalance = 5000.0;
 
@@ -253,7 +253,7 @@ bool canBuyAndDrive = canBuy &amp;&amp; canDrive;
 print("購入して運転可能：$canBuyAndDrive"); // 購入して運転可能：true
 </code></pre>
 <h2 id="文字列やnullとの比較"><a class="header" href="#文字列やnullとの比較">文字列やnullとの比較</a></h2>
-<pre><code class="language-javascript">String input = "";
+<pre><code class="language-dart">String input = "";
 String? optionalValue = null;
 
 // 空文字列のチェック
@@ -270,7 +270,7 @@ print("nullでない：$isNotNull"); // nullでない：false
 </code></pre>
 <h2 id="bool値の活用例"><a class="header" href="#bool値の活用例">bool値の活用例</a></h2>
 <h3 id="設定管理"><a class="header" href="#設定管理">設定管理</a></h3>
-<pre><code class="language-javascript">// アプリケーション設定
+<pre><code class="language-dart">// アプリケーション設定
 bool isDarkMode = true;
 bool enableNotifications = false;
 bool autoSave = true;
@@ -281,7 +281,7 @@ print("通知：${enableNotifications ? "ON" : "OFF"}");
 print("自動保存：${autoSave ? "ON" : "OFF"}");
 </code></pre>
 <h3 id="バリデーション妥当性検証"><a class="header" href="#バリデーション妥当性検証">バリデーション（妥当性検証）</a></h3>
-<pre><code class="language-javascript">String email = "user@example.com";
+<pre><code class="language-dart">String email = "user@example.com";
 String password = "password123";
 
 // 簡単なバリデーション
@@ -301,7 +301,7 @@ print("フォーム有効：$isFormValid");
 </code></pre>
 <h2 id="三項演算子条件演算子"><a class="header" href="#三項演算子条件演算子">三項演算子（条件演算子）</a></h2>
 <p>bool値を使った簡潔な条件分岐ができます。</p>
-<pre><code class="language-javascript">int score = 85;
+<pre><code class="language-dart">int score = 85;
 bool isPassing = score &gt;= 60;
 
 // 三項演算子：条件 ? 真の場合の値 : 偽の場合の値
@@ -312,7 +312,7 @@ print("結果：$result");  // 結果：合格
 print("評価：$grade");   // 評価：B
 </code></pre>
 <h2 id="よくある間違いと注意点"><a class="header" href="#よくある間違いと注意点">よくある間違いと注意点</a></h2>
-<pre><code class="language-javascript">// 間違い：数値をboolとして使おうとする（Dartでは不可）
+<pre><code class="language-dart">// 間違い：数値をboolとして使おうとする（Dartでは不可）
 // int flag = 1;
 // if (flag) { ... }  // エラー！
 

@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-834104f1.js";
+            window.path_to_searchindex_js = "../searchindex-30eb4032.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-cc584fa8.js"></script>
@@ -179,7 +179,7 @@
 <h2 id="dartの命名規則"><a class="header" href="#dartの命名規則">Dartの命名規則</a></h2>
 <h3 id="1-キャメルケースcamelcase"><a class="header" href="#1-キャメルケースcamelcase">1. キャメルケース（camelCase）</a></h3>
 <p>変数名や関数名には<strong>キャメルケース</strong>を使用します。</p>
-<pre><code class="language-javascript">// 良い例
+<pre><code class="language-dart">// 良い例
 String userName = "田中太郎";
 int userAge = 25;
 double accountBalance = 50000.0;
@@ -196,7 +196,7 @@ bool hasPermission = false;
 <li><strong>プライベート変数</strong>：アンダースコアで始める</li>
 <li><strong>定数</strong>：すべて大文字でアンダースコア区切り</li>
 </ul>
-<pre><code class="language-javascript">// プライベート変数（クラス内でのみ使用）
+<pre><code class="language-dart">// プライベート変数（クラス内でのみ使用）
 String _privateVariable = "内部用";
 int _internalCounter = 0;
 
@@ -206,7 +206,7 @@ const int MAX_RETRY_COUNT = 3;
 const double TAX_RATE = 0.10;
 </code></pre>
 <h3 id="3-使ってはいけない文字パターン"><a class="header" href="#3-使ってはいけない文字パターン">3. 使ってはいけない文字・パターン</a></h3>
-<pre><code class="language-javascript">// 間違った例
+<pre><code class="language-dart">// 間違った例
 // String user-name = "太郎";    // ハイフン不可
 // String user name = "太郎";    // スペース不可
 // int 123count = 0;            // 数字から始まる不可
@@ -220,7 +220,7 @@ String color = "赤";
 </code></pre>
 <h2 id="わかりやすい変数名の付け方"><a class="header" href="#わかりやすい変数名の付け方">わかりやすい変数名の付け方</a></h2>
 <h3 id="1-目的を明確に表現する"><a class="header" href="#1-目的を明確に表現する">1. 目的を明確に表現する</a></h3>
-<pre><code class="language-javascript">// 悪い例：何を表しているかわからない
+<pre><code class="language-dart">// 悪い例：何を表しているかわからない
 int x = 25;
 String s = "田中";
 bool f = true;
@@ -231,7 +231,7 @@ String customerName = "田中";
 bool isActiveUser = true;
 </code></pre>
 <h3 id="2-略語を避ける"><a class="header" href="#2-略語を避ける">2. 略語を避ける</a></h3>
-<pre><code class="language-javascript">// 悪い例：略語が多い
+<pre><code class="language-dart">// 悪い例：略語が多い
 String usr = "田中";
 int cnt = 0;
 bool flg = true;
@@ -242,7 +242,7 @@ int count = 0;
 bool isEnabled = true;
 </code></pre>
 <h3 id="3-文脈に応じた具体性"><a class="header" href="#3-文脈に応じた具体性">3. 文脈に応じた具体性</a></h3>
-<pre><code class="language-javascript">// 一般的すぎる例
+<pre><code class="language-dart">// 一般的すぎる例
 String data = "情報";
 int number = 42;
 
@@ -252,7 +252,7 @@ int orderQuantity = 42;
 </code></pre>
 <h2 id="データ型別の命名例"><a class="header" href="#データ型別の命名例">データ型別の命名例</a></h2>
 <h3 id="string型の変数"><a class="header" href="#string型の変数">String型の変数</a></h3>
-<pre><code class="language-javascript">// 名前関連
+<pre><code class="language-dart">// 名前関連
 String firstName = "太郎";
 String lastName = "田中";
 String fullName = "田中太郎";
@@ -269,7 +269,7 @@ String productCode = "PROD-001";
 String sessionToken = "abc123xyz";
 </code></pre>
 <h3 id="int型の変数"><a class="header" href="#int型の変数">int型の変数</a></h3>
-<pre><code class="language-javascript">// 個数・数量
+<pre><code class="language-dart">// 個数・数量
 int itemCount = 5;
 int totalQuantity = 100;
 int remainingStock = 25;
@@ -285,7 +285,7 @@ int experienceYears = 5;
 int timeoutSeconds = 60;
 </code></pre>
 <h3 id="double型の変数"><a class="header" href="#double型の変数">double型の変数</a></h3>
-<pre><code class="language-javascript">// 金額・価格
+<pre><code class="language-dart">// 金額・価格
 double productPrice = 1980.0;
 double totalAmount = 5940.0;
 double taxAmount = 594.0;
@@ -301,7 +301,7 @@ double completionRatio = 0.75;  // 75%
 </code></pre>
 <h3 id="bool型の変数"><a class="header" href="#bool型の変数">bool型の変数</a></h3>
 <p>bool型は「is」「has」「can」などの接頭語を使うと読みやすくなります。</p>
-<pre><code class="language-javascript">// is + 形容詞
+<pre><code class="language-dart">// is + 形容詞
 bool isActive = true;
 bool isVisible = false;
 bool isComplete = true;
@@ -324,7 +324,7 @@ bool isSelected = false;
 </code></pre>
 <h2 id="実用的な命名例"><a class="header" href="#実用的な命名例">実用的な命名例</a></h2>
 <h3 id="ユーザー管理システム"><a class="header" href="#ユーザー管理システム">ユーザー管理システム</a></h3>
-<pre><code class="language-javascript">// ユーザー基本情報
+<pre><code class="language-dart">// ユーザー基本情報
 String currentUserId = "user_12345";
 String currentUserName = "田中太郎";
 String currentUserEmail = "tanaka@example.com";
@@ -346,7 +346,7 @@ bool isPremiumMember = false;
 <li><strong>文脈</strong>：そのコードの文脈で適切な名前か？</li>
 </ol>
 <h2 id="よくある間違いと改善例"><a class="header" href="#よくある間違いと改善例">よくある間違いと改善例</a></h2>
-<pre><code class="language-javascript">// 間違い：意味が不明
+<pre><code class="language-dart">// 間違い：意味が不明
 int i = 0;
 String str = "データ";
 bool flag = true;
@@ -376,7 +376,7 @@ double amount = 1500.0;
 </code></pre>
 <h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
 <p>以下の悪い例を、良い変数名に変更してください：</p>
-<pre><code class="language-javascript">// 悪い例
+<pre><code class="language-dart">// 悪い例
 int x = 20;
 String s = "太郎";
 bool f = true;
@@ -385,7 +385,7 @@ int c = 5;
 
 // あなたの改善案を考えてください
 </code></pre>
-<pre><code class="language-javascript">// 解答例
+<pre><code class="language-dart">// 解答例
 int studentAge = 20;              // または userAge, personAge
 String studentName = "太郎";       // または firstName, userName
 bool isEnrolled = true;           // または isActive, isRegistered
