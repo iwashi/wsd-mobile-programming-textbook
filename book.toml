@@ -1,7 +1,7 @@
 [book]
-title = "Dartで学ぶプログラミング入門"
-authors = ["著者名"]
-description = "プログラミング初心者向けのDart言語入門書"
+title = "Dart入門"
+authors = ["iwashi"]
+description = "早稲田大学 人間科学部 プログラミングII（モバイルプログラミング） の教材として作成されたDart入門向けのWebテキスト"
 language = "ja"
 
 [build]
@@ -12,7 +12,7 @@ build-dir = "book"
 [output.html]
 default-theme = "light"
 preferred-dark-theme = "navy"
-git-repository-url = "https://github.com/yourusername/wsd_mobile_programming_textbook"
+git-repository-url = "https://github.com/iwashi/wsd_mobile_programming_textbook"
 additional-css = []
 additional-js = []
 no-section-label = false
