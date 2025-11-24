@@ -178,7 +178,7 @@
 <p>この節では、これまで学んだ関数の知識を活用して、コンピュータと対戦できるじゃんけんゲームを作ります。段階的に機能を追加していき、最終的には完全なゲームを完成させます。</p>
 <h2 id="ステップ1基本的なじゃんけんの判定"><a class="header" href="#ステップ1基本的なじゃんけんの判定">ステップ1：基本的なじゃんけんの判定</a></h2>
 <p>まず、じゃんけんの勝敗を判定する関数を作りましょう。</p>
-<pre><code class="language-javascript">// じゃんけんの手を数値で表現
+<pre><code class="language-dart">// じゃんけんの手を数値で表現
 // 0: グー、1: チョキ、2: パー
 
 String getHandName(int hand) {
@@ -227,7 +227,7 @@ void main() {
 </code></pre>
 <h2 id="ステップ2ランダムな手を生成"><a class="header" href="#ステップ2ランダムな手を生成">ステップ2：ランダムな手を生成</a></h2>
 <p>コンピュータがランダムに手を選ぶ機能を追加します。</p>
-<pre><code class="language-javascript">import 'dart:math';
+<pre><code class="language-dart">import 'dart:math';
 
 // じゃんけんの手を数値で表現
 // 0: グー、1: チョキ、2: パー
@@ -293,7 +293,7 @@ void main() {
 </code></pre>
 <h2 id="完成版じゃんけんゲーム"><a class="header" href="#完成版じゃんけんゲーム">完成版：じゃんけんゲーム</a></h2>
 <p>その他の機能を組み合わせた完成版です。</p>
-<pre><code class="language-javascript">import 'dart:math';
+<pre><code class="language-dart">import 'dart:math';
 
 // じゃんけんの手を管理
 String getHandName(int hand) {

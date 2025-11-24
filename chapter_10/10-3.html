@@ -180,7 +180,7 @@
 <h2 id="関数設計の基本原則"><a class="header" href="#関数設計の基本原則">関数設計の基本原則</a></h2>
 <h3 id="1-単一責任の原則"><a class="header" href="#1-単一責任の原則">1. 単一責任の原則</a></h3>
 <p>一つの関数は一つのことだけを行うべきです。</p>
-<pre><code class="language-javascript">// 悪い例：複数のことを行う関数
+<pre><code class="language-dart">// 悪い例：複数のことを行う関数
 void processUserData(String name, int age) {
   // 入力チェック
   if (name.isEmpty || age &lt; 0) {
@@ -228,7 +228,7 @@ void main() {
 </code></pre>
 <h3 id="2-わかりやすい関数名"><a class="header" href="#2-わかりやすい関数名">2. わかりやすい関数名</a></h3>
 <p>関数名は、その関数が何をするかを明確に表すべきです。</p>
-<pre><code class="language-javascript">// 悪い例：何をする関数かわからない
+<pre><code class="language-dart">// 悪い例：何をする関数かわからない
 double calc(double a, double b) {
   return a * b * 0.5;
 }
@@ -240,7 +240,7 @@ double calculateTriangleArea(double base, double height) {
 </code></pre>
 <h3 id="3-適切な関数の粒度"><a class="header" href="#3-適切な関数の粒度">3. 適切な関数の粒度</a></h3>
 <p>関数は小さすぎても大きすぎても使いにくくなります。</p>
-<pre><code class="language-javascript">// 成績評価システムの例
+<pre><code class="language-dart">// 成績評価システムの例
 String evaluateGrade(int score) {
   if (score &gt;= 90) return 'A';
   if (score &gt;= 80) return 'B';
@@ -267,7 +267,7 @@ void processStudentScore(String name, int score) {
 </code></pre>
 <h2 id="プログラムの構造化"><a class="header" href="#プログラムの構造化">プログラムの構造化</a></h2>
 <p>大きなプログラムを関数で構造化する例を見てみましょう。</p>
-<pre><code class="language-javascript">// 簡単な在庫管理システム
+<pre><code class="language-dart">// 簡単な在庫管理システム
 Map&lt;String, int&gt; inventory = {};
 
 // 商品を追加する関数
@@ -344,7 +344,7 @@ void main() {
 </code></pre>
 <h2 id="関数の再利用性を高める"><a class="header" href="#関数の再利用性を高める">関数の再利用性を高める</a></h2>
 <p>汎用的な関数を作ることで、様々な場面で再利用できます。</p>
-<pre><code class="language-javascript">// 汎用的な統計関数
+<pre><code class="language-dart">// 汎用的な統計関数
 double calculateAverage(List&lt;double&gt; numbers) {
   if (numbers.isEmpty) return 0;
   double sum = 0;

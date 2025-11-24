@@ -178,7 +178,7 @@
 <p>前節では複数の引数を持つ関数を学びました。しかし、すべての引数を毎回指定するのは面倒な場合があります。Dartでは、引数にデフォルト値を設定することで、オプション引数を作ることができます。</p>
 <h2 id="位置引数のデフォルト値"><a class="header" href="#位置引数のデフォルト値">位置引数のデフォルト値</a></h2>
 <p>角括弧 <code>[]</code> を使って、位置引数にデフォルト値を設定できます。</p>
-<pre><code class="language-javascript">// 挨拶をする関数（時間帯はオプション）
+<pre><code class="language-dart">// 挨拶をする関数（時間帯はオプション）
 String greet(String name, [String time = 'こんにちは']) {
   return '$time、$nameさん！';
 }
@@ -190,7 +190,7 @@ void main() {
 </code></pre>
 <h2 id="複数のオプション引数"><a class="header" href="#複数のオプション引数">複数のオプション引数</a></h2>
 <p>複数のオプション引数を設定することもできます。</p>
-<pre><code class="language-javascript">// 自己紹介文を作る関数
+<pre><code class="language-dart">// 自己紹介文を作る関数
 String introduce(String name, [int age = 0, String hobby = '読書']) {
   if (age == 0) {
     return '私は$nameです。趣味は$hobbyです。';
@@ -207,7 +207,7 @@ void main() {
 </code></pre>
 <h2 id="名前付き引数"><a class="header" href="#名前付き引数">名前付き引数</a></h2>
 <p>波括弧 <code>{}</code> を使って、名前付き引数を作ることができます。名前付き引数は順序を気にせずに指定できます。</p>
-<pre><code class="language-javascript">// 長方形を描画する関数
+<pre><code class="language-dart">// 長方形を描画する関数
 void drawRectangle({int width = 10, int height = 5, String char = '*'}) {
   for (int i = 0; i &lt; height; i++) {
     print(char * width);
@@ -227,7 +227,7 @@ void main() {
 </code></pre>
 <h2 id="必須の名前付き引数"><a class="header" href="#必須の名前付き引数">必須の名前付き引数</a></h2>
 <p><code>required</code> キーワードを使って、名前付き引数を必須にすることができます。</p>
-<pre><code class="language-javascript">// ユーザー情報を登録する関数
+<pre><code class="language-dart">// ユーザー情報を登録する関数
 void registerUser({
   required String name,
   required String email,

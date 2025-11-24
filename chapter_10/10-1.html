@@ -178,7 +178,7 @@
 <p>これまで、引数を1つだけ持つ関数を学んできました。しかし、実際のプログラミングでは、複数の情報を関数に渡したいことがよくあります。この節では、複数の引数を持つ関数の作り方と使い方を学びましょう。</p>
 <h2 id="複数の引数の基本"><a class="header" href="#複数の引数の基本">複数の引数の基本</a></h2>
 <p>関数は、カンマで区切ることで複数の引数を受け取ることができます。</p>
-<pre><code class="language-javascript">// 2つの数値を足し算する関数
+<pre><code class="language-dart">// 2つの数値を足し算する関数
 int add(int a, int b) {
   return a + b;
 }
@@ -190,7 +190,7 @@ void main() {
 </code></pre>
 <h2 id="異なる型の引数を組み合わせる"><a class="header" href="#異なる型の引数を組み合わせる">異なる型の引数を組み合わせる</a></h2>
 <p>引数は異なる型を混在させることもできます。</p>
-<pre><code class="language-javascript">// 名前と年齢を受け取って挨拶を返す関数
+<pre><code class="language-dart">// 名前と年齢を受け取って挨拶を返す関数
 String greeting(String name, int age) {
   return '$nameさん、$age歳ですね！';
 }
@@ -202,7 +202,7 @@ void main() {
 </code></pre>
 <h2 id="3つ以上の引数"><a class="header" href="#3つ以上の引数">3つ以上の引数</a></h2>
 <p>必要に応じて、3つ以上の引数を持つこともできます。</p>
-<pre><code class="language-javascript">// 長方形の体積を計算する関数
+<pre><code class="language-dart">// 長方形の体積を計算する関数
 double calculateVolume(double length, double width, double height) {
   return length * width * height;
 }
@@ -214,7 +214,7 @@ void main() {
 </code></pre>
 <h2 id="引数の順序の重要性"><a class="header" href="#引数の順序の重要性">引数の順序の重要性</a></h2>
 <p>複数の引数を持つ関数を呼び出すときは、引数の順序が重要です。</p>
-<pre><code class="language-javascript">// 引き算をする関数
+<pre><code class="language-dart">// 引き算をする関数
 int subtract(int a, int b) {
   return a - b;
 }
@@ -226,7 +226,7 @@ void main() {
 </code></pre>
 <h2 id="実践例bmi計算機"><a class="header" href="#実践例bmi計算機">実践例：BMI計算機</a></h2>
 <p>身長と体重からBMI（体格指数）を計算する関数を作ってみましょう。</p>
-<pre><code class="language-javascript">// BMIを計算する関数
+<pre><code class="language-dart">// BMIを計算する関数
 double calculateBMI(double height, double weight) {
   // 身長をメートルに変換（入力はcm）
   double heightInMeters = height / 100;

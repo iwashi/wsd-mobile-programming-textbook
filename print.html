@@ -6889,7 +6889,7 @@ void function2() {
 <p>これまで、引数を1つだけ持つ関数を学んできました。しかし、実際のプログラミングでは、複数の情報を関数に渡したいことがよくあります。この節では、複数の引数を持つ関数の作り方と使い方を学びましょう。</p>
 <h2 id="複数の引数の基本"><a class="header" href="#複数の引数の基本">複数の引数の基本</a></h2>
 <p>関数は、カンマで区切ることで複数の引数を受け取ることができます。</p>
-<pre><code class="language-javascript">// 2つの数値を足し算する関数
+<pre><code class="language-dart">// 2つの数値を足し算する関数
 int add(int a, int b) {
   return a + b;
 }
@@ -6901,7 +6901,7 @@ void main() {
 </code></pre>
 <h2 id="異なる型の引数を組み合わせる"><a class="header" href="#異なる型の引数を組み合わせる">異なる型の引数を組み合わせる</a></h2>
 <p>引数は異なる型を混在させることもできます。</p>
-<pre><code class="language-javascript">// 名前と年齢を受け取って挨拶を返す関数
+<pre><code class="language-dart">// 名前と年齢を受け取って挨拶を返す関数
 String greeting(String name, int age) {
   return '$nameさん、$age歳ですね！';
 }
@@ -6913,7 +6913,7 @@ void main() {
 </code></pre>
 <h2 id="3つ以上の引数"><a class="header" href="#3つ以上の引数">3つ以上の引数</a></h2>
 <p>必要に応じて、3つ以上の引数を持つこともできます。</p>
-<pre><code class="language-javascript">// 長方形の体積を計算する関数
+<pre><code class="language-dart">// 長方形の体積を計算する関数
 double calculateVolume(double length, double width, double height) {
   return length * width * height;
 }
@@ -6925,7 +6925,7 @@ void main() {
 </code></pre>
 <h2 id="引数の順序の重要性"><a class="header" href="#引数の順序の重要性">引数の順序の重要性</a></h2>
 <p>複数の引数を持つ関数を呼び出すときは、引数の順序が重要です。</p>
-<pre><code class="language-javascript">// 引き算をする関数
+<pre><code class="language-dart">// 引き算をする関数
 int subtract(int a, int b) {
   return a - b;
 }
@@ -6937,7 +6937,7 @@ void main() {
 </code></pre>
 <h2 id="実践例bmi計算機"><a class="header" href="#実践例bmi計算機">実践例：BMI計算機</a></h2>
 <p>身長と体重からBMI（体格指数）を計算する関数を作ってみましょう。</p>
-<pre><code class="language-javascript">// BMIを計算する関数
+<pre><code class="language-dart">// BMIを計算する関数
 double calculateBMI(double height, double weight) {
   // 身長をメートルに変換（入力はcm）
   double heightInMeters = height / 100;
@@ -6983,7 +6983,7 @@ void main() {
 <p>前節では複数の引数を持つ関数を学びました。しかし、すべての引数を毎回指定するのは面倒な場合があります。Dartでは、引数にデフォルト値を設定することで、オプション引数を作ることができます。</p>
 <h2 id="位置引数のデフォルト値"><a class="header" href="#位置引数のデフォルト値">位置引数のデフォルト値</a></h2>
 <p>角括弧 <code>[]</code> を使って、位置引数にデフォルト値を設定できます。</p>
-<pre><code class="language-javascript">// 挨拶をする関数（時間帯はオプション）
+<pre><code class="language-dart">// 挨拶をする関数（時間帯はオプション）
 String greet(String name, [String time = 'こんにちは']) {
   return '$time、$nameさん！';
 }
@@ -6995,7 +6995,7 @@ void main() {
 </code></pre>
 <h2 id="複数のオプション引数"><a class="header" href="#複数のオプション引数">複数のオプション引数</a></h2>
 <p>複数のオプション引数を設定することもできます。</p>
-<pre><code class="language-javascript">// 自己紹介文を作る関数
+<pre><code class="language-dart">// 自己紹介文を作る関数
 String introduce(String name, [int age = 0, String hobby = '読書']) {
   if (age == 0) {
     return '私は$nameです。趣味は$hobbyです。';
@@ -7012,7 +7012,7 @@ void main() {
 </code></pre>
 <h2 id="名前付き引数"><a class="header" href="#名前付き引数">名前付き引数</a></h2>
 <p>波括弧 <code>{}</code> を使って、名前付き引数を作ることができます。名前付き引数は順序を気にせずに指定できます。</p>
-<pre><code class="language-javascript">// 長方形を描画する関数
+<pre><code class="language-dart">// 長方形を描画する関数
 void drawRectangle({int width = 10, int height = 5, String char = '*'}) {
   for (int i = 0; i &lt; height; i++) {
     print(char * width);
@@ -7032,7 +7032,7 @@ void main() {
 </code></pre>
 <h2 id="必須の名前付き引数"><a class="header" href="#必須の名前付き引数">必須の名前付き引数</a></h2>
 <p><code>required</code> キーワードを使って、名前付き引数を必須にすることができます。</p>
-<pre><code class="language-javascript">// ユーザー情報を登録する関数
+<pre><code class="language-dart">// ユーザー情報を登録する関数
 void registerUser({
   required String name,
   required String email,
@@ -7074,7 +7074,7 @@ void main() {
 <h2 id="関数設計の基本原則"><a class="header" href="#関数設計の基本原則">関数設計の基本原則</a></h2>
 <h3 id="1-単一責任の原則"><a class="header" href="#1-単一責任の原則">1. 単一責任の原則</a></h3>
 <p>一つの関数は一つのことだけを行うべきです。</p>
-<pre><code class="language-javascript">// 悪い例：複数のことを行う関数
+<pre><code class="language-dart">// 悪い例：複数のことを行う関数
 void processUserData(String name, int age) {
   // 入力チェック
   if (name.isEmpty || age &lt; 0) {
@@ -7122,7 +7122,7 @@ void main() {
 </code></pre>
 <h3 id="2-わかりやすい関数名"><a class="header" href="#2-わかりやすい関数名">2. わかりやすい関数名</a></h3>
 <p>関数名は、その関数が何をするかを明確に表すべきです。</p>
-<pre><code class="language-javascript">// 悪い例：何をする関数かわからない
+<pre><code class="language-dart">// 悪い例：何をする関数かわからない
 double calc(double a, double b) {
   return a * b * 0.5;
 }
@@ -7134,7 +7134,7 @@ double calculateTriangleArea(double base, double height) {
 </code></pre>
 <h3 id="3-適切な関数の粒度"><a class="header" href="#3-適切な関数の粒度">3. 適切な関数の粒度</a></h3>
 <p>関数は小さすぎても大きすぎても使いにくくなります。</p>
-<pre><code class="language-javascript">// 成績評価システムの例
+<pre><code class="language-dart">// 成績評価システムの例
 String evaluateGrade(int score) {
   if (score &gt;= 90) return 'A';
   if (score &gt;= 80) return 'B';
@@ -7161,7 +7161,7 @@ void processStudentScore(String name, int score) {
 </code></pre>
 <h2 id="プログラムの構造化"><a class="header" href="#プログラムの構造化">プログラムの構造化</a></h2>
 <p>大きなプログラムを関数で構造化する例を見てみましょう。</p>
-<pre><code class="language-javascript">// 簡単な在庫管理システム
+<pre><code class="language-dart">// 簡単な在庫管理システム
 Map&lt;String, int&gt; inventory = {};
 
 // 商品を追加する関数
@@ -7238,7 +7238,7 @@ void main() {
 </code></pre>
 <h2 id="関数の再利用性を高める"><a class="header" href="#関数の再利用性を高める">関数の再利用性を高める</a></h2>
 <p>汎用的な関数を作ることで、様々な場面で再利用できます。</p>
-<pre><code class="language-javascript">// 汎用的な統計関数
+<pre><code class="language-dart">// 汎用的な統計関数
 double calculateAverage(List&lt;double&gt; numbers) {
   if (numbers.isEmpty) return 0;
   double sum = 0;
@@ -7305,7 +7305,7 @@ void main() {
 <p>この節では、これまで学んだ関数の知識を活用して、コンピュータと対戦できるじゃんけんゲームを作ります。段階的に機能を追加していき、最終的には完全なゲームを完成させます。</p>
 <h2 id="ステップ1基本的なじゃんけんの判定"><a class="header" href="#ステップ1基本的なじゃんけんの判定">ステップ1：基本的なじゃんけんの判定</a></h2>
 <p>まず、じゃんけんの勝敗を判定する関数を作りましょう。</p>
-<pre><code class="language-javascript">// じゃんけんの手を数値で表現
+<pre><code class="language-dart">// じゃんけんの手を数値で表現
 // 0: グー、1: チョキ、2: パー
 
 String getHandName(int hand) {
@@ -7354,7 +7354,7 @@ void main() {
 </code></pre>
 <h2 id="ステップ2ランダムな手を生成"><a class="header" href="#ステップ2ランダムな手を生成">ステップ2：ランダムな手を生成</a></h2>
 <p>コンピュータがランダムに手を選ぶ機能を追加します。</p>
-<pre><code class="language-javascript">import 'dart:math';
+<pre><code class="language-dart">import 'dart:math';
 
 // じゃんけんの手を数値で表現
 // 0: グー、1: チョキ、2: パー
@@ -7420,7 +7420,7 @@ void main() {
 </code></pre>
 <h2 id="完成版じゃんけんゲーム"><a class="header" href="#完成版じゃんけんゲーム">完成版：じゃんけんゲーム</a></h2>
 <p>その他の機能を組み合わせた完成版です。</p>
-<pre><code class="language-javascript">import 'dart:math';
+<pre><code class="language-dart">import 'dart:math';
 
 // じゃんけんの手を管理
 String getHandName(int hand) {
