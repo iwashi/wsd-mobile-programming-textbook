@@ -179,7 +179,7 @@
 <h2 id="無限ループとは"><a class="header" href="#無限ループとは">無限ループとは</a></h2>
 <p>無限ループは、ループの終了条件が永遠にfalseにならない（またはtrueのまま）状態です。プログラムが応答しなくなり、強制終了が必要になることがあります。</p>
 <h3 id="無限ループの例"><a class="header" href="#無限ループの例">無限ループの例</a></h3>
-<pre><code class="language-javascript">// 警告：実行しないでください！
+<pre><code class="language-dart">// 警告：実行しないでください！
 void main() {
   int i = 0;
   while (i &gt;= 0) {
@@ -191,7 +191,7 @@ void main() {
 <p>このプログラムは、iが0以上である限り続きます。iは増え続けるので、条件は永遠にtrueのままです。</p>
 <h2 id="無限ループが発生する主な原因"><a class="header" href="#無限ループが発生する主な原因">無限ループが発生する主な原因</a></h2>
 <h3 id="1-条件式の更新忘れ"><a class="header" href="#1-条件式の更新忘れ">1. 条件式の更新忘れ</a></h3>
-<pre><code class="language-javascript">// 悪い例：countが更新されない
+<pre><code class="language-dart">// 悪い例：countが更新されない
 void main() {
   int count = 0;
   while (count &lt; 10) {
@@ -201,7 +201,7 @@ void main() {
 }
 </code></pre>
 <h3 id="2-条件式の論理ミス"><a class="header" href="#2-条件式の論理ミス">2. 条件式の論理ミス</a></h3>
-<pre><code class="language-javascript">// 悪い例：条件が常にtrue
+<pre><code class="language-dart">// 悪い例：条件が常にtrue
 void main() {
   int x = 5;
   while (x != 10 || x != 20) {  // xが10でも20でもこの条件はtrue
@@ -211,10 +211,10 @@ void main() {
 }
 </code></pre>
 <p>正しくは <code>&amp;&amp;</code>（かつ）を使うべきです：</p>
-<pre><code class="language-javascript">while (x != 10 &amp;&amp; x != 20) {  // xが10または20になったら終了
+<pre><code class="language-dart">while (x != 10 &amp;&amp; x != 20) {  // xが10または20になったら終了
 </code></pre>
 <h3 id="3-更新の方向が間違っている"><a class="header" href="#3-更新の方向が間違っている">3. 更新の方向が間違っている</a></h3>
-<pre><code class="language-javascript">// 悪い例：減らすべきところを増やしている
+<pre><code class="language-dart">// 悪い例：減らすべきところを増やしている
 void main() {
   int countdown = 10;
   while (countdown &gt; 0) {
@@ -226,7 +226,7 @@ void main() {
 <h2 id="無限ループの検出と対処"><a class="header" href="#無限ループの検出と対処">無限ループの検出と対処</a></h2>
 <h3 id="デバッグ用の出力を追加"><a class="header" href="#デバッグ用の出力を追加">デバッグ用の出力を追加</a></h3>
 <p>ループが正しく動作しているか確認するため、カウンタや変数の値を出力します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int i = 0;
   int loopCount = 0;
   
@@ -246,7 +246,7 @@ void main() {
 </code></pre>
 <h3 id="安全な無限ループの作り方"><a class="header" href="#安全な無限ループの作り方">安全な無限ループの作り方</a></h3>
 <p>意図的に無限ループを作る場合は、必ず脱出条件を用意します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // メニュー選択の例
   while (true) {  // 意図的な無限ループ
     print('\nメニュー:');
@@ -270,7 +270,7 @@ void main() {
 </code></pre>
 <h2 id="無限ループを防ぐためのプラクティス"><a class="header" href="#無限ループを防ぐためのプラクティス">無限ループを防ぐためのプラクティス</a></h2>
 <h3 id="1-ループカウンタを使う"><a class="header" href="#1-ループカウンタを使う">1. ループカウンタを使う</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int maxIterations = 100;
   int iterations = 0;
   double value = 1.0;
@@ -292,7 +292,7 @@ void main() {
 }
 </code></pre>
 <h3 id="2-明確な終了条件を設定"><a class="header" href="#2-明確な終了条件を設定">2. 明確な終了条件を設定</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 良い例：明確な終了条件
   List&lt;int&gt; numbers = [1, 5, 3, 8, 2];
   int index = 0;

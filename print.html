@@ -4034,7 +4034,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <p>プログラミングをしていると、同じような処理を何度も実行したい場面によく出会います。例えば、1から10までの数字を画面に表示したいときを考えてみましょう。</p>
 <h2 id="繰り返し処理がない場合"><a class="header" href="#繰り返し処理がない場合">繰り返し処理がない場合</a></h2>
 <p>まず、繰り返し処理を使わずに1から10までの数字を表示するプログラムを見てみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print(1);
   print(2);
   print(3);
@@ -4055,7 +4055,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 </ol>
 <h2 id="繰り返し処理の必要性"><a class="header" href="#繰り返し処理の必要性">繰り返し処理の必要性</a></h2>
 <p>このような問題を解決するために、プログラミング言語には「繰り返し処理（ループ）」という機能があります。繰り返し処理を使うと、同じ処理を指定した回数だけ、あるいは特定の条件を満たすまで自動的に繰り返すことができます。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // for文を使って1から10まで表示
   for (int i = 1; i &lt;= 10; i++) {
     print(i);
@@ -4066,7 +4066,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <h2 id="繰り返し処理が役立つ場面"><a class="header" href="#繰り返し処理が役立つ場面">繰り返し処理が役立つ場面</a></h2>
 <p>日常生活やプログラミングで繰り返し処理が役立つ場面は数多くあります：</p>
 <h3 id="1-データの集計"><a class="header" href="#1-データの集計">1. データの集計</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 1から100までの合計を計算
   int sum = 0;
   for (int i = 1; i &lt;= 100; i++) {
@@ -4076,7 +4076,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 }
 </code></pre>
 <h3 id="2-パターンの生成"><a class="header" href="#2-パターンの生成">2. パターンの生成</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 星のパターンを作る
   for (int i = 1; i &lt;= 5; i++) {
     print('*' * i);
@@ -4110,7 +4110,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <p>for文は、プログラミングで最もよく使われる繰り返し処理の一つです。決まった回数だけ処理を繰り返したいときに特に便利です。</p>
 <h2 id="for文の構造"><a class="header" href="#for文の構造">for文の構造</a></h2>
 <p>for文は以下のような構造をしています：</p>
-<pre><code class="language-javascript">for (初期化; 条件式; 更新式) {
+<pre><code class="language-dart">for (初期化; 条件式; 更新式) {
   // 繰り返し実行したい処理
 }
 </code></pre>
@@ -4122,7 +4122,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 </ol>
 <h2 id="基本的な例-1"><a class="header" href="#基本的な例-1">基本的な例</a></h2>
 <p>最も基本的なfor文の例を見てみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 0から4まで（5回）繰り返す
   for (int i = 0; i &lt; 5; i++) {
     print('現在のiの値: $i');
@@ -4146,7 +4146,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 </ol>
 <h2 id="さまざまなfor文の書き方"><a class="header" href="#さまざまなfor文の書き方">さまざまなfor文の書き方</a></h2>
 <h3 id="1から始める場合"><a class="header" href="#1から始める場合">1から始める場合</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 1から10まで表示
   for (int i = 1; i &lt;= 10; i++) {
     print(i);
@@ -4154,7 +4154,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 }
 </code></pre>
 <h3 id="2ずつ増やす場合"><a class="header" href="#2ずつ増やす場合">2ずつ増やす場合</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 偶数だけを表示（0, 2, 4, 6, 8）
   for (int i = 0; i &lt; 10; i += 2) {
     print(i);
@@ -4162,7 +4162,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 }
 </code></pre>
 <h3 id="カウントダウン"><a class="header" href="#カウントダウン">カウントダウン</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 10から1までカウントダウン
   for (int i = 10; i &gt;= 1; i--) {
     print('$i...');
@@ -4172,7 +4172,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 </code></pre>
 <h2 id="インデックスと値の活用"><a class="header" href="#インデックスと値の活用">インデックスと値の活用</a></h2>
 <p>for文では、カウンタ変数（通常はi）を使って、さまざまな計算や処理ができます。以下はリストの例であり、リストの利用方法は7章で扱います。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 配列のようなデータ構造と組み合わせる例
   List&lt;String&gt; fruits = ['りんご', 'バナナ', 'オレンジ'];
   
@@ -4188,7 +4188,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 </code></pre>
 <h2 id="ネスト入れ子のfor文"><a class="header" href="#ネスト入れ子のfor文">ネスト（入れ子）のfor文</a></h2>
 <p>for文の中に別のfor文を入れることもできます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 掛け算の表を作る（3×3）
   for (int i = 1; i &lt;= 3; i++) {
     for (int j = 1; j &lt;= 3; j++) {
@@ -4201,7 +4201,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 </code></pre>
 <h2 id="for文を使った実用的な例"><a class="header" href="#for文を使った実用的な例">for文を使った実用的な例</a></h2>
 <h3 id="合計値の計算"><a class="header" href="#合計値の計算">合計値の計算</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int sum = 0;
   
   // 1から10までの合計を計算
@@ -4213,7 +4213,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 }
 </code></pre>
 <h3 id="文字列の繰り返し"><a class="header" href="#文字列の繰り返し">文字列の繰り返し</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String star = '';
   
   // 星を5個並べる
@@ -4232,13 +4232,13 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 </code></pre>
 <h2 id="for文を使う際の注意点"><a class="header" href="#for文を使う際の注意点">for文を使う際の注意点</a></h2>
 <h3 id="1-無限ループに注意"><a class="header" href="#1-無限ループに注意">1. 無限ループに注意</a></h3>
-<pre><code class="language-javascript">// 危険な例（実行しないでください）
+<pre><code class="language-dart">// 危険な例（実行しないでください）
 // for (int i = 0; i &gt;= 0; i++) {
 //   print(i);  // iは増え続けるので、永遠に終わらない
 // }
 </code></pre>
 <h3 id="2-境界値に注意"><a class="header" href="#2-境界値に注意">2. 境界値に注意</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 注意：&lt;= と &lt; の違い
   print('5回繰り返す（i &lt; 5）:');
   for (int i = 0; i &lt; 5; i++) {
@@ -4265,14 +4265,14 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <p>while文は、for文と並んでよく使われる繰り返し処理の構文です。特定の条件が満たされている間、処理を繰り返し続けたいときに使います。</p>
 <h2 id="while文の基本構造"><a class="header" href="#while文の基本構造">while文の基本構造</a></h2>
 <p>while文の基本的な構造は以下のとおりです：</p>
-<pre><code class="language-javascript">while (条件式) {
+<pre><code class="language-dart">while (条件式) {
   // 条件式がtrueの間、繰り返される処理
 }
 </code></pre>
 <p>条件式がtrueである限り、中括弧内の処理が繰り返し実行されます。</p>
 <h2 id="基本的な例-2"><a class="header" href="#基本的な例-2">基本的な例</a></h2>
 <p>まずは簡単な例から見ていきましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int count = 0;
   
   while (count &lt; 5) {
@@ -4300,7 +4300,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 </ol>
 <h2 id="for文との違い"><a class="header" href="#for文との違い">for文との違い</a></h2>
 <p>同じ処理をfor文とwhile文で書いてみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // for文の場合
   print('for文:');
   for (int i = 0; i &lt; 3; i++) {
@@ -4319,7 +4319,7 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <p>while文は、初期化と更新を自分で管理する必要があります。これにより、より柔軟な制御が可能になります。</p>
 <h2 id="while文が適している場面"><a class="header" href="#while文が適している場面">while文が適している場面</a></h2>
 <h3 id="1-繰り返し回数が事前にわからない場合"><a class="header" href="#1-繰り返し回数が事前にわからない場合">1. 繰り返し回数が事前にわからない場合</a></h3>
-<pre><code class="language-javascript">import 'dart:math';
+<pre><code class="language-dart">import 'dart:math';
 
 void main() {
   // ランダムに6が出るまでサイコロを振る
@@ -4337,7 +4337,7 @@ void main() {
 }
 </code></pre>
 <h3 id="2-ユーザーの入力を待つ場合"><a class="header" href="#2-ユーザーの入力を待つ場合">2. ユーザーの入力を待つ場合</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 簡単なゲームの例（実際の入力処理は簡略化）
   int playerHP = 100;
   int enemyHP = 50;
@@ -4368,7 +4368,7 @@ void main() {
 </code></pre>
 <h2 id="do-while文"><a class="header" href="#do-while文">do-while文</a></h2>
 <p>Dartには、少なくとも1回は処理を実行してから条件を確認する<code>do-while文</code>もあります：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int num = 10;
   
   // 通常のwhile文（条件が最初からfalseなので実行されない）
@@ -4389,7 +4389,7 @@ void main() {
 </code></pre>
 <h2 id="実用的な例-2"><a class="header" href="#実用的な例-2">実用的な例</a></h2>
 <h3 id="カウントダウンタイマー"><a class="header" href="#カウントダウンタイマー">カウントダウンタイマー</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int seconds = 10;
   
   print('カウントダウン開始！');
@@ -4406,7 +4406,7 @@ void main() {
 }
 </code></pre>
 <h3 id="数値の桁数を数える"><a class="header" href="#数値の桁数を数える">数値の桁数を数える</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int number = 12345;
   int temp = number;
   int digitCount = 0;
@@ -4420,7 +4420,7 @@ void main() {
 }
 </code></pre>
 <h3 id="合計が目標値を超えるまで加算"><a class="header" href="#合計が目標値を超えるまで加算">合計が目標値を超えるまで加算</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int sum = 0;
   int count = 1;
   int target = 100;
@@ -4436,7 +4436,7 @@ void main() {
 </code></pre>
 <h2 id="while文使用時の注意点"><a class="header" href="#while文使用時の注意点">while文使用時の注意点</a></h2>
 <h3 id="1-条件式の更新を忘れない"><a class="header" href="#1-条件式の更新を忘れない">1. 条件式の更新を忘れない</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int x = 0;
   
   // 良い例：xが更新される
@@ -4448,7 +4448,7 @@ void main() {
 </code></pre>
 <h3 id="2-breakとcontinue"><a class="header" href="#2-breakとcontinue">2. breakとcontinue</a></h3>
 <p><code>break</code>と<code>continue</code>が使えます。（これは、for文でも使えます。）</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int num = 0;
   
   while (true) {  // 無限ループ
@@ -4488,7 +4488,7 @@ void main() {
 <h2 id="無限ループとは"><a class="header" href="#無限ループとは">無限ループとは</a></h2>
 <p>無限ループは、ループの終了条件が永遠にfalseにならない（またはtrueのまま）状態です。プログラムが応答しなくなり、強制終了が必要になることがあります。</p>
 <h3 id="無限ループの例"><a class="header" href="#無限ループの例">無限ループの例</a></h3>
-<pre><code class="language-javascript">// 警告：実行しないでください！
+<pre><code class="language-dart">// 警告：実行しないでください！
 void main() {
   int i = 0;
   while (i &gt;= 0) {
@@ -4500,7 +4500,7 @@ void main() {
 <p>このプログラムは、iが0以上である限り続きます。iは増え続けるので、条件は永遠にtrueのままです。</p>
 <h2 id="無限ループが発生する主な原因"><a class="header" href="#無限ループが発生する主な原因">無限ループが発生する主な原因</a></h2>
 <h3 id="1-条件式の更新忘れ"><a class="header" href="#1-条件式の更新忘れ">1. 条件式の更新忘れ</a></h3>
-<pre><code class="language-javascript">// 悪い例：countが更新されない
+<pre><code class="language-dart">// 悪い例：countが更新されない
 void main() {
   int count = 0;
   while (count &lt; 10) {
@@ -4510,7 +4510,7 @@ void main() {
 }
 </code></pre>
 <h3 id="2-条件式の論理ミス"><a class="header" href="#2-条件式の論理ミス">2. 条件式の論理ミス</a></h3>
-<pre><code class="language-javascript">// 悪い例：条件が常にtrue
+<pre><code class="language-dart">// 悪い例：条件が常にtrue
 void main() {
   int x = 5;
   while (x != 10 || x != 20) {  // xが10でも20でもこの条件はtrue
@@ -4520,10 +4520,10 @@ void main() {
 }
 </code></pre>
 <p>正しくは <code>&amp;&amp;</code>（かつ）を使うべきです：</p>
-<pre><code class="language-javascript">while (x != 10 &amp;&amp; x != 20) {  // xが10または20になったら終了
+<pre><code class="language-dart">while (x != 10 &amp;&amp; x != 20) {  // xが10または20になったら終了
 </code></pre>
 <h3 id="3-更新の方向が間違っている"><a class="header" href="#3-更新の方向が間違っている">3. 更新の方向が間違っている</a></h3>
-<pre><code class="language-javascript">// 悪い例：減らすべきところを増やしている
+<pre><code class="language-dart">// 悪い例：減らすべきところを増やしている
 void main() {
   int countdown = 10;
   while (countdown &gt; 0) {
@@ -4535,7 +4535,7 @@ void main() {
 <h2 id="無限ループの検出と対処"><a class="header" href="#無限ループの検出と対処">無限ループの検出と対処</a></h2>
 <h3 id="デバッグ用の出力を追加"><a class="header" href="#デバッグ用の出力を追加">デバッグ用の出力を追加</a></h3>
 <p>ループが正しく動作しているか確認するため、カウンタや変数の値を出力します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int i = 0;
   int loopCount = 0;
   
@@ -4555,7 +4555,7 @@ void main() {
 </code></pre>
 <h3 id="安全な無限ループの作り方"><a class="header" href="#安全な無限ループの作り方">安全な無限ループの作り方</a></h3>
 <p>意図的に無限ループを作る場合は、必ず脱出条件を用意します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // メニュー選択の例
   while (true) {  // 意図的な無限ループ
     print('\nメニュー:');
@@ -4579,7 +4579,7 @@ void main() {
 </code></pre>
 <h2 id="無限ループを防ぐためのプラクティス"><a class="header" href="#無限ループを防ぐためのプラクティス">無限ループを防ぐためのプラクティス</a></h2>
 <h3 id="1-ループカウンタを使う"><a class="header" href="#1-ループカウンタを使う">1. ループカウンタを使う</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int maxIterations = 100;
   int iterations = 0;
   double value = 1.0;
@@ -4601,7 +4601,7 @@ void main() {
 }
 </code></pre>
 <h3 id="2-明確な終了条件を設定"><a class="header" href="#2-明確な終了条件を設定">2. 明確な終了条件を設定</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 良い例：明確な終了条件
   List&lt;int&gt; numbers = [1, 5, 3, 8, 2];
   int index = 0;
@@ -4634,7 +4634,7 @@ void main() {
 <p>これまで学んだfor文とwhile文の知識を活用して、九九の表を作成するプログラムを作ってみましょう。段階的に機能を追加していき、最終的に見やすい九九の表を完成させます。</p>
 <h2 id="ステップ1基本的な九九の表示"><a class="header" href="#ステップ1基本的な九九の表示">ステップ1：基本的な九九の表示</a></h2>
 <p>まずは、特定の段の九九を表示するプログラムから始めましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 3の段を表示
   int dan = 3;
   
@@ -4657,7 +4657,7 @@ void main() {
 </code></pre>
 <h2 id="ステップ2すべての段を表示"><a class="header" href="#ステップ2すべての段を表示">ステップ2：すべての段を表示</a></h2>
 <p>次に、ネスト（入れ子）のfor文を使って、1から9までのすべての段を表示します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 1から9の段まですべて表示
   for (int dan = 1; dan &lt;= 9; dan++) {
     print('\n【${dan}の段】');
@@ -4671,7 +4671,7 @@ void main() {
 </code></pre>
 <h2 id="ステップ3横に並べて表示"><a class="header" href="#ステップ3横に並べて表示">ステップ3：横に並べて表示</a></h2>
 <p>九九の表をより見やすくするため、横に並べて表示してみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 各段を横一列に表示
   for (int dan = 1; dan &lt;= 9; dan++) {
     String line = '';
@@ -4703,7 +4703,7 @@ void main() {
 </code></pre>
 <h2 id="ステップ4表形式で表示"><a class="header" href="#ステップ4表形式で表示">ステップ4：表形式で表示</a></h2>
 <p>より本格的な九九の表を作成します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // ヘッダー行を表示
   print('    |  1  2  3  4  5  6  7  8  9');
   print('----+----------------------------');
@@ -4744,7 +4744,7 @@ void main() {
 </code></pre>
 <h2 id="while文を使った九九"><a class="header" href="#while文を使った九九">while文を使った九九</a></h2>
 <p>for文の代わりにwhile文を使っても九九の表を作れます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int dan = 1;
   
   while (dan &lt;= 9) {

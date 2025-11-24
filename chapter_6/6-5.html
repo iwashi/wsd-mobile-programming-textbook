@@ -178,7 +178,7 @@
 <p>これまで学んだfor文とwhile文の知識を活用して、九九の表を作成するプログラムを作ってみましょう。段階的に機能を追加していき、最終的に見やすい九九の表を完成させます。</p>
 <h2 id="ステップ1基本的な九九の表示"><a class="header" href="#ステップ1基本的な九九の表示">ステップ1：基本的な九九の表示</a></h2>
 <p>まずは、特定の段の九九を表示するプログラムから始めましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 3の段を表示
   int dan = 3;
   
@@ -201,7 +201,7 @@
 </code></pre>
 <h2 id="ステップ2すべての段を表示"><a class="header" href="#ステップ2すべての段を表示">ステップ2：すべての段を表示</a></h2>
 <p>次に、ネスト（入れ子）のfor文を使って、1から9までのすべての段を表示します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 1から9の段まですべて表示
   for (int dan = 1; dan &lt;= 9; dan++) {
     print('\n【${dan}の段】');
@@ -215,7 +215,7 @@
 </code></pre>
 <h2 id="ステップ3横に並べて表示"><a class="header" href="#ステップ3横に並べて表示">ステップ3：横に並べて表示</a></h2>
 <p>九九の表をより見やすくするため、横に並べて表示してみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 各段を横一列に表示
   for (int dan = 1; dan &lt;= 9; dan++) {
     String line = '';
@@ -247,7 +247,7 @@
 </code></pre>
 <h2 id="ステップ4表形式で表示"><a class="header" href="#ステップ4表形式で表示">ステップ4：表形式で表示</a></h2>
 <p>より本格的な九九の表を作成します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // ヘッダー行を表示
   print('    |  1  2  3  4  5  6  7  8  9');
   print('----+----------------------------');
@@ -288,7 +288,7 @@
 </code></pre>
 <h2 id="while文を使った九九"><a class="header" href="#while文を使った九九">while文を使った九九</a></h2>
 <p>for文の代わりにwhile文を使っても九九の表を作れます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int dan = 1;
   
   while (dan &lt;= 9) {

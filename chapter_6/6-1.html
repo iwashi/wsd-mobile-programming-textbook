@@ -178,7 +178,7 @@
 <p>プログラミングをしていると、同じような処理を何度も実行したい場面によく出会います。例えば、1から10までの数字を画面に表示したいときを考えてみましょう。</p>
 <h2 id="繰り返し処理がない場合"><a class="header" href="#繰り返し処理がない場合">繰り返し処理がない場合</a></h2>
 <p>まず、繰り返し処理を使わずに1から10までの数字を表示するプログラムを見てみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print(1);
   print(2);
   print(3);
@@ -199,7 +199,7 @@
 </ol>
 <h2 id="繰り返し処理の必要性"><a class="header" href="#繰り返し処理の必要性">繰り返し処理の必要性</a></h2>
 <p>このような問題を解決するために、プログラミング言語には「繰り返し処理（ループ）」という機能があります。繰り返し処理を使うと、同じ処理を指定した回数だけ、あるいは特定の条件を満たすまで自動的に繰り返すことができます。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // for文を使って1から10まで表示
   for (int i = 1; i &lt;= 10; i++) {
     print(i);
@@ -210,7 +210,7 @@
 <h2 id="繰り返し処理が役立つ場面"><a class="header" href="#繰り返し処理が役立つ場面">繰り返し処理が役立つ場面</a></h2>
 <p>日常生活やプログラミングで繰り返し処理が役立つ場面は数多くあります：</p>
 <h3 id="1-データの集計"><a class="header" href="#1-データの集計">1. データの集計</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 1から100までの合計を計算
   int sum = 0;
   for (int i = 1; i &lt;= 100; i++) {
@@ -220,7 +220,7 @@
 }
 </code></pre>
 <h3 id="2-パターンの生成"><a class="header" href="#2-パターンの生成">2. パターンの生成</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 星のパターンを作る
   for (int i = 1; i &lt;= 5; i++) {
     print('*' * i);

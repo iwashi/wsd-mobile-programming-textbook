@@ -178,7 +178,7 @@
 <p>for文は、プログラミングで最もよく使われる繰り返し処理の一つです。決まった回数だけ処理を繰り返したいときに特に便利です。</p>
 <h2 id="for文の構造"><a class="header" href="#for文の構造">for文の構造</a></h2>
 <p>for文は以下のような構造をしています：</p>
-<pre><code class="language-javascript">for (初期化; 条件式; 更新式) {
+<pre><code class="language-dart">for (初期化; 条件式; 更新式) {
   // 繰り返し実行したい処理
 }
 </code></pre>
@@ -190,7 +190,7 @@
 </ol>
 <h2 id="基本的な例"><a class="header" href="#基本的な例">基本的な例</a></h2>
 <p>最も基本的なfor文の例を見てみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 0から4まで（5回）繰り返す
   for (int i = 0; i &lt; 5; i++) {
     print('現在のiの値: $i');
@@ -214,7 +214,7 @@
 </ol>
 <h2 id="さまざまなfor文の書き方"><a class="header" href="#さまざまなfor文の書き方">さまざまなfor文の書き方</a></h2>
 <h3 id="1から始める場合"><a class="header" href="#1から始める場合">1から始める場合</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 1から10まで表示
   for (int i = 1; i &lt;= 10; i++) {
     print(i);
@@ -222,7 +222,7 @@
 }
 </code></pre>
 <h3 id="2ずつ増やす場合"><a class="header" href="#2ずつ増やす場合">2ずつ増やす場合</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 偶数だけを表示（0, 2, 4, 6, 8）
   for (int i = 0; i &lt; 10; i += 2) {
     print(i);
@@ -230,7 +230,7 @@
 }
 </code></pre>
 <h3 id="カウントダウン"><a class="header" href="#カウントダウン">カウントダウン</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 10から1までカウントダウン
   for (int i = 10; i &gt;= 1; i--) {
     print('$i...');
@@ -240,7 +240,7 @@
 </code></pre>
 <h2 id="インデックスと値の活用"><a class="header" href="#インデックスと値の活用">インデックスと値の活用</a></h2>
 <p>for文では、カウンタ変数（通常はi）を使って、さまざまな計算や処理ができます。以下はリストの例であり、リストの利用方法は7章で扱います。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 配列のようなデータ構造と組み合わせる例
   List&lt;String&gt; fruits = ['りんご', 'バナナ', 'オレンジ'];
   
@@ -256,7 +256,7 @@
 </code></pre>
 <h2 id="ネスト入れ子のfor文"><a class="header" href="#ネスト入れ子のfor文">ネスト（入れ子）のfor文</a></h2>
 <p>for文の中に別のfor文を入れることもできます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 掛け算の表を作る（3×3）
   for (int i = 1; i &lt;= 3; i++) {
     for (int j = 1; j &lt;= 3; j++) {
@@ -269,7 +269,7 @@
 </code></pre>
 <h2 id="for文を使った実用的な例"><a class="header" href="#for文を使った実用的な例">for文を使った実用的な例</a></h2>
 <h3 id="合計値の計算"><a class="header" href="#合計値の計算">合計値の計算</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int sum = 0;
   
   // 1から10までの合計を計算
@@ -281,7 +281,7 @@
 }
 </code></pre>
 <h3 id="文字列の繰り返し"><a class="header" href="#文字列の繰り返し">文字列の繰り返し</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String star = '';
   
   // 星を5個並べる
@@ -300,13 +300,13 @@
 </code></pre>
 <h2 id="for文を使う際の注意点"><a class="header" href="#for文を使う際の注意点">for文を使う際の注意点</a></h2>
 <h3 id="1-無限ループに注意"><a class="header" href="#1-無限ループに注意">1. 無限ループに注意</a></h3>
-<pre><code class="language-javascript">// 危険な例（実行しないでください）
+<pre><code class="language-dart">// 危険な例（実行しないでください）
 // for (int i = 0; i &gt;= 0; i++) {
 //   print(i);  // iは増え続けるので、永遠に終わらない
 // }
 </code></pre>
 <h3 id="2-境界値に注意"><a class="header" href="#2-境界値に注意">2. 境界値に注意</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 注意：&lt;= と &lt; の違い
   print('5回繰り返す（i &lt; 5）:');
   for (int i = 0; i &lt; 5; i++) {

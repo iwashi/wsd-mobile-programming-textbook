@@ -178,14 +178,14 @@
 <p>while文は、for文と並んでよく使われる繰り返し処理の構文です。特定の条件が満たされている間、処理を繰り返し続けたいときに使います。</p>
 <h2 id="while文の基本構造"><a class="header" href="#while文の基本構造">while文の基本構造</a></h2>
 <p>while文の基本的な構造は以下のとおりです：</p>
-<pre><code class="language-javascript">while (条件式) {
+<pre><code class="language-dart">while (条件式) {
   // 条件式がtrueの間、繰り返される処理
 }
 </code></pre>
 <p>条件式がtrueである限り、中括弧内の処理が繰り返し実行されます。</p>
 <h2 id="基本的な例"><a class="header" href="#基本的な例">基本的な例</a></h2>
 <p>まずは簡単な例から見ていきましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int count = 0;
   
   while (count &lt; 5) {
@@ -213,7 +213,7 @@
 </ol>
 <h2 id="for文との違い"><a class="header" href="#for文との違い">for文との違い</a></h2>
 <p>同じ処理をfor文とwhile文で書いてみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // for文の場合
   print('for文:');
   for (int i = 0; i &lt; 3; i++) {
@@ -232,7 +232,7 @@
 <p>while文は、初期化と更新を自分で管理する必要があります。これにより、より柔軟な制御が可能になります。</p>
 <h2 id="while文が適している場面"><a class="header" href="#while文が適している場面">while文が適している場面</a></h2>
 <h3 id="1-繰り返し回数が事前にわからない場合"><a class="header" href="#1-繰り返し回数が事前にわからない場合">1. 繰り返し回数が事前にわからない場合</a></h3>
-<pre><code class="language-javascript">import 'dart:math';
+<pre><code class="language-dart">import 'dart:math';
 
 void main() {
   // ランダムに6が出るまでサイコロを振る
@@ -250,7 +250,7 @@ void main() {
 }
 </code></pre>
 <h3 id="2-ユーザーの入力を待つ場合"><a class="header" href="#2-ユーザーの入力を待つ場合">2. ユーザーの入力を待つ場合</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 簡単なゲームの例（実際の入力処理は簡略化）
   int playerHP = 100;
   int enemyHP = 50;
@@ -281,7 +281,7 @@ void main() {
 </code></pre>
 <h2 id="do-while文"><a class="header" href="#do-while文">do-while文</a></h2>
 <p>Dartには、少なくとも1回は処理を実行してから条件を確認する<code>do-while文</code>もあります：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int num = 10;
   
   // 通常のwhile文（条件が最初からfalseなので実行されない）
@@ -302,7 +302,7 @@ void main() {
 </code></pre>
 <h2 id="実用的な例"><a class="header" href="#実用的な例">実用的な例</a></h2>
 <h3 id="カウントダウンタイマー"><a class="header" href="#カウントダウンタイマー">カウントダウンタイマー</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int seconds = 10;
   
   print('カウントダウン開始！');
@@ -319,7 +319,7 @@ void main() {
 }
 </code></pre>
 <h3 id="数値の桁数を数える"><a class="header" href="#数値の桁数を数える">数値の桁数を数える</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int number = 12345;
   int temp = number;
   int digitCount = 0;
@@ -333,7 +333,7 @@ void main() {
 }
 </code></pre>
 <h3 id="合計が目標値を超えるまで加算"><a class="header" href="#合計が目標値を超えるまで加算">合計が目標値を超えるまで加算</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int sum = 0;
   int count = 1;
   int target = 100;
@@ -349,7 +349,7 @@ void main() {
 </code></pre>
 <h2 id="while文使用時の注意点"><a class="header" href="#while文使用時の注意点">while文使用時の注意点</a></h2>
 <h3 id="1-条件式の更新を忘れない"><a class="header" href="#1-条件式の更新を忘れない">1. 条件式の更新を忘れない</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int x = 0;
   
   // 良い例：xが更新される
@@ -361,7 +361,7 @@ void main() {
 </code></pre>
 <h3 id="2-breakとcontinue"><a class="header" href="#2-breakとcontinue">2. breakとcontinue</a></h3>
 <p><code>break</code>と<code>continue</code>が使えます。（これは、for文でも使えます。）</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int num = 0;
   
   while (true) {  // 無限ループ
