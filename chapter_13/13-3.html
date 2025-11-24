@@ -180,7 +180,7 @@
 <h2 id="デバッグの基本原則"><a class="header" href="#デバッグの基本原則">デバッグの基本原則</a></h2>
 <h3 id="1-慌てずに状況を把握する"><a class="header" href="#1-慌てずに状況を把握する">1. 慌てずに状況を把握する</a></h3>
 <p>問題が発生したら、まず深呼吸をして状況を冷静に分析しましょう。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int total = 0;
   List&lt;int&gt; scores = [85, 92, 78, 95, 88];
   
@@ -195,7 +195,7 @@
 <p>このコードの問題は何でしょうか？整数除算が行われているため、小数点以下が切り捨てられています。</p>
 <h3 id="2-問題を再現する"><a class="header" href="#2-問題を再現する">2. 問題を再現する</a></h3>
 <p>問題を確実に再現できる最小限のコードを作成します。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 問題を再現する最小限のコード
   int a = 438;  // 85 + 92 + 78 + 95 + 88
   int b = 5;
@@ -206,7 +206,7 @@
 <h2 id="print文を使ったデバッグ"><a class="header" href="#print文を使ったデバッグ">print文を使ったデバッグ</a></h2>
 <p>最も基本的なデバッグ手法は、<code>print文</code>を使って変数の値やプログラムの実行状況を確認することです。</p>
 <h3 id="変数の値を確認する"><a class="header" href="#変数の値を確認する">変数の値を確認する</a></h3>
-<pre><code class="language-javascript">void calculateTotal(List&lt;int&gt; prices) {
+<pre><code class="language-dart">void calculateTotal(List&lt;int&gt; prices) {
   int total = 0;
   
   print("価格リスト: $prices");  // デバッグ用出力
@@ -236,7 +236,7 @@ void main() {
 最終合計: 450
 </code></pre>
 <h3 id="条件分岐の動作を確認する"><a class="header" href="#条件分岐の動作を確認する">条件分岐の動作を確認する</a></h3>
-<pre><code class="language-javascript">void checkGrade(int score) {
+<pre><code class="language-dart">void checkGrade(int score) {
   print("入力されたスコア: $score");  // デバッグ用出力
   
   if (score &gt;= 90) {
@@ -257,7 +257,7 @@ void main() {
 </code></pre>
 <h2 id="assert文を使ったデバッグ"><a class="header" href="#assert文を使ったデバッグ">assert文を使ったデバッグ</a></h2>
 <p><code>assert文</code>は、プログラムの想定が正しいかどうかをチェックするためのツールです。</p>
-<pre><code class="language-javascript">void divide(double a, double b) {
+<pre><code class="language-dart">void divide(double a, double b) {
   // 事前条件をチェック
   assert(b != 0, "除数はゼロであってはいけません");
   
@@ -276,7 +276,7 @@ void main() {
 </code></pre>
 <h2 id="エラーログの読み方と活用"><a class="header" href="#エラーログの読み方と活用">エラーログの読み方と活用</a></h2>
 <p>エラーが発生した時は、スタックトレースを注意深く読みましょう。</p>
-<pre><code class="language-javascript">void problematicFunction() {
+<pre><code class="language-dart">void problematicFunction() {
   List&lt;String&gt; names = ["田中", "佐藤", "鈴木"];
   
   // 意図的にエラーを発生させる
@@ -296,7 +296,7 @@ void main() {
 <p>このエラー情報から、どの行で何が起こったかを特定できます。</p>
 <h2 id="デバッグに役立つツールとテクニック"><a class="header" href="#デバッグに役立つツールとテクニック">デバッグに役立つツールとテクニック</a></h2>
 <h3 id="1-境界値をテストする"><a class="header" href="#1-境界値をテストする">1. 境界値をテストする</a></h3>
-<pre><code class="language-javascript">void testBoundaryValues() {
+<pre><code class="language-dart">void testBoundaryValues() {
   List&lt;int&gt; testValues = [
     -1,    // 負の値
     0,     // ゼロ
@@ -324,7 +324,7 @@ void validateScore(int score) {
 }
 </code></pre>
 <h3 id="2-入力データのバリエーションをテストする"><a class="header" href="#2-入力データのバリエーションをテストする">2. 入力データのバリエーションをテストする</a></h3>
-<pre><code class="language-javascript">void testVariousInputs() {
+<pre><code class="language-dart">void testVariousInputs() {
   List&lt;String&gt; testStrings = [
     "",           // 空文字列
     "a",          // 1文字
@@ -352,7 +352,7 @@ void processString(String input) {
 </code></pre>
 <h2 id="デバッグのプラクティス"><a class="header" href="#デバッグのプラクティス">デバッグのプラクティス</a></h2>
 <h3 id="1-再現可能なテストケースを作る"><a class="header" href="#1-再現可能なテストケースを作る">1. 再現可能なテストケースを作る</a></h3>
-<pre><code class="language-javascript">// 問題を再現するテスト関数
+<pre><code class="language-dart">// 問題を再現するテスト関数
 void reproduceIssue() {
   print("=== 問題の再現テスト ===");
   
@@ -377,7 +377,7 @@ double calculateAverage(List&lt;double&gt; values) {
 }
 </code></pre>
 <h3 id="2-デバッグ情報を整理して表示する"><a class="header" href="#2-デバッグ情報を整理して表示する">2. デバッグ情報を整理して表示する</a></h3>
-<pre><code class="language-javascript">void debugInfo(String section, Map&lt;String, dynamic&gt; variables) {
+<pre><code class="language-dart">void debugInfo(String section, Map&lt;String, dynamic&gt; variables) {
   print("=== $section ===");
   variables.forEach((key, value) {
     print("  $key: $value");

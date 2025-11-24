@@ -179,7 +179,7 @@
 <h2 id="コンストラクタとは"><a class="header" href="#コンストラクタとは">コンストラクタとは</a></h2>
 <p>前章でクラスの基本を学びましたが、オブジェクトを作成する際に初期値を設定したり、必要な準備を行ったりする方法を学びましょう。</p>
 <h3 id="基本的なコンストラクタ"><a class="header" href="#基本的なコンストラクタ">基本的なコンストラクタ</a></h3>
-<pre><code class="language-javascript">class Person {
+<pre><code class="language-dart">class Person {
   String name;
   int age;
   
@@ -203,7 +203,7 @@ void main() {
 <p>上記の例では、<code>Person(this.name, this.age)</code>がコンストラクタです。<code>this.name</code>は「このオブジェクトのname」という意味で、引数として受け取った値をオブジェクトのフィールドに代入します。</p>
 <h2 id="名前付きコンストラクタ"><a class="header" href="#名前付きコンストラクタ">名前付きコンストラクタ</a></h2>
 <p>Dartでは、一つのクラスに複数のコンストラクタを定義できます。これを「名前付きコンストラクタ」と呼びます。</p>
-<pre><code class="language-javascript">class Rectangle {
+<pre><code class="language-dart">class Rectangle {
   double width;
   double height;
   
@@ -248,7 +248,7 @@ void main() {
 </code></pre>
 <h2 id="オプション引数を持つコンストラクタ"><a class="header" href="#オプション引数を持つコンストラクタ">オプション引数を持つコンストラクタ</a></h2>
 <p>引数に初期値を設定することで、オプション引数を持つコンストラクタを作成できます。Flutter の開発でよく使います。</p>
-<pre><code class="language-javascript">class Student {
+<pre><code class="language-dart">class Student {
   String name;
   int grade;
   String school;
@@ -292,7 +292,7 @@ void main() {
 </code></pre>
 <h2 id="コンストラクタでの初期化処理"><a class="header" href="#コンストラクタでの初期化処理">コンストラクタでの初期化処理</a></h2>
 <p>コンストラクタ内では、フィールドの初期化以外にも様々な処理を行えます。</p>
-<pre><code class="language-javascript">class BankAccount {
+<pre><code class="language-dart">class BankAccount {
   String accountNumber;
   String ownerName;
   double balance;

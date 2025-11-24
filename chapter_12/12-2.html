@@ -183,7 +183,7 @@
 プライベートフィールドとは、クラスの外部からアクセスできないフィールドを指します。
 プライベートフィールドを活用する理由は、不正な値の設定を防いだり、外部から見えないようにしたりするためです。</p>
 <p>Dartでは、アンダースコア(_)でプライベートフィールドを表現できます。</p>
-<pre><code class="language-javascript">class Temperature {
+<pre><code class="language-dart">class Temperature {
   double _celsius; // アンダースコア(_)でプライベートフィールドを表現
   
   Temperature(this._celsius);
@@ -242,7 +242,7 @@ void main() {
 <p>この例では、<code>get</code>キーワードでゲッター、<code>set</code>キーワードでセッターを定義しています。</p>
 <h2 id="計算プロパティ"><a class="header" href="#計算プロパティ">計算プロパティ</a></h2>
 <p>ゲッターを使って、他のフィールドから計算される値を提供できます。</p>
-<pre><code class="language-javascript">class Circle {
+<pre><code class="language-dart">class Circle {
   double _radius;
   
   Circle(this._radius);
@@ -302,7 +302,7 @@ void main() {
 </code></pre>
 <h2 id="データの検証と変換"><a class="header" href="#データの検証と変換">データの検証と変換</a></h2>
 <p>セッターを使ってデータの検証や変換を行うことができます。</p>
-<pre><code class="language-javascript">class Person {
+<pre><code class="language-dart">class Person {
   String _name;
   int _age;
   String _email;
@@ -383,7 +383,7 @@ void main() {
 </code></pre>
 <h2 id="ゲッターとセッターの実践的な使用例"><a class="header" href="#ゲッターとセッターの実践的な使用例">ゲッターとセッターの実践的な使用例</a></h2>
 <p>実際のアプリケーションでよく使われるパターンを見てみましょう。</p>
-<pre><code class="language-javascript">class Product {
+<pre><code class="language-dart">class Product {
   String _name;
   double _price;
   int _stock;

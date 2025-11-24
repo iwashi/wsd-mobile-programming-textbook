@@ -181,7 +181,7 @@
 <h3 id="なぜ必要なの"><a class="header" href="#なぜ必要なの">なぜ必要なの？</a></h3>
 <p>ファイルを読み込んだり、インターネットから情報を取得したりする処理は時間がかかります。その間、プログラムが止まってしまうと、アプリが固まったように見えてしまいます。非同期プログラミングを使うと、時間のかかる処理を待っている間も、他の処理を続けることができます。</p>
 <h3 id="基本的な使い方"><a class="header" href="#基本的な使い方">基本的な使い方</a></h3>
-<pre><code class="language-javascript">// 非同期関数の定義
+<pre><code class="language-dart">// 非同期関数の定義
 Future&lt;String&gt; fetchUserName() async {
   // 3秒待つ（実際はネットワーク通信などの時間がかかる処理）
   await Future.delayed(Duration(seconds: 3));
@@ -200,7 +200,7 @@ void main() async {
 <h3 id="なぜ必要なの-1"><a class="header" href="#なぜ必要なの-1">なぜ必要なの？</a></h3>
 <p>リストを作るとき、<code>List&lt;int&gt;</code>や<code>List&lt;String&gt;</code>のように書きました。この<code>&lt;&gt;</code>の中身がジェネリクスです。これを使うと、いろいろな型に対応できる汎用的なクラスや関数を作ることができます。</p>
 <h3 id="基本的な例"><a class="header" href="#基本的な例">基本的な例</a></h3>
-<pre><code class="language-javascript">// ジェネリクスを使った箱クラス
+<pre><code class="language-dart">// ジェネリクスを使った箱クラス
 class Box&lt;T&gt; {
   T content;
   
@@ -226,7 +226,7 @@ void main() {
 <h3 id="なぜ必要なの-2"><a class="header" href="#なぜ必要なの-2">なぜ必要なの？</a></h3>
 <p>プログラムが大きくなると、似たようなクラスがたくさん出てきます。継承を使うと、共通の機能をまとめて、コードの重複を避けることができます。</p>
 <h3 id="継承の基本"><a class="header" href="#継承の基本">継承の基本</a></h3>
-<pre><code class="language-javascript">// 基本となる動物クラス
+<pre><code class="language-dart">// 基本となる動物クラス
 class Animal {
   String name;
   
@@ -267,7 +267,7 @@ void main() {
 </code></pre>
 <h3 id="インターフェースの基本"><a class="header" href="#インターフェースの基本">インターフェースの基本</a></h3>
 <p>インターフェースは、クラスが持つべき機能の「約束」を定義します。</p>
-<pre><code class="language-javascript">// 飛べるものの約束
+<pre><code class="language-dart">// 飛べるものの約束
 abstract class Flyable {
   void fly();
 }
@@ -299,7 +299,7 @@ class Airplane implements Flyable {
 <ol start="2">
 <li>パッケージをインポートして使用：</li>
 </ol>
-<pre><code class="language-javascript">import 'package:http/http.dart' as http;
+<pre><code class="language-dart">import 'package:http/http.dart' as http;
 
 void main() async {
   // ウェブサイトから情報を取得
@@ -312,7 +312,7 @@ void main() async {
 <h3 id="なぜ必要なの-4"><a class="header" href="#なぜ必要なの-4">なぜ必要なの？</a></h3>
 <p>プログラムのエラーで最も多いものの一つが「null参照エラー」です。変数に値が入っていない（null）状態でその変数を使おうとすると、プログラムがクラッシュしてしまいます。</p>
 <h3 id="null安全性の基本"><a class="header" href="#null安全性の基本">null安全性の基本</a></h3>
-<pre><code class="language-javascript">// nullを許可しない変数（通常の変数）
+<pre><code class="language-dart">// nullを許可しない変数（通常の変数）
 String name = "太郎";  // 必ず値が必要
 
 // nullを許可する変数（?をつける）

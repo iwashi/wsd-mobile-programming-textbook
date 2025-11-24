@@ -179,7 +179,7 @@
 <h2 id="カプセル化とは"><a class="header" href="#カプセル化とは">カプセル化とは</a></h2>
 <p>カプセル化とは、「内部の仕組みを隠して、決められた方法でのみアクセスできるようにする」ことです。薬のカプセルのように、中身を保護し、正しい方法で取り扱えるようにするイメージです。</p>
 <h3 id="カプセル化の基本原則"><a class="header" href="#カプセル化の基本原則">カプセル化の基本原則</a></h3>
-<pre><code class="language-javascript">// 悪い例：カプセル化されていない
+<pre><code class="language-dart">// 悪い例：カプセル化されていない
 class BadBankAccount {
   String accountNumber;
   double balance; // 外部から直接アクセス可能
@@ -247,7 +247,7 @@ void goodExample() {
 </code></pre>
 <h2 id="プライベートフィールドとパブリックインターフェース"><a class="header" href="#プライベートフィールドとパブリックインターフェース">プライベートフィールドとパブリックインターフェース</a></h2>
 <p>Dartでは、アンダースコア（<code>_</code>）で始まる名前をプライベート（非公開）として扱います。</p>
-<pre><code class="language-javascript">class User {
+<pre><code class="language-dart">class User {
   // プライベートフィールド（内部データ）
   String _username;
   String _password;
@@ -335,7 +335,7 @@ void main() {
 </code></pre>
 <h2 id="データの整合性を保つ"><a class="header" href="#データの整合性を保つ">データの整合性を保つ</a></h2>
 <p>カプセル化により、オブジェクトの状態を常に正しく保つことができます。</p>
-<pre><code class="language-javascript">class Rectangle {
+<pre><code class="language-dart">class Rectangle {
   late double _width;
   late double _height;
   

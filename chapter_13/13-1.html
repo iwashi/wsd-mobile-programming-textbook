@@ -181,7 +181,7 @@
 <p>エラーとは、プログラムが正常に実行できない状況のことです。Dartでは、エラーが発生するタイミングによって大きく3つの種類に分けることができます。</p>
 <h3 id="1-コンパイルエラーcompile-time-error"><a class="header" href="#1-コンパイルエラーcompile-time-error">1. コンパイルエラー（Compile-time Error）</a></h3>
 <p>コンパイルエラーは、プログラムを実行する前に発見されるエラーです。文法的な間違いや、型の不整合などが原因で発生します。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int number = "hello";  // エラー：文字列を整数型変数に代入しようとしている
   print(number)          // エラー：セミコロンが不足
 }
@@ -189,7 +189,7 @@
 <p>このようなエラーが発生すると、プログラムは実行される前に止まります。実は、これは良いことなのです。なぜなら、問題を早期に発見できるからです。</p>
 <h3 id="2-ランタイムエラーruntime-error"><a class="header" href="#2-ランタイムエラーruntime-error">2. ランタイムエラー（Runtime Error）</a></h3>
 <p>ランタイムエラーは、プログラムが実行されている最中に発生するエラーです。文法的には正しいのですが、実行時に問題が起こります。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   List&lt;int&gt; numbers = [1, 2, 3];
   print(numbers[5]);  // エラー：存在しないインデックスにアクセス
 }
@@ -197,7 +197,7 @@
 <p>この例では、リストのサイズは3なのに、5番目の要素にアクセスしようとしているため、実行時にエラーが発生します。</p>
 <h3 id="3-論理エラーlogic-error"><a class="header" href="#3-論理エラーlogic-error">3. 論理エラー（Logic Error）</a></h3>
 <p>論理エラーは、プログラムは正常に動作するものの、期待した結果が得られないエラーです。ソースコード自体は正しく、しかし、実行結果が期待したものと異なるため、これは最も発見が困難なエラーです。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int a = 10;
   int b = 5;
   int average = (a + b) * 2;  // 本来は (a + b) / 2 にしたかった
@@ -208,14 +208,14 @@
 <p>Dartでよく遭遇するエラータイプを見てみましょう。</p>
 <h3 id="nullpointerexceptionヌルポインタ例外"><a class="header" href="#nullpointerexceptionヌルポインタ例外">NullPointerException（ヌルポインタ例外）</a></h3>
 <p>nullの値に対してメソッドやプロパティにアクセスしようとした時に発生します。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String? name;  // null許可型
   print(name.length);  // エラー：nullに対してlengthにアクセス
 }
 </code></pre>
 <p>上記は、そもそもコンパイル時に弾かれるようになっています。</p>
 <p><strong>改善版：</strong></p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String? name;
   if (name != null) {
     print(name.length);  // nullチェック後にアクセス
@@ -226,13 +226,13 @@
 </code></pre>
 <h3 id="rangeerror範囲エラー"><a class="header" href="#rangeerror範囲エラー">RangeError（範囲エラー）</a></h3>
 <p>リストや文字列の有効な範囲外にアクセスしようとした時に発生します。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   List&lt;String&gt; fruits = ["りんご", "バナナ", "オレンジ"];
   print(fruits[3]);  // エラー：インデックス3は存在しない
 }
 </code></pre>
 <p><strong>改善版：</strong></p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   List&lt;String&gt; fruits = ["りんご", "バナナ", "オレンジ"];
   
   int index = 3;
@@ -245,14 +245,14 @@
 </code></pre>
 <h3 id="typeerror型エラー"><a class="header" href="#typeerror型エラー">TypeError（型エラー）</a></h3>
 <p>期待される型と実際の型が一致しない時に発生します。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   dynamic value = "123";
   int number = value;  // エラー：文字列を直接intに代入できない
   print(number * 2);
 }
 </code></pre>
 <p><strong>改善版：</strong></p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   dynamic value = "123";
   int number = int.parse(value);  // 文字列を整数に変換
   print(number * 2);  // 結果：246
@@ -260,7 +260,7 @@
 </code></pre>
 <h2 id="エラーメッセージの読み方"><a class="header" href="#エラーメッセージの読み方">エラーメッセージの読み方</a></h2>
 <p>エラーメッセージは最初は難しく感じるかもしれませんが、慣れると非常に有用な情報源になります。</p>
-<pre><code class="language-javascript">// エラーが発生するコード例
+<pre><code class="language-dart">// エラーが発生するコード例
 void main() {
   List&lt;int&gt; numbers = [1, 2, 3];
   print(numbers[10]);

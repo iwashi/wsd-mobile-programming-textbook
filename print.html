@@ -8451,7 +8451,7 @@ void main() {
 <h2 id="コンストラクタとは"><a class="header" href="#コンストラクタとは">コンストラクタとは</a></h2>
 <p>前章でクラスの基本を学びましたが、オブジェクトを作成する際に初期値を設定したり、必要な準備を行ったりする方法を学びましょう。</p>
 <h3 id="基本的なコンストラクタ"><a class="header" href="#基本的なコンストラクタ">基本的なコンストラクタ</a></h3>
-<pre><code class="language-javascript">class Person {
+<pre><code class="language-dart">class Person {
   String name;
   int age;
   
@@ -8475,7 +8475,7 @@ void main() {
 <p>上記の例では、<code>Person(this.name, this.age)</code>がコンストラクタです。<code>this.name</code>は「このオブジェクトのname」という意味で、引数として受け取った値をオブジェクトのフィールドに代入します。</p>
 <h2 id="名前付きコンストラクタ"><a class="header" href="#名前付きコンストラクタ">名前付きコンストラクタ</a></h2>
 <p>Dartでは、一つのクラスに複数のコンストラクタを定義できます。これを「名前付きコンストラクタ」と呼びます。</p>
-<pre><code class="language-javascript">class Rectangle {
+<pre><code class="language-dart">class Rectangle {
   double width;
   double height;
   
@@ -8520,7 +8520,7 @@ void main() {
 </code></pre>
 <h2 id="オプション引数を持つコンストラクタ"><a class="header" href="#オプション引数を持つコンストラクタ">オプション引数を持つコンストラクタ</a></h2>
 <p>引数に初期値を設定することで、オプション引数を持つコンストラクタを作成できます。Flutter の開発でよく使います。</p>
-<pre><code class="language-javascript">class Student {
+<pre><code class="language-dart">class Student {
   String name;
   int grade;
   String school;
@@ -8564,7 +8564,7 @@ void main() {
 </code></pre>
 <h2 id="コンストラクタでの初期化処理"><a class="header" href="#コンストラクタでの初期化処理">コンストラクタでの初期化処理</a></h2>
 <p>コンストラクタ内では、フィールドの初期化以外にも様々な処理を行えます。</p>
-<pre><code class="language-javascript">class BankAccount {
+<pre><code class="language-dart">class BankAccount {
   String accountNumber;
   String ownerName;
   double balance;
@@ -8698,7 +8698,7 @@ void main() {
 プライベートフィールドとは、クラスの外部からアクセスできないフィールドを指します。
 プライベートフィールドを活用する理由は、不正な値の設定を防いだり、外部から見えないようにしたりするためです。</p>
 <p>Dartでは、アンダースコア(_)でプライベートフィールドを表現できます。</p>
-<pre><code class="language-javascript">class Temperature {
+<pre><code class="language-dart">class Temperature {
   double _celsius; // アンダースコア(_)でプライベートフィールドを表現
   
   Temperature(this._celsius);
@@ -8757,7 +8757,7 @@ void main() {
 <p>この例では、<code>get</code>キーワードでゲッター、<code>set</code>キーワードでセッターを定義しています。</p>
 <h2 id="計算プロパティ"><a class="header" href="#計算プロパティ">計算プロパティ</a></h2>
 <p>ゲッターを使って、他のフィールドから計算される値を提供できます。</p>
-<pre><code class="language-javascript">class Circle {
+<pre><code class="language-dart">class Circle {
   double _radius;
   
   Circle(this._radius);
@@ -8817,7 +8817,7 @@ void main() {
 </code></pre>
 <h2 id="データの検証と変換"><a class="header" href="#データの検証と変換">データの検証と変換</a></h2>
 <p>セッターを使ってデータの検証や変換を行うことができます。</p>
-<pre><code class="language-javascript">class Person {
+<pre><code class="language-dart">class Person {
   String _name;
   int _age;
   String _email;
@@ -8898,7 +8898,7 @@ void main() {
 </code></pre>
 <h2 id="ゲッターとセッターの実践的な使用例"><a class="header" href="#ゲッターとセッターの実践的な使用例">ゲッターとセッターの実践的な使用例</a></h2>
 <p>実際のアプリケーションでよく使われるパターンを見てみましょう。</p>
-<pre><code class="language-javascript">class Product {
+<pre><code class="language-dart">class Product {
   String _name;
   double _price;
   int _stock;
@@ -9002,7 +9002,7 @@ void main() {
 <h2 id="カプセル化とは"><a class="header" href="#カプセル化とは">カプセル化とは</a></h2>
 <p>カプセル化とは、「内部の仕組みを隠して、決められた方法でのみアクセスできるようにする」ことです。薬のカプセルのように、中身を保護し、正しい方法で取り扱えるようにするイメージです。</p>
 <h3 id="カプセル化の基本原則"><a class="header" href="#カプセル化の基本原則">カプセル化の基本原則</a></h3>
-<pre><code class="language-javascript">// 悪い例：カプセル化されていない
+<pre><code class="language-dart">// 悪い例：カプセル化されていない
 class BadBankAccount {
   String accountNumber;
   double balance; // 外部から直接アクセス可能
@@ -9070,7 +9070,7 @@ void goodExample() {
 </code></pre>
 <h2 id="プライベートフィールドとパブリックインターフェース"><a class="header" href="#プライベートフィールドとパブリックインターフェース">プライベートフィールドとパブリックインターフェース</a></h2>
 <p>Dartでは、アンダースコア（<code>_</code>）で始まる名前をプライベート（非公開）として扱います。</p>
-<pre><code class="language-javascript">class User {
+<pre><code class="language-dart">class User {
   // プライベートフィールド（内部データ）
   String _username;
   String _password;
@@ -9158,7 +9158,7 @@ void main() {
 </code></pre>
 <h2 id="データの整合性を保つ"><a class="header" href="#データの整合性を保つ">データの整合性を保つ</a></h2>
 <p>カプセル化により、オブジェクトの状態を常に正しく保つことができます。</p>
-<pre><code class="language-javascript">class Rectangle {
+<pre><code class="language-dart">class Rectangle {
   late double _width;
   late double _height;
   
@@ -9315,7 +9315,7 @@ void main() {
 <p>エラーとは、プログラムが正常に実行できない状況のことです。Dartでは、エラーが発生するタイミングによって大きく3つの種類に分けることができます。</p>
 <h3 id="1-コンパイルエラーcompile-time-error"><a class="header" href="#1-コンパイルエラーcompile-time-error">1. コンパイルエラー（Compile-time Error）</a></h3>
 <p>コンパイルエラーは、プログラムを実行する前に発見されるエラーです。文法的な間違いや、型の不整合などが原因で発生します。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int number = "hello";  // エラー：文字列を整数型変数に代入しようとしている
   print(number)          // エラー：セミコロンが不足
 }
@@ -9323,7 +9323,7 @@ void main() {
 <p>このようなエラーが発生すると、プログラムは実行される前に止まります。実は、これは良いことなのです。なぜなら、問題を早期に発見できるからです。</p>
 <h3 id="2-ランタイムエラーruntime-error"><a class="header" href="#2-ランタイムエラーruntime-error">2. ランタイムエラー（Runtime Error）</a></h3>
 <p>ランタイムエラーは、プログラムが実行されている最中に発生するエラーです。文法的には正しいのですが、実行時に問題が起こります。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   List&lt;int&gt; numbers = [1, 2, 3];
   print(numbers[5]);  // エラー：存在しないインデックスにアクセス
 }
@@ -9331,7 +9331,7 @@ void main() {
 <p>この例では、リストのサイズは3なのに、5番目の要素にアクセスしようとしているため、実行時にエラーが発生します。</p>
 <h3 id="3-論理エラーlogic-error"><a class="header" href="#3-論理エラーlogic-error">3. 論理エラー（Logic Error）</a></h3>
 <p>論理エラーは、プログラムは正常に動作するものの、期待した結果が得られないエラーです。ソースコード自体は正しく、しかし、実行結果が期待したものと異なるため、これは最も発見が困難なエラーです。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int a = 10;
   int b = 5;
   int average = (a + b) * 2;  // 本来は (a + b) / 2 にしたかった
@@ -9342,14 +9342,14 @@ void main() {
 <p>Dartでよく遭遇するエラータイプを見てみましょう。</p>
 <h3 id="nullpointerexceptionヌルポインタ例外"><a class="header" href="#nullpointerexceptionヌルポインタ例外">NullPointerException（ヌルポインタ例外）</a></h3>
 <p>nullの値に対してメソッドやプロパティにアクセスしようとした時に発生します。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String? name;  // null許可型
   print(name.length);  // エラー：nullに対してlengthにアクセス
 }
 </code></pre>
 <p>上記は、そもそもコンパイル時に弾かれるようになっています。</p>
 <p><strong>改善版：</strong></p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String? name;
   if (name != null) {
     print(name.length);  // nullチェック後にアクセス
@@ -9360,13 +9360,13 @@ void main() {
 </code></pre>
 <h3 id="rangeerror範囲エラー"><a class="header" href="#rangeerror範囲エラー">RangeError（範囲エラー）</a></h3>
 <p>リストや文字列の有効な範囲外にアクセスしようとした時に発生します。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   List&lt;String&gt; fruits = ["りんご", "バナナ", "オレンジ"];
   print(fruits[3]);  // エラー：インデックス3は存在しない
 }
 </code></pre>
 <p><strong>改善版：</strong></p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   List&lt;String&gt; fruits = ["りんご", "バナナ", "オレンジ"];
   
   int index = 3;
@@ -9379,14 +9379,14 @@ void main() {
 </code></pre>
 <h3 id="typeerror型エラー"><a class="header" href="#typeerror型エラー">TypeError（型エラー）</a></h3>
 <p>期待される型と実際の型が一致しない時に発生します。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   dynamic value = "123";
   int number = value;  // エラー：文字列を直接intに代入できない
   print(number * 2);
 }
 </code></pre>
 <p><strong>改善版：</strong></p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   dynamic value = "123";
   int number = int.parse(value);  // 文字列を整数に変換
   print(number * 2);  // 結果：246
@@ -9394,7 +9394,7 @@ void main() {
 </code></pre>
 <h2 id="エラーメッセージの読み方-1"><a class="header" href="#エラーメッセージの読み方-1">エラーメッセージの読み方</a></h2>
 <p>エラーメッセージは最初は難しく感じるかもしれませんが、慣れると非常に有用な情報源になります。</p>
-<pre><code class="language-javascript">// エラーが発生するコード例
+<pre><code class="language-dart">// エラーが発生するコード例
 void main() {
   List&lt;int&gt; numbers = [1, 2, 3];
   print(numbers[10]);
@@ -9416,14 +9416,14 @@ void main() {
 <p>Dartでは、<code>try-catch文</code>を使用してエラーを優雅に処理することができます。まるで「もしエラーが起きたら、こう対処してね」という指示書を書くようなものです。</p>
 <h2 id="try-catch文の基本構文"><a class="header" href="#try-catch文の基本構文">try-catch文の基本構文</a></h2>
 <p>try-catch文の基本的な構文は次のとおりです：</p>
-<pre><code class="language-javascript">try {
+<pre><code class="language-dart">try {
   // エラーが発生する可能性のあるコード
 } catch (e) {
   // エラーが発生した時の処理
 }
 </code></pre>
 <p>実際の例を見てみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   try {
     List&lt;int&gt; numbers = [1, 2, 3];
     print(numbers[5]);  // 範囲外アクセス
@@ -9442,7 +9442,7 @@ void main() {
 <h2 id="具体的な例安全な数値変換"><a class="header" href="#具体的な例安全な数値変換">具体的な例：安全な数値変換</a></h2>
 <p>ユーザーから入力された文字列を数値に変換する場合を考えてみましょう。
 以下の例では、インプットは決め打ちの値になっていますが、実際のアプリケーションではユーザーからの入力を受け取ります。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String userInput = "abc";  // 数値に変換できない文字列
   
   try {
@@ -9460,7 +9460,7 @@ void main() {
 </code></pre>
 <h2 id="複数の例外の処理"><a class="header" href="#複数の例外の処理">複数の例外の処理</a></h2>
 <p>異なる種類のエラーに対して、それぞれ異なる処理を行いたい場合があります。その場合は、複数のcatch文を使用できます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   try {
     // 様々なエラーが発生する可能性のあるコード
     List&lt;String&gt; items = [];
@@ -9476,7 +9476,7 @@ void main() {
 </code></pre>
 <h2 id="finally文必ず実行される処理"><a class="header" href="#finally文必ず実行される処理">finally文：必ず実行される処理</a></h2>
 <p>エラーが発生してもしなくても、必ず実行したい処理がある場合は<code>finally文</code>を使用します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   try {
     print("ファイルを開いています...");
     // ファイル処理のコード（エラーが発生するかもしれない）
@@ -9495,7 +9495,7 @@ void main() {
 </code></pre>
 <h2 id="実践例計算機能の安全な実装"><a class="header" href="#実践例計算機能の安全な実装">実践例：計算機能の安全な実装</a></h2>
 <p>電卓アプリを作る時の除算機能を安全に実装してみましょう：</p>
-<pre><code class="language-javascript">double safeDivision(double a, double b) {
+<pre><code class="language-dart">double safeDivision(double a, double b) {
   try {
     if (b == 0) {
       throw ArgumentError("ゼロで割ることはできません");
@@ -9521,7 +9521,7 @@ void main() {
 </code></pre>
 <h2 id="カスタム例外の作成"><a class="header" href="#カスタム例外の作成">カスタム例外の作成</a></h2>
 <p>独自のエラー型を作成することもできます：</p>
-<pre><code class="language-javascript">// カスタム例外クラスの定義
+<pre><code class="language-dart">// カスタム例外クラスの定義
 class InvalidAgeException implements Exception {
   final String message;
   InvalidAgeException(this.message);
@@ -9562,7 +9562,7 @@ void main() {
 </code></pre>
 <h2 id="rethrowエラーの再スロー"><a class="header" href="#rethrowエラーの再スロー">rethrow：エラーの再スロー</a></h2>
 <p>エラーをキャッチして何らかの処理を行った後、そのエラーを再度投げたい場合は<code>rethrow</code>を使用します：</p>
-<pre><code class="language-javascript">void processData(String data) {
+<pre><code class="language-dart">void processData(String data) {
   try {
     // データ処理
     if (data.isEmpty) {
@@ -9594,7 +9594,7 @@ void main() {
 <h2 id="デバッグの基本原則"><a class="header" href="#デバッグの基本原則">デバッグの基本原則</a></h2>
 <h3 id="1-慌てずに状況を把握する"><a class="header" href="#1-慌てずに状況を把握する">1. 慌てずに状況を把握する</a></h3>
 <p>問題が発生したら、まず深呼吸をして状況を冷静に分析しましょう。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int total = 0;
   List&lt;int&gt; scores = [85, 92, 78, 95, 88];
   
@@ -9609,7 +9609,7 @@ void main() {
 <p>このコードの問題は何でしょうか？整数除算が行われているため、小数点以下が切り捨てられています。</p>
 <h3 id="2-問題を再現する"><a class="header" href="#2-問題を再現する">2. 問題を再現する</a></h3>
 <p>問題を確実に再現できる最小限のコードを作成します。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 問題を再現する最小限のコード
   int a = 438;  // 85 + 92 + 78 + 95 + 88
   int b = 5;
@@ -9620,7 +9620,7 @@ void main() {
 <h2 id="print文を使ったデバッグ"><a class="header" href="#print文を使ったデバッグ">print文を使ったデバッグ</a></h2>
 <p>最も基本的なデバッグ手法は、<code>print文</code>を使って変数の値やプログラムの実行状況を確認することです。</p>
 <h3 id="変数の値を確認する"><a class="header" href="#変数の値を確認する">変数の値を確認する</a></h3>
-<pre><code class="language-javascript">void calculateTotal(List&lt;int&gt; prices) {
+<pre><code class="language-dart">void calculateTotal(List&lt;int&gt; prices) {
   int total = 0;
   
   print("価格リスト: $prices");  // デバッグ用出力
@@ -9650,7 +9650,7 @@ void main() {
 最終合計: 450
 </code></pre>
 <h3 id="条件分岐の動作を確認する"><a class="header" href="#条件分岐の動作を確認する">条件分岐の動作を確認する</a></h3>
-<pre><code class="language-javascript">void checkGrade(int score) {
+<pre><code class="language-dart">void checkGrade(int score) {
   print("入力されたスコア: $score");  // デバッグ用出力
   
   if (score &gt;= 90) {
@@ -9671,7 +9671,7 @@ void main() {
 </code></pre>
 <h2 id="assert文を使ったデバッグ"><a class="header" href="#assert文を使ったデバッグ">assert文を使ったデバッグ</a></h2>
 <p><code>assert文</code>は、プログラムの想定が正しいかどうかをチェックするためのツールです。</p>
-<pre><code class="language-javascript">void divide(double a, double b) {
+<pre><code class="language-dart">void divide(double a, double b) {
   // 事前条件をチェック
   assert(b != 0, "除数はゼロであってはいけません");
   
@@ -9690,7 +9690,7 @@ void main() {
 </code></pre>
 <h2 id="エラーログの読み方と活用"><a class="header" href="#エラーログの読み方と活用">エラーログの読み方と活用</a></h2>
 <p>エラーが発生した時は、スタックトレースを注意深く読みましょう。</p>
-<pre><code class="language-javascript">void problematicFunction() {
+<pre><code class="language-dart">void problematicFunction() {
   List&lt;String&gt; names = ["田中", "佐藤", "鈴木"];
   
   // 意図的にエラーを発生させる
@@ -9710,7 +9710,7 @@ void main() {
 <p>このエラー情報から、どの行で何が起こったかを特定できます。</p>
 <h2 id="デバッグに役立つツールとテクニック"><a class="header" href="#デバッグに役立つツールとテクニック">デバッグに役立つツールとテクニック</a></h2>
 <h3 id="1-境界値をテストする"><a class="header" href="#1-境界値をテストする">1. 境界値をテストする</a></h3>
-<pre><code class="language-javascript">void testBoundaryValues() {
+<pre><code class="language-dart">void testBoundaryValues() {
   List&lt;int&gt; testValues = [
     -1,    // 負の値
     0,     // ゼロ
@@ -9738,7 +9738,7 @@ void validateScore(int score) {
 }
 </code></pre>
 <h3 id="2-入力データのバリエーションをテストする"><a class="header" href="#2-入力データのバリエーションをテストする">2. 入力データのバリエーションをテストする</a></h3>
-<pre><code class="language-javascript">void testVariousInputs() {
+<pre><code class="language-dart">void testVariousInputs() {
   List&lt;String&gt; testStrings = [
     "",           // 空文字列
     "a",          // 1文字
@@ -9766,7 +9766,7 @@ void processString(String input) {
 </code></pre>
 <h2 id="デバッグのプラクティス"><a class="header" href="#デバッグのプラクティス">デバッグのプラクティス</a></h2>
 <h3 id="1-再現可能なテストケースを作る"><a class="header" href="#1-再現可能なテストケースを作る">1. 再現可能なテストケースを作る</a></h3>
-<pre><code class="language-javascript">// 問題を再現するテスト関数
+<pre><code class="language-dart">// 問題を再現するテスト関数
 void reproduceIssue() {
   print("=== 問題の再現テスト ===");
   
@@ -9791,7 +9791,7 @@ double calculateAverage(List&lt;double&gt; values) {
 }
 </code></pre>
 <h3 id="2-デバッグ情報を整理して表示する"><a class="header" href="#2-デバッグ情報を整理して表示する">2. デバッグ情報を整理して表示する</a></h3>
-<pre><code class="language-javascript">void debugInfo(String section, Map&lt;String, dynamic&gt; variables) {
+<pre><code class="language-dart">void debugInfo(String section, Map&lt;String, dynamic&gt; variables) {
   print("=== $section ===");
   variables.forEach((key, value) {
     print("  $key: $value");
@@ -9877,7 +9877,7 @@ void exampleWithDebugInfo() {
 <h3 id="なぜ必要なの"><a class="header" href="#なぜ必要なの">なぜ必要なの？</a></h3>
 <p>ファイルを読み込んだり、インターネットから情報を取得したりする処理は時間がかかります。その間、プログラムが止まってしまうと、アプリが固まったように見えてしまいます。非同期プログラミングを使うと、時間のかかる処理を待っている間も、他の処理を続けることができます。</p>
 <h3 id="基本的な使い方-3"><a class="header" href="#基本的な使い方-3">基本的な使い方</a></h3>
-<pre><code class="language-javascript">// 非同期関数の定義
+<pre><code class="language-dart">// 非同期関数の定義
 Future&lt;String&gt; fetchUserName() async {
   // 3秒待つ（実際はネットワーク通信などの時間がかかる処理）
   await Future.delayed(Duration(seconds: 3));
@@ -9896,7 +9896,7 @@ void main() async {
 <h3 id="なぜ必要なの-1"><a class="header" href="#なぜ必要なの-1">なぜ必要なの？</a></h3>
 <p>リストを作るとき、<code>List&lt;int&gt;</code>や<code>List&lt;String&gt;</code>のように書きました。この<code>&lt;&gt;</code>の中身がジェネリクスです。これを使うと、いろいろな型に対応できる汎用的なクラスや関数を作ることができます。</p>
 <h3 id="基本的な例-4"><a class="header" href="#基本的な例-4">基本的な例</a></h3>
-<pre><code class="language-javascript">// ジェネリクスを使った箱クラス
+<pre><code class="language-dart">// ジェネリクスを使った箱クラス
 class Box&lt;T&gt; {
   T content;
   
@@ -9922,7 +9922,7 @@ void main() {
 <h3 id="なぜ必要なの-2"><a class="header" href="#なぜ必要なの-2">なぜ必要なの？</a></h3>
 <p>プログラムが大きくなると、似たようなクラスがたくさん出てきます。継承を使うと、共通の機能をまとめて、コードの重複を避けることができます。</p>
 <h3 id="継承の基本"><a class="header" href="#継承の基本">継承の基本</a></h3>
-<pre><code class="language-javascript">// 基本となる動物クラス
+<pre><code class="language-dart">// 基本となる動物クラス
 class Animal {
   String name;
   
@@ -9963,7 +9963,7 @@ void main() {
 </code></pre>
 <h3 id="インターフェースの基本"><a class="header" href="#インターフェースの基本">インターフェースの基本</a></h3>
 <p>インターフェースは、クラスが持つべき機能の「約束」を定義します。</p>
-<pre><code class="language-javascript">// 飛べるものの約束
+<pre><code class="language-dart">// 飛べるものの約束
 abstract class Flyable {
   void fly();
 }
@@ -9995,7 +9995,7 @@ class Airplane implements Flyable {
 <ol start="2">
 <li>パッケージをインポートして使用：</li>
 </ol>
-<pre><code class="language-javascript">import 'package:http/http.dart' as http;
+<pre><code class="language-dart">import 'package:http/http.dart' as http;
 
 void main() async {
   // ウェブサイトから情報を取得
@@ -10008,7 +10008,7 @@ void main() async {
 <h3 id="なぜ必要なの-4"><a class="header" href="#なぜ必要なの-4">なぜ必要なの？</a></h3>
 <p>プログラムのエラーで最も多いものの一つが「null参照エラー」です。変数に値が入っていない（null）状態でその変数を使おうとすると、プログラムがクラッシュしてしまいます。</p>
 <h3 id="null安全性の基本"><a class="header" href="#null安全性の基本">null安全性の基本</a></h3>
-<pre><code class="language-javascript">// nullを許可しない変数（通常の変数）
+<pre><code class="language-dart">// nullを許可しない変数（通常の変数）
 String name = "太郎";  // 必ず値が必要
 
 // nullを許可する変数（?をつける）
@@ -10045,7 +10045,7 @@ void main() {
 <h2 id="dartの公式リソース"><a class="header" href="#dartの公式リソース">Dartの公式リソース</a></h2>
 <h3 id="1-dart公式サイトdartdev"><a class="header" href="#1-dart公式サイトdartdev">1. Dart公式サイト（dart.dev）</a></h3>
 <p>Dartの最新情報や詳細なドキュメントが揃っています。</p>
-<pre><code class="language-javascript">// 公式サイトで学べること
+<pre><code class="language-dart">// 公式サイトで学べること
 // - 言語の詳細な仕様
 // - 新機能の情報
 // - ベストプラクティス
@@ -10059,7 +10059,7 @@ void main() {
 </ul>
 <h3 id="2-flutterflutterdev"><a class="header" href="#2-flutterflutterdev">2. Flutter（flutter.dev）</a></h3>
 <p>モバイルアプリ開発に興味がある方は、Flutterがおすすめです。</p>
-<pre><code class="language-javascript">// Flutterで作れるもの
+<pre><code class="language-dart">// Flutterで作れるもの
 // - iOSアプリ
 // - Androidアプリ
 // - Webアプリ

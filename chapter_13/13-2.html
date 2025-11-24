@@ -179,14 +179,14 @@
 <p>Dartでは、<code>try-catch文</code>を使用してエラーを優雅に処理することができます。まるで「もしエラーが起きたら、こう対処してね」という指示書を書くようなものです。</p>
 <h2 id="try-catch文の基本構文"><a class="header" href="#try-catch文の基本構文">try-catch文の基本構文</a></h2>
 <p>try-catch文の基本的な構文は次のとおりです：</p>
-<pre><code class="language-javascript">try {
+<pre><code class="language-dart">try {
   // エラーが発生する可能性のあるコード
 } catch (e) {
   // エラーが発生した時の処理
 }
 </code></pre>
 <p>実際の例を見てみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   try {
     List&lt;int&gt; numbers = [1, 2, 3];
     print(numbers[5]);  // 範囲外アクセス
@@ -205,7 +205,7 @@
 <h2 id="具体的な例安全な数値変換"><a class="header" href="#具体的な例安全な数値変換">具体的な例：安全な数値変換</a></h2>
 <p>ユーザーから入力された文字列を数値に変換する場合を考えてみましょう。
 以下の例では、インプットは決め打ちの値になっていますが、実際のアプリケーションではユーザーからの入力を受け取ります。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String userInput = "abc";  // 数値に変換できない文字列
   
   try {
@@ -223,7 +223,7 @@
 </code></pre>
 <h2 id="複数の例外の処理"><a class="header" href="#複数の例外の処理">複数の例外の処理</a></h2>
 <p>異なる種類のエラーに対して、それぞれ異なる処理を行いたい場合があります。その場合は、複数のcatch文を使用できます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   try {
     // 様々なエラーが発生する可能性のあるコード
     List&lt;String&gt; items = [];
@@ -239,7 +239,7 @@
 </code></pre>
 <h2 id="finally文必ず実行される処理"><a class="header" href="#finally文必ず実行される処理">finally文：必ず実行される処理</a></h2>
 <p>エラーが発生してもしなくても、必ず実行したい処理がある場合は<code>finally文</code>を使用します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   try {
     print("ファイルを開いています...");
     // ファイル処理のコード（エラーが発生するかもしれない）
@@ -258,7 +258,7 @@
 </code></pre>
 <h2 id="実践例計算機能の安全な実装"><a class="header" href="#実践例計算機能の安全な実装">実践例：計算機能の安全な実装</a></h2>
 <p>電卓アプリを作る時の除算機能を安全に実装してみましょう：</p>
-<pre><code class="language-javascript">double safeDivision(double a, double b) {
+<pre><code class="language-dart">double safeDivision(double a, double b) {
   try {
     if (b == 0) {
       throw ArgumentError("ゼロで割ることはできません");
@@ -284,7 +284,7 @@ void main() {
 </code></pre>
 <h2 id="カスタム例外の作成"><a class="header" href="#カスタム例外の作成">カスタム例外の作成</a></h2>
 <p>独自のエラー型を作成することもできます：</p>
-<pre><code class="language-javascript">// カスタム例外クラスの定義
+<pre><code class="language-dart">// カスタム例外クラスの定義
 class InvalidAgeException implements Exception {
   final String message;
   InvalidAgeException(this.message);
@@ -325,7 +325,7 @@ void main() {
 </code></pre>
 <h2 id="rethrowエラーの再スロー"><a class="header" href="#rethrowエラーの再スロー">rethrow：エラーの再スロー</a></h2>
 <p>エラーをキャッチして何らかの処理を行った後、そのエラーを再度投げたい場合は<code>rethrow</code>を使用します：</p>
-<pre><code class="language-javascript">void processData(String data) {
+<pre><code class="language-dart">void processData(String data) {
   try {
     // データ処理
     if (data.isEmpty) {
