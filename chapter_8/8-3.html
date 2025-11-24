@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-30eb4032.js";
+            window.path_to_searchindex_js = "../searchindex-4b13434b.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-cc584fa8.js"></script>
@@ -178,7 +178,7 @@
 <p>これまでマップの基本的な使い方を学びました。ここでは、実際のプログラミングでよく使われるマップの活用例を見ていきましょう。</p>
 <h2 id="1-成績管理システム"><a class="header" href="#1-成績管理システム">1. 成績管理システム</a></h2>
 <p>複数の生徒の成績を科目ごとに管理する例です：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 生徒ごとの成績を管理
   Map&lt;String, Map&lt;String, int&gt;&gt; studentScores = {
     '田中太郎': {
@@ -222,7 +222,7 @@
 </code></pre>
 <h2 id="2-在庫管理と商品情報"><a class="header" href="#2-在庫管理と商品情報">2. 在庫管理と商品情報</a></h2>
 <p>商品の在庫数と価格を一緒に管理する例：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 商品情報（在庫数と価格）
   Map&lt;String, Map&lt;String, int&gt;&gt; products = {
     'りんご': {'在庫': 50, '価格': 150},
@@ -255,7 +255,7 @@
 </code></pre>
 <h2 id="3-アンケート集計"><a class="header" href="#3-アンケート集計">3. アンケート集計</a></h2>
 <p>選択肢の回答数を集計する例：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // アンケートの回答を集計
   List&lt;String&gt; responses = [
     '満足', '普通', '満足', '不満', '満足',
@@ -291,7 +291,7 @@
 </code></pre>
 <h2 id="4-設定値の管理"><a class="header" href="#4-設定値の管理">4. 設定値の管理</a></h2>
 <p>アプリケーションの設定を管理する例：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // アプリケーションの設定
   Map&lt;String, dynamic&gt; settings = {
     'ユーザー名': '山田太郎',
@@ -321,7 +321,7 @@
 </code></pre>
 <h2 id="5-単語の頻度カウント"><a class="header" href="#5-単語の頻度カウント">5. 単語の頻度カウント</a></h2>
 <p>文章中の単語の出現回数を数える例：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String text = 'りんご バナナ りんご オレンジ りんご バナナ ぶどう';
   List&lt;String&gt; words = text.split(' ');
   

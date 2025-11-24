@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-30eb4032.js";
+            window.path_to_searchindex_js = "searchindex-4b13434b.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-cc584fa8.js"></script>
@@ -5343,7 +5343,7 @@ void main() {
 <p>前章では、リストを使って複数のデータをまとめて管理する方法を学びました。リストは順番に並んだデータを扱うのに便利でしたが、今回はもう一つの重要なデータ構造「マップ（Map）」について学びます。</p>
 <h2 id="リストの制限"><a class="header" href="#リストの制限">リストの制限</a></h2>
 <p>リストは素晴らしいツールですが、ある種の問題には向いていません。例えば、生徒の名前と点数を管理したいとき、リストだけでは次のような問題があります：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   List&lt;String&gt; names = ['田中', '鈴木', '佐藤', '山田'];
   List&lt;int&gt; scores = [85, 92, 78, 90];
   
@@ -5410,7 +5410,7 @@ void main() {
 <ol>
 <li><strong>キーは一意</strong>：同じキーは1つしか存在できません</li>
 <li><strong>高速アクセス</strong>：キーを使って直接値にアクセスできます</li>
-<li><strong>順序は保証されない</strong>：追加した順番は保持されない場合があります</li>
+<li><strong>順序の保持</strong>：Dartのデフォルトのマップ（LinkedHashMap）は、要素が追加された順序を保持します</li>
 <li><strong>異なる型の組み合わせ</strong>：キーと値は異なる型にできます</li>
 </ol>
 <h2 id="リストとマップの使い分け"><a class="header" href="#リストとマップの使い分け">リストとマップの使い分け</a></h2>
@@ -5427,7 +5427,7 @@ void main() {
 <li>検索を高速に行いたい場合</li>
 </ul>
 <h2 id="簡単な例"><a class="header" href="#簡単な例">簡単な例</a></h2>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 果物の価格を管理するマップ
   Map&lt;String, int&gt; fruitPrices = {
     'りんご': 150,
@@ -5447,7 +5447,7 @@ void main() {
 <p>前のセクションでマップの概念を学びました。ここでは、実際にマップを作成し、操作する方法を詳しく見ていきましょう。</p>
 <h2 id="マップの作成"><a class="header" href="#マップの作成">マップの作成</a></h2>
 <h3 id="1-空のマップを作る"><a class="header" href="#1-空のマップを作る">1. 空のマップを作る</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 空のマップを作成
   Map&lt;String, int&gt; ages = {};
   
@@ -5459,7 +5459,7 @@ void main() {
 }
 </code></pre>
 <h3 id="2-初期値を持つマップを作る"><a class="header" href="#2-初期値を持つマップを作る">2. 初期値を持つマップを作る</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 初期値を持つマップ
   Map&lt;String, int&gt; fruitPrices = {
     'りんご': 150,
@@ -5474,7 +5474,7 @@ void main() {
 </code></pre>
 <h2 id="値の取得"><a class="header" href="#値の取得">値の取得</a></h2>
 <p>マップから値を取得するには、角括弧 <code>[]</code> にキーを指定します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   Map&lt;String, int&gt; ages = {
     '太郎': 20,
     '花子': 18,
@@ -5491,7 +5491,7 @@ void main() {
 </code></pre>
 <h2 id="値の追加と更新"><a class="header" href="#値の追加と更新">値の追加と更新</a></h2>
 <h3 id="新しいキーと値を追加"><a class="header" href="#新しいキーと値を追加">新しいキーと値を追加</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   Map&lt;String, String&gt; capitals = {
     '日本': '東京',
     'アメリカ': 'ワシントンD.C.'
@@ -5506,7 +5506,7 @@ void main() {
 }
 </code></pre>
 <h3 id="既存の値を更新"><a class="header" href="#既存の値を更新">既存の値を更新</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   Map&lt;String, int&gt; testScores = {
     '数学': 85,
     '英語': 78,
@@ -5522,7 +5522,7 @@ void main() {
 }
 </code></pre>
 <h2 id="値の削除"><a class="header" href="#値の削除">値の削除</a></h2>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   Map&lt;String, String&gt; todoList = {
     '月曜日': '買い物',
     '火曜日': '掃除',
@@ -5540,7 +5540,7 @@ void main() {
 }
 </code></pre>
 <h2 id="キーの存在確認"><a class="header" href="#キーの存在確認">キーの存在確認</a></h2>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   Map&lt;String, double&gt; productPrices = {
     'ノート': 150.0,
     'ペン': 100.0,
@@ -5558,7 +5558,7 @@ void main() {
 }
 </code></pre>
 <h2 id="マップのプロパティ"><a class="header" href="#マップのプロパティ">マップのプロパティ</a></h2>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   Map&lt;String, int&gt; monthDays = {
     '1月': 31,
     '2月': 28,
@@ -5582,7 +5582,7 @@ void main() {
 }
 </code></pre>
 <h2 id="マップの繰り返し処理"><a class="header" href="#マップの繰り返し処理">マップの繰り返し処理</a></h2>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   Map&lt;String, String&gt; englishWords = {
     'apple': 'りんご',
     'book': '本',
@@ -5619,7 +5619,7 @@ void main() {
 <p>これまでマップの基本的な使い方を学びました。ここでは、実際のプログラミングでよく使われるマップの活用例を見ていきましょう。</p>
 <h2 id="1-成績管理システム"><a class="header" href="#1-成績管理システム">1. 成績管理システム</a></h2>
 <p>複数の生徒の成績を科目ごとに管理する例です：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 生徒ごとの成績を管理
   Map&lt;String, Map&lt;String, int&gt;&gt; studentScores = {
     '田中太郎': {
@@ -5663,7 +5663,7 @@ void main() {
 </code></pre>
 <h2 id="2-在庫管理と商品情報"><a class="header" href="#2-在庫管理と商品情報">2. 在庫管理と商品情報</a></h2>
 <p>商品の在庫数と価格を一緒に管理する例：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 商品情報（在庫数と価格）
   Map&lt;String, Map&lt;String, int&gt;&gt; products = {
     'りんご': {'在庫': 50, '価格': 150},
@@ -5696,7 +5696,7 @@ void main() {
 </code></pre>
 <h2 id="3-アンケート集計"><a class="header" href="#3-アンケート集計">3. アンケート集計</a></h2>
 <p>選択肢の回答数を集計する例：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // アンケートの回答を集計
   List&lt;String&gt; responses = [
     '満足', '普通', '満足', '不満', '満足',
@@ -5732,7 +5732,7 @@ void main() {
 </code></pre>
 <h2 id="4-設定値の管理"><a class="header" href="#4-設定値の管理">4. 設定値の管理</a></h2>
 <p>アプリケーションの設定を管理する例：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // アプリケーションの設定
   Map&lt;String, dynamic&gt; settings = {
     'ユーザー名': '山田太郎',
@@ -5762,7 +5762,7 @@ void main() {
 </code></pre>
 <h2 id="5-単語の頻度カウント"><a class="header" href="#5-単語の頻度カウント">5. 単語の頻度カウント</a></h2>
 <p>文章中の単語の出現回数を数える例：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String text = 'りんご バナナ りんご オレンジ りんご バナナ ぶどう';
   List&lt;String&gt; words = text.split(' ');
   
@@ -5820,7 +5820,7 @@ void main() {
 <li>すべての単語の一覧表示</li>
 </ol>
 <h2 id="基本的な辞書プログラム"><a class="header" href="#基本的な辞書プログラム">基本的な辞書プログラム</a></h2>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 英和辞書のデータ
   Map&lt;String, String&gt; dictionary = {
     'apple': 'りんご',
@@ -5856,7 +5856,7 @@ void main() {
 }
 </code></pre>
 <h2 id="機能を追加した辞書プログラム"><a class="header" href="#機能を追加した辞書プログラム">機能を追加した辞書プログラム</a></h2>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 英和辞書のデータ
   Map&lt;String, String&gt; dictionary = {
     'apple': 'りんご',

@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-30eb4032.js";
+            window.path_to_searchindex_js = "../searchindex-4b13434b.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-cc584fa8.js"></script>
@@ -178,7 +178,7 @@
 <p>前章では、リストを使って複数のデータをまとめて管理する方法を学びました。リストは順番に並んだデータを扱うのに便利でしたが、今回はもう一つの重要なデータ構造「マップ（Map）」について学びます。</p>
 <h2 id="リストの制限"><a class="header" href="#リストの制限">リストの制限</a></h2>
 <p>リストは素晴らしいツールですが、ある種の問題には向いていません。例えば、生徒の名前と点数を管理したいとき、リストだけでは次のような問題があります：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   List&lt;String&gt; names = ['田中', '鈴木', '佐藤', '山田'];
   List&lt;int&gt; scores = [85, 92, 78, 90];
   
@@ -245,7 +245,7 @@
 <ol>
 <li><strong>キーは一意</strong>：同じキーは1つしか存在できません</li>
 <li><strong>高速アクセス</strong>：キーを使って直接値にアクセスできます</li>
-<li><strong>順序は保証されない</strong>：追加した順番は保持されない場合があります</li>
+<li><strong>順序の保持</strong>：Dartのデフォルトのマップ（LinkedHashMap）は、要素が追加された順序を保持します</li>
 <li><strong>異なる型の組み合わせ</strong>：キーと値は異なる型にできます</li>
 </ol>
 <h2 id="リストとマップの使い分け"><a class="header" href="#リストとマップの使い分け">リストとマップの使い分け</a></h2>
@@ -262,7 +262,7 @@
 <li>検索を高速に行いたい場合</li>
 </ul>
 <h2 id="簡単な例"><a class="header" href="#簡単な例">簡単な例</a></h2>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 果物の価格を管理するマップ
   Map&lt;String, int&gt; fruitPrices = {
     'りんご': 150,
