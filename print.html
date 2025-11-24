@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-a88a67f9.js";
+            window.path_to_searchindex_js = "searchindex-476d75c0.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-50a693d5.js"></script>
@@ -9258,7 +9258,6 @@ void main() {
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="第13章エラーへの対処"><a class="header" href="#第13章エラーへの対処">第13章：エラーへの対処</a></h1>
-<p>オブジェクト指向プログラミングをマスターしたあなたは、いよいよプロフェッショナルな開発者として不可欠なスキルを身につける段階に進みます！</p>
 <p>この章では、プログラム開発で避けて通れない「エラー」への対処法について学習します。エラーの種類を理解し、try-catch文を使った適切なエラーハンドリング、効果的なデバッグ技術を習得します。エラーを恐れるのではなく、エラーと上手に付き合うことで、より堅牢で信頼性の高いプログラムを作成できるようになります。</p>
 <h2 id="この章の構成-12"><a class="header" href="#この章の構成-12">この章の構成</a></h2>
 <h3 id="131-エラーの種類を理解する"><a class="header" href="#131-エラーの種類を理解する"><a href="#エラーの種類を理解する">13.1 エラーの種類を理解する</a></a></h3>
@@ -9282,13 +9281,6 @@ void main() {
 <li>変数の値の追跡と確認方法</li>
 <li>効率的なデバッグの戦略</li>
 </ul>
-<h3 id="134-よくあるエラーとその対処法"><a class="header" href="#134-よくあるエラーとその対処法"><a href="#よくあるエラーとその対処法-1">13.4 よくあるエラーとその対処法</a></a></h3>
-<ul>
-<li>Null参照エラーの予防と対処</li>
-<li>配列の範囲外アクセスエラー</li>
-<li>型エラーの原因と解決方法</li>
-<li>初心者が陥りやすいエラーのパターン</li>
-</ul>
 <h2 id="学習の目標-12"><a class="header" href="#学習の目標-12">学習の目標</a></h2>
 <p>この章を完了すると、以下のことができるようになります：</p>
 <h3 id="知識面-12"><a class="header" href="#知識面-12">知識面</a></h3>
@@ -9305,12 +9297,6 @@ void main() {
 <li><strong>エラーメッセージから問題を特定</strong>できる</li>
 <li><strong>予防的なプログラミング</strong>を実践できる</li>
 </ul>
-<h3 id="心構え"><a class="header" href="#心構え">心構え</a></h3>
-<ul>
-<li><strong>エラーを学習の機会</strong>として活用できる</li>
-<li><strong>段階的な問題解決</strong>のアプローチが身についている</li>
-<li><strong>品質の高いプログラム</strong>を作る意識がある</li>
-</ul>
 <h2 id="学習のポイント-12"><a class="header" href="#学習のポイント-12">学習のポイント</a></h2>
 <h3 id="-エラーはプログラムからのメッセージ"><a class="header" href="#-エラーはプログラムからのメッセージ">🔍 エラーは「プログラムからのメッセージ」</a></h3>
 <p>エラーは敵ではなく、プログラムが「ここに問題があります」と教えてくれている親切なメッセージです。エラーメッセージを恐れずに、じっくり読んで理解しましょう。</p>
@@ -9320,10 +9306,6 @@ void main() {
 <p>デバッグは、証拠（エラーメッセージ、変数の値、実行の流れ）を集めて真犯人（バグ）を見つける探偵の仕事のようなものです。系統的にアプローチすることが大切です。</p>
 <h3 id="-経験が最良の教師"><a class="header" href="#-経験が最良の教師">📚 経験が最良の教師</a></h3>
 <p>エラーとの遭遇は、プログラマーとして成長するための貴重な経験です。同じエラーを繰り返さないよう、学んだことを記録しておきましょう。</p>
-<h2 id="次のステップへ-11"><a class="header" href="#次のステップへ-11">次のステップへ</a></h2>
-<p>第13章を修了すると、あなたはエラーハンドリングとデバッグの基本的なスキルを身につけ、より信頼性の高いプログラムを作成できるようになります。</p>
-<p>第14章では、これまでに学習したすべての内容を振り返り、さらなる学習のためのリソースと方向性について学習します。プログラマーとしての継続的な成長の道筋を見つけ、より高度なDart開発への扉を開いていきます。</p>
-<p><strong>エラーと友達になれば、プログラミングはもっと楽しくなります！</strong> 🤝</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="エラーの種類を理解する"><a class="header" href="#エラーの種類を理解する">エラーの種類を理解する</a></h1>
 <p>プログラミングを学習していると、必ずエラーに遭遇します。エラーが発生すると「プログラムが動かない！」と焦ってしまうかもしれませんが、実はエラーはプログラマーにとって大切な情報源なのです。エラーメッセージは、何が問題なのかを教えてくれる親切なガイドのような存在です。</p>
@@ -9347,7 +9329,7 @@ void main() {
 </code></pre>
 <p>この例では、リストのサイズは3なのに、5番目の要素にアクセスしようとしているため、実行時にエラーが発生します。</p>
 <h3 id="3-論理エラーlogic-error"><a class="header" href="#3-論理エラーlogic-error">3. 論理エラー（Logic Error）</a></h3>
-<p>論理エラーは、プログラムは正常に動作するものの、期待した結果が得られないエラーです。これは最も発見が困難なエラーです。</p>
+<p>論理エラーは、プログラムは正常に動作するものの、期待した結果が得られないエラーです。ソースコード自体は正しく、しかし、実行結果が期待したものと異なるため、これは最も発見が困難なエラーです。</p>
 <pre><code class="language-javascript">void main() {
   int a = 10;
   int b = 5;
@@ -9364,6 +9346,7 @@ void main() {
   print(name.length);  // エラー：nullに対してlengthにアクセス
 }
 </code></pre>
+<p>上記は、そもそもコンパイル時に弾かれるようになっています。</p>
 <p><strong>改善版：</strong></p>
 <pre><code class="language-javascript">void main() {
   String? name;
@@ -9426,9 +9409,6 @@ void main() {
 <li><strong>Not in inclusive range 0..2</strong>: 有効な範囲は0から2まで</li>
 <li><strong>10</strong>: 実際に使用された値</li>
 </ul>
-<h2 id="なるほどポイント"><a class="header" href="#なるほどポイント">なるほど！ポイント</a></h2>
-<p>エラーは敵ではなく、プログラムをより良くするためのヒントです。エラーメッセージをしっかり読むことで、問題を素早く特定し、解決することができます。</p>
-<p>次のセクションでは、エラーが発生した時にプログラムが停止しないようにする「try-catch文」について学習します。エラーを優雅に処理する方法を身につけましょう！</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="try-catch文でエラーを処理する"><a class="header" href="#try-catch文でエラーを処理する">try-catch文でエラーを処理する</a></h1>
 <p>前のセクションでエラーの種類について学びました。今度は、エラーが発生してもプログラムが停止しないようにする方法を学びましょう。これを「エラーハンドリング」と呼びます。</p>
@@ -9457,9 +9437,10 @@ void main() {
 <pre><code>エラーが発生しました: RangeError (index): Invalid value: Not in inclusive range 0..2: 5
 プログラムは続行されます
 </code></pre>
-<p>なるほど！エラーが発生してもプログラムが停止せず、catch文の中の処理が実行されました。</p>
+<p>エラーが発生してもプログラムが停止せず、catch文の中の処理が実行されました。</p>
 <h2 id="具体的な例安全な数値変換"><a class="header" href="#具体的な例安全な数値変換">具体的な例：安全な数値変換</a></h2>
-<p>ユーザーから入力された文字列を数値に変換する場合を考えてみましょう：</p>
+<p>ユーザーから入力された文字列を数値に変換する場合を考えてみましょう。
+以下の例では、インプットは決め打ちの値になっていますが、実際のアプリケーションではユーザーからの入力を受け取ります。</p>
 <pre><code class="language-javascript">void main() {
   String userInput = "abc";  // 数値に変換できない文字列
   
@@ -9605,46 +9586,6 @@ void main() {
 <pre><code>ログに記録: Invalid argument(s): データが空です
 メイン関数でキャッチ: Invalid argument(s): データが空です
 </code></pre>
-<h2 id="エラーハンドリングのベストプラクティス"><a class="header" href="#エラーハンドリングのベストプラクティス">エラーハンドリングのベストプラクティス</a></h2>
-<h3 id="1-適切なエラーメッセージを提供する"><a class="header" href="#1-適切なエラーメッセージを提供する">1. 適切なエラーメッセージを提供する</a></h3>
-<pre><code class="language-javascript">void validateEmail(String email) {
-  try {
-    if (!email.contains('@')) {
-      throw FormatException("有効なメールアドレスではありません: @が含まれていません");
-    }
-    print("有効なメールアドレス: $email");
-  } catch (e) {
-    print("入力エラー: $e");
-  }
-}
-</code></pre>
-<h3 id="2-エラーの詳細をログに記録する"><a class="header" href="#2-エラーの詳細をログに記録する">2. エラーの詳細をログに記録する</a></h3>
-<pre><code class="language-javascript">void saveUserData(Map&lt;String, dynamic&gt; userData) {
-  try {
-    // ユーザーデータの保存処理
-    print("ユーザーデータを保存しました");
-  } catch (e, stackTrace) {
-    print("保存エラー: $e");
-    print("スタックトレース: $stackTrace");
-    // 実際のアプリではログファイルに記録
-  }
-}
-</code></pre>
-<h3 id="3-復旧可能なエラーには代替案を提供する"><a class="header" href="#3-復旧可能なエラーには代替案を提供する">3. 復旧可能なエラーには代替案を提供する</a></h3>
-<pre><code class="language-javascript">String getConfigValue(String key, String defaultValue) {
-  try {
-    // 設定ファイルから値を読み取る（失敗する可能性）
-    throw Exception("設定ファイルが見つかりません");
-  } catch (e) {
-    print("設定の読み取りに失敗、デフォルト値を使用: $defaultValue");
-    return defaultValue;
-  }
-}
-</code></pre>
-<h2 id="なるほどポイント-1"><a class="header" href="#なるほどポイント-1">なるほど！ポイント</a></h2>
-<p>try-catch文を使うことで、エラーが発生してもプログラムが突然停止することを防げます。これにより、ユーザーにとって使いやすいアプリケーションを作ることができます。</p>
-<p>重要なのは、すべてのコードをtry-catchで囲むのではなく、本当にエラーが発生する可能性がある部分にのみ使用することです。また、エラーが発生した時には、適切なメッセージをユーザーに表示して、次にどうすべきかを案内することが大切です。</p>
-<p>次のセクションでは、バグを見つけて修正するための「デバッグの基本技術」について学習します！</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="デバッグの基本技術"><a class="header" href="#デバッグの基本技術">デバッグの基本技術</a></h1>
 <p>プログラムを書いていると、「コードは正しく見えるのに、期待通りに動かない…」という状況によく遭遇します。このような問題を見つけて修正することを「デバッグ」と呼びます。</p>
@@ -9727,41 +9668,6 @@ void main() {
   checkGrade(85);
 }
 </code></pre>
-<h2 id="デバッグのための関数"><a class="header" href="#デバッグのための関数">デバッグのための関数</a></h2>
-<p>デバッグ用の専用関数を作成すると、コードが見やすくなります。</p>
-<pre><code class="language-javascript">// デバッグ用関数
-void debug(String message, [dynamic value]) {
-  if (value != null) {
-    print("DEBUG: $message → $value");
-  } else {
-    print("DEBUG: $message");
-  }
-}
-
-// 使用例
-void processNumbers(List&lt;int&gt; numbers) {
-  debug("関数開始", "processNumbers");
-  debug("入力データ", numbers);
-  
-  List&lt;int&gt; evenNumbers = [];
-  
-  for (int number in numbers) {
-    debug("処理中の数値", number);
-    
-    if (number % 2 == 0) {
-      debug("偶数を発見", number);
-      evenNumbers.add(number);
-    }
-  }
-  
-  debug("偶数のリスト", evenNumbers);
-  debug("関数終了");
-}
-
-void main() {
-  processNumbers([1, 2, 3, 4, 5, 6]);
-}
-</code></pre>
 <h2 id="assert文を使ったデバッグ"><a class="header" href="#assert文を使ったデバッグ">assert文を使ったデバッグ</a></h2>
 <p><code>assert文</code>は、プログラムの想定が正しいかどうかをチェックするためのツールです。</p>
 <pre><code class="language-javascript">void divide(double a, double b) {
@@ -9779,29 +9685,6 @@ void main() {
 void main() {
   divide(10, 2);   // 正常ケース
   // divide(10, 0);  // assertエラーが発生
-}
-</code></pre>
-<h2 id="ステップバイステップ実行"><a class="header" href="#ステップバイステップ実行">ステップバイステップ実行</a></h2>
-<p>複雑な処理を小さな単位に分けて、一つずつ確認していきます。</p>
-<pre><code class="language-javascript">// 問題のあるコード例：文字列の反転
-String reverseString(String input) {
-  String result = "";
-  
-  print("開始: input='$input'");
-  
-  for (int i = input.length - 1; i &gt;= 0; i--) {
-    print("i=$i, 文字='${input[i]}'");
-    result += input[i];
-    print("現在のresult='$result'");
-  }
-  
-  print("完了: result='$result'");
-  return result;
-}
-
-void main() {
-  String reversed = reverseString("hello");
-  print("最終結果: $reversed");
 }
 </code></pre>
 <h2 id="エラーログの読み方と活用"><a class="header" href="#エラーログの読み方と活用">エラーログの読み方と活用</a></h2>
@@ -9824,33 +9707,6 @@ void main() {
 }
 </code></pre>
 <p>このエラー情報から、どの行で何が起こったかを特定できます。</p>
-<h2 id="二分探索でバグを特定する"><a class="header" href="#二分探索でバグを特定する">二分探索でバグを特定する</a></h2>
-<p>大きなコードでバグの場所が分からない時は、コードを半分ずつコメントアウトして問題の範囲を絞り込みます。</p>
-<pre><code class="language-javascript">void complexFunction() {
-  // 前半部分
-  print("処理1: データ初期化");
-  List&lt;int&gt; data = [1, 2, 3, 4, 5];
-  
-  print("処理2: データ変換");
-  for (int i = 0; i &lt; data.length; i++) {
-    data[i] = data[i] * 2;
-  }
-  
-  // ここまでは正常に動く
-  print("中間確認: $data");
-  
-  // 後半部分（問題がこの辺りにありそう）
-  print("処理3: 平均計算");
-  int sum = 0;
-  for (int value in data) {
-    sum += value;
-  }
-  
-  // バグ発見！整数除算になっている
-  double average = sum / data.length;  // 修正: sum.toDouble() / data.length
-  print("平均: $average");
-}
-</code></pre>
 <h2 id="デバッグに役立つツールとテクニック"><a class="header" href="#デバッグに役立つツールとテクニック">デバッグに役立つツールとテクニック</a></h2>
 <h3 id="1-境界値をテストする"><a class="header" href="#1-境界値をテストする">1. 境界値をテストする</a></h3>
 <pre><code class="language-javascript">void testBoundaryValues() {
@@ -9907,7 +9763,7 @@ void processString(String input) {
   print("最初の文字: ${input[0]}");
 }
 </code></pre>
-<h2 id="デバッグのベストプラクティス"><a class="header" href="#デバッグのベストプラクティス">デバッグのベストプラクティス</a></h2>
+<h2 id="デバッグのプラクティス"><a class="header" href="#デバッグのプラクティス">デバッグのプラクティス</a></h2>
 <h3 id="1-再現可能なテストケースを作る"><a class="header" href="#1-再現可能なテストケースを作る">1. 再現可能なテストケースを作る</a></h3>
 <pre><code class="language-javascript">// 問題を再現するテスト関数
 void reproduceIssue() {
@@ -9958,388 +9814,8 @@ void exampleWithDebugInfo() {
   });
 }
 </code></pre>
-<h2 id="なるほどポイント-2"><a class="header" href="#なるほどポイント-2">なるほど！ポイント</a></h2>
-<p>デバッグは技術であり、練習によって上達します。最初はprint文をたくさん使って構いません。慣れてきたら、より効率的な手法を使えるようになります。</p>
-<p>重要なのは、問題を恐れずに「なぜこうなるのだろう？」という好奇心を持って取り組むことです。一つずつ確実に問題を解決していけば、必ず原因を特定できます。</p>
-<p>次のセクションでは、プログラミング初心者がよく遭遇するエラーパターンと、その具体的な対処法について学習します！</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="よくあるエラーとその対処法-1"><a class="header" href="#よくあるエラーとその対処法-1">よくあるエラーとその対処法</a></h1>
-<p>プログラミングを始めたばかりの頃は、同じようなエラーを何度も繰り返してしまうものです。でも大丈夫です！これは誰もが通る道です。この章では、初心者がよく遭遇するエラーパターンと、その具体的な対処法をご紹介します。</p>
-<p>エラーを恐れる必要はありません。むしろ、エラーは「もっと良いコードを書くためのヒント」を教えてくれる先生のような存在だと考えましょう。</p>
-<h2 id="1-構文エラーsyntax-error-1"><a class="header" href="#1-構文エラーsyntax-error-1">1. 構文エラー（Syntax Error）</a></h2>
-<p>最も頻繁に遭遇するエラーです。文法上の間違いが原因で発生します。</p>
-<h3 id="セミコロンの忘れ"><a class="header" href="#セミコロンの忘れ">セミコロンの忘れ</a></h3>
-<p><strong>よくある間違い：</strong></p>
-<pre><code class="language-javascript">void main() {
-  int number = 42
-  print(number);  // エラー：前の行のセミコロンが不足
-}
-</code></pre>
-<p><strong>修正版：</strong></p>
-<pre><code class="language-javascript">void main() {
-  int number = 42;  // セミコロンを追加
-  print(number);
-}
-</code></pre>
-<h3 id="括弧の不一致"><a class="header" href="#括弧の不一致">括弧の不一致</a></h3>
-<p><strong>よくある間違い：</strong></p>
-<pre><code class="language-javascript">void main() {
-  if (true) {
-    print("Hello");
-  // エラー：閉じ括弧が不足
-}
-</code></pre>
-<p><strong>修正版：</strong></p>
-<pre><code class="language-javascript">void main() {
-  if (true) {
-    print("Hello");
-  }  // 閉じ括弧を追加
-}
-</code></pre>
-<h3 id="引用符の不一致"><a class="header" href="#引用符の不一致">引用符の不一致</a></h3>
-<p><strong>よくある間違い：</strong></p>
-<pre><code class="language-javascript">void main() {
-  String message = "Hello World';  // エラー：引用符が一致しない
-  print(message);
-}
-</code></pre>
-<p><strong>修正版：</strong></p>
-<pre><code class="language-javascript">void main() {
-  String message = "Hello World";  // 引用符を統一
-  print(message);
-}
-</code></pre>
-<h2 id="2-型エラーtype-error"><a class="header" href="#2-型エラーtype-error">2. 型エラー（Type Error）</a></h2>
-<p>Dartは型に厳格な言語なので、型の不一致によるエラーがよく発生します。</p>
-<h3 id="型の不一致"><a class="header" href="#型の不一致">型の不一致</a></h3>
-<p><strong>よくある間違い：</strong></p>
-<pre><code class="language-javascript">void main() {
-  int number = "123";  // エラー：文字列を整数型に代入
-  print(number);
-}
-</code></pre>
-<p><strong>修正版：</strong></p>
-<pre><code class="language-javascript">void main() {
-  int number = int.parse("123");  // 文字列を整数に変換
-  print(number);
-}
-</code></pre>
-<h3 id="null安全の問題"><a class="header" href="#null安全の問題">null安全の問題</a></h3>
-<p><strong>よくある間違い：</strong></p>
-<pre><code class="language-javascript">void main() {
-  String? name;  // null許可型
-  print(name.length);  // エラー：nullの可能性がある変数へのアクセス
-}
-</code></pre>
-<p><strong>修正版：</strong></p>
-<pre><code class="language-javascript">void main() {
-  String? name;
-  if (name != null) {
-    print(name.length);  // nullチェック後にアクセス
-  } else {
-    print("名前が設定されていません");
-  }
-}
-</code></pre>
-<p>または、null合体演算子を使用：</p>
-<pre><code class="language-javascript">void main() {
-  String? name;
-  print(name?.length ?? 0);  // nullの場合は0を返す
-}
-</code></pre>
-<h2 id="3-論理エラーlogic-error-1"><a class="header" href="#3-論理エラーlogic-error-1">3. 論理エラー（Logic Error）</a></h2>
-<p>プログラムは動作するものの、期待した結果が得られないエラーです。</p>
-<h3 id="ループの条件間違い"><a class="header" href="#ループの条件間違い">ループの条件間違い</a></h3>
-<p><strong>よくある間違い：</strong></p>
-<pre><code class="language-javascript">void main() {
-  // 1から10まで表示したいが...
-  for (int i = 1; i &lt; 10; i++) {  // 10が表示されない！
-    print(i);
-  }
-}
-</code></pre>
-<p><strong>修正版：</strong></p>
-<pre><code class="language-javascript">void main() {
-  for (int i = 1; i &lt;= 10; i++) {  // &lt;= を使用
-    print(i);
-  }
-}
-</code></pre>
-<h3 id="配列のインデックス間違い"><a class="header" href="#配列のインデックス間違い">配列のインデックス間違い</a></h3>
-<p><strong>よくある間違い：</strong></p>
-<pre><code class="language-javascript">void main() {
-  List&lt;String&gt; fruits = ["りんご", "バナナ", "オレンジ"];
-  
-  // 最後の要素を取得したいが...
-  print(fruits[fruits.length]);  // エラー：インデックスが範囲外
-}
-</code></pre>
-<p><strong>修正版：</strong></p>
-<pre><code class="language-javascript">void main() {
-  List&lt;String&gt; fruits = ["りんご", "バナナ", "オレンジ"];
-  
-  print(fruits[fruits.length - 1]);  // 最後の要素のインデックス
-  // または
-  print(fruits.last);  // より簡潔な書き方
-}
-</code></pre>
-<h2 id="4-ランタイムエラーruntime-error"><a class="header" href="#4-ランタイムエラーruntime-error">4. ランタイムエラー（Runtime Error）</a></h2>
-<p>プログラム実行中に発生するエラーです。</p>
-<h3 id="ゼロ除算エラー"><a class="header" href="#ゼロ除算エラー">ゼロ除算エラー</a></h3>
-<p><strong>よくある間違い：</strong></p>
-<pre><code class="language-javascript">void main() {
-  int a = 10;
-  int b = 0;
-  print(a / b);  // エラー：ゼロで割ろうとしている
-}
-</code></pre>
-<p><strong>修正版：</strong></p>
-<pre><code class="language-javascript">void main() {
-  int a = 10;
-  int b = 0;
-  
-  if (b != 0) {
-    print(a / b);
-  } else {
-    print("エラー: ゼロで割ることはできません");
-  }
-}
-</code></pre>
-<h3 id="リストの範囲外アクセス"><a class="header" href="#リストの範囲外アクセス">リストの範囲外アクセス</a></h3>
-<p><strong>よくある間違い：</strong></p>
-<pre><code class="language-javascript">void main() {
-  List&lt;int&gt; numbers = [1, 2, 3];
-  print(numbers[5]);  // エラー：インデックス5は存在しない
-}
-</code></pre>
-<p><strong>修正版：</strong></p>
-<pre><code class="language-javascript">void main() {
-  List&lt;int&gt; numbers = [1, 2, 3];
-  int index = 5;
-  
-  if (index &gt;= 0 &amp;&amp; index &lt; numbers.length) {
-    print(numbers[index]);
-  } else {
-    print("エラー: インデックス$indexは範囲外です（0-${numbers.length - 1}）");
-  }
-}
-</code></pre>
-<h2 id="5-文字列処理のエラー"><a class="header" href="#5-文字列処理のエラー">5. 文字列処理のエラー</a></h2>
-<h3 id="文字列の連結間違い"><a class="header" href="#文字列の連結間違い">文字列の連結間違い</a></h3>
-<p><strong>よくある間違い：</strong></p>
-<pre><code class="language-javascript">void main() {
-  String firstName = "田中";
-  String lastName = "太郎";
-  String fullName = firstName + " " + lastName;  // 動作するが非効率
-  print(fullName);
-}
-</code></pre>
-<p><strong>より良い書き方：</strong></p>
-<pre><code class="language-javascript">void main() {
-  String firstName = "田中";
-  String lastName = "太郎";
-  String fullName = "$firstName $lastName";  // 文字列補間を使用
-  print(fullName);
-}
-</code></pre>
-<h3 id="空文字列のチェック忘れ"><a class="header" href="#空文字列のチェック忘れ">空文字列のチェック忘れ</a></h3>
-<p><strong>よくある間違い：</strong></p>
-<pre><code class="language-javascript">void main() {
-  String input = "";
-  print(input[0]);  // エラー：空文字列の最初の文字にアクセス
-}
-</code></pre>
-<p><strong>修正版：</strong></p>
-<pre><code class="language-javascript">void main() {
-  String input = "";
-  
-  if (input.isNotEmpty) {
-    print(input[0]);
-  } else {
-    print("入力が空です");
-  }
-}
-</code></pre>
-<h2 id="6-関数に関するエラー"><a class="header" href="#6-関数に関するエラー">6. 関数に関するエラー</a></h2>
-<h3 id="戻り値の型不一致"><a class="header" href="#戻り値の型不一致">戻り値の型不一致</a></h3>
-<p><strong>よくある間違い：</strong></p>
-<pre><code class="language-javascript">int calculateSum(List&lt;int&gt; numbers) {
-  if (numbers.isEmpty) {
-    return;  // エラー：int型の関数でvoidを返そうとしている
-  }
-  
-  int sum = 0;
-  for (int number in numbers) {
-    sum += number;
-  }
-  return sum;
-}
-</code></pre>
-<p><strong>修正版：</strong></p>
-<pre><code class="language-javascript">int calculateSum(List&lt;int&gt; numbers) {
-  if (numbers.isEmpty) {
-    return 0;  // 適切なデフォルト値を返す
-  }
-  
-  int sum = 0;
-  for (int number in numbers) {
-    sum += number;
-  }
-  return sum;
-}
-</code></pre>
-<h3 id="引数の順序間違い"><a class="header" href="#引数の順序間違い">引数の順序間違い</a></h3>
-<p><strong>よくある間違い：</strong></p>
-<pre><code class="language-javascript">void showUserInfo(String name, int age) {
-  print("名前: $name, 年齢: $age");
-}
-
-void main() {
-  showUserInfo(25, "田中太郎");  // エラー：引数の順序が逆
-}
-</code></pre>
-<p><strong>修正版：</strong></p>
-<pre><code class="language-javascript">void showUserInfo(String name, int age) {
-  print("名前: $name, 年齢: $age");
-}
-
-void main() {
-  showUserInfo("田中太郎", 25);  // 正しい順序
-}
-</code></pre>
-<h2 id="7-コレクション操作のエラー"><a class="header" href="#7-コレクション操作のエラー">7. コレクション操作のエラー</a></h2>
-<h3 id="リストの変更中の反復"><a class="header" href="#リストの変更中の反復">リストの変更中の反復</a></h3>
-<p><strong>よくある間違い：</strong></p>
-<pre><code class="language-javascript">void main() {
-  List&lt;int&gt; numbers = [1, 2, 3, 4, 5];
-  
-  for (int number in numbers) {
-    if (number % 2 == 0) {
-      numbers.remove(number);  // エラー：反復中にリストを変更
-    }
-  }
-  
-  print(numbers);
-}
-</code></pre>
-<p><strong>修正版：</strong></p>
-<pre><code class="language-javascript">void main() {
-  List&lt;int&gt; numbers = [1, 2, 3, 4, 5];
-  
-  // 新しいリストを作成する方法
-  List&lt;int&gt; oddNumbers = numbers.where((number) =&gt; number % 2 != 0).toList();
-  print(oddNumbers);
-  
-  // または、逆順でループする方法
-  for (int i = numbers.length - 1; i &gt;= 0; i--) {
-    if (numbers[i] % 2 == 0) {
-      numbers.removeAt(i);
-    }
-  }
-  print(numbers);
-}
-</code></pre>
-<h2 id="8-非同期処理のエラー"><a class="header" href="#8-非同期処理のエラー">8. 非同期処理のエラー</a></h2>
-<h3 id="awaitの忘れ"><a class="header" href="#awaitの忘れ">awaitの忘れ</a></h3>
-<p><strong>よくある間違い：</strong></p>
-<pre><code class="language-javascript">Future&lt;String&gt; fetchData() async {
-  // 何らかの非同期処理
-  await Future.delayed(Duration(seconds: 1));
-  return "データ";
-}
-
-void main() {
-  String result = fetchData();  // エラー：Futureを直接Stringに代入
-  print(result);
-}
-</code></pre>
-<p><strong>修正版：</strong></p>
-<pre><code class="language-javascript">Future&lt;String&gt; fetchData() async {
-  await Future.delayed(Duration(seconds: 1));
-  return "データ";
-}
-
-void main() async {  // mainもasyncにする
-  String result = await fetchData();  // awaitを追加
-  print(result);
-}
-</code></pre>
-<h2 id="エラー解決のコツ"><a class="header" href="#エラー解決のコツ">エラー解決のコツ</a></h2>
-<h3 id="1-エラーメッセージをよく読む"><a class="header" href="#1-エラーメッセージをよく読む">1. エラーメッセージをよく読む</a></h3>
-<pre><code class="language-javascript">// このエラーメッセージの例：
-// "RangeError (index): Invalid value: Not in inclusive range 0..2: 5"
-
-void main() {
-  List&lt;String&gt; colors = ["赤", "青", "緑"];
-  print(colors[5]);  // インデックス5は範囲外（0-2が有効）
-}
-</code></pre>
-<p>エラーメッセージから：</p>
-<ul>
-<li><code>RangeError</code>: 範囲に関するエラー</li>
-<li><code>Not in inclusive range 0..2</code>: 有効な範囲は0から2まで</li>
-<li><code>5</code>: 実際に使用された無効な値</li>
-</ul>
-<h3 id="2-小さな部分から確認する"><a class="header" href="#2-小さな部分から確認する">2. 小さな部分から確認する</a></h3>
-<pre><code class="language-javascript">void debugStep() {
-  print("ステップ1: リスト作成");
-  List&lt;int&gt; numbers = [1, 2, 3, 4, 5];
-  print("リスト: $numbers");
-  
-  print("ステップ2: インデックス計算");
-  int index = numbers.length - 1;
-  print("最後のインデックス: $index");
-  
-  print("ステップ3: 要素取得");
-  int lastNumber = numbers[index];
-  print("最後の要素: $lastNumber");
-}
-</code></pre>
-<h3 id="3-ドキュメントと例を参照する"><a class="header" href="#3-ドキュメントと例を参照する">3. ドキュメントと例を参照する</a></h3>
-<p>よく分からない関数やメソッドがあるときは、公式ドキュメントや信頼できるチュートリアルを確認しましょう。</p>
-<h2 id="予防策とベストプラクティス"><a class="header" href="#予防策とベストプラクティス">予防策とベストプラクティス</a></h2>
-<h3 id="1-入力値の検証"><a class="header" href="#1-入力値の検証">1. 入力値の検証</a></h3>
-<pre><code class="language-javascript">void processAge(int age) {
-  // 入力値をチェック
-  if (age &lt; 0) {
-    throw ArgumentError("年齢は0以上である必要があります");
-  }
-  if (age &gt; 150) {
-    throw ArgumentError("年齢は150以下である必要があります");
-  }
-  
-  print("年齢: $age歳");
-}
-</code></pre>
-<h3 id="2-デフォルト値の設定"><a class="header" href="#2-デフォルト値の設定">2. デフォルト値の設定</a></h3>
-<pre><code class="language-javascript">String greetUser(String? name) {
-  return "こんにちは、${name ?? "ゲスト"}さん！";
-}
-</code></pre>
-<h3 id="3-早期リターン"><a class="header" href="#3-早期リターン">3. 早期リターン</a></h3>
-<pre><code class="language-javascript">String validateEmail(String email) {
-  if (email.isEmpty) {
-    return "メールアドレスが入力されていません";
-  }
-  
-  if (!email.contains("@")) {
-    return "有効なメールアドレスではありません";
-  }
-  
-  return "有効なメールアドレスです";
-}
-</code></pre>
-<h2 id="なるほどポイント-3"><a class="header" href="#なるほどポイント-3">なるほど！ポイント</a></h2>
-<p>エラーは避けられないものですが、同じエラーを繰り返さないように学習することが重要です。エラーが発生したら：</p>
-<ol>
-<li><strong>慌てずにエラーメッセージを読む</strong></li>
-<li><strong>問題の箇所を特定する</strong></li>
-<li><strong>小さなテストで原因を確認する</strong></li>
-<li><strong>修正して再テストする</strong></li>
-<li><strong>今後同じエラーを避ける方法を考える</strong></li>
-</ol>
-<p>エラーは成長のチャンスです。一つずつ丁寧に解決していけば、必ず上達します！</p>
-<p>これで第13章「エラーへの対処」の学習は完了です。エラーハンドリングとデバッグのスキルを身につけることで、より堅牢で使いやすいプログラムを作成できるようになりましたね。次の章では、これまで学んだ知識を活用して実際のプロジェクトに挑戦していきましょう！</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="第14章次のステップへ"><a class="header" href="#第14章次のステップへ">第14章：次のステップへ</a></h1>
 <p>エラーハンドリングとデバッグをマスターしたあなたは、いよいよDartプログラミングの基礎学習を完了し、次のレベルへと向かう準備が整いました！</p>
@@ -10375,7 +9851,7 @@ void main() {
 <li><strong>実践的なプロジェクト</strong>を企画・実行できる</li>
 <li><strong>コミュニティ活動</strong>に参加できる</li>
 </ul>
-<h3 id="心構え-1"><a class="header" href="#心構え-1">心構え</a></h3>
+<h3 id="心構え"><a class="header" href="#心構え">心構え</a></h3>
 <ul>
 <li><strong>生涯学習者</strong>としての意識を持っている</li>
 <li><strong>困難を乗り越える</strong>粘り強さがある</li>
@@ -10850,7 +10326,7 @@ void エラーの対処法() {
 </code></pre>
 <h3 id="5-楽しむことを忘れない"><a class="header" href="#5-楽しむことを忘れない">5. 楽しむことを忘れない</a></h3>
 <p>プログラミングは創造的な活動です。自分が作りたいものを作り、楽しみながら学習を続けましょう。</p>
-<h2 id="次のステップへ-12"><a class="header" href="#次のステップへ-12">次のステップへ</a></h2>
+<h2 id="次のステップへ-11"><a class="header" href="#次のステップへ-11">次のステップへ</a></h2>
 <p>この本で学んだ基礎は、あなたの強固な土台となります。ここから先は、興味のある分野を深く探求していきましょう。</p>
 <p><strong>可能性は無限大です：</strong></p>
 <ul>

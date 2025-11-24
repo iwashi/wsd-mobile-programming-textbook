@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-a88a67f9.js";
+            window.path_to_searchindex_js = "../searchindex-476d75c0.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-50a693d5.js"></script>
@@ -255,41 +255,6 @@ void main() {
   checkGrade(85);
 }
 </code></pre>
-<h2 id="デバッグのための関数"><a class="header" href="#デバッグのための関数">デバッグのための関数</a></h2>
-<p>デバッグ用の専用関数を作成すると、コードが見やすくなります。</p>
-<pre><code class="language-javascript">// デバッグ用関数
-void debug(String message, [dynamic value]) {
-  if (value != null) {
-    print("DEBUG: $message → $value");
-  } else {
-    print("DEBUG: $message");
-  }
-}
-
-// 使用例
-void processNumbers(List&lt;int&gt; numbers) {
-  debug("関数開始", "processNumbers");
-  debug("入力データ", numbers);
-  
-  List&lt;int&gt; evenNumbers = [];
-  
-  for (int number in numbers) {
-    debug("処理中の数値", number);
-    
-    if (number % 2 == 0) {
-      debug("偶数を発見", number);
-      evenNumbers.add(number);
-    }
-  }
-  
-  debug("偶数のリスト", evenNumbers);
-  debug("関数終了");
-}
-
-void main() {
-  processNumbers([1, 2, 3, 4, 5, 6]);
-}
-</code></pre>
 <h2 id="assert文を使ったデバッグ"><a class="header" href="#assert文を使ったデバッグ">assert文を使ったデバッグ</a></h2>
 <p><code>assert文</code>は、プログラムの想定が正しいかどうかをチェックするためのツールです。</p>
 <pre><code class="language-javascript">void divide(double a, double b) {
@@ -307,29 +272,6 @@ void main() {
 void main() {
   divide(10, 2);   // 正常ケース
   // divide(10, 0);  // assertエラーが発生
-}
-</code></pre>
-<h2 id="ステップバイステップ実行"><a class="header" href="#ステップバイステップ実行">ステップバイステップ実行</a></h2>
-<p>複雑な処理を小さな単位に分けて、一つずつ確認していきます。</p>
-<pre><code class="language-javascript">// 問題のあるコード例：文字列の反転
-String reverseString(String input) {
-  String result = "";
-  
-  print("開始: input='$input'");
-  
-  for (int i = input.length - 1; i &gt;= 0; i--) {
-    print("i=$i, 文字='${input[i]}'");
-    result += input[i];
-    print("現在のresult='$result'");
-  }
-  
-  print("完了: result='$result'");
-  return result;
-}
-
-void main() {
-  String reversed = reverseString("hello");
-  print("最終結果: $reversed");
 }
 </code></pre>
 <h2 id="エラーログの読み方と活用"><a class="header" href="#エラーログの読み方と活用">エラーログの読み方と活用</a></h2>
@@ -352,33 +294,6 @@ void main() {
 }
 </code></pre>
 <p>このエラー情報から、どの行で何が起こったかを特定できます。</p>
-<h2 id="二分探索でバグを特定する"><a class="header" href="#二分探索でバグを特定する">二分探索でバグを特定する</a></h2>
-<p>大きなコードでバグの場所が分からない時は、コードを半分ずつコメントアウトして問題の範囲を絞り込みます。</p>
-<pre><code class="language-javascript">void complexFunction() {
-  // 前半部分
-  print("処理1: データ初期化");
-  List&lt;int&gt; data = [1, 2, 3, 4, 5];
-  
-  print("処理2: データ変換");
-  for (int i = 0; i &lt; data.length; i++) {
-    data[i] = data[i] * 2;
-  }
-  
-  // ここまでは正常に動く
-  print("中間確認: $data");
-  
-  // 後半部分（問題がこの辺りにありそう）
-  print("処理3: 平均計算");
-  int sum = 0;
-  for (int value in data) {
-    sum += value;
-  }
-  
-  // バグ発見！整数除算になっている
-  double average = sum / data.length;  // 修正: sum.toDouble() / data.length
-  print("平均: $average");
-}
-</code></pre>
 <h2 id="デバッグに役立つツールとテクニック"><a class="header" href="#デバッグに役立つツールとテクニック">デバッグに役立つツールとテクニック</a></h2>
 <h3 id="1-境界値をテストする"><a class="header" href="#1-境界値をテストする">1. 境界値をテストする</a></h3>
 <pre><code class="language-javascript">void testBoundaryValues() {
@@ -435,7 +350,7 @@ void processString(String input) {
   print("最初の文字: ${input[0]}");
 }
 </code></pre>
-<h2 id="デバッグのベストプラクティス"><a class="header" href="#デバッグのベストプラクティス">デバッグのベストプラクティス</a></h2>
+<h2 id="デバッグのプラクティス"><a class="header" href="#デバッグのプラクティス">デバッグのプラクティス</a></h2>
 <h3 id="1-再現可能なテストケースを作る"><a class="header" href="#1-再現可能なテストケースを作る">1. 再現可能なテストケースを作る</a></h3>
 <pre><code class="language-javascript">// 問題を再現するテスト関数
 void reproduceIssue() {
@@ -486,10 +401,6 @@ void exampleWithDebugInfo() {
   });
 }
 </code></pre>
-<h2 id="なるほどポイント"><a class="header" href="#なるほどポイント">なるほど！ポイント</a></h2>
-<p>デバッグは技術であり、練習によって上達します。最初はprint文をたくさん使って構いません。慣れてきたら、より効率的な手法を使えるようになります。</p>
-<p>重要なのは、問題を恐れずに「なぜこうなるのだろう？」という好奇心を持って取り組むことです。一つずつ確実に問題を解決していけば、必ず原因を特定できます。</p>
-<p>次のセクションでは、プログラミング初心者がよく遭遇するエラーパターンと、その具体的な対処法について学習します！</p>
 
                     </main>
 

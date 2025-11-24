@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-a88a67f9.js";
+            window.path_to_searchindex_js = "../searchindex-476d75c0.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-50a693d5.js"></script>
@@ -196,7 +196,7 @@
 </code></pre>
 <p>この例では、リストのサイズは3なのに、5番目の要素にアクセスしようとしているため、実行時にエラーが発生します。</p>
 <h3 id="3-論理エラーlogic-error"><a class="header" href="#3-論理エラーlogic-error">3. 論理エラー（Logic Error）</a></h3>
-<p>論理エラーは、プログラムは正常に動作するものの、期待した結果が得られないエラーです。これは最も発見が困難なエラーです。</p>
+<p>論理エラーは、プログラムは正常に動作するものの、期待した結果が得られないエラーです。ソースコード自体は正しく、しかし、実行結果が期待したものと異なるため、これは最も発見が困難なエラーです。</p>
 <pre><code class="language-javascript">void main() {
   int a = 10;
   int b = 5;
@@ -213,6 +213,7 @@
   print(name.length);  // エラー：nullに対してlengthにアクセス
 }
 </code></pre>
+<p>上記は、そもそもコンパイル時に弾かれるようになっています。</p>
 <p><strong>改善版：</strong></p>
 <pre><code class="language-javascript">void main() {
   String? name;
@@ -275,9 +276,6 @@ void main() {
 <li><strong>Not in inclusive range 0..2</strong>: 有効な範囲は0から2まで</li>
 <li><strong>10</strong>: 実際に使用された値</li>
 </ul>
-<h2 id="なるほどポイント"><a class="header" href="#なるほどポイント">なるほど！ポイント</a></h2>
-<p>エラーは敵ではなく、プログラムをより良くするためのヒントです。エラーメッセージをしっかり読むことで、問題を素早く特定し、解決することができます。</p>
-<p>次のセクションでは、エラーが発生した時にプログラムが停止しないようにする「try-catch文」について学習します。エラーを優雅に処理する方法を身につけましょう！</p>
 
                     </main>
 

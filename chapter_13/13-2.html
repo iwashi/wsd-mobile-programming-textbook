@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-a88a67f9.js";
+            window.path_to_searchindex_js = "../searchindex-476d75c0.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-50a693d5.js"></script>
@@ -201,9 +201,10 @@
 <pre><code>エラーが発生しました: RangeError (index): Invalid value: Not in inclusive range 0..2: 5
 プログラムは続行されます
 </code></pre>
-<p>なるほど！エラーが発生してもプログラムが停止せず、catch文の中の処理が実行されました。</p>
+<p>エラーが発生してもプログラムが停止せず、catch文の中の処理が実行されました。</p>
 <h2 id="具体的な例安全な数値変換"><a class="header" href="#具体的な例安全な数値変換">具体的な例：安全な数値変換</a></h2>
-<p>ユーザーから入力された文字列を数値に変換する場合を考えてみましょう：</p>
+<p>ユーザーから入力された文字列を数値に変換する場合を考えてみましょう。
+以下の例では、インプットは決め打ちの値になっていますが、実際のアプリケーションではユーザーからの入力を受け取ります。</p>
 <pre><code class="language-javascript">void main() {
   String userInput = "abc";  // 数値に変換できない文字列
   
@@ -349,46 +350,6 @@ void main() {
 <pre><code>ログに記録: Invalid argument(s): データが空です
 メイン関数でキャッチ: Invalid argument(s): データが空です
 </code></pre>
-<h2 id="エラーハンドリングのベストプラクティス"><a class="header" href="#エラーハンドリングのベストプラクティス">エラーハンドリングのベストプラクティス</a></h2>
-<h3 id="1-適切なエラーメッセージを提供する"><a class="header" href="#1-適切なエラーメッセージを提供する">1. 適切なエラーメッセージを提供する</a></h3>
-<pre><code class="language-javascript">void validateEmail(String email) {
-  try {
-    if (!email.contains('@')) {
-      throw FormatException("有効なメールアドレスではありません: @が含まれていません");
-    }
-    print("有効なメールアドレス: $email");
-  } catch (e) {
-    print("入力エラー: $e");
-  }
-}
-</code></pre>
-<h3 id="2-エラーの詳細をログに記録する"><a class="header" href="#2-エラーの詳細をログに記録する">2. エラーの詳細をログに記録する</a></h3>
-<pre><code class="language-javascript">void saveUserData(Map&lt;String, dynamic&gt; userData) {
-  try {
-    // ユーザーデータの保存処理
-    print("ユーザーデータを保存しました");
-  } catch (e, stackTrace) {
-    print("保存エラー: $e");
-    print("スタックトレース: $stackTrace");
-    // 実際のアプリではログファイルに記録
-  }
-}
-</code></pre>
-<h3 id="3-復旧可能なエラーには代替案を提供する"><a class="header" href="#3-復旧可能なエラーには代替案を提供する">3. 復旧可能なエラーには代替案を提供する</a></h3>
-<pre><code class="language-javascript">String getConfigValue(String key, String defaultValue) {
-  try {
-    // 設定ファイルから値を読み取る（失敗する可能性）
-    throw Exception("設定ファイルが見つかりません");
-  } catch (e) {
-    print("設定の読み取りに失敗、デフォルト値を使用: $defaultValue");
-    return defaultValue;
-  }
-}
-</code></pre>
-<h2 id="なるほどポイント"><a class="header" href="#なるほどポイント">なるほど！ポイント</a></h2>
-<p>try-catch文を使うことで、エラーが発生してもプログラムが突然停止することを防げます。これにより、ユーザーにとって使いやすいアプリケーションを作ることができます。</p>
-<p>重要なのは、すべてのコードをtry-catchで囲むのではなく、本当にエラーが発生する可能性がある部分にのみ使用することです。また、エラーが発生した時には、適切なメッセージをユーザーに表示して、次にどうすべきかを案内することが大切です。</p>
-<p>次のセクションでは、バグを見つけて修正するための「デバッグの基本技術」について学習します！</p>
 
                     </main>
 
