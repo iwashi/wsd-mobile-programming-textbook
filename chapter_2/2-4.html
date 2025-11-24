@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-daf6ba5d.js";
+            window.path_to_searchindex_js = "../searchindex-834104f1.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-50a693d5.js"></script>
+        <script src="../toc-cc584fa8.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -177,7 +177,7 @@
                         <h1 id="24-プログラムの実行順序"><a class="header" href="#24-プログラムの実行順序">2.4 プログラムの実行順序</a></h1>
 <h2 id="プログラムは上から下へ実行される"><a class="header" href="#プログラムは上から下へ実行される">プログラムは上から下へ実行される</a></h2>
 <p>プログラミングにおいて最も基本的で重要な概念の一つが、<strong>プログラムの実行順序</strong>です。コンピュータは、プログラムを<strong>上から下へ、一行ずつ順番に</strong>実行します。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('1番目に実行される');
   print('2番目に実行される');
   print('3番目に実行される');
@@ -192,7 +192,7 @@
 <h2 id="実行順序の実例"><a class="header" href="#実行順序の実例">実行順序の実例</a></h2>
 <h3 id="例1-料理の手順"><a class="header" href="#例1-料理の手順">例1: 料理の手順</a></h3>
 <p>現実の料理手順をプログラムで表現してみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('=== カレーライスの作り方 ===');
   print('1. 材料を準備する');
   print('2. 野菜を切る');
@@ -217,7 +217,7 @@
 </code></pre>
 <h3 id="例2-数学の計算手順"><a class="header" href="#例2-数学の計算手順">例2: 数学の計算手順</a></h3>
 <p>複数の計算を順番に行う例：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('=== 計算の手順 ===');
   
   // ステップ1: 初期値の設定
@@ -249,7 +249,7 @@ a = 10, b = 5
 <h2 id="実行順序が重要な理由"><a class="header" href="#実行順序が重要な理由">実行順序が重要な理由</a></h2>
 <h3 id="1-依存関係がある処理"><a class="header" href="#1-依存関係がある処理">1. 依存関係がある処理</a></h3>
 <p>後の処理が前の処理結果に依存する場合、順序が重要になります：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // この順序は正しい
   int price = 1000;           // 1. 価格を設定
   double taxRate = 0.1;       // 2. 税率を設定
@@ -264,7 +264,7 @@ a = 10, b = 5
 </code></pre>
 <h3 id="2-初期化の順序"><a class="header" href="#2-初期化の順序">2. 初期化の順序</a></h3>
 <p>変数や設定は、使用する前に初期化する必要があります：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 正しい順序：設定 → 使用
   String playerName = '田中太郎';
   int playerScore = 0;
@@ -278,7 +278,7 @@ a = 10, b = 5
 </code></pre>
 <h3 id="3-出力の順序"><a class="header" href="#3-出力の順序">3. 出力の順序</a></h3>
 <p>メッセージの表示順序も重要です：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('プログラムを開始します');
   print('計算中...');
   
@@ -291,7 +291,7 @@ a = 10, b = 5
 </code></pre>
 <h2 id="複雑な実行順序の例"><a class="header" href="#複雑な実行順序の例">複雑な実行順序の例</a></h2>
 <h3 id="例1-学生の成績処理システム"><a class="header" href="#例1-学生の成績処理システム">例1: 学生の成績処理システム</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // === 初期化フェーズ ===
   print('=== 成績処理システム ===');
   print('[初期化] データを準備しています...');
@@ -327,7 +327,7 @@ a = 10, b = 5
 }
 </code></pre>
 <h3 id="例2-ショッピングの計算システム"><a class="header" href="#例2-ショッピングの計算システム">例2: ショッピングの計算システム</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('=== お買い物計算システム ===');
   
   // 商品情報の設定
@@ -372,7 +372,7 @@ a = 10, b = 5
 </code></pre>
 <h2 id="デバッグと実行順序"><a class="header" href="#デバッグと実行順序">デバッグと実行順序</a></h2>
 <p>プログラムに問題があるとき、実行順序を追跡することでデバッグ（問題の発見と修正）ができます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('デバッグ開始');
   
   print('ステップ1: 変数aを初期化');

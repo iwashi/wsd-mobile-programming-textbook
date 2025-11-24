@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-daf6ba5d.js";
+            window.path_to_searchindex_js = "../searchindex-834104f1.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-50a693d5.js"></script>
+        <script src="../toc-cc584fa8.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -178,13 +178,13 @@
 <h2 id="print文とは"><a class="header" href="#print文とは">print文とは</a></h2>
 <p><strong>print文</strong>は、Dartで最も基本的で重要な機能の一つです。プログラムから画面（コンソール）に文字や数値を表示するために使います。</p>
 <p>以下のコードに示すように、すでに何度も使ってきた<code>print()</code>がまさにこのprint文です。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('Hello, World!');
 }
 </code></pre>
 <h2 id="print文の基本的な使い方"><a class="header" href="#print文の基本的な使い方">print文の基本的な使い方</a></h2>
 <h3 id="1-文字列を表示する"><a class="header" href="#1-文字列を表示する">1. 文字列を表示する</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('こんにちは');
   print('Dartプログラミング');
   print('楽しく学習しましょう！');
@@ -196,7 +196,7 @@ Dartプログラミング
 楽しく学習しましょう！
 </code></pre>
 <h3 id="2-数値を表示する"><a class="header" href="#2-数値を表示する">2. 数値を表示する</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print(42);      // 整数
   print(3.14);    // 小数
   print(-10);     // 負の数
@@ -208,7 +208,7 @@ Dartプログラミング
 -10
 </code></pre>
 <h3 id="3-計算結果を表示する"><a class="header" href="#3-計算結果を表示する">3. 計算結果を表示する</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print(5 + 3);       // 足し算
   print(10 - 4);      // 引き算
   print(6 * 7);       // 掛け算
@@ -223,7 +223,7 @@ Dartプログラミング
 </code></pre>
 <h2 id="空行を表示する"><a class="header" href="#空行を表示する">空行を表示する</a></h2>
 <p>何も表示しない空行を作りたいときは、空の文字列を表示します：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('最初の行');
   print('');        // 空行
   print('次の行');
@@ -236,7 +236,7 @@ Dartプログラミング
 </code></pre>
 <h2 id="文字列の結合"><a class="header" href="#文字列の結合">文字列の結合</a></h2>
 <h3 id="1--演算子を使った結合"><a class="header" href="#1--演算子を使った結合">1. + 演算子を使った結合</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('私の名前は' + '田中太郎' + 'です');
   print('今日は' + '晴れ' + 'です');
 }
@@ -247,7 +247,7 @@ Dartプログラミング
 </code></pre>
 <h3 id="2-文字列補間string-interpolation"><a class="header" href="#2-文字列補間string-interpolation">2. 文字列補間（String Interpolation）</a></h3>
 <p>より便利な方法として、<code>$</code>記号を使った<strong>文字列補間</strong>があります：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String name = '田中太郎';
   int age = 16;
   
@@ -261,7 +261,7 @@ Dartプログラミング
 </code></pre>
 <h3 id="3-複雑な式の場合"><a class="header" href="#3-複雑な式の場合">3. 複雑な式の場合</a></h3>
 <p>計算式など複雑な内容を含める場合は、<code>${}</code>を使います：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int a = 10;
   int b = 5;
   
@@ -275,7 +275,7 @@ Dartプログラミング
 </code></pre>
 <h2 id="printのいろいろな使い方"><a class="header" href="#printのいろいろな使い方">printのいろいろな使い方</a></h2>
 <h3 id="1-複数の値を一度に表示"><a class="header" href="#1-複数の値を一度に表示">1. 複数の値を一度に表示</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String name = '佐藤花子';
   int math = 85;
   int english = 92;
@@ -294,7 +294,7 @@ Dartプログラミング
 平均: 85.0点
 </code></pre>
 <h3 id="2-表形式の表示"><a class="header" href="#2-表形式の表示">2. 表形式の表示</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('=== 成績表 ===');
   print('名前      | 数学 | 英語 | 理科');
   print('---------|------|-----|-----');
@@ -312,7 +312,7 @@ Dartプログラミング
 山田次郎  |  75  |  82  |  79
 </code></pre>
 <h3 id="3-パターンやデザインの表示"><a class="header" href="#3-パターンやデザインの表示">3. パターンやデザインの表示</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('★☆★☆★☆★☆★☆');
   print('プログラム開始');
   print('★☆★☆★☆★☆★☆');
@@ -340,7 +340,7 @@ Dartプログラミング
 <h2 id="特殊文字の表示"><a class="header" href="#特殊文字の表示">特殊文字の表示</a></h2>
 <h3 id="1-エスケープシーケンス"><a class="header" href="#1-エスケープシーケンス">1. エスケープシーケンス</a></h3>
 <p>特殊な文字を表示するには、<strong>エスケープシーケンス</strong>を使います：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('これは \"引用符\" を含む文字列です');
   print('これは \'アポストロフィ\' を含む文字列です');
   print('これは \\ バックスラッシュを含む文字列です');
@@ -367,7 +367,7 @@ Dartプログラミング
 </table>
 </div>
 <h3 id="改行の例"><a class="header" href="#改行の例">改行の例</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('1行目\n2行目\n3行目');
   print('これは\n複数行の\nメッセージです');
 }
@@ -381,7 +381,7 @@ Dartプログラミング
 メッセージです
 </code></pre>
 <h3 id="タブの例"><a class="header" href="#タブの例">タブの例</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('名前\t年齢\t住所');
   print('田中太郎\t16\t東京都');
   print('佐藤花子\t17\t大阪府');
@@ -394,7 +394,7 @@ Dartプログラミング
 </code></pre>
 <h2 id="print文でのデバッグ"><a class="header" href="#print文でのデバッグ">print文でのデバッグ</a></h2>
 <p>プログラムの動作を確認するために、print文を使ってデバッグ（問題の発見と修正）ができます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('プログラム開始');
   
   int x = 10;
@@ -415,7 +415,7 @@ Dartプログラミング
 </code></pre>
 <h2 id="print文使用時の注意点"><a class="header" href="#print文使用時の注意点">print文使用時の注意点</a></h2>
 <h3 id="1-文字列は引用符で囲む"><a class="header" href="#1-文字列は引用符で囲む">1. 文字列は引用符で囲む</a></h3>
-<pre><code class="language-javascript">// 正しい
+<pre><code class="language-dart">// 正しい
 print('Hello, World!');
 print("Hello, World!");
 
@@ -423,7 +423,7 @@ print("Hello, World!");
 print(Hello, World!);
 </code></pre>
 <h3 id="2-セミコロンを忘れない"><a class="header" href="#2-セミコロンを忘れない">2. セミコロンを忘れない</a></h3>
-<pre><code class="language-javascript">// 正しい
+<pre><code class="language-dart">// 正しい
 print('Hello');
 print('World');
 
@@ -432,7 +432,7 @@ print('Hello')
 print('World')
 </code></pre>
 <h3 id="3-括弧の対応を確認"><a class="header" href="#3-括弧の対応を確認">3. 括弧の対応を確認</a></h3>
-<pre><code class="language-javascript">// 正しい
+<pre><code class="language-dart">// 正しい
 print('Hello, World!');
 
 // 間違い（エラーになる）

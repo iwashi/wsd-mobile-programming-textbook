@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-daf6ba5d.js";
+            window.path_to_searchindex_js = "../searchindex-834104f1.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-50a693d5.js"></script>
+        <script src="../toc-cc584fa8.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -183,7 +183,7 @@
 <h3 id="1-構文エラーsyntax-error"><a class="header" href="#1-構文エラーsyntax-error">1. 構文エラー（Syntax Error）</a></h3>
 <p>プログラムの書き方（構文）が間違っている場合に発生するエラーです。</p>
 <h4 id="例1-セミコロンの忘れ"><a class="header" href="#例1-セミコロンの忘れ">例1: セミコロンの忘れ</a></h4>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('Hello, World!')  // セミコロンがない
 }
 </code></pre>
@@ -197,7 +197,7 @@
 }
 </code></pre>
 <h4 id="例2-括弧の不一致"><a class="header" href="#例2-括弧の不一致">例2: 括弧の不一致</a></h4>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('Hello, World!';  // 閉じ括弧がない
 }
 </code></pre>
@@ -211,7 +211,7 @@
 }
 </code></pre>
 <h4 id="例3-中括弧の不一致"><a class="header" href="#例3-中括弧の不一致">例3: 中括弧の不一致</a></h4>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('Hello, World!');
 // 閉じ中括弧がない
 </code></pre>
@@ -227,7 +227,7 @@
 <h3 id="2-名前エラーname-error"><a class="header" href="#2-名前エラーname-error">2. 名前エラー（Name Error）</a></h3>
 <p>存在しない変数や関数を使おうとした場合に発生するエラーです。</p>
 <h4 id="例1-未定義の変数"><a class="header" href="#例1-未定義の変数">例1: 未定義の変数</a></h4>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print(unknownVariable);  // 定義されていない変数
 }
 </code></pre>
@@ -242,7 +242,7 @@
 }
 </code></pre>
 <h4 id="例2-スペルミス"><a class="header" href="#例2-スペルミス">例2: スペルミス</a></h4>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String name = 'Dart';
   print(namme);  // 変数名のスペルミス
 }
@@ -260,7 +260,7 @@
 <h3 id="3-型エラーtype-error"><a class="header" href="#3-型エラーtype-error">3. 型エラー（Type Error）</a></h3>
 <p>データの型が合わない場合に発生するエラーです。</p>
 <h4 id="例1-型の不一致"><a class="header" href="#例1-型の不一致">例1: 型の不一致</a></h4>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int number = 'Hello';  // 整数型に文字列を代入
 }
 </code></pre>
@@ -277,7 +277,7 @@
 <h3 id="4-実行時エラーruntime-error"><a class="header" href="#4-実行時エラーruntime-error">4. 実行時エラー（Runtime Error）</a></h3>
 <p>プログラムは正しく書かれているが、実行中に問題が発生した場合のエラーです。</p>
 <h4 id="例1-ゼロ割り算"><a class="header" href="#例1-ゼロ割り算">例1: ゼロ割り算</a></h4>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int a = 10;
   int b = 0;
   print(a ~/ b);  // ゼロで割り算
@@ -310,7 +310,7 @@ main.dart:[行番号]:[列番号]: Error: Undefined name 'unknownVariable'.
 <h3 id="2-重要な情報を見つける"><a class="header" href="#2-重要な情報を見つける">2. 重要な情報を見つける</a></h3>
 <h4 id="行番号の確認"><a class="header" href="#行番号の確認">行番号の確認</a></h4>
 <p>エラーメッセージには、問題が発生した行番号が表示されます。</p>
-<pre><code class="language-javascript">// 1行目
+<pre><code class="language-dart">// 1行目
 void main() {
   // 2行目
   print('Hello')  // 3行目：セミコロンがない
@@ -326,7 +326,7 @@ main.dart:4:16: Error: Expected ';' after this.
 <p><strong>読み方</strong>: 「3行目の16文字目にセミコロンが必要です」</p>
 <h3 id="3-エラーメッセージの具体例と解読"><a class="header" href="#3-エラーメッセージの具体例と解読">3. エラーメッセージの具体例と解読</a></h3>
 <h4 id="例-構文エラー"><a class="header" href="#例-構文エラー">例: 構文エラー</a></h4>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String message = 'Hello, World!;
   print(message);
 }
@@ -345,7 +345,7 @@ main.dart:2:20: Error: Expected ';' after this.
 <li><strong>line 2 column 20</strong>: 「2行目の20文字目に問題があります」</li>
 <li><strong>解決</strong>: 文字列を正しく閉じる</li>
 </ul>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String message = 'Hello, World!';  // 引用符を正しく閉じる
   print(message);
 }
@@ -354,7 +354,7 @@ main.dart:2:20: Error: Expected ';' after this.
 <h3 id="1-expected--after-this"><a class="header" href="#1-expected--after-this">1. 「Expected ‘;’ after this」</a></h3>
 <p><strong>原因</strong>: セミコロンの忘れ
 <strong>対処法</strong>: 文の最後にセミコロンを追加する</p>
-<pre><code class="language-javascript">// 間違い
+<pre><code class="language-dart">// 間違い
 print('Hello')
 
 // 正しい
@@ -363,7 +363,7 @@ print('Hello');
 <h3 id="2-undefined-name-変数名"><a class="header" href="#2-undefined-name-変数名">2. 「Undefined name ‘変数名’」</a></h3>
 <p><strong>原因</strong>: 変数名のスペルミスまたは未定義
 <strong>対処法</strong>: 正しいスペルに修正するか、変数を定義する</p>
-<pre><code class="language-javascript">// 間違い
+<pre><code class="language-dart">// 間違い
 String name = 'Dart';
 print(naem);  // スペルミス
 
@@ -374,7 +374,7 @@ print(name);  // 正しいスペル
 <h3 id="3-expected--to-close-block-opened"><a class="header" href="#3-expected--to-close-block-opened">3. 「Expected ‘}’ to close block opened」</a></h3>
 <p><strong>原因</strong>: 中括弧の不一致
 <strong>対処法</strong>: 開いた中括弧に対応する閉じ中括弧を追加する</p>
-<pre><code class="language-javascript">// 間違い
+<pre><code class="language-dart">// 間違い
 void main() {
   print('Hello');
 // } がない
@@ -387,7 +387,7 @@ void main() {
 <h3 id="4-a-value-of-type-string-cant-be-assigned-to-a-variable-of-type-int"><a class="header" href="#4-a-value-of-type-string-cant-be-assigned-to-a-variable-of-type-int">4. 「A value of type ‘String’ can’t be assigned to a variable of type ‘int’」</a></h3>
 <p><strong>原因</strong>: 型の不一致
 <strong>対処法</strong>: 正しい型の値を代入する</p>
-<pre><code class="language-javascript">// 間違い
+<pre><code class="language-dart">// 間違い
 int age = '20';  // 文字列を整数型に代入
 
 // 正しい
@@ -412,7 +412,7 @@ String ageString = '20';  // 文字列を文字列型に代入
 <h2 id="エラーの予防方法"><a class="header" href="#エラーの予防方法">エラーの予防方法</a></h2>
 <h3 id="1-コードを少しずつ書く"><a class="header" href="#1-コードを少しずつ書く">1. コードを少しずつ書く</a></h3>
 <p>一度に大量のコードを書かずに、少しずつ書いて動作確認することで、エラーの箇所を特定しやすくなります。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // ステップ1: 基本の出力を確認
   print('Hello');
   
@@ -427,7 +427,7 @@ String ageString = '20';  // 文字列を文字列型に代入
 </code></pre>
 <h3 id="2-インデントを正しく使う"><a class="header" href="#2-インデントを正しく使う">2. インデントを正しく使う</a></h3>
 <p>正しいインデントを使うことで、構造が見やすくなり、エラーを防げます。</p>
-<pre><code class="language-javascript">// 見やすいコード
+<pre><code class="language-dart">// 見やすいコード
 void main() {
   if (true) {
     print('条件が真です');
@@ -443,7 +443,7 @@ print('条件が真です');
 </code></pre>
 <h3 id="3-コメントを活用する"><a class="header" href="#3-コメントを活用する">3. コメントを活用する</a></h3>
 <p>コメントを使って自分の意図を記録しておくことで、エラーの原因を見つけやすくなります。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 学生の情報を設定
   String studentName = '田中太郎';
   int score = 85;
@@ -459,7 +459,7 @@ print('条件が真です');
 <h2 id="デバッグのテクニック"><a class="header" href="#デバッグのテクニック">デバッグのテクニック</a></h2>
 <h3 id="1-print文を使った確認"><a class="header" href="#1-print文を使った確認">1. print文を使った確認</a></h3>
 <p>変数の値や処理の流れを確認するために、print文を追加します。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int a = 10;
   int b = 5;
   
@@ -474,7 +474,7 @@ print('条件が真です');
 </code></pre>
 <h3 id="2-段階的な実行"><a class="header" href="#2-段階的な実行">2. 段階的な実行</a></h3>
 <p>複雑な処理を段階に分けて、どこで問題が起きているかを特定します。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print('ステップ1: 開始');
   
   String name = '山田花子';
