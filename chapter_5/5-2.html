@@ -196,7 +196,7 @@
 <h2 id="等価演算子"><a class="header" href="#等価演算子">等価演算子（==、!=）</a></h2>
 <h3 id="等しいかどうか"><a class="header" href="#等しいかどうか">等しいかどうか：==</a></h3>
 <p><code>==</code>演算子は、2つの値が同じかどうかを調べます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int a = 10;
   int b = 10;
   int c = 5;
@@ -215,7 +215,7 @@
 <p><strong>重要な注意点：</strong> 等しいかどうかの比較には<code>==</code>を使います。<code>=</code>は代入演算子なので間違えないようにしましょう。</p>
 <h3 id="等しくない"><a class="header" href="#等しくない">等しくない：!=</a></h3>
 <p><code>!=</code>演算子は、2つの値が異なるかどうかを調べます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int score = 75;
   
   if (score != 100) {
@@ -230,7 +230,7 @@
 </code></pre>
 <h2 id="大小比較演算子"><a class="header" href="#大小比較演算子">大小比較演算子（&gt;、&lt;、&gt;=、&lt;=）</a></h2>
 <h3 id="より大きいより小さい"><a class="header" href="#より大きいより小さい">より大きい・より小さい：&gt;、&lt;</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int myAge = 16;
   int adultAge = 18;
   
@@ -245,7 +245,7 @@
 }
 </code></pre>
 <h3 id="以上以下"><a class="header" href="#以上以下">以上・以下：&gt;=、&lt;=</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int testScore = 80;
   
   // 80点以上なら合格
@@ -261,7 +261,7 @@
 </code></pre>
 <h2 id="実践例年齢チェックプログラム"><a class="header" href="#実践例年齢チェックプログラム">実践例：年齢チェックプログラム</a></h2>
 <p>様々な比較演算子を使った例を見てみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int age = 17;
   
   print('あなたの年齢: $age歳');
@@ -285,7 +285,7 @@
 </code></pre>
 <h2 id="よくある間違い"><a class="header" href="#よくある間違い">よくある間違い</a></h2>
 <h3 id="1-代入演算子と比較演算子の混同"><a class="header" href="#1-代入演算子と比較演算子の混同">1. 代入演算子と比較演算子の混同</a></h3>
-<pre><code class="language-javascript">// 間違い
+<pre><code class="language-dart">// 間違い
 if (age = 18) {  // エラー！代入はできません
   print('18歳です');
 }
@@ -297,7 +297,7 @@ if (age == 18) {  // 比較演算子を使う
 </code></pre>
 <h3 id="2-文字列の比較"><a class="header" href="#2-文字列の比較">2. 文字列の比較</a></h3>
 <p>文字列も比較できますが、大文字・小文字は区別されます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String name = 'dart';
   
   print('name == "dart": ${name == "dart"}');   // true
@@ -307,7 +307,7 @@ if (age == 18) {  // 比較演算子を使う
 </code></pre>
 <h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
 <p>次のプログラムを完成させてみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int number = 42;
   
   // 以下の条件をif文で書いてみてください

@@ -193,7 +193,7 @@
 <h2 id="and演算子すべての条件を満たす"><a class="header" href="#and演算子すべての条件を満たす">AND演算子（&amp;&amp;）：すべての条件を満たす</a></h2>
 <p><code>&amp;&amp;</code>演算子は、<strong>すべての条件が真の時だけ</strong>全体が真になります。</p>
 <h3 id="基本的な使い方"><a class="header" href="#基本的な使い方">基本的な使い方</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int age = 20;
   bool hasLicense = true;
   
@@ -206,7 +206,7 @@
 </code></pre>
 <p>この例では、<code>age &gt;= 18</code>と<code>hasLicense</code>の<strong>両方</strong>が真の時だけ「運転できます」が表示されます。</p>
 <h3 id="実用例映画の年齢制限"><a class="header" href="#実用例映画の年齢制限">実用例：映画の年齢制限</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int age = 16;
   bool parentConsent = false;
   
@@ -219,7 +219,7 @@
 }
 </code></pre>
 <h3 id="3つ以上の条件を組み合わせる"><a class="header" href="#3つ以上の条件を組み合わせる">3つ以上の条件を組み合わせる</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int score1 = 85;
   int score2 = 78;
   int score3 = 92;
@@ -235,7 +235,7 @@
 <h2 id="or演算子いずれかの条件を満たす"><a class="header" href="#or演算子いずれかの条件を満たす">OR演算子（||）：いずれかの条件を満たす</a></h2>
 <p><code>||</code>演算子は、<strong>いずれかの条件が真の時</strong>全体が真になります。</p>
 <h3 id="基本的な使い方-1"><a class="header" href="#基本的な使い方-1">基本的な使い方</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String day = '土曜日';
   
   if (day == '土曜日' || day == '日曜日') {
@@ -246,7 +246,7 @@
 }
 </code></pre>
 <h3 id="実用例割引条件の判定"><a class="header" href="#実用例割引条件の判定">実用例：割引条件の判定</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int age = 16;
   bool isStudent = true;
   bool isSenior = false;
@@ -262,7 +262,7 @@
 <h2 id="not演算子条件の否定"><a class="header" href="#not演算子条件の否定">NOT演算子（!）：条件の否定</a></h2>
 <p><code>!</code>演算子は、条件の真偽を反転させます。</p>
 <h3 id="基本的な使い方-2"><a class="header" href="#基本的な使い方-2">基本的な使い方</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   bool isRaining = false;
   
   if (!isRaining) {  // 雨が降っていない場合
@@ -273,7 +273,7 @@
 }
 </code></pre>
 <h3 id="より複雑な例"><a class="header" href="#より複雑な例">より複雑な例</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   bool isWeekend = true;
   bool isHoliday = false;
   
@@ -291,7 +291,7 @@
 <li><code>&amp;&amp;</code> (AND)</li>
 <li><code>||</code> (OR) - 最後</li>
 </ol>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   bool a = true;
   bool b = false;
   bool c = true;
@@ -301,7 +301,7 @@
 }
 </code></pre>
 <p>括弧を使って明示的に優先順位を指定することをお勧めします：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int age = 17;
   bool hasParentPermission = true;
   bool isEmergency = false;
@@ -358,7 +358,7 @@
 </div>
 <h2 id="よくある間違い"><a class="header" href="#よくある間違い">よくある間違い</a></h2>
 <h3 id="範囲の条件を間違って書く"><a class="header" href="#範囲の条件を間違って書く">範囲の条件を間違って書く</a></h3>
-<pre><code class="language-javascript">// 間違った例
+<pre><code class="language-dart">// 間違った例
 int age = 25;
 if (18 &lt;= age &lt;= 65) {  // これはエラー！Dartでは使えません
   print('働き盛りです');

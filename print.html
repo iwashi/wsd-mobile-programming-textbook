@@ -3354,12 +3354,12 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <p>プログラミングでも同じように、条件によって異なる処理を実行することを<strong>条件分岐</strong>や<strong>分岐処理</strong>と呼びます。</p>
 <h2 id="最も簡単な条件分岐if文"><a class="header" href="#最も簡単な条件分岐if文">最も簡単な条件分岐：if文</a></h2>
 <p>Dartでは<code>if文</code>を使って条件分岐を行います。基本的な構文は次のとおりです：</p>
-<pre><code class="language-javascript">if (条件) {
+<pre><code class="language-dart">if (条件) {
   // 条件が真（true）の時に実行される処理
 }
 </code></pre>
 <p>実際の例を見てみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int age = 20;
   
   if (age &gt;= 18) {
@@ -3378,7 +3378,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 </ol>
 <h2 id="条件の真偽値"><a class="header" href="#条件の真偽値">条件の真偽値</a></h2>
 <p>条件は必ず<strong>真（true）<strong>または</strong>偽（false）<strong>のどちらかになります。これを</strong>ブール値</strong>（boolean）と呼びます。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   bool isRaining = true;
   
   if (isRaining) {
@@ -3390,7 +3390,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 </code></pre>
 <h2 id="実際に試してみよう"><a class="header" href="#実際に試してみよう">実際に試してみよう</a></h2>
 <p>次のプログラムを実行して、結果を確認してみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int score = 85;
   
   print('あなたの点数: $score点');
@@ -3434,7 +3434,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <h2 id="等価演算子"><a class="header" href="#等価演算子">等価演算子（==、!=）</a></h2>
 <h3 id="等しいかどうか"><a class="header" href="#等しいかどうか">等しいかどうか：==</a></h3>
 <p><code>==</code>演算子は、2つの値が同じかどうかを調べます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int a = 10;
   int b = 10;
   int c = 5;
@@ -3453,7 +3453,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 <p><strong>重要な注意点：</strong> 等しいかどうかの比較には<code>==</code>を使います。<code>=</code>は代入演算子なので間違えないようにしましょう。</p>
 <h3 id="等しくない"><a class="header" href="#等しくない">等しくない：!=</a></h3>
 <p><code>!=</code>演算子は、2つの値が異なるかどうかを調べます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int score = 75;
   
   if (score != 100) {
@@ -3468,7 +3468,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 </code></pre>
 <h2 id="大小比較演算子"><a class="header" href="#大小比較演算子">大小比較演算子（&gt;、&lt;、&gt;=、&lt;=）</a></h2>
 <h3 id="より大きいより小さい"><a class="header" href="#より大きいより小さい">より大きい・より小さい：&gt;、&lt;</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int myAge = 16;
   int adultAge = 18;
   
@@ -3483,7 +3483,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 }
 </code></pre>
 <h3 id="以上以下"><a class="header" href="#以上以下">以上・以下：&gt;=、&lt;=</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int testScore = 80;
   
   // 80点以上なら合格
@@ -3499,7 +3499,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 </code></pre>
 <h2 id="実践例年齢チェックプログラム"><a class="header" href="#実践例年齢チェックプログラム">実践例：年齢チェックプログラム</a></h2>
 <p>様々な比較演算子を使った例を見てみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int age = 17;
   
   print('あなたの年齢: $age歳');
@@ -3523,7 +3523,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 </code></pre>
 <h2 id="よくある間違い"><a class="header" href="#よくある間違い">よくある間違い</a></h2>
 <h3 id="1-代入演算子と比較演算子の混同"><a class="header" href="#1-代入演算子と比較演算子の混同">1. 代入演算子と比較演算子の混同</a></h3>
-<pre><code class="language-javascript">// 間違い
+<pre><code class="language-dart">// 間違い
 if (age = 18) {  // エラー！代入はできません
   print('18歳です');
 }
@@ -3535,7 +3535,7 @@ if (age == 18) {  // 比較演算子を使う
 </code></pre>
 <h3 id="2-文字列の比較"><a class="header" href="#2-文字列の比較">2. 文字列の比較</a></h3>
 <p>文字列も比較できますが、大文字・小文字は区別されます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String name = 'dart';
   
   print('name == "dart": ${name == "dart"}');   // true
@@ -3545,7 +3545,7 @@ if (age == 18) {  // 比較演算子を使う
 </code></pre>
 <h2 id="練習問題-1"><a class="header" href="#練習問題-1">練習問題</a></h2>
 <p>次のプログラムを完成させてみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int number = 42;
   
   // 以下の条件をif文で書いてみてください
@@ -3568,7 +3568,7 @@ if (age == 18) {  // 比較演算子を使う
 <p>これまでのif文では、条件が真の時だけ処理を実行していました。しかし、実際のプログラムでは「条件が真の時はAをして、偽の時はBをする」という2択の処理が必要になることがよくあります。</p>
 <h2 id="if-else文の基本構文"><a class="header" href="#if-else文の基本構文">if-else文の基本構文</a></h2>
 <p><code>if-else文</code>を使うと、条件によって異なる2つの処理を実行できます：</p>
-<pre><code class="language-javascript">if (条件) {
+<pre><code class="language-dart">if (条件) {
   // 条件が真（true）の時の処理
 } else {
   // 条件が偽（false）の時の処理
@@ -3576,7 +3576,7 @@ if (age == 18) {  // 比較演算子を使う
 </code></pre>
 <h2 id="基本的な例"><a class="header" href="#基本的な例">基本的な例</a></h2>
 <p>年齢による判定プログラムを見てみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int age = 16;
   
   if (age &gt;= 18) {
@@ -3596,7 +3596,7 @@ if (age == 18) {  // 比較演算子を使う
 </ul>
 <h2 id="実用的な例-1"><a class="header" href="#実用的な例-1">実用的な例</a></h2>
 <h3 id="例1テストの合否判定"><a class="header" href="#例1テストの合否判定">例1：テストの合否判定</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int score = 75;
   
   print('あなたの点数: $score点');
@@ -3611,7 +3611,7 @@ if (age == 18) {  // 比較演算子を使う
 }
 </code></pre>
 <h3 id="例2天気による服装アドバイス"><a class="header" href="#例2天気による服装アドバイス">例2：天気による服装アドバイス</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String weather = '雨';
   
   if (weather == '雨') {
@@ -3625,7 +3625,7 @@ if (age == 18) {  // 比較演算子を使う
 </code></pre>
 <h2 id="else-if文複数の条件を扱う"><a class="header" href="#else-if文複数の条件を扱う">else if文：複数の条件を扱う</a></h2>
 <p>2つ以上の条件を扱いたい場合は、<code>else if</code>を使います：</p>
-<pre><code class="language-javascript">if (条件1) {
+<pre><code class="language-dart">if (条件1) {
   // 条件1が真の時の処理
 } else if (条件2) {
   // 条件1が偽で、条件2が真の時の処理
@@ -3634,7 +3634,7 @@ if (age == 18) {  // 比較演算子を使う
 }
 </code></pre>
 <h3 id="例成績の評価"><a class="header" href="#例成績の評価">例：成績の評価</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int score = 85;
   
   print('あなたの点数: $score点');
@@ -3653,7 +3653,7 @@ if (age == 18) {  // 比較演算子を使う
 }
 </code></pre>
 <h3 id="例時間帯による挨拶"><a class="header" href="#例時間帯による挨拶">例：時間帯による挨拶</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int hour = 14;  // 14時（午後2時）
   
   if (hour &lt; 12) {
@@ -3667,7 +3667,7 @@ if (age == 18) {  // 比較演算子を使う
 </code></pre>
 <h2 id="ネストした条件分岐"><a class="header" href="#ネストした条件分岐">ネストした条件分岐</a></h2>
 <p>if文の中に別のif文を書くこともできます（ネスト）：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int age = 16;
   bool hasLicense = false;
   
@@ -3687,7 +3687,7 @@ if (age == 18) {  // 比較演算子を使う
 </code></pre>
 <h2 id="よくある間違いとその修正"><a class="header" href="#よくある間違いとその修正">よくある間違いとその修正</a></h2>
 <h3 id="1-else文の不適切な使用"><a class="header" href="#1-else文の不適切な使用">1. else文の不適切な使用</a></h3>
-<pre><code class="language-javascript">// 間違った例
+<pre><code class="language-dart">// 間違った例
 void main() {
   int score = 85;
   
@@ -3712,7 +3712,7 @@ void main() {
 }
 </code></pre>
 <h3 id="2-条件の順序"><a class="header" href="#2-条件の順序">2. 条件の順序</a></h3>
-<pre><code class="language-javascript">// 問題のある例
+<pre><code class="language-dart">// 問題のある例
 void main() {
   int score = 95;
   
@@ -3738,7 +3738,7 @@ void main() {
 </code></pre>
 <h2 id="練習問題-2"><a class="header" href="#練習問題-2">練習問題</a></h2>
 <p>以下のプログラムを完成させてみましょう：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int temperature = 25;
   
   // 温度による服装アドバイスプログラムを作ってください
@@ -3777,7 +3777,7 @@ void main() {
 <h2 id="and演算子すべての条件を満たす"><a class="header" href="#and演算子すべての条件を満たす">AND演算子（&amp;&amp;）：すべての条件を満たす</a></h2>
 <p><code>&amp;&amp;</code>演算子は、<strong>すべての条件が真の時だけ</strong>全体が真になります。</p>
 <h3 id="基本的な使い方-1"><a class="header" href="#基本的な使い方-1">基本的な使い方</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int age = 20;
   bool hasLicense = true;
   
@@ -3790,7 +3790,7 @@ void main() {
 </code></pre>
 <p>この例では、<code>age &gt;= 18</code>と<code>hasLicense</code>の<strong>両方</strong>が真の時だけ「運転できます」が表示されます。</p>
 <h3 id="実用例映画の年齢制限"><a class="header" href="#実用例映画の年齢制限">実用例：映画の年齢制限</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int age = 16;
   bool parentConsent = false;
   
@@ -3803,7 +3803,7 @@ void main() {
 }
 </code></pre>
 <h3 id="3つ以上の条件を組み合わせる"><a class="header" href="#3つ以上の条件を組み合わせる">3つ以上の条件を組み合わせる</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int score1 = 85;
   int score2 = 78;
   int score3 = 92;
@@ -3819,7 +3819,7 @@ void main() {
 <h2 id="or演算子いずれかの条件を満たす"><a class="header" href="#or演算子いずれかの条件を満たす">OR演算子（||）：いずれかの条件を満たす</a></h2>
 <p><code>||</code>演算子は、<strong>いずれかの条件が真の時</strong>全体が真になります。</p>
 <h3 id="基本的な使い方-1-1"><a class="header" href="#基本的な使い方-1-1">基本的な使い方</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   String day = '土曜日';
   
   if (day == '土曜日' || day == '日曜日') {
@@ -3830,7 +3830,7 @@ void main() {
 }
 </code></pre>
 <h3 id="実用例割引条件の判定"><a class="header" href="#実用例割引条件の判定">実用例：割引条件の判定</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int age = 16;
   bool isStudent = true;
   bool isSenior = false;
@@ -3846,7 +3846,7 @@ void main() {
 <h2 id="not演算子条件の否定"><a class="header" href="#not演算子条件の否定">NOT演算子（!）：条件の否定</a></h2>
 <p><code>!</code>演算子は、条件の真偽を反転させます。</p>
 <h3 id="基本的な使い方-2"><a class="header" href="#基本的な使い方-2">基本的な使い方</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   bool isRaining = false;
   
   if (!isRaining) {  // 雨が降っていない場合
@@ -3857,7 +3857,7 @@ void main() {
 }
 </code></pre>
 <h3 id="より複雑な例"><a class="header" href="#より複雑な例">より複雑な例</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   bool isWeekend = true;
   bool isHoliday = false;
   
@@ -3875,7 +3875,7 @@ void main() {
 <li><code>&amp;&amp;</code> (AND)</li>
 <li><code>||</code> (OR) - 最後</li>
 </ol>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   bool a = true;
   bool b = false;
   bool c = true;
@@ -3885,7 +3885,7 @@ void main() {
 }
 </code></pre>
 <p>括弧を使って明示的に優先順位を指定することをお勧めします：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int age = 17;
   bool hasParentPermission = true;
   bool isEmergency = false;
@@ -3942,7 +3942,7 @@ void main() {
 </div>
 <h2 id="よくある間違い-1"><a class="header" href="#よくある間違い-1">よくある間違い</a></h2>
 <h3 id="範囲の条件を間違って書く"><a class="header" href="#範囲の条件を間違って書く">範囲の条件を間違って書く</a></h3>
-<pre><code class="language-javascript">// 間違った例
+<pre><code class="language-dart">// 間違った例
 int age = 25;
 if (18 &lt;= age &lt;= 65) {  // これはエラー！Dartでは使えません
   print('働き盛りです');
