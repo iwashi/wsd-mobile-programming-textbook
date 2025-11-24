@@ -179,7 +179,7 @@
 <h2 id="引数パラメータとは"><a class="header" href="#引数パラメータとは">引数（パラメータ）とは</a></h2>
 <p>引数は、関数に渡す値のことです。関数は引数を受け取って、その値を使って処理を行います。</p>
 <h3 id="引数を持つ関数の定義"><a class="header" href="#引数を持つ関数の定義">引数を持つ関数の定義</a></h3>
-<pre><code class="language-javascript">void greet(String name) {
+<pre><code class="language-dart">void greet(String name) {
   print('こんにちは、$nameさん！');
 }
 
@@ -194,7 +194,7 @@ void main() {
 </code></pre>
 <h3 id="複数の引数"><a class="header" href="#複数の引数">複数の引数</a></h3>
 <p>関数は複数の引数を受け取ることができます：</p>
-<pre><code class="language-javascript">void introduce(String name, int age) {
+<pre><code class="language-dart">void introduce(String name, int age) {
   print('私の名前は$nameです。');
   print('年齢は$age歳です。');
 }
@@ -207,7 +207,7 @@ void main() {
 </code></pre>
 <h3 id="異なる型の引数"><a class="header" href="#異なる型の引数">異なる型の引数</a></h3>
 <p>引数には様々な型を使えます：</p>
-<pre><code class="language-javascript">void printScore(String subject, int score, bool isPassed) {
+<pre><code class="language-dart">void printScore(String subject, int score, bool isPassed) {
   print('科目: $subject');
   print('点数: $score点');
   if (isPassed) {
@@ -226,7 +226,7 @@ void main() {
 <h2 id="戻り値とは"><a class="header" href="#戻り値とは">戻り値とは</a></h2>
 <p>戻り値は、関数が処理の結果として返す値のことです。</p>
 <h3 id="戻り値を持つ関数の定義"><a class="header" href="#戻り値を持つ関数の定義">戻り値を持つ関数の定義</a></h3>
-<pre><code class="language-javascript">int add(int a, int b) {
+<pre><code class="language-dart">int add(int a, int b) {
   return a + b;  // 結果を返す
 }
 
@@ -237,7 +237,7 @@ void main() {
 </code></pre>
 <h3 id="戻り値の型"><a class="header" href="#戻り値の型">戻り値の型</a></h3>
 <p>関数定義の最初に書く型が戻り値の型です：</p>
-<pre><code class="language-javascript">// int型を返す関数
+<pre><code class="language-dart">// int型を返す関数
 int multiply(int x, int y) {
   return x * y;
 }
@@ -271,7 +271,7 @@ void main() {
 </code></pre>
 <h2 id="実践的な例"><a class="header" href="#実践的な例">実践的な例</a></h2>
 <h3 id="1-税込み価格を計算する関数"><a class="header" href="#1-税込み価格を計算する関数">1. 税込み価格を計算する関数</a></h3>
-<pre><code class="language-javascript">double calculateTaxIncluded(int price, double taxRate) {
+<pre><code class="language-dart">double calculateTaxIncluded(int price, double taxRate) {
   double tax = price * taxRate;
   return price + tax;
 }
@@ -287,7 +287,7 @@ void main() {
 }
 </code></pre>
 <h3 id="2-最大値を見つける関数"><a class="header" href="#2-最大値を見つける関数">2. 最大値を見つける関数</a></h3>
-<pre><code class="language-javascript">int findMax(int a, int b, int c) {
+<pre><code class="language-dart">int findMax(int a, int b, int c) {
   int max = a;
   
   if (b &gt; max) {
@@ -310,7 +310,7 @@ void main() {
 }
 </code></pre>
 <h3 id="3-bool型を返す関数"><a class="header" href="#3-bool型を返す関数">3. bool型を返す関数</a></h3>
-<pre><code class="language-javascript">bool isAdult(int age) {
+<pre><code class="language-dart">bool isAdult(int age) {
   return age &gt;= 20;
 }
 
@@ -337,7 +337,7 @@ void main() {
 </code></pre>
 <h2 id="引数と戻り値の組み合わせ"><a class="header" href="#引数と戻り値の組み合わせ">引数と戻り値の組み合わせ</a></h2>
 <p>実用的なプログラムでは、引数と戻り値を組み合わせて使います：</p>
-<pre><code class="language-javascript">// BMIを計算する関数
+<pre><code class="language-dart">// BMIを計算する関数
 double calculateBMI(double weight, double height) {
   return weight / (height * height);
 }
@@ -375,7 +375,7 @@ void main() {
 </code></pre>
 <h2 id="関数の戻り値を直接使う"><a class="header" href="#関数の戻り値を直接使う">関数の戻り値を直接使う</a></h2>
 <p>戻り値は変数に保存せずに、直接使うこともできます：</p>
-<pre><code class="language-javascript">int square(int n) {
+<pre><code class="language-dart">int square(int n) {
   return n * n;
 }
 
@@ -394,20 +394,20 @@ void main() {
 </code></pre>
 <h2 id="よくあるエラーと注意点"><a class="header" href="#よくあるエラーと注意点">よくあるエラーと注意点</a></h2>
 <h3 id="1-戻り値の型が一致しない"><a class="header" href="#1-戻り値の型が一致しない">1. 戻り値の型が一致しない</a></h3>
-<pre><code class="language-javascript">// エラー：int型を返すと宣言したのにString型を返している
+<pre><code class="language-dart">// エラー：int型を返すと宣言したのにString型を返している
 int getValue() {
   return "Hello";  // エラー！
 }
 </code></pre>
 <h3 id="2-returnを忘れる"><a class="header" href="#2-returnを忘れる">2. returnを忘れる</a></h3>
-<pre><code class="language-javascript">// エラー：戻り値があるのにreturnがない
+<pre><code class="language-dart">// エラー：戻り値があるのにreturnがない
 int calculate(int x) {
   int result = x * 2;
   // return result; を忘れている！
 }
 </code></pre>
 <h3 id="3-引数の数が一致しない"><a class="header" href="#3-引数の数が一致しない">3. 引数の数が一致しない</a></h3>
-<pre><code class="language-javascript">void showInfo(String name, int age) {
+<pre><code class="language-dart">void showInfo(String name, int age) {
   print('$name: $age歳');
 }
 

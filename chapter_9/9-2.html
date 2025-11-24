@@ -178,12 +178,12 @@
 <p>前のセクションで関数の概念を学びました。ここでは、実際に関数を定義し、呼び出す方法を詳しく見ていきましょう。</p>
 <h2 id="基本的な関数の定義"><a class="header" href="#基本的な関数の定義">基本的な関数の定義</a></h2>
 <p>関数を定義する基本的な形は次のとおりです：</p>
-<pre><code class="language-javascript">void 関数名() {
+<pre><code class="language-dart">void 関数名() {
   // 処理内容
 }
 </code></pre>
 <p>実際の例：</p>
-<pre><code class="language-javascript">// 関数の定義
+<pre><code class="language-dart">// 関数の定義
 void showGreeting() {
   print('こんにちは！');
   print('プログラミングを楽しみましょう！');
@@ -214,7 +214,7 @@ void main() {
 <p>関数の処理内容を囲みます。</p>
 <h2 id="関数の呼び出し"><a class="header" href="#関数の呼び出し">関数の呼び出し</a></h2>
 <p>関数を定義しただけでは実行されません。呼び出す必要があります：</p>
-<pre><code class="language-javascript">void printLine() {
+<pre><code class="language-dart">void printLine() {
   print('-------------------');
 }
 
@@ -235,7 +235,7 @@ void main() {
 </code></pre>
 <h2 id="複数の関数を定義する"><a class="header" href="#複数の関数を定義する">複数の関数を定義する</a></h2>
 <p>プログラムには複数の関数を定義できます：</p>
-<pre><code class="language-javascript">// 朝の挨拶を表示する関数
+<pre><code class="language-dart">// 朝の挨拶を表示する関数
 void sayGoodMorning() {
   print('おはようございます！');
   print('今日も一日頑張りましょう！');
@@ -264,7 +264,7 @@ void main() {
 </code></pre>
 <h2 id="関数の中から別の関数を呼び出す"><a class="header" href="#関数の中から別の関数を呼び出す">関数の中から別の関数を呼び出す</a></h2>
 <p>関数の中から他の関数を呼び出すこともできます：</p>
-<pre><code class="language-javascript">void printStar() {
+<pre><code class="language-dart">void printStar() {
   print('★');
 }
 
@@ -287,7 +287,7 @@ void main() {
 </code></pre>
 <h2 id="実践例成績表示プログラム"><a class="header" href="#実践例成績表示プログラム">実践例：成績表示プログラム</a></h2>
 <p>関数を使って、成績表示プログラムを整理してみましょう：</p>
-<pre><code class="language-javascript">// ヘッダーを表示する関数
+<pre><code class="language-dart">// ヘッダーを表示する関数
 void printHeader() {
   print('=' * 30);
   print('     成績表');
@@ -341,7 +341,7 @@ void main() {
 </code></pre>
 <h2 id="関数定義の場所"><a class="header" href="#関数定義の場所">関数定義の場所</a></h2>
 <p>Dartでは、関数は以下の場所に定義できます：</p>
-<pre><code class="language-javascript">// 1. main関数の前
+<pre><code class="language-dart">// 1. main関数の前
 void greeting() {
   print('Hello!');
 }
@@ -366,7 +366,7 @@ void farewell() {
 <p>一般的には、main関数の外側（前または後）に定義することが多いです。</p>
 <h2 id="よくあるエラーと対処法"><a class="header" href="#よくあるエラーと対処法">よくあるエラーと対処法</a></h2>
 <h3 id="1-関数名の重複"><a class="header" href="#1-関数名の重複">1. 関数名の重複</a></h3>
-<pre><code class="language-javascript">// エラー：同じ名前の関数を2つ定義
+<pre><code class="language-dart">// エラー：同じ名前の関数を2つ定義
 void showMessage() {
   print('メッセージ1');
 }
@@ -376,7 +376,7 @@ void showMessage() {  // エラー！
 }
 </code></pre>
 <h3 id="2-定義前の呼び出しローカル関数の場合"><a class="header" href="#2-定義前の呼び出しローカル関数の場合">2. 定義前の呼び出し（ローカル関数の場合）</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   sayHello();  // エラー！まだ定義されていない
   
   void sayHello() {
@@ -385,7 +385,7 @@ void showMessage() {  // エラー！
 }
 </code></pre>
 <h3 id="3-括弧を忘れる"><a class="header" href="#3-括弧を忘れる">3. 括弧を忘れる</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   showMessage;  // エラー！括弧がない
   showMessage();  // 正しい
 }

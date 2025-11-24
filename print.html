@@ -6027,7 +6027,7 @@ void main() {
 <p>これまでの章では、変数、条件分岐、繰り返し処理、リスト、マップなど、プログラミングの基本的な要素を学んできました。今回は、プログラムを整理し、効率的にするための重要な概念「関数」について学びます。</p>
 <h2 id="プログラムが長くなると"><a class="header" href="#プログラムが長くなると">プログラムが長くなると…</a></h2>
 <p>これまでに書いたプログラムを思い出してみましょう。プログラムが複雑になるにつれて、次のような問題が出てきます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 成績の平均を計算する（1回目）
   List&lt;int&gt; mathScores = [85, 92, 78, 90, 88];
   int mathTotal = 0;
@@ -6099,7 +6099,7 @@ void main() {
 <h2 id="関数を使うメリット"><a class="header" href="#関数を使うメリット">関数を使うメリット</a></h2>
 <h3 id="1-コードの再利用"><a class="header" href="#1-コードの再利用">1. コードの再利用</a></h3>
 <p>同じ処理を何度も書く必要がなくなります：</p>
-<pre><code class="language-javascript">// 関数を使わない場合：同じ処理を3回書く
+<pre><code class="language-dart">// 関数を使わない場合：同じ処理を3回書く
 void main() {
   // 1回目
   print('こんにちは！');
@@ -6119,7 +6119,7 @@ void main() {
 </code></pre>
 <h3 id="2-プログラムの整理"><a class="header" href="#2-プログラムの整理">2. プログラムの整理</a></h3>
 <p>処理に名前を付けることで、プログラムが読みやすくなります：</p>
-<pre><code class="language-javascript">// 関数を使った場合：処理の意味が分かりやすい
+<pre><code class="language-dart">// 関数を使った場合：処理の意味が分かりやすい
 void main() {
   挨拶を表示();  // 何をしているか一目で分かる
   計算を実行();
@@ -6128,7 +6128,7 @@ void main() {
 </code></pre>
 <h3 id="3-保守性の向上"><a class="header" href="#3-保守性の向上">3. 保守性の向上</a></h3>
 <p>修正が必要な時、関数の中身を変更するだけで済みます：</p>
-<pre><code class="language-javascript">// 挨拶の内容を変更したい場合、関数の定義を変えるだけ
+<pre><code class="language-dart">// 挨拶の内容を変更したい場合、関数の定義を変えるだけ
 void 挨拶を表示() {
   print('おはようございます！');  // ここを変更するだけ
   print('今日も一日頑張りましょう！');
@@ -6145,7 +6145,7 @@ void 挨拶を表示() {
 <li><strong>戻り値</strong>：関数が返す結果（省略可能）</li>
 </ol>
 <p>簡単な例：</p>
-<pre><code class="language-javascript">// 関数の定義
+<pre><code class="language-dart">// 関数の定義
 void showGreeting() {
   print('こんにちは！');
 }
@@ -6177,12 +6177,12 @@ void main() {
 <p>前のセクションで関数の概念を学びました。ここでは、実際に関数を定義し、呼び出す方法を詳しく見ていきましょう。</p>
 <h2 id="基本的な関数の定義"><a class="header" href="#基本的な関数の定義">基本的な関数の定義</a></h2>
 <p>関数を定義する基本的な形は次のとおりです：</p>
-<pre><code class="language-javascript">void 関数名() {
+<pre><code class="language-dart">void 関数名() {
   // 処理内容
 }
 </code></pre>
 <p>実際の例：</p>
-<pre><code class="language-javascript">// 関数の定義
+<pre><code class="language-dart">// 関数の定義
 void showGreeting() {
   print('こんにちは！');
   print('プログラミングを楽しみましょう！');
@@ -6213,7 +6213,7 @@ void main() {
 <p>関数の処理内容を囲みます。</p>
 <h2 id="関数の呼び出し"><a class="header" href="#関数の呼び出し">関数の呼び出し</a></h2>
 <p>関数を定義しただけでは実行されません。呼び出す必要があります：</p>
-<pre><code class="language-javascript">void printLine() {
+<pre><code class="language-dart">void printLine() {
   print('-------------------');
 }
 
@@ -6234,7 +6234,7 @@ void main() {
 </code></pre>
 <h2 id="複数の関数を定義する"><a class="header" href="#複数の関数を定義する">複数の関数を定義する</a></h2>
 <p>プログラムには複数の関数を定義できます：</p>
-<pre><code class="language-javascript">// 朝の挨拶を表示する関数
+<pre><code class="language-dart">// 朝の挨拶を表示する関数
 void sayGoodMorning() {
   print('おはようございます！');
   print('今日も一日頑張りましょう！');
@@ -6263,7 +6263,7 @@ void main() {
 </code></pre>
 <h2 id="関数の中から別の関数を呼び出す"><a class="header" href="#関数の中から別の関数を呼び出す">関数の中から別の関数を呼び出す</a></h2>
 <p>関数の中から他の関数を呼び出すこともできます：</p>
-<pre><code class="language-javascript">void printStar() {
+<pre><code class="language-dart">void printStar() {
   print('★');
 }
 
@@ -6286,7 +6286,7 @@ void main() {
 </code></pre>
 <h2 id="実践例成績表示プログラム"><a class="header" href="#実践例成績表示プログラム">実践例：成績表示プログラム</a></h2>
 <p>関数を使って、成績表示プログラムを整理してみましょう：</p>
-<pre><code class="language-javascript">// ヘッダーを表示する関数
+<pre><code class="language-dart">// ヘッダーを表示する関数
 void printHeader() {
   print('=' * 30);
   print('     成績表');
@@ -6340,7 +6340,7 @@ void main() {
 </code></pre>
 <h2 id="関数定義の場所"><a class="header" href="#関数定義の場所">関数定義の場所</a></h2>
 <p>Dartでは、関数は以下の場所に定義できます：</p>
-<pre><code class="language-javascript">// 1. main関数の前
+<pre><code class="language-dart">// 1. main関数の前
 void greeting() {
   print('Hello!');
 }
@@ -6365,7 +6365,7 @@ void farewell() {
 <p>一般的には、main関数の外側（前または後）に定義することが多いです。</p>
 <h2 id="よくあるエラーと対処法"><a class="header" href="#よくあるエラーと対処法">よくあるエラーと対処法</a></h2>
 <h3 id="1-関数名の重複"><a class="header" href="#1-関数名の重複">1. 関数名の重複</a></h3>
-<pre><code class="language-javascript">// エラー：同じ名前の関数を2つ定義
+<pre><code class="language-dart">// エラー：同じ名前の関数を2つ定義
 void showMessage() {
   print('メッセージ1');
 }
@@ -6375,7 +6375,7 @@ void showMessage() {  // エラー！
 }
 </code></pre>
 <h3 id="2-定義前の呼び出しローカル関数の場合"><a class="header" href="#2-定義前の呼び出しローカル関数の場合">2. 定義前の呼び出し（ローカル関数の場合）</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   sayHello();  // エラー！まだ定義されていない
   
   void sayHello() {
@@ -6384,7 +6384,7 @@ void showMessage() {  // エラー！
 }
 </code></pre>
 <h3 id="3-括弧を忘れる"><a class="header" href="#3-括弧を忘れる">3. 括弧を忘れる</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   showMessage;  // エラー！括弧がない
   showMessage();  // 正しい
 }
@@ -6405,7 +6405,7 @@ void showMessage() {  // エラー！
 <h2 id="引数パラメータとは"><a class="header" href="#引数パラメータとは">引数（パラメータ）とは</a></h2>
 <p>引数は、関数に渡す値のことです。関数は引数を受け取って、その値を使って処理を行います。</p>
 <h3 id="引数を持つ関数の定義"><a class="header" href="#引数を持つ関数の定義">引数を持つ関数の定義</a></h3>
-<pre><code class="language-javascript">void greet(String name) {
+<pre><code class="language-dart">void greet(String name) {
   print('こんにちは、$nameさん！');
 }
 
@@ -6420,7 +6420,7 @@ void main() {
 </code></pre>
 <h3 id="複数の引数"><a class="header" href="#複数の引数">複数の引数</a></h3>
 <p>関数は複数の引数を受け取ることができます：</p>
-<pre><code class="language-javascript">void introduce(String name, int age) {
+<pre><code class="language-dart">void introduce(String name, int age) {
   print('私の名前は$nameです。');
   print('年齢は$age歳です。');
 }
@@ -6433,7 +6433,7 @@ void main() {
 </code></pre>
 <h3 id="異なる型の引数"><a class="header" href="#異なる型の引数">異なる型の引数</a></h3>
 <p>引数には様々な型を使えます：</p>
-<pre><code class="language-javascript">void printScore(String subject, int score, bool isPassed) {
+<pre><code class="language-dart">void printScore(String subject, int score, bool isPassed) {
   print('科目: $subject');
   print('点数: $score点');
   if (isPassed) {
@@ -6452,7 +6452,7 @@ void main() {
 <h2 id="戻り値とは"><a class="header" href="#戻り値とは">戻り値とは</a></h2>
 <p>戻り値は、関数が処理の結果として返す値のことです。</p>
 <h3 id="戻り値を持つ関数の定義"><a class="header" href="#戻り値を持つ関数の定義">戻り値を持つ関数の定義</a></h3>
-<pre><code class="language-javascript">int add(int a, int b) {
+<pre><code class="language-dart">int add(int a, int b) {
   return a + b;  // 結果を返す
 }
 
@@ -6463,7 +6463,7 @@ void main() {
 </code></pre>
 <h3 id="戻り値の型"><a class="header" href="#戻り値の型">戻り値の型</a></h3>
 <p>関数定義の最初に書く型が戻り値の型です：</p>
-<pre><code class="language-javascript">// int型を返す関数
+<pre><code class="language-dart">// int型を返す関数
 int multiply(int x, int y) {
   return x * y;
 }
@@ -6497,7 +6497,7 @@ void main() {
 </code></pre>
 <h2 id="実践的な例-1"><a class="header" href="#実践的な例-1">実践的な例</a></h2>
 <h3 id="1-税込み価格を計算する関数"><a class="header" href="#1-税込み価格を計算する関数">1. 税込み価格を計算する関数</a></h3>
-<pre><code class="language-javascript">double calculateTaxIncluded(int price, double taxRate) {
+<pre><code class="language-dart">double calculateTaxIncluded(int price, double taxRate) {
   double tax = price * taxRate;
   return price + tax;
 }
@@ -6513,7 +6513,7 @@ void main() {
 }
 </code></pre>
 <h3 id="2-最大値を見つける関数"><a class="header" href="#2-最大値を見つける関数">2. 最大値を見つける関数</a></h3>
-<pre><code class="language-javascript">int findMax(int a, int b, int c) {
+<pre><code class="language-dart">int findMax(int a, int b, int c) {
   int max = a;
   
   if (b &gt; max) {
@@ -6536,7 +6536,7 @@ void main() {
 }
 </code></pre>
 <h3 id="3-bool型を返す関数"><a class="header" href="#3-bool型を返す関数">3. bool型を返す関数</a></h3>
-<pre><code class="language-javascript">bool isAdult(int age) {
+<pre><code class="language-dart">bool isAdult(int age) {
   return age &gt;= 20;
 }
 
@@ -6563,7 +6563,7 @@ void main() {
 </code></pre>
 <h2 id="引数と戻り値の組み合わせ"><a class="header" href="#引数と戻り値の組み合わせ">引数と戻り値の組み合わせ</a></h2>
 <p>実用的なプログラムでは、引数と戻り値を組み合わせて使います：</p>
-<pre><code class="language-javascript">// BMIを計算する関数
+<pre><code class="language-dart">// BMIを計算する関数
 double calculateBMI(double weight, double height) {
   return weight / (height * height);
 }
@@ -6601,7 +6601,7 @@ void main() {
 </code></pre>
 <h2 id="関数の戻り値を直接使う"><a class="header" href="#関数の戻り値を直接使う">関数の戻り値を直接使う</a></h2>
 <p>戻り値は変数に保存せずに、直接使うこともできます：</p>
-<pre><code class="language-javascript">int square(int n) {
+<pre><code class="language-dart">int square(int n) {
   return n * n;
 }
 
@@ -6620,20 +6620,20 @@ void main() {
 </code></pre>
 <h2 id="よくあるエラーと注意点"><a class="header" href="#よくあるエラーと注意点">よくあるエラーと注意点</a></h2>
 <h3 id="1-戻り値の型が一致しない"><a class="header" href="#1-戻り値の型が一致しない">1. 戻り値の型が一致しない</a></h3>
-<pre><code class="language-javascript">// エラー：int型を返すと宣言したのにString型を返している
+<pre><code class="language-dart">// エラー：int型を返すと宣言したのにString型を返している
 int getValue() {
   return "Hello";  // エラー！
 }
 </code></pre>
 <h3 id="2-returnを忘れる"><a class="header" href="#2-returnを忘れる">2. returnを忘れる</a></h3>
-<pre><code class="language-javascript">// エラー：戻り値があるのにreturnがない
+<pre><code class="language-dart">// エラー：戻り値があるのにreturnがない
 int calculate(int x) {
   int result = x * 2;
   // return result; を忘れている！
 }
 </code></pre>
 <h3 id="3-引数の数が一致しない"><a class="header" href="#3-引数の数が一致しない">3. 引数の数が一致しない</a></h3>
-<pre><code class="language-javascript">void showInfo(String name, int age) {
+<pre><code class="language-dart">void showInfo(String name, int age) {
   print('$name: $age歳');
 }
 
@@ -6658,7 +6658,7 @@ void main() {
 <h2 id="スコープとは"><a class="header" href="#スコープとは">スコープとは</a></h2>
 <p>スコープは、変数が参照できる範囲のことです。変数は定義された場所によって、使える範囲が決まります。</p>
 <h3 id="基本的な例-3"><a class="header" href="#基本的な例-3">基本的な例</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int x = 10;  // main関数内で定義
   print(x);    // OK: xはここで使える
 }
@@ -6670,7 +6670,7 @@ void anotherFunction() {
 <h2 id="ローカル変数とグローバル変数"><a class="header" href="#ローカル変数とグローバル変数">ローカル変数とグローバル変数</a></h2>
 <h3 id="ローカル変数"><a class="header" href="#ローカル変数">ローカル変数</a></h3>
 <p>関数の中で定義された変数を「ローカル変数」と呼びます。その関数の中でのみ使えます。</p>
-<pre><code class="language-javascript">void calculateSum() {
+<pre><code class="language-dart">void calculateSum() {
   int a = 5;      // ローカル変数
   int b = 3;      // ローカル変数
   int sum = a + b;  // ローカル変数
@@ -6684,7 +6684,7 @@ void main() {
 </code></pre>
 <h3 id="トップレベル変数グローバル変数"><a class="header" href="#トップレベル変数グローバル変数">トップレベル変数（グローバル変数）</a></h3>
 <p>関数の外で定義された変数は、プログラム全体で使えます。ただし、プログラムが大きくなればなるほど、グローバル変数は避けた方が良いです。なぜなら、グローバル変数はどこからでも変更できてしまうため、コードの保守性が低下する可能性が高いためです。</p>
-<pre><code class="language-javascript">// トップレベル変数（グローバル変数）
+<pre><code class="language-dart">// トップレベル変数（グローバル変数）
 String appName = 'My Calculator';
 int counter = 0;
 
@@ -6706,7 +6706,7 @@ void main() {
 </code></pre>
 <h2 id="ブロックスコープ"><a class="header" href="#ブロックスコープ">ブロックスコープ</a></h2>
 <p>波括弧 <code>{}</code> で囲まれた部分（ブロック）にも独自のスコープがあります。</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   int x = 10;
   
   if (x &gt; 5) {
@@ -6726,7 +6726,7 @@ void main() {
 </code></pre>
 <h2 id="引数のスコープ"><a class="header" href="#引数のスコープ">引数のスコープ</a></h2>
 <p>関数の引数も、その関数内でのみ有効なローカル変数として扱われます。</p>
-<pre><code class="language-javascript">void greet(String name) {  // nameは引数
+<pre><code class="language-dart">void greet(String name) {  // nameは引数
   print('こんにちは、$nameさん！');
   // nameはこの関数内でのみ使える
 }
@@ -6742,7 +6742,7 @@ void main() {
 </code></pre>
 <h2 id="同じ名前の変数シャドーイング"><a class="header" href="#同じ名前の変数シャドーイング">同じ名前の変数（シャドーイング）</a></h2>
 <p>異なるスコープでは、同じ名前の変数を定義できます。内側のスコープの変数が外側の変数を「隠す」ことをシャドーイングと呼びます。</p>
-<pre><code class="language-javascript">int x = 10;  // グローバル変数
+<pre><code class="language-dart">int x = 10;  // グローバル変数
 
 void testShadowing() {
   print('グローバルx: $x');  // 10
@@ -6765,7 +6765,7 @@ void main() {
 </code></pre>
 <h2 id="スコープのベストプラクティス"><a class="header" href="#スコープのベストプラクティス">スコープのベストプラクティス</a></h2>
 <h3 id="1-必要最小限のスコープを使う"><a class="header" href="#1-必要最小限のスコープを使う">1. 必要最小限のスコープを使う</a></h3>
-<pre><code class="language-javascript">// 良い例：必要な場所でのみ変数を定義
+<pre><code class="language-dart">// 良い例：必要な場所でのみ変数を定義
 void processData() {
   // データ処理
   for (int i = 0; i &lt; 10; i++) {
@@ -6786,7 +6786,7 @@ void processDataBad() {
 }
 </code></pre>
 <h3 id="2-グローバル変数は慎重に使う"><a class="header" href="#2-グローバル変数は慎重に使う">2. グローバル変数は慎重に使う</a></h3>
-<pre><code class="language-javascript">// 定数はグローバルでもOK
+<pre><code class="language-dart">// 定数はグローバルでもOK
 const double TAX_RATE = 0.10;
 const String APP_VERSION = '1.0.0';
 
@@ -6800,7 +6800,7 @@ int addScore(int currentScore, int points) {
 </code></pre>
 <h2 id="よくあるエラーと対処法-1"><a class="header" href="#よくあるエラーと対処法-1">よくあるエラーと対処法</a></h2>
 <h3 id="1-スコープ外の変数を参照"><a class="header" href="#1-スコープ外の変数を参照">1. スコープ外の変数を参照</a></h3>
-<pre><code class="language-javascript">void function1() {
+<pre><code class="language-dart">void function1() {
   int localVar = 10;
 }
 
@@ -6809,7 +6809,7 @@ void function2() {
 }
 </code></pre>
 <h3 id="2-初期化前の使用"><a class="header" href="#2-初期化前の使用">2. 初期化前の使用</a></h3>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   print(x);  // エラー！まだ定義されていない
   int x = 10;
 }

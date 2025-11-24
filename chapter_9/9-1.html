@@ -178,7 +178,7 @@
 <p>これまでの章では、変数、条件分岐、繰り返し処理、リスト、マップなど、プログラミングの基本的な要素を学んできました。今回は、プログラムを整理し、効率的にするための重要な概念「関数」について学びます。</p>
 <h2 id="プログラムが長くなると"><a class="header" href="#プログラムが長くなると">プログラムが長くなると…</a></h2>
 <p>これまでに書いたプログラムを思い出してみましょう。プログラムが複雑になるにつれて、次のような問題が出てきます：</p>
-<pre><code class="language-javascript">void main() {
+<pre><code class="language-dart">void main() {
   // 成績の平均を計算する（1回目）
   List&lt;int&gt; mathScores = [85, 92, 78, 90, 88];
   int mathTotal = 0;
@@ -250,7 +250,7 @@
 <h2 id="関数を使うメリット"><a class="header" href="#関数を使うメリット">関数を使うメリット</a></h2>
 <h3 id="1-コードの再利用"><a class="header" href="#1-コードの再利用">1. コードの再利用</a></h3>
 <p>同じ処理を何度も書く必要がなくなります：</p>
-<pre><code class="language-javascript">// 関数を使わない場合：同じ処理を3回書く
+<pre><code class="language-dart">// 関数を使わない場合：同じ処理を3回書く
 void main() {
   // 1回目
   print('こんにちは！');
@@ -270,7 +270,7 @@ void main() {
 </code></pre>
 <h3 id="2-プログラムの整理"><a class="header" href="#2-プログラムの整理">2. プログラムの整理</a></h3>
 <p>処理に名前を付けることで、プログラムが読みやすくなります：</p>
-<pre><code class="language-javascript">// 関数を使った場合：処理の意味が分かりやすい
+<pre><code class="language-dart">// 関数を使った場合：処理の意味が分かりやすい
 void main() {
   挨拶を表示();  // 何をしているか一目で分かる
   計算を実行();
@@ -279,7 +279,7 @@ void main() {
 </code></pre>
 <h3 id="3-保守性の向上"><a class="header" href="#3-保守性の向上">3. 保守性の向上</a></h3>
 <p>修正が必要な時、関数の中身を変更するだけで済みます：</p>
-<pre><code class="language-javascript">// 挨拶の内容を変更したい場合、関数の定義を変えるだけ
+<pre><code class="language-dart">// 挨拶の内容を変更したい場合、関数の定義を変えるだけ
 void 挨拶を表示() {
   print('おはようございます！');  // ここを変更するだけ
   print('今日も一日頑張りましょう！');
@@ -296,7 +296,7 @@ void 挨拶を表示() {
 <li><strong>戻り値</strong>：関数が返す結果（省略可能）</li>
 </ol>
 <p>簡単な例：</p>
-<pre><code class="language-javascript">// 関数の定義
+<pre><code class="language-dart">// 関数の定義
 void showGreeting() {
   print('こんにちは！');
 }
