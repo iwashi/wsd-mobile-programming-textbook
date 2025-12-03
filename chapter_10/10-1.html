@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-08f2527a.js";
+            window.path_to_searchindex_js = "../searchindex-2b582298.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-cc584fa8.js"></script>
@@ -222,41 +222,6 @@ int subtract(int a, int b) {
 void main() {
   print(subtract(10, 3));  // 7
   print(subtract(3, 10));  // -7（順序が違うと結果も変わる）
-}
-</code></pre>
-<h2 id="実践例bmi計算機"><a class="header" href="#実践例bmi計算機">実践例：BMI計算機</a></h2>
-<p>身長と体重からBMI（体格指数）を計算する関数を作ってみましょう。</p>
-<pre><code class="language-dart">// BMIを計算する関数
-double calculateBMI(double height, double weight) {
-  // 身長をメートルに変換（入力はcm）
-  double heightInMeters = height / 100;
-  // BMI = 体重(kg) / 身長(m)の2乗
-  return weight / (heightInMeters * heightInMeters);
-}
-
-// BMIの判定をする関数
-String judgeBMI(double bmi) {
-  if (bmi &lt; 18.5) {
-    return '低体重';
-  } else if (bmi &lt; 25) {
-    return '普通体重';
-  } else if (bmi &lt; 30) {
-    return '肥満（1度）';
-  } else {
-    return '肥満（2度以上）';
-  }
-}
-
-void main() {
-  double height = 170.0;  // cm
-  double weight = 65.0;   // kg
-  
-  double bmi = calculateBMI(height, weight);
-  String judgment = judgeBMI(bmi);
-  
-  print('身長${height}cm、体重${weight}kgの場合');
-  print('BMI: ${bmi.toStringAsFixed(1)}');
-  print('判定: $judgment');
 }
 </code></pre>
 <h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
