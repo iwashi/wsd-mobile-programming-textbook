@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c034f943.js";
+            window.path_to_searchindex_js = "../searchindex-08f2527a.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-cc584fa8.js"></script>
@@ -261,29 +261,6 @@ void main() {
   // print(name);  // エラー！nameはここでは使えない
 }
 </code></pre>
-<h2 id="同じ名前の変数シャドーイング"><a class="header" href="#同じ名前の変数シャドーイング">同じ名前の変数（シャドーイング）</a></h2>
-<p>異なるスコープでは、同じ名前の変数を定義できます。内側のスコープの変数が外側の変数を「隠す」ことをシャドーイングと呼びます。</p>
-<pre><code class="language-dart">int x = 10;  // グローバル変数
-
-void testShadowing() {
-  print('グローバルx: $x');  // 10
-  
-  int x = 20;  // ローカル変数（グローバル変数を隠す）
-  print('ローカルx: $x');    // 20
-  
-  if (true) {
-    int x = 30;  // さらに内側のローカル変数
-    print('ブロック内x: $x'); // 30
-  }
-  
-  print('関数内x: $x');  // 20（関数内のローカル変数）
-}
-
-void main() {
-  testShadowing();
-  print('main内でのx: $x');  // 10（グローバル変数）
-}
-</code></pre>
 <h2 id="スコープのベストプラクティス"><a class="header" href="#スコープのベストプラクティス">スコープのベストプラクティス</a></h2>
 <h3 id="1-必要最小限のスコープを使う"><a class="header" href="#1-必要最小限のスコープを使う">1. 必要最小限のスコープを使う</a></h3>
 <pre><code class="language-dart">// 良い例：必要な場所でのみ変数を定義
@@ -344,7 +321,6 @@ void function2() {
 <li><strong>ブロックスコープ</strong>：<code>{}</code> 内でのみ有効</li>
 <li>必要最小限のスコープを使うことが重要</li>
 </ul>
-<p>次のセクションでは、これまで学んだ関数の知識を使って、実践的な電卓プログラムを作成します。</p>
 
                     </main>
 
