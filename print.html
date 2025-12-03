@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-43ccea1d.js";
+            window.path_to_searchindex_js = "searchindex-33ada44a.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-cc584fa8.js"></script>
@@ -3098,7 +3098,7 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="文字列と数値の変換"><a class="header" href="#文字列と数値の変換">文字列と数値の変換</a></h1>
-<p>文字列と数値を組み合わせる際の注意点：</p>
+<p>前述した intParse() に加えて、 toString() も使うことがありますので、覚えておきましょう。</p>
 <pre><code class="language-dart">void main() {
   String numText = '123';
   int number = int.parse(numText); // 文字列を整数に変換
@@ -3109,7 +3109,6 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
   print('数値$valueを文字列に変換: 「$valueText」');
 }
 </code></pre>
-<p>文字列連結を活用することで、ユーザーに分かりやすいメッセージを表示したり、データを見やすい形式で出力したりできます。次は変数の値を変更する方法について学んでいきましょう。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="変数の値を変更する"><a class="header" href="#変数の値を変更する">変数の値を変更する</a></h1>
 <p>プログラムを実行している間、変数の値を変更する必要がある場面は多くあります。Dartでは変数の値を更新したり、計算結果で変数を更新したりする便利な方法が用意されています。</p>
