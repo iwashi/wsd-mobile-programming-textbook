@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-87a492da.js";
+            window.path_to_searchindex_js = "searchindex-c7ccc5d2.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-cc584fa8.js"></script>
@@ -8400,8 +8400,8 @@ void main() {
 <h2 id="名前付きコンストラクタ"><a class="header" href="#名前付きコンストラクタ">名前付きコンストラクタ</a></h2>
 <p>Dartでは、一つのクラスに複数のコンストラクタを定義できます。これを「名前付きコンストラクタ」と呼びます。</p>
 <pre><code class="language-dart">class Rectangle {
-  double width;
-  double height;
+  double width = 0;
+  double height = 0;
   
   // 通常のコンストラクタ
   Rectangle(this.width, this.height);
