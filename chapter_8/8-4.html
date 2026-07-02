@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -263,6 +263,7 @@
     String lowerWord = word.toLowerCase();
     
     if (dictionary.containsKey(lowerWord)) {
+      // containsKeyで確認済みなので「!」で安全に取り出せる（8-2参照）
       String oldMeaning = dictionary[lowerWord]!;
       dictionary[lowerWord] = newMeaning;
       print('\n✓ 単語の意味を更新しました');
@@ -277,6 +278,7 @@
     String lowerWord = word.toLowerCase();
     
     if (dictionary.containsKey(lowerWord)) {
+      // containsKeyで確認済みなので「!」で安全に取り出せる
       String meaning = dictionary[lowerWord]!;
       dictionary.remove(lowerWord);
       print('\n✓ 単語を削除しました');
@@ -327,6 +329,35 @@
 <li><strong>関数の活用</strong>：機能ごとに関数を分けて整理</li>
 <li><strong>エラー処理</strong>：存在しない単語の場合の処理</li>
 </ol>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：この辞書プログラムに「単語数を表示する」機能を追加するとしたら、どう書けばよいでしょうか。マップの要素数を調べる方法を思い出して考えてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">print('登録されている単語数: ${dictionary.length}語');
+</code></pre>
+<p>マップもリストと同じように <code>length</code> で要素数を取得できます。</p>
+</details>
+<p><strong>問題2</strong>：日本語の都道府県名をキー、県庁所在地を値とするミニ辞書（3件以上）を作り、調べたい県名が辞書に「あれば県庁所在地を表示、なければ『登録されていません』と表示」するプログラムを書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  Map&lt;String, String&gt; capitals = {
+    '北海道': '札幌市',
+    '愛知県': '名古屋市',
+    '沖縄県': '那覇市',
+  };
+  
+  String query = '愛知県';
+  
+  if (capitals.containsKey(query)) {
+    print('$queryの県庁所在地は${capitals[query]}です');
+  } else {
+    print('$queryは登録されていません');
+  }
+}
+</code></pre>
+<p><code>query</code> を <code>'東京都'</code> などに変えて、「登録されていません」が表示されることも確認してみましょう。</p>
+</details>
 
                     </main>
 
@@ -372,11 +403,11 @@
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

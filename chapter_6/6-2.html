@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -239,9 +239,12 @@
 }
 </code></pre>
 <h2 id="インデックスと値の活用"><a class="header" href="#インデックスと値の活用">インデックスと値の活用</a></h2>
-<p>for文では、カウンタ変数（通常はi）を使って、さまざまな計算や処理ができます。以下はリストの例であり、リストの利用方法は7章で扱います。</p>
+<p>for文では、カウンタ変数（通常はi）を使って、さまざまな計算や処理ができます。</p>
+<blockquote>
+<p><strong>参考</strong>：次の例に出てくる「リスト」は、複数のデータをまとめて管理する仕組みです（<code>fruits[i]</code> で i 番目のデータを取り出せます）。詳しくは第7章で学ぶので、ここでは「for文はこんな使い方もできる」という雰囲気だけつかめば十分です。</p>
+</blockquote>
 <pre><code class="language-dart">void main() {
-  // 配列のようなデータ構造と組み合わせる例
+  // 複数のデータをまとめたリストと組み合わせる例
   List&lt;String&gt; fruits = ['りんご', 'バナナ', 'オレンジ'];
   
   for (int i = 0; i &lt; fruits.length; i++) {
@@ -327,6 +330,31 @@
 <li>ネストして使うことで、より複雑な処理も可能</li>
 <li>境界値と無限ループに注意する</li>
 </ul>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：for文を使って、5から1まで逆順に数を表示するプログラムを書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  for (int i = 5; i &gt;= 1; i--) {
+    print(i);
+  }
+}
+</code></pre>
+<p>初期値を5にして、条件を <code>i &gt;= 1</code>、更新式を <code>i--</code>（1ずつ減らす）にします。</p>
+</details>
+<p><strong>問題2</strong>：for文を使って、1から100までの合計を計算して表示するプログラムを書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  int sum = 0;
+  for (int i = 1; i &lt;= 100; i++) {
+    sum += i;
+  }
+  print('合計: $sum');  // 合計: 5050
+}
+</code></pre>
+<p>合計を記録する変数 <code>sum</code> をループの外で用意しておき、繰り返しのたびに加算していくのがポイントです。</p>
+</details>
 <p>次のセクションでは、条件に基づいて繰り返すwhile文について学習します。</p>
 
                     </main>
@@ -373,11 +401,11 @@
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

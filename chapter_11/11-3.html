@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -297,9 +297,7 @@
 <pre><code class="language-dart">class Dog {
   String name = "Unknown";
   int age = 0;
-  String? breed; // Optional property, can be null
-
-  Dog({this.name = "Unknown", this.age = 0, this.breed});
+  String? breed; // 「?」付きの型は、値が未設定（null）でもよいという意味
 }
 
 void main() {
@@ -319,6 +317,11 @@ void main() {
 }
 </code></pre>
 <p><code>..</code> は「<strong>カスケード記法</strong>」と呼ばれ、同じオブジェクトに対して連続して操作を行う時に使います。</p>
+<p>このコードには、新しい記号が2つ登場しています：</p>
+<ul>
+<li><code>String? breed</code> の <code>?</code> — 型に <code>?</code> を付けると「<code>String</code> の値が入るか、まだ値がない（<code>null</code>）か、どちらでもよい」という意味になります。<code>breed</code>（品種）のように、設定しないこともあるフィールドに使います（第8章のコラム「nullと『!』記号」も参照）。</li>
+<li><code>dog2.breed ?? '品種不明'</code> の <code>??</code> — 「左側が <code>null</code> でなければ左側の値を、<code>null</code> なら右側の値を使う」という演算子です。値が設定されていない場合の代わりの表示を簡単に書けます。</li>
+</ul>
 <h2 id="オブジェクトの比較"><a class="header" href="#オブジェクトの比較">オブジェクトの比較</a></h2>
 <p>オブジェクト同士を比較する時は注意が必要です：</p>
 <pre><code class="language-dart">void main() {
@@ -392,11 +395,11 @@ void main() {
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

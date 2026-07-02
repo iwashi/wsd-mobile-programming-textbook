@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -344,6 +344,45 @@
 <li>リストとループを組み合わせることで、合計・平均・最大値などの計算が簡単にできる</li>
 <li>条件に応じた処理や、新しいリストの作成も可能</li>
 </ul>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：for-inループを使って、次のリストの点数をすべて表示し、最後に合計点を表示するプログラムを書いてください。</p>
+<pre><code class="language-dart">List&lt;int&gt; scores = [80, 65, 92, 74];
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  List&lt;int&gt; scores = [80, 65, 92, 74];
+  int total = 0;
+  
+  for (int score in scores) {
+    print('$score点');
+    total += score;
+  }
+  
+  print('合計: $total点');  // 合計: 311点
+}
+</code></pre>
+</details>
+<p><strong>問題2</strong>：次のリストから、70点以上の点数だけを数えて「合格者は◯人です」と表示するプログラムを書いてください。</p>
+<pre><code class="language-dart">List&lt;int&gt; scores = [55, 82, 70, 91, 68, 77];
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  List&lt;int&gt; scores = [55, 82, 70, 91, 68, 77];
+  int passCount = 0;
+  
+  for (int score in scores) {
+    if (score &gt;= 70) {
+      passCount++;
+    }
+  }
+  
+  print('合格者は$passCount人です');  // 合格者は4人です
+}
+</code></pre>
+<p>ループと条件分岐を組み合わせて「条件を満たす要素を数える」のは、実際のプログラムでも頻出のパターンです。</p>
+</details>
 
                     </main>
 
@@ -389,11 +428,11 @@
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

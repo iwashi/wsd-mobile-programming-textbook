@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -220,6 +220,20 @@
   print('三郎の年齢: ${ages['三郎']}');    // 三郎の年齢: null
 }
 </code></pre>
+<blockquote>
+<p><strong>📝 コラム：nullと「!」記号</strong></p>
+<p><code>null</code> は「値が存在しない」ことを表す特別な値です。マップから値を取り出すとき、指定したキーが存在するかどうかはDartには分からないため、取り出した値は「<code>int</code> かもしれないし <code>null</code> かもしれない」（<code>int?</code> と書きます）として扱われます。</p>
+<p>そのため、取り出した値をそのまま計算に使おうとするとエラーになることがあります。</p>
+<pre><code class="language-dart">void main() {
+  Map&lt;String, int&gt; ages = {'太郎': 20};
+
+  // int price = ages['太郎'] + 1;   // エラー：nullかもしれない値は計算に使えない
+  int age = ages['太郎']! + 1;       // OK：「!」で「必ず値がある」とDartに伝える
+  print(age);  // 21
+}
+</code></pre>
+<p>値の後ろに付ける <code>!</code> は「このキーは必ず存在するので、<code>null</code> ではありません」とDartに伝える記号です。ただし、実際にキーが存在しなかった場合は実行時にエラーになるため、<code>containsKey()</code> で確認してから使うと安全です。この後の節でもこの <code>!</code> が登場するので、覚えておいてください。</p>
+</blockquote>
 <h2 id="値の追加と更新"><a class="header" href="#値の追加と更新">値の追加と更新</a></h2>
 <h3 id="新しいキーと値を追加"><a class="header" href="#新しいキーと値を追加">新しいキーと値を追加</a></h3>
 <pre><code class="language-dart">void main() {
@@ -344,6 +358,46 @@
 <li><code>containsKey(key)</code> で存在確認</li>
 <li><code>forEach</code> や <code>for-in</code> で繰り返し処理</li>
 </ul>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムの実行結果を予想してください。</p>
+<pre><code class="language-dart">void main() {
+  Map&lt;String, int&gt; stock = {'ペン': 10, 'ノート': 5};
+  
+  stock['ペン'] = 8;
+  stock['消しゴム'] = 20;
+  stock.remove('ノート');
+  
+  print(stock);
+  print(stock.length);
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code>{ペン: 8, 消しゴム: 20}
+2
+</code></pre>
+<ul>
+<li><code>stock['ペン'] = 8</code> は既存キーなので<strong>更新</strong></li>
+<li><code>stock['消しゴム'] = 20</code> は新しいキーなので<strong>追加</strong></li>
+<li><code>remove('ノート')</code> で「ノート」を削除</li>
+</ul>
+</details>
+<p><strong>問題2</strong>：友達3人の名前と誕生月のマップを作り、<code>forEach</code> を使って「◯◯さんの誕生月は◯月です」とすべて表示するプログラムを書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  Map&lt;String, int&gt; birthMonths = {
+    '田中': 4,
+    '佐藤': 8,
+    '鈴木': 12,
+  };
+  
+  birthMonths.forEach((name, month) {
+    print('$nameさんの誕生月は$month月です');
+  });
+}
+</code></pre>
+</details>
 <p>次のセクションでは、マップのより実践的な活用例を見ていきます。</p>
 
                     </main>
@@ -390,11 +444,11 @@
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

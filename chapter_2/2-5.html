@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -510,6 +510,39 @@ print('条件が真です');
 <li><strong>段階的開発</strong>: 複雑な処理を段階に分ける</li>
 </ul>
 <p>エラーメッセージを読めるようになることで、プログラミングの学習効率が大幅に向上します。エラーを恐れず、エラーメッセージから学ぶ姿勢を大切にしましょう。</p>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムをDartPadに入力すると、エラーが表示されます。エラーの原因を2つ見つけて修正してください。</p>
+<pre><code class="language-dart">void main() {
+  print('計算を始めます')
+  prin('計算が終わりました');
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<ol>
+<li>1行目の文末にセミコロン（<code>;</code>）がない</li>
+<li>2行目の <code>prin</code> は正しくは <code>print</code>（スペルミス）</li>
+</ol>
+<pre><code class="language-dart">void main() {
+  print('計算を始めます');
+  print('計算が終わりました');
+}
+</code></pre>
+<p>エラーメッセージには行番号が表示されるので、まずエラーが起きた場所を確認する習慣をつけましょう。</p>
+</details>
+<p><strong>問題2</strong>：わざとエラーを起こしてみましょう。DartPadで次のことを試して、それぞれどんなエラーメッセージが表示されるか観察してください。</p>
+<ol>
+<li><code>print</code> の閉じ括弧 <code>)</code> を消す</li>
+<li>文字列の閉じ引用符 <code>'</code> を消す</li>
+</ol>
+<details>
+<summary>解答のヒント</summary>
+<ol>
+<li><code>Expected ')' ...</code> のような「括弧が閉じられていない」ことを示すメッセージが表示されます。</li>
+<li><code>Unterminated string literal</code> のような「文字列が終わっていない」ことを示すメッセージが表示されます。</li>
+</ol>
+<p>エラーメッセージの英語は最初は難しく感じますが、パターンは限られています。「わざと壊して、メッセージを見る」のはエラーに強くなる良い練習方法です。</p>
+</details>
 <p>第2章はこれで完了です。次の第3章では、プログラムで データを扱うための「変数とデータ型」について学びます。</p>
 
                     </main>
@@ -556,11 +589,11 @@ print('条件が真です');
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

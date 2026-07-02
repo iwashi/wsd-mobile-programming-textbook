@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -264,6 +264,35 @@
   print('円周率: $pi');
 }
 </code></pre>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムの実行結果を予想してください。</p>
+<pre><code class="language-dart">void main() {
+  int point = 100;
+  point += 50;
+  point -= 30;
+  point *= 2;
+  print(point);
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code>240
+</code></pre>
+<p>順に追うと、100 → 150（+50）→ 120（-30）→ 240（×2）となります。複合代入演算子は「今の値に対して計算して、結果を同じ変数に入れ直す」という意味です。</p>
+</details>
+<p><strong>問題2</strong>：変数 <code>count</code> を0で初期化し、インクリメント演算子（<code>++</code>）を3回使って、最後に <code>count</code> の値を表示するプログラムを書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  int count = 0;
+  count++;
+  count++;
+  count++;
+  print(count);  // 3
+}
+</code></pre>
+<p><code>count++</code> は <code>count = count + 1</code> の省略形です。</p>
+</details>
 <p>変数の値を適切に更新することで、プログラムの状態を管理し、動的な処理を実現できます。次は演算の優先順位について学んでいきましょう。</p>
 
                     </main>
@@ -310,11 +339,11 @@
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

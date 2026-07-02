@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -215,6 +215,13 @@
 <li>上から下へ順番に実行される</li>
 <li>一つの文で一つの処理を行う</li>
 </ul>
+<h3 id="文と式の違い"><a class="header" href="#文と式の違い">文と式の違い</a></h3>
+<p>文とよく似た用語に**式（Expression）**があります：</p>
+<ul>
+<li><strong>式</strong>：計算すると<strong>値になる</strong>部分。例：<code>1 + 2</code>（値は3）、<code>'Hello'</code>（値は文字列）</li>
+<li><strong>文</strong>：処理を<strong>実行する</strong>単位。例：<code>print(1 + 2);</code>（「表示する」という指示）</li>
+</ul>
+<p><code>print(1 + 2);</code> という文の中には、<code>1 + 2</code> という式が含まれています。「式は値を生み、文は処理を実行する」と覚えておくと、この後の学習で用語が出てきたときに迷いません。</p>
 <h2 id="3-ブロックblock"><a class="header" href="#3-ブロックblock">3. ブロック（Block）</a></h2>
 <p><strong>中括弧{}<strong>で囲まれた部分を</strong>ブロック</strong>と呼びます。</p>
 <pre><code class="language-dart">void main() {  // ← ブロックの開始
@@ -368,6 +375,35 @@ void main() {
 <li><strong>他の人と協力しやすくなる</strong></li>
 <li><strong>保守・修正が簡単になる</strong></li>
 </ul>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムには構造上の間違いがあります。どこが間違っているか指摘して、正しく直してください。</p>
+<pre><code class="language-dart">void main() {
+  print('こんにちは')
+  print('Dartの世界へようこそ');
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<p>1行目の <code>print('こんにちは')</code> の後ろにセミコロン（<code>;</code>）がありません。文の終わりには必ずセミコロンが必要です。</p>
+<pre><code class="language-dart">void main() {
+  print('こんにちは');
+  print('Dartの世界へようこそ');
+}
+</code></pre>
+</details>
+<p><strong>問題2</strong>：次のプログラムは動作しますが、とても読みにくい書き方です。インデントと改行を使って読みやすく書き直してください。</p>
+<pre><code class="language-dart">void main(){print('おはよう');print('こんにちは');print('こんばんは');}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  print('おはよう');
+  print('こんにちは');
+  print('こんばんは');
+}
+</code></pre>
+<p>1つの文につき1行を使い、ブロック <code>{}</code> の中はインデント（字下げ）します。動作は同じでも、読みやすさが大きく変わります。</p>
+</details>
 <p>次の節では、プログラムをより理解しやすくする「コメント」について学びます。</p>
 
                     </main>
@@ -414,11 +450,11 @@ void main() {
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

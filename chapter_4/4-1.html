@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -228,6 +228,41 @@
   print('$a ÷ $b = $quotient (整数部分のみ)'); // 17 ÷ 5 = 3 (整数部分のみ)
 }
 </code></pre>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムの実行結果を予想してください。</p>
+<pre><code class="language-dart">void main() {
+  print(10 / 4);
+  print(10 ~/ 4);
+  print(10 % 4);
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code>2.5
+2
+2
+</code></pre>
+<ul>
+<li><code>/</code> は普通の割り算で、結果は必ず <code>double</code> 型（2.5）になります</li>
+<li><code>~/</code> は整数除算で、小数部分を切り捨てた整数（2）になります</li>
+<li><code>%</code> は余りを求めるので、10 ÷ 4 = 2 余り 2 の「2」になります</li>
+</ul>
+</details>
+<p><strong>問題2</strong>：500円玉だけで1740円を支払うことはできません。500円玉を何枚まで使えて、いくら足りない分が残るかを計算するプログラムを、<code>~/</code> と <code>%</code> を使って書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  int total = 1740;
+  int coin = 500;
+  
+  int coins = total ~/ coin;      // 使える500円玉の枚数
+  int remainder = total % coin;   // 残りの金額
+  
+  print('500円玉: $coins枚');      // 500円玉: 3枚
+  print('残り: $remainder円');     // 残り: 240円
+}
+</code></pre>
+</details>
 
                     </main>
 
@@ -273,11 +308,11 @@
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

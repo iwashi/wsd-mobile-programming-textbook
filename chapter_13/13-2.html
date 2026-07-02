@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -283,7 +283,11 @@ void main() {
 計算処理が完了しました
 </code></pre>
 <h2 id="カスタム例外の作成"><a class="header" href="#カスタム例外の作成">カスタム例外の作成</a></h2>
-<p>独自のエラー型を作成することもできます：</p>
+<p>独自のエラー型を作成することもできます。次のコードには、初めて見る書き方が2つ登場します：</p>
+<ul>
+<li><code>implements Exception</code> — 「このクラスはDartの例外（Exception）として扱えます」という宣言です。これを付けることで、自作クラスを <code>throw</code> や <code>catch</code> の対象にできます</li>
+<li><code>@override</code> — 「もともと用意されている <code>toString()</code> メソッドを、このクラス用に書き換えます」という印です。<code>toString()</code> はオブジェクトを文字列にするときに呼ばれるメソッドで、書き換えることでエラーメッセージの表示内容を自分で決められます</li>
+</ul>
 <pre><code class="language-dart">// カスタム例外クラスの定義
 class InvalidAgeException implements Exception {
   final String message;
@@ -350,6 +354,51 @@ void main() {
 <pre><code>ログに記録: Invalid argument(s): データが空です
 メイン関数でキャッチ: Invalid argument(s): データが空です
 </code></pre>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムはランタイムエラーで停止します。try-catch文を使って、エラーが起きても「変換できませんでした」と表示して正常に終了するように修正してください。</p>
+<pre><code class="language-dart">void main() {
+  String input = 'abc';
+  int number = int.parse(input);
+  print('変換結果: $number');
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  String input = 'abc';
+  
+  try {
+    int number = int.parse(input);
+    print('変換結果: $number');
+  } catch (e) {
+    print('変換できませんでした');
+  }
+}
+</code></pre>
+<p><code>int.parse</code> は数値に変換できない文字列を渡すとFormatExceptionを投げます。try-catchで囲むことで、エラーが起きてもプログラムを続行できます。</p>
+</details>
+<p><strong>問題2</strong>：リストのインデックスを受け取って要素を表示するプログラムに、try-catch-finallyを使って「範囲外ならエラーメッセージ、最後に必ず『処理終了』と表示」する処理を書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  List&lt;String&gt; fruits = ['りんご', 'バナナ', 'ぶどう'];
+  int index = 5;
+  
+  try {
+    print(fruits[index]);
+  } catch (e) {
+    print('インデックス$indexは範囲外です（0〜${fruits.length - 1}を指定してください）');
+  } finally {
+    print('処理終了');
+  }
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>インデックス5は範囲外です（0〜2を指定してください）
+処理終了
+</code></pre>
+<p><code>finally</code> ブロックはエラーの有無にかかわらず必ず実行されます。</p>
+</details>
 
                     </main>
 
@@ -395,11 +444,11 @@ void main() {
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

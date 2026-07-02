@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -340,10 +340,10 @@ void displayDetailedResult(int playerHand, int computerHand, int result) {
   
   if (result == 1) {
     print('\n🎉 あなたの勝ち！ 🎉');
-    print(_getWinMessage(playerHand, computerHand));
+    print(getWinMessage(playerHand, computerHand));
   } else if (result == -1) {
     print('\n😢 あなたの負け... 😢');
-    print(_getLoseMessage(playerHand, computerHand));
+    print(getLoseMessage(playerHand, computerHand));
   } else {
     print('\n🤝 引き分け！ 🤝');
     print('同じ手でした！');
@@ -351,7 +351,7 @@ void displayDetailedResult(int playerHand, int computerHand, int result) {
 }
 
 // 勝ちメッセージ
-String _getWinMessage(int playerHand, int computerHand) {
+String getWinMessage(int playerHand, int computerHand) {
   if (playerHand == 0 &amp;&amp; computerHand == 1) {
     return 'グーはチョキに勝ちます！';
   } else if (playerHand == 1 &amp;&amp; computerHand == 2) {
@@ -362,7 +362,7 @@ String _getWinMessage(int playerHand, int computerHand) {
 }
 
 // 負けメッセージ
-String _getLoseMessage(int playerHand, int computerHand) {
+String getLoseMessage(int playerHand, int computerHand) {
   if (playerHand == 0 &amp;&amp; computerHand == 2) {
     return 'グーはパーに負けます...';
   } else if (playerHand == 1 &amp;&amp; computerHand == 0) {
@@ -372,56 +372,54 @@ String _getLoseMessage(int playerHand, int computerHand) {
   }
 }
 
-// ゲーム統計
-class GameStats {
-  int wins = 0;
-  int losses = 0;
-  int draws = 0;
-  List&lt;String&gt; history = [];
-  
-  void recordGame(int result, int playerHand, int computerHand) {
-    String record = '${getHandName(playerHand)} vs ${getHandName(computerHand)}: ';
-    if (result == 1) {
-      wins++;
-      record += '勝ち';
-    } else if (result == -1) {
-      losses++;
-      record += '負け';
-    } else {
-      draws++;
-      record += '引き分け';
-    }
-    history.add(record);
+// ゲーム統計（プログラム全体で共有する変数で管理）
+int wins = 0;
+int losses = 0;
+int draws = 0;
+List&lt;String&gt; history = [];
+
+// 対戦結果を記録する
+void recordGame(int result, int playerHand, int computerHand) {
+  String record = '${getHandName(playerHand)} vs ${getHandName(computerHand)}: ';
+  if (result == 1) {
+    wins++;
+    record += '勝ち';
+  } else if (result == -1) {
+    losses++;
+    record += '負け';
+  } else {
+    draws++;
+    record += '引き分け';
+  }
+  history.add(record);
+}
+
+// 統計を表示する
+void showStats() {
+  int total = wins + losses + draws;
+  if (total == 0) {
+    print('まだゲームをプレイしていません');
+    return;
   }
   
-  void showStats() {
-    int total = wins + losses + draws;
-    if (total == 0) {
-      print('まだゲームをプレイしていません');
-      return;
-    }
-    
-    print('\n📊 ゲーム統計 📊');
-    print('総ゲーム数: $total回');
-    print('勝ち: $wins回');
-    print('負け: $losses回');
-    print('引き分け: $draws回');
-    print('勝率: ${(wins / total * 100).toStringAsFixed(1)}%');
-    
-    if (history.length &gt; 0) {
-      print('\n【最近の対戦履歴】');
-      int start = history.length &gt; 5 ? history.length - 5 : 0;
-      for (int i = start; i &lt; history.length; i++) {
-        print('${i - start + 1}. ${history[i]}');
-      }
+  print('\n📊 ゲーム統計 📊');
+  print('総ゲーム数: $total回');
+  print('勝ち: $wins回');
+  print('負け: $losses回');
+  print('引き分け: $draws回');
+  print('勝率: ${(wins / total * 100).toStringAsFixed(1)}%');
+  
+  if (history.length &gt; 0) {
+    print('\n【最近の対戦履歴】');
+    int start = history.length &gt; 5 ? history.length - 5 : 0;
+    for (int i = start; i &lt; history.length; i++) {
+      print('${i - start + 1}. ${history[i]}');
     }
   }
 }
 
 // メインゲーム
 void main() {
-  GameStats stats = GameStats();
-  
   print('=== じゃんけんゲームへようこそ！ ===\n');
   
   // デモ用：5回対戦
@@ -434,33 +432,84 @@ void main() {
     int result = judgeWinner(playerHand, computerHand);
     
     displayDetailedResult(playerHand, computerHand, result);
-    stats.recordGame(result, playerHand, computerHand);
+    recordGame(result, playerHand, computerHand);
   }
   
   // 最終統計
   print('\n=== ゲーム終了 ===');
-  stats.showStats();
+  showStats();
   
   // 勝率に応じたメッセージ
-  double winRate = stats.wins / (stats.wins + stats.losses + stats.draws) * 100;
-  print('\n');
-  if (winRate &gt;= 60) {
-    print('🏆 素晴らしい成績です！じゃんけんマスターですね！');
-  } else if (winRate &gt;= 40) {
-    print('👍 良い勝負でした！');
-  } else {
-    print('💪 次はもっと頑張りましょう！');
+  int total = wins + losses + draws;
+  if (total &gt; 0) {  // 1回もプレイしていない場合は0で割れないのでチェック
+    double winRate = wins / total * 100;
+    print('\n');
+    if (winRate &gt;= 60) {
+      print('🏆 素晴らしい成績です！じゃんけんマスターですね！');
+    } else if (winRate &gt;= 40) {
+      print('👍 良い勝負でした！');
+    } else {
+      print('💪 次はもっと頑張りましょう！');
+    }
   }
 }
 </code></pre>
+<blockquote>
+<p><strong>📝 発展：クラスによる整理</strong></p>
+<p>この完成版では、勝敗の記録（<code>wins</code>、<code>losses</code>、<code>draws</code>、<code>history</code>）をプログラム全体で共有する変数として管理しました。第9章で学んだとおり、こうしたグローバル変数はプログラムが大きくなると管理が難しくなります。第11章では、関連するデータとそれを操作する関数をひとまとめにする「クラス」という仕組みを学びます。クラスを使うと、このゲーム統計をより安全で整理された形に書き換えられます。</p>
+</blockquote>
 <h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
 <p>この節では、関数を組み合わせて実用的なじゃんけんゲームを作りました。以下の重要な概念を実践しました：</p>
 <ul>
 <li>関数の分割による責任の明確化</li>
 <li>引数と戻り値を使った関数間のデータ受け渡し</li>
 <li>複数の関数を組み合わせた複雑な処理の実現</li>
-<li>クラスを使った関連データのグループ化</li>
+<li>変数と関数を組み合わせたゲーム状態（勝敗記録）の管理</li>
 </ul>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：完成版のじゃんけんゲームに「あいこ（引き分け）の連続回数を記録する」機能を追加してみましょう。引き分けが続いた最大回数を <code>maxDrawStreak</code> として記録し、統計に表示してください。</p>
+<details>
+<summary>解答のヒント</summary>
+<pre><code class="language-dart">int drawStreak = 0;     // 現在の連続あいこ回数
+int maxDrawStreak = 0;  // 最大連続あいこ回数
+
+void recordGame(int result, int playerHand, int computerHand) {
+  // ...既存の処理...
+  
+  if (result == 0) {
+    drawStreak++;
+    if (drawStreak &gt; maxDrawStreak) {
+      maxDrawStreak = drawStreak;
+    }
+  } else {
+    drawStreak = 0;  // 勝敗がついたらリセット
+  }
+}
+</code></pre>
+<p><code>showStats</code> の中に <code>print('最大連続あいこ: $maxDrawStreak回');</code> を追加すれば完成です。</p>
+</details>
+<p><strong>問題2</strong>：<code>judgeWinner</code> 関数が正しく動くことを確認するために、9通りの手の組み合わせ（グー・チョキ・パー × グー・チョキ・パー）をすべて試して結果を表示するプログラムを、二重ループを使って書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  for (int player = 0; player &lt;= 2; player++) {
+    for (int computer = 0; computer &lt;= 2; computer++) {
+      int result = judgeWinner(player, computer);
+      String resultText;
+      if (result == 1) {
+        resultText = '勝ち';
+      } else if (result == -1) {
+        resultText = '負け';
+      } else {
+        resultText = '引き分け';
+      }
+      print('${getHandName(player)} vs ${getHandName(computer)}: $resultText');
+    }
+  }
+}
+</code></pre>
+<p>このように「すべての組み合わせを試して動作を確認する」のはテストの基本的な考え方です（<code>getHandName</code> と <code>judgeWinner</code> は本文のものを使います）。</p>
+</details>
 
                     </main>
 
@@ -506,11 +555,11 @@ void main() {
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

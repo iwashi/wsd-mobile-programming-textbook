@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -218,7 +218,30 @@
 <li><strong>関連するデータをまとめられる</strong>：同じ種類のデータを論理的にグループ化できます</li>
 </ol>
 <h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
-<p>リストは、複数のデータを効率的に管理するための重要なプログラミングの道具です。次のセクションでは、実際にリストを作成し、使ってみましょう。</p>
+<p>リストは、複数のデータを効率的に管理するための重要なプログラミングの道具です。</p>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：5人の学生のテストの点数を管理したいとき、リストを使わないと変数が5個必要です（<code>score1</code>〜<code>score5</code>）。学生が100人に増えた場合を考えて、リストを使うメリットを2つ以上挙げてください。</p>
+<details>
+<summary>解答例</summary>
+<ul>
+<li>変数を100個宣言する必要がなく、1つのリストで管理できる</li>
+<li>for文と組み合わせて「全員分の平均を計算する」といった処理が数行で書ける</li>
+<li>学生数が増減しても、コードをほとんど変更せずに対応できる</li>
+<li><code>scores[i]</code> のように番号で機械的にアクセスできる</li>
+</ul>
+</details>
+<p><strong>問題2</strong>：身の回りにある「リストで表現できそうなもの」を3つ挙げて、それぞれどんなデータが入るか考えてください。</p>
+<details>
+<summary>解答例</summary>
+<p>例：</p>
+<ul>
+<li>時間割 → 各時限の科目名（‘数学’, ‘英語’, ‘体育’, …）</li>
+<li>今週の予定 → 各曜日の予定（‘アルバイト’, ‘講義’, ‘サークル’, …）</li>
+<li>ゲームのハイスコア → 上位10人の得点（9800, 9500, 9200, …）</li>
+</ul>
+<p>「同じ種類のデータが複数並ぶもの」はリストで表現できます。</p>
+</details>
+<p>次のセクションでは、実際にリストを作成し、使ってみましょう。</p>
 
                     </main>
 
@@ -264,11 +287,11 @@
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

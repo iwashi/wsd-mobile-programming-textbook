@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -313,6 +313,46 @@
 <li><strong>全削除</strong>: <code>clear()</code>でリストを空にする</li>
 <li>これらのメソッドを使うことで、プログラム実行中にリストを柔軟に操作できます</li>
 </ul>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムを実行した後の <code>members</code> の中身を予想してください。</p>
+<pre><code class="language-dart">void main() {
+  List&lt;String&gt; members = ['田中', '佐藤'];
+  
+  members.add('鈴木');
+  members.insert(0, '高橋');
+  members.remove('佐藤');
+  
+  print(members);
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code>[高橋, 田中, 鈴木]
+</code></pre>
+<p>順に追うと：</p>
+<ol>
+<li><code>add('鈴木')</code> → <code>[田中, 佐藤, 鈴木]</code></li>
+<li><code>insert(0, '高橋')</code> → 先頭に追加されて <code>[高橋, 田中, 佐藤, 鈴木]</code></li>
+<li><code>remove('佐藤')</code> → <code>[高橋, 田中, 鈴木]</code></li>
+</ol>
+</details>
+<p><strong>問題2</strong>：空のリストから始めて、「牛乳」「パン」「卵」を追加し、その後「パン」を削除して、最終的なリストと要素数を表示する買い物リストプログラムを書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  List&lt;String&gt; shoppingList = [];
+  
+  shoppingList.add('牛乳');
+  shoppingList.add('パン');
+  shoppingList.add('卵');
+  
+  shoppingList.remove('パン');
+  
+  print('買い物リスト: $shoppingList');       // 買い物リスト: [牛乳, 卵]
+  print('アイテム数: ${shoppingList.length}'); // アイテム数: 2
+}
+</code></pre>
+</details>
 
                     </main>
 
@@ -358,11 +398,11 @@
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

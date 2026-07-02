@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -394,6 +394,38 @@ void main() {
 <li>do-while文を使えば、最低1回は処理を実行できる</li>
 <li>無限ループにならないよう、条件式が適切に更新されることを確認する</li>
 </ul>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：次のwhile文は何回「こんにちは」を表示しますか？</p>
+<pre><code class="language-dart">void main() {
+  int count = 0;
+  while (count &lt; 3) {
+    print('こんにちは');
+    count++;
+  }
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<p>3回です。<code>count</code> が 0、1、2 のときに表示され、3になると条件 <code>count &lt; 3</code> がfalseになりループが終わります。</p>
+</details>
+<p><strong>問題2</strong>：1000円の貯金が、毎月2000円ずつ増えていきます。貯金が10000円以上になるのは何か月後かをwhile文で計算するプログラムを書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  int savings = 1000;
+  int months = 0;
+  
+  while (savings &lt; 10000) {
+    savings += 2000;
+    months++;
+  }
+  
+  print('$months か月後に $savings 円になります');
+  // 5 か月後に 11000 円になります
+}
+</code></pre>
+<p>「何回繰り返せばよいか事前に分からない」処理には、for文よりwhile文が向いています。</p>
+</details>
 <p>次のセクションでは、無限ループとその回避方法について詳しく学習します。</p>
 
                     </main>
@@ -440,11 +472,11 @@ void main() {
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

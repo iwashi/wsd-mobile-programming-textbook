@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -314,6 +314,44 @@
 <li>条件に応じた表示の変更</li>
 </ul>
 <p>これらの技術は、より複雑なプログラムを作成する際の基礎となります。繰り返し処理をマスターすることで、効率的で読みやすいコードが書けるようになります。</p>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：二重ループを使って、次のような直角三角形を表示するプログラムを書いてください。</p>
+<pre><code>*
+**
+***
+****
+*****
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  for (int i = 1; i &lt;= 5; i++) {
+    String line = '';
+    for (int j = 1; j &lt;= i; j++) {
+      line += '*';
+    }
+    print(line);
+  }
+}
+</code></pre>
+<p>外側のループが「行」、内側のループが「その行に表示する <code>*</code> の数」を担当します。i行目には <code>*</code> をi個表示します。</p>
+</details>
+<p><strong>問題2</strong>：九九の表から、答えが偶数のものだけを表示するプログラムを書いてください（例：<code>2 × 3 = 6</code>）。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  for (int dan = 1; dan &lt;= 9; dan++) {
+    for (int i = 1; i &lt;= 9; i++) {
+      int result = dan * i;
+      if (result % 2 == 0) {
+        print('$dan × $i = $result');
+      }
+    }
+  }
+}
+</code></pre>
+<p>二重ループと条件分岐（if文）、余り演算子（<code>%</code>）の組み合わせです。<code>result % 2 == 0</code> で偶数かどうかを判定できます。</p>
+</details>
 
                     </main>
 
@@ -359,11 +397,11 @@
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

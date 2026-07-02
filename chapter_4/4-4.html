@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -209,12 +209,12 @@
   int a = 10, b = 5, c = 2;
   
   // 技術的には正しいが読みにくい
-  int complex = a + b * c - a / b + c % 2;
+  int complex = a + b * c - a ~/ b + c % 2;
   
   // 括弧を使って意図を明確にする
-  int clear = a + (b * c) - (a / b) + (c % 2);
+  int clear = a + (b * c) - (a ~/ b) + (c % 2);
   
-  print('複雑: $complex, 明確: $clear');
+  print('複雑: $complex, 明確: $clear');  // 複雑: 18, 明確: 18
 }
 </code></pre>
 <h3 id="2-段階的な計算"><a class="header" href="#2-段階的な計算">2. 段階的な計算</a></h3>
@@ -281,11 +281,11 @@
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

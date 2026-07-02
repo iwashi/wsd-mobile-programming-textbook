@@ -16,8 +16,8 @@
         <link rel="icon" href="favicon-de23e50b.svg">
         <link rel="shortcut icon" href="favicon-8114d1fc.png">
         <link rel="stylesheet" href="css/variables-8adf115d.css">
-        <link rel="stylesheet" href="css/general-2459343d.css">
-        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/general-0392ca55.css">
+        <link rel="stylesheet" href="css/chrome-fc474251.css">
         <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-cc584fa8.js"></script>
+        <script src="toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -305,7 +305,6 @@
 <p>コンピュータには以下のような特徴があります：</p>
 <h3 id="1-正確性"><a class="header" href="#1-正確性">1. 正確性</a></h3>
 <p>人間は計算ミスをすることがありますが、コンピュータは与えられた指示を正確に実行します。1 + 1 を何万回計算しても、必ず 2 という答えを返します。</p>
-<p>昨今では大規模言語モデルの特性から、出力が不確実になることもありますが、内部処理にて計算を正確に行っていることは変わりません。</p>
 <h3 id="2-高速性"><a class="header" href="#2-高速性">2. 高速性</a></h3>
 <p>人間が1秒間に1回しかできない計算を、コンピュータは何百万回、何億回と実行できます。</p>
 <h3 id="3-疲れない"><a class="header" href="#3-疲れない">3. 疲れない</a></h3>
@@ -829,7 +828,7 @@ void main() {
 <h3 id="22-コメントの書き方と重要性"><a class="header" href="#22-コメントの書き方と重要性"><a href="#22-コメントの書き方と重要性-1">2.2 コメントの書き方と重要性</a></a></h3>
 <ul>
 <li>コメントがなぜ必要なのかを理解する</li>
-<li>単行コメント（//）と複数行コメント（/* */）の使い分け</li>
+<li>1行コメント（//）と複数行コメント（/* */）の使い分け</li>
 <li>良いコメントと悪いコメントの例</li>
 <li>将来の自分や他の人のためのコメント作成術</li>
 </ul>
@@ -925,6 +924,13 @@ void main() {
 <li>上から下へ順番に実行される</li>
 <li>一つの文で一つの処理を行う</li>
 </ul>
+<h3 id="文と式の違い"><a class="header" href="#文と式の違い">文と式の違い</a></h3>
+<p>文とよく似た用語に**式（Expression）**があります：</p>
+<ul>
+<li><strong>式</strong>：計算すると<strong>値になる</strong>部分。例：<code>1 + 2</code>（値は3）、<code>'Hello'</code>（値は文字列）</li>
+<li><strong>文</strong>：処理を<strong>実行する</strong>単位。例：<code>print(1 + 2);</code>（「表示する」という指示）</li>
+</ul>
+<p><code>print(1 + 2);</code> という文の中には、<code>1 + 2</code> という式が含まれています。「式は値を生み、文は処理を実行する」と覚えておくと、この後の学習で用語が出てきたときに迷いません。</p>
 <h2 id="3-ブロックblock"><a class="header" href="#3-ブロックblock">3. ブロック（Block）</a></h2>
 <p><strong>中括弧{}<strong>で囲まれた部分を</strong>ブロック</strong>と呼びます。</p>
 <pre><code class="language-dart">void main() {  // ← ブロックの開始
@@ -1078,6 +1084,35 @@ void main() {
 <li><strong>他の人と協力しやすくなる</strong></li>
 <li><strong>保守・修正が簡単になる</strong></li>
 </ul>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムには構造上の間違いがあります。どこが間違っているか指摘して、正しく直してください。</p>
+<pre><code class="language-dart">void main() {
+  print('こんにちは')
+  print('Dartの世界へようこそ');
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<p>1行目の <code>print('こんにちは')</code> の後ろにセミコロン（<code>;</code>）がありません。文の終わりには必ずセミコロンが必要です。</p>
+<pre><code class="language-dart">void main() {
+  print('こんにちは');
+  print('Dartの世界へようこそ');
+}
+</code></pre>
+</details>
+<p><strong>問題2</strong>：次のプログラムは動作しますが、とても読みにくい書き方です。インデントと改行を使って読みやすく書き直してください。</p>
+<pre><code class="language-dart">void main(){print('おはよう');print('こんにちは');print('こんばんは');}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  print('おはよう');
+  print('こんにちは');
+  print('こんばんは');
+}
+</code></pre>
+<p>1つの文につき1行を使い、ブロック <code>{}</code> の中はインデント（字下げ）します。動作は同じでも、読みやすさが大きく変わります。</p>
+</details>
 <p>次の節では、プログラムをより理解しやすくする「コメント」について学びます。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="22-コメントの書き方と重要性-1"><a class="header" href="#22-コメントの書き方と重要性-1">2.2 コメントの書き方と重要性</a></h1>
@@ -1342,6 +1377,34 @@ void main() {
 <li><strong>最新性</strong>: コードと一致している</li>
 <li><strong>明確性</strong>: 分かりやすい表現</li>
 </ul>
+<h2 id="練習問題-1"><a class="header" href="#練習問題-1">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムの2行目だけをコメントにして、実行されないようにしてください。</p>
+<pre><code class="language-dart">void main() {
+  print('1行目です');
+  print('2行目です');
+  print('3行目です');
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  print('1行目です');
+  // print('2行目です');
+  print('3行目です');
+}
+</code></pre>
+<p>行の先頭に <code>//</code> を付けると、その行はコメントになり実行されません。実行結果は「1行目です」「3行目です」の2行だけになります。</p>
+</details>
+<p><strong>問題2</strong>：次のコメントは「良くないコメント」の例です。どこが良くないか説明してください。</p>
+<pre><code class="language-dart">void main() {
+  // print文で「こんにちは」と表示する
+  print('こんにちは');
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<p>コードを読めば分かること（「何をしているか」）をそのまま繰り返しているだけだからです。コメントは「なぜそうするのか」など、コードだけでは伝わらない情報を書くのが良いコメントです。この例の場合、コメントは不要です。</p>
+</details>
 <p>次の節では、プログラムで最も基本的な出力機能である「print文」について詳しく学びます。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="23-print文で画面に表示する-1"><a class="header" href="#23-print文で画面に表示する-1">2.3 print文で画面に表示する</a></h1>
@@ -1630,6 +1693,34 @@ print 'Hello, World!');
 <li><strong>引用符</strong>: <code>\"</code> または <code>\'</code></li>
 </ul>
 <p>print文は、プログラムとユーザー（あるいは開発者）をつなぐ重要な架け橋です。見やすく、分かりやすい出力を心がけることで、より良いプログラムが作れるようになります。</p>
+<h2 id="練習問題-2"><a class="header" href="#練習問題-2">練習問題</a></h2>
+<p><strong>問題1</strong>：print文を使って、次のような出力をするプログラムを書いてください（<code>\n</code> を使って1つのprint文で書いてみましょう）。</p>
+<pre><code>好きな食べ物：
+・カレー
+・ラーメン
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  print('好きな食べ物：\n・カレー\n・ラーメン');
+}
+</code></pre>
+<p><code>\n</code> は改行を表す特殊文字です。もちろん、print文を3つ使って書いても同じ出力になります。</p>
+</details>
+<p><strong>問題2</strong>：次のプログラムの実行結果を予想してください。</p>
+<pre><code class="language-dart">void main() {
+  String name = 'Dart';
+  print('私は$nameを勉強中です');
+  print('2 + 3 = ${2 + 3}');
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code>私はDartを勉強中です
+2 + 3 = 5
+</code></pre>
+<p><code>$name</code> は変数の値に置き換えられ、<code>${2 + 3}</code> のように <code>{}</code> を使うと計算式の結果を埋め込めます。</p>
+</details>
 <p>次の節では、プログラムがどのような順序で実行されるかを詳しく学びます。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="24-プログラムの実行順序-1"><a class="header" href="#24-プログラムの実行順序-1">2.4 プログラムの実行順序</a></h1>
@@ -1870,6 +1961,37 @@ a = 10, b = 5
 <ul>
 <li><strong>変数の定義順序</strong>: 使用する前に定義する</li>
 </ul>
+<h2 id="練習問題-3"><a class="header" href="#練習問題-3">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムの実行結果を、実行せずに予想してください。</p>
+<pre><code class="language-dart">void main() {
+  print('A');
+  print('C');
+  print('B');
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code>A
+C
+B
+</code></pre>
+<p>プログラムは上から下へ、書かれた順番どおりに実行されます。アルファベット順に並び替えられたりはしません。</p>
+</details>
+<p><strong>問題2</strong>：次のプログラムはエラーになります。実行順序の観点から、その理由を説明して修正してください。</p>
+<pre><code class="language-dart">void main() {
+  print('私の名前は$nameです');
+  String name = '太郎';
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<p>変数 <code>name</code> を定義する前に使おうとしているためエラーになります。変数は「使用する前に定義する」必要があります。</p>
+<pre><code class="language-dart">void main() {
+  String name = '太郎';
+  print('私の名前は$nameです');
+}
+</code></pre>
+</details>
 <p>プログラムの実行順序を理解することは、より複雑なプログラムを作るための基礎となります。次の節では、プログラムでエラーが発生したときの対処法について学びます。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="25-エラーメッセージの読み方-1"><a class="header" href="#25-エラーメッセージの読み方-1">2.5 エラーメッセージの読み方</a></h1>
@@ -2208,6 +2330,39 @@ print('条件が真です');
 <li><strong>段階的開発</strong>: 複雑な処理を段階に分ける</li>
 </ul>
 <p>エラーメッセージを読めるようになることで、プログラミングの学習効率が大幅に向上します。エラーを恐れず、エラーメッセージから学ぶ姿勢を大切にしましょう。</p>
+<h2 id="練習問題-4"><a class="header" href="#練習問題-4">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムをDartPadに入力すると、エラーが表示されます。エラーの原因を2つ見つけて修正してください。</p>
+<pre><code class="language-dart">void main() {
+  print('計算を始めます')
+  prin('計算が終わりました');
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<ol>
+<li>1行目の文末にセミコロン（<code>;</code>）がない</li>
+<li>2行目の <code>prin</code> は正しくは <code>print</code>（スペルミス）</li>
+</ol>
+<pre><code class="language-dart">void main() {
+  print('計算を始めます');
+  print('計算が終わりました');
+}
+</code></pre>
+<p>エラーメッセージには行番号が表示されるので、まずエラーが起きた場所を確認する習慣をつけましょう。</p>
+</details>
+<p><strong>問題2</strong>：わざとエラーを起こしてみましょう。DartPadで次のことを試して、それぞれどんなエラーメッセージが表示されるか観察してください。</p>
+<ol>
+<li><code>print</code> の閉じ括弧 <code>)</code> を消す</li>
+<li>文字列の閉じ引用符 <code>'</code> を消す</li>
+</ol>
+<details>
+<summary>解答のヒント</summary>
+<ol>
+<li><code>Expected ')' ...</code> のような「括弧が閉じられていない」ことを示すメッセージが表示されます。</li>
+<li><code>Unterminated string literal</code> のような「文字列が終わっていない」ことを示すメッセージが表示されます。</li>
+</ol>
+<p>エラーメッセージの英語は最初は難しく感じますが、パターンは限られています。「わざと壊して、メッセージを見る」のはエラーに強くなる良い練習方法です。</p>
+</details>
 <p>第2章はこれで完了です。次の第3章では、プログラムで データを扱うための「変数とデータ型」について学びます。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="第3章変数とデータ型"><a class="header" href="#第3章変数とデータ型">第3章：変数とデータ型</a></h1>
@@ -2451,7 +2606,7 @@ String introduction = "私の名前は" + lastName + firstName + "です。";
 print(introduction); // 出力：私の名前は田中太郎です。
 </code></pre>
 <h2 id="文字列補間string-interpolation"><a class="header" href="#文字列補間string-interpolation">文字列補間（String Interpolation）</a></h2>
-<p><code>$</code>記号を使って、文字列の中に変数の値を埋め込むことができます。</p>
+<p>2-3で学んだとおり、<code>$</code>記号を使って文字列の中に変数の値を埋め込むことができます。文字列を変数として扱う場合も同じです。</p>
 <pre><code class="language-dart">String name = "佐藤";
 int age = 25;
 double height = 170.5;
@@ -2461,8 +2616,8 @@ String profile = "名前：$name、年齢：$age歳";
 print(profile); // 出力：名前：佐藤、年齢：25歳
 
 // ${式} で計算結果も埋め込み可能
-String detail = "私は$nameです。${age + 5}年後は${age + 5}歳になります。";
-print(detail); // 出力：私は佐藤です。30年後は30歳になります。
+String detail = "私は$nameです。5年後は${age + 5}歳になります。";
+print(detail); // 出力：私は佐藤です。5年後は30歳になります。
 
 // 小数の表示
 String info = "身長は${height}cmです。";
@@ -2784,19 +2939,19 @@ String lastName = "田中";
 int totalScore = 0;
 bool hasPermission = false;
 </code></pre>
-<h3 id="2-アンダースコア_の使用"><a class="header" href="#2-アンダースコア_の使用">2. アンダースコア（_）の使用</a></h3>
+<h3 id="2-アンダースコア_と定数の命名"><a class="header" href="#2-アンダースコア_と定数の命名">2. アンダースコア（_）と定数の命名</a></h3>
 <ul>
 <li><strong>プライベート変数</strong>：アンダースコアで始める</li>
-<li><strong>定数</strong>：すべて大文字でアンダースコア区切り</li>
+<li><strong>定数</strong>：Dartでは定数も<strong>キャメルケース</strong>で書きます（他の言語で見かける全大文字は、Dartの公式スタイルガイドでは推奨されていません）</li>
 </ul>
 <pre><code class="language-dart">// プライベート変数（クラス内でのみ使用）
 String _privateVariable = "内部用";
 int _internalCounter = 0;
 
-// 定数
-const String API_URL = "https://api.example.com";
-const int MAX_RETRY_COUNT = 3;
-const double TAX_RATE = 0.10;
+// 定数（キャメルケースで書く）
+const String apiUrl = "https://api.example.com";
+const int maxRetryCount = 3;
+const double taxRate = 0.10;
 </code></pre>
 <h3 id="3-使ってはいけない文字パターン"><a class="header" href="#3-使ってはいけない文字パターン">3. 使ってはいけない文字・パターン</a></h3>
 <pre><code class="language-dart">// 間違った例
@@ -2967,7 +3122,7 @@ String userName = "田中";
 int quantity = 5;
 double amount = 1500.0;
 </code></pre>
-<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<h2 id="練習問題-5"><a class="header" href="#練習問題-5">練習問題</a></h2>
 <p>以下の悪い例を、良い変数名に変更してください：</p>
 <pre><code class="language-dart">// 悪い例
 int x = 20;
@@ -3096,6 +3251,41 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
   print('$a ÷ $b = $quotient (整数部分のみ)'); // 17 ÷ 5 = 3 (整数部分のみ)
 }
 </code></pre>
+<h2 id="練習問題-6"><a class="header" href="#練習問題-6">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムの実行結果を予想してください。</p>
+<pre><code class="language-dart">void main() {
+  print(10 / 4);
+  print(10 ~/ 4);
+  print(10 % 4);
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code>2.5
+2
+2
+</code></pre>
+<ul>
+<li><code>/</code> は普通の割り算で、結果は必ず <code>double</code> 型（2.5）になります</li>
+<li><code>~/</code> は整数除算で、小数部分を切り捨てた整数（2）になります</li>
+<li><code>%</code> は余りを求めるので、10 ÷ 4 = 2 余り 2 の「2」になります</li>
+</ul>
+</details>
+<p><strong>問題2</strong>：500円玉だけで1740円を支払うことはできません。500円玉を何枚まで使えて、いくら足りない分が残るかを計算するプログラムを、<code>~/</code> と <code>%</code> を使って書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  int total = 1740;
+  int coin = 500;
+  
+  int coins = total ~/ coin;      // 使える500円玉の枚数
+  int remainder = total % coin;   // 残りの金額
+  
+  print('500円玉: $coins枚');      // 500円玉: 3枚
+  print('残り: $remainder円');     // 残り: 240円
+}
+</code></pre>
+</details>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="文字列と数値の変換"><a class="header" href="#文字列と数値の変換">文字列と数値の変換</a></h1>
 <p>前述した intParse() に加えて、 toString() も使うことがありますので、覚えておきましょう。</p>
@@ -3104,9 +3294,59 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
   int number = int.parse(numText); // 文字列を整数に変換
   print('文字列「$numText」を数値に変換: $number');
   
+  String piText = '3.14';
+  double pi = double.parse(piText); // 文字列を小数に変換
+  print('文字列「$piText」を数値に変換: $pi');
+}
+</code></pre>
+<p>変換すれば、計算に使えるようになります：</p>
+<pre><code class="language-dart">void main() {
+  String priceText = '150';
+  int price = int.parse(priceText);
+  
+  print(priceText + priceText);  // 150150（文字列の連結になってしまう）
+  print(price + price);          // 300（正しく計算できる）
+}
+</code></pre>
+<h3 id="変換できない文字列に注意"><a class="header" href="#変換できない文字列に注意">変換できない文字列に注意</a></h3>
+<p>数値として解釈できない文字列を <code>int.parse()</code> に渡すと、実行時にエラー（FormatException）が発生してプログラムが停止します：</p>
+<pre><code class="language-dart">void main() {
+  int number = int.parse('abc'); // 実行時エラー！
+  print(number);
+}
+</code></pre>
+<pre><code>Uncaught Error: FormatException: abc
+</code></pre>
+<p>「ユーザーが入力した文字列を数値に変換する」ような場面では、数値以外が入力される可能性を常に考える必要があります。こうしたエラーへの対処方法は、第13章「エラーへの対処」で詳しく学びます。</p>
+<h2 id="数値を文字列に変換する"><a class="header" href="#数値を文字列に変換する">数値を文字列に変換する</a></h2>
+<p>逆に、数値を文字列に変換するには <code>toString()</code> を使います：</p>
+<pre><code class="language-dart">void main() {
   int value = 456;
   String valueText = value.toString(); // 数値を文字列に変換
   print('数値$valueを文字列に変換: 「$valueText」');
+  
+  double height = 170.5;
+  String heightText = height.toString();
+  print('身長: ' + heightText + 'cm'); // 文字列として連結できる
+}
+</code></pre>
+<h2 id="数値どうしの変換intとdouble"><a class="header" href="#数値どうしの変換intとdouble">数値どうしの変換（intとdouble）</a></h2>
+<p><code>int</code> と <code>double</code> の間で変換したいときは、<code>toDouble()</code> と <code>toInt()</code> を使います：</p>
+<pre><code class="language-dart">void main() {
+  int count = 5;
+  double countDouble = count.toDouble();
+  print(countDouble);  // 5.0
+  
+  double average = 79.8;
+  int averageInt = average.toInt();  // 小数部分は切り捨てられる
+  print(averageInt);   // 79
+}
+</code></pre>
+<p><code>toInt()</code> は四捨五入ではなく<strong>切り捨て</strong>である点に注意してください。四捨五入したい場合は <code>round()</code> を使います：</p>
+<pre><code class="language-dart">void main() {
+  double score = 79.8;
+  print(score.toInt());   // 79（切り捨て）
+  print(score.round());   // 80（四捨五入）
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
@@ -3200,6 +3440,35 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
   print('円周率: $pi');
 }
 </code></pre>
+<h2 id="練習問題-7"><a class="header" href="#練習問題-7">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムの実行結果を予想してください。</p>
+<pre><code class="language-dart">void main() {
+  int point = 100;
+  point += 50;
+  point -= 30;
+  point *= 2;
+  print(point);
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code>240
+</code></pre>
+<p>順に追うと、100 → 150（+50）→ 120（-30）→ 240（×2）となります。複合代入演算子は「今の値に対して計算して、結果を同じ変数に入れ直す」という意味です。</p>
+</details>
+<p><strong>問題2</strong>：変数 <code>count</code> を0で初期化し、インクリメント演算子（<code>++</code>）を3回使って、最後に <code>count</code> の値を表示するプログラムを書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  int count = 0;
+  count++;
+  count++;
+  count++;
+  print(count);  // 3
+}
+</code></pre>
+<p><code>count++</code> は <code>count = count + 1</code> の省略形です。</p>
+</details>
 <p>変数の値を適切に更新することで、プログラムの状態を管理し、動的な処理を実現できます。次は演算の優先順位について学んでいきましょう。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="演算の優先順位"><a class="header" href="#演算の優先順位">演算の優先順位</a></h1>
@@ -3237,12 +3506,12 @@ int courseCount = 5;              // または enrolledCourseCount, totalCourses
   int a = 10, b = 5, c = 2;
   
   // 技術的には正しいが読みにくい
-  int complex = a + b * c - a / b + c % 2;
+  int complex = a + b * c - a ~/ b + c % 2;
   
   // 括弧を使って意図を明確にする
-  int clear = a + (b * c) - (a / b) + (c % 2);
+  int clear = a + (b * c) - (a ~/ b) + (c % 2);
   
-  print('複雑: $complex, 明確: $clear');
+  print('複雑: $complex, 明確: $clear');  // 複雑: 18, 明確: 18
 }
 </code></pre>
 <h3 id="2-段階的な計算"><a class="header" href="#2-段階的な計算">2. 段階的な計算</a></h3>
@@ -3526,7 +3795,7 @@ if (age == 18) {  // 比較演算子を使う
   print('name == "DART": ${name == "DART"}');   // false
 }
 </code></pre>
-<h2 id="練習問題-1"><a class="header" href="#練習問題-1">練習問題</a></h2>
+<h2 id="練習問題-8"><a class="header" href="#練習問題-8">練習問題</a></h2>
 <p>次のプログラムを完成させてみましょう：</p>
 <pre><code class="language-dart">void main() {
   int number = 42;
@@ -3538,6 +3807,38 @@ if (age == 18) {  // 比較演算子を使う
   // 4. numberが100と等しくない場合
 }
 </code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  int number = 42;
+  
+  // 1. numberが50より大きい場合
+  if (number &gt; 50) {
+    print('50より大きいです');
+  }
+  
+  // 2. numberが0以上の場合
+  if (number &gt;= 0) {
+    print('0以上です');
+  }
+  
+  // 3. numberが42と等しい場合
+  if (number == 42) {
+    print('42と等しいです');
+  }
+  
+  // 4. numberが100と等しくない場合
+  if (number != 100) {
+    print('100とは等しくありません');
+  }
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>0以上です
+42と等しいです
+100とは等しくありません
+</code></pre>
+</details>
 <h2 id="まとめ-11"><a class="header" href="#まとめ-11">まとめ</a></h2>
 <ul>
 <li>比較演算子は2つの値を比較してtrue/falseを返します</li>
@@ -3719,7 +4020,7 @@ void main() {
   }
 }
 </code></pre>
-<h2 id="練習問題-2"><a class="header" href="#練習問題-2">練習問題</a></h2>
+<h2 id="練習問題-9"><a class="header" href="#練習問題-9">練習問題</a></h2>
 <p>以下のプログラムを完成させてみましょう：</p>
 <pre><code class="language-dart">void main() {
   int temperature = 25;
@@ -3731,6 +4032,27 @@ void main() {
   // 10度未満：「寒いです。暖かい服装でお出かけください」
 }
 </code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  int temperature = 25;
+  
+  if (temperature &gt;= 30) {
+    print('暑いです。薄着で過ごしましょう');
+  } else if (temperature &gt;= 20) {
+    print('過ごしやすい気温です');
+  } else if (temperature &gt;= 10) {
+    print('少し涼しいです。上着があると良いでしょう');
+  } else {
+    print('寒いです。暖かい服装でお出かけください');
+  }
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>過ごしやすい気温です
+</code></pre>
+<p>厳しい条件（30度以上）から順に書くのがポイントです。</p>
+</details>
 <h2 id="まとめ-12"><a class="header" href="#まとめ-12">まとめ</a></h2>
 <ul>
 <li><code>if-else文</code>を使うと、条件による2択の処理ができます</li>
@@ -4087,6 +4409,27 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 </ul>
 <h2 id="まとめ-14"><a class="header" href="#まとめ-14">まとめ</a></h2>
 <p>繰り返し処理は、プログラミングにおいて非常に重要な概念です。同じ処理を効率的に実行できるだけでなく、コードをより短く、読みやすく、保守しやすくします。</p>
+<h2 id="練習問題-10"><a class="header" href="#練習問題-10">練習問題</a></h2>
+<p><strong>問題1</strong>：「100人の学生に同じ挨拶メッセージを表示する」プログラムを、繰り返し処理を使わずに書くとどんな問題がありますか？2つ以上挙げてください。</p>
+<details>
+<summary>解答例</summary>
+<ul>
+<li>print文を100回書く必要があり、コードが非常に長くなる</li>
+<li>メッセージを変更したいとき、100か所すべてを修正する必要がある</li>
+<li>書き間違い（コピーミス）が起きやすい</li>
+<li>「101人に増やす」といった変更に柔軟に対応できない</li>
+</ul>
+</details>
+<p><strong>問題2</strong>：「1から10まで数を数える」処理を繰り返しの3要素（初期状態・継続条件・更新処理）に分解してください。</p>
+<details>
+<summary>解答例</summary>
+<ul>
+<li>初期状態：数を1から始める</li>
+<li>継続条件：数が10以下の間は続ける</li>
+<li>更新処理：数を1ずつ増やす</li>
+</ul>
+<p>この3要素は、次の節で学ぶfor文の書き方（<code>for (初期化; 条件式; 更新式)</code>）にそのまま対応しています。</p>
+</details>
 <p>次のセクションでは、Dartで最もよく使われる繰り返し処理の一つである「for文」について詳しく学んでいきます。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="62-for文の基本-1"><a class="header" href="#62-for文の基本-1">6.2 for文の基本</a></h1>
@@ -4154,9 +4497,12 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 }
 </code></pre>
 <h2 id="インデックスと値の活用"><a class="header" href="#インデックスと値の活用">インデックスと値の活用</a></h2>
-<p>for文では、カウンタ変数（通常はi）を使って、さまざまな計算や処理ができます。以下はリストの例であり、リストの利用方法は7章で扱います。</p>
+<p>for文では、カウンタ変数（通常はi）を使って、さまざまな計算や処理ができます。</p>
+<blockquote>
+<p><strong>参考</strong>：次の例に出てくる「リスト」は、複数のデータをまとめて管理する仕組みです（<code>fruits[i]</code> で i 番目のデータを取り出せます）。詳しくは第7章で学ぶので、ここでは「for文はこんな使い方もできる」という雰囲気だけつかめば十分です。</p>
+</blockquote>
 <pre><code class="language-dart">void main() {
-  // 配列のようなデータ構造と組み合わせる例
+  // 複数のデータをまとめたリストと組み合わせる例
   List&lt;String&gt; fruits = ['りんご', 'バナナ', 'オレンジ'];
   
   for (int i = 0; i &lt; fruits.length; i++) {
@@ -4242,6 +4588,31 @@ if (age &gt;= 18 &amp;&amp; age &lt;= 65) {
 <li>ネストして使うことで、より複雑な処理も可能</li>
 <li>境界値と無限ループに注意する</li>
 </ul>
+<h2 id="練習問題-11"><a class="header" href="#練習問題-11">練習問題</a></h2>
+<p><strong>問題1</strong>：for文を使って、5から1まで逆順に数を表示するプログラムを書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  for (int i = 5; i &gt;= 1; i--) {
+    print(i);
+  }
+}
+</code></pre>
+<p>初期値を5にして、条件を <code>i &gt;= 1</code>、更新式を <code>i--</code>（1ずつ減らす）にします。</p>
+</details>
+<p><strong>問題2</strong>：for文を使って、1から100までの合計を計算して表示するプログラムを書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  int sum = 0;
+  for (int i = 1; i &lt;= 100; i++) {
+    sum += i;
+  }
+  print('合計: $sum');  // 合計: 5050
+}
+</code></pre>
+<p>合計を記録する変数 <code>sum</code> をループの外で用意しておき、繰り返しのたびに加算していくのがポイントです。</p>
+</details>
 <p>次のセクションでは、条件に基づいて繰り返すwhile文について学習します。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="63-while文の使い方-1"><a class="header" href="#63-while文の使い方-1">6.3 while文の使い方</a></h1>
@@ -4464,6 +4835,38 @@ void main() {
 <li>do-while文を使えば、最低1回は処理を実行できる</li>
 <li>無限ループにならないよう、条件式が適切に更新されることを確認する</li>
 </ul>
+<h2 id="練習問題-12"><a class="header" href="#練習問題-12">練習問題</a></h2>
+<p><strong>問題1</strong>：次のwhile文は何回「こんにちは」を表示しますか？</p>
+<pre><code class="language-dart">void main() {
+  int count = 0;
+  while (count &lt; 3) {
+    print('こんにちは');
+    count++;
+  }
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<p>3回です。<code>count</code> が 0、1、2 のときに表示され、3になると条件 <code>count &lt; 3</code> がfalseになりループが終わります。</p>
+</details>
+<p><strong>問題2</strong>：1000円の貯金が、毎月2000円ずつ増えていきます。貯金が10000円以上になるのは何か月後かをwhile文で計算するプログラムを書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  int savings = 1000;
+  int months = 0;
+  
+  while (savings &lt; 10000) {
+    savings += 2000;
+    months++;
+  }
+  
+  print('$months か月後に $savings 円になります');
+  // 5 か月後に 11000 円になります
+}
+</code></pre>
+<p>「何回繰り返せばよいか事前に分からない」処理には、for文よりwhile文が向いています。</p>
+</details>
 <p>次のセクションでは、無限ループとその回避方法について詳しく学習します。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="64-無限ループとその回避方法-1"><a class="header" href="#64-無限ループとその回避方法-1">6.4 無限ループとその回避方法</a></h1>
@@ -4612,6 +5015,44 @@ void main() {
 <li>意図的な無限ループには必ず脱出条件を用意する</li>
 <li>安全装置として最大繰り返し回数を設定することを検討する</li>
 </ul>
+<h2 id="練習問題-13"><a class="header" href="#練習問題-13">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムは無限ループになります。理由を説明して修正してください。</p>
+<pre><code class="language-dart">void main() {
+  int i = 0;
+  while (i &lt; 5) {
+    print(i);
+  }
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<p>ループの中で <code>i</code> の値が更新されないため、条件 <code>i &lt; 5</code> が永遠にtrueのままだからです。ループの中に更新処理を追加します。</p>
+<pre><code class="language-dart">void main() {
+  int i = 0;
+  while (i &lt; 5) {
+    print(i);
+    i++;  // これを忘れると無限ループ
+  }
+}
+</code></pre>
+</details>
+<p><strong>問題2</strong>：次のfor文は無限ループになります。どこが間違っているでしょうか？</p>
+<pre><code class="language-dart">void main() {
+  for (int i = 10; i &gt;= 0; i++) {
+    print(i);
+  }
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<p>10から数を減らしていくつもりの条件（<code>i &gt;= 0</code>）なのに、更新式が <code>i++</code>（増やす）になっているためです。<code>i</code> は増え続けるので <code>i &gt;= 0</code> は永遠にtrueです。正しくは <code>i--</code> にします。</p>
+<pre><code class="language-dart">void main() {
+  for (int i = 10; i &gt;= 0; i--) {
+    print(i);
+  }
+}
+</code></pre>
+</details>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="65-実践九九の表を作る-1"><a class="header" href="#65-実践九九の表を作る-1">6.5 実践：九九の表を作る</a></h1>
 <p>これまで学んだfor文とwhile文の知識を活用して、九九の表を作成するプログラムを作ってみましょう。段階的に機能を追加していき、最終的に見やすい九九の表を完成させます。</p>
@@ -4753,6 +5194,44 @@ void main() {
 <li>条件に応じた表示の変更</li>
 </ul>
 <p>これらの技術は、より複雑なプログラムを作成する際の基礎となります。繰り返し処理をマスターすることで、効率的で読みやすいコードが書けるようになります。</p>
+<h2 id="練習問題-14"><a class="header" href="#練習問題-14">練習問題</a></h2>
+<p><strong>問題1</strong>：二重ループを使って、次のような直角三角形を表示するプログラムを書いてください。</p>
+<pre><code>*
+**
+***
+****
+*****
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  for (int i = 1; i &lt;= 5; i++) {
+    String line = '';
+    for (int j = 1; j &lt;= i; j++) {
+      line += '*';
+    }
+    print(line);
+  }
+}
+</code></pre>
+<p>外側のループが「行」、内側のループが「その行に表示する <code>*</code> の数」を担当します。i行目には <code>*</code> をi個表示します。</p>
+</details>
+<p><strong>問題2</strong>：九九の表から、答えが偶数のものだけを表示するプログラムを書いてください（例：<code>2 × 3 = 6</code>）。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  for (int dan = 1; dan &lt;= 9; dan++) {
+    for (int i = 1; i &lt;= 9; i++) {
+      int result = dan * i;
+      if (result % 2 == 0) {
+        print('$dan × $i = $result');
+      }
+    }
+  }
+}
+</code></pre>
+<p>二重ループと条件分岐（if文）、余り演算子（<code>%</code>）の組み合わせです。<code>result % 2 == 0</code> で偶数かどうかを判定できます。</p>
+</details>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="第7章リスト配列"><a class="header" href="#第7章リスト配列">第7章：リスト（配列）</a></h1>
 <p>この章では、リスト（配列）を使って複数のデータを一つの変数でまとめて扱う方法を学習します。リストの作成から要素へのアクセス、要素の追加・削除、そしてループとの組み合わせまで、データ管理の基本テクニックを習得します。最後には成績管理プログラムを作成し、実用的なデータ処理のスキルを身につけます。</p>
@@ -4859,7 +5338,30 @@ void main() {
 <li><strong>関連するデータをまとめられる</strong>：同じ種類のデータを論理的にグループ化できます</li>
 </ol>
 <h2 id="まとめ-19"><a class="header" href="#まとめ-19">まとめ</a></h2>
-<p>リストは、複数のデータを効率的に管理するための重要なプログラミングの道具です。次のセクションでは、実際にリストを作成し、使ってみましょう。</p>
+<p>リストは、複数のデータを効率的に管理するための重要なプログラミングの道具です。</p>
+<h2 id="練習問題-15"><a class="header" href="#練習問題-15">練習問題</a></h2>
+<p><strong>問題1</strong>：5人の学生のテストの点数を管理したいとき、リストを使わないと変数が5個必要です（<code>score1</code>〜<code>score5</code>）。学生が100人に増えた場合を考えて、リストを使うメリットを2つ以上挙げてください。</p>
+<details>
+<summary>解答例</summary>
+<ul>
+<li>変数を100個宣言する必要がなく、1つのリストで管理できる</li>
+<li>for文と組み合わせて「全員分の平均を計算する」といった処理が数行で書ける</li>
+<li>学生数が増減しても、コードをほとんど変更せずに対応できる</li>
+<li><code>scores[i]</code> のように番号で機械的にアクセスできる</li>
+</ul>
+</details>
+<p><strong>問題2</strong>：身の回りにある「リストで表現できそうなもの」を3つ挙げて、それぞれどんなデータが入るか考えてください。</p>
+<details>
+<summary>解答例</summary>
+<p>例：</p>
+<ul>
+<li>時間割 → 各時限の科目名（‘数学’, ‘英語’, ‘体育’, …）</li>
+<li>今週の予定 → 各曜日の予定（‘アルバイト’, ‘講義’, ‘サークル’, …）</li>
+<li>ゲームのハイスコア → 上位10人の得点（9800, 9500, 9200, …）</li>
+</ul>
+<p>「同じ種類のデータが複数並ぶもの」はリストで表現できます。</p>
+</details>
+<p>次のセクションでは、実際にリストを作成し、使ってみましょう。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="72-リストの作成と要素へのアクセス-1"><a class="header" href="#72-リストの作成と要素へのアクセス-1">7.2 リストの作成と要素へのアクセス</a></h1>
 <p>前のセクションでリストの概念を学びました。今度は実際にリストを作成し、使ってみましょう。</p>
@@ -4949,6 +5451,36 @@ void main() {
 <li><code>length</code>でリストの要素数を調べられます</li>
 <li>範囲外のインデックスにアクセスするとエラーになります</li>
 </ul>
+<h2 id="練習問題-16"><a class="header" href="#練習問題-16">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムの実行結果を予想してください。</p>
+<pre><code class="language-dart">void main() {
+  List&lt;String&gt; animals = ['犬', '猫', 'うさぎ', 'ハムスター'];
+  
+  print(animals[0]);
+  print(animals[3]);
+  print(animals.length);
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code>犬
+ハムスター
+4
+</code></pre>
+<p>インデックスは0から始まるので、<code>animals[0]</code> は最初の「犬」、<code>animals[3]</code> は4番目の「ハムスター」です。<code>length</code> は要素の個数（4）を返します。</p>
+</details>
+<p><strong>問題2</strong>：好きな果物3つのリストを作り、「最初の果物は◯◯です」「最後の果物は◯◯です」と表示するプログラムを書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  List&lt;String&gt; fruits = ['りんご', 'バナナ', 'ぶどう'];
+  
+  print('最初の果物は${fruits[0]}です');
+  print('最後の果物は${fruits[fruits.length - 1]}です');
+}
+</code></pre>
+<p>最後の要素のインデックスは「要素数 - 1」です。<code>fruits.first</code> と <code>fruits.last</code> を使って書くこともできます。</p>
+</details>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="73-リストに要素を追加削除する-1"><a class="header" href="#73-リストに要素を追加削除する-1">7.3 リストに要素を追加・削除する</a></h1>
 <p>リストの便利な点の一つは、プログラムの実行中に要素を追加したり削除したりできることです。このセクションでは、リストを動的に操作する方法を学びます。</p>
@@ -5089,6 +5621,46 @@ void main() {
 <li><strong>全削除</strong>: <code>clear()</code>でリストを空にする</li>
 <li>これらのメソッドを使うことで、プログラム実行中にリストを柔軟に操作できます</li>
 </ul>
+<h2 id="練習問題-17"><a class="header" href="#練習問題-17">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムを実行した後の <code>members</code> の中身を予想してください。</p>
+<pre><code class="language-dart">void main() {
+  List&lt;String&gt; members = ['田中', '佐藤'];
+  
+  members.add('鈴木');
+  members.insert(0, '高橋');
+  members.remove('佐藤');
+  
+  print(members);
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code>[高橋, 田中, 鈴木]
+</code></pre>
+<p>順に追うと：</p>
+<ol>
+<li><code>add('鈴木')</code> → <code>[田中, 佐藤, 鈴木]</code></li>
+<li><code>insert(0, '高橋')</code> → 先頭に追加されて <code>[高橋, 田中, 佐藤, 鈴木]</code></li>
+<li><code>remove('佐藤')</code> → <code>[高橋, 田中, 鈴木]</code></li>
+</ol>
+</details>
+<p><strong>問題2</strong>：空のリストから始めて、「牛乳」「パン」「卵」を追加し、その後「パン」を削除して、最終的なリストと要素数を表示する買い物リストプログラムを書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  List&lt;String&gt; shoppingList = [];
+  
+  shoppingList.add('牛乳');
+  shoppingList.add('パン');
+  shoppingList.add('卵');
+  
+  shoppingList.remove('パン');
+  
+  print('買い物リスト: $shoppingList');       // 買い物リスト: [牛乳, 卵]
+  print('アイテム数: ${shoppingList.length}'); // アイテム数: 2
+}
+</code></pre>
+</details>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="74-リストと繰り返し処理の組み合わせ-1"><a class="header" href="#74-リストと繰り返し処理の組み合わせ-1">7.4 リストと繰り返し処理の組み合わせ</a></h1>
 <p>リストとループ（繰り返し処理）を組み合わせることで、リストの全要素に対して効率的に処理を行うことができます。これはプログラミングにおいて非常に重要なテクニックです。</p>
@@ -5260,6 +5832,45 @@ void main() {
 <li>リストとループを組み合わせることで、合計・平均・最大値などの計算が簡単にできる</li>
 <li>条件に応じた処理や、新しいリストの作成も可能</li>
 </ul>
+<h2 id="練習問題-18"><a class="header" href="#練習問題-18">練習問題</a></h2>
+<p><strong>問題1</strong>：for-inループを使って、次のリストの点数をすべて表示し、最後に合計点を表示するプログラムを書いてください。</p>
+<pre><code class="language-dart">List&lt;int&gt; scores = [80, 65, 92, 74];
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  List&lt;int&gt; scores = [80, 65, 92, 74];
+  int total = 0;
+  
+  for (int score in scores) {
+    print('$score点');
+    total += score;
+  }
+  
+  print('合計: $total点');  // 合計: 311点
+}
+</code></pre>
+</details>
+<p><strong>問題2</strong>：次のリストから、70点以上の点数だけを数えて「合格者は◯人です」と表示するプログラムを書いてください。</p>
+<pre><code class="language-dart">List&lt;int&gt; scores = [55, 82, 70, 91, 68, 77];
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  List&lt;int&gt; scores = [55, 82, 70, 91, 68, 77];
+  int passCount = 0;
+  
+  for (int score in scores) {
+    if (score &gt;= 70) {
+      passCount++;
+    }
+  }
+  
+  print('合格者は$passCount人です');  // 合格者は4人です
+}
+</code></pre>
+<p>ループと条件分岐を組み合わせて「条件を満たす要素を数える」のは、実際のプログラムでも頻出のパターンです。</p>
+</details>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="第8章マップ連想配列"><a class="header" href="#第8章マップ連想配列">第8章：マップ（連想配列）</a></h1>
 <p>リストでデータをまとめて管理できるようになったあなたは、さらに柔軟なデータ管理手法を学ぶ段階に進みます！</p>
@@ -5424,7 +6035,34 @@ void main() {
 }
 </code></pre>
 <h2 id="まとめ-23"><a class="header" href="#まとめ-23">まとめ</a></h2>
-<p>マップは、キーと値のペアでデータを管理する強力なデータ構造です。名前やIDなど、意味のあるキーを使ってデータに直接アクセスできるため、関連するデータを効率的に管理できます。次のセクションでは、実際にマップを作成し、操作する方法を詳しく学びましょう。</p>
+<p>マップは、キーと値のペアでデータを管理する強力なデータ構造です。名前やIDなど、意味のあるキーを使ってデータに直接アクセスできるため、関連するデータを効率的に管理できます。</p>
+<h2 id="練習問題-19"><a class="header" href="#練習問題-19">練習問題</a></h2>
+<p><strong>問題1</strong>：次のデータは、リストとマップのどちらで管理するのが適していますか？理由も考えてください。</p>
+<ol>
+<li>クラス全員の出席番号順の名前</li>
+<li>国名とその首都の対応表</li>
+</ol>
+<details>
+<summary>解答例</summary>
+<ol>
+<li><strong>リスト</strong>が適しています。「順番」に意味があり、出席番号（＝インデックス）でアクセスできるためです。</li>
+<li><strong>マップ</strong>が適しています。「日本→東京」のように、キー（国名）から値（首都）を直接調べる使い方だからです。</li>
+</ol>
+</details>
+<p><strong>問題2</strong>：科目名をキー、テストの点数を値とするマップ <code>testScores</code> を作り（数学80点、英語65点）、数学の点数を表示するプログラムを書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  Map&lt;String, int&gt; testScores = {
+    '数学': 80,
+    '英語': 65,
+  };
+  
+  print('数学の点数: ${testScores['数学']}点');  // 数学の点数: 80点
+}
+</code></pre>
+</details>
+<p>次のセクションでは、実際にマップを作成し、操作する方法を詳しく学びましょう。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="マップの作成と操作"><a class="header" href="#マップの作成と操作">マップの作成と操作</a></h1>
 <p>前のセクションでマップの概念を学びました。ここでは、実際にマップを作成し、操作する方法を詳しく見ていきましょう。</p>
@@ -5472,6 +6110,20 @@ void main() {
   print('三郎の年齢: ${ages['三郎']}');    // 三郎の年齢: null
 }
 </code></pre>
+<blockquote>
+<p><strong>📝 コラム：nullと「!」記号</strong></p>
+<p><code>null</code> は「値が存在しない」ことを表す特別な値です。マップから値を取り出すとき、指定したキーが存在するかどうかはDartには分からないため、取り出した値は「<code>int</code> かもしれないし <code>null</code> かもしれない」（<code>int?</code> と書きます）として扱われます。</p>
+<p>そのため、取り出した値をそのまま計算に使おうとするとエラーになることがあります。</p>
+<pre><code class="language-dart">void main() {
+  Map&lt;String, int&gt; ages = {'太郎': 20};
+
+  // int price = ages['太郎'] + 1;   // エラー：nullかもしれない値は計算に使えない
+  int age = ages['太郎']! + 1;       // OK：「!」で「必ず値がある」とDartに伝える
+  print(age);  // 21
+}
+</code></pre>
+<p>値の後ろに付ける <code>!</code> は「このキーは必ず存在するので、<code>null</code> ではありません」とDartに伝える記号です。ただし、実際にキーが存在しなかった場合は実行時にエラーになるため、<code>containsKey()</code> で確認してから使うと安全です。この後の節でもこの <code>!</code> が登場するので、覚えておいてください。</p>
+</blockquote>
 <h2 id="値の追加と更新"><a class="header" href="#値の追加と更新">値の追加と更新</a></h2>
 <h3 id="新しいキーと値を追加"><a class="header" href="#新しいキーと値を追加">新しいキーと値を追加</a></h3>
 <pre><code class="language-dart">void main() {
@@ -5596,6 +6248,46 @@ void main() {
 <li><code>containsKey(key)</code> で存在確認</li>
 <li><code>forEach</code> や <code>for-in</code> で繰り返し処理</li>
 </ul>
+<h2 id="練習問題-20"><a class="header" href="#練習問題-20">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムの実行結果を予想してください。</p>
+<pre><code class="language-dart">void main() {
+  Map&lt;String, int&gt; stock = {'ペン': 10, 'ノート': 5};
+  
+  stock['ペン'] = 8;
+  stock['消しゴム'] = 20;
+  stock.remove('ノート');
+  
+  print(stock);
+  print(stock.length);
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code>{ペン: 8, 消しゴム: 20}
+2
+</code></pre>
+<ul>
+<li><code>stock['ペン'] = 8</code> は既存キーなので<strong>更新</strong></li>
+<li><code>stock['消しゴム'] = 20</code> は新しいキーなので<strong>追加</strong></li>
+<li><code>remove('ノート')</code> で「ノート」を削除</li>
+</ul>
+</details>
+<p><strong>問題2</strong>：友達3人の名前と誕生月のマップを作り、<code>forEach</code> を使って「◯◯さんの誕生月は◯月です」とすべて表示するプログラムを書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  Map&lt;String, int&gt; birthMonths = {
+    '田中': 4,
+    '佐藤': 8,
+    '鈴木': 12,
+  };
+  
+  birthMonths.forEach((name, month) {
+    print('$nameさんの誕生月は$month月です');
+  });
+}
+</code></pre>
+</details>
 <p>次のセクションでは、マップのより実践的な活用例を見ていきます。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="マップの活用例"><a class="header" href="#マップの活用例">マップの活用例</a></h1>
@@ -5628,6 +6320,7 @@ void main() {
   // 特定の生徒の成績を表示
   String studentName = '田中太郎';
   print('=== ${studentName}の成績 ===');
+  // 「!」は8-2で学んだとおり「このキーは必ず存在する」という意味
   studentScores[studentName]!.forEach((subject, score) {
     print('$subject: $score点');
   });
@@ -5662,6 +6355,7 @@ void main() {
   });
   
   // 在庫金額の合計を計算
+  // どの商品にも「在庫」「価格」キーがあるので「!」を付けて取り出す
   int totalValue = 0;
   products.forEach((name, info) {
     totalValue += info['在庫']! * info['価格']!;
@@ -5692,6 +6386,7 @@ void main() {
   // 各回答をカウント
   for (String response in responses) {
     if (results.containsKey(response)) {
+      // containsKeyで確認済みなので「!」で安全に取り出せる
       results[response] = results[response]! + 1;
     } else {
       results[response] = 1;
@@ -5754,6 +6449,7 @@ void main() {
   
   for (String word in words) {
     if (wordCount.containsKey(word)) {
+      // containsKeyで確認済みなので「!」で安全に取り出せる
       wordCount[word] = wordCount[word]! + 1;
     } else {
       wordCount[word] = 1;
@@ -5790,7 +6486,58 @@ void main() {
 <li><strong>グループ化</strong>：カテゴリーごとにデータを整理</li>
 </ol>
 <p>これらの例を参考に、自分のプログラムでもマップを活用してみましょう。</p>
-<div style="break-before: page; page-break-before: always;"></div>
+<h2 id="練習問題-21"><a class="header" href="#練習問題-21">練習問題</a></h2>
+<p><strong>問題1</strong>：次のリストに入っている血液型の出現回数を、マップを使って集計するプログラムを書いてください。</p>
+<pre><code class="language-dart">List&lt;String&gt; bloodTypes = ['A', 'O', 'B', 'A', 'A', 'AB', 'O', 'A'];
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  List&lt;String&gt; bloodTypes = ['A', 'O', 'B', 'A', 'A', 'AB', 'O', 'A'];
+  Map&lt;String, int&gt; counts = {};
+  
+  for (String type in bloodTypes) {
+    if (counts.containsKey(type)) {
+      counts[type] = counts[type]! + 1;
+    } else {
+      counts[type] = 1;
+    }
+  }
+  
+  counts.forEach((type, count) {
+    print('$type型: $count人');
+  });
+  // A型: 4人
+  // O型: 2人
+  // B型: 1人
+  // AB型: 1人
+}
+</code></pre>
+<p>本文の「アンケート集計」と同じパターンです。このカウント処理はさまざまな場面で使えるので、書けるようにしておきましょう。</p>
+</details>
+<p><strong>問題2</strong>：商品名と価格のマップから、200円以下の商品だけを「◯◯は買えます」と表示するプログラムを書いてください。</p>
+<pre><code class="language-dart">Map&lt;String, int&gt; prices = {'おにぎり': 150, '弁当': 480, 'お茶': 120, 'サンドイッチ': 320};
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  Map&lt;String, int&gt; prices = {
+    'おにぎり': 150,
+    '弁当': 480,
+    'お茶': 120,
+    'サンドイッチ': 320,
+  };
+  
+  prices.forEach((name, price) {
+    if (price &lt;= 200) {
+      print('$nameは買えます');
+    }
+  });
+  // おにぎりは買えます
+  // お茶は買えます
+}
+</code></pre>
+</details><div style="break-before: page; page-break-before: always;"></div>
 <h1 id="実践簡単な辞書プログラム"><a class="header" href="#実践簡単な辞書プログラム">実践：簡単な辞書プログラム</a></h1>
 <p>これまで学んだマップの知識を活用して、英和辞書プログラムを作ってみましょう。このプログラムでは、英単語を入力すると日本語の意味を表示し、新しい単語を追加したり、既存の単語を編集したりできます。</p>
 <h2 id="プログラムの設計"><a class="header" href="#プログラムの設計">プログラムの設計</a></h2>
@@ -5880,6 +6627,7 @@ void main() {
     String lowerWord = word.toLowerCase();
     
     if (dictionary.containsKey(lowerWord)) {
+      // containsKeyで確認済みなので「!」で安全に取り出せる（8-2参照）
       String oldMeaning = dictionary[lowerWord]!;
       dictionary[lowerWord] = newMeaning;
       print('\n✓ 単語の意味を更新しました');
@@ -5894,6 +6642,7 @@ void main() {
     String lowerWord = word.toLowerCase();
     
     if (dictionary.containsKey(lowerWord)) {
+      // containsKeyで確認済みなので「!」で安全に取り出せる
       String meaning = dictionary[lowerWord]!;
       dictionary.remove(lowerWord);
       print('\n✓ 単語を削除しました');
@@ -5944,6 +6693,35 @@ void main() {
 <li><strong>関数の活用</strong>：機能ごとに関数を分けて整理</li>
 <li><strong>エラー処理</strong>：存在しない単語の場合の処理</li>
 </ol>
+<h2 id="練習問題-22"><a class="header" href="#練習問題-22">練習問題</a></h2>
+<p><strong>問題1</strong>：この辞書プログラムに「単語数を表示する」機能を追加するとしたら、どう書けばよいでしょうか。マップの要素数を調べる方法を思い出して考えてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">print('登録されている単語数: ${dictionary.length}語');
+</code></pre>
+<p>マップもリストと同じように <code>length</code> で要素数を取得できます。</p>
+</details>
+<p><strong>問題2</strong>：日本語の都道府県名をキー、県庁所在地を値とするミニ辞書（3件以上）を作り、調べたい県名が辞書に「あれば県庁所在地を表示、なければ『登録されていません』と表示」するプログラムを書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  Map&lt;String, String&gt; capitals = {
+    '北海道': '札幌市',
+    '愛知県': '名古屋市',
+    '沖縄県': '那覇市',
+  };
+  
+  String query = '愛知県';
+  
+  if (capitals.containsKey(query)) {
+    print('$queryの県庁所在地は${capitals[query]}です');
+  } else {
+    print('$queryは登録されていません');
+  }
+}
+</code></pre>
+<p><code>query</code> を <code>'東京都'</code> などに変えて、「登録されていません」が表示されることも確認してみましょう。</p>
+</details>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="第9章関数の基礎"><a class="header" href="#第9章関数の基礎">第9章：関数の基礎</a></h1>
 <p>データ構造をマスターしたあなたは、いよいよプログラムをより効率的に整理する段階に進みます！</p>
@@ -6991,6 +7769,38 @@ void main() {
 <li><code>required</code> キーワードで名前付き引数を必須にできる</li>
 <li>オプション引数を使うことで、関数をより柔軟に使えるようになる</li>
 </ul>
+<h2 id="練習問題-23"><a class="header" href="#練習問題-23">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムの実行結果を予想してください。</p>
+<pre><code class="language-dart">String order(String item, [int quantity = 1]) {
+  return '$itemを$quantity個注文しました';
+}
+
+void main() {
+  print(order('りんご'));
+  print(order('みかん', 3));
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code>りんごを1個注文しました
+みかんを3個注文しました
+</code></pre>
+<p>2番目の引数を省略するとデフォルト値の1が使われ、指定するとその値（3）が使われます。</p>
+</details>
+<p><strong>問題2</strong>：名前付き引数を使って、<code>makeProfile(name: '花子', hobby: '読書')</code> のように呼び出せる関数を作ってください。<code>name</code> は必須、<code>hobby</code> は省略可能（デフォルトは「なし」）とします。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">String makeProfile({required String name, String hobby = 'なし'}) {
+  return '名前: $name / 趣味: $hobby';
+}
+
+void main() {
+  print(makeProfile(name: '花子', hobby: '読書'));  // 名前: 花子 / 趣味: 読書
+  print(makeProfile(name: '太郎'));                 // 名前: 太郎 / 趣味: なし
+}
+</code></pre>
+<p>必須にしたい名前付き引数には <code>required</code> を付けます。</p>
+</details>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="関数を使ったプログラムの設計"><a class="header" href="#関数を使ったプログラムの設計">関数を使ったプログラムの設計</a></h1>
 <p>これまで関数の作り方や使い方を学んできました。この節では、関数を使ってプログラムをどのように設計すればよいかを学びます。よい設計は、プログラムを読みやすく、修正しやすくします。</p>
@@ -7085,6 +7895,9 @@ void processStudentScore(String name, int score) {
 </code></pre>
 <h2 id="プログラムの構造化"><a class="header" href="#プログラムの構造化">プログラムの構造化</a></h2>
 <p>大きなプログラムを関数で構造化する例を見てみましょう。</p>
+<blockquote>
+<p><strong>注</strong>：この例では在庫データ <code>inventory</code> をグローバル変数にしています。9-4では「グローバル変数は避けた方が良い」と学びましたが、複数の関数で同じデータを共有する必要がある小さなプログラムでは、このような割り切った書き方をすることもあります。第11章で学ぶ「クラス」を使うと、データと関数をひとまとめにして、グローバル変数を使わないより良い設計にできます。</p>
+</blockquote>
 <pre><code class="language-dart">// 簡単な在庫管理システム
 Map&lt;String, int&gt; inventory = {};
 
@@ -7223,6 +8036,57 @@ void main() {
 <li>汎用的な関数を作ることで再利用性を高める</li>
 <li>プログラム全体を関数で構造化することで、理解しやすく保守しやすいコードになる</li>
 </ul>
+<h2 id="練習問題-24"><a class="header" href="#練習問題-24">練習問題</a></h2>
+<p><strong>問題1</strong>：次の関数は「複数の責任」を持っています。単一責任の原則に従って、2つの関数に分割してください。</p>
+<pre><code class="language-dart">void processScore(List&lt;int&gt; scores) {
+  // 平均を計算する
+  int total = 0;
+  for (int score in scores) {
+    total += score;
+  }
+  double average = total / scores.length;
+  
+  // 結果を表示する
+  print('平均点: $average');
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">// 責任1：平均を計算する
+double calculateAverage(List&lt;int&gt; scores) {
+  int total = 0;
+  for (int score in scores) {
+    total += score;
+  }
+  return total / scores.length;
+}
+
+// 責任2：結果を表示する
+void printAverage(double average) {
+  print('平均点: $average');
+}
+
+void main() {
+  List&lt;int&gt; scores = [80, 65, 92];
+  double average = calculateAverage(scores);
+  printAverage(average);
+}
+</code></pre>
+<p>計算と表示を分けることで、「計算結果を表示以外にも使いたい」場合に <code>calculateAverage</code> を再利用できます。</p>
+</details>
+<p><strong>問題2</strong>：次の関数名は、何をする関数か分かりにくい名前です。より良い名前を考えてください。</p>
+<ol>
+<li><code>void doIt(List&lt;String&gt; names)</code> — 名前のリストをすべて表示する関数</li>
+<li><code>int calc(int a, int b)</code> — 2つの数の大きい方を返す関数</li>
+</ol>
+<details>
+<summary>解答例</summary>
+<ol>
+<li><code>printNames</code> や <code>showAllNames</code> — 「名前を表示する」ことが分かる名前</li>
+<li><code>findLarger</code> や <code>max</code> — 「大きい方を選ぶ」ことが分かる名前</li>
+</ol>
+<p>関数名は「動詞＋対象」の形で、何をするかが読んだだけで分かるように付けるのが原則です。</p>
+</details>
 <p>次の節では、これまで学んだ知識を活用して、じゃんけんゲームを作ります。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="実践じゃんけんゲームを作る"><a class="header" href="#実践じゃんけんゲームを作る">実践：じゃんけんゲームを作る</a></h1>
@@ -7391,10 +8255,10 @@ void displayDetailedResult(int playerHand, int computerHand, int result) {
   
   if (result == 1) {
     print('\n🎉 あなたの勝ち！ 🎉');
-    print(_getWinMessage(playerHand, computerHand));
+    print(getWinMessage(playerHand, computerHand));
   } else if (result == -1) {
     print('\n😢 あなたの負け... 😢');
-    print(_getLoseMessage(playerHand, computerHand));
+    print(getLoseMessage(playerHand, computerHand));
   } else {
     print('\n🤝 引き分け！ 🤝');
     print('同じ手でした！');
@@ -7402,7 +8266,7 @@ void displayDetailedResult(int playerHand, int computerHand, int result) {
 }
 
 // 勝ちメッセージ
-String _getWinMessage(int playerHand, int computerHand) {
+String getWinMessage(int playerHand, int computerHand) {
   if (playerHand == 0 &amp;&amp; computerHand == 1) {
     return 'グーはチョキに勝ちます！';
   } else if (playerHand == 1 &amp;&amp; computerHand == 2) {
@@ -7413,7 +8277,7 @@ String _getWinMessage(int playerHand, int computerHand) {
 }
 
 // 負けメッセージ
-String _getLoseMessage(int playerHand, int computerHand) {
+String getLoseMessage(int playerHand, int computerHand) {
   if (playerHand == 0 &amp;&amp; computerHand == 2) {
     return 'グーはパーに負けます...';
   } else if (playerHand == 1 &amp;&amp; computerHand == 0) {
@@ -7423,56 +8287,54 @@ String _getLoseMessage(int playerHand, int computerHand) {
   }
 }
 
-// ゲーム統計
-class GameStats {
-  int wins = 0;
-  int losses = 0;
-  int draws = 0;
-  List&lt;String&gt; history = [];
-  
-  void recordGame(int result, int playerHand, int computerHand) {
-    String record = '${getHandName(playerHand)} vs ${getHandName(computerHand)}: ';
-    if (result == 1) {
-      wins++;
-      record += '勝ち';
-    } else if (result == -1) {
-      losses++;
-      record += '負け';
-    } else {
-      draws++;
-      record += '引き分け';
-    }
-    history.add(record);
+// ゲーム統計（プログラム全体で共有する変数で管理）
+int wins = 0;
+int losses = 0;
+int draws = 0;
+List&lt;String&gt; history = [];
+
+// 対戦結果を記録する
+void recordGame(int result, int playerHand, int computerHand) {
+  String record = '${getHandName(playerHand)} vs ${getHandName(computerHand)}: ';
+  if (result == 1) {
+    wins++;
+    record += '勝ち';
+  } else if (result == -1) {
+    losses++;
+    record += '負け';
+  } else {
+    draws++;
+    record += '引き分け';
+  }
+  history.add(record);
+}
+
+// 統計を表示する
+void showStats() {
+  int total = wins + losses + draws;
+  if (total == 0) {
+    print('まだゲームをプレイしていません');
+    return;
   }
   
-  void showStats() {
-    int total = wins + losses + draws;
-    if (total == 0) {
-      print('まだゲームをプレイしていません');
-      return;
-    }
-    
-    print('\n📊 ゲーム統計 📊');
-    print('総ゲーム数: $total回');
-    print('勝ち: $wins回');
-    print('負け: $losses回');
-    print('引き分け: $draws回');
-    print('勝率: ${(wins / total * 100).toStringAsFixed(1)}%');
-    
-    if (history.length &gt; 0) {
-      print('\n【最近の対戦履歴】');
-      int start = history.length &gt; 5 ? history.length - 5 : 0;
-      for (int i = start; i &lt; history.length; i++) {
-        print('${i - start + 1}. ${history[i]}');
-      }
+  print('\n📊 ゲーム統計 📊');
+  print('総ゲーム数: $total回');
+  print('勝ち: $wins回');
+  print('負け: $losses回');
+  print('引き分け: $draws回');
+  print('勝率: ${(wins / total * 100).toStringAsFixed(1)}%');
+  
+  if (history.length &gt; 0) {
+    print('\n【最近の対戦履歴】');
+    int start = history.length &gt; 5 ? history.length - 5 : 0;
+    for (int i = start; i &lt; history.length; i++) {
+      print('${i - start + 1}. ${history[i]}');
     }
   }
 }
 
 // メインゲーム
 void main() {
-  GameStats stats = GameStats();
-  
   print('=== じゃんけんゲームへようこそ！ ===\n');
   
   // デモ用：5回対戦
@@ -7485,33 +8347,84 @@ void main() {
     int result = judgeWinner(playerHand, computerHand);
     
     displayDetailedResult(playerHand, computerHand, result);
-    stats.recordGame(result, playerHand, computerHand);
+    recordGame(result, playerHand, computerHand);
   }
   
   // 最終統計
   print('\n=== ゲーム終了 ===');
-  stats.showStats();
+  showStats();
   
   // 勝率に応じたメッセージ
-  double winRate = stats.wins / (stats.wins + stats.losses + stats.draws) * 100;
-  print('\n');
-  if (winRate &gt;= 60) {
-    print('🏆 素晴らしい成績です！じゃんけんマスターですね！');
-  } else if (winRate &gt;= 40) {
-    print('👍 良い勝負でした！');
-  } else {
-    print('💪 次はもっと頑張りましょう！');
+  int total = wins + losses + draws;
+  if (total &gt; 0) {  // 1回もプレイしていない場合は0で割れないのでチェック
+    double winRate = wins / total * 100;
+    print('\n');
+    if (winRate &gt;= 60) {
+      print('🏆 素晴らしい成績です！じゃんけんマスターですね！');
+    } else if (winRate &gt;= 40) {
+      print('👍 良い勝負でした！');
+    } else {
+      print('💪 次はもっと頑張りましょう！');
+    }
   }
 }
 </code></pre>
+<blockquote>
+<p><strong>📝 発展：クラスによる整理</strong></p>
+<p>この完成版では、勝敗の記録（<code>wins</code>、<code>losses</code>、<code>draws</code>、<code>history</code>）をプログラム全体で共有する変数として管理しました。第9章で学んだとおり、こうしたグローバル変数はプログラムが大きくなると管理が難しくなります。第11章では、関連するデータとそれを操作する関数をひとまとめにする「クラス」という仕組みを学びます。クラスを使うと、このゲーム統計をより安全で整理された形に書き換えられます。</p>
+</blockquote>
 <h2 id="まとめ-34"><a class="header" href="#まとめ-34">まとめ</a></h2>
 <p>この節では、関数を組み合わせて実用的なじゃんけんゲームを作りました。以下の重要な概念を実践しました：</p>
 <ul>
 <li>関数の分割による責任の明確化</li>
 <li>引数と戻り値を使った関数間のデータ受け渡し</li>
 <li>複数の関数を組み合わせた複雑な処理の実現</li>
-<li>クラスを使った関連データのグループ化</li>
+<li>変数と関数を組み合わせたゲーム状態（勝敗記録）の管理</li>
 </ul>
+<h2 id="練習問題-25"><a class="header" href="#練習問題-25">練習問題</a></h2>
+<p><strong>問題1</strong>：完成版のじゃんけんゲームに「あいこ（引き分け）の連続回数を記録する」機能を追加してみましょう。引き分けが続いた最大回数を <code>maxDrawStreak</code> として記録し、統計に表示してください。</p>
+<details>
+<summary>解答のヒント</summary>
+<pre><code class="language-dart">int drawStreak = 0;     // 現在の連続あいこ回数
+int maxDrawStreak = 0;  // 最大連続あいこ回数
+
+void recordGame(int result, int playerHand, int computerHand) {
+  // ...既存の処理...
+  
+  if (result == 0) {
+    drawStreak++;
+    if (drawStreak &gt; maxDrawStreak) {
+      maxDrawStreak = drawStreak;
+    }
+  } else {
+    drawStreak = 0;  // 勝敗がついたらリセット
+  }
+}
+</code></pre>
+<p><code>showStats</code> の中に <code>print('最大連続あいこ: $maxDrawStreak回');</code> を追加すれば完成です。</p>
+</details>
+<p><strong>問題2</strong>：<code>judgeWinner</code> 関数が正しく動くことを確認するために、9通りの手の組み合わせ（グー・チョキ・パー × グー・チョキ・パー）をすべて試して結果を表示するプログラムを、二重ループを使って書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  for (int player = 0; player &lt;= 2; player++) {
+    for (int computer = 0; computer &lt;= 2; computer++) {
+      int result = judgeWinner(player, computer);
+      String resultText;
+      if (result == 1) {
+        resultText = '勝ち';
+      } else if (result == -1) {
+        resultText = '負け';
+      } else {
+        resultText = '引き分け';
+      }
+      print('${getHandName(player)} vs ${getHandName(computer)}: $resultText');
+    }
+  }
+}
+</code></pre>
+<p>このように「すべての組み合わせを試して動作を確認する」のはテストの基本的な考え方です（<code>getHandName</code> と <code>judgeWinner</code> は本文のものを使います）。</p>
+</details>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="第11章クラスとオブジェクトの基礎"><a class="header" href="#第11章クラスとオブジェクトの基礎">第11章：クラスとオブジェクトの基礎</a></h1>
 <p>関数を駆使したプログラム設計をマスターしたあなたは、いよいよプログラミングの新しい世界に足を踏み入れます！</p>
@@ -7520,7 +8433,7 @@ void main() {
 <h3 id="111-現実世界をプログラムで表現する"><a class="header" href="#111-現実世界をプログラムで表現する"><a href="#現実世界をプログラムで表現する">11.1 現実世界をプログラムで表現する</a></a></h3>
 <ul>
 <li>オブジェクト指向プログラミングの考え方</li>
-<li>現実の「もの」をプログラムで表現する利点</li>
+<li>現実の「もの」をプログラムで表現するメリット</li>
 <li>クラスとオブジェクトの概念的な理解</li>
 <li>従来の関数中心設計との違い</li>
 </ul>
@@ -7552,7 +8465,7 @@ void main() {
 <li><strong>オブジェクト指向の基本概念</strong>を理解している</li>
 <li><strong>クラスとオブジェクトの関係</strong>を説明できる</li>
 <li><strong>フィールドとメソッドの役割</strong>を理解している</li>
-<li><strong>オブジェクト指向の利点</strong>を説明できる</li>
+<li><strong>オブジェクト指向のメリット</strong>を説明できる</li>
 </ul>
 <h3 id="実践面-10"><a class="header" href="#実践面-10">実践面</a></h3>
 <ul>
@@ -7654,7 +8567,7 @@ print("猫: $catName, $catAge歳, $catBreed");
   食べる() { ... }
 }
 </code></pre>
-<h2 id="オブジェクト指向の利点"><a class="header" href="#オブジェクト指向の利点">オブジェクト指向の利点</a></h2>
+<h2 id="オブジェクト指向のメリット"><a class="header" href="#オブジェクト指向のメリット">オブジェクト指向のメリット</a></h2>
 <h3 id="1-自然な思考"><a class="header" href="#1-自然な思考">1. 自然な思考</a></h3>
 <p>現実世界と同じように考えられるので、理解しやすいです。</p>
 <h3 id="2-情報がまとまる"><a class="header" href="#2-情報がまとまる">2. 情報がまとまる</a></h3>
@@ -7700,7 +8613,7 @@ print("猫: $catName, $catAge歳, $catBreed");
 </code></pre>
 <p>おめでとうございます！これで最初のクラスができました。でも、まだ何も中身がありませんね。</p>
 <h2 id="クラスに属性フィールドを追加する"><a class="header" href="#クラスに属性フィールドを追加する">クラスに属性（フィールド）を追加する</a></h2>
-<p>犬には名前、年齢、品種などの情報が必要です。これらを<strong>フィールド</strong>（または<strong>プロパティ</strong>）と呼びます。</p>
+<p>犬には名前、年齢、品種などの情報が必要です。これらを<strong>フィールド</strong>と呼びます（本書では「フィールド」という呼び方で統一します）。</p>
 <pre><code class="language-dart">class Dog {
   // 犬の属性（フィールド）
   String name;    // 名前
@@ -7714,6 +8627,9 @@ print("猫: $catName, $catAge歳, $catBreed");
 <li><code>int age</code>：犬の年齢を整数で保存</li>
 <li><code>String breed</code>：犬の品種を文字列で保存</li>
 </ul>
+<blockquote>
+<p><strong>注意</strong>：実は、このコードをそのままDartPadに入力すると「フィールドに値が入っていない」というエラーになります。Dartでは、フィールドには必ず値を設定する必要があるためです。設定方法は2つあり、この節の後半で説明する「<strong>初期値の設定</strong>」と「<strong>コンストラクタ</strong>」です。まずはクラスの形に慣れましょう。</p>
+</blockquote>
 <h2 id="より詳しいクラスの例"><a class="header" href="#より詳しいクラスの例">より詳しいクラスの例</a></h2>
 <p>もう少し現実的な例を見てみましょう：</p>
 <pre><code class="language-dart">class Dog {
@@ -7784,13 +8700,14 @@ class Data { }          // 何のデータかわからない
 </code></pre>
 <p><strong>答え</strong>：</p>
 <pre><code class="language-dart">class Book {
-  String title;        // タイトル
-  String author;       // 著者
-  int pages;          // ページ数
-  double price;       // 価格
-  bool isFinished;    // 読み終わったかどうか
+  String title = "";       // タイトル
+  String author = "";      // 著者
+  int pages = 0;           // ページ数
+  double price = 0.0;      // 価格
+  bool isFinished = false; // 読み終わったかどうか
 }
 </code></pre>
+<p>（フィールドに初期値を付けているのは、前述のとおりDartでは値の設定が必須だからです）</p>
 <h2 id="初期値の設定"><a class="header" href="#初期値の設定">初期値の設定</a></h2>
 <p>フィールドには初期値を設定することもできます：</p>
 <pre><code class="language-dart">class Dog {
@@ -7800,6 +8717,30 @@ class Data { }          // 何のデータかわからない
   bool isHealthy = true;        // デフォルトで健康
 }
 </code></pre>
+<h2 id="コンストラクタ作るときに値を渡す"><a class="header" href="#コンストラクタ作るときに値を渡す">コンストラクタ：作るときに値を渡す</a></h2>
+<p>初期値の設定では、どのオブジェクトも同じ値で始まります。「オブジェクトを作るときに、それぞれ違う値を設定したい」場合は、<strong>コンストラクタ</strong>を使います：</p>
+<pre><code class="language-dart">class Dog {
+  String name;
+  int age;
+  
+  // コンストラクタ：オブジェクトを作るときに呼ばれる特別な関数
+  Dog(this.name, this.age);
+}
+
+void main() {
+  Dog dog1 = Dog('ポチ', 3);   // 名前と年齢を渡して作る
+  Dog dog2 = Dog('ハチ', 5);   // 別の値で作れる
+  
+  print('${dog1.name}は${dog1.age}歳');  // ポチは3歳
+  print('${dog2.name}は${dog2.age}歳');  // ハチは5歳
+}
+</code></pre>
+<ul>
+<li>コンストラクタは<strong>クラス名と同じ名前</strong>を付けます</li>
+<li><code>this.name</code> は「受け取った値をフィールド <code>name</code> に入れる」という意味です</li>
+<li>コンストラクタで値を設定するので、フィールドに初期値を書かなくてもエラーになりません</li>
+</ul>
+<p>ここでは「コンストラクタ＝オブジェクトを作るときに値を渡す仕組み」とだけ理解できれば十分です。より高度な使い方は第12章で詳しく学びます。</p>
 <h2 id="まとめ-36"><a class="header" href="#まとめ-36">まとめ</a></h2>
 <p>この章では、クラスの基本的な定義方法を学びました：</p>
 <ol>
@@ -7934,9 +8875,7 @@ class Data { }          // 何のデータかわからない
 <pre><code class="language-dart">class Dog {
   String name = "Unknown";
   int age = 0;
-  String? breed; // Optional property, can be null
-
-  Dog({this.name = "Unknown", this.age = 0, this.breed});
+  String? breed; // 「?」付きの型は、値が未設定（null）でもよいという意味
 }
 
 void main() {
@@ -7956,6 +8895,11 @@ void main() {
 }
 </code></pre>
 <p><code>..</code> は「<strong>カスケード記法</strong>」と呼ばれ、同じオブジェクトに対して連続して操作を行う時に使います。</p>
+<p>このコードには、新しい記号が2つ登場しています：</p>
+<ul>
+<li><code>String? breed</code> の <code>?</code> — 型に <code>?</code> を付けると「<code>String</code> の値が入るか、まだ値がない（<code>null</code>）か、どちらでもよい」という意味になります。<code>breed</code>（品種）のように、設定しないこともあるフィールドに使います（第8章のコラム「nullと『!』記号」も参照）。</li>
+<li><code>dog2.breed ?? '品種不明'</code> の <code>??</code> — 「左側が <code>null</code> でなければ左側の値を、<code>null</code> なら右側の値を使う」という演算子です。値が設定されていない場合の代わりの表示を簡単に書けます。</li>
+</ul>
 <h2 id="オブジェクトの比較"><a class="header" href="#オブジェクトの比較">オブジェクトの比較</a></h2>
 <p>オブジェクト同士を比較する時は注意が必要です：</p>
 <pre><code class="language-dart">void main() {
@@ -8332,7 +9276,7 @@ void main() {
 </ul>
 <h3 id="122-ゲッターとセッター"><a class="header" href="#122-ゲッターとセッター"><a href="#ゲッターとセッター-1">12.2 ゲッターとセッター</a></a></h3>
 <ul>
-<li>ゲッターとセッターの役割と利点</li>
+<li>ゲッターとセッターの役割とメリット</li>
 <li>プロパティの安全な読み取りと変更</li>
 <li>データの妥当性チェック機能</li>
 <li>Dartでのget/set記法の使い方</li>
@@ -8349,7 +9293,7 @@ void main() {
 <h3 id="知識面-11"><a class="header" href="#知識面-11">知識面</a></h3>
 <ul>
 <li><strong>コンストラクタの役割</strong>を正確に理解している</li>
-<li><strong>ゲッター・セッターの利点</strong>を説明できる</li>
+<li><strong>ゲッター・セッターのメリット</strong>を説明できる</li>
 <li><strong>カプセル化の重要性</strong>を理解している</li>
 <li><strong>オブジェクト指向の設計原則</strong>を知っている</li>
 </ul>
@@ -8373,7 +9317,7 @@ void main() {
 <h1 id="コンストラクタ"><a class="header" href="#コンストラクタ">コンストラクタ</a></h1>
 <p>コンストラクタは、クラスからオブジェクトを作成するときに自動的に呼び出される特別なメソッドです。オブジェクトの初期化を行うために使用されます。</p>
 <h2 id="コンストラクタとは"><a class="header" href="#コンストラクタとは">コンストラクタとは</a></h2>
-<p>前章でクラスの基本を学びましたが、オブジェクトを作成する際に初期値を設定したり、必要な準備を行ったりする方法を学びましょう。</p>
+<p>第11章の11-2で「オブジェクトを作るときに値を渡す仕組み」としてコンストラクタに少しだけ触れました。この章では、その使い方を詳しく学びます。</p>
 <h3 id="基本的なコンストラクタ"><a class="header" href="#基本的なコンストラクタ">基本的なコンストラクタ</a></h3>
 <pre><code class="language-dart">class Person {
   String name;
@@ -8488,6 +9432,7 @@ void main() {
 </code></pre>
 <h2 id="コンストラクタでの初期化処理"><a class="header" href="#コンストラクタでの初期化処理">コンストラクタでの初期化処理</a></h2>
 <p>コンストラクタ内では、フィールドの初期化以外にも様々な処理を行えます。</p>
+<p>次の例には、新しい書き方「<strong>イニシャライザリスト</strong>」が登場します。コンストラクタの <code>()</code> の後に <code>: フィールド = 値, フィールド = 値</code> と書くと、コンストラクタ本体（<code>{}</code> の中）が実行される<strong>前に</strong>フィールドへ値を設定できます。「引数から受け取らないフィールドに、決まった初期値を入れたい」ときによく使う書き方です。</p>
 <pre><code class="language-dart">class BankAccount {
   String accountNumber;
   String ownerName;
@@ -8680,7 +9625,8 @@ void main() {
 </code></pre>
 <p>この例では、<code>get</code>キーワードでゲッター、<code>set</code>キーワードでセッターを定義しています。</p>
 <h2 id="計算プロパティ"><a class="header" href="#計算プロパティ">計算プロパティ</a></h2>
-<p>ゲッターを使って、他のフィールドから計算される値を提供できます。</p>
+<p>ゲッターやセッターを通して、オブジェクトの外から「値」のように見えるものを<strong>プロパティ</strong>と呼びます。フィールド（クラスの中に実際に保存されているデータ）と区別して使い分けましょう。</p>
+<p>ゲッターを使うと、他のフィールドから計算される値をプロパティとして提供できます。</p>
 <pre><code class="language-dart">class Circle {
   double _radius;
   
@@ -9334,6 +10280,46 @@ void main() {
 <li><strong>Not in inclusive range 0..2</strong>: 有効な範囲は0から2まで</li>
 <li><strong>10</strong>: 実際に使用された値</li>
 </ul>
+<h2 id="練習問題-26"><a class="header" href="#練習問題-26">練習問題</a></h2>
+<p><strong>問題1</strong>：次の3つのプログラムは、それぞれ「コンパイルエラー」「ランタイムエラー」「論理エラー」のどれに当てはまりますか？</p>
+<pre><code class="language-dart">// A：合計を計算したいプログラム
+void main() {
+  int a = 10;
+  int b = 20;
+  print(a - b);  // 合計のつもり
+}
+
+// B
+void main() {
+  print('こんにちは'
+}
+
+// C
+void main() {
+  List&lt;int&gt; list = [1, 2, 3];
+  print(list[5]);
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<ul>
+<li><strong>A：論理エラー</strong> — 文法は正しく実行もできますが、合計（<code>a + b</code>）を計算するつもりが引き算になっており、意図と結果が違います</li>
+<li><strong>B：コンパイルエラー</strong> — 括弧とセミコロンが欠けており、実行前にエラーが検出されます</li>
+<li><strong>C：ランタイムエラー</strong> — 文法は正しいですが、実行するとRangeError（範囲外アクセス）が発生します</li>
+</ul>
+<p>3種類の中では、エラーメッセージが出ない<strong>論理エラー</strong>が最も発見しにくいエラーです。</p>
+</details>
+<p><strong>問題2</strong>：次のエラーメッセージから、「エラーの種類」「原因」「どう直せばよいか」を読み取ってください。</p>
+<pre><code>Uncaught Error: RangeError (index): Invalid value: Not in inclusive range 0..4: 7
+</code></pre>
+<details>
+<summary>解答例</summary>
+<ul>
+<li><strong>エラーの種類</strong>：RangeError（範囲外アクセス）</li>
+<li><strong>原因</strong>：有効なインデックスは0〜4（要素数5のリスト）なのに、インデックス7にアクセスしようとした</li>
+<li><strong>直し方</strong>：アクセスするインデックスを0〜4の範囲に修正するか、リストの要素数を確認してからアクセスする</li>
+</ul>
+</details>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="try-catch文でエラーを処理する"><a class="header" href="#try-catch文でエラーを処理する">try-catch文でエラーを処理する</a></h1>
 <p>前のセクションでエラーの種類について学びました。今度は、エラーが発生してもプログラムが停止しないようにする方法を学びましょう。これを「エラーハンドリング」と呼びます。</p>
@@ -9444,7 +10430,11 @@ void main() {
 計算処理が完了しました
 </code></pre>
 <h2 id="カスタム例外の作成"><a class="header" href="#カスタム例外の作成">カスタム例外の作成</a></h2>
-<p>独自のエラー型を作成することもできます：</p>
+<p>独自のエラー型を作成することもできます。次のコードには、初めて見る書き方が2つ登場します：</p>
+<ul>
+<li><code>implements Exception</code> — 「このクラスはDartの例外（Exception）として扱えます」という宣言です。これを付けることで、自作クラスを <code>throw</code> や <code>catch</code> の対象にできます</li>
+<li><code>@override</code> — 「もともと用意されている <code>toString()</code> メソッドを、このクラス用に書き換えます」という印です。<code>toString()</code> はオブジェクトを文字列にするときに呼ばれるメソッドで、書き換えることでエラーメッセージの表示内容を自分で決められます</li>
+</ul>
 <pre><code class="language-dart">// カスタム例外クラスの定義
 class InvalidAgeException implements Exception {
   final String message;
@@ -9511,6 +10501,51 @@ void main() {
 <pre><code>ログに記録: Invalid argument(s): データが空です
 メイン関数でキャッチ: Invalid argument(s): データが空です
 </code></pre>
+<h2 id="練習問題-27"><a class="header" href="#練習問題-27">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムはランタイムエラーで停止します。try-catch文を使って、エラーが起きても「変換できませんでした」と表示して正常に終了するように修正してください。</p>
+<pre><code class="language-dart">void main() {
+  String input = 'abc';
+  int number = int.parse(input);
+  print('変換結果: $number');
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  String input = 'abc';
+  
+  try {
+    int number = int.parse(input);
+    print('変換結果: $number');
+  } catch (e) {
+    print('変換できませんでした');
+  }
+}
+</code></pre>
+<p><code>int.parse</code> は数値に変換できない文字列を渡すとFormatExceptionを投げます。try-catchで囲むことで、エラーが起きてもプログラムを続行できます。</p>
+</details>
+<p><strong>問題2</strong>：リストのインデックスを受け取って要素を表示するプログラムに、try-catch-finallyを使って「範囲外ならエラーメッセージ、最後に必ず『処理終了』と表示」する処理を書いてください。</p>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  List&lt;String&gt; fruits = ['りんご', 'バナナ', 'ぶどう'];
+  int index = 5;
+  
+  try {
+    print(fruits[index]);
+  } catch (e) {
+    print('インデックス$indexは範囲外です（0〜${fruits.length - 1}を指定してください）');
+  } finally {
+    print('処理終了');
+  }
+}
+</code></pre>
+<p>実行結果：</p>
+<pre><code>インデックス5は範囲外です（0〜2を指定してください）
+処理終了
+</code></pre>
+<p><code>finally</code> ブロックはエラーの有無にかかわらず必ず実行されます。</p>
+</details>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="デバッグの基本技術"><a class="header" href="#デバッグの基本技術">デバッグの基本技術</a></h1>
 <p>プログラムを書いていると、「コードは正しく見えるのに、期待通りに動かない…」という状況によく遭遇します。このような問題を見つけて修正することを「デバッグ」と呼びます。</p>
@@ -9739,6 +10774,39 @@ void exampleWithDebugInfo() {
   });
 }
 </code></pre>
+<h2 id="練習問題-28"><a class="header" href="#練習問題-28">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムは「1から5までの合計（15）」を計算するつもりですが、実行すると10になります。print文を使ったデバッグで原因を見つけて修正してください。</p>
+<pre><code class="language-dart">void main() {
+  int sum = 0;
+  for (int i = 1; i &lt; 5; i++) {
+    sum += i;
+  }
+  print(sum);  // 15のはずが10になる
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<p>ループの中に <code>print('i = $i, sum = $sum');</code> を入れて実行すると、<code>i</code> が1〜4までしか繰り返されていないことが分かります。原因は条件式が <code>i &lt; 5</code>（5を含まない）になっていることです。</p>
+<pre><code class="language-dart">void main() {
+  int sum = 0;
+  for (int i = 1; i &lt;= 5; i++) {  // &lt; を &lt;= に修正
+    sum += i;
+  }
+  print(sum);  // 15
+}
+</code></pre>
+<p>このような「境界値の間違い」はとてもよくあるバグです。変数の値を出力して動きを追うのが発見の近道です。</p>
+</details>
+<p><strong>問題2</strong>：デバッグの基本手順を思い出して、「プログラムが期待と違う動きをしたとき」に最初にやるべきことを2つ挙げてください。</p>
+<details>
+<summary>解答例</summary>
+<p>例：</p>
+<ul>
+<li><strong>エラーメッセージを読む</strong> — エラーの種類と発生した行番号を確認する</li>
+<li><strong>print文で変数の値を確認する</strong> — 「期待する値」と「実際の値」がどこからずれ始めたかを特定する</li>
+</ul>
+<p>いきなりコードを書き換えるのではなく、まず「何が起きているか」を観察することがデバッグの基本です。</p>
+</details>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="第14章次のステップへ"><a class="header" href="#第14章次のステップへ">第14章：次のステップへ</a></h1>
 <p>エラーハンドリングとデバッグをマスターしたあなたは、いよいよDartプログラミングの基礎学習を完了し、次のレベルへと向かう準備が整いました！</p>
@@ -10037,11 +11105,11 @@ void main() {
 
         <script src="elasticlunr-ef4e11c1.min.js"></script>
         <script src="mark-09e88c2c.min.js"></script>
-        <script src="searcher-c2a407aa.js"></script>
+        <script src="searcher-09f2665d.js"></script>
 
         <script src="clipboard-1626706a.min.js"></script>
         <script src="highlight-75af6fb3.js"></script>
-        <script src="book-a0b12cfe.js"></script>
+        <script src="book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

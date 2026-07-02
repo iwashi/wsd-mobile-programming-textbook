@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -267,6 +267,9 @@ void processStudentScore(String name, int score) {
 </code></pre>
 <h2 id="プログラムの構造化"><a class="header" href="#プログラムの構造化">プログラムの構造化</a></h2>
 <p>大きなプログラムを関数で構造化する例を見てみましょう。</p>
+<blockquote>
+<p><strong>注</strong>：この例では在庫データ <code>inventory</code> をグローバル変数にしています。9-4では「グローバル変数は避けた方が良い」と学びましたが、複数の関数で同じデータを共有する必要がある小さなプログラムでは、このような割り切った書き方をすることもあります。第11章で学ぶ「クラス」を使うと、データと関数をひとまとめにして、グローバル変数を使わないより良い設計にできます。</p>
+</blockquote>
 <pre><code class="language-dart">// 簡単な在庫管理システム
 Map&lt;String, int&gt; inventory = {};
 
@@ -405,6 +408,57 @@ void main() {
 <li>汎用的な関数を作ることで再利用性を高める</li>
 <li>プログラム全体を関数で構造化することで、理解しやすく保守しやすいコードになる</li>
 </ul>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：次の関数は「複数の責任」を持っています。単一責任の原則に従って、2つの関数に分割してください。</p>
+<pre><code class="language-dart">void processScore(List&lt;int&gt; scores) {
+  // 平均を計算する
+  int total = 0;
+  for (int score in scores) {
+    total += score;
+  }
+  double average = total / scores.length;
+  
+  // 結果を表示する
+  print('平均点: $average');
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">// 責任1：平均を計算する
+double calculateAverage(List&lt;int&gt; scores) {
+  int total = 0;
+  for (int score in scores) {
+    total += score;
+  }
+  return total / scores.length;
+}
+
+// 責任2：結果を表示する
+void printAverage(double average) {
+  print('平均点: $average');
+}
+
+void main() {
+  List&lt;int&gt; scores = [80, 65, 92];
+  double average = calculateAverage(scores);
+  printAverage(average);
+}
+</code></pre>
+<p>計算と表示を分けることで、「計算結果を表示以外にも使いたい」場合に <code>calculateAverage</code> を再利用できます。</p>
+</details>
+<p><strong>問題2</strong>：次の関数名は、何をする関数か分かりにくい名前です。より良い名前を考えてください。</p>
+<ol>
+<li><code>void doIt(List&lt;String&gt; names)</code> — 名前のリストをすべて表示する関数</li>
+<li><code>int calc(int a, int b)</code> — 2つの数の大きい方を返す関数</li>
+</ol>
+<details>
+<summary>解答例</summary>
+<ol>
+<li><code>printNames</code> や <code>showAllNames</code> — 「名前を表示する」ことが分かる名前</li>
+<li><code>findLarger</code> や <code>max</code> — 「大きい方を選ぶ」ことが分かる名前</li>
+</ol>
+<p>関数名は「動詞＋対象」の形で、何をするかが読んだだけで分かるように付けるのが原則です。</p>
+</details>
 <p>次の節では、これまで学んだ知識を活用して、じゃんけんゲームを作ります。</p>
 
                     </main>
@@ -451,11 +505,11 @@ void main() {
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -177,7 +177,7 @@
                         <h1 id="コンストラクタ"><a class="header" href="#コンストラクタ">コンストラクタ</a></h1>
 <p>コンストラクタは、クラスからオブジェクトを作成するときに自動的に呼び出される特別なメソッドです。オブジェクトの初期化を行うために使用されます。</p>
 <h2 id="コンストラクタとは"><a class="header" href="#コンストラクタとは">コンストラクタとは</a></h2>
-<p>前章でクラスの基本を学びましたが、オブジェクトを作成する際に初期値を設定したり、必要な準備を行ったりする方法を学びましょう。</p>
+<p>第11章の11-2で「オブジェクトを作るときに値を渡す仕組み」としてコンストラクタに少しだけ触れました。この章では、その使い方を詳しく学びます。</p>
 <h3 id="基本的なコンストラクタ"><a class="header" href="#基本的なコンストラクタ">基本的なコンストラクタ</a></h3>
 <pre><code class="language-dart">class Person {
   String name;
@@ -292,6 +292,7 @@ void main() {
 </code></pre>
 <h2 id="コンストラクタでの初期化処理"><a class="header" href="#コンストラクタでの初期化処理">コンストラクタでの初期化処理</a></h2>
 <p>コンストラクタ内では、フィールドの初期化以外にも様々な処理を行えます。</p>
+<p>次の例には、新しい書き方「<strong>イニシャライザリスト</strong>」が登場します。コンストラクタの <code>()</code> の後に <code>: フィールド = 値, フィールド = 値</code> と書くと、コンストラクタ本体（<code>{}</code> の中）が実行される<strong>前に</strong>フィールドへ値を設定できます。「引数から受け取らないフィールドに、決まった初期値を入れたい」ときによく使う書き方です。</p>
 <pre><code class="language-dart">class BankAccount {
   String accountNumber;
   String ownerName;
@@ -461,11 +462,11 @@ void main() {
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

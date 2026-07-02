@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -401,6 +401,39 @@ void exampleWithDebugInfo() {
   });
 }
 </code></pre>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：次のプログラムは「1から5までの合計（15）」を計算するつもりですが、実行すると10になります。print文を使ったデバッグで原因を見つけて修正してください。</p>
+<pre><code class="language-dart">void main() {
+  int sum = 0;
+  for (int i = 1; i &lt; 5; i++) {
+    sum += i;
+  }
+  print(sum);  // 15のはずが10になる
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<p>ループの中に <code>print('i = $i, sum = $sum');</code> を入れて実行すると、<code>i</code> が1〜4までしか繰り返されていないことが分かります。原因は条件式が <code>i &lt; 5</code>（5を含まない）になっていることです。</p>
+<pre><code class="language-dart">void main() {
+  int sum = 0;
+  for (int i = 1; i &lt;= 5; i++) {  // &lt; を &lt;= に修正
+    sum += i;
+  }
+  print(sum);  // 15
+}
+</code></pre>
+<p>このような「境界値の間違い」はとてもよくあるバグです。変数の値を出力して動きを追うのが発見の近道です。</p>
+</details>
+<p><strong>問題2</strong>：デバッグの基本手順を思い出して、「プログラムが期待と違う動きをしたとき」に最初にやるべきことを2つ挙げてください。</p>
+<details>
+<summary>解答例</summary>
+<p>例：</p>
+<ul>
+<li><strong>エラーメッセージを読む</strong> — エラーの種類と発生した行番号を確認する</li>
+<li><strong>print文で変数の値を確認する</strong> — 「期待する値」と「実際の値」がどこからずれ始めたかを特定する</li>
+</ul>
+<p>いきなりコードを書き換えるのではなく、まず「何が起きているか」を観察することがデバッグの基本です。</p>
+</details>
 
                     </main>
 
@@ -446,11 +479,11 @@ void exampleWithDebugInfo() {
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

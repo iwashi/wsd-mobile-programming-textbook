@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -276,6 +276,46 @@ void main() {
 <li><strong>Not in inclusive range 0..2</strong>: 有効な範囲は0から2まで</li>
 <li><strong>10</strong>: 実際に使用された値</li>
 </ul>
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：次の3つのプログラムは、それぞれ「コンパイルエラー」「ランタイムエラー」「論理エラー」のどれに当てはまりますか？</p>
+<pre><code class="language-dart">// A：合計を計算したいプログラム
+void main() {
+  int a = 10;
+  int b = 20;
+  print(a - b);  // 合計のつもり
+}
+
+// B
+void main() {
+  print('こんにちは'
+}
+
+// C
+void main() {
+  List&lt;int&gt; list = [1, 2, 3];
+  print(list[5]);
+}
+</code></pre>
+<details>
+<summary>解答例</summary>
+<ul>
+<li><strong>A：論理エラー</strong> — 文法は正しく実行もできますが、合計（<code>a + b</code>）を計算するつもりが引き算になっており、意図と結果が違います</li>
+<li><strong>B：コンパイルエラー</strong> — 括弧とセミコロンが欠けており、実行前にエラーが検出されます</li>
+<li><strong>C：ランタイムエラー</strong> — 文法は正しいですが、実行するとRangeError（範囲外アクセス）が発生します</li>
+</ul>
+<p>3種類の中では、エラーメッセージが出ない<strong>論理エラー</strong>が最も発見しにくいエラーです。</p>
+</details>
+<p><strong>問題2</strong>：次のエラーメッセージから、「エラーの種類」「原因」「どう直せばよいか」を読み取ってください。</p>
+<pre><code>Uncaught Error: RangeError (index): Invalid value: Not in inclusive range 0..4: 7
+</code></pre>
+<details>
+<summary>解答例</summary>
+<ul>
+<li><strong>エラーの種類</strong>：RangeError（範囲外アクセス）</li>
+<li><strong>原因</strong>：有効なインデックスは0〜4（要素数5のリスト）なのに、インデックス7にアクセスしようとした</li>
+<li><strong>直し方</strong>：アクセスするインデックスを0〜4の範囲に修正するか、リストの要素数を確認してからアクセスする</li>
+</ul>
+</details>
 
                     </main>
 
@@ -321,11 +361,11 @@ void main() {
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

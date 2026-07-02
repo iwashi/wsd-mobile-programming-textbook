@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -204,6 +204,7 @@
   // 特定の生徒の成績を表示
   String studentName = '田中太郎';
   print('=== ${studentName}の成績 ===');
+  // 「!」は8-2で学んだとおり「このキーは必ず存在する」という意味
   studentScores[studentName]!.forEach((subject, score) {
     print('$subject: $score点');
   });
@@ -238,6 +239,7 @@
   });
   
   // 在庫金額の合計を計算
+  // どの商品にも「在庫」「価格」キーがあるので「!」を付けて取り出す
   int totalValue = 0;
   products.forEach((name, info) {
     totalValue += info['在庫']! * info['価格']!;
@@ -268,6 +270,7 @@
   // 各回答をカウント
   for (String response in responses) {
     if (results.containsKey(response)) {
+      // containsKeyで確認済みなので「!」で安全に取り出せる
       results[response] = results[response]! + 1;
     } else {
       results[response] = 1;
@@ -330,6 +333,7 @@
   
   for (String word in words) {
     if (wordCount.containsKey(word)) {
+      // containsKeyで確認済みなので「!」で安全に取り出せる
       wordCount[word] = wordCount[word]! + 1;
     } else {
       wordCount[word] = 1;
@@ -366,7 +370,58 @@
 <li><strong>グループ化</strong>：カテゴリーごとにデータを整理</li>
 </ol>
 <p>これらの例を参考に、自分のプログラムでもマップを活用してみましょう。</p>
-
+<h2 id="練習問題"><a class="header" href="#練習問題">練習問題</a></h2>
+<p><strong>問題1</strong>：次のリストに入っている血液型の出現回数を、マップを使って集計するプログラムを書いてください。</p>
+<pre><code class="language-dart">List&lt;String&gt; bloodTypes = ['A', 'O', 'B', 'A', 'A', 'AB', 'O', 'A'];
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  List&lt;String&gt; bloodTypes = ['A', 'O', 'B', 'A', 'A', 'AB', 'O', 'A'];
+  Map&lt;String, int&gt; counts = {};
+  
+  for (String type in bloodTypes) {
+    if (counts.containsKey(type)) {
+      counts[type] = counts[type]! + 1;
+    } else {
+      counts[type] = 1;
+    }
+  }
+  
+  counts.forEach((type, count) {
+    print('$type型: $count人');
+  });
+  // A型: 4人
+  // O型: 2人
+  // B型: 1人
+  // AB型: 1人
+}
+</code></pre>
+<p>本文の「アンケート集計」と同じパターンです。このカウント処理はさまざまな場面で使えるので、書けるようにしておきましょう。</p>
+</details>
+<p><strong>問題2</strong>：商品名と価格のマップから、200円以下の商品だけを「◯◯は買えます」と表示するプログラムを書いてください。</p>
+<pre><code class="language-dart">Map&lt;String, int&gt; prices = {'おにぎり': 150, '弁当': 480, 'お茶': 120, 'サンドイッチ': 320};
+</code></pre>
+<details>
+<summary>解答例</summary>
+<pre><code class="language-dart">void main() {
+  Map&lt;String, int&gt; prices = {
+    'おにぎり': 150,
+    '弁当': 480,
+    'お茶': 120,
+    'サンドイッチ': 320,
+  };
+  
+  prices.forEach((name, price) {
+    if (price &lt;= 200) {
+      print('$nameは買えます');
+    }
+  });
+  // おにぎりは買えます
+  // お茶は買えます
+}
+</code></pre>
+</details>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -411,11 +466,11 @@
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

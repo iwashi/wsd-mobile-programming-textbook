@@ -15,8 +15,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c7ccc5d2.js";
+            window.path_to_searchindex_js = "../searchindex-525eced5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-cc584fa8.js"></script>
+        <script src="../toc-33f787e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -203,7 +203,7 @@
 </code></pre>
 <p>おめでとうございます！これで最初のクラスができました。でも、まだ何も中身がありませんね。</p>
 <h2 id="クラスに属性フィールドを追加する"><a class="header" href="#クラスに属性フィールドを追加する">クラスに属性（フィールド）を追加する</a></h2>
-<p>犬には名前、年齢、品種などの情報が必要です。これらを<strong>フィールド</strong>（または<strong>プロパティ</strong>）と呼びます。</p>
+<p>犬には名前、年齢、品種などの情報が必要です。これらを<strong>フィールド</strong>と呼びます（本書では「フィールド」という呼び方で統一します）。</p>
 <pre><code class="language-dart">class Dog {
   // 犬の属性（フィールド）
   String name;    // 名前
@@ -217,6 +217,9 @@
 <li><code>int age</code>：犬の年齢を整数で保存</li>
 <li><code>String breed</code>：犬の品種を文字列で保存</li>
 </ul>
+<blockquote>
+<p><strong>注意</strong>：実は、このコードをそのままDartPadに入力すると「フィールドに値が入っていない」というエラーになります。Dartでは、フィールドには必ず値を設定する必要があるためです。設定方法は2つあり、この節の後半で説明する「<strong>初期値の設定</strong>」と「<strong>コンストラクタ</strong>」です。まずはクラスの形に慣れましょう。</p>
+</blockquote>
 <h2 id="より詳しいクラスの例"><a class="header" href="#より詳しいクラスの例">より詳しいクラスの例</a></h2>
 <p>もう少し現実的な例を見てみましょう：</p>
 <pre><code class="language-dart">class Dog {
@@ -287,13 +290,14 @@ class Data { }          // 何のデータかわからない
 </code></pre>
 <p><strong>答え</strong>：</p>
 <pre><code class="language-dart">class Book {
-  String title;        // タイトル
-  String author;       // 著者
-  int pages;          // ページ数
-  double price;       // 価格
-  bool isFinished;    // 読み終わったかどうか
+  String title = "";       // タイトル
+  String author = "";      // 著者
+  int pages = 0;           // ページ数
+  double price = 0.0;      // 価格
+  bool isFinished = false; // 読み終わったかどうか
 }
 </code></pre>
+<p>（フィールドに初期値を付けているのは、前述のとおりDartでは値の設定が必須だからです）</p>
 <h2 id="初期値の設定"><a class="header" href="#初期値の設定">初期値の設定</a></h2>
 <p>フィールドには初期値を設定することもできます：</p>
 <pre><code class="language-dart">class Dog {
@@ -303,6 +307,30 @@ class Data { }          // 何のデータかわからない
   bool isHealthy = true;        // デフォルトで健康
 }
 </code></pre>
+<h2 id="コンストラクタ作るときに値を渡す"><a class="header" href="#コンストラクタ作るときに値を渡す">コンストラクタ：作るときに値を渡す</a></h2>
+<p>初期値の設定では、どのオブジェクトも同じ値で始まります。「オブジェクトを作るときに、それぞれ違う値を設定したい」場合は、<strong>コンストラクタ</strong>を使います：</p>
+<pre><code class="language-dart">class Dog {
+  String name;
+  int age;
+  
+  // コンストラクタ：オブジェクトを作るときに呼ばれる特別な関数
+  Dog(this.name, this.age);
+}
+
+void main() {
+  Dog dog1 = Dog('ポチ', 3);   // 名前と年齢を渡して作る
+  Dog dog2 = Dog('ハチ', 5);   // 別の値で作れる
+  
+  print('${dog1.name}は${dog1.age}歳');  // ポチは3歳
+  print('${dog2.name}は${dog2.age}歳');  // ハチは5歳
+}
+</code></pre>
+<ul>
+<li>コンストラクタは<strong>クラス名と同じ名前</strong>を付けます</li>
+<li><code>this.name</code> は「受け取った値をフィールド <code>name</code> に入れる」という意味です</li>
+<li>コンストラクタで値を設定するので、フィールドに初期値を書かなくてもエラーになりません</li>
+</ul>
+<p>ここでは「コンストラクタ＝オブジェクトを作るときに値を渡す仕組み」とだけ理解できれば十分です。より高度な使い方は第12章で詳しく学びます。</p>
 <h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
 <p>この章では、クラスの基本的な定義方法を学びました：</p>
 <ol>
@@ -358,11 +386,11 @@ class Data { }          // 何のデータかわからない
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-75af6fb3.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 
