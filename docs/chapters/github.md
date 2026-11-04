@@ -115,8 +115,20 @@ git push
 git pull
 ```
 
-別のパソコンやGitHubの画面で変更を加えたとき、手元に取り込まずに `git push` すると、拒否されることがあります。
-その場合は `git pull` を実行してから、もう一度 `git push` します。
+別のパソコンやGitHubの画面で変更を加えたとき、手元に取り込まずに `git push` すると、拒否されます。
+手元に新しいコミットがなければ、`git pull` を実行してから、もう一度 `git push` します。
+
+手元にも新しいコミットがあると、履歴が枝分かれしているので、`git pull` は `Need to specify how to reconcile divergent branches` というエラーで止まります。
+その場合は `--no-rebase` を付けて実行すると、両方の変更がマージされます。
+`--no-edit` を付けると、マージのコミットメッセージの編集を省略できます。
+マージについては、次の章で説明します。
+
+```bash
+git pull --no-rebase --no-edit
+git push
+```
+
+同じ箇所を変更していて競合したときも、次の章で説明する手順で解決します。
 
 ## 手元のプロジェクトをGitHubへ送る
 

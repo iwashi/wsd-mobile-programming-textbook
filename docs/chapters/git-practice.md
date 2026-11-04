@@ -19,7 +19,22 @@
 
 ## リポジトリを作る
 
-作業用のディレクトリを作り、その中に移動します。
+最初に、Gitの設定をします。
+`user.name` と `user.email` は、コミットの作者として記録する名前とメールアドレスです。
+設定しなくても動く場合はありますが、作者が正しく記録されず、警告も表示されます。
+`init.defaultBranch` は、新しいリポジトリの最初のブランチの名前です。
+macOSのGitでは、設定しないと `master` になるので、GitHubに合わせて `main` にします。
+`--global` を付けると、このパソコンのすべてのリポジトリに適用されます。
+
+```bash
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+git config --global init.defaultBranch main
+```
+
+名前とメールアドレスは自分のものに置き換えてください。
+
+次に、作業用のディレクトリを作り、その中に移動します。
 `git init` を実行すると、そのディレクトリがGitのリポジトリになります。
 この時点では、コミットが1つもない空のリポジトリです。
 
@@ -28,17 +43,6 @@ mkdir git_practice
 cd git_practice
 git init
 ```
-
-次に、コミットの作者として記録する名前とメールアドレスを設定します。
-設定しなくても動く場合はありますが、作者が正しく記録されず、警告も表示されます。
-`--global` を付けると、このパソコンのすべてのリポジトリに適用されます。
-
-```bash
-git config --global user.name "John Doe"
-git config --global user.email johndoe@example.com
-```
-
-名前とメールアドレスは自分のものに置き換えてください。
 
 ## 最初のコミットを作る
 
@@ -68,7 +72,8 @@ nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 `Untracked files` は、Gitがまだ管理していないファイルの一覧です。
-`On branch main` のブランチ名は、環境によっては `master` と表示されます。
+`On branch main` は、今いるブランチの名前です。
+`init.defaultBranch` を設定する前に作ったリポジトリでは、`master` と表示されます。
 ブランチについては第4章で説明します。
 `git status` は、次に何をすればよいかも表示してくれるので、迷ったらまず実行してください。
 

@@ -60,9 +60,9 @@ class ScreenInfoPage extends StatelessWidget {
 }
 ```
 
-これまでの章と異なり、`Scaffold` を `MyApp` とは別のクラスに分けています。
-`MediaQuery` の情報は `MaterialApp` が下のWidgetへ提供するので、`MaterialApp` を作っている `MyApp` の `context` からは読めないからです。
-同じ場所で読もうとすると、`No MediaQuery widget ancestor found` というエラーになります。
+第40章と同じように、画面を `MaterialApp` とは別のクラスに分けています。
+`MediaQuery` の情報は `runApp` の時点で用意されるので、`MaterialApp` を作っている `MyApp` の `context` からでも読めます。
+それでも画面を分けておくと、`Navigator` のように `MaterialApp` の下でしか使えない機能も、同じ `context` で使えます。
 
 主なメソッドは次のとおりです。
 

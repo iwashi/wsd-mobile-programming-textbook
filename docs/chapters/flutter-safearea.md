@@ -37,27 +37,34 @@ class MyApp extends StatelessWidget {
 エディタで、コードの下に青い波線が表示されることがあります。
 これはlintと呼ばれる機能による指摘で、プログラムを実行せずにコードの書き方を調べ、改善点を教えてくれます。
 
-たとえば `runApp(MyApp());` と書くと、次のような指摘が表示されます。
+たとえばFlutterのプロジェクトで `print` を使うと、次のような指摘が表示されます。
 
 ```text
-Use 'const' with the constructor to improve performance.
+Don't invoke 'print' in production code.
 ```
 
-`const` を付けると、同じWidgetを作り直さずに再利用できるので、性能がよくなるという指摘です。
+配布するアプリのコードに `print` を残さないように、という指摘です。
 実際のアプリ開発では、この種の指摘には従うのが基本です。
 
 ## lintの警告を消す
 
-学習中は、`const` の指摘が多く出て、大事なエラーが目立ちにくくなることがあります。
-その場合は、`pubspec.yaml` の次の行の先頭に `#` を付けてコメントアウトすると、警告を止められます。
+本書では動作の確認に `print` を使うので、学習中はこの指摘が多く出て、大事なエラーが目立ちにくくなることがあります。
+その場合は、プロジェクト直下の `analysis_options.yaml` にある `# avoid_print: false` の先頭の `#` を消すと、この指摘だけを止められます。
 
 ```yaml
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  # flutter_lints: ^4.0.0
+linter:
+  rules:
+    avoid_print: false
 ```
 
-バージョンの数字はプロジェクトによって異なります。
-また、プログラムの動作は変わりません。
-`const` を付けないことによる性能の差は、小さなアプリならほとんど問題になりません。
+`avoid_print` は、この指摘の規則の名前です。
+インデントは変えないでください。
+lintの設定を変えても、プログラムの動作は変わりません。
+
+## constを付ける理由
+
+本書のコードでは、`const Text('Hello')` のように多くのWidgetに `const` を付けています。
+`const` を付けると、同じWidgetを作り直さずに再利用できるので、性能がよくなります。
+付けなくても動きますし、性能の差は、小さなアプリならほとんど問題になりません。
+
+古いバージョンのFlutterで作ったプロジェクトでは、`const` を付けられる箇所に `Use 'const' with the constructor to improve performance.` という指摘が表示されることがあります。

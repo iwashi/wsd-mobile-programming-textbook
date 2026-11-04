@@ -206,7 +206,12 @@ iOSで使うには、第53章で説明する有料のApple Developer Programへ�
 flutter pub add flutter_local_notifications
 ```
 
-iOSでは `Info.plist` への追記は要りません。
+iOSでは `Info.plist` への追記は要りませんが、`ios/Runner/AppDelegate.swift` の `didFinishLaunchingWithOptions` に次の行を追加します。
+
+```swift
+UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
+```
+
 Androidでは、このパッケージのReadmeに従ってビルドの設定を変更する必要があります。
 
 ```dart
