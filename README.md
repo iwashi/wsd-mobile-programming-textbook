@@ -18,6 +18,11 @@ npm run dev
 npm run build
 ```
 
+## 公開
+
+`main` にpushすると、GitHub ActionsがGitHub Pagesへ公開します。
+公開先は `/wsd-mobile-programming-textbook/` 以下なので、`npm run dev` の確認も同じパスで開きます。
+
 ## 構成
 
 - `docs/chapters/`：各章の原稿です。

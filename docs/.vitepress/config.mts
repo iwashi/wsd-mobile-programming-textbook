@@ -1,14 +1,18 @@
 import { defineConfig } from 'vitepress'
 import { parts } from './chapters.mts'
 
+// head の href には base が自動で付かないので、この定数を明示的に付ける
+const base = '/wsd-mobile-programming-textbook/'
+
 export default defineConfig({
+  base,
   lang: 'ja',
   title: 'モバイルプログラミング',
   description: 'GitとDartの基礎からFlutterによるモバイルアプリ開発までを学ぶ、早稲田大学の講義テキスト',
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico', sizes: '48x48' }],
-    ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
-    ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }],
+    ['link', { rel: 'icon', href: `${base}favicon.ico`, sizes: '48x48' }],
+    ['link', { rel: 'icon', href: `${base}favicon.svg`, type: 'image/svg+xml' }],
+    ['link', { rel: 'apple-touch-icon', href: `${base}apple-touch-icon.png` }],
   ],
   cleanUrls: true,
   lastUpdated: false,
