@@ -1,0 +1,400 @@
+/* 早稲田の臙脂を基調に、Zenn Bookに近い落ち着いた読書画面へ整える */
+:root {
+  --wsd-maroon: #8c1d2f;
+  --wsd-maroon-dark: #6e1524;
+  --wsd-tint: #f8f1f2;
+  --wsd-line: #ead9dc;
+  --wsd-text: rgba(0, 0, 0, 0.82);
+  --wsd-muted: #6f6468;
+
+  --vp-c-brand-1: var(--wsd-maroon);
+  --vp-c-brand-2: var(--wsd-maroon-dark);
+  --vp-c-brand-3: var(--wsd-maroon);
+  --vp-c-brand-soft: rgba(140, 29, 47, 0.1);
+  --vp-c-text-1: var(--wsd-text);
+  --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans',
+    'Noto Sans JP', Meiryo, sans-serif;
+  --vp-layout-max-width: 1280px;
+  --vp-sidebar-width: 300px;
+  --vp-code-block-bg: #faf8f8;
+  --vp-code-bg: rgba(140, 29, 47, 0.07);
+  --vp-code-color: #6e1524;
+  --vp-custom-block-info-bg: var(--wsd-tint);
+  --vp-custom-block-tip-bg: var(--wsd-tint);
+  --vp-custom-block-tip-text: var(--wsd-text);
+  --vp-custom-block-warning-bg: #fbf4e6;
+  --vp-custom-block-warning-text: var(--wsd-text);
+  --vp-custom-block-danger-bg: #fbf4e6;
+  --vp-custom-block-danger-text: var(--wsd-text);
+}
+
+.dark {
+  --wsd-maroon: #e08f9c;
+  --wsd-maroon-dark: #edadb7;
+  --wsd-tint: #2a2022;
+  --wsd-line: #43343a;
+  --wsd-text: rgba(255, 255, 255, 0.86);
+  --wsd-muted: #ab9fa3;
+
+  --vp-c-bg: #1b1718;
+  --vp-c-bg-alt: #1b1718;
+  --vp-c-bg-elv: #241e20;
+  --vp-sidebar-bg-color: #1b1718;
+  --vp-c-brand-soft: rgba(224, 143, 156, 0.14);
+  --vp-code-block-bg: #241e20;
+  --vp-code-bg: rgba(224, 143, 156, 0.12);
+  --vp-code-color: #edadb7;
+  --vp-custom-block-warning-bg: #2e2719;
+  --vp-custom-block-danger-bg: #2e2719;
+}
+
+html {
+  font-feature-settings: 'palt' 0;
+}
+
+/* 上部のバー */
+.VPNavBar .title,
+.VPNavBarTitle .title {
+  color: var(--wsd-maroon);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* スクロール時に本文が上部バーの下に透けないようにする */
+.VPNavBar .content-body,
+.VPNavBar.has-sidebar .content-body,
+.VPNavBar:not(.home) .content-body {
+  background-color: var(--vp-c-bg) !important;
+}
+
+.VPNavBar .divider-line {
+  background-color: var(--wsd-line) !important;
+}
+
+/* サイドバー */
+.VPSidebar {
+  background-color: var(--vp-c-bg) !important;
+  border-right: 1px solid var(--wsd-line);
+  counter-reset: chapter -1;
+}
+
+.VPSidebarItem.level-0 > .item > .text {
+  color: var(--wsd-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.VPSidebarItem.level-1 .link {
+  counter-increment: chapter;
+  display: flex;
+  gap: 8px;
+}
+
+.VPSidebarItem.level-1 .link::before {
+  content: counter(chapter, decimal-leading-zero);
+  flex: none;
+  padding: 4px 0;
+  color: #b3a7aa;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.VPSidebarItem.level-1 .text {
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--wsd-muted);
+}
+
+.VPSidebarItem.level-1.is-active .text,
+.VPSidebarItem.level-1.is-active .link::before {
+  color: var(--wsd-maroon);
+  font-weight: 700;
+}
+
+/* 本文の幅と章ヘッダーの帯 */
+.VPDoc.has-sidebar .container,
+.VPDoc .container {
+  max-width: 760px !important;
+}
+
+.VPDoc .content {
+  max-width: none !important;
+}
+
+.VPDoc:not(.is-home) {
+  padding-top: 0 !important;
+}
+
+.chapter-header {
+  margin: 0 -32px 44px;
+  padding: 44px 32px 36px;
+  background: var(--wsd-tint);
+  border-top: 3px solid var(--wsd-maroon);
+}
+
+.chapter-number {
+  margin: 0;
+  color: var(--wsd-maroon);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.chapter-title {
+  margin: 6px 0 0;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.vp-doc p,
+.vp-doc li {
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.vp-doc p {
+  margin: 1.3em 0;
+}
+
+.vp-doc h2 {
+  margin: 2.4em 0 1em;
+  padding: 0 0 0.3em;
+  border-top: none;
+  border-bottom: 1px solid var(--wsd-line);
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.vp-doc h3 {
+  margin: 2em 0 0.7em;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.vp-doc a {
+  color: var(--wsd-maroon);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 400;
+}
+
+.vp-doc :not(pre) > code {
+  font-size: 0.9em;
+  padding: 0.15em 0.4em;
+}
+
+.vp-doc div[class*='language-'] {
+  border-radius: 6px;
+  margin: 1.4em 0;
+}
+
+.vp-doc [class*='language-'] code {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.vp-doc table {
+  display: table;
+  width: 100%;
+  font-size: 14.5px;
+}
+
+.vp-doc th {
+  background: var(--wsd-tint);
+}
+
+.vp-doc .custom-block {
+  border: none;
+  border-left: 3px solid var(--wsd-maroon);
+  border-radius: 0 4px 4px 0;
+  padding: 12px 16px;
+}
+
+.vp-doc .custom-block.warning,
+.vp-doc .custom-block.danger {
+  border-left-color: #b98a2e;
+}
+
+.vp-doc .custom-block p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 6px 0;
+}
+
+.vp-doc .custom-block-title {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* 前後の章へのリンク */
+.VPDocFooter .pager-link {
+  border-color: var(--wsd-line) !important;
+}
+
+.VPDocFooter .pager-link:hover {
+  border-color: var(--wsd-maroon) !important;
+}
+
+.VPDocFooter .title {
+  color: var(--wsd-maroon) !important;
+  font-weight: 700;
+}
+
+/* トップページ */
+.book-home {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 56px 24px 96px;
+}
+
+.book-hero {
+  display: flex;
+  gap: 44px;
+  align-items: flex-start;
+}
+
+.book-cover {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  width: 190px;
+  height: 270px;
+  padding: 22px 18px;
+  background: #8c1d2f;
+  color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 6px 22px rgba(60, 10, 20, 0.28);
+}
+
+.book-cover p {
+  margin: 0;
+}
+
+.book-cover-label {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+.book-cover-title {
+  margin-top: 26px !important;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.book-cover-sub {
+  margin-top: auto !important;
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+.book-summary h1 {
+  margin: 0 0 16px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.book-summary p {
+  margin: 0;
+  color: var(--wsd-muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.book-start {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 9px 26px;
+  background: #8c1d2f;
+  border-radius: 999px;
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.book-start:hover {
+  background: #6e1524;
+}
+
+.book-toc {
+  margin-top: 64px;
+}
+
+.book-toc h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.book-toc h2 small {
+  margin-left: 6px;
+  color: var(--wsd-muted);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.book-part {
+  margin-top: 32px;
+}
+
+.book-part h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.book-part ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-left: 2px solid var(--wsd-line);
+}
+
+.book-part li a {
+  display: block;
+  padding: 9px 0 9px 20px;
+  color: inherit;
+}
+
+.book-toc-number {
+  display: block;
+  color: var(--wsd-maroon);
+  font-size: 12px;
+}
+
+.book-toc-title {
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+
+.book-part li a:hover .book-toc-title {
+  color: var(--wsd-maroon);
+}
+
+@media (max-width: 640px) {
+  .chapter-header {
+    margin: 0 -24px 32px;
+    padding: 32px 24px 28px;
+  }
+
+  .chapter-title {
+    font-size: 24px;
+  }
+
+  .book-hero {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .book-home {
+    padding: 32px 16px 64px;
+  }
+}
