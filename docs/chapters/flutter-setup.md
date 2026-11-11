@@ -123,10 +123,6 @@ xcodebuild -downloadPlatform iOS
 このダウンロードは数GB以上になることがあり、通信環境によっては数十分かかります。
 ターミナルに表示される進捗を確認し、ダウンロード後のインストールまで完了して、コマンドを入力できる状態に戻るのを待ってください。
 
-続いて、[CocoaPodsのインストールガイド](https://guides.cocoapods.org/using/getting-started.html#installation) に従ってCocoaPodsをインストールします。
-CocoaPodsは、ネイティブのコードを含むパッケージをiOSアプリに組み込むために使うツールです。
-第42章で外部パッケージを使うときに関わってきます。
-
 ## 全体を確認する
 
 もう一度 `flutter doctor` を実行します。
