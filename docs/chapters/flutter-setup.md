@@ -52,7 +52,7 @@ Dartの拡張機能も一緒にインストールされます。
 
 次に、拡張機能からSDKをダウンロードします。
 
-1. `command + shift + P` を押してコマンドパレットを開き、`Flutter: New Project` を選びます。
+1. `command + shift + P` を押してコマンドパレットを開き、`Flutter: Create New Project` を選びます。
 2. SDKの場所を尋ねられたら、`Download SDK` を選びます。
 3. 保存先のフォルダを選び、`Clone Flutter` を押します。
    たとえばホームフォルダを選ぶと、その中に `flutter` フォルダが作られます。
@@ -192,7 +192,7 @@ flutter devices
 
 まず、プロジェクトを作ります。
 
-1. VS Codeで `command + shift + P` を押してコマンドパレットを開き、`Flutter: New Project` を選びます。
+1. VS Codeで `command + shift + P` を押してコマンドパレットを開き、`Flutter: Create New Project` を選びます。
 2. テンプレートを尋ねられたら、`Application` を選びます。
 3. プロジェクトを保存する場所を選び、`Select a folder to create the project in` を押します。
    たとえばホームフォルダに授業用の `waseda` フォルダを作って選びます。
