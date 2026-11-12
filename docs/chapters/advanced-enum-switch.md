@@ -28,7 +28,7 @@ true
 ```
 
 `name` は選択肢の名前を文字列で返し、`values` はすべての選択肢をリストで返します。
-リストは第15章で学びます。
+リストは第16章で学びます。
 Flutterでも `TextDirection.ltr` や `Brightness.dark` のように、多くの指定に `enum` が使われています。
 
 ## switch文
@@ -115,7 +115,7 @@ void main() {
 B
 ```
 
-式なので、第31章で学ぶFlutterの `Container` のように、引数の中にも直接書けます。
+式なので、第32章で学ぶFlutterの `Container` のように、引数の中にも直接書けます。
 
 ```dart
 Container(

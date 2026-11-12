@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-`Image.network` は、第22章で学んだ名前付きコンストラクタです。
+`Image.network` は、第23章で学んだ名前付きコンストラクタです。
 
 ## アプリに同梱した画像を表示する
 

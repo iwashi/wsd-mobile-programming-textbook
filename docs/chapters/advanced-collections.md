@@ -117,9 +117,9 @@ void main() {
 
 ## finalとconstの違い
 
-第11章で学んだ `final` は、変数への再代入を禁止します。
+第12章で学んだ `final` は、変数への再代入を禁止します。
 変数が指しているリストの中身の変更は禁止しません。
-第33章の `final List<int> _stack = [];` に `add` できたのはこのためです。
+第34章の `final List<int> _stack = [];` に `add` できたのはこのためです。
 
 `const` のリストは、中身も変更できません。
 
@@ -156,4 +156,4 @@ const Column(
 ```
 
 `Invalid constant value` というエラーが出たら、外側の `const` を外し、変わらない部分にだけ `const` を付けます。
-第40章で `body` の `const` を外すのも、`onPressed` に無名関数を渡すからです。
+第41章で `body` の `const` を外すのも、`onPressed` に無名関数を渡すからです。

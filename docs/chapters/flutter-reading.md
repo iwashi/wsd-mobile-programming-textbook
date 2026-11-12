@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
 `MyApp` は `StatelessWidget` で、`build` が `MaterialApp` を返します。
 
 - `title`：アプリの名前です。
-- `colorScheme`：第34章で学んだ、基準の色から配色を作る指定です。`deepPurple` を `red` に変えて保存すると、全体の色が変わります。
+- `colorScheme`：第35章で学んだ、基準の色から配色を作る指定です。`deepPurple` を `red` に変えて保存すると、全体の色が変わります。
 - `home`：最初の画面として `MyHomePage` を指定しています。タイトルは引数で渡しています。
 
 ## MyHomePage
@@ -95,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 `_counter` が状態です。
 `_incrementCounter` は、`setState` の中で `_counter` を1増やします。
-第35章で学んだとおり、`setState` によって `build` が再度実行され、新しい値が画面に反映されます。
+第36章で学んだとおり、`setState` によって `build` が再度実行され、新しい値が画面に反映されます。
 
 ## buildの中身
 

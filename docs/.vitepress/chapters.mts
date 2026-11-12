@@ -22,6 +22,7 @@ export const parts: Part[] = [
       { slug: 'git-basics', title: 'Gitとは何か' },
       { slug: 'git-practice', title: 'ローカルリポジトリを操作する' },
       { slug: 'github', title: 'GitHubを使う準備をする' },
+      { slug: 'github-practice', title: 'GitHubと手元のリポジトリで変更をやり取りする' },
       { slug: 'advanced-git-branch', title: '発展：ブランチとPull Request' },
     ],
   },

@@ -91,13 +91,13 @@ final response = await Dio().get('https://api.example.com/weather');
 
 ## shared_preferencesに機密情報を保存してはいけない理由
 
-第47章の `shared_preferences` の保存先は、暗号化されていない普通のファイルです。
+第48章の `shared_preferences` の保存先は、暗号化されていない普通のファイルです。
 iOSではプロパティリスト、AndroidではXMLの形式で保存されます。
 
 シミュレータで確かめられます。
-第47章のカウンターアプリを起動したまま、次のコマンドを実行します。
+第48章のカウンターアプリを起動したまま、次のコマンドを実行します。
 `com.example.myApp` の部分には、自分のアプリのBundle IDを指定します。
-Bundle IDについては第53章で説明します。
+Bundle IDについては第54章で説明します。
 
 ```bash
 cd "$(xcrun simctl get_app_container booted com.example.myApp data)/Library/Preferences"
@@ -175,4 +175,4 @@ OSの制限を解除した端末では、取り出される可能性が残りま
 - アプリ側のチェックを信用しない：アプリとサーバーの間の通信は、自作のプログラムで再現できます。購入の確認や権限の判定は、サーバー側で行います。
 - 集める情報を減らす：持っていない情報は漏れません。使わない個人情報は取得しないようにします。
 
-第51章のHTTPSも、通信の途中でトークンを盗まれないための手段です。
+第52章のHTTPSも、通信の途中でトークンを盗まれないための手段です。

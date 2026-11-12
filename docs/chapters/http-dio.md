@@ -39,7 +39,7 @@ Web APIの多くは、JSONでデータを返します。
 ## dioを追加する
 
 HTTPリクエストを送るためのパッケージを使います。
-第42章と同じ手順で、[pub.dev](https://pub.dev/packages/dio) で `dio` を探して `pubspec.yaml` に追加します。
+第43章と同じ手順で、[pub.dev](https://pub.dev/packages/dio) で `dio` を探して `pubspec.yaml` に追加します。
 バージョンは `Installing` のタブで確認してください。
 
 ```yaml
@@ -155,6 +155,6 @@ class _MyAppState extends State<MyApp> {
 ## 発展
 
 この例では郵便番号をコードに直接書いています。
-第41章の `TextField` と組み合わせて入力された値をURLに埋め込めば、任意の郵便番号を検索できるアプリになります。
-第24章の `try-catch` で通信の失敗に備えたり、第33章の `CircularProgressIndicator` で通信中であることを示したりするのもよいでしょう。
-Androidでのリリースビルドに必要な権限とHTTP通信の制限は第51章で、APIキーの扱いは第52章で説明します。
+第42章の `TextField` と組み合わせて入力された値をURLに埋め込めば、任意の郵便番号を検索できるアプリになります。
+第25章の `try-catch` で通信の失敗に備えたり、第34章の `CircularProgressIndicator` で通信中であることを示したりするのもよいでしょう。
+Androidでのリリースビルドに必要な権限とHTTP通信の制限は第52章で、APIキーの扱いは第53章で説明します。

@@ -32,13 +32,13 @@ void main() {
 `import` は、Flutterのライブラリを読み込む命令です。
 `runApp` はアプリを起動する関数で、渡されたWidgetを画面に表示します。
 `Center` は子を中央に配置するWidget、`Text` は文字を表示するWidgetです。
-`child:` は、第19章で学んだ名前付き引数です。
+`child:` は、第20章で学んだ名前付き引数です。
 
 このコードは、`Center` の下に `Text` がぶら下がる木のような構造になっています。
 Widgetを入れ子にしてできるこの構造をWidgetツリーと呼びます。
 
 たとえば、アイコンと文字の組を3つ横に並べたバーは、次のようなツリーで表せます。
-`Row` は横に、`Column` は縦に並べるWidgetで、第32章で学びます。
+`Row` は横に、`Column` は縦に並べるWidgetで、第33章で学びます。
 
 ```text
 Container
@@ -60,7 +60,7 @@ Container
 - `StatefulWidget`：内部に状態を持ち、状態が変わると表示を更新できるWidget
 
 まず `StatelessWidget` から始めます。
-`StatefulWidget` は第35章で扱います。
+`StatefulWidget` は第36章で扱います。
 
 ## プロジェクトを作る
 
@@ -171,4 +171,4 @@ class MyApp extends StatelessWidget {
 
 複雑に見えますが、書き方は第2部と第3部で学んだDartそのものです。
 `Text('Body', style: ...)` は、クラスからオブジェクトを作っているにすぎません。
-第20章の `Dog()` と同じく、コンストラクタを呼び出して、引数に別のオブジェクトを渡しています。
+第21章の `Dog()` と同じく、コンストラクタを呼び出して、引数に別のオブジェクトを渡しています。

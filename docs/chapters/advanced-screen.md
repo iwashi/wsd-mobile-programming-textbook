@@ -60,7 +60,7 @@ class ScreenInfoPage extends StatelessWidget {
 }
 ```
 
-第40章と同じように、画面を `MaterialApp` とは別のクラスに分けています。
+第41章と同じように、画面を `MaterialApp` とは別のクラスに分けています。
 `MediaQuery` の情報は `runApp` の時点で用意されるので、`MaterialApp` を作っている `MyApp` の `context` からでも読めます。
 それでも画面を分けておくと、`Navigator` のように `MaterialApp` の下でしか使えない機能も、同じ `context` で使えます。
 
@@ -78,7 +78,7 @@ class ScreenInfoPage extends StatelessWidget {
 この書き方では、キーボードの開閉のように大きさと関係のない変化でも `build` が再度実行されます。
 `sizeOf` のように必要な値だけを読むと、その値が変わったときにだけ再度実行されます。
 
-第30章の `SafeArea` も、`paddingOf` で読める値を使ってOSの領域を避けています。
+第31章の `SafeArea` も、`paddingOf` で読める値を使ってOSの領域を避けています。
 余白を避けるだけなら、自分で値を読まずに `SafeArea` を使います。
 
 ## 固定の大きさが引き起こすはみ出し
